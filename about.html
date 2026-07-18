@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Next-Gen Knowledge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { navy: '#1e293b', gold: '#d4af37', surface: '#f8fafc' } } }
+        }
+    </script>
+</head>
+<body class="bg-white text-navy font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-navy/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter">Next-Gen<span class="text-gold">Knowledge</span></a>
+            <div class="flex gap-8 font-bold text-sm">
+                <a href="index.html" class="hover:text-gold transition">Home</a>
+                <a href="about.html" class="text-gold">About Us</a>
+                <a href="programs.html" class="hover:text-gold transition">Programs</a>
+                <a href="team.html" class="hover:text-gold transition">Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-10 tracking-tight">Our Journey</h1>
+            
+            <div class="prose prose-lg text-navy/70 space-y-8">
+                <p class="text-xl leading-relaxed">
+                    Next-Gen Knowledge was founded on a simple, powerful realization: the most important skills for the future—financial literacy, entrepreneurship, and critical thinking—are rarely taught in a way that resonates with middle school students.
+                </p>
+                
+                <p>
+                    We started by teaching a pilot course, <strong>Money Masters</strong>, to bridge the gap between abstract academic concepts and real-world application. What began as an experiment has grown into a mission-driven organization dedicated to equipping students in grades 5–8 with the tools they need to navigate the modern economy.
+                </p>
+
+                <h3 class="text-2xl font-bold text-navy mt-12">The Mission</h3>
+                <p>
+                    Our mission is to democratize access to practical, high-value education. By utilizing a student-led mentorship model, we remove the intimidation of traditional classroom settings and replace it with peer-to-peer engagement. We believe that when students are empowered to teach and learn from one another, they develop more than just knowledge—they develop the confidence to lead.
+                </p>
+
+                <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 mt-10">
+                    <h4 class="font-bold text-lg mb-4 text-navy">Our Core Values</h4>
+                    <ul class="grid md:grid-cols-2 gap-4">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Practical over theoretical</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Student-led empowerment</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Accessibility for every family</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Innovation in learning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center text-navy/60 text-sm border-t border-navy/5">
+        <p>&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
