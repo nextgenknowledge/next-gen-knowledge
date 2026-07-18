@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Next-Gen Knowledge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { navy: '#1e293b', gold: '#d4af37', surface: '#f8fafc' } } }
+        }
+    </script>
+</head>
+<body class="bg-white text-navy font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-navy/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter">Next-Gen<span class="text-gold">Knowledge</span></a>
+            <div class="flex gap-8 font-bold text-sm">
+                <a href="index.html" class="hover:text-gold transition">Home</a>
+                <a href="about.html" class="hover:text-gold transition">About Us</a>
+                <a href="programs.html" class="hover:text-gold transition">Programs</a>
+                <a href="team.html" class="text-gold">Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-5xl font-extrabold text-center mb-16">Meet Our Founders</h1>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Svar -->
+                <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 text-center">
+                    <h3 class="text-xl font-bold mb-1">Svar Patel</h3>
+                    <p class="text-gold font-bold text-sm mb-4">Co-Founder</p>
+                    <p class="text-sm text-navy/70 mb-6">Leads financial literacy curriculum development. Passionate about bridging the gap between technology and personal finance.</p>
+                    <div class="text-xs text-navy/50 space-y-2">
+                        <p><strong>Interests:</strong> Finance, Tech, Entrepreneurship</p>
+                        <p><strong>Hobbies:</strong> Baseball, Investing</p>
+                    </div>
+                </div>
+
+                <!-- Pushan -->
+                <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 text-center">
+                    <h3 class="text-xl font-bold mb-1">Pushan Patel</h3>
+                    <p class="text-gold font-bold text-sm mb-4">Co-Founder</p>
+                    <p class="text-sm text-navy/70 mb-6">Focuses on organizational entrepreneurship and building sustainable business frameworks for student-led initiatives.</p>
+                    <div class="text-xs text-navy/50 space-y-2">
+                        <p><strong>Interests:</strong> Finance, Business Strategy</p>
+                        <p><strong>Hobbies:</strong> Go-karting, Pickleball</p>
+                    </div>
+                </div>
+
+                <!-- Max -->
+                <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 text-center">
+                    <h3 class="text-xl font-bold mb-1">Max Park</h3>
+                    <p class="text-gold font-bold text-sm mb-4">Co-Founder</p>
+                    <p class="text-sm text-navy/70 mb-6">Brings a unique perspective to entrepreneurship by combining historical context with modern business writing and communication.</p>
+                    <div class="text-xs text-navy/50 space-y-2">
+                        <p><strong>Interests:</strong> History, English, Business</p>
+                        <p><strong>Hobbies:</strong> Baseball, Hiking</p>
+                    </div>
+                </div>
+
+                <!-- Ilhan -->
+                <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 text-center">
+                    <h3 class="text-xl font-bold mb-1">Ilhan Rasheed</h3>
+                    <p class="text-gold font-bold text-sm mb-4">Co-Founder</p>
+                    <p class="text-sm text-navy/70 mb-6">Expert in financial data and logic, balancing interests in high-level medicine and fiscal responsibility.</p>
+                    <div class="text-xs text-navy/50 space-y-2">
+                        <p><strong>Interests:</strong> Medicine, Finance</p>
+                        <p><strong>Hobbies:</strong> Basketball, Taekwondo</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center text-navy/60 text-sm border-t border-navy/5">
+        <p>&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
