@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Next-Gen Knowledge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { navy: '#1e293b', gold: '#d4af37', surface: '#f8fafc' } } }
+        }
+    </script>
+</head>
+<body class="bg-white text-navy font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-navy/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold tracking-tighter">Next-Gen<span class="text-gold">Knowledge</span></a>
+            <div class="flex gap-8 font-bold text-sm">
+                <a href="index.html" class="hover:text-gold transition">Home</a>
+                <a href="about.html" class="hover:text-gold transition">About Us</a>
+                <a href="programs.html" class="text-gold">Programs</a>
+                <a href="team.html" class="hover:text-gold transition">Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-16 px-6 text-center">
+        <h1 class="text-5xl font-extrabold tracking-tight mb-6">Our Programs</h1>
+        <p class="text-xl text-navy/70 max-w-2xl mx-auto">Interactive, live, and designed to prepare the next generation for real-world financial success.</p>
+    </section>
+
+    <!-- Money Masters Deep Dive -->
+    <section class="py-16 px-6 bg-surface">
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-white p-10 md:p-16 rounded-[2rem] border border-navy/5 shadow-premium">
+                <h2 class="text-4xl font-extrabold mb-8">Money Masters: 5-Week Course</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <p class="text-lg text-navy/70">
+                            Our flagship course turns complex financial concepts into actionable skills. Designed for grades 5–8, this program builds confidence through live, peer-led instruction.
+                        </p>
+                        <div class="p-6 bg-gold/5 rounded-2xl border border-gold/20">
+                            <h4 class="font-bold mb-2">Program Details</h4>
+                            <ul class="text-sm space-y-2 text-navy/80">
+                                <li><strong>Duration:</strong> 5 Weeks (Live Online)</li>
+                                <li><strong>Target:</strong> Grades 5–8</li>
+                                <li><strong>Focus:</strong> Financial Literacy & Decision Making</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4 class="font-bold text-lg uppercase tracking-wider text-navy/40">Curriculum</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-4 bg-white border border-navy/10 p-4 rounded-xl">
+                                <span class="bg-navy text-white w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm">01</span>
+                                <span>The Psychology of Spending</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white border border-navy/10 p-4 rounded-xl">
+                                <span class="bg-navy text-white w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm">02</span>
+                                <span>Budgeting & Resource Management</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white border border-navy/10 p-4 rounded-xl">
+                                <span class="bg-navy text-white w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm">03</span>
+                                <span>Introduction to Investing</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white border border-navy/10 p-4 rounded-xl">
+                                <span class="bg-navy text-white w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm">04</span>
+                                <span>Entrepreneurship Essentials</span>
+                            </div>
+                            <div class="flex items-center gap-4 bg-white border border-navy/10 p-4 rounded-xl">
+                                <span class="bg-navy text-white w-8 h-8 flex items-center justify-center rounded-full font-bold text-sm">05</span>
+                                <span>Strategic Financial Planning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center text-navy/60 text-sm border-t border-navy/5">
+        <p>&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
