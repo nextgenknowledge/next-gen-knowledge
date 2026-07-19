@@ -39,19 +39,18 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow py-8 px-6">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-3xl font-extrabold text-navy mb-8 text-center">Enroll in Our Programs</h1>
-            <div class="bg-white rounded-2xl shadow-xl shadow-navy/5 overflow-hidden">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9PaRLdr5lhFUJ7vgnungrhLK3iKfdIF4uOpO-KqVVUjNw6Q/viewform?embedded=true" 
-                        width="100%" 
-                        height="1200" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0">Loading...</iframe>
-            </div>
+<main class="flex-grow py-8 px-6">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-3xl font-extrabold text-navy mb-8 text-center">Enroll in Our Programs</h1>
+        <!-- Added a container with controlled height -->
+        <div class="bg-white rounded-2xl shadow-xl shadow-navy/5 overflow-hidden" style="height: 80vh;">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9PaRLdr5lhFUJ7vgnungrhLK3iKfdIF4uOpO-KqVVUjNw6Q/viewform?embedded=true" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="overflow-y: auto;">Loading...</iframe>
         </div>
-    </main>
-
-</body>
-</html>
+    </div>
+</main>
