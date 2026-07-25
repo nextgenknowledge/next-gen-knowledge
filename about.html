@@ -1,77 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Next-Gen Knowledge</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <script>
         tailwind.config = {
-            theme: { extend: { colors: { navy: '#1e293b', gold: '#d4af37', surface: '#f8fafc' } } }
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
+                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
+                        surface: '#F9FAFB'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    boxShadow: { 
+                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
+                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
+                    }
+                }
+            }
         }
     </script>
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
-<body class="bg-white text-navy font-sans">
+<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
 
-    <!-- Navigation -->
-<nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-navy/5">
+<!-- Unified Navigation Bar -->
+<nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-navy/5 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        
-        <!-- Logo and Text -->
-        <a href="index.html" class="flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto">
-            <span class="text-xl font-extrabold text-navy tracking-tight">NextGen Knowledge</span>
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition duration-300">
+            <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
         </a>
-        
-        <!-- Links -->
         <div class="hidden md:flex gap-8 font-bold text-navy">
             <a href="index.html" class="hover:text-gold transition">Home</a>
-            <a href="about.html" class="hover:text-gold transition">About Us</a>
+            <a href="about.html" class="text-gold transition">About Us</a>
             <a href="programs.html" class="hover:text-gold transition">Programs</a>
             <a href="team.html" class="hover:text-gold transition">Team</a>
         </div>
-        
-        <!-- Enroll Button -->
-        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition">Enroll</a>
+        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
     </div>
 </nav>
-    <!-- Content -->
-    <section class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-10 tracking-tight">Started by students who saw a gap in practical education.</h1>
-            
-            <div class="prose prose-lg text-navy/70 space-y-8">
-                <p class="text-xl leading-relaxed">
-                    Next-Gen Knowledge was founded by four high school students on a simple, powerful realization: the most important skills for the future—financial literacy, entrepreneurship, and critical thinking—are rarely taught in a way that resonates with middle school students.
-                </p>
+
+<!-- Hero Section -->
+<section class="pt-36 pb-16 lg:pt-52 lg:pb-24 bg-gradient-to-b from-surface to-white text-center">
+    <div class="max-w-4xl mx-auto px-6 reveal active">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
+            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+            Our Origin & Philosophy
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-navy">Started by students who saw a gap in practical education.</h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Empowering the next generation of financial thinkers, builders, and entrepreneurs through peer-driven mentorship.
+        </p>
+    </div>
+</section>
+
+<!-- Story & Interactive Mission Section -->
+<section class="py-16 px-6 bg-white reveal">
+    <div class="max-w-4xl mx-auto space-y-12">
+        
+        <!-- Story Text Block -->
+        <div class="bg-surface p-8 md:p-12 rounded-[2.5rem] border border-navy/5 shadow-premium space-y-6">
+            <h3 class="text-2xl font-extrabold text-navy">The Realization</h3>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Next-Gen Knowledge was founded by four high school students on a simple, powerful realization: the most important skills for the future—financial literacy, entrepreneurship, and critical thinking—are rarely taught in a way that resonates with middle school students.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                We started by teaching a pilot course, <strong class="text-navy">Money Masters</strong>, to bridge the gap between abstract academic concepts and real-world application. What began as an experiment has grown into a mission-driven organization dedicated to equipping students in grades 5–8 with the tools they need to navigate the modern economy.
+            </p>
+        </div>
+
+        <!-- Interactive Core Pillars Selector -->
+        <div class="space-y-6">
+            <div class="text-center max-w-xl mx-auto">
+                <span class="text-gold font-extrabold uppercase tracking-widest text-xs">Our Foundation</span>
+                <h2 class="text-3xl font-extrabold text-navy mt-1 mb-2">The Mission & Core Pillars</h2>
+                <p class="text-gray-600 text-sm">Click through the tabs below to explore what drives our educational approach.</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="switchPillar(1)" id="pillar-btn-1" class="pillar-btn px-6 py-3 rounded-xl font-bold transition-all bg-navy text-white shadow-md text-sm">
+                    1. Practical Over Theoretical
+                </button>
+                <button onclick="switchPillar(2)" id="pillar-btn-2" class="pillar-btn px-6 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm">
+                    2. Student Mentorship
+                </button>
+                <button onclick="switchPillar(3)" id="pillar-btn-3" class="pillar-btn px-6 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm">
+                    3. Radical Accessibility
+                </button>
+                <button onclick="switchPillar(4)" id="pillar-btn-4" class="pillar-btn px-6 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm">
+                    4. Modern Innovation
+                </button>
+            </div>
+
+            <!-- Tab Content Display Card -->
+            <div class="bg-surface p-8 md:p-12 rounded-[2.5rem] border border-navy/5 shadow-premium min-h-[220px] flex flex-col justify-center">
                 
-                <p>
-                    We started by teaching a pilot course, <strong>Money Masters</strong>, to bridge the gap between abstract academic concepts and real-world application. What began as an experiment has grown into a mission-driven organization dedicated to equipping students in grades 5–8 with the tools they need to navigate the modern economy.
-                </p>
-
-                <h3 class="text-2xl font-bold text-navy mt-12">The Mission</h3>
-                <p>
-                    Our mission is to democratize access to practical, high-value education. By utilizing a student-led mentorship model, we remove the intimidation of traditional classroom settings and replace it with peer-to-peer engagement. We believe that when students are empowered to teach and learn from one another, they develop more than just knowledge—they develop the confidence to lead.
-                </p>
-
-                <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 mt-10">
-                    <h4 class="font-bold text-lg mb-4 text-navy">Our Core Values</h4>
-                    <ul class="grid md:grid-cols-2 gap-4">
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Practical over theoretical</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Student-led empowerment</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Accessibility for every family</li>
-                        <li class="flex items-center gap-3"><i data-lucide="check" class="text-gold w-5 h-5"></i> Innovation in learning</li>
-                    </ul>
+                <!-- Pillar 1 -->
+                <div id="pillar-content-1" class="pillar-content space-y-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Core Value One</div>
+                    <h3 class="text-2xl font-extrabold text-navy">Practical Over Theoretical</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Textbooks explain what compound interest is; our students run simulated stock portfolios and budget games to watch it happen live. We focus strictly on applicable tools they can use immediately.
+                    </p>
                 </div>
+
+                <!-- Pillar 2 -->
+                <div id="pillar-content-2" class="pillar-content space-y-3 hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Core Value Two</div>
+                    <h3 class="text-2xl font-extrabold text-navy">Student-Led Empowerment</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        Middle schoolers learn best from role models who are only a few steps ahead. By pairing them with motivated high school mentors, we remove intimidation and spark genuine engagement.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div id="pillar-content-3" class="pillar-content space-y-3 hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Core Value Three</div>
+                    <h3 class="text-2xl font-extrabold text-navy">Accessibility for Every Family</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        High-level financial guidance should not be a luxury. We are committed to keeping our interactive online programs accessible, ensuring every curious student has a seat at the table.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div id="pillar-content-4" class="pillar-content space-y-3 hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Core Value Four</div>
+                    <h3 class="text-2xl font-extrabold text-navy">Innovation in Learning</h3>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        The economy changes fast, and education must keep pace. We integrate modern digital tools, collaborative challenges, and live virtual environments into every single session.
+                    </p>
+                </div>
+
             </div>
         </div>
-    </section>
 
-    <footer class="py-12 bg-white text-center text-navy/60 text-sm border-t border-navy/5">
-        <p>&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
-    </footer>
+    </div>
+</section>
 
-    <script>lucide.createIcons();</script>
+<!-- Timeline / Evolution Section -->
+<section class="py-20 bg-surface reveal">
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-gold font-extrabold uppercase tracking-widest text-xs">Our Journey</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-navy mt-2 mb-4">How We Got Here</h2>
+            <p class="text-gray-600">A quick look at the milestones that shaped Next-Gen Knowledge into what it is today.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium space-y-4 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gold/10 text-gold font-extrabold px-4 py-2 rounded-bl-2xl text-xs">Phase 1</div>
+                <div class="w-12 h-12 bg-navy text-white rounded-2xl flex items-center justify-center font-bold text-lg">01</div>
+                <h3 class="text-xl font-bold text-navy">The Initial Idea</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Four high school peers recognized a critical absence of personal finance and business curriculum in early schooling.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium space-y-4 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gold/10 text-gold font-extrabold px-4 py-2 rounded-bl-2xl text-xs">Phase 2</div>
+                <div class="w-12 h-12 bg-navy text-white rounded-2xl flex items-center justify-center font-bold text-lg">02</div>
+                <h3 class="text-xl font-bold text-navy">Money Masters Pilot</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Designed and tested our signature 5-week curriculum focused on budgeting, investing, and practical decision-making.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium space-y-4 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gold/10 text-gold font-extrabold px-4 py-2 rounded-bl-2xl text-xs">Phase 3</div>
+                <div class="w-12 h-12 bg-navy text-white rounded-2xl flex items-center justify-center font-bold text-lg">03</div>
+                <h3 class="text-xl font-bold text-navy">Platform Launch</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">Expanded into a structured educational organization hosting live cohorts and interactive online learning portals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Banner -->
+<section class="py-20 px-6 reveal">
+    <div class="max-w-5xl mx-auto bg-navy rounded-[2.5rem] p-10 md:p-16 text-white text-center relative overflow-hidden shadow-2xl">
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Join Our Growing Community</h2>
+            <p class="text-gray-300 text-lg leading-relaxed">Discover how our student-led mentorship approach can give your middle schooler an invaluable head start.</p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="programs.html" class="bg-gold text-navy font-bold px-8 py-4 rounded-full hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/25">
+                    Explore Programs
+                </a>
+                <a href="enroll.html" class="bg-white/10 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/20">
+                    Enroll Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 bg-white border-t border-navy/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-3">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
+            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
+            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
+            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
+            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
+        </div>
+        <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Interactive Core Pillars Tab Switcher
+    function switchPillar(pillarNum) {
+        for (let i = 1; i <= 4; i++) {
+            let content = document.getElementById(`pillar-content-${i}`);
+            let btn = document.getElementById(`pillar-btn-${i}`);
+            
+            if (content) content.classList.add('hidden');
+            if (btn) {
+                btn.className = "pillar-btn px-6 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm";
+            }
+        }
+
+        let activeContent = document.getElementById(`pillar-content-${pillarNum}`);
+        let activeBtn = document.getElementById(`pillar-btn-${pillarNum}`);
+        
+        if (activeContent) activeContent.classList.remove('hidden');
+        if (activeBtn) {
+            activeBtn.className = "pillar-btn px-6 py-3 rounded-xl font-bold transition-all bg-navy text-white shadow-md text-sm";
+        }
+    }
+
+    // Scroll reveal animation script
+    window.addEventListener('scroll', revealOnScroll);
+    function revealOnScroll() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    revealOnScroll();
+</script>
 </body>
 </html>
