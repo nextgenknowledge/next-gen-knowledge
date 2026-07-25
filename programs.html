@@ -88,24 +88,43 @@
             
             <!-- Tab Navigation Buttons (Left Column) -->
             <div class="lg:col-span-5 flex flex-col gap-3">
-                <button onclick="switchWeek(1)" id="btn-1" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-navy text-white shadow-md">
-                    <span class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-xs">01</span> The Psychology of Spending</span>
+                <button onclick="switchWeek(1)" id="btn-1" class="week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-navy text-white shadow-md" data-active="true">
+                    <span class="flex items-center gap-3">
+                        <span class="num-box w-7 h-7 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-xs">01</span> 
+                        The Psychology of Spending
+                    </span>
                     <i data-lucide="chevron-right" class="w-4 h-4 text-gold"></i>
                 </button>
-                <button onclick="switchWeek(2)" id="btn-2" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">02</span> Budgeting & Resource Management</span>
+
+                <button onclick="switchWeek(2)" id="btn-2" class="week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold" data-active="false">
+                    <span class="flex items-center gap-3">
+                        <span class="num-box w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">02</span> 
+                        Budgeting & Resource Management
+                    </span>
                     <i data-lucide="chevron-right" class="w-4 h-4 text-navy/30"></i>
                 </button>
-                <button onclick="switchWeek(3)" id="btn-3" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">03</span> Introduction to Investing</span>
+
+                <button onclick="switchWeek(3)" id="btn-3" class="week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold" data-active="false">
+                    <span class="flex items-center gap-3">
+                        <span class="num-box w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">03</span> 
+                        Introduction to Investing
+                    </span>
                     <i data-lucide="chevron-right" class="w-4 h-4 text-navy/30"></i>
                 </button>
-                <button onclick="switchWeek(4)" id="btn-4" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">04</span> Entrepreneurship Essentials</span>
+
+                <button onclick="switchWeek(4)" id="btn-4" class="week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold" data-active="false">
+                    <span class="flex items-center gap-3">
+                        <span class="num-box w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">04</span> 
+                        Entrepreneurship Essentials
+                    </span>
                     <i data-lucide="chevron-right" class="w-4 h-4 text-navy/30"></i>
                 </button>
-                <button onclick="switchWeek(5)" id="btn-5" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3"><span class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">05</span> Strategic Financial Planning</span>
+
+                <button onclick="switchWeek(5)" id="btn-5" class="week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold" data-active="false">
+                    <span class="flex items-center gap-3">
+                        <span class="num-box w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">05</span> 
+                        Strategic Financial Planning
+                    </span>
                     <i data-lucide="chevron-right" class="w-4 h-4 text-navy/30"></i>
                 </button>
             </div>
@@ -264,22 +283,37 @@
     // Initialize icons
     lucide.createIcons();
 
-    // Interactive Tab Switcher Script
+    // Robust Interactive Tab Switcher Script
     function switchWeek(weekNum) {
-        // Hide all contents and reset buttons
+        // Hide all content panels
         for (let i = 1; i <= 5; i++) {
-            document.getElementById(`content-${i}`).classList.add('hidden');
-            let btn = document.getElementById(`btn-${i}`);
-            btn.className = "w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold";
-            btn.querySelector('span span').className = "w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs";
-            btn.querySelector('i').className = "w-4 h-4 text-navy/30";
+            let contentEl = document.getElementById(`content-${i}`);
+            if (contentEl) contentEl.classList.add('hidden');
+            
+            let btnEl = document.getElementById(`btn-${i}`);
+            if (btnEl) {
+                // Reset to inactive state style
+                btnEl.className = "week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold";
+                let numBox = btnEl.querySelector('.num-box');
+                if (numBox) numBox.className = "num-box w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs";
+                let chevron = btnEl.querySelector('i');
+                if (chevron) chevron.className = "w-4 h-4 text-navy/30";
+            }
         }
-        // Show selected content and activate button
-        document.getElementById(`content-${weekNum}`).classList.remove('hidden');
-        let activeBtn = document.getElementById(`btn-${weekNum}`);
-        activeBtn.className = "w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-navy text-white shadow-md";
-        activeBtn.querySelector('span span').className = "w-7 h-7 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-xs";
-        activeBtn.querySelector('i').className = "w-4 h-4 text-gold";
+
+        // Show target content panel
+        let targetContent = document.getElementById(`content-${weekNum}`);
+        if (targetContent) targetContent.classList.remove('hidden');
+
+        // Apply active button styles
+        let targetBtn = document.getElementById(`btn-${weekNum}`);
+        if (targetBtn) {
+            targetBtn.className = "week-btn w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-navy text-white shadow-md";
+            let activeNumBox = targetBtn.querySelector('.num-box');
+            if (activeNumBox) activeNumBox.className = "num-box w-7 h-7 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-xs";
+            let activeChevron = targetBtn.querySelector('i');
+            if (activeChevron) activeChevron.className = "w-4 h-4 text-gold";
+        }
     }
 
     // Scroll reveal animation script
@@ -299,5 +333,3 @@
 </script>
 </body>
 </html>
-
-```
