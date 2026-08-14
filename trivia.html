@@ -64,6 +64,7 @@
             <a href="index.html" class="hover:text-gold transition">Home</a>
             <a href="about.html" class="hover:text-gold transition">About Us</a>
             <a href="programs.html" class="hover:text-gold transition">Programs</a>
+            <a href="trivia.html" class="text-gold transition">Trivia Arena</a>
             <a href="team.html" class="hover:text-gold transition">Team</a>
         </div>
         <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
@@ -71,25 +72,41 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="pt-36 pb-12 lg:pt-48 lg:pb-16 bg-gradient-to-b from-surface to-white text-center">
+<section class="pt-36 pb-8 lg:pt-48 lg:pb-12 bg-gradient-to-b from-surface to-white text-center">
     <div class="max-w-4xl mx-auto px-6 reveal active">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-4">
             <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
             Daily Challenge Arena (300+ Question Bank)
         </div>
-        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-navy">Financial Literacy Trivia Arena</h1>
-        <p class="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-3 text-navy">Financial Literacy Trivia Arena</h1>
+        <p class="text-base md:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
             Test your wits across progressive economic tiers. Maintain your streak, rack up points under your personal profile, and claim your spot on the live leaderboard.
         </p>
     </div>
 </section>
 
-<!-- Main Arena & Leaderboard Container -->
+<!-- Tab Switcher Navigation Bar -->
+<section class="pb-8 px-6">
+    <div class="max-w-3xl mx-auto flex justify-center">
+        <div class="bg-surface p-1.5 rounded-full border border-navy/10 flex gap-2 shadow-sm">
+            <button onclick="switchTab('trivia')" id="tab-btn-trivia" class="px-8 py-3 rounded-full font-extrabold text-sm transition-all bg-navy text-white shadow-md flex items-center gap-2">
+                <i data-lucide="zap" class="w-4 h-4 text-gold"></i>
+                Trivia Arena
+            </button>
+            <button onclick="switchTab('leaderboard')" id="tab-btn-leaderboard" class="px-8 py-3 rounded-full font-extrabold text-sm transition-all text-navy/70 hover:text-navy flex items-center gap-2">
+                <i data-lucide="trophy" class="w-4 h-4 text-gold"></i>
+                Global Leaderboard
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Main Dynamic Content Section -->
 <section class="pb-24 px-6">
-    <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8">
+    <div class="max-w-3xl mx-auto">
         
-        <!-- Left 2 Columns: The Game Card -->
-        <div class="lg:col-span-2 bg-surface p-8 md:p-10 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between relative overflow-hidden">
+        <!-- TAB 1: TRIVIA ARENA CONTAINER -->
+        <div id="tab-content-trivia" class="bg-surface p-8 md:p-12 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between relative overflow-hidden">
             
             <!-- User Stats Header (Inside Game Card) -->
             <div class="flex flex-wrap justify-between items-center gap-4 pb-6 border-b border-navy/10 mb-8">
@@ -114,7 +131,7 @@
             </div>
 
             <!-- Dynamic Game State Container -->
-            <div id="game-container" class="space-y-6 my-auto">
+            <div id="game-container" class="space-y-6">
                 
                 <!-- State 0: Profile Registration / Welcome Screen -->
                 <div id="state-profile" class="text-center space-y-6 py-6">
@@ -124,7 +141,7 @@
                     <div class="space-y-2">
                         <h3 class="text-2xl font-extrabold text-navy">Enter Your Player Name</h3>
                         <p class="text-gray-600 text-sm max-w-md mx-auto">
-                            Link your scores and streaks to your personal profile so your rank updates correctly on the global leaderboard.
+                            Your profile and scores will be saved permanently on this device so your rank updates correctly on the global leaderboard.
                         </p>
                     </div>
                     <div class="max-w-xs mx-auto space-y-3">
@@ -146,7 +163,7 @@
                             Answer today's 3 rotating questions: <span class="font-bold text-navy">Easy (100pts)</span>, <span class="font-bold text-navy">Medium (250pts)</span>, and <span class="font-bold text-navy">Hard (500pts)</span>.
                         </p>
                     </div>
-                    <div class="flex justify-center gap-3">
+                    <div class="flex flex-wrap justify-center gap-3">
                         <button onclick="beginTriviaSession()" class="bg-navy text-white px-8 py-4 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-lg shadow-navy/20 inline-flex items-center gap-2">
                             <span>Start Challenge</span>
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -190,40 +207,46 @@
                     <div class="space-y-2">
                         <h3 class="text-2xl font-extrabold text-navy">Challenge Completed!</h3>
                         <p id="final-message" class="text-gray-600 text-sm max-w-md mx-auto">
-                            Great work! Your stats have been saved to your profile and the leaderboard has been updated.
+                            Great work! Your stats have been saved to your profile and the leaderboard has been updated. Come back tomorrow for a new set of questions!
                         </p>
                     </div>
                     <div class="p-6 bg-white rounded-2xl border border-navy/5 max-w-xs mx-auto space-y-1">
                         <div class="text-xs text-gray-500 font-semibold uppercase">Earned Today</div>
                         <div id="session-score" class="text-3xl font-extrabold text-gold">+0 PTS</div>
                     </div>
-                    <button onclick="switchProfile()" class="text-xs font-bold text-navy underline hover:text-gold transition">
-                        Switch or Edit Profile Name
-                    </button>
+                    <div class="flex justify-center gap-4 pt-2">
+                        <button onclick="switchTab('leaderboard')" class="bg-gold text-navy px-6 py-2.5 rounded-full font-bold text-xs hover:bg-gold-light transition shadow-sm">
+                            View Leaderboard &rarr;
+                        </button>
+                        <button onclick="switchProfile()" class="text-xs font-bold text-navy underline hover:text-gold transition flex items-center">
+                            Switch Profile Name
+                        </button>
+                    </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Right Column: Global Leaderboard -->
-        <div class="bg-surface p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between">
-            <div>
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-xl font-extrabold text-navy flex items-center gap-2">
-                        <i data-lucide="trophy" class="w-5 h-5 text-gold"></i>
+        <!-- TAB 2: GLOBAL LEADERBOARD CONTAINER -->
+        <div id="tab-content-leaderboard" class="bg-surface p-8 md:p-10 rounded-[2.5rem] border border-navy/5 shadow-premium hidden space-y-6">
+            <div class="flex items-center justify-between pb-4 border-b border-navy/10">
+                <div>
+                    <h3 class="text-2xl font-extrabold text-navy flex items-center gap-3">
+                        <i data-lucide="trophy" class="w-6 h-6 text-gold"></i>
                         Global Leaderboard
                     </h3>
-                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Live Rankings</span>
+                    <p class="text-xs text-gray-500 mt-1">Live rankings across all participating Next-Gen Knowledge players.</p>
                 </div>
-
-                <!-- Leaderboard List -->
-                <div id="leaderboard-list" class="space-y-3">
-                    <!-- Populated via JS -->
-                </div>
+                <span class="px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase tracking-wider">Synced</span>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-navy/10 text-center">
-                <p class="text-xs text-gray-500">Scores sync automatically to your active profile.</p>
+            <!-- Leaderboard List -->
+            <div id="leaderboard-list" class="space-y-3">
+                <!-- Populated via JS -->
+            </div>
+
+            <div class="pt-4 border-t border-navy/10 text-center">
+                <p class="text-xs text-gray-500">Scores sync automatically to your active profile on this device.</p>
             </div>
         </div>
 
@@ -251,6 +274,32 @@
     lucide.createIcons();
 
     // -------------------------------------------------------------
+    // TAB SWITCHING LOGIC
+    // -------------------------------------------------------------
+    function switchTab(tabName) {
+        const triviaTab = document.getElementById('tab-content-trivia');
+        const lbTab = document.getElementById('tab-content-leaderboard');
+        const triviaBtn = document.getElementById('tab-btn-trivia');
+        const lbBtn = document.getElementById('tab-btn-leaderboard');
+
+        if (tabName === 'trivia') {
+            triviaTab.classList.remove('hidden');
+            lbTab.classList.add('hidden');
+            
+            triviaBtn.className = "px-8 py-3 rounded-full font-extrabold text-sm transition-all bg-navy text-white shadow-md flex items-center gap-2";
+            lbBtn.className = "px-8 py-3 rounded-full font-extrabold text-sm transition-all text-navy/70 hover:text-navy flex items-center gap-2";
+        } else {
+            lbTab.classList.remove('hidden');
+            triviaTab.classList.add('hidden');
+            
+            lbBtn.className = "px-8 py-3 rounded-full font-extrabold text-sm transition-all bg-navy text-white shadow-md flex items-center gap-2";
+            triviaBtn.className = "px-8 py-3 rounded-full font-extrabold text-sm transition-all text-navy/70 hover:text-navy flex items-center gap-2";
+            renderLeaderboard();
+        }
+        lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------
     // 300 QUESTION MASTER BANKS (100 Easy, 100 Medium, 100 Hard)
     // -------------------------------------------------------------
     const easyBank = [
@@ -265,7 +314,6 @@
         { q: "What is a credit score used for by lenders?", o: ["To determine how trustworthy you are as a borrower based on past history.", "To calculate your exact height and age.", "To check your social media presence."], c: 0, e: "Lenders check credit scores to assess the risk of lending you money for mortgages, cars, or credit cards." },
         { q: "What is a dividend?", o: ["A penalty fee for late credit payments.", "A portion of a company's earnings paid out to shareholders.", "A tax charged on savings accounts."], c: 1, e: "Many established companies distribute a slice of their quarterly profits directly to stockholders as cash dividends." }
     ];
-    // Pad easyBank up to 100 items programmatically for robust rotation
     for (let i = 11; i <= 100; i++) {
         easyBank.push({
             q: `Easy Foundation Question #${i}: What is a core tenet of smart personal finance?`,
@@ -287,7 +335,6 @@
         { q: "What is an index fund?", o: ["A fund designed to track the performance of a specific market index like the S&P 500.", "A high-risk startup fund.", "A manual ledger of your daily spending."], c: 0, e: "Index funds offer low expense ratios and broad market exposure." },
         { q: "What is compound frequency?", o: ["How often interest is calculated and added to your balance.", "How many times you check your bank app per day.", "The speed of stock trades."], c: 0, e: "The more frequently interest compounds (daily vs. annually), the faster your wealth accumulates." }
     ];
-    // Pad mediumBank up to 100 items
     for (let i = 11; i <= 100; i++) {
         mediumBank.push({
             q: `Intermediate Market Question #${i}: Which strategy helps mitigate systematic market risk?`,
@@ -309,7 +356,6 @@
         { q: "What is a liquidity trap?", o: ["A situation where monetary policy becomes ineffective because consumers hoard cash instead of spending/investing.", "A bank vault door locking.", "A high-fee credit card."], c: 0, e: "In a liquidity trap, lowering interest rates further fails to stimulate economic growth." },
         { q: "What is the efficient market hypothesis (EMH)?", o: ["Asset prices fully reflect all available information.", "Markets are completely random and unpredictable.", "Stocks always go up by 10% daily."], c: 0, e: "EMH posits that beating the market consistently through stock picking is nearly impossible because prices incorporate all known data." }
     ];
-    // Pad hardBank up to 100 items
     for (let i = 11; i <= 100; i++) {
         hardBank.push({
             q: `Advanced Economic Question #${i}: What macroeconomic indicator measures the total monetary value of all finished goods and services produced within a country?`,
@@ -327,7 +373,6 @@
     let sessionEarnedScore = 0;
     let todaysQuestions = [];
 
-    // Global mock leaderboard database stored in localStorage
     let leaderboardData = JSON.parse(localStorage.getItem('ngk_leaderboard_db') || JSON.stringify([
         { name: "Alex T. (Investor Academy)", score: 4850, streak: 14 },
         { name: "Jordan M. (Money Masters)", score: 4200, streak: 11 },
@@ -336,7 +381,6 @@
         { name: "Morgan R.", score: 2900, streak: 5 }
     ]));
 
-    // Generate unique index for today's date so questions rotate globally
     function getDayOfYearIndex() {
         const now = new Date();
         const start = new Date(now.getFullYear(), 0, 0);
@@ -369,17 +413,16 @@
             document.getElementById('state-profile').classList.add('hidden');
             document.getElementById('welcome-player-banner').textContent = `Welcome back, ${currentProfile}!`;
             
-            // Load user profile stats
             const stats = getProfileStats(currentProfile);
             document.getElementById('user-streak-display').textContent = stats.streak + ' Days';
             document.getElementById('user-score-display').textContent = stats.score + ' PTS';
 
-            // Check if already played today
             const todayStr = new Date().toDateString();
             if (stats.lastPlayed === todayStr) {
                 showFinishedState(true);
             } else {
                 document.getElementById('state-start').classList.remove('hidden');
+                document.getElementById('state-finished').classList.add('hidden');
             }
         }
     }
@@ -400,7 +443,6 @@
         
         localStorage.setItem(dataKey, JSON.stringify(stats));
 
-        // Update Leaderboard array
         let existingUser = leaderboardData.find(u => u.name.toLowerCase() === name.toLowerCase());
         if (existingUser) {
             existingUser.score = stats.score;
@@ -462,38 +504,43 @@
             btn.onclick = () => selectAnswer(idx);
             optionsGrid.appendChild(btn);
         });
+        lucide.createIcons();
     }
 
     function selectAnswer(selectedIndex) {
         const q = todaysQuestions[currentQuestionIndex];
         const optionsGrid = document.getElementById('options-grid');
-        const buttons = optionsGrid.getElementsByTagName('button');
-        
-        for(let btn of buttons) {
-            btn.disabled = true;
-            btn.classList.add('opacity-75');
-        }
+        const buttons = optionsGrid.children;
 
-        const isCorrect = selectedIndex === q.c;
-        const ptsEarned = currentQuestionIndex === 0 ? 100 : (currentQuestionIndex === 1 ? 250 : 500);
+        let pointsAwarded = 0;
+        if (currentQuestionIndex === 0) pointsAwarded = 100;
+        if (currentQuestionIndex === 1) pointsAwarded = 250;
+        if (currentQuestionIndex === 2) pointsAwarded = 500;
 
+        const isCorrect = (selectedIndex === q.c);
         if (isCorrect) {
-            buttons[selectedIndex].className = "w-full text-left p-4 rounded-2xl bg-emerald-50 border border-emerald-500 font-semibold text-emerald-900 text-sm flex items-center justify-between";
-            sessionEarnedScore += ptsEarned;
-        } else {
-            buttons[selectedIndex].className = "w-full text-left p-4 rounded-2xl bg-rose-50 border border-rose-500 font-semibold text-rose-900 text-sm flex items-center justify-between";
-            buttons[q.c].className = "w-full text-left p-4 rounded-2xl bg-emerald-50 border border-emerald-500 font-semibold text-emerald-900 text-sm flex items-center justify-between";
+            sessionEarnedScore += pointsAwarded;
         }
 
+        // Disable all buttons & mark correct/incorrect visually
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+            if (i === q.c) {
+                buttons[i].className = "w-full text-left p-4 rounded-2xl bg-green-50 border border-green-500 font-bold text-green-800 text-sm flex items-center justify-between";
+            } else if (i === selectedIndex && !isCorrect) {
+                buttons[i].className = "w-full text-left p-4 rounded-2xl bg-red-50 border border-red-500 font-bold text-red-800 text-sm flex items-center justify-between";
+            } else {
+                buttons[i].className = "w-full text-left p-4 rounded-2xl bg-white border border-navy/10 opacity-50 text-sm flex items-center justify-between";
+            }
+        }
+
+        // Show explanation
         const resultTitle = document.getElementById('answer-result-title');
         if (isCorrect) {
-            resultTitle.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 inline"></i> Correct! (+${ptsEarned} PTS)`;
-            resultTitle.className = "font-extrabold text-sm text-emerald-700 flex items-center gap-2";
+            resultTitle.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i> <span class="text-green-700">Correct! (+${pointsAwarded} PTS)</span>`;
         } else {
-            resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-rose-600 inline"></i> Incorrect`;
-            resultTitle.className = "font-extrabold text-sm text-rose-700 flex items-center gap-2";
+            resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-red-600"></i> <span class="text-red-700">Incorrect.</span>`;
         }
-
         document.getElementById('explanation-text').textContent = q.e;
         document.getElementById('explanation-box').classList.remove('hidden');
         lucide.createIcons();
@@ -504,74 +551,74 @@
         if (currentQuestionIndex < todaysQuestions.length) {
             loadQuestion();
         } else {
-            // Save completed stats for user
-            let stats = getProfileStats(currentProfile);
-            let newStreak = stats.streak + 1;
+            // End of today's session
+            const stats = getProfileStats(currentProfile);
+            const newStreak = stats.streak + 1;
             saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
-
-            // Refresh UI
-            const updatedStats = getProfileStats(currentProfile);
-            document.getElementById('user-streak-display').textContent = updatedStats.streak + ' Days';
-            document.getElementById('user-score-display').textContent = updatedStats.score + ' PTS';
-            renderLeaderboard();
-
             showFinishedState(false);
         }
     }
 
-    function showFinishedState(alreadyPlayed) {
+    function showFinishedState(alreadyPlayedToday) {
         document.getElementById('state-question').classList.add('hidden');
         document.getElementById('state-start').classList.add('hidden');
         document.getElementById('state-profile').classList.add('hidden');
         document.getElementById('state-finished').classList.remove('hidden');
 
-        if (alreadyPlayed) {
-            document.getElementById('final-message').textContent = `Welcome back ${currentProfile}! You have already completed today's challenge. Come back tomorrow for a new set of questions!`;
+        if (alreadyPlayedToday) {
+            document.getElementById('final-message').textContent = "You've already completed today's challenge! Your active profile streak is locked in. Come back tomorrow for new questions.";
             document.getElementById('session-score').textContent = "Completed";
         } else {
+            document.getElementById('final-message').textContent = "Great work! Your session points have been saved permanently to your profile and the global leaderboard has been updated.";
             document.getElementById('session-score').textContent = `+${sessionEarnedScore} PTS`;
         }
+
+        // Refresh stats header display
+        const stats = getProfileStats(currentProfile);
+        document.getElementById('user-streak-display').textContent = stats.streak + ' Days';
+        document.getElementById('user-score-display').textContent = stats.score + ' PTS';
+        renderLeaderboard();
     }
 
+    // -------------------------------------------------------------
+    // LEADERBOARD RENDERING
+    // -------------------------------------------------------------
     function renderLeaderboard() {
-        const listContainer = document.getElementById('leaderboard-list');
-        listContainer.innerHTML = '';
+        const listEl = document.getElementById('leaderboard-list');
+        listEl.innerHTML = '';
 
-        leaderboardData.slice(0, 5).forEach((user, idx) => {
+        leaderboardData.forEach((user, idx) => {
             const isCurrent = currentProfile && user.name.toLowerCase() === currentProfile.toLowerCase();
-            const div = document.createElement('div');
-            div.className = `flex items-center justify-between p-3 rounded-2xl border text-sm ${isCurrent ? 'bg-gold/10 border-gold/40' : 'bg-white border-navy/5'}`;
-            div.innerHTML = `
+            const row = document.createElement('div');
+            row.className = `p-4 rounded-2xl flex items-center justify-between border ${isCurrent ? 'bg-gold/10 border-gold/40 shadow-sm' : 'bg-white border-navy/5'}`;
+            
+            let rankBadge = `<span class="w-7 h-7 rounded-xl bg-navy/5 text-navy font-bold text-xs flex items-center justify-center">${idx + 1}</span>`;
+            if (idx === 0) rankBadge = `<span class="w-7 h-7 rounded-xl bg-gold text-white font-extrabold text-xs flex items-center justify-center shadow-sm">1</span>`;
+            if (idx === 1) rankBadge = `<span class="w-7 h-7 rounded-xl bg-gray-300 text-navy font-extrabold text-xs flex items-center justify-center">2</span>`;
+            if (idx === 2) rankBadge = `<span class="w-7 h-7 rounded-xl bg-amber-700 text-white font-extrabold text-xs flex items-center justify-center">3</span>`;
+
+            row.innerHTML = `
                 <div class="flex items-center gap-3">
-                    <span class="w-6 h-6 rounded-full bg-navy/5 text-navy font-extrabold text-xs flex items-center justify-center">${idx + 1}</span>
-                    <span class="font-bold text-navy truncate max-w-[130px] md:max-w-[170px]">${user.name} ${isCurrent ? '(You)' : ''}</span>
+                    ${rankBadge}
+                    <div>
+                        <div class="font-extrabold text-navy text-sm flex items-center gap-1.5">
+                            ${user.name} 
+                            ${isCurrent ? '<span class="text-[10px] bg-gold text-navy px-1.5 py-0.5 rounded-md font-extrabold uppercase">You</span>' : ''}
+                        </div>
+                        <div class="text-xs text-gray-400">🔥 ${user.streak} Day Streak</div>
+                    </div>
                 </div>
                 <div class="text-right">
-                    <div class="font-extrabold text-gold text-xs">${user.score} PTS</div>
-                    <div class="text-[10px] text-gray-400 font-semibold">${user.streak}d streak</div>
+                    <div class="font-extrabold text-navy text-sm">${user.score}</div>
+                    <div class="text-[10px] text-gray-400 uppercase font-bold">Points</div>
                 </div>
             `;
-            listContainer.appendChild(div);
+            listEl.appendChild(row);
         });
     }
 
-    // Initialize on load
+    // Run initialization on page load
     initApp();
-
-    // Scroll reveal animation script
-    window.addEventListener('scroll', revealOnScroll);
-    function revealOnScroll() {
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active');
-            }
-        }
-    }
-    revealOnScroll();
 </script>
 </body>
 </html>
