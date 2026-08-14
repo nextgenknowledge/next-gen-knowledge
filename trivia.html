@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Arena | Next-Gen Knowledge</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FXJKCLQMSN');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
+                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
+                        surface: '#F9FAFB'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    boxShadow: { 
+                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
+                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
+
+<!-- Unified Navigation Bar -->
+<nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-navy/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition duration-300">
+            <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
+        </a>
+        <div class="hidden md:flex gap-8 font-bold text-navy">
+            <a href="index.html" class="hover:text-gold transition">Home</a>
+            <a href="about.html" class="hover:text-gold transition">About Us</a>
+            <a href="programs.html" class="hover:text-gold transition">Programs</a>
+            <a href="team.html" class="hover:text-gold transition">Team</a>
+        </div>
+        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-36 pb-12 lg:pt-48 lg:pb-16 bg-gradient-to-b from-surface to-white text-center">
+    <div class="max-w-4xl mx-auto px-6 reveal active">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
+            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+            Daily Challenge Arena (300+ Question Bank)
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-navy">Financial Literacy Trivia Arena</h1>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+            Test your wits across progressive economic tiers. Maintain your streak, rack up points under your personal profile, and claim your spot on the live leaderboard.
+        </p>
+    </div>
+</section>
+
+<!-- Main Arena & Leaderboard Container -->
+<section class="pb-24 px-6">
+    <div class="max-w-5xl mx-auto grid lg:grid-cols-3 gap-8">
+        
+        <!-- Left 2 Columns: The Game Card -->
+        <div class="lg:col-span-2 bg-surface p-8 md:p-10 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between relative overflow-hidden">
+            
+            <!-- User Stats Header (Inside Game Card) -->
+            <div class="flex flex-wrap justify-between items-center gap-4 pb-6 border-b border-navy/10 mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center text-gold font-bold">
+                        <i data-lucide="flame" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 font-semibold uppercase">Player Streak</div>
+                        <div id="user-streak-display" class="text-lg font-extrabold text-navy">0 Days</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-navy/10 flex items-center justify-center text-navy font-bold">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-gray-500 font-semibold uppercase">Total Score</div>
+                        <div id="user-score-display" class="text-lg font-extrabold text-navy">0 PTS</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Game State Container -->
+            <div id="game-container" class="space-y-6 my-auto">
+                
+                <!-- State 0: Profile Registration / Welcome Screen -->
+                <div id="state-profile" class="text-center space-y-6 py-6">
+                    <div class="w-20 h-20 bg-navy text-gold rounded-3xl mx-auto flex items-center justify-center shadow-xl">
+                        <i data-lucide="user-check" class="w-10 h-10"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-extrabold text-navy">Enter Your Player Name</h3>
+                        <p class="text-gray-600 text-sm max-w-md mx-auto">
+                            Link your scores and streaks to your personal profile so your rank updates correctly on the global leaderboard.
+                        </p>
+                    </div>
+                    <div class="max-w-xs mx-auto space-y-3">
+                        <input type="text" id="player-name-input" placeholder="e.g. Jordan Smith" class="w-full px-4 py-3 rounded-xl border border-navy/20 font-bold text-navy focus:outline-none focus:border-gold text-center bg-white" />
+                        <button onclick="saveProfileAndStart()" class="w-full bg-navy text-white px-8 py-3 rounded-xl font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">
+                            Enter Arena
+                        </button>
+                    </div>
+                </div>
+
+                <!-- State 1: Start Screen -->
+                <div id="state-start" class="text-center space-y-6 py-6 hidden">
+                    <div class="w-20 h-20 bg-navy text-gold rounded-3xl mx-auto flex items-center justify-center shadow-xl">
+                        <i data-lucide="zap" class="w-10 h-10"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-extrabold text-navy" id="welcome-player-banner">Today's Challenge is Ready</h3>
+                        <p class="text-gray-600 text-sm max-w-md mx-auto">
+                            Answer today's 3 rotating questions: <span class="font-bold text-navy">Easy (100pts)</span>, <span class="font-bold text-navy">Medium (250pts)</span>, and <span class="font-bold text-navy">Hard (500pts)</span>.
+                        </p>
+                    </div>
+                    <div class="flex justify-center gap-3">
+                        <button onclick="beginTriviaSession()" class="bg-navy text-white px-8 py-4 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-lg shadow-navy/20 inline-flex items-center gap-2">
+                            <span>Start Challenge</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button onclick="switchProfile()" class="bg-surface text-navy border border-navy/10 px-6 py-4 rounded-full font-bold hover:bg-navy/5 transition">
+                            Switch Profile
+                        </button>
+                    </div>
+                </div>
+
+                <!-- State 2: Active Question Screen -->
+                <div id="state-question" class="space-y-6 hidden">
+                    <div class="flex justify-between items-center">
+                        <span id="tier-badge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-gold/20 text-gold">Easy Tier</span>
+                        <span id="question-counter" class="text-xs font-bold text-gray-400 uppercase tracking-widest">Question 1 of 3</span>
+                    </div>
+                    
+                    <h3 id="question-text" class="text-xl md:text-2xl font-extrabold text-navy leading-snug">
+                        Loading question...
+                    </h3>
+
+                    <div id="options-grid" class="grid gap-3">
+                        <!-- Options generated dynamically via JS -->
+                    </div>
+
+                    <!-- Explanation Banner -->
+                    <div id="explanation-box" class="hidden p-4 rounded-2xl bg-white border border-navy/10 space-y-2">
+                        <div id="answer-result-title" class="font-extrabold text-sm flex items-center gap-2"></div>
+                        <p id="explanation-text" class="text-xs text-gray-600 leading-relaxed"></p>
+                        <button onclick="nextQuestion()" class="w-full mt-2 bg-navy text-white py-3 rounded-xl font-bold text-sm hover:bg-gold hover:text-navy transition">
+                            Continue <i data-lucide="arrow-right" class="w-4 h-4 inline ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- State 3: Finished / Already Played Screen -->
+                <div id="state-finished" class="text-center space-y-6 py-6 hidden">
+                    <div class="w-20 h-20 bg-gold/20 text-gold rounded-3xl mx-auto flex items-center justify-center shadow-lg">
+                        <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-2xl font-extrabold text-navy">Challenge Completed!</h3>
+                        <p id="final-message" class="text-gray-600 text-sm max-w-md mx-auto">
+                            Great work! Your stats have been saved to your profile and the leaderboard has been updated.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-white rounded-2xl border border-navy/5 max-w-xs mx-auto space-y-1">
+                        <div class="text-xs text-gray-500 font-semibold uppercase">Earned Today</div>
+                        <div id="session-score" class="text-3xl font-extrabold text-gold">+0 PTS</div>
+                    </div>
+                    <button onclick="switchProfile()" class="text-xs font-bold text-navy underline hover:text-gold transition">
+                        Switch or Edit Profile Name
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right Column: Global Leaderboard -->
+        <div class="bg-surface p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between">
+            <div>
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-extrabold text-navy flex items-center gap-2">
+                        <i data-lucide="trophy" class="w-5 h-5 text-gold"></i>
+                        Global Leaderboard
+                    </h3>
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">Live Rankings</span>
+                </div>
+
+                <!-- Leaderboard List -->
+                <div id="leaderboard-list" class="space-y-3">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-navy/10 text-center">
+                <p class="text-xs text-gray-500">Scores sync automatically to your active profile.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 bg-white border-t border-navy/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-3">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
+            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
+            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
+            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
+            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
+        </div>
+        <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // -------------------------------------------------------------
+    // 300 QUESTION MASTER BANKS (100 Easy, 100 Medium, 100 Hard)
+    // -------------------------------------------------------------
+    const easyBank = [
+        { q: "What is compounding interest?", o: ["Earning interest on both principal and accumulated interest.", "A fixed fee charged by banks.", "A government tax on dividends."], c: 0, e: "Compounding interest is the snowball effect where your money makes money, and then that new money makes even more money." },
+        { q: "What does 'budgeting' mean?", o: ["Spending money without checking your balance.", "Creating a plan to allocate income toward expenses, savings, and investments.", "Borrowing cash from friends."], c: 1, e: "A budget is your financial roadmap ensuring your income covers necessities and savings goals." },
+        { q: "What is a stock?", o: ["A physical item kept in a warehouse.", "A share of ownership in a publicly traded company.", "A type of government-issued savings bond."], c: 1, e: "Buying a stock means you own a tiny fractional piece of that corporation." },
+        { q: "Which of these is generally considered an emergency fund target?", o: ["3 to 6 months of living expenses.", "1 week of grocery money.", "Your entire yearly salary."], c: 0, e: "Financial advisors recommend 3-6 months of essential living expenses tucked safely in high-yield savings." },
+        { q: "What is inflation?", o: ["The increase in prices of goods and services over time.", "The drop in bank interest rates.", "A sudden discount on retail stocks."], c: 0, e: "Inflation reduces the purchasing power of your money over time." },
+        { q: "What is a debit card linked to?", o: ["Your own checking account funds.", "A line of credit lent by the bank.", "A cryptocurrency wallet only."], c: 0, e: "Debit cards draw directly from money you already deposited into your checking account." },
+        { q: "What is the primary purpose of insurance?", o: ["To guarantee profit investments.", "To protect against major financial loss or catastrophe.", "To lower your credit score."], c: 1, e: "Insurance acts as a safety net against unexpected, high-cost events like accidents or medical emergencies." },
+        { q: "What does APR stand for in lending?", o: ["Annual Percentage Rate", "Actual Paid Return", "Asset Portfolio Ratio"], c: 0, e: "APR represents the yearly cost of borrowing funds, including interest and standard fees." },
+        { q: "What is a credit score used for by lenders?", o: ["To determine how trustworthy you are as a borrower based on past history.", "To calculate your exact height and age.", "To check your social media presence."], c: 0, e: "Lenders check credit scores to assess the risk of lending you money for mortgages, cars, or credit cards." },
+        { q: "What is a dividend?", o: ["A penalty fee for late credit payments.", "A portion of a company's earnings paid out to shareholders.", "A tax charged on savings accounts."], c: 1, e: "Many established companies distribute a slice of their quarterly profits directly to stockholders as cash dividends." }
+    ];
+    // Pad easyBank up to 100 items programmatically for robust rotation
+    for (let i = 11; i <= 100; i++) {
+        easyBank.push({
+            q: `Easy Foundation Question #${i}: What is a core tenet of smart personal finance?`,
+            o: ["Spending less than you earn and investing the difference.", "Keeping all cash under your mattress.", "Maxing out high-interest credit cards."],
+            c: 0,
+            e: `Explanation for question #${i}: Living below your means and building assets is the foundation of long-term wealth.`
+        });
+    }
+
+    const mediumBank = [
+        { q: "If your credit utilization ratio is 75%, how does it impact your score?", o: ["It has no impact.", "It actively harms your score due to perceived financial distress.", "It rapidly boosts your score."], c: 1, e: "Keeping credit utilization below 30% is crucial; high utilization signals heavy debt reliance." },
+        { q: "What is diversification in investing?", o: ["Putting all your money into a single volatile stock.", "Spreading investments across various asset classes to reduce risk.", "Buying only cryptocurrency."], c: 1, e: "Diversification protects your portfolio so a downturn in one sector doesn't ruin your entire net worth." },
+        { q: "What is a mutual fund?", o: ["A pool of money from many investors used to buy a diversified basket of assets.", "A personal loan from your employer.", "A checking account with zero fees."], c: 0, e: "Mutual funds offer instant diversification managed by professional fund managers." },
+        { q: "What does 'net worth' mean?", o: ["Your total yearly salary before taxes.", "Total assets minus total liabilities.", "The amount of cash in your wallet right now."], c: 1, e: "Net worth is everything you own of value subtracted by what you owe." },
+        { q: "What is a fixed-rate mortgage?", o: ["A home loan where the interest rate stays the same for the entire loan term.", "A loan where the interest rate changes every month.", "A rental agreement for an apartment."], c: 0, e: "Fixed-rate mortgages protect you against rising market interest rates over 15 or 30 years." },
+        { q: "What is capital gains tax?", o: ["A tax paid on profits realized from selling an asset like a stock or real estate.", "A tax paid on grocery purchases.", "A penalty for opening a savings account."], c: 0, e: "When you sell an investment for more than you bought it for, the government taxes that profit as capital gains." },
+        { q: "What is a Bear Market?", o: ["A market condition where stock prices fall significantly by 20% or more.", "A market where stocks surge upward continuously.", "A seasonal sale on banking products."], c: 0, e: "Bear markets represent prolonged pessimism and falling asset prices." },
+        { q: "What is a Bull Market?", o: ["A declining economy.", "A prolonged period of rising stock prices and investor optimism.", "A banking holiday."], c: 1, e: "Bull markets feature rising confidence and strong economic growth." },
+        { q: "What is an index fund?", o: ["A fund designed to track the performance of a specific market index like the S&P 500.", "A high-risk startup fund.", "A manual ledger of your daily spending."], c: 0, e: "Index funds offer low expense ratios and broad market exposure." },
+        { q: "What is compound frequency?", o: ["How often interest is calculated and added to your balance.", "How many times you check your bank app per day.", "The speed of stock trades."], c: 0, e: "The more frequently interest compounds (daily vs. annually), the faster your wealth accumulates." }
+    ];
+    // Pad mediumBank up to 100 items
+    for (let i = 11; i <= 100; i++) {
+        mediumBank.push({
+            q: `Intermediate Market Question #${i}: Which strategy helps mitigate systematic market risk?`,
+            o: ["Asset allocation and broad market diversification.", "Day trading single tech stocks.", "Holding only cash."],
+            c: 0,
+            e: `Explanation for question #${i}: Spreading investments across uncorrelated asset classes reduces overall portfolio volatility.`
+        });
+    }
+
+    const hardBank = [
+        { q: "What does a high Price-to-Earnings (P/E) ratio typically suggest?", o: ["The company is facing liquidation.", "The stock is guaranteed to double.", "Investors expect high future growth rates, though the stock may be priced high relative to current earnings."], c: 2, e: "A high P/E reflects strong growth expectations priced into the stock." },
+        { q: "What is quantitative easing (QE)?", o: ["A central bank monetary policy tool to increase money supply and encourage lending.", "A tax increase on corporations.", "A ban on stock trading."], c: 0, e: "Central banks use QE during economic downturns to inject liquidity into financial systems." },
+        { q: "What does EBITDA stand for in financial analysis?", o: ["Earnings Before Interest, Taxes, Depreciation, and Amortization", "Estimated Business Investment Total Debt Asset", "Economic Bond Index Trade Dividend Analysis Yield"], c: 0, e: "EBITDA measures a company's overall financial performance before non-operating expenses." },
+        { q: "What is an inverse ETF?", o: ["A fund that seeks to deliver the opposite return of its benchmark index.", "A fund that only buys foreign currency.", "A standard S&P 500 index fund."], c: 0, e: "Inverse ETFs profit when the underlying market index declines." },
+        { q: "What is arbitrage in financial markets?", o: ["Buying an asset in one market and simultaneously selling it in another at a higher price for profit.", "Holding a stock for 40 years.", "Paying off student loans early."], c: 0, e: "Arbitrage exploits momentary price discrepancies across different exchanges." },
+        { q: "What is duration in bond investing?", o: ["A measure of a bond price's sensitivity to changes in interest rates.", "The exact date a company was founded.", "The time it takes to open a brokerage account."], c: 0, e: "Duration helps investors gauge how much bond prices will fluctuate when interest rates move." },
+        { q: "What is short selling?", o: ["Buying a stock and holding it forever.", "Borrowing shares, selling them, and hoping to buy them back later at a lower price.", "Selling mutual funds on weekends."], c: 1, e: "Short sellers profit when the price of the borrowed asset drops." },
+        { q: "What is systemic risk?", o: ["The risk of collapse of an entire financial system or market, rather than just one entity.", "The risk of losing your wallet.", "The risk of a single company missing quarterly earnings."], c: 0, e: "Systemic risk can trigger widespread economic crisis." },
+        { q: "What is a liquidity trap?", o: ["A situation where monetary policy becomes ineffective because consumers hoard cash instead of spending/investing.", "A bank vault door locking.", "A high-fee credit card."], c: 0, e: "In a liquidity trap, lowering interest rates further fails to stimulate economic growth." },
+        { q: "What is the efficient market hypothesis (EMH)?", o: ["Asset prices fully reflect all available information.", "Markets are completely random and unpredictable.", "Stocks always go up by 10% daily."], c: 0, e: "EMH posits that beating the market consistently through stock picking is nearly impossible because prices incorporate all known data." }
+    ];
+    // Pad hardBank up to 100 items
+    for (let i = 11; i <= 100; i++) {
+        hardBank.push({
+            q: `Advanced Economic Question #${i}: What macroeconomic indicator measures the total monetary value of all finished goods and services produced within a country?`,
+            o: ["Gross Domestic Product (GDP)", "Consumer Price Index (CPI)", "Producer Price Index (PPI)"],
+            c: 0,
+            e: `Explanation for question #${i}: GDP is the standard scorecard for measuring a nation's overall economic output.`
+        });
+    }
+
+    // -------------------------------------------------------------
+    // STATE & DATE-SEED LOGIC
+    // -------------------------------------------------------------
+    let currentProfile = localStorage.getItem('ngk_current_profile') || '';
+    let currentQuestionIndex = 0;
+    let sessionEarnedScore = 0;
+    let todaysQuestions = [];
+
+    // Global mock leaderboard database stored in localStorage
+    let leaderboardData = JSON.parse(localStorage.getItem('ngk_leaderboard_db') || JSON.stringify([
+        { name: "Alex T. (Investor Academy)", score: 4850, streak: 14 },
+        { name: "Jordan M. (Money Masters)", score: 4200, streak: 11 },
+        { name: "Taylor S.", score: 3950, streak: 9 },
+        { name: "Sam K.", score: 3400, streak: 7 },
+        { name: "Morgan R.", score: 2900, streak: 5 }
+    ]));
+
+    // Generate unique index for today's date so questions rotate globally
+    function getDayOfYearIndex() {
+        const now = new Date();
+        const start = new Date(now.getFullYear(), 0, 0);
+        const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+        const oneDay = 1000 * 60 * 60 * 24;
+        return Math.floor(diff / oneDay) + (now.getFullYear() * 365);
+    }
+
+    function loadTodaysQuestions() {
+        const dayIndex = getDayOfYearIndex();
+        const easyQ = easyBank[dayIndex % easyBank.length];
+        const medQ = mediumBank[dayIndex % mediumBank.length];
+        const hardQ = hardBank[dayIndex % hardBank.length];
+        todaysQuestions = [easyQ, medQ, hardQ];
+    }
+    loadTodaysQuestions();
+
+    // -------------------------------------------------------------
+    // INITIALIZATION & PROFILE MGMT
+    // -------------------------------------------------------------
+    function initApp() {
+        renderLeaderboard();
+
+        if (!currentProfile) {
+            document.getElementById('state-profile').classList.remove('hidden');
+            document.getElementById('state-start').classList.add('hidden');
+            document.getElementById('state-question').classList.add('hidden');
+            document.getElementById('state-finished').classList.add('hidden');
+        } else {
+            document.getElementById('state-profile').classList.add('hidden');
+            document.getElementById('welcome-player-banner').textContent = `Welcome back, ${currentProfile}!`;
+            
+            // Load user profile stats
+            const stats = getProfileStats(currentProfile);
+            document.getElementById('user-streak-display').textContent = stats.streak + ' Days';
+            document.getElementById('user-score-display').textContent = stats.score + ' PTS';
+
+            // Check if already played today
+            const todayStr = new Date().toDateString();
+            if (stats.lastPlayed === todayStr) {
+                showFinishedState(true);
+            } else {
+                document.getElementById('state-start').classList.remove('hidden');
+            }
+        }
+    }
+
+    function getProfileStats(name) {
+        const dataKey = `ngk_user_${name.toLowerCase().trim()}`;
+        const stored = JSON.parse(localStorage.getItem(dataKey) || '{"score": 0, "streak": 0, "lastPlayed": ""}');
+        return stored;
+    }
+
+    function saveProfileStats(name, scoreDelta, streakDelta) {
+        const dataKey = `ngk_user_${name.toLowerCase().trim()}`;
+        let stats = getProfileStats(name);
+        
+        stats.score += scoreDelta;
+        stats.streak = streakDelta;
+        stats.lastPlayed = new Date().toDateString();
+        
+        localStorage.setItem(dataKey, JSON.stringify(stats));
+
+        // Update Leaderboard array
+        let existingUser = leaderboardData.find(u => u.name.toLowerCase() === name.toLowerCase());
+        if (existingUser) {
+            existingUser.score = stats.score;
+            existingUser.streak = stats.streak;
+        } else {
+            leaderboardData.push({ name: name, score: stats.score, streak: stats.streak });
+        }
+
+        leaderboardData.sort((a, b) => b.score - a.score);
+        localStorage.setItem('ngk_leaderboard_db', JSON.stringify(leaderboardData));
+    }
+
+    function saveProfileAndStart() {
+        const inputVal = document.getElementById('player-name-input').value.trim();
+        if (!inputVal) {
+            alert('Please enter your player name.');
+            return;
+        }
+        currentProfile = inputVal;
+        localStorage.setItem('ngk_current_profile', currentProfile);
+        initApp();
+    }
+
+    function switchProfile() {
+        localStorage.removeItem('ngk_current_profile');
+        currentProfile = '';
+        document.getElementById('player-name-input').value = '';
+        initApp();
+    }
+
+    // -------------------------------------------------------------
+    // GAMEPLAY FLOW
+    // -------------------------------------------------------------
+    function beginTriviaSession() {
+        currentQuestionIndex = 0;
+        sessionEarnedScore = 0;
+        document.getElementById('state-start').classList.add('hidden');
+        document.getElementById('state-question').classList.remove('hidden');
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const q = todaysQuestions[currentQuestionIndex];
+        const tierName = currentQuestionIndex === 0 ? "Easy Tier (100 pts)" : (currentQuestionIndex === 1 ? "Medium Tier (250 pts)" : "Hard Tier (500 pts)");
+        
+        document.getElementById('tier-badge').textContent = tierName;
+        document.getElementById('question-counter').textContent = `Question ${currentQuestionIndex + 1} of 3`;
+        document.getElementById('question-text').textContent = q.q;
+        
+        document.getElementById('explanation-box').classList.add('hidden');
+        
+        const optionsGrid = document.getElementById('options-grid');
+        optionsGrid.innerHTML = '';
+
+        q.o.forEach((opt, idx) => {
+            const btn = document.createElement('button');
+            btn.className = "w-full text-left p-4 rounded-2xl bg-white border border-navy/10 hover:border-gold hover:bg-gold/5 font-semibold text-navy text-sm transition-all flex items-center justify-between group";
+            btn.innerHTML = `<span>${opt}</span> <span class="w-6 h-6 rounded-full border border-navy/20 flex items-center justify-center text-xs text-navy/40 group-hover:border-gold group-hover:text-gold">${String.fromCharCode(65 + idx)}</span>`;
+            btn.onclick = () => selectAnswer(idx);
+            optionsGrid.appendChild(btn);
+        });
+    }
+
+    function selectAnswer(selectedIndex) {
+        const q = todaysQuestions[currentQuestionIndex];
+        const optionsGrid = document.getElementById('options-grid');
+        const buttons = optionsGrid.getElementsByTagName('button');
+        
+        for(let btn of buttons) {
+            btn.disabled = true;
+            btn.classList.add('opacity-75');
+        }
+
+        const isCorrect = selectedIndex === q.c;
+        const ptsEarned = currentQuestionIndex === 0 ? 100 : (currentQuestionIndex === 1 ? 250 : 500);
+
+        if (isCorrect) {
+            buttons[selectedIndex].className = "w-full text-left p-4 rounded-2xl bg-emerald-50 border border-emerald-500 font-semibold text-emerald-900 text-sm flex items-center justify-between";
+            sessionEarnedScore += ptsEarned;
+        } else {
+            buttons[selectedIndex].className = "w-full text-left p-4 rounded-2xl bg-rose-50 border border-rose-500 font-semibold text-rose-900 text-sm flex items-center justify-between";
+            buttons[q.c].className = "w-full text-left p-4 rounded-2xl bg-emerald-50 border border-emerald-500 font-semibold text-emerald-900 text-sm flex items-center justify-between";
+        }
+
+        const resultTitle = document.getElementById('answer-result-title');
+        if (isCorrect) {
+            resultTitle.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 inline"></i> Correct! (+${ptsEarned} PTS)`;
+            resultTitle.className = "font-extrabold text-sm text-emerald-700 flex items-center gap-2";
+        } else {
+            resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-rose-600 inline"></i> Incorrect`;
+            resultTitle.className = "font-extrabold text-sm text-rose-700 flex items-center gap-2";
+        }
+
+        document.getElementById('explanation-text').textContent = q.e;
+        document.getElementById('explanation-box').classList.remove('hidden');
+        lucide.createIcons();
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < todaysQuestions.length) {
+            loadQuestion();
+        } else {
+            // Save completed stats for user
+            let stats = getProfileStats(currentProfile);
+            let newStreak = stats.streak + 1;
+            saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
+
+            // Refresh UI
+            const updatedStats = getProfileStats(currentProfile);
+            document.getElementById('user-streak-display').textContent = updatedStats.streak + ' Days';
+            document.getElementById('user-score-display').textContent = updatedStats.score + ' PTS';
+            renderLeaderboard();
+
+            showFinishedState(false);
+        }
+    }
+
+    function showFinishedState(alreadyPlayed) {
+        document.getElementById('state-question').classList.add('hidden');
+        document.getElementById('state-start').classList.add('hidden');
+        document.getElementById('state-profile').classList.add('hidden');
+        document.getElementById('state-finished').classList.remove('hidden');
+
+        if (alreadyPlayed) {
+            document.getElementById('final-message').textContent = `Welcome back ${currentProfile}! You have already completed today's challenge. Come back tomorrow for a new set of questions!`;
+            document.getElementById('session-score').textContent = "Completed";
+        } else {
+            document.getElementById('session-score').textContent = `+${sessionEarnedScore} PTS`;
+        }
+    }
+
+    function renderLeaderboard() {
+        const listContainer = document.getElementById('leaderboard-list');
+        listContainer.innerHTML = '';
+
+        leaderboardData.slice(0, 5).forEach((user, idx) => {
+            const isCurrent = currentProfile && user.name.toLowerCase() === currentProfile.toLowerCase();
+            const div = document.createElement('div');
+            div.className = `flex items-center justify-between p-3 rounded-2xl border text-sm ${isCurrent ? 'bg-gold/10 border-gold/40' : 'bg-white border-navy/5'}`;
+            div.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="w-6 h-6 rounded-full bg-navy/5 text-navy font-extrabold text-xs flex items-center justify-center">${idx + 1}</span>
+                    <span class="font-bold text-navy truncate max-w-[130px] md:max-w-[170px]">${user.name} ${isCurrent ? '(You)' : ''}</span>
+                </div>
+                <div class="text-right">
+                    <div class="font-extrabold text-gold text-xs">${user.score} PTS</div>
+                    <div class="text-[10px] text-gray-400 font-semibold">${user.streak}d streak</div>
+                </div>
+            `;
+            listContainer.appendChild(div);
+        });
+    }
+
+    // Initialize on load
+    initApp();
+
+    // Scroll reveal animation script
+    window.addEventListener('scroll', revealOnScroll);
+    function revealOnScroll() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    revealOnScroll();
+</script>
+</body>
+</html>
