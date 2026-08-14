@@ -61,12 +61,12 @@
             <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
         </a>
         <div class="hidden md:flex gap-8 font-bold text-navy">
-    <a href="index.html" class="hover:text-gold transition">Home</a>
-    <a href="about.html" class="hover:text-gold transition">About Us</a>
-    <a href="programs.html" class="hover:text-gold transition">Programs</a>
-    <a href="team.html" class="hover:text-gold transition">Team</a>
-    <a href="trivia.html" class="hover:text-gold transition">NEW: TRIVIA ARENA</a>
-</div>
+            <a href="index.html" class="hover:text-gold transition">Home</a>
+            <a href="about.html" class="hover:text-gold transition">About Us</a>
+            <a href="programs.html" class="hover:text-gold transition">Programs</a>
+            <a href="team.html" class="hover:text-gold transition">Team</a>
+            <a href="trivia.html" class="text-gold transition">NEW: TRIVIA ARENA</a>
+        </div>
         <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
     </div>
 </nav>
@@ -456,169 +456,193 @@
     }
 
     function saveProfileAndStart() {
-        const inputVal = document.getElementById('player-name-input').value.trim();
-        if (!inputVal) {
-            alert('Please enter your player name.');
+        const inputName = document.getElementById('player-name-input').value.trim();
+        if (!inputName) {
+            alert('Please enter a valid player name.');
             return;
         }
-        currentProfile = inputVal;
+        currentProfile = inputName;
         localStorage.setItem('ngk_current_profile', currentProfile);
+        
+        // Initialize profile if new
+        let stats = getProfileStats(currentProfile);
+        if (!stats.lastPlayed) {
+            stats.streak = 1;
+            localStorage.setItem(`ngk_user_${currentProfile.toLowerCase().trim()}`, JSON.stringify(stats));
+        }
         initApp();
     }
 
     function switchProfile() {
         localStorage.removeItem('ngk_current_profile');
         currentProfile = '';
-        document.getElementById('player-name-input').value = '';
         initApp();
     }
 
     // -------------------------------------------------------------
-    // GAMEPLAY FLOW
+    // TRIVIA SESSION GAMEPLAY
     // -------------------------------------------------------------
     function beginTriviaSession() {
         currentQuestionIndex = 0;
         sessionEarnedScore = 0;
         document.getElementById('state-start').classList.add('hidden');
         document.getElementById('state-question').classList.remove('hidden');
-        loadQuestion();
+        renderQuestion();
     }
 
-    function loadQuestion() {
-        const q = todaysQuestions[currentQuestionIndex];
-        const tierName = currentQuestionIndex === 0 ? "Easy Tier (100 pts)" : (currentQuestionIndex === 1 ? "Medium Tier (250 pts)" : "Hard Tier (500 pts)");
-        
-        document.getElementById('tier-badge').textContent = tierName;
-        document.getElementById('question-counter').textContent = `Question ${currentQuestionIndex + 1} of 3`;
-        document.getElementById('question-text').textContent = q.q;
-        
-        document.getElementById('explanation-box').classList.add('hidden');
-        
+    function renderQuestion() {
+        const qObj = todaysQuestions[currentQuestionIndex];
+        const tierBadge = document.getElementById('tier-badge');
+        const counter = document.getElementById('question-counter');
+        const text = document.getElementById('question-text');
         const optionsGrid = document.getElementById('options-grid');
-        optionsGrid.innerHTML = '';
+        const explanationBox = document.getElementById('explanation-box');
 
-        q.o.forEach((opt, idx) => {
+        explanationBox.classList.add('hidden');
+        counter.textContent = `Question ${currentQuestionIndex + 1} of 3`;
+        text.textContent = qObj.q;
+
+        if (currentQuestionIndex === 0) {
+            tierBadge.textContent = "Easy Tier (100 PTS)";
+            tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-emerald-500/10 text-emerald-600";
+        } else if (currentQuestionIndex === 1) {
+            tierBadge.textContent = "Medium Tier (250 PTS)";
+            tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-gold/20 text-gold";
+        } else {
+            tierBadge.textContent = "Hard Tier (500 PTS)";
+            tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-rose-500/10 text-rose-600";
+        }
+
+        optionsGrid.innerHTML = '';
+        qObj.o.forEach((optionText, idx) => {
             const btn = document.createElement('button');
-            btn.className = "w-full text-left p-4 rounded-2xl bg-white border border-navy/10 hover:border-gold hover:bg-gold/5 font-semibold text-navy text-sm transition-all flex items-center justify-between group";
-            btn.innerHTML = `<span>${opt}</span> <span class="w-6 h-6 rounded-full border border-navy/20 flex items-center justify-center text-xs text-navy/40 group-hover:border-gold group-hover:text-gold">${String.fromCharCode(65 + idx)}</span>`;
-            btn.onclick = () => selectAnswer(idx);
+            btn.className = "w-full text-left p-4 rounded-xl border border-navy/10 font-bold text-navy bg-white hover:border-gold hover:bg-gold/5 transition flex items-center justify-between group";
+            btn.innerHTML = `<span>${optionText}</span> <span class="w-6 h-6 rounded-full border border-navy/20 flex items-center justify-center text-xs group-hover:border-gold group-hover:text-gold">${String.fromCharCode(65 + idx)}</span>`;
+            btn.onclick = () => selectOption(idx);
             optionsGrid.appendChild(btn);
         });
         lucide.createIcons();
     }
 
-    function selectAnswer(selectedIndex) {
-        const q = todaysQuestions[currentQuestionIndex];
+    function selectOption(selectedIndex) {
+        const qObj = todaysQuestions[currentQuestionIndex];
         const optionsGrid = document.getElementById('options-grid');
-        const buttons = optionsGrid.children;
+        const buttons = optionsGrid.getElementsByTagName('button');
+        const explanationBox = document.getElementById('explanation-box');
+        const resultTitle = document.getElementById('answer-result-title');
+        const explanationText = document.getElementById('explanation-text');
 
         let pointsAwarded = 0;
         if (currentQuestionIndex === 0) pointsAwarded = 100;
-        if (currentQuestionIndex === 1) pointsAwarded = 250;
-        if (currentQuestionIndex === 2) pointsAwarded = 500;
+        else if (currentQuestionIndex === 1) pointsAwarded = 250;
+        else pointsAwarded = 500;
 
-        const isCorrect = (selectedIndex === q.c);
-        if (isCorrect) {
-            sessionEarnedScore += pointsAwarded;
-        }
-
-        // Disable all buttons & mark correct/incorrect visually
+        // Disable all buttons after choice
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].disabled = true;
-            if (i === q.c) {
-                buttons[i].className = "w-full text-left p-4 rounded-2xl bg-green-50 border border-green-500 font-bold text-green-800 text-sm flex items-center justify-between";
-            } else if (i === selectedIndex && !isCorrect) {
-                buttons[i].className = "w-full text-left p-4 rounded-2xl bg-red-50 border border-red-500 font-bold text-red-800 text-sm flex items-center justify-between";
+            if (i === qObj.c) {
+                buttons[i].className = "w-full text-left p-4 rounded-xl border border-emerald-500 font-bold text-emerald-900 bg-emerald-50 flex items-center justify-between";
+            } else if (i === selectedIndex) {
+                buttons[i].className = "w-full text-left p-4 rounded-xl border border-rose-500 font-bold text-rose-900 bg-rose-50 flex items-center justify-between";
             } else {
-                buttons[i].className = "w-full text-left p-4 rounded-2xl bg-white border border-navy/10 opacity-50 text-sm flex items-center justify-between";
+                buttons[i].className = "w-full text-left p-4 rounded-xl border border-navy/10 font-bold text-gray-400 bg-white opacity-50 flex items-center justify-between";
             }
         }
 
-        // Show explanation
-        const resultTitle = document.getElementById('answer-result-title');
+        const isCorrect = (selectedIndex === qObj.c);
         if (isCorrect) {
-            resultTitle.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-green-600"></i> <span class="text-green-700">Correct! (+${pointsAwarded} PTS)</span>`;
+            sessionEarnedScore += pointsAwarded;
+            resultTitle.innerHTML = `<i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 inline"></i> <span class="text-emerald-700">Correct! +${pointsAwarded} PTS</span>`;
         } else {
-            resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-red-600"></i> <span class="text-red-700">Incorrect.</span>`;
+            resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-5 h-5 text-rose-600 inline"></i> <span class="text-rose-700">Incorrect.</span>`;
         }
-        document.getElementById('explanation-text').textContent = q.e;
-        document.getElementById('explanation-box').classList.remove('hidden');
+
+        explanationText.textContent = qObj.e;
+        explanationBox.classList.remove('hidden');
         lucide.createIcons();
     }
 
     function nextQuestion() {
         currentQuestionIndex++;
         if (currentQuestionIndex < todaysQuestions.length) {
-            loadQuestion();
+            renderQuestion();
         } else {
-            // End of today's session
-            const stats = getProfileStats(currentProfile);
-            const newStreak = stats.streak + 1;
-            saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
-            showFinishedState(false);
+            finishTriviaSession();
         }
     }
 
-    function showFinishedState(alreadyPlayedToday) {
+    function finishTriviaSession() {
+        const stats = getProfileStats(currentProfile);
+        const newStreak = stats.streak + 1;
+        saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
+
         document.getElementById('state-question').classList.add('hidden');
+        showFinishedState(false);
+    }
+
+    function showFinishedState(alreadyPlayedToday) {
         document.getElementById('state-start').classList.add('hidden');
+        document.getElementById('state-question').classList.add('hidden');
         document.getElementById('state-profile').classList.add('hidden');
         document.getElementById('state-finished').classList.remove('hidden');
 
-        if (alreadyPlayedToday) {
-            document.getElementById('final-message').textContent = "You've already completed today's challenge! Your active profile streak is locked in. Come back tomorrow for new questions.";
-            document.getElementById('session-score').textContent = "Completed";
-        } else {
-            document.getElementById('final-message').textContent = "Great work! Your session points have been saved permanently to your profile and the global leaderboard has been updated.";
-            document.getElementById('session-score').textContent = `+${sessionEarnedScore} PTS`;
-        }
-
-        // Refresh stats header display
         const stats = getProfileStats(currentProfile);
         document.getElementById('user-streak-display').textContent = stats.streak + ' Days';
         document.getElementById('user-score-display').textContent = stats.score + ' PTS';
+
+        if (alreadyPlayedToday) {
+            document.getElementById('final-message').textContent = "You have already completed today's challenge! Come back tomorrow for a fresh batch of 3 financial literacy questions.";
+            document.getElementById('session-score').textContent = "Completed";
+        } else {
+            document.getElementById('final-message').textContent = "Great work! Your stats have been saved to your profile and the leaderboard has been updated.";
+            document.getElementById('session-score').textContent = `+${sessionEarnedScore} PTS`;
+        }
         renderLeaderboard();
     }
 
     // -------------------------------------------------------------
-    // LEADERBOARD RENDERING
+    // LEADERBOARD RENDERER
     // -------------------------------------------------------------
     function renderLeaderboard() {
         const listEl = document.getElementById('leaderboard-list');
         listEl.innerHTML = '';
 
-        leaderboardData.forEach((user, idx) => {
-            const isCurrent = currentProfile && user.name.toLowerCase() === currentProfile.toLowerCase();
+        leaderboardData.sort((a, b) => b.score - a.score);
+
+        leaderboardData.forEach((user, index) => {
+            const isCurrent = user.name.toLowerCase() === currentProfile.toLowerCase();
             const row = document.createElement('div');
-            row.className = `p-4 rounded-2xl flex items-center justify-between border ${isCurrent ? 'bg-gold/10 border-gold/40 shadow-sm' : 'bg-white border-navy/5'}`;
+            row.className = `p-4 rounded-2xl border flex items-center justify-between transition ${isCurrent ? 'bg-gold/10 border-gold shadow-sm' : 'bg-white border-navy/5'}`;
             
-            let rankBadge = `<span class="w-7 h-7 rounded-xl bg-navy/5 text-navy font-bold text-xs flex items-center justify-center">${idx + 1}</span>`;
-            if (idx === 0) rankBadge = `<span class="w-7 h-7 rounded-xl bg-gold text-white font-extrabold text-xs flex items-center justify-center shadow-sm">1</span>`;
-            if (idx === 1) rankBadge = `<span class="w-7 h-7 rounded-xl bg-gray-300 text-navy font-extrabold text-xs flex items-center justify-center">2</span>`;
-            if (idx === 2) rankBadge = `<span class="w-7 h-7 rounded-xl bg-amber-700 text-white font-extrabold text-xs flex items-center justify-center">3</span>`;
+            let rankBadge = `<span class="w-8 h-8 rounded-full bg-navy/5 font-extrabold text-xs flex items-center justify-center text-navy">#${index + 1}</span>`;
+            if (index === 0) rankBadge = `<span class="w-8 h-8 rounded-full bg-gold text-navy font-extrabold text-xs flex items-center justify-center shadow-sm">1</span>`;
+            if (index === 1) rankBadge = `<span class="w-8 h-8 rounded-full bg-gray-300 text-navy font-extrabold text-xs flex items-center justify-center">2</span>`;
+            if (index === 2) rankBadge = `<span class="w-8 h-8 rounded-full bg-amber-600/30 text-amber-900 font-extrabold text-xs flex items-center justify-center">3</span>`;
 
             row.innerHTML = `
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-4">
                     ${rankBadge}
                     <div>
-                        <div class="font-extrabold text-navy text-sm flex items-center gap-1.5">
+                        <div class="font-extrabold text-sm text-navy flex items-center gap-2">
                             ${user.name} 
-                            ${isCurrent ? '<span class="text-[10px] bg-gold text-navy px-1.5 py-0.5 rounded-md font-extrabold uppercase">You</span>' : ''}
+                            ${isCurrent ? '<span class="text-[10px] bg-navy text-white px-2 py-0.5 rounded-full uppercase tracking-wider">You</span>' : ''}
                         </div>
-                        <div class="text-xs text-gray-400">🔥 ${user.streak} Day Streak</div>
+                        <div class="text-xs text-gray-500 flex items-center gap-2 mt-0.5">
+                            <span class="inline-flex items-center gap-1 text-gold font-bold"><i data-lucide="flame" class="w-3 h-3"></i> ${user.streak}d streak</span>
+                        </div>
                     </div>
                 </div>
                 <div class="text-right">
-                    <div class="font-extrabold text-navy text-sm">${user.score}</div>
-                    <div class="text-[10px] text-gray-400 uppercase font-bold">Points</div>
+                    <div class="font-extrabold text-base text-navy">${user.score} PTS</div>
                 </div>
             `;
             listEl.appendChild(row);
         });
+        lucide.createIcons();
     }
 
-    // Run initialization on page load
-    initApp();
+    // Run initialization on load
+    window.onload = initApp;
 </script>
 </body>
 </html>
