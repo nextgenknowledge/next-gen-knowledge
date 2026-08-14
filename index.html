@@ -40,7 +40,6 @@
         }
     </script>
     <style>
-        /* Smooth moving transition classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -76,20 +75,20 @@
     </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero Section with Eye-Catching Trivia Arena Highlight -->
 <main class="relative pt-36 pb-24 lg:pt-52 lg:pb-36 bg-gradient-to-b from-surface to-white">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div class="flex flex-col lg:flex-row items-center gap-16">
             <div class="w-full lg:w-1/2 space-y-8 reveal active">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20">
                     <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                    NEW: Investor Academy Starting Aug 24 - Limited Seats, Enroll Now
+                    NEW: Investor Academy Starting Aug 24 - Limited Seats
                 </div>
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy leading-[1.08]">
                     Real-World Skills for the <span class="text-gold relative">Next Generation</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
-                    Interactive, peer-led financial literacy programs designed specifically for students in grades 5+ We bridge the gap between core classroom theory and practical lifelong financial success.
+                    Interactive, peer-led financial literacy programs designed specifically for students in grades 5+. We bridge the gap between core classroom theory and practical lifelong financial success.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center gap-4 pt-2">
                     <a href="enroll.html" class="w-full sm:w-auto inline-flex items-center justify-center text-base font-bold text-navy bg-gold hover:bg-gold-light px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-gold/25 hover:-translate-y-0.5 active:scale-[0.98]">
@@ -101,20 +100,43 @@
                 </div>
             </div>
             
+            <!-- Eye-Catching Interactive Trivia Arena Hero Card -->
             <div class="w-full lg:w-1/2 relative reveal active">
-                <div class="absolute -inset-4 bg-gradient-to-r from-gold/20 to-navy/10 rounded-[2.5rem] blur-xl opacity-70"></div>
-                <div class="relative aspect-[4/3] bg-white rounded-[2rem] border border-navy/10 shadow-premium flex flex-col items-center justify-center p-8 text-center group hover:shadow-premium-hover transition duration-500">
-                    <div class="w-20 h-20 bg-gold/10 rounded-2xl flex items-center justify-center mb-6 text-gold group-hover:scale-110 transition duration-500">
-                        <i data-lucide="pie-chart" class="w-10 h-10"></i>
+                <div class="absolute -inset-4 bg-gradient-to-r from-gold/30 to-navy/20 rounded-[2.5rem] blur-xl opacity-80 animate-pulse"></div>
+                <div class="relative bg-navy text-white rounded-[2rem] border border-gold/30 shadow-premium p-8 overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-gold text-navy text-xs font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider">
+                        ⚡ Trivia Arena
                     </div>
-                    <h3 class="text-2xl font-bold text-navy mb-2">Mastering Money Early</h3>
-                    <p class="text-sm text-gray-500 max-w-sm">From calculating compound interest to building balanced budgets, kids learn concepts that shape their financial independence.</p>
+                    
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gold/20 rounded-2xl flex items-center justify-center text-gold">
+                            <i data-lucide="zap" class="w-7 h-7"></i>
+                        </div>
+                        <div>
+                            <span class="text-gold text-xs font-bold uppercase tracking-wider">Daily Money Challenge</span>
+                            <h3 class="text-2xl font-bold text-white">Test Your Financial IQ</h3>
+                        </div>
+                    </div>
+
+                    <div id="trivia-container" class="space-y-4 bg-navy-light/50 p-6 rounded-2xl border border-white/10">
+                        <p id="trivia-question" class="font-semibold text-base text-gray-100">
+                            Q: If you invest $100 at a 10% annual return, roughly how many years does it take to double your money (Rule of 72)?
+                        </p>
+                        <div id="trivia-options" class="grid grid-cols-2 gap-3 pt-2">
+                            <button onclick="checkTrivia(this, false)" class="text-left text-sm font-medium bg-white/5 hover:bg-gold hover:text-navy border border-white/10 p-3 rounded-xl transition">A) 3 Years</button>
+                            <button onclick="checkTrivia(this, true)" class="text-left text-sm font-medium bg-white/5 hover:bg-gold hover:text-navy border border-white/10 p-3 rounded-xl transition">B) 7.2 Years</button>
+                            <button onclick="checkTrivia(this, false)" class="text-left text-sm font-medium bg-white/5 hover:bg-gold hover:text-navy border border-white/10 p-3 rounded-xl transition">C) 15 Years</button>
+                            <button onclick="checkTrivia(this, false)" class="text-left text-sm font-medium bg-white/5 hover:bg-gold hover:text-navy border border-white/10 p-3 rounded-xl transition">D) 20 Years</button>
+                        </div>
+                        <p id="trivia-feedback" class="text-sm font-bold mt-2 hidden"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-    <!-- Our Flagship Programs Section -->
+
+<!-- Our Flagship Programs Section -->
 <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
@@ -262,49 +284,33 @@
     </div>
 </section>
 
-<!-- Programs Preview -->
-<section class="py-24 px-6 reveal">
-    <div class="max-w-5xl mx-auto bg-navy rounded-[2.5rem] p-10 md:p-16 text-white relative overflow-hidden shadow-2xl">
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 max-w-2xl">
-            <span class="text-gold font-bold uppercase tracking-widest text-xs">Featured Curriculum</span>
-            <h2 class="text-3xl md:text-5xl font-extrabold mt-3 mb-6">Money Masters Program</h2>
-            <p class="text-gray-300 text-lg mb-8 leading-relaxed">A comprehensive 5-week deep dive into financial literacy. Join our next cohort to master budgeting basics, saving strategies, smart investing, and early entrepreneurship.</p>
-            <div class="flex flex-wrap gap-4">
-                <a href="programs.html" class="bg-gold text-navy font-bold px-8 py-4 rounded-full hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/20 hover:-translate-y-0.5">View Full Curriculum</a>
-                <a href="enroll.html" class="bg-white/10 text-white font-bold px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-300 border border-white/10">Register Now</a>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Team Preview -->
-<section class="py-24 bg-surface reveal">
+<section class="py-24 bg-white reveal">
     <div class="max-w-7xl mx-auto px-6 text-center">
         <span class="text-gold font-bold uppercase tracking-widest text-xs">Leadership</span>
         <h2 class="text-3xl md:text-4xl font-extrabold text-navy mt-2 mb-4">Meet Our Founders</h2>
         <p class="text-gray-600 max-w-xl mx-auto mb-16">Dedicated high school leaders passionate about spreading financial literacy.</p>
         
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
+            <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
                 <div class="w-20 h-20 bg-navy/5 rounded-full flex items-center justify-center text-navy font-extrabold text-xl mb-4">SP</div>
                 <h4 class="font-bold text-navy text-lg">Svar Patel</h4>
                 <p class="text-gold text-sm font-bold mb-6">Founder</p>
                 <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b border-navy/20 pb-1 hover:text-gold hover:border-gold transition">Read Full Bio</a>
             </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
+            <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
                 <div class="w-20 h-20 bg-navy/5 rounded-full flex items-center justify-center text-navy font-extrabold text-xl mb-4">PP</div>
                 <h4 class="font-bold text-navy text-lg">Pushan Patel</h4>
                 <p class="text-gold text-sm font-bold mb-6">Co-Founder</p>
                 <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b border-navy/20 pb-1 hover:text-gold hover:border-gold transition">Read Full Bio</a>
             </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
+            <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
                 <div class="w-20 h-20 bg-navy/5 rounded-full flex items-center justify-center text-navy font-extrabold text-xl mb-4">MP</div>
                 <h4 class="font-bold text-navy text-lg">Max Park</h4>
                 <p class="text-gold text-sm font-bold mb-6">Co-Founder</p>
                 <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b border-navy/20 pb-1 hover:text-gold hover:border-gold transition">Read Full Bio</a>
             </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
+            <div class="bg-surface p-8 rounded-[2rem] border border-navy/5 shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition duration-300 flex flex-col items-center">
                 <div class="w-20 h-20 bg-navy/5 rounded-full flex items-center justify-center text-navy font-extrabold text-xl mb-4">IR</div>
                 <h4 class="font-bold text-navy text-lg">Ilhan Rasheed</h4>
                 <p class="text-gold text-sm font-bold mb-6">Co-Founder</p>
@@ -352,8 +358,22 @@
             }
         }
     }
-    // Trigger once on load
     revealOnScroll();
+
+    // Trivia Widget Interactivity
+    function checkTrivia(button, isCorrect) {
+        const feedback = document.getElementById('trivia-feedback');
+        feedback.classList.remove('hidden');
+        if(isCorrect) {
+            button.classList.add('bg-green-600', 'text-white', 'border-green-500');
+            feedback.innerHTML = "🎉 Correct! The Rule of 72 tells us 72 / 10% = ~7.2 years to double!";
+            feedback.className = "text-sm font-bold mt-3 text-green-400";
+        } else {
+            button.classList.add('bg-red-600/50', 'text-white', 'border-red-500');
+            feedback.innerHTML = "❌ Not quite! Try the 7.2 Years answer next time.";
+            feedback.className = "text-sm font-bold mt-3 text-red-400";
+        }
+    }
 </script>
 </body>
 </html>
