@@ -610,7 +610,7 @@ function showFinishedState(alreadyPlayed) {
         finalMsg.textContent = `Welcome back, ${currentProfile}! You have already completed today's challenge. Come back tomorrow for a fresh batch of 3 questions and to keep your streak alive!`;
     } else {
         sessionScoreElem.textContent = `+${sessionEarnedScore} PTS`;
-        finalMsg.textContent = `Fantastic job, ${currentProfile}! Your score and streak have been successfully recorded to your profile and synced to the global leaderboard.`;
+        finalMsg.textContent = `Fantastic job, ${currentProfile}! Your score and streak have been successfully recorded to your profile and synced to the global leaderboard. Come back tomorrow for a fresh batch of 3 questions and to keep your streak alive!`;
     }
     
     const stats = getProfileStats(currentProfile);
