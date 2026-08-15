@@ -38,7 +38,7 @@
                 }
             }
         }
-    </script>
+    </script>        
     <style>
         .reveal {
             opacity: 0;
@@ -46,8 +46,28 @@
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
-            opacity: 1;
+            opacity: 0.3;
             transform: translateY(0);
+        }
+
+        /* MOBILE HEADER FIX: Forces links to stay visible on phones */
+        @media (max-width: 768px) {
+            nav .max-w-7xl {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            nav .hidden.md\:flex {
+                display: flex !important;
+                gap: 1rem !important;
+                font-size: 0.75rem;
+                width: 100%;
+                justify-content: center;
+                border-top: 1px solid rgba(10, 35, 66, 0.05);
+                padding-top: 0.5rem;
+            }
         }
     </style>
 </head>
