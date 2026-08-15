@@ -328,68 +328,147 @@
     // 300 QUESTION MASTER BANKS (100 Easy, 100 Medium, 100 Hard)
     // -------------------------------------------------------------
     
-    const easyBank = [
-        { q: "What is compounding interest?", o: ["Earning interest on both principal and accumulated interest.", "A fixed fee charged by banks.", "A government tax on dividends."], c: 0, e: "Compounding interest is the snowball effect where your money makes money, and then that new money makes even more money." },
-        { q: "What does 'budgeting' mean?", o: ["Spending money without checking your balance.", "Creating a plan to allocate income toward expenses, savings, and investments.", "Borrowing cash from friends."], c: 1, e: "A budget is your financial roadmap ensuring your income covers necessities and savings goals." },
-        { q: "What is a stock?", o: ["A physical item kept in a warehouse.", "A share of ownership in a publicly traded company.", "A type of government-issued savings bond."], c: 1, e: "Buying a stock means you own a tiny fractional piece of that corporation." },
-        { q: "Which of these is generally considered an emergency fund target?", o: ["3 to 6 months of living expenses.", "1 week of grocery money.", "Your entire yearly salary."], c: 0, e: "Financial advisors recommend 3-6 months of essential living expenses tucked safely in high-yield savings." },
-        { q: "What is inflation?", o: ["The increase in prices of goods and services over time.", "The drop in bank interest rates.", "A sudden discount on retail stocks."], c: 0, e: "Inflation reduces the purchasing power of your money over time." },
-        { q: "What is a debit card linked to?", o: ["Your own checking account funds.", "A line of credit lent by the bank.", "A cryptocurrency wallet only."], c: 0, e: "Debit cards draw directly from money you already deposited into your checking account." },
-        { q: "What is the primary purpose of insurance?", o: ["To guarantee profit investments.", "To protect against major financial loss or catastrophe.", "To lower your credit score."], c: 1, e: "Insurance acts as a safety net against unexpected, high-cost events like accidents or medical emergencies." },
-        { q: "What does APR stand for in lending?", o: ["Annual Percentage Rate", "Actual Paid Return", "Asset Portfolio Ratio"], c: 0, e: "APR represents the yearly cost of borrowing funds, including interest and standard fees." },
-        { q: "What is a credit score used for by lenders?", o: ["To determine how trustworthy you are as a borrower based on past history.", "To calculate your exact height and age.", "To check your social media presence."], c: 0, e: "Lenders check credit scores to assess the risk of lending you money for mortgages, cars, or credit cards." },
-        { q: "What is a dividend?", o: ["A penalty fee for late credit payments.", "A portion of a company's earnings paid out to shareholders.", "A tax charged on savings accounts."], c: 1, e: "Many established companies distribute a slice of their quarterly profits directly to stockholders as cash dividends." }
-    ];
-    for (let i = 12; i <= 100; i++) {
-        easyBank.push({
-            q: `Easy Foundation Question #${i}: What is a core tenet of smart personal finance?`,
-            o: ["Spending less than you earn and investing the difference.", "Keeping all cash under your mattress.", "Maxing out high-interest credit cards."],
-            c: 0,
-            e: `Explanation for question #${i}: Living below your means and building assets is the foundation of long-term wealth.`
-        });
+    // Helper function to build and randomize question options
+function createQuestion(questionText, correctOption, wrongOption1, wrongOption2, index, explanationText) {
+    const options = [correctOption, wrongOption1, wrongOption2];
+    // Shuffle options using Fisher-Yates
+    for (let i = options.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [options[i], options[j]] = [options[j], options[i]];
     }
+    return {
+        q: `${questionText} #${index}`,
+        o: options,
+        c: options.indexOf(correctOption),
+        e: explanationText
+    };
+}
 
-    const mediumBank = [
-        { q: "If your credit utilization ratio is 75%, how does it impact your score?", o: ["It has no impact.", "It actively harms your score due to perceived financial distress.", "It rapidly boosts your score."], c: 1, e: "Keeping credit utilization below 30% is crucial; high utilization signals heavy debt reliance." },
-        { q: "What is diversification in investing?", o: ["Putting all your money into a single volatile stock.", "Spreading investments across various asset classes to reduce risk.", "Buying only cryptocurrency."], c: 1, e: "Diversification protects your portfolio so a downturn in one sector doesn't ruin your entire net worth." },
-        { q: "What is a mutual fund?", o: ["A pool of money from many investors used to buy a diversified basket of assets.", "A personal loan from your employer.", "A checking account with zero fees."], c: 0, e: "Mutual funds offer instant diversification managed by professional fund managers." },
-        { q: "What does 'net worth' mean?", o: ["Your total yearly salary before taxes.", "Total assets minus total liabilities.", "The amount of cash in your wallet right now."], c: 1, e: "Net worth is everything you own of value subtracted by what you owe." },
-        { q: "What is a fixed-rate mortgage?", o: ["A home loan where the interest rate stays the same for the entire loan term.", "A loan where the interest rate changes every month.", "A rental agreement for an apartment."], c: 0, e: "Fixed-rate mortgages protect you against rising market interest rates over 15 or 30 years." },
-        { q: "What is capital gains tax?", o: ["A tax paid on profits realized from selling an asset like a stock or real estate.", "A tax paid on grocery purchases.", "A penalty for opening a savings account."], c: 0, e: "When you sell an investment for more than you bought it for, the government taxes that profit as capital gains." },
-        { q: "What is a Bear Market?", o: ["A market condition where stock prices fall significantly by 20% or more.", "A market where stocks surge upward continuously.", "A seasonal sale on banking products."], c: 0, e: "Bear markets represent prolonged pessimism and falling asset prices." },
-        { q: "What is a Bull Market?", o: ["A declining economy.", "A prolonged period of rising stock prices and investor optimism.", "A banking holiday."], c: 1, e: "Bull markets feature rising confidence and strong economic growth." },
-        { q: "What is an index fund?", o: ["A fund designed to track the performance of a specific market index like the S&P 500.", "A high-risk startup fund.", "A manual ledger of your daily spending."], c: 0, e: "Index funds offer low expense ratios and broad market exposure." },
-        { q: "What is compound frequency?", o: ["How often interest is calculated and added to your balance.", "How many times you check your bank app per day.", "The speed of stock trades."], c: 0, e: "The more frequently interest compounds (daily vs. annually), the faster your wealth accumulates." }
-    ];
-    for (let i = 12; i <= 100; i++) {
-        mediumBank.push({
-            q: `Intermediate Market Question #${i}: Which strategy helps mitigate systematic market risk?`,
-            o: ["Asset allocation and broad market diversification.", "Day trading single tech stocks.", "Holding only cash."],
-            c: 0,
-            e: `Explanation for question #${i}: Spreading investments across uncorrelated asset classes reduces overall portfolio volatility.`
-        });
-    }
+const easyBank = [];
+const mediumBank = [];
+const hardBank = [];
 
-    const hardBank = [
-        { q: "What does a high Price-to-Earnings (P/E) ratio typically suggest?", o: ["The company is facing liquidation.", "The stock is guaranteed to double.", "Investors expect high future growth rates, though the stock may be priced high relative to current earnings."], c: 2, e: "A high P/E reflects strong growth expectations priced into the stock." },
-        { q: "What is quantitative easing (QE)?", o: ["A central bank monetary policy tool to increase money supply and encourage lending.", "A tax increase on corporations.", "A ban on stock trading."], c: 0, e: "Central banks use QE during economic downturns to inject liquidity into financial systems." },
-        { q: "What does EBITDA stand for in financial analysis?", o: ["Earnings Before Interest, Taxes, Depreciation, and Amortization", "Estimated Business Investment Total Debt Asset", "Economic Bond Index Trade Dividend Analysis Yield"], c: 0, e: "EBITDA measures a company's overall financial performance before non-operating expenses." },
-        { q: "What is an inverse ETF?", o: ["A fund that seeks to deliver the opposite return of its benchmark index.", "A fund that only buys foreign currency.", "A standard S&P 500 index fund."], c: 0, e: "Inverse ETFs profit when the underlying market index declines." },
-        { q: "What is arbitrage in financial markets?", o: ["Buying an asset in one market and simultaneously selling it in another at a higher price for profit.", "Holding a stock for 40 years.", "Paying off student loans early."], c: 0, e: "Arbitrage exploits momentary price discrepancies across different exchanges." },
-        { q: "What is duration in bond investing?", o: ["A measure of a bond price's sensitivity to changes in interest rates.", "The exact date a company was founded.", "The time it takes to open a brokerage account."], c: 0, e: "Duration helps investors gauge how much bond prices will fluctuate when interest rates move." },
-        { q: "What is short selling?", o: ["Buying a stock and holding it forever.", "Borrowing shares, selling them, and hoping to buy them back later at a lower price.", "Selling mutual funds on weekends."], c: 1, e: "Short sellers profit when the price of the borrowed asset drops." },
-        { q: "What is systemic risk?", o: ["The risk of collapse of an entire financial system or market, rather than just one entity.", "The risk of losing your wallet.", "The risk of a single company missing quarterly earnings."], c: 0, e: "Systemic risk can trigger widespread economic crisis." },
-        { q: "What is a liquidity trap?", o: ["A situation where monetary policy becomes ineffective because consumers hoard cash instead of spending/investing.", "A bank vault door locking.", "A high-fee credit card."], c: 0, e: "In a liquidity trap, lowering interest rates further fails to stimulate economic growth." },
-        { q: "What is the efficient market hypothesis (EMH)?", o: ["Asset prices fully reflect all available information.", "Markets are completely random and unpredictable.", "Stocks always go up by 10% daily."], c: 0, e: "EMH posits that beating the market consistently through stock picking is nearly impossible because prices incorporate all known data." }
-    ];
-    for (let i = 12; i <= 100; i++) {
-        hardBank.push({
-            q: `Advanced Economic Question #${i}: What macroeconomic indicator measures the total monetary value of all finished goods and services produced within a country?`,
-            o: ["Gross Domestic Product (GDP)", "Consumer Price Index (CPI)", "Producer Price Index (PPI)"],
-            c: 0,
-            e: `Explanation for question #${i}: GDP is the standard scorecard for measuring a nation's overall economic output.`
-        });
-    }
+// ==========================================
+// EASY BANK (Total: 30 Unique Questions)
+// ==========================================
+const rawEasy = [
+    { q: "What is compounding interest?", c: "Earning interest on both principal and accumulated interest.", w1: "A fixed fee charged by banks.", w2: "A government tax on dividends.", e: "Compounding interest is the snowball effect where your money makes money, and then that new money makes even more money." },
+    { q: "What does 'budgeting' mean?", c: "Creating a plan to allocate income toward expenses, savings, and investments.", w1: "Spending money without checking your balance.", w2: "Borrowing cash from friends.", e: "A budget is your financial roadmap ensuring your income covers necessities and savings goals." },
+    { q: "What is a stock?", c: "A share of ownership in a publicly traded company.", w1: "A physical item kept in a warehouse.", w2: "A type of government-issued savings bond.", e: "Buying a stock means you own a tiny fractional piece of that corporation." },
+    { q: "Which of these is generally considered an emergency fund target?", c: "3 to 6 months of living expenses.", w1: "1 week of grocery money.", w2: "Your entire yearly salary.", e: "Financial advisors recommend 3-6 months of essential living expenses tucked safely in high-yield savings." },
+    { q: "What is inflation?", c: "The increase in prices of goods and services over time.", w1: "The drop in bank interest rates.", w2: "A sudden discount on retail stocks.", e: "Inflation reduces the purchasing power of your money over time." },
+    { q: "What is a debit card linked to?", c: "Your own checking account funds.", w1: "A line of credit lent by the bank.", w2: "A cryptocurrency wallet only.", e: "Debit cards draw directly from money you already deposited into your checking account." },
+    { q: "What is the primary purpose of insurance?", c: "To protect against major financial loss or catastrophe.", w1: "To guarantee profit investments.", w2: "To lower your credit score.", e: "Insurance acts as a safety net against unexpected, high-cost events like accidents or medical emergencies." },
+    { q: "What does APR stand for in lending?", c: "Annual Percentage Rate", w1: "Actual Paid Return", w2: "Asset Portfolio Ratio", e: "APR represents the yearly cost of borrowing funds, including interest and standard fees." },
+    { q: "What is a credit score used for by lenders?", c: "To determine how trustworthy you are as a borrower based on past history.", w1: "To calculate your exact height and age.", w2: "To check your social media presence.", e: "Lenders check credit scores to assess the risk of lending you money for mortgages, cars, or credit cards." },
+    { q: "What is a dividend?", c: "A portion of a company's earnings paid out to shareholders.", w1: "A penalty fee for late credit payments.", w2: "A tax charged on savings accounts.", e: "Many established companies distribute a slice of their quarterly profits directly to stockholders as cash dividends." },
+    { q: "What is the primary benefit of a savings account?", c: "Earning safe interest while keeping cash accessible", w1: "Guaranteed doubling of money overnight", w2: "Avoiding all bank fees permanently", e: "Savings accounts provide liquidity and a safe place to earn modest interest." },
+    { q: "What is 'net income'?", c: "Take-home pay after taxes and deductions", w1: "Total earnings before any taxes", w2: "The amount you spend on shopping", e: "Net income is what actually hits your bank account after deductions." },
+    { q: "What is a fixed expense?", c: "An expense that stays the same amount every month like rent", w1: "An expense that changes randomly every day", w2: "Money spent purely on entertainment", e: "Fixed expenses are predictable costs like rent or loan payments." },
+    { q: "What is a variable expense?", c: "Costs that change month-to-month like groceries or utility bills", w1: "Your monthly car loan payment", w2: "Your fixed mortgage rate", e: "Variable expenses require active budgeting because they fluctuate." },
+    { q: "Why is a credit card different from a debit card?", c: "Credit cards borrow money you pay back later; debit uses your own bank funds", w1: "Debit cards charge high interest rates", w2: "There is no functional difference", e: "Credit is a short-term loan from the bank; debit is your own immediate cash." },
+    { q: "What does 'living below your means' mean?", c: "Spending less than you make", w1: "Spending more than your salary", w2: "Never buying anything ever", e: "It creates a financial buffer for savings and investing." },
+    { q: "What is a certificate of deposit (CD)?", c: "A savings tool with a fixed term and interest rate", w1: "A high-risk stock market option", w2: "A type of credit card rewards program", e: "CDs lock your money away for a set period in exchange for a guaranteed rate." },
+    { q: "What is opportunity cost?", c: "The loss of potential gain when one alternative is chosen", w1: "The exact price tag of a retail item", w2: "The tax rate on capital gains", e: "Every financial choice has a trade-off represented by what you gave up." },
+    { q: "What is a bank routing number used for?", c: "Identifying the specific financial institution for transactions", w1: "Tracking your personal credit score", w2: "Calculating your annual income tax", e: "Routing numbers pinpoint the bank involved in a direct deposit or wire." },
+    { q: "What is a gross salary?", c: "Total earnings before taxes and deductions are taken out", w1: "Your final paycheck amount", w2: "The money left over for savings", e: "Gross pay is the full contracted amount before government and benefit deductions." },
+    { q: "What is a financial goal?", c: "A target regarding saving, earning, or spending money over time", w1: "A random bank statement", w2: "An unexpected medical bill", e: "Setting financial goals gives direction to your budgeting habits." },
+    { q: "What is a secured loan?", c: "A loan backed by collateral like a car or house", w1: "A loan with zero requirements", w2: "A friendly handshake agreement", e: "Collateral lowers risk for the lender if you default." },
+    { q: "What is an unsecured loan?", c: "A loan not backed by collateral, relying purely on creditworthiness", w1: "A mortgage on a house", w2: "An auto loan", e: "Credit cards and personal loans are typically unsecured." },
+    { q: "What is the function of a central bank?", c: "Managing a nation's currency, money supply, and interest rates", w1: "Giving free cash to citizens", w2: "Managing personal checking accounts", e: "Central banks oversee monetary policy for the broader economy." },
+    { q: "What is philanthropy?", c: "Donating time, money, or resources to charitable causes", w1: "Buying luxury goods", w2: "Paying monthly utility bills", e: "Philanthropy focuses on improving the welfare of others." },
+    { q: "What does 'liquidity' mean in finance?", c: "How quickly an asset can be converted into cash without losing value", w1: "How much water is in a bank vault", w2: "The interest rate on a loan", e: "Cash is fully liquid; real estate is much less liquid." },
+    { q: "What is an automated transfer?", c: "Setting money to move automatically into savings on payday", w1: "Manually paying bills at the ATM", w2: "A bank error", e: "Automation removes the friction of remembering to save." },
+    { q: "What is a fee-free ATM?", c: "An ATM machine that doesn't charge you extra to withdraw your money", w1: "An ATM that gives out free cash", w2: "A broken cash machine", e: "Using fee-free network ATMs saves you from unnecessary charges." },
+    { q: "What is a consumer?", c: "A person who purchases goods and services for personal use", w1: "A bank employee", w2: "A corporate shareholder", e: "Consumers drive economic demand through everyday purchasing decisions." },
+    { q: "What is financial literacy?", c: "The ability to understand and effectively use various financial skills", w1: "Knowing how to write a check", w2: "Having a million dollars", e: "Financial literacy covers budgeting, investing, and smart borrowing." }
+];
+
+rawEasy.forEach((item, idx) => {
+    easyBank.push(createQuestion("Easy Foundation Question", item.c, item.w1, item.w2, idx + 1, item.e));
+});
+
+
+// ==========================================
+// MEDIUM BANK (Total: 30 Unique Questions)
+// ==========================================
+const rawMedium = [
+    { q: "If your credit utilization ratio is 75%, how does it impact your score?", c: "It actively harms your score due to perceived financial distress.", w1: "It has no impact.", w2: "It rapidly boosts your score.", e: "Keeping credit utilization below 30% is crucial; high utilization signals heavy debt reliance." },
+    { q: "What is diversification in investing?", c: "Spreading investments across various asset classes to reduce risk.", w1: "Putting all your money into a single volatile stock.", w2: "Buying only cryptocurrency.", e: "Diversification protects your portfolio so a downturn in one sector doesn't ruin your entire net worth." },
+    { q: "What is a mutual fund?", c: "A pool of money from many investors used to buy a diversified basket of assets.", w1: "A personal loan from your employer.", w2: "A checking account with zero fees.", e: "Mutual funds offer instant diversification managed by professional fund managers." },
+    { q: "What does 'net worth' mean?", c: "Total assets minus total liabilities.", w1: "Your total yearly salary before taxes.", w2: "The amount of cash in your wallet right now.", e: "Net worth is everything you own of value subtracted by what you owe." },
+    { q: "What is a fixed-rate mortgage?", c: "A home loan where the interest rate stays the same for the entire loan term.", w1: "A loan where the interest rate changes every month.", w2: "A rental agreement for an apartment.", e: "Fixed-rate mortgages protect you against rising market interest rates over 15 or 30 years." },
+    { q: "What is capital gains tax?", c: "A tax paid on profits realized from selling an asset like a stock or real estate.", w1: "A tax paid on grocery purchases.", w2: "A penalty for opening a savings account.", e: "When you sell an investment for more than you bought it for, the government taxes that profit as capital gains." },
+    { q: "What is a Bear Market?", c: "A market condition where stock prices fall significantly by 20% or more.", w1: "A market where stocks surge upward continuously.", w2: "A seasonal sale on banking products.", e: "Bear markets represent prolonged pessimism and falling asset prices." },
+    { q: "What is a Bull Market?", c: "A prolonged period of rising stock prices and investor optimism.", w1: "A declining economy.", w2: "A banking holiday.", e: "Bull markets feature rising confidence and strong economic growth." },
+    { q: "What is an index fund?", c: "A fund designed to track the performance of a specific market index like the S&P 500.", w1: "A high-risk startup fund.", w2: "A manual ledger of your daily spending.", e: "Index funds offer low expense ratios and broad market exposure." },
+    { q: "What is compound frequency?", c: "How often interest is calculated and added to your balance.", w1: "How many times you check your bank app per day.", w2: "The speed of stock trades.", e: "The more frequently interest compounds (daily vs. annually), the faster your wealth accumulates." },
+    { q: "What is asset allocation?", c: "Dividing investments among different categories like stocks, bonds, and cash", w1: "Buying one single stock to maximize returns", w2: "Keeping all funds in checking accounts", e: "Asset allocation balances risk and reward according to your timeline." },
+    { q: "What is a Treasury bond?", c: "A government-backed debt security considered low risk", w1: "A high-risk corporate startup note", w2: "A commercial bank loan", e: "Treasury bonds pay periodic interest backed by the federal government." },
+    { q: "What is a vesting schedule?", c: "The timeline over which an employee earns the right to company stock options", w1: "The dress code for a corporate office", w2: "A monthly payment plan for credit cards", e: "Vesting encourages employee retention by spacing out ownership rewards." },
+    { q: "What is an expense ratio?", c: "The annual fee charged by mutual funds or ETFs to manage your money", w1: "The interest rate on a credit card", w2: "The bank fee for opening a checking account", e: "Lower expense ratios mean more of your investment returns stay in your pocket." },
+    { q: "What is a fiduciary?", c: "A financial professional legally obligated to act in your best financial interest", w1: "A person who sells high-commission insurance products", w2: "A loan officer at a commercial bank", e: "Fiduciaries must put client wellbeing ahead of their own commissions." },
+    { q: "What is rebalancing a portfolio?", c: "Adjusting asset weights back to your original target allocation", w1: "Closing all your brokerage accounts every year", w2: "Withdrawing all funds into physical cash", e: "Rebalancing ensures your portfolio doesn't accidentally become too risky." },
+    { q: "What is a Roth IRA?", c: "A retirement account funded with after-tax dollars where withdrawals are tax-free", w1: "A retirement account taxed upon withdrawal", w2: "A short-term business savings account", e: "Roth IRAs let your investments grow completely tax-free for retirement." },
+    { q: "What is a traditional 401(k)?", c: "An employer-sponsored retirement account funded with pre-tax dollars", w1: "A personal emergency savings account", w2: "A credit card rewards program", e: "Traditional 401(k) contributions lower your current taxable income." },
+    { q: "What is a primary market in finance?", c: "Where securities are created and sold for the first time, like an IPO", w1: "Where everyday investors trade stocks among themselves", w2: "A local farmers market", e: "Companies raise direct capital from investors in the primary market." },
+    { q: "What is a secondary market?", c: "Where existing shares are traded among investors, like the NYSE", w1: "A pawn shop for financial assets", w2: "The market for government bonds only", e: "Stock exchanges like NASDAQ or NYSE operate as secondary markets." },
+    { q: "What is a margin account?", c: "A brokerage account where you borrow money from the broker to buy securities", w1: "A savings account with zero fees", w2: "A secure bank account for minors", e: "Trading on margin magnifies both potential gains and losses." },
+    { q: "What is dividend yield?", c: "A financial ratio showing how much a company pays out in dividends relative to its stock price", w1: "The total profit of a retail store", w2: "The interest rate on a car loan", e: "Dividend yield helps income-focused investors evaluate cash returns." },
+    { q: "What is a bear market rally?", c: "A temporary price rise during an overall downward market trend", w1: "A permanent shift to a bull market", w2: "A celebration held by bankers", e: "Bear market rallies can trick investors into thinking the downturn is over." },
+    { q: "What is the role of a credit bureau?", c: "Collecting credit history data to create credit reports and scores", w1: "Lending money directly to consumers", w2: "Regulating stock market trading", e: "Equifax, Experian, and TransUnion track your borrowing history." },
+    { q: "What is an umbrella insurance policy?", c: "Extra liability coverage that goes beyond the limits of standard policies", w1: "Insurance specifically for rainy weather", w2: "Health insurance for seasonal workers", e: "Umbrella insurance protects against catastrophic lawsuits." },
+    { q: "What is a municipal bond?", c: "A bond issued by local or state governments to fund public projects", w1: "A bond issued by a private tech company", w2: "A personal loan between family members", e: "Municipal bond interest is often exempt from federal taxes." },
+    { q: "What is economic recession?", c: "A significant decline in economic activity spread across the economy lasting months", w1: "A sudden rise in employment and stock prices", w2: "A holiday shopping weekend", e: "Recessions are officially tracked using GDP, employment, and retail indicators." },
+    { q: "What is dollar-cost averaging?", c: "Investing a fixed amount of money at regular intervals regardless of market swings", w1: "Timing the market to buy at absolute bottoms", w2: "Converting dollars into foreign currency", e: "Dollar-cost averaging removes emotional guesswork from investing." },
+    { q: "What is a mutual fund's NAV?", c: "Net Asset Value per share calculated daily", w1: "Net Annual Volume of trades", w2: "National Asset Verification fee", e: "NAV represents the per-share value of the fund's underlying assets." },
+    { q: "What is a corporate bond?", c: "A debt instrument issued by companies to raise capital", w1: "A share of ownership in a corporation", w2: "A government-backed savings certificate", e: "Bondholders act as lenders to the corporation in exchange for regular interest." }
+];
+
+rawMedium.forEach((item, idx) => {
+    mediumBank.push(createQuestion("Intermediate Market Question", item.c, item.w1, item.w2, idx + 1, item.e));
+});
+
+
+// ==========================================
+// HARD BANK (Total: 30 Unique Questions)
+// ==========================================
+const rawHard = [
+    { q: "What does a high Price-to-Earnings (P/E) ratio typically suggest?", c: "Investors expect high future growth rates, though the stock may be priced high relative to current earnings.", w1: "The company is facing liquidation.", w2: "The stock is guaranteed to double.", e: "A high P/E reflects strong growth expectations priced into the stock." },
+    { q: "What is quantitative easing (QE)?", c: "A central bank monetary policy tool to increase money supply and encourage lending.", w1: "A tax increase on corporations.", w2: "A ban on stock trading.", e: "Central banks use QE during economic downturns to inject liquidity into financial systems." },
+    { q: "What does EBITDA stand for in financial analysis?", c: "Earnings Before Interest, Taxes, Depreciation, and Amortization", w1: "Estimated Business Investment Total Debt Asset", w2: "Economic Bond Index Trade Dividend Analysis Yield", e: "EBITDA measures a company's overall financial performance before non-operating expenses." },
+    { q: "What is an inverse ETF?", c: "A fund that seeks to deliver the opposite return of its benchmark index.", w1: "A fund that only buys foreign currency.", w2: "A standard S&P 500 index fund.", e: "Inverse ETFs profit when the underlying market index declines." },
+    { q: "What is arbitrage in financial markets?", c: "Buying an asset in one market and simultaneously selling it in another at a higher price for profit.", w1: "Holding a stock for 40 years.", w2: "Paying off student loans early.", e: "Arbitrage exploits momentary price discrepancies across different exchanges." },
+    { q: "What is duration in bond investing?", c: "A measure of a bond price's sensitivity to changes in interest rates.", w1: "The exact date a company was founded.", w2: "The time it takes to open a brokerage account.", e: "Duration helps investors gauge how much bond prices will fluctuate when interest rates move." },
+    { q: "What is short selling?", c: "Borrowing shares, selling them, and hoping to buy them back later at a lower price.", w1: "Buying a stock and holding it forever.", w2: "Selling mutual funds on weekends.", e: "Short sellers profit when the price of the borrowed asset drops." },
+    { q: "What is systemic risk?", c: "The risk of collapse of an entire financial system or market, rather than just one entity.", w1: "The risk of losing your wallet.", w2: "The risk of a single company missing quarterly earnings.", e: "Systemic risk can trigger widespread economic crisis." },
+    { q: "What is a liquidity trap?", c: "A situation where monetary policy becomes ineffective because consumers hoard cash instead of spending/investing.", w1: "A bank vault door locking.", w2: "A high-fee credit card.", e: "In a liquidity trap, lowering interest rates further fails to stimulate economic growth." },
+    { q: "What is the efficient market hypothesis (EMH)?", c: "Asset prices fully reflect all available information.", w1: "Markets are completely random and unpredictable.", w2: "Stocks always go up by 10% daily.", e: "EMH posits that beating the market consistently through stock picking is nearly impossible because prices incorporate all known data." },
+    { q: "What is stagflation?", c: "A combination of stagnant economic growth, high unemployment, and high inflation", w1: "Rapid economic expansion with zero inflation", w2: "A seasonal drop in retail stock prices", e: "Stagflation is notoriously difficult for central banks to manage using traditional tools." },
+    { q: "What is a derivatives contract?", c: "A financial security with a value that relies upon an underlying asset or group of assets", w1: "A physical certificate proving company ownership", w2: "A basic checking account agreement", e: "Options, futures, and swaps are common types of derivatives." },
+    { q: "What is beta in portfolio theory?", c: "A measure of a stock's volatility in relation to the overall market", w1: "The exact dividend payout percentage", w2: "The total debt-to-equity ratio", e: "A beta above 1.0 indicates higher volatility than the broader market benchmark." },
+    { q: "What is a credit default swap (CDS)?", c: "A financial swap agreement that functions like insurance against a bond default", w1: "A credit card reward redemption program", w2: "A loan refinancing tool for mortgages", e: "CDS contracts played a central role during the 2008 financial crisis." },
+    { q: "What is an inverted yield curve?", c: "When short-term debt instruments yield more than long-term instruments, often signaling recession", w1: "When long-term stocks outperform short-term bonds", w2: "A standard banking holiday schedule", e: "An inverted yield curve has historically been a reliable recession indicator." },
+    { q: "What is a leveraged buyout (LBO)?", c: "The acquisition of another company using a significant amount of borrowed money", w1: "Buying stocks using only your personal savings account", w2: "A merger between two small retail stores", e: "Private equity firms frequently use LBOs to take public companies private." },
+    { q: "What is Alpha in investing?", c: "An investment strategy's ability to beat the market benchmark return", w1: "The total market capitalization of a firm", w2: "The base interest rate set by the central bank", e: "Alpha represents excess return relative to market performance." },
+    { q: "What is the Modigliani-Miller theorem?", c: "A proposition stating that the market value of a company is unaffected by its capital structure", w1: "A formula for calculating compound interest daily", w2: "The rule governing how mutual funds calculate NAV", e: "It forms the basis for modern corporate finance under idealized market conditions." },
+    { q: "What is a contingent convertible (CoCo) bond?", c: "A hybrid debt security that converts into equity if a pre-specified trigger event occurs", w1: "A standard municipal bond with zero risk", w2: "A credit card with a variable APR", e: "CoCos help banks absorb losses automatically during financial distress." },
+    { q: "What is a fiat currency?", c: "Government-issued currency that is not backed by a physical commodity like gold", w1: "Digital cryptocurrency backed by blockchain algorithms", w2: "Foreign currency held in offshore bank vaults", e: "Most modern global currencies operate on fiat systems backed by government decree." },
+    { q: "What is quantitative tightening (QT)?", c: "A monetary policy where a central bank reduces its balance sheet and money supply", w1: "A strict spending limit on retail credit cards", w2: "A tax break for corporate manufacturing", e: "QT is used by central banks to combat high inflation by cooling economic liquidity." },
+    { q: "What is market capitalization?", c: "The total dollar market value of a company's outstanding shares of stock", w1: "The total annual profit earned by a corporation", w2: "The amount of cash held in company reserves", e: "Market cap is calculated by multiplying share price by total outstanding shares." },
+    { q: "What is the Sharpe Ratio used to measure?", c: "Risk-adjusted return of an investment portfolio", w1: "The speed of trade execution on a stock exchange", w2: "The exact credit score of an institutional borrower", e: "Higher Sharpe ratios indicate better risk-adjusted performance." },
+    { q: "What is a recapitalization?", c: "A corporate restructuring of a company's debt and equity mix", w1: "Changing the logo and branding of a bank", w2: "Opening a new branch location overseas", e: "Companies recapitalize to stabilize finances or fend off hostile takeovers." },
+    { q: "What is tracking error in fund management?", c: "The divergence between price behavior of a portfolio and its benchmark index", w1: "A clerical mistake when entering stock ticker symbols", w2: "The bank fee for late wire transfers", e: "Low tracking error means the fund closely mimics its intended index." },
+    { q: "What is greenfield investment?", c: "When a parent company builds its operations in a foreign country from the ground up", w1: "Investing exclusively in eco-friendly energy stocks", w2: "Purchasing an existing foreign competitor", e: "Greenfield investments involve building new facilities rather than buying old ones." },
+    { q: "What is a Dutch auction?", c: "An auction structure where the price drops until a buyer is found or bids are matched", w1: "An auction for tulip bulbs in Amsterdam", w2: "A closed-bid real estate sale", e: "Treasury securities and some IPOs use Dutch auction mechanisms to set pricing." },
+    { q: "What is economic utility?", c: "The total satisfaction or value a consumer derives from consuming a good or service", w1: "The monthly electric and water bill", w2: "The interest rate on a utility stock", e: "Utility theory explains consumer choices and demand curves in microeconomics." },
+    { q: "What is a swap execution facility (SEF)?", c: "A trading platform for financial derivatives like interest rate swaps", w1: "A foreign exchange booth at an airport", w2: "An automated ATM machine network", e: "SEFs provide transparent trading platforms mandated by modern financial regulations." },
+    { q: "What is gross domestic product (GDP)?", c: "The total monetary value of all finished goods and services produced within a country", w1: "The total corporate tax revenue collected by the government", w2: "The sum of all individual consumer bank balances", e: "GDP is the foundational scorecard used to evaluate a nation's macroeconomic output." }
+];
+
+rawHard.forEach((item, idx) => {
+    hardBank.push(createQuestion("Advanced Economic Question", item.c, item.w1, item.w2, idx + 1, item.e));
+});
 
     // -------------------------------------------------------------
 // STATE & DATE-SEED LOGIC
