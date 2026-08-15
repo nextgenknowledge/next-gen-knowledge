@@ -329,15 +329,14 @@
     // -------------------------------------------------------------
     
     // Helper function to build and randomize question options
-function createQuestion(questionText, correctOption, wrongOption1, wrongOption2, index, explanationText) {
+function createQuestion(questionText, actualQuestion, correctOption, wrongOption1, wrongOption2, index, explanationText) {
     const options = [correctOption, wrongOption1, wrongOption2];
-    // Shuffle options using Fisher-Yates
     for (let i = options.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [options[i], options[j]] = [options[j], options[i]];
     }
     return {
-        q: `${questionText} #${index}`,
+        q: `${questionText} #${index}: ${actualQuestion}`, // <--- Includes the real question here!
         o: options,
         c: options.indexOf(correctOption),
         e: explanationText
@@ -385,7 +384,7 @@ const rawEasy = [
 ];
 
 rawEasy.forEach((item, idx) => {
-    easyBank.push(createQuestion("Easy Foundation Question", item.c, item.w1, item.w2, idx + 1, item.e));
+    easyBank.push(createQuestion("Easy Foundation Question", item.q, item.c, item.w1, item.w2, idx + 1, item.e));
 });
 
 
@@ -426,7 +425,7 @@ const rawMedium = [
 ];
 
 rawMedium.forEach((item, idx) => {
-    mediumBank.push(createQuestion("Intermediate Market Question", item.c, item.w1, item.w2, idx + 1, item.e));
+    mediumBank.push(createQuestion("Intermediate Market Question", item.q, item.c, item.w1, item.w2, idx + 1, item.e));
 });
 
 
@@ -467,7 +466,7 @@ const rawHard = [
 ];
 
 rawHard.forEach((item, idx) => {
-    hardBank.push(createQuestion("Advanced Economic Question", item.c, item.w1, item.w2, idx + 1, item.e));
+    hardBank.push(createQuestion("Advanced Economic Question", item.q, item.c, item.w1, item.w2, idx + 1, item.e));
 });
 
     // -------------------------------------------------------------
