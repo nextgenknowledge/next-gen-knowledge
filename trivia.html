@@ -570,58 +570,40 @@
         lucide.createIcons();
     }
 
-    // -------------------------------------------------------------
-// TRIVIA FLOW & FINISH SCREEN HANDLING
-// -------------------------------------------------------------
-let isFinished = false; // Prevents the score from looping/multiplying on extra clicks
-
-function handleContinueOrSubmit() {
-    if (isFinished) return; // Locks out further clicks once completed
-
-    currentQuestionIndex++;
-
-    // Check if we have completed all questions (e.g., question 3)
-    if (currentQuestionIndex >= questions.length) {
-        isFinished = true;
-        triggerFinishSequence();
-        return;
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < todaysQuestions.length) {
+            renderCurrentQuestion();
+        } else {
+            const stats = getProfileStats(currentProfile);
+            const newStreak = stats.streak + 1;
+            saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
+            showFinishedState(false);
+        }
     }
 
-    loadQuestion(currentQuestionIndex);
-}
+    function showFinishedState(alreadyPlayed) {
+        document.getElementById('state-question').classList.add('hidden');
+        document.getElementById('state-start').classList.add('hidden');
+        document.getElementById('state-profile').classList.add('hidden');
+        document.getElementById('state-finished').classList.remove('hidden');
 
-function triggerFinishSequence() {
-    // 1. Hide the active question card / game area
-    const questionCard = document.getElementById('trivia-card') || document.getElementById('question-container');
-    if (questionCard) {
-        questionCard.classList.add('hidden');
+        const sessionScoreElem = document.getElementById('session-score');
+        const finalMsg = document.getElementById('final-message');
+
+        if (alreadyPlayed) {
+            sessionScoreElem.textContent = "ALREADY PLAYED";
+            finalMsg.textContent = `Welcome back, ${currentProfile}! You have already completed today's challenge. Come back tomorrow for a fresh batch of 3 questions and to keep your streak alive!`;
+        } else {
+            sessionScoreElem.textContent = `+${sessionEarnedScore} PTS`;
+            finalMsg.textContent = `Fantastic job, ${currentProfile}! Your score and streak have been successfully recorded to your profile and synced to the global leaderboard.`;
+        }
+        
+        const stats = getProfileStats(currentProfile);
+        document.getElementById('user-streak-display').textContent = stats.streak + ' Days';
+        document.getElementById('user-score-display').textContent = stats.score + ' PTS';
+        renderLeaderboard();
     }
-
-    // 2. Show the "Come back tomorrow" finish screen
-    const finishScreen = document.getElementById('finish-screen');
-    if (finishScreen) {
-        finishScreen.classList.remove('hidden');
-    }
-
-    // 3. Render the final score on the finish screen if elements exist
-    const finalScoreEl = document.getElementById('final-score');
-    if (finalScoreEl) {
-        finalScoreEl.innerText = `${score} PTS`;
-    }
-
-    // 4. Send final score to Google Sheet once (guarded by isFinished)
-    submitScoreToSheet(score, userStreak);
-
-    // 5. Refresh the live leaderboard so they see their rank right away
-    renderLeaderboard();
-}
-
-// Optional: Switch Profile / Reset Button Handler
-function handleSwitchProfile() {
-    localStorage.removeItem('trivia_player_name');
-    currentProfile = "";
-    window.location.reload(); // Reloads page back to the name entry screen
-}
 
 // -------------------------------------------------------------
 // LEADERBOARD RENDERING (FETCHES LIVE FROM GOOGLE SHEET)
