@@ -488,142 +488,122 @@
         initApp();
     }
 
-    // -------------------------------------------------------------
-// GAMEPLAY FLOW & STATE MANAGEMENT
 // -------------------------------------------------------------
-let isFinished = false; // Prevents score/streak multi-click loops
-
-function beginTriviaSession() {
-    currentQuestionIndex = 0;
-    sessionEarnedScore = 0;
-    isFinished = false;
-    
-    document.getElementById('state-start').classList.add('hidden');
-    document.getElementById('state-profile').classList.add('hidden');
-    document.getElementById('state-finished').classList.add('hidden');
-    document.getElementById('state-question').classList.remove('hidden');
-    
-    renderCurrentQuestion();
-}
-
-function renderCurrentQuestion() {
-    const qObj = todaysQuestions[currentQuestionIndex];
-    const counterElem = document.getElementById('question-counter');
-    const tierBadge = document.getElementById('tier-badge');
-    const qText = document.getElementById('question-text');
-    const optionsGrid = document.getElementById('options-grid');
-    const explanationBox = document.getElementById('explanation-box');
-
-    explanationBox.classList.add('hidden');
-    counterElem.textContent = `Question ${currentQuestionIndex + 1} of 3`;
-
-    if (currentQuestionIndex === 0) {
-        tierBadge.textContent = "Easy Tier (100 PTS)";
-        tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-emerald-100 text-emerald-800";
-    } else if (currentQuestionIndex === 1) {
-        tierBadge.textContent = "Medium Tier (250 PTS)";
-        tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-100 text-blue-800";
-    } else {
-        tierBadge.textContent = "Hard Tier (500 PTS)";
-        tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-purple-100 text-purple-800";
-    }
-
-    qText.textContent = qObj.q;
-    optionsGrid.innerHTML = "";
-
-    qObj.o.forEach((optText, idx) => {
-        const btn = document.createElement('button');
-        btn.className = "w-full text-left p-4 rounded-xl border border-navy/10 bg-white font-bold text-navy hover:bg-navy/5 transition flex items-center justify-between group";
-        btn.innerHTML = `<span>${optText}</span><span class="w-6 h-6 rounded-full border border-navy/20 flex items-center justify-center text-xs text-navy/40 group-hover:border-navy group-hover:text-navy">${String.fromCharCode(65 + idx)}</span>`;
-        btn.onclick = () => handleAnswerSelection(idx, btn);
-        optionsGrid.appendChild(btn);
-    });
-    lucide.createIcons();
-}
-
-function handleAnswerSelection(selectedIndex, clickedBtn) {
-    if (isFinished) return;
-    
-    const qObj = todaysQuestions[currentQuestionIndex];
-    const allButtons = document.querySelectorAll('#options-grid button');
-    
-    allButtons.forEach(b => b.disabled = true);
-
-    const isCorrect = (selectedIndex === qObj.c);
-    let ptsAwarded = 0;
-    if (currentQuestionIndex === 0) ptsAwarded = 100;
-    else if (currentQuestionIndex === 1) ptsAwarded = 250;
-    else ptsAwarded = 500;
-
-    if (isCorrect) {
-        clickedBtn.className = "w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-50 font-bold text-emerald-900 flex items-center justify-between";
-        sessionEarnedScore += ptsAwarded;
-    } else {
-        clickedBtn.className = "w-full text-left p-4 rounded-xl border border-rose-500 bg-rose-50 font-bold text-rose-900 flex items-center justify-between";
-        allButtons[qObj.c].className = "w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-50 font-bold text-emerald-900 flex items-center justify-between";
-    }
-
-    const explanationBox = document.getElementById('explanation-box');
-    const resultTitle = document.getElementById('answer-result-title');
-    const explText = document.getElementById('explanation-text');
-
-    explanationBox.classList.remove('hidden');
-    if (isCorrect) {
-        resultTitle.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 inline"></i> Correct! +${ptsAwarded} PTS`;
-        resultTitle.className = "font-extrabold text-sm text-emerald-700 flex items-center gap-2";
-    } else {
-        resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-rose-600 inline"></i> Incorrect.`;
-        resultTitle.className = "font-extrabold text-sm text-rose-700 flex items-center gap-2";
-    }
-    explText.textContent = qObj.e;
-    lucide.createIcons();
-}
-
-function nextQuestion() {
-    // Hard guard to stop multi-click inflation
-    if (isFinished) return; 
-
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex < todaysQuestions.length) {
+    // GAMEPLAY FLOW
+    // -------------------------------------------------------------
+    function beginTriviaSession() {
+        currentQuestionIndex = 0;
+        sessionEarnedScore = 0;
+        document.getElementById('state-start').classList.add('hidden');
+        document.getElementById('state-question').classList.remove('hidden');
         renderCurrentQuestion();
-    } else {
-        // Mark as finished immediately so spamming clicks does nothing
-        isFinished = true; 
+    }
 
+    function renderCurrentQuestion() {
+        const qObj = todaysQuestions[currentQuestionIndex];
+        const counterElem = document.getElementById('question-counter');
+        const tierBadge = document.getElementById('tier-badge');
+        const qText = document.getElementById('question-text');
+        const optionsGrid = document.getElementById('options-grid');
+        const explanationBox = document.getElementById('explanation-box');
+
+        explanationBox.classList.add('hidden');
+        counterElem.textContent = `Question ${currentQuestionIndex + 1} of 3`;
+
+        if (currentQuestionIndex === 0) {
+            tierBadge.textContent = "Easy Tier (100 PTS)";
+            tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-emerald-100 text-emerald-800";
+        } else if (currentQuestionIndex === 1) {
+            tierBadge.textContent = "Medium Tier (250 PTS)";
+            tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-blue-100 text-blue-800";
+        } else {
+            tierBadge.textContent = "Hard Tier (500 PTS)";
+            tierBadge.className = "px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-purple-100 text-purple-800";
+        }
+
+        qText.textContent = qObj.q;
+        optionsGrid.innerHTML = "";
+
+        qObj.o.forEach((optText, idx) => {
+            const btn = document.createElement('button');
+            btn.className = "w-full text-left p-4 rounded-xl border border-navy/10 bg-white font-bold text-navy hover:bg-navy/5 transition flex items-center justify-between group";
+            btn.innerHTML = `<span>${optText}</span><span class="w-6 h-6 rounded-full border border-navy/20 flex items-center justify-center text-xs text-navy/40 group-hover:border-navy group-hover:text-navy">${String.fromCharCode(65 + idx)}</span>`;
+            btn.onclick = () => handleAnswerSelection(idx, btn);
+            optionsGrid.appendChild(btn);
+        });
+        lucide.createIcons();
+    }
+
+    function handleAnswerSelection(selectedIndex, clickedBtn) {
+        const qObj = todaysQuestions[currentQuestionIndex];
+        const allButtons = document.querySelectorAll('#options-grid button');
+        
+        allButtons.forEach(b => b.disabled = true);
+
+        const isCorrect = (selectedIndex === qObj.c);
+        let ptsAwarded = 0;
+        if (currentQuestionIndex === 0) ptsAwarded = 100;
+        else if (currentQuestionIndex === 1) ptsAwarded = 250;
+        else ptsAwarded = 500;
+
+        if (isCorrect) {
+            clickedBtn.className = "w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-50 font-bold text-emerald-900 flex items-center justify-between";
+            sessionEarnedScore += ptsAwarded;
+        } else {
+            clickedBtn.className = "w-full text-left p-4 rounded-xl border border-rose-500 bg-rose-50 font-bold text-rose-900 flex items-center justify-between";
+            allButtons[qObj.c].className = "w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-50 font-bold text-emerald-900 flex items-center justify-between";
+        }
+
+        const explanationBox = document.getElementById('explanation-box');
+        const resultTitle = document.getElementById('answer-result-title');
+        const explText = document.getElementById('explanation-text');
+
+        explanationBox.classList.remove('hidden');
+        if (isCorrect) {
+            resultTitle.innerHTML = `<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 inline"></i> Correct! +${ptsAwarded} PTS`;
+            resultTitle.className = "font-extrabold text-sm text-emerald-700 flex items-center gap-2";
+        } else {
+            resultTitle.innerHTML = `<i data-lucide="x-circle" class="w-4 h-4 text-rose-600 inline"></i> Incorrect.`;
+            resultTitle.className = "font-extrabold text-sm text-rose-700 flex items-center gap-2";
+        }
+        explText.textContent = qObj.e;
+        lucide.createIcons();
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < todaysQuestions.length) {
+            renderCurrentQuestion();
+        } else {
+            const stats = getProfileStats(currentProfile);
+            const newStreak = stats.streak + 1;
+            saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
+            showFinishedState(false);
+        }
+    }
+
+    function showFinishedState(alreadyPlayed) {
+        document.getElementById('state-question').classList.add('hidden');
+        document.getElementById('state-start').classList.add('hidden');
+        document.getElementById('state-profile').classList.add('hidden');
+        document.getElementById('state-finished').classList.remove('hidden');
+
+        const sessionScoreElem = document.getElementById('session-score');
+        const finalMsg = document.getElementById('final-message');
+
+        if (alreadyPlayed) {
+            sessionScoreElem.textContent = "ALREADY PLAYED";
+            finalMsg.textContent = `Welcome back, ${currentProfile}! You have already completed today's challenge. Come back tomorrow for a fresh batch of 3 questions and to keep your streak alive!`;
+        } else {
+            sessionScoreElem.textContent = `+${sessionEarnedScore} PTS`;
+            finalMsg.textContent = `Fantastic job, ${currentProfile}! Your score and streak have been successfully recorded to your profile and synced to the global leaderboard.`;
+        }
+        
         const stats = getProfileStats(currentProfile);
-        const newStreak = stats.streak + 1;
-        saveProfileStats(currentProfile, sessionEarnedScore, newStreak);
-        showFinishedState(false);
+        document.getElementById('user-streak-display').textContent = stats.streak + ' Days';
+        document.getElementById('user-score-display').textContent = stats.score + ' PTS';
+        renderLeaderboard();
     }
-}
-
-function showFinishedState(alreadyPlayed) {
-    document.getElementById('state-question').classList.add('hidden');
-    document.getElementById('state-start').classList.add('hidden');
-    document.getElementById('state-profile').classList.add('hidden');
-    document.getElementById('state-finished').classList.remove('hidden');
-
-    const sessionScoreElem = document.getElementById('session-score');
-    const finalMsg = document.getElementById('final-message');
-
-    if (alreadyPlayed) {
-        sessionScoreElem.textContent = "ALREADY PLAYED";
-        finalMsg.textContent = `Welcome back, ${currentProfile}! You have already completed today's challenge. Come back tomorrow for a fresh batch of 3 questions and to keep your streak alive!`;
-    } else {
-        sessionScoreElem.textContent = `+${sessionEarnedScore} PTS`;
-        finalMsg.textContent = `Fantastic job, ${currentProfile}! Your score and streak have been successfully recorded to your profile and synced to the global leaderboard.`;
-    }
-    
-    const stats = getProfileStats(currentProfile);
-    const streakDisplay = document.getElementById('user-streak-display');
-    const scoreDisplay = document.getElementById('user-score-display');
-    
-    if (streakDisplay) streakDisplay.textContent = stats.streak + ' Days';
-    if (scoreDisplay) scoreDisplay.textContent = stats.score + ' PTS';
-    
-    renderLeaderboard();
-}
 
 // -------------------------------------------------------------
 // LEADERBOARD RENDERING (FETCHES LIVE FROM GOOGLE SHEET)
