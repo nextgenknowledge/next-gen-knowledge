@@ -606,57 +606,68 @@
     }
 
     // -------------------------------------------------------------
-    // LEADERBOARD RENDERING (FETCHES LIVE FROM GOOGLE SHEET)
-    // -------------------------------------------------------------
-    async function renderLeaderboard() {
-        const lbList = document.getElementById('leaderboard-list');
-        lbList.innerHTML = `<div class="text-center py-4 text-gray-400 text-xs font-bold">Loading live rankings...</div>`;
+// LEADERBOARD RENDERING (FETCHES LIVE FROM GOOGLE SHEET)
+// -------------------------------------------------------------
+async function renderLeaderboard() {
+    const lbList = document.getElementById('leaderboard-list');
+    lbList.innerHTML = `<div class="text-center py-4 text-gray-400 text-xs font-bold">Loading live rankings...</div>`;
 
-        try {
-            const response = await fetch(WEB_APP_URL);
-            const data = await response.json();
-            
-            if (Array.isArray(data) && data.length > 0) {
-                leaderboardData = data;
-            }
-        } catch (error) {
-            console.error("Could not fetch Google Sheet leaderboard, using local fallback:", error);
+    try {
+        const response = await fetch(WEB_APP_URL);
+        const data = await response.json();
+        
+        if (Array.isArray(data) && data.length > 0) {
+            leaderboardData = data;
         }
+    } catch (error) {
+        console.error("Could not fetch Google Sheet leaderboard, using local fallback:", error);
+    }
 
-        lbList.innerHTML = "";
-        leaderboardData.sort((a, b) => b.score - a.score);
+    lbList.innerHTML = "";
+    
+    // Updated to use your exact sheet key: newScore
+    leaderboardData.sort((a, b) => {
+        const scoreA = Number(a.newScore !== undefined ? a.newScore : 0);
+        const scoreB = Number(b.newScore !== undefined ? b.newScore : 0);
+        return scoreB - scoreA;
+    });
 
-        leaderboardData.forEach((player, idx) => {
-            const row = document.createElement('div');
-            let rankBadge = `<span class="w-8 h-8 rounded-full bg-navy/5 text-navy font-bold flex items-center justify-center text-xs">#${idx + 1}</span>`;
-            if (idx === 0) rankBadge = `<span class="w-8 h-8 rounded-full bg-gold text-white font-bold flex items-center justify-center text-xs shadow-md"><i data-lucide="crown" class="w-4 h-4"></i></span>`;
-            if (idx === 1) rankBadge = `<span class="w-8 h-8 rounded-full bg-gray-300 text-navy font-bold flex items-center justify-center text-xs">#2</span>`;
-            if (idx === 2) rankBadge = `<span class="w-8 h-8 rounded-full bg-amber-700 text-white font-bold flex items-center justify-center text-xs">#3</span>`;
+    leaderboardData.forEach((player, idx) => {
+        const row = document.createElement('div');
+        let rankBadge = `<span class="w-8 h-8 rounded-full bg-navy/5 text-navy font-bold flex items-center justify-center text-xs">#${idx + 1}</span>`;
+        if (idx === 0) rankBadge = `<span class="w-8 h-8 rounded-full bg-gold text-white font-bold flex items-center justify-center text-xs shadow-md"><i data-lucide="crown" class="w-4 h-4"></i></span>`;
+        if (idx === 1) rankBadge = `<span class="w-8 h-8 rounded-full bg-gray-300 text-navy font-bold flex items-center justify-center text-xs">#2</span>`;
+        if (idx === 2) rankBadge = `<span class="w-8 h-8 rounded-full bg-amber-700 text-white font-bold flex items-center justify-center text-xs">#3</span>`;
 
-            const isCurrent = (currentProfile && player.name.toLowerCase() === currentProfile.toLowerCase());
+        // Updated to use your exact sheet keys: PlayerName
+        const playerName = player.playerName || "Anonymous";
+        const playerScore = player.newScore !== undefined ? player.newScore : 0;
+        const playerStreak = player.newStreak !== undefined ? player.newStreak : 1;
 
-            row.className = `p-4 rounded-2xl flex items-center justify-between border ${isCurrent ? 'bg-gold/10 border-gold/40 shadow-sm' : 'bg-white border-navy/5'}`;
-            row.innerHTML = `
-                <div class="flex items-center gap-4">
-                    ${rankBadge}
-                    <div>
-                        <div class="font-extrabold text-navy text-sm flex items-center gap-2">
-                            ${player.name}
-                            ${isCurrent ? '<span class="text-[10px] bg-gold text-navy px-2 py-0.5 rounded-full font-bold">You</span>' : ''}
-                        </div>
-                        <div class="text-xs text-gray-400 flex items-center gap-1 mt-0.5">
-                            <i data-lucide="flame" class="w-3 h-3 text-gold"></i> ${player.streak || 1} Day Streak
-                        </div>
+        const isCurrent = (currentProfile && playerName.toLowerCase() === currentProfile.toLowerCase());
+
+        row.className = `p-4 rounded-2xl flex items-center justify-between border ${isCurrent ? 'bg-gold/10 border-gold/40 shadow-sm' : 'bg-white border-navy/5'}`;
+        row.innerHTML = `
+            <div class="flex items-center gap-4">
+                ${rankBadge}
+                <div>
+                    <div class="font-extrabold text-navy text-sm flex items-center gap-2">
+                        ${playerName}
+                        ${isCurrent ? '<span class="text-[10px] bg-gold text-navy px-2 py-0.5 rounded-full font-bold">You</span>' : ''}
+                    </div>
+                    <div class="text-xs text-gray-400 flex items-center gap-1 mt-0.5">
+                        <i data-lucide="flame" class="w-3 h-3 text-gold"></i> ${playerStreak} Day Streak
                     </div>
                 </div>
-                <div class="text-right">
-                    <div class="font-extrabold text-navy text-base">${player.score} PTS</div>
-                </div>
-            `;
-            lbList.appendChild(row);
-        });
-        lucide.createIcons();
-    }
+            </div>
+            <div class="text-right">
+                <div class="font-extrabold text-navy text-base">${playerScore} PTS</div>
+            </div>
+        `;
+        lbList.appendChild(row);
+    });
+    lucide.createIcons();
+}
 </script>
 </body>
 </html>
