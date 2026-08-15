@@ -327,24 +327,6 @@
     // -------------------------------------------------------------
     // 300 QUESTION MASTER BANKS (100 Easy, 100 Medium, 100 Hard)
     // -------------------------------------------------------------
-    // Helper function to shuffle options and track the correct answer index
-function generateRandomizedQuestion(questionText, correctOption, wrongOption1, wrongOption2, index, explanationText) {
-    const options = [correctOption, wrongOption1, wrongOption2];
-    for (let i = options.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [options[i], options[j]] = [options[j], options[i]];
-    }
-    return {
-        q: `${questionText} #${index}`,
-        o: options,
-        c: options.indexOf(correctOption),
-        e: explanationText
-    };
-}
-
-const easyBank = [];
-const mediumBank = [];
-const hardBank = [];
     
     const easyBank = [
         { q: "What is compounding interest?", o: ["Earning interest on both principal and accumulated interest.", "A fixed fee charged by banks.", "A government tax on dividends."], c: 0, e: "Compounding interest is the snowball effect where your money makes money, and then that new money makes even more money." },
@@ -358,7 +340,7 @@ const hardBank = [];
         { q: "What is a credit score used for by lenders?", o: ["To determine how trustworthy you are as a borrower based on past history.", "To calculate your exact height and age.", "To check your social media presence."], c: 0, e: "Lenders check credit scores to assess the risk of lending you money for mortgages, cars, or credit cards." },
         { q: "What is a dividend?", o: ["A penalty fee for late credit payments.", "A portion of a company's earnings paid out to shareholders.", "A tax charged on savings accounts."], c: 1, e: "Many established companies distribute a slice of their quarterly profits directly to stockholders as cash dividends." }
     ];
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 12; i <= 100; i++) {
         easyBank.push({
             q: `Easy Foundation Question #${i}: What is a core tenet of smart personal finance?`,
             o: ["Spending less than you earn and investing the difference.", "Keeping all cash under your mattress.", "Maxing out high-interest credit cards."],
@@ -379,7 +361,7 @@ const hardBank = [];
         { q: "What is an index fund?", o: ["A fund designed to track the performance of a specific market index like the S&P 500.", "A high-risk startup fund.", "A manual ledger of your daily spending."], c: 0, e: "Index funds offer low expense ratios and broad market exposure." },
         { q: "What is compound frequency?", o: ["How often interest is calculated and added to your balance.", "How many times you check your bank app per day.", "The speed of stock trades."], c: 0, e: "The more frequently interest compounds (daily vs. annually), the faster your wealth accumulates." }
     ];
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 12; i <= 100; i++) {
         mediumBank.push({
             q: `Intermediate Market Question #${i}: Which strategy helps mitigate systematic market risk?`,
             o: ["Asset allocation and broad market diversification.", "Day trading single tech stocks.", "Holding only cash."],
@@ -400,7 +382,7 @@ const hardBank = [];
         { q: "What is a liquidity trap?", o: ["A situation where monetary policy becomes ineffective because consumers hoard cash instead of spending/investing.", "A bank vault door locking.", "A high-fee credit card."], c: 0, e: "In a liquidity trap, lowering interest rates further fails to stimulate economic growth." },
         { q: "What is the efficient market hypothesis (EMH)?", o: ["Asset prices fully reflect all available information.", "Markets are completely random and unpredictable.", "Stocks always go up by 10% daily."], c: 0, e: "EMH posits that beating the market consistently through stock picking is nearly impossible because prices incorporate all known data." }
     ];
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 12; i <= 100; i++) {
         hardBank.push({
             q: `Advanced Economic Question #${i}: What macroeconomic indicator measures the total monetary value of all finished goods and services produced within a country?`,
             o: ["Gross Domestic Product (GDP)", "Consumer Price Index (CPI)", "Producer Price Index (PPI)"],
@@ -428,13 +410,12 @@ let leaderboardData = JSON.parse(localStorage.getItem('ngk_leaderboard_db') || J
 
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzBq4NLgV0CgCXF9nEKSGgNPaWyHmwp1FweyT-mFHB58V0K7fMYyip4fkRna5ddgYE/exec";
 
-    function getDayOfYearIndex() {
+function getDayOfYearIndex() {
     const now = new Date();
-    const year = now.getFullYear();
-    const start = new Date(year, 0, 0);
-    const diff = (now - start);
+    const start = new Date(now.getFullYear(), 0, 0);
+    const diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
     const oneDay = 1000 * 60 * 60 * 24;
-    return Math.floor(diff / oneDay) + (year * 365);
+    return Math.floor(diff / oneDay) + (now.getFullYear() * 365);
 }
 
 function loadTodaysQuestions() {
