@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us | Next-Gen Knowledge</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag.js?id=G-FXJKCLQMSN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FXJKCLQMSN');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
+                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
+                        surface: '#F9FAFB'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    boxShadow: { 
+                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
+                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
+                    }
+                }
+            }
+        }
+   </script>        
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                background-color: rgba(255,255,255,0.4);
+                backdrop-filter: blur(8px);
+            }
+            nav .max-w-7xl {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            nav .hidden.md\:flex {
+                display: flex !important;
+                gap: 1rem !important;
+                font-size: 0.75rem;
+                width: 100%;
+                justify-content: center;
+                border-top: 1px solid rgba(10, 35, 66, 0.05);
+                padding-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
+
+<!-- Unified Navigation Bar -->
+<nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-navy/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition duration-300">
+            <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
+        </a>
+        <div class="hidden md:flex gap-8 font-bold text-navy">
+            <a href="index.html" class="hover:text-gold transition">Home</a>
+            <a href="about.html" class="hover:text-gold transition">About Us</a>
+            <a href="programs.html" class="hover:text-gold transition">Programs</a>
+            <a href="team.html" class="hover:text-gold transition">Team</a>
+            <a href="trivia.html" class="hover:text-gold transition">NEW: TRIVIA ARENA</a>
+        </div>
+        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-36 pb-16 lg:pt-52 lg:pb-24 bg-gradient-to-b from-surface to-white text-center">
+    <div class="max-w-4xl mx-auto px-6 reveal active">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
+            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+            Support Our Mission
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-navy">Invest in the Next Generation of Thinkers</h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            All contributions are tax-deductible and directly support our student-led financial literacy and entrepreneurship programs.
+        </p>
+    </div>
+</section>
+
+<!-- Donation Content Section -->
+<section class="py-16 px-6 bg-white reveal">
+    <div class="max-w-3xl mx-auto space-y-12">
+        
+        <div class="bg-surface p-8 md:p-12 rounded-[2.5rem] border border-navy/5 shadow-premium text-center space-y-6">
+            <div class="w-16 h-16 bg-gold/10 text-gold rounded-2xl mx-auto flex items-center justify-center">
+                <i data-lucide="heart" class="w-8 h-8"></i>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-navy">Powered by Hack Club</h2>
+            <p class="text-gray-600 leading-relaxed max-w-lg mx-auto">
+                Next-Gen Knowledge is a fiscally sponsored project of the <strong>Hack Club Foundation</strong>, a registered 501(c)(3) non-profit organization. This means your donation is fully tax-deductible and securely processed through HCB.
+            </p>
+            <div class="pt-4">
+                <!-- REPLACE THE HREF BELOW WITH YOUR ACTUAL HCB DONATION LINK -->
+                <a href="https://hcb.hackclub.com/donations/start/YOUR-SLUG" target="_blank" class="inline-flex items-center justify-center gap-3 bg-navy text-white font-bold px-10 py-4 rounded-full hover:bg-gold hover:text-navy transition-all duration-300 shadow-xl text-lg">
+                    <span>Proceed to Secure Donation Page</span>
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                </a>
+            </div>
+            <p class="text-xs text-gray-400">You will be redirected to our official secure portal hosted on hcb.hackclub.com.</p>
+        </div>
+
+        <!-- Transparency / Impact Grid -->
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-surface p-6 rounded-2xl border border-navy/5 space-y-2">
+                <div class="text-gold font-extrabold text-lg">100% Secure</div>
+                <p class="text-gray-600 text-sm">Payments are processed securely through Hack Club’s standardized financial infrastructure.</p>
+            </div>
+            <div class="bg-surface p-6 rounded-2xl border border-navy/5 space-y-2">
+                <div class="text-gold font-extrabold text-lg">Tax Deductible</div>
+                <p class="text-gray-600 text-sm">Donors automatically receive a tax receipt for their records via email post-checkout.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 bg-white border-t border-navy/5">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+        <div class="flex items-center gap-3">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
+            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
+            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
+            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
+            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-1">
+            <p class="text-navy/60 text-xs max-w-xs text-center md:text-right">
+                Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
+            </p>
+            <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Scroll reveal animation script
+    window.addEventListener('scroll', revealOnScroll);
+    function revealOnScroll() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    revealOnScroll();
+</script>
+</body>
+</html>
