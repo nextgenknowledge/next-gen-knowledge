@@ -59,8 +59,8 @@
    <style>
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
@@ -85,20 +85,20 @@
 <body class="bg-surface text-navy font-sans antialiased overflow-x-hidden selection:bg-gold selection:text-navy">
 
 <!-- Ambient Background Light Gradients -->
-<div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-glow"></div>
-<div class="absolute top-[40%] right-10 w-[500px] h-[500px] bg-navy/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-glow"></div>
+<div class="absolute top-[40%] right-10 w-[400px] h-[400px] bg-navy/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
 <!-- Modern Floating Navigation -->
-<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
-    <nav class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-3 flex justify-between items-center shadow-glass transition-all duration-300">
+<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3">
+    <nav class="max-w-7xl mx-auto glass-panel rounded-full px-6 py-2.5 flex justify-between items-center shadow-glass transition-all duration-300">
         <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-3 group">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-9 w-auto group-hover:scale-110 transition duration-300">
-            <span class="text-lg sm:text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto group-hover:scale-110 transition duration-300">
+            <span class="text-base sm:text-lg font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
         </a>
         
         <!-- Links -->
-        <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-navy/80">
+        <div class="hidden md:flex items-center gap-7 font-semibold text-sm text-navy/80">
             <a href="index.html" class="text-gold transition-colors">Home</a>
             <a href="about.html" class="hover:text-gold transition-colors">About Us</a>
             <a href="programs.html" class="hover:text-gold transition-colors">Programs</a>
@@ -112,87 +112,87 @@
         
         <!-- CTA -->
         <div class="flex items-center gap-3">
-            <a href="enroll.html" class="bg-navy text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md hover:scale-105 active:scale-95">Enroll Now</a>
+            <a href="enroll.html" class="bg-navy text-white px-4 py-2 rounded-full text-xs sm:text-sm font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md hover:scale-105 active:scale-95">Enroll Now</a>
         </div>
     </nav>
 </header>
 
 <!-- Hero Section -->
-<main class="relative pt-40 pb-28 lg:pt-52 lg:pb-36 overflow-hidden">
+<main class="relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             
             <!-- Left Text Content -->
-            <div class="w-full lg:w-1/2 space-y-8 reveal active">
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gold/15 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/35 shadow-sm animate-float">
+            <div class="w-full lg:w-1/2 space-y-6 reveal active">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gold/15 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/35 shadow-sm animate-float">
                     <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
                     Investor Academy Starts Sep 12 — Secure Your Seat
                 </div>
                 
-                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy leading-[1.08]">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy leading-[1.1]">
                     Real-World Skills for the <span class="text-gold underline decoration-gold/30 underline-offset-8">Next Generation</span>
                 </h1>
                 
-                <p class="text-lg sm:text-xl text-navy/70 leading-relaxed max-w-xl font-medium">
+                <p class="text-base sm:text-lg text-navy/70 leading-relaxed max-w-xl font-medium">
                     Interactive, peer-led financial literacy programs designed for students in grades 5+. We bridge the gap between abstract classroom theory and lifelong economic superpower.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row items-center gap-4 pt-2">
-                    <a href="enroll.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-base font-bold text-navy bg-gold hover:bg-gold-light px-8 py-4 rounded-2xl transition-all duration-300 shadow-glow hover:shadow-gold/50 hover:-translate-y-1 active:scale-95">
+                <div class="flex flex-col sm:flex-row items-center gap-3 pt-1">
+                    <a href="enroll.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm sm:text-base font-bold text-navy bg-gold hover:bg-gold-light px-7 py-3.5 rounded-2xl transition-all duration-300 shadow-glow hover:shadow-gold/50 hover:-translate-y-1 active:scale-95">
                         <span>Secure Your Spot</span>
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
-                    <a href="programs.html" class="w-full sm:w-auto inline-flex items-center justify-center text-base font-bold text-navy glass-panel hover:bg-navy/5 px-8 py-4 rounded-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95">
+                    <a href="programs.html" class="w-full sm:w-auto inline-flex items-center justify-center text-sm sm:text-base font-bold text-navy glass-panel hover:bg-navy/5 px-7 py-3.5 rounded-2xl transition-all duration-300 hover:-translate-y-1 active:scale-95">
                         Explore Curriculum
                     </a>
                 </div>
 
                 <!-- Mini Trust Metrics -->
-                <div class="grid grid-cols-3 gap-6 pt-6 border-t border-navy/10">
+                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-navy/10">
                     <div>
-                        <p class="text-2xl font-extrabold text-navy">5th+</p>
-                        <p class="text-xs text-navy/60 font-semibold uppercase tracking-wider">Target Grades</p>
+                        <p class="text-xl sm:text-2xl font-extrabold text-navy">5th+</p>
+                        <p class="text-[11px] text-navy/60 font-semibold uppercase tracking-wider">Target Grades</p>
                     </div>
                     <div>
-                        <p class="text-2xl font-extrabold text-gold">$100k</p>
-                        <p class="text-xs text-navy/60 font-semibold uppercase tracking-wider">Virtual Portfolios</p>
+                        <p class="text-xl sm:text-2xl font-extrabold text-gold">$100k</p>
+                        <p class="text-[11px] text-navy/60 font-semibold uppercase tracking-wider">Virtual Portfolios</p>
                     </div>
                     <div>
-                        <p class="text-2xl font-extrabold text-navy">100%</p>
-                        <p class="text-xs text-navy/60 font-semibold uppercase tracking-wider">Peer-Led</p>
+                        <p class="text-xl sm:text-2xl font-extrabold text-navy">100%</p>
+                        <p class="text-[11px] text-navy/60 font-semibold uppercase tracking-wider">Peer-Led</p>
                     </div>
                 </div>
             </div>
             
             <!-- Right Interactive Trivia Arena Hero Card -->
             <div class="w-full lg:w-1/2 relative reveal active">
-                <div class="absolute -inset-4 bg-gradient-to-tr from-gold/40 via-navy/20 to-gold/10 rounded-[2.5rem] blur-2xl opacity-75 animate-float-delayed"></div>
+                <div class="absolute -inset-3 bg-gradient-to-tr from-gold/40 via-navy/20 to-gold/10 rounded-[2.5rem] blur-2xl opacity-75 animate-float-delayed"></div>
                 
-                <div class="relative glass-dark text-white rounded-[2.5rem] p-8 lg:p-12 shadow-premium overflow-hidden border border-gold/30">
-                    <div class="absolute top-0 right-0 bg-gold text-navy text-xs font-extrabold px-5 py-2 rounded-bl-2xl uppercase tracking-widest shadow-md">
+                <div class="relative glass-dark text-white rounded-[2.5rem] p-6 sm:p-8 lg:p-10 shadow-premium overflow-hidden border border-gold/30">
+                    <div class="absolute top-0 right-0 bg-gold text-navy text-xs font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-widest shadow-md">
                         ⚡ Live Arena
                     </div>
                     
-                    <div class="flex items-center gap-5 mb-6">
-                        <div class="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center text-gold border border-gold/30 shadow-inner">
-                            <i data-lucide="zap" class="w-8 h-8"></i>
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 bg-gold/20 rounded-2xl flex items-center justify-center text-gold border border-gold/30 shadow-inner flex-shrink-0">
+                            <i data-lucide="zap" class="w-7 h-7"></i>
                         </div>
                         <div>
                             <span class="text-gold text-xs font-bold uppercase tracking-widest">Test Your Financial IQ</span>
-                            <h3 class="text-2xl md:text-3xl font-extrabold text-white mt-0.5">Enter the Trivia Arena</h3>
+                            <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-0.5">Enter the Trivia Arena</h3>
                         </div>
                     </div>
 
-                    <p class="text-gray-300 text-base leading-relaxed mb-8">
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
                         Ready to put your money smarts to the test? Challenge yourself with daily financial questions, climb the global leaderboard, and prove your mastery!
                     </p>
 
-                    <div class="space-y-4">
-                        <a href="trivia.html" class="w-full group inline-flex items-center justify-center gap-3 bg-gold hover:bg-gold-light text-navy font-extrabold text-base px-8 py-4 rounded-2xl transition-all duration-300 shadow-glow hover:shadow-gold/60 hover:-translate-y-1 active:scale-95">
+                    <div class="space-y-3">
+                        <a href="trivia.html" class="w-full group inline-flex items-center justify-center gap-3 bg-gold hover:bg-gold-light text-navy font-extrabold text-sm sm:text-base px-6 py-3.5 rounded-2xl transition-all duration-300 shadow-glow hover:shadow-gold/60 hover:-translate-y-1 active:scale-95">
                             <span>Play Trivia Arena Now</span>
-                            <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <div class="flex items-center justify-center gap-2 text-xs text-gray-400 font-medium pt-2">
+                        <div class="flex items-center justify-center gap-2 text-xs text-gray-400 font-medium pt-1">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                             New questions updated daily for students & parents
                         </div>
@@ -205,53 +205,53 @@
 </main>
 
 <!-- Flagship Programs Section -->
-<section class="py-24 relative">
+<section class="py-16 lg:py-20 relative">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <div class="text-center max-w-2xl mx-auto mb-12 reveal">
             <span class="text-gold font-bold uppercase tracking-widest text-xs px-3 py-1 bg-gold/10 rounded-full border border-gold/20">Curriculum Tracks</span>
-            <h2 class="text-3xl md:text-5xl font-extrabold text-navy mt-4 mb-4">Two Ways to Master Money</h2>
-            <div class="w-20 h-1.5 bg-gold mx-auto rounded-full mb-4 shadow-sm"></div>
-            <p class="text-navy/70 font-medium">Tailored, high-impact learning paths built for different ages and ambitions.</p>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-navy mt-3 mb-3">Two Ways to Master Money</h2>
+            <div class="w-16 h-1.5 bg-gold mx-auto rounded-full mb-3 shadow-sm"></div>
+            <p class="text-navy/70 font-medium text-sm sm:text-base">Tailored, high-impact learning paths built for different ages and ambitions.</p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8">
             
             <!-- Course 1: Money Masters -->
-            <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-glass hover:shadow-glass-hover transition-all duration-500 flex flex-col justify-between group reveal">
+            <div class="glass-panel p-6 sm:p-8 md:p-10 rounded-[2.5rem] shadow-glass hover:shadow-glass-hover transition-all duration-500 flex flex-col justify-between group reveal">
                 <div>
-                    <div class="inline-block px-4 py-1.5 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase tracking-wider mb-6">Personal Finance Foundation</div>
-                    <h3 class="text-3xl font-extrabold text-navy mb-4 group-hover:text-gold transition-colors">Money Masters (Entry)</h3>
-                    <p class="text-navy/70 leading-relaxed mb-8 font-medium">
+                    <div class="inline-block px-3.5 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase tracking-wider mb-5">Personal Finance Foundation</div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-navy mb-3 group-hover:text-gold transition-colors">Money Masters (Entry)</h3>
+                    <p class="text-navy/70 text-sm sm:text-base leading-relaxed mb-6 font-medium">
                         The ultimate starting point for younger students. Focuses on personal finance fundamentals, intelligent budgeting, saving habits, asset depreciation, and everyday money management.
                     </p>
-                    <ul class="space-y-4 mb-8 text-sm text-navy/90 font-semibold">
-                        <li class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-gold shadow-sm"></span> Budgeting basics & smart consumer choices</li>
-                        <li class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-gold shadow-sm"></span> Understanding asset depreciation & cash flow</li>
-                        <li class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-gold shadow-sm"></span> Interactive games & real-world money habits</li>
+                    <ul class="space-y-3 mb-6 text-sm text-navy/90 font-semibold">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gold shadow-sm"></span> Budgeting basics & smart consumer choices</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gold shadow-sm"></span> Understanding asset depreciation & cash flow</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gold shadow-sm"></span> Interactive games & real-world money habits</li>
                     </ul>
                 </div>
-                <div class="pt-6 border-t border-navy/10 flex items-center justify-between">
+                <div class="pt-5 border-t border-navy/10 flex items-center justify-between">
                     <span class="text-xs font-bold text-navy/50 uppercase tracking-widest">Grades 5–8</span>
                     <a href="programs.html" class="text-navy font-extrabold text-sm inline-flex items-center gap-1.5 hover:text-gold transition-colors">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
 
             <!-- Course 2: Investor Academy -->
-            <div class="glass-dark text-white p-8 md:p-12 rounded-[2.5rem] shadow-premium hover:shadow-glow transition-all duration-500 flex flex-col justify-between relative overflow-hidden group reveal">
+            <div class="glass-dark text-white p-6 sm:p-8 md:p-10 rounded-[2.5rem] shadow-premium hover:shadow-glow transition-all duration-500 flex flex-col justify-between relative overflow-hidden group reveal">
                 <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="relative z-10">
-                    <div class="inline-block px-4 py-1.5 bg-gold/20 text-gold rounded-full text-xs font-bold uppercase tracking-wider mb-6 border border-gold/30">Investing & Entrepreneurship</div>
-                    <h3 class="text-3xl font-extrabold text-white mb-4 group-hover:text-gold transition-colors">Investor Academy (Intermediate)</h3>
-                    <p class="text-gray-300 leading-relaxed mb-8 font-medium">
+                    <div class="inline-block px-3.5 py-1 bg-gold/20 text-gold rounded-full text-xs font-bold uppercase tracking-wider mb-5 border border-gold/30">Investing & Entrepreneurship</div>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-3 group-hover:text-gold transition-colors">Investor Academy (Intermediate)</h3>
+                    <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 font-medium">
                         For students ready to move beyond personal finance. We develop young investors and founders through live market updates, $100k virtual portfolios, and startup business pitches.
                     </p>
-                    <ul class="space-y-4 mb-8 text-sm text-gray-200 font-semibold">
-                        <li class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-gold shadow-sm"></span> Weekly market tracking & stock analysis</li>
-                        <li class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-gold shadow-sm"></span> $100,000 simulated portfolio & leaderboards</li>
-                        <li class="flex items-center gap-3"><span class="w-2.5 h-2.5 rounded-full bg-gold shadow-sm"></span> Shark Tank business pitches & startup valuation</li>
+                    <ul class="space-y-3 mb-6 text-sm text-gray-200 font-semibold">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gold shadow-sm"></span> Weekly market tracking & stock analysis</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gold shadow-sm"></span> $100,000 simulated portfolio & leaderboards</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gold shadow-sm"></span> Shark Tank business pitches & startup valuation</li>
                     </ul>
                 </div>
-                <div class="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between">
+                <div class="relative z-10 pt-5 border-t border-white/10 flex items-center justify-between">
                     <span class="text-xs font-bold text-gold uppercase tracking-widest">Grades 6+ / Graduates</span>
                     <a href="programs.html" class="text-gold font-extrabold text-sm inline-flex items-center gap-1.5 hover:text-white transition-colors">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
@@ -262,50 +262,50 @@
 </section>
 
 <!-- The Educational Gap Story Section -->
-<section class="py-24 bg-white/60 border-y border-navy/5 relative">
+<section class="py-16 lg:py-20 bg-white/60 border-y border-navy/5 relative">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
-            <div class="space-y-6 reveal">
+            <div class="space-y-5 reveal">
                 <span class="text-gold font-extrabold uppercase tracking-widest text-xs px-3 py-1 bg-gold/10 rounded-full border border-gold/20">The Educational Gap</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-navy tracking-tight">Why Financial Literacy Cannot Wait Until Adulthood</h2>
-                <p class="text-navy/70 leading-relaxed text-base font-medium">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">Why Financial Literacy Cannot Wait Until Adulthood</h2>
+                <p class="text-navy/70 leading-relaxed text-sm sm:text-base font-medium">
                     Traditional school curriculums rarely teach students how money actually works in the real world. By introducing financial concepts between 5th and 8th grade, students build healthy habits regarding saving, smart consumer choices, and long-term planning before facing real economic decisions.
                 </p>
-                <div class="space-y-4 pt-2">
-                    <div class="flex items-start gap-4 p-4 rounded-2xl glass-panel">
-                        <div class="w-7 h-7 rounded-xl bg-gold/20 text-gold flex items-center justify-center font-bold text-sm mt-0.5 shadow-sm">✓</div>
-                        <p class="text-sm text-navy/90 font-semibold"><strong>Early Habits:</strong> Decisions made early build confidence with digital banking, budgeting apps, and goal setting.</p>
+                <div class="space-y-3.5 pt-1">
+                    <div class="flex items-start gap-3.5 p-3.5 rounded-2xl glass-panel">
+                        <div class="w-6 h-6 rounded-xl bg-gold/20 text-gold flex items-center justify-center font-bold text-xs mt-0.5 shadow-sm flex-shrink-0">✓</div>
+                        <p class="text-xs sm:text-sm text-navy/90 font-semibold"><strong>Early Habits:</strong> Decisions made early build confidence with digital banking, budgeting apps, and goal setting.</p>
                     </div>
-                    <div class="flex items-start gap-4 p-4 rounded-2xl glass-panel">
-                        <div class="w-7 h-7 rounded-xl bg-gold/20 text-gold flex items-center justify-center font-bold text-sm mt-0.5 shadow-sm">✓</div>
-                        <p class="text-sm text-navy/90 font-semibold"><strong>Peer Mentorship:</strong> High school instructors make economic principles relatable, engaging, and genuinely fun.</p>
+                    <div class="flex items-start gap-3.5 p-3.5 rounded-2xl glass-panel">
+                        <div class="w-6 h-6 rounded-xl bg-gold/20 text-gold flex items-center justify-center font-bold text-xs mt-0.5 shadow-sm flex-shrink-0">✓</div>
+                        <p class="text-xs sm:text-sm text-navy/90 font-semibold"><strong>Peer Mentorship:</strong> High school instructors make economic principles relatable, engaging, and genuinely fun.</p>
                     </div>
                 </div>
             </div>
             
-            <div class="glass-panel p-8 lg:p-12 rounded-[2.5rem] shadow-glass space-y-6 reveal">
-                <h3 class="text-2xl font-extrabold text-navy">The 3-Step Student Journey</h3>
-                <div class="space-y-6">
+            <div class="glass-panel p-6 sm:p-8 lg:p-10 rounded-[2.5rem] shadow-glass space-y-5 reveal">
+                <h3 class="text-xl sm:text-2xl font-extrabold text-navy">The 3-Step Student Journey</h3>
+                <div class="space-y-5">
                     <div class="flex gap-4 items-start">
-                        <div class="w-12 h-12 rounded-2xl bg-navy text-white font-bold flex items-center justify-center flex-shrink-0 shadow-md">1</div>
+                        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-navy text-white font-bold flex items-center justify-center flex-shrink-0 shadow-md text-sm">1</div>
                         <div>
-                            <h4 class="font-bold text-navy text-lg">Easy Online Enrollment</h4>
-                            <p class="text-sm text-navy/70 font-medium">Parents sign students up in minutes using our integrated registration flow.</p>
+                            <h4 class="font-bold text-navy text-base sm:text-lg">Easy Online Enrollment</h4>
+                            <p class="text-xs sm:text-sm text-navy/70 font-medium">Parents sign students up in minutes using our integrated registration flow.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 items-start">
-                        <div class="w-12 h-12 rounded-2xl bg-gold text-navy font-bold flex items-center justify-center flex-shrink-0 shadow-md">2</div>
+                        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gold text-navy font-bold flex items-center justify-center flex-shrink-0 shadow-md text-sm">2</div>
                         <div>
-                            <h4 class="font-bold text-navy text-lg">Interactive Live Classes</h4>
-                            <p class="text-sm text-navy/70 font-medium">Engaging one-hour sessions hosted live over Google Meet filled with games and discussions.</p>
+                            <h4 class="font-bold text-navy text-base sm:text-lg">Interactive Live Classes</h4>
+                            <p class="text-xs sm:text-sm text-navy/70 font-medium">Engaging one-hour sessions hosted live over Google Meet filled with games and discussions.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 items-start">
-                        <div class="w-12 h-12 rounded-2xl bg-navy text-white font-bold flex items-center justify-center flex-shrink-0 shadow-md">3</div>
+                        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-navy text-white font-bold flex items-center justify-center flex-shrink-0 shadow-md text-sm">3</div>
                         <div>
-                            <h4 class="font-bold text-navy text-lg">Real-World Application</h4>
-                            <p class="text-sm text-navy/70 font-medium">Practical homework tasks and simulated activities mapping financial theories to everyday choices.</p>
+                            <h4 class="font-bold text-navy text-base sm:text-lg">Real-World Application</h4>
+                            <p class="text-xs sm:text-sm text-navy/70 font-medium">Practical homework tasks and simulated activities mapping financial theories to everyday choices.</p>
                         </div>
                     </div>
                 </div>
@@ -316,82 +316,82 @@
 </section>
 
 <!-- Features Grid -->
-<section class="py-24 relative">
+<section class="py-16 lg:py-20 relative">
     <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-navy mb-4">Why Next-Gen Knowledge?</h2>
-            <div class="w-16 h-1.5 bg-gold mx-auto rounded-full mb-4"></div>
-            <p class="text-navy/70 font-medium">Built from the ground up to keep middle schoolers focused, challenged, and inspired.</p>
+        <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mb-3">Why Next-Gen Knowledge?</h2>
+            <div class="w-14 h-1.5 bg-gold mx-auto rounded-full mb-3"></div>
+            <p class="text-navy/70 font-medium text-sm sm:text-base">Built from the ground up to keep middle schoolers focused, challenged, and inspired.</p>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
-                <div class="w-14 h-14 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-6 border border-gold/30">
-                    <i data-lucide="zap" class="w-7 h-7"></i>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
+                <div class="w-12 h-12 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-5 border border-gold/30">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-bold text-navy text-lg mb-2">Interactive</h3>
-                <p class="text-sm text-navy/70 font-medium leading-relaxed">Simulations, games, and dynamic real-world projects replacing dry lectures.</p>
+                <h3 class="font-bold text-navy text-base sm:text-lg mb-1.5">Interactive</h3>
+                <p class="text-xs sm:text-sm text-navy/70 font-medium leading-relaxed">Simulations, games, and dynamic real-world projects replacing dry lectures.</p>
             </div>
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
-                <div class="w-14 h-14 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-6 border border-gold/30">
-                    <i data-lucide="users" class="w-7 h-7"></i>
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
+                <div class="w-12 h-12 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-5 border border-gold/30">
+                    <i data-lucide="users" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-bold text-navy text-lg mb-2">Student-Led</h3>
-                <p class="text-sm text-navy/70 font-medium leading-relaxed">Mentorship and guidance by motivated high school peers who relate directly to students.</p>
+                <h3 class="font-bold text-navy text-base sm:text-lg mb-1.5">Student-Led</h3>
+                <p class="text-xs sm:text-sm text-navy/70 font-medium leading-relaxed">Mentorship and guidance by motivated high school peers who relate directly to students.</p>
             </div>
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
-                <div class="w-14 h-14 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-6 border border-gold/30">
-                    <i data-lucide="trending-up" class="w-7 h-7"></i>
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
+                <div class="w-12 h-12 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-5 border border-gold/30">
+                    <i data-lucide="trending-up" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-bold text-navy text-lg mb-2">Real Skills</h3>
-                <p class="text-sm text-navy/70 font-medium leading-relaxed">Actionable education covering finance, investing principles, and entrepreneurship.</p>
+                <h3 class="font-bold text-navy text-base sm:text-lg mb-1.5">Real Skills</h3>
+                <p class="text-xs sm:text-sm text-navy/70 font-medium leading-relaxed">Actionable education covering finance, investing principles, and entrepreneurship.</p>
             </div>
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
-                <div class="w-14 h-14 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-6 border border-gold/30">
-                    <i data-lucide="check-circle" class="w-7 h-7"></i>
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 reveal">
+                <div class="w-12 h-12 bg-gold/15 rounded-2xl flex items-center justify-center text-gold mb-5 border border-gold/30">
+                    <i data-lucide="check-circle" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-bold text-navy text-lg mb-2">Accessible</h3>
-                <p class="text-sm text-navy/70 font-medium leading-relaxed">Free or low-cost learning opportunities built to support all families equally.</p>
+                <h3 class="font-bold text-navy text-base sm:text-lg mb-1.5">Accessible</h3>
+                <p class="text-xs sm:text-sm text-navy/70 font-medium leading-relaxed">Free or low-cost learning opportunities built to support all families equally.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Team Preview -->
-<section class="py-24 bg-white/60 border-t border-navy/5 relative">
+<section class="py-16 lg:py-20 bg-white/60 border-t border-navy/5 relative">
     <div class="max-w-7xl mx-auto px-6 text-center">
         <span class="text-gold font-bold uppercase tracking-widest text-xs px-3 py-1 bg-gold/10 rounded-full border border-gold/20">Leadership</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-navy mt-4 mb-3">Meet Our Founders</h2>
-        <p class="text-navy/70 font-medium max-w-xl mx-auto mb-16">Dedicated high school leaders passionate about spreading financial literacy.</p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mt-3 mb-2">Meet Our Founders</h2>
+        <p class="text-navy/70 font-medium text-sm sm:text-base max-w-xl mx-auto mb-12">Dedicated high school leaders passionate about spreading financial literacy.</p>
         
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
-                <div class="w-20 h-20 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-xl mb-4 shadow-md border-2 border-gold/30">SP</div>
-                <h4 class="font-bold text-navy text-lg">Svar Patel</h4>
-                <p class="text-gold text-sm font-bold mb-6">Founder</p>
-                <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b-2 border-gold pb-1 hover:text-gold transition-colors">Read Full Bio</a>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-lg mb-3 shadow-md border-2 border-gold/30">SP</div>
+                <h4 class="font-bold text-navy text-base sm:text-lg">Svar Patel</h4>
+                <p class="text-gold text-xs sm:text-sm font-bold mb-4">Founder</p>
+                <a href="team.html" class="mt-auto text-navy font-bold text-[11px] tracking-wider uppercase border-b-2 border-gold pb-0.5 hover:text-gold transition-colors">Read Full Bio</a>
             </div>
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
-                <div class="w-20 h-20 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-xl mb-4 shadow-md border-2 border-gold/30">PP</div>
-                <h4 class="font-bold text-navy text-lg">Pushan Patel</h4>
-                <p class="text-gold text-sm font-bold mb-6">Co-Founder</p>
-                <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b-2 border-gold pb-1 hover:text-gold transition-colors">Read Full Bio</a>
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-lg mb-3 shadow-md border-2 border-gold/30">PP</div>
+                <h4 class="font-bold text-navy text-base sm:text-lg">Pushan Patel</h4>
+                <p class="text-gold text-xs sm:text-sm font-bold mb-4">Co-Founder</p>
+                <a href="team.html" class="mt-auto text-navy font-bold text-[11px] tracking-wider uppercase border-b-2 border-gold pb-0.5 hover:text-gold transition-colors">Read Full Bio</a>
             </div>
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
-                <div class="w-20 h-20 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-xl mb-4 shadow-md border-2 border-gold/30">MP</div>
-                <h4 class="font-bold text-navy text-lg">Max Park</h4>
-                <p class="text-gold text-sm font-bold mb-6">Co-Founder</p>
-                <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b-2 border-gold pb-1 hover:text-gold transition-colors">Read Full Bio</a>
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-lg mb-3 shadow-md border-2 border-gold/30">MP</div>
+                <h4 class="font-bold text-navy text-base sm:text-lg">Max Park</h4>
+                <p class="text-gold text-xs sm:text-sm font-bold mb-4">Co-Founder</p>
+                <a href="team.html" class="mt-auto text-navy font-bold text-[11px] tracking-wider uppercase border-b-2 border-gold pb-0.5 hover:text-gold transition-colors">Read Full Bio</a>
             </div>
-            <div class="glass-panel p-8 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
-                <div class="w-20 h-20 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-xl mb-4 shadow-md border-2 border-gold/30">IR</div>
-                <h4 class="font-bold text-navy text-lg">Ilhan Rasheed</h4>
-                <p class="text-gold text-sm font-bold mb-6">Co-Founder</p>
-                <a href="team.html" class="mt-auto text-navy font-bold text-xs tracking-wider uppercase border-b-2 border-gold pb-1 hover:text-gold transition-colors">Read Full Bio</a>
+            <div class="glass-panel p-6 sm:p-7 rounded-[2rem] shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 flex flex-col items-center reveal">
+                <div class="w-16 h-16 sm:w-18 sm:h-18 bg-navy text-gold rounded-full flex items-center justify-center font-extrabold text-lg mb-3 shadow-md border-2 border-gold/30">IR</div>
+                <h4 class="font-bold text-navy text-base sm:text-lg">Ilhan Rasheed</h4>
+                <p class="text-gold text-xs sm:text-sm font-bold mb-4">Co-Founder</p>
+                <a href="team.html" class="mt-auto text-navy font-bold text-[11px] tracking-wider uppercase border-b-2 border-gold pb-0.5 hover:text-gold transition-colors">Read Full Bio</a>
             </div>
         </div>
         
-        <div class="mt-16">
-            <a href="team.html" class="inline-flex items-center gap-2 text-navy font-bold text-base border-b-2 border-gold hover:text-gold transition-colors pb-1">
+        <div class="mt-12">
+            <a href="team.html" class="inline-flex items-center gap-2 text-navy font-bold text-sm sm:text-base border-b-2 border-gold hover:text-gold transition-colors pb-1">
                 View Full Team Profiles & Missions <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </div>
@@ -399,22 +399,22 @@
 </section>
 
 <!-- Footer -->
-<footer class="py-16 bg-white border-t border-navy/10">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-        <div class="flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
-            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
+<footer class="py-12 bg-white border-t border-navy/10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+        <div class="flex items-center gap-2.5">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-7 w-auto">
+            <span class="font-extrabold text-navy text-sm">Next-Gen Knowledge</span>
         </div>
-        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
+        <div class="flex flex-wrap justify-center gap-6 font-bold text-xs sm:text-sm text-navy/70">
             <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition-colors">Instagram</a>
             <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition-colors">Company LinkedIn</a>
             <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition-colors">Email Us</a>
         </div>
         <div class="flex flex-col items-center md:items-end gap-1">
-            <p class="text-navy/60 text-xs max-w-xs text-center md:text-right font-medium">
+            <p class="text-navy/60 text-[11px] max-w-xs text-center md:text-right font-medium">
                 Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
             </p>
-            <p class="text-navy/50 text-sm font-semibold">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+            <p class="text-navy/50 text-xs font-semibold">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
         </div>
     </div>
 </footer>
