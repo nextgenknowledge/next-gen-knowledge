@@ -86,8 +86,8 @@
             <!-- Logo -->
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
-                    <img
-                        src="IMG_1383.jpeg"
+                    <img 
+                        src="IMG_1383.jpeg" 
                         alt="Next-Gen Knowledge Logo"
                         class="w-full h-full object-cover"
                     >
@@ -106,38 +106,37 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center gap-1">
 
-                <a href="index.html"
+                <a href="index.html" 
                    class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Home
                 </a>
 
-                <a href="about.html"
+                <a href="about.html" 
                    class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     About Us
                 </a>
 
-                <a href="programs.html"
+                <a href="programs.html" 
                    class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Programs
                 </a>
 
-                <a href="team.html"
+                <a href="team.html" 
                    class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Team
                 </a>
 
-                <a href="trivia.html"
+                <a href="trivia.html" 
                    class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Trivia Arena
                 </a>
 
-                <a href="donate.html"
+                <a href="donate.html" 
                    class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Donate
                 </a>
 
-                <!-- Enroll Button -->
-                <a href="enroll.html"
+                <a href="enroll.html" 
                    class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
                     Enroll
                 </a>
@@ -145,7 +144,7 @@
             </div>
 
             <!-- Mobile Menu Button -->
-            <button
+            <button 
                 id="mobile-menu-button"
                 class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
                 aria-label="Open menu"
@@ -202,39 +201,6 @@
 
 <!-- Header Spacer -->
 <div class="h-20"></div>
-
-<script>
-    // Mobile menu
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-
-            const icon = mobileMenuButton.querySelector('i');
-
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.setAttribute('data-lucide', 'menu');
-            } else {
-                icon.setAttribute('data-lucide', 'x');
-            }
-
-            lucide.createIcons();
-        });
-    }
-
-    // Navbar shadow when scrolling
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            navbar.classList.add('shadow-md');
-        } else {
-            navbar.classList.remove('shadow-md');
-        }
-    });
-</script>
 
 <!-- Hero Section -->
 <section class="pt-36 pb-16 lg:pt-52 lg:pb-24 bg-gradient-to-b from-surface to-white text-center">
