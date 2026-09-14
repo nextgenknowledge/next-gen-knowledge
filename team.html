@@ -1,329 +1,332 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team | Next-Gen Knowledge</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag.js?id=G-FXJKCLQMSN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Next-Gen Knowledge</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag.js?id=G-FXJKCLQMSN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      gtag('config', 'G-FXJKCLQMSN');
-    </script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
-                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
-                        surface: '#F9FAFB'
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    boxShadow: { 
-                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
-                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
-                    }
-                }
-            }
-        }
-   </script>    
-    
-    <style>
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      gtag('config', 'G-FXJKCLQMSN');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
+                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
+                        surface: '#F9FAFB'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    boxShadow: { 
+                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
+                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
+                    }
+                }
+            }
+        }
+   </script>       
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* MOBILE HEADER FIX: Forces links to stay visible on phones */
-       @media (max-width: 768px) {
-            nav {
-                background-color: rgba(255,255,255,0.85);
-                backdrop-filter: blur(8px);
-            }
-            nav .max-w-7xl {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-            nav .hidden.md\:flex {
-                display: flex !important;
-                gap: 0.85rem !important;
-                font-size: 0.75rem;
-                width: 100%;
-                justify-content: center;
-                border-top: 1px solid rgba(10, 35, 66, 0.05);
-                padding-top: 0.5rem;
-            }
-        }
-    </style>
+        /* MOBILE HEADER FIX: Forces links to stay visible on phones */
+       @media (max-width: 768px) {
+            nav {
+                background-color: rgba(255,255,255,0.4);
+                backdrop-filter: blur(8px);
+            }
+
+            nav .max-w-7xl {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            nav .hidden.md\:flex {
+                display: flex !important;
+                gap: 1rem !important;
+                font-size: 0.75rem;
+                width: 100%;
+                justify-content: center;
+                border-top: 1px solid rgba(10, 35, 66, 0.05);
+                padding-top: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
 
 <!-- Unified Navigation Bar -->
 <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-navy/5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-3 group">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition duration-300">
-            <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
-        </a>
-        <div class="hidden md:flex gap-6 lg:gap-8 font-bold text-sm lg:text-base text-navy items-center">
-            <a href="index.html" class="hover:text-gold transition">Home</a>
-            <a href="about.html" class="hover:text-gold transition">About Us</a>
-            <a href="programs.html" class="hover:text-gold transition">Programs</a>
-            <a href="team.html" class="text-gold transition">Team</a>
-            <a href="trivia.html" class="hover:text-gold transition">Trivia Arena</a>
-            <a href="donate.html" class="hover:text-gold transition">Donate</a>
-        </div> 
-        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
-    </div>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition duration-300">
+            <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
+        </a>
+        <div class="hidden md:flex gap-8 font-bold text-navy">
+    <a href="index.html" class="hover:text-gold transition">Home</a>
+    <a href="about.html" class="hover:text-gold transition">About Us</a>
+    <a href="programs.html" class="hover:text-gold transition">Programs</a>
+    <a href="team.html" class="hover:text-gold transition">Team</a>
+    <a href="trivia.html" class="hover:text-gold transition">NEW: TRIVIA ARENA</a>
+    <a href="donate.html" class="hover:text-gold transition">Donate</a>
+</div> 
+        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
+    </div>
 </nav>
 
 <!-- Hero Header Section -->
 <section class="pt-36 pb-16 lg:pt-52 lg:pb-24 bg-gradient-to-b from-surface to-white text-center">
-    <div class="max-w-4xl mx-auto px-6 reveal active">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
-            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-            Student Leadership
-        </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-navy">Meet Our Team</h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            The high school innovators, educators, and creators behind Next-Gen Knowledge, dedicated to making financial literacy practical, engaging, and accessible.
-        </p>
-    </div>
+    <div class="max-w-4xl mx-auto px-6 reveal active">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
+            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+            Student Leadership
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-navy">Meet Our Founders</h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            The high school innovators and educators behind Next-Gen Knowledge, dedicated to making financial literacy practical, engaging, and accessible.
+        </p>
+    </div>
 </section>
 
-<!-- Main Team Content Sections -->
-<section class="py-16 px-6 bg-white">
-    <div class="max-w-7xl mx-auto space-y-24">
-        
-        <!-- Tier 1: Executive Board -->
-        <div class="reveal">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Executive Board</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Svar Patel -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="13F86006-1D7F-40F9-AFD8-84CE3C572132.png" alt="Svar Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Founder & CEO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Svar Patel</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Leads financial literacy curriculum development. Passionate about bridging the gap between technology and personal finance.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Finance, Tech, Entrepreneurship</p>
-                        <p><strong>Hobbies:</strong> Baseball, Investing</p>
-                    </div>
-                </div>
+<!-- Team Grid Section -->
+<section class="py-16 px-6 bg-white reveal">
+    <div class="max-w-7xl mx-auto space-y-20">
+        
+        <!-- Tier 1: Executive Board -->
+        <div>
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Executive Board</h2>
+                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Svar Patel -->
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="13F86006-1D7F-40F9-AFD8-84CE3C572132.png" alt="Svar Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Founder & CEO</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Svar Patel</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Leads financial literacy curriculum development. Passionate about bridging the gap between technology and personal finance.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests:</strong> Finance, Tech, Entrepreneurship</p>
+                        <p><strong>Hobbies:</strong> Baseball, Investing</p>
+                    </div>
+                </div>
 
-                <!-- Pushan Patel -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_7201.jpeg" alt="Pushan Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CFO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Pushan Patel</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Focuses on organizational entrepreneurship and building sustainable business frameworks for student-led initiatives.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Finance, Business Strategy</p>
-                        <p><strong>Hobbies:</strong> Go-karting, Pickleball</p>
-                    </div>
-                </div>
+                <!-- Pushan Patel -->
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="IMG_7201.jpeg" alt="Pushan Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CFO</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Pushan Patel</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Focuses on organizational entrepreneurship and building sustainable business frameworks for student-led initiatives.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests:</strong> Finance, Business Strategy</p>
+                        <p><strong>Hobbies:</strong> Go-karting, Pickleball</p>
+                    </div>
+                </div>
 
-                <!-- Max Park -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_5641.jpeg" alt="Max Park" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div> 
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CMO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Max Park</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Brings a unique perspective to entrepreneurship by combining historical context with modern business writing and communication.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> History, English, Business</p>
-                        <p><strong>Hobbies:</strong> Baseball, Hiking</p>
-                    </div>
-                </div>
+                <!-- Max Park -->
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="IMG_5641.jpeg" alt="Max Park" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div> 
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CMO</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Max Park</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Brings a unique perspective to entrepreneurship by combining historical context with modern business writing and communication.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests:</strong> History, English, Business</p>
+                        <p><strong>Hobbies:</strong> Baseball, Hiking</p>
+                    </div>
+                </div>
 
-                <!-- Ilhan Rasheed -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg" alt="Ilhan Rasheed" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CPO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Ilhan Rasheed</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Expert in financial data and logic, balancing interests in high-level medicine and fiscal responsibility.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Medicine, Finance</p>
-                        <p><strong>Hobbies:</strong> Basketball, Taekwondo</p>
-                    </div>
-                </div>
+                <!-- Ilhan Rasheed -->
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg" alt="Ilhan Rasheed" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CPO</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Ilhan Rasheed</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Expert in financial data and logic, balancing interests in high-level medicine and fiscal responsibility.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests:</strong> Medicine, Finance</p>
+                        <p><strong>Hobbies:</strong> Basketball, Taekwondo</p>
+                    </div>
+                </div>
 
-            </div>
-        </div>
+            </div>
+        </div>
 
-        <!-- Tier 2: Directors & Leadership (Centered Single Card) -->
-        <div class="reveal">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Directors</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
-            </div>
+        <!-- Tier 2: Directors & Leadership -->
+        <div>
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Directors</h2>
+                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
+            </div>
 
-            <div class="max-w-sm mx-auto">
-                <!-- Arhaan Bhojwani -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_8056.jpeg" alt="Arhaan Bhojwani" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Director of Outreach</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Arhaan Bhojwani</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Leads direct outreach and partnership opportunities with an expertise in networking and communication.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Sports, Business & Community Service</p>
-                        <p><strong>Hobbies:</strong> Basketball, Video Games</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Director Template (Replace placeholder name and details) -->
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="IMG_8056.jpeg" alt="Arhaan Bhojwani" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Director of Outreach</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Arhaan Bhojwani</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Leads direct outreach and partnership oppurtunties with an expertise in networking/communication.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests: Sports, Business & Community Service</strong> </p>
+                        <p><strong>Hobbies: Basketball, Video Games</strong> </p>
+                    </div>
+                </div>
 
-        <!-- Tier 3: Marketing Team (Balanced 2-Column Grid) -->
-        <div class="reveal">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Marketing Team</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
-            </div>
+            </div>
+        </div>
 
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-                
-                <!-- Sophia Zachariah -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_0994.jpeg" alt="Sophia Zachariah" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Social Media Manager</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Sophia Zachariah</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Specializes in video editing and script management for all social media platforms.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Math, Biology</p>
-                        <p><strong>Hobbies:</strong> Dance, Art</p>
-                    </div>
-                </div>
-                
-                <!-- Vince Yale -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_3353.jpeg" alt="Vince Yale" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Social Media Manager</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Vince Yale</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Manages all social media accounts along with brand exposure and audience engagement.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-1 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Finance, Politics</p>
-                        <p><strong>Hobbies:</strong> Pickleball, Going to the gym</p>
-                    </div>
-                </div>
+    </div>
+</section>
+    <!-- Tier 2: Directors & Leadership -->
 
-            </div>
-        </div>
+    <div>
+            <div class="text-center mb-12">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Marketing Team</h2>
+                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
+            </div>
 
-    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Marketing Template (Replace placeholder name and details) -->
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="IMG_0994.jpeg" alt="Sophia Zachariah" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Social Media Manager</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Sophia Zachariah</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Specializes in video editing and script management for all social media platforms.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests: Math, Biology </strong> </p>
+                        <p><strong>Hobbies: Dance, Art</strong> </p>
+                    </div>
+                </div>
+                
+                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
+                    <div>
+                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
+                            <img src="IMG_3353.jpeg" alt="Vince Yale" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
+                        </div>
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Social Media Manager</div>
+                        <h3 class="text-2xl font-extrabold text-navy mb-1">Vince Yale</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            Manages all social media accounts along with exposure.
+                        </p>
+                    </div>
+                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
+                        <p><strong>Interests: Finance, Politics</strong> </p>
+                        <p><strong>Hobbies: Pickleball, Going to the gym</strong> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 <!-- Footer -->
 <footer class="py-16 bg-white border-t border-navy/5">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-        <div class="flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
-            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
-        </div>
-        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
-            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
-            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
-            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
-        </div>
-        <div class="flex flex-col items-center md:items-end gap-1">
-            <p class="text-navy/60 text-xs max-w-xs text-center md:text-right">
-                Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
-            </p>
-            <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
-        </div>
-    </div>
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+        <div class="flex items-center gap-3">
+            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
+            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
+            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
+            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
+            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
+        </div>
+        <div class="flex flex-col items-center md:items-end gap-1">
+            <p class="text-navy/60 text-xs max-w-xs text-center md:text-right">
+                Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
+            </p>
+            <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+        </div>
+    </div>
 </footer>
 
 <script>
-    // Initialize icons
-    lucide.createIcons();
+    // Initialize icons
+    lucide.createIcons();
 
-    // Scroll reveal animation script
-    window.addEventListener('scroll', revealOnScroll);
-    function revealOnScroll() {
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active');
-            }
-        }
-    }
-    revealOnScroll();
+    // Scroll reveal animation script
+    window.addEventListener('scroll', revealOnScroll);
+    function revealOnScroll() {
+        var reveals = document.querySelectorAll('.reveal');
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add('active');
+            }
+        }
+    }
+    revealOnScroll();
 </script>
 </body>
 </html>
