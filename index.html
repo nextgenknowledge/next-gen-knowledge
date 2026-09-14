@@ -50,28 +50,11 @@
             transform: translateY(0);
         }
 
-        /* MOBILE HEADER FIX: Forces links to stay visible on phones */
-        @media (max-width: 768px) {
+        /* Mobile Header */
+        @media (max-width: 767px) {
             nav {
-                background-color: rgba(255,255,255,0.4);
-                backdrop-filter: blur(8px);
-            }
-
-            nav .max-w-7xl {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            } 
-            nav .hidden.md\:flex {
-                display: flex !important;
-                gap: 1rem !important;
-                font-size: 0.75rem;
-                width: 100%;
-                justify-content: center;
-                border-top: 1px solid rgba(10, 35, 66, 0.05);
-                padding-top: 0.5rem;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(12px);
             }
         }
     </style>
@@ -79,7 +62,7 @@
 <body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
 
 <!-- Unified Navigation Bar -->
-<<!-- Navigation -->
+<!-- Navigation -->
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-20">
