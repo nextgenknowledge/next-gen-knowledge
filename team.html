@@ -1,332 +1,1573 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team | Next-Gen Knowledge</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag.js?id=G-FXJKCLQMSN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-FXJKCLQMSN');
+    <title>Our Team | Next-Gen Knowledge</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FXJKCLQMSN');
     </script>
-    
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
-                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
-                        surface: '#F9FAFB'
+                        navy: {
+                            DEFAULT: '#0A2342',
+                            light: '#14355B',
+                            dark: '#051224'
+                        },
+
+                        gold: {
+                            DEFAULT: '#C9A227',
+                            light: '#DFB73C',
+                            dark: '#A6841C'
+                        },
+
+                        surface: '#F7F9FC'
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    boxShadow: { 
-                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
-                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
+
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+
+                    boxShadow: {
+                        premium: '0 15px 45px -20px rgba(10, 35, 66, 0.18)',
+                        'premium-hover': '0 25px 65px -20px rgba(10, 35, 66, 0.25)',
+                        gold: '0 15px 35px -15px rgba(201, 162, 39, 0.25)'
                     }
                 }
             }
         }
-   </script>       
+    </script>
+
     <style>
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #0A2342;
+        }
+
+        ::selection {
+            background: rgba(201, 162, 39, 0.25);
+            color: #0A2342;
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(35px);
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* MOBILE HEADER FIX: Forces links to stay visible on phones */
-       @media (max-width: 768px) {
-            nav {
-                background-color: rgba(255,255,255,0.4);
-                backdrop-filter: blur(8px);
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: #C9A227;
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(201, 162, 39, 0.10),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(10, 35, 66, 0.07),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    180deg,
+                    #F7F9FC 0%,
+                    #FFFFFF 100%
+                );
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.35;
+            background-image:
+                linear-gradient(rgba(10, 35, 66, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 35, 66, 0.035) 1px, transparent 1px);
+            background-size: 45px 45px;
+            mask-image: linear-gradient(
+                to bottom,
+                black 0%,
+                transparent 85%
+            );
+        }
+
+        .hero-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: 0.14;
+            pointer-events: none;
+        }
+
+        .orb-one {
+            top: 100px;
+            left: -120px;
+            background: #C9A227;
+        }
+
+        .orb-two {
+            right: -120px;
+            top: 160px;
+            background: #0A2342;
+        }
+
+
+        /* =========================================================
+           BADGES
+        ========================================================= */
+
+        .gold-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 999px;
+            background: rgba(201, 162, 39, 0.09);
+            border: 1px solid rgba(201, 162, 39, 0.20);
+            color: #A6841C;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .gold-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #C9A227;
+            box-shadow: 0 0 0 5px rgba(201, 162, 39, 0.10);
+        }
+
+
+        /* =========================================================
+           SECTION HEADINGS
+        ========================================================= */
+
+        .section-line {
+            width: 48px;
+            height: 4px;
+            border-radius: 999px;
+            background: #C9A227;
+            margin: 14px auto 0;
+        }
+
+        .section-label {
+            color: #A6841C;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           TEAM CARDS
+        ========================================================= */
+
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            background: #F7F9FC;
+            border: 1px solid rgba(10, 35, 66, 0.07);
+            border-radius: 28px;
+            box-shadow: 0 15px 45px -20px rgba(10, 35, 66, 0.18);
+            transition:
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(
+                90deg,
+                #C9A227,
+                #DFB73C,
+                #C9A227
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 28px 65px -22px rgba(10, 35, 66, 0.25);
+            border-color: rgba(201, 162, 39, 0.25);
+        }
+
+        .team-card:hover::before {
+            opacity: 1;
+        }
+
+        .team-image {
+            position: relative;
+            overflow: hidden;
+            height: 285px;
+            border-radius: 21px;
+            background: #E9EDF2;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.045);
+        }
+
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(5, 18, 36, 0.22),
+                transparent 45%
+            );
+            pointer-events: none;
+        }
+
+        .role-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 11px;
+            border-radius: 999px;
+            font-size: 10px;
+            line-height: 1;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .role-executive {
+            background: rgba(201, 162, 39, 0.11);
+            color: #A6841C;
+        }
+
+        .role-leadership {
+            background: rgba(10, 35, 66, 0.08);
+            color: #0A2342;
+        }
+
+        .role-marketing {
+            background: rgba(10, 35, 66, 0.08);
+            color: #0A2342;
+        }
+
+        .team-divider {
+            height: 1px;
+            background: rgba(10, 35, 66, 0.07);
+        }
+
+        .info-row {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            color: rgba(10, 35, 66, 0.68);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .info-row strong {
+            color: #0A2342;
+            font-weight: 700;
+        }
+
+
+        /* =========================================================
+           TEAM INTRO CARD
+        ========================================================= */
+
+        .mission-card {
+            position: relative;
+            overflow: hidden;
+            background: #0A2342;
+            border-radius: 30px;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            right: -120px;
+            top: -140px;
+            border-radius: 50%;
+            background: rgba(201, 162, 39, 0.16);
+            filter: blur(5px);
+        }
+
+        .mission-card::after {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            left: -90px;
+            bottom: -100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer-link {
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: #C9A227;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 767px) {
+
+            .mobile-nav {
+                background: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(15px);
             }
 
-            nav .max-w-7xl {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
+            .hero-section {
+                padding-top: 135px;
             }
-            nav .hidden.md\:flex {
-                display: flex !important;
-                gap: 1rem !important;
-                font-size: 0.75rem;
-                width: 100%;
-                justify-content: center;
-                border-top: 1px solid rgba(10, 35, 66, 0.05);
-                padding-top: 0.5rem;
+
+            .team-image {
+                height: 300px;
+            }
+
+            .team-card {
+                border-radius: 24px;
+            }
+
+            .mission-card {
+                border-radius: 24px;
             }
         }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
     </style>
 </head>
-<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
 
-<!-- Unified Navigation Bar -->
-<nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-navy/5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-3 group">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-10 w-auto group-hover:scale-105 transition duration-300">
-            <span class="text-xl font-extrabold text-navy tracking-tight">Next-Gen Knowledge</span>
-        </a>
-        <div class="hidden md:flex gap-8 font-bold text-navy">
-    <a href="index.html" class="hover:text-gold transition">Home</a>
-    <a href="about.html" class="hover:text-gold transition">About Us</a>
-    <a href="programs.html" class="hover:text-gold transition">Programs</a>
-    <a href="team.html" class="hover:text-gold transition">Team</a>
-    <a href="trivia.html" class="hover:text-gold transition">NEW: TRIVIA ARENA</a>
-    <a href="donate.html" class="hover:text-gold transition">Donate</a>
-</div> 
-        <a href="enroll.html" class="bg-navy text-white px-6 py-2 rounded-full font-bold hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">Enroll</a>
-    </div>
-</nav>
 
-<!-- Hero Header Section -->
-<section class="pt-36 pb-16 lg:pt-52 lg:pb-24 bg-gradient-to-b from-surface to-white text-center">
-    <div class="max-w-4xl mx-auto px-6 reveal active">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
-            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-            Student Leadership
-        </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-navy">Meet Our Founders</h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            The high school innovators and educators behind Next-Gen Knowledge, dedicated to making financial literacy practical, engaging, and accessible.
-        </p>
-    </div>
-</section>
+<body class="bg-white text-navy antialiased overflow-x-hidden">
 
-<!-- Team Grid Section -->
-<section class="py-16 px-6 bg-white reveal">
-    <div class="max-w-7xl mx-auto space-y-20">
-        
-        <!-- Tier 1: Executive Board -->
-        <div>
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Executive Board</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Svar Patel -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="13F86006-1D7F-40F9-AFD8-84CE3C572132.png" alt="Svar Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Founder & CEO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Svar Patel</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Leads financial literacy curriculum development. Passionate about bridging the gap between technology and personal finance.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Finance, Tech, Entrepreneurship</p>
-                        <p><strong>Hobbies:</strong> Baseball, Investing</p>
-                    </div>
-                </div>
 
-                <!-- Pushan Patel -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_7201.jpeg" alt="Pushan Patel" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CFO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Pushan Patel</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Focuses on organizational entrepreneurship and building sustainable business frameworks for student-led initiatives.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Finance, Business Strategy</p>
-                        <p><strong>Hobbies:</strong> Go-karting, Pickleball</p>
-                    </div>
-                </div>
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================= -->
 
-                <!-- Max Park -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_5641.jpeg" alt="Max Park" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div> 
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CMO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Max Park</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Brings a unique perspective to entrepreneurship by combining historical context with modern business writing and communication.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> History, English, Business</p>
-                        <p><strong>Hobbies:</strong> Baseball, Hiking</p>
-                    </div>
-                </div>
+    <nav
+        class="fixed top-0 left-0 w-full z-50 nav-glass border-b border-navy/5 transition-all duration-300">
 
-                <!-- Ilhan Rasheed -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg" alt="Ilhan Rasheed" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Co-Founder & CPO</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Ilhan Rasheed</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Expert in financial data and logic, balancing interests in high-level medicine and fiscal responsibility.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Medicine, Finance</p>
-                        <p><strong>Hobbies:</strong> Basketball, Taekwondo</p>
-                    </div>
-                </div>
+        <div
+            class="max-w-7xl mx-auto px-5 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-y-3">
+
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+
+                <img
+                    src="IMG_1383.jpeg"
+                    alt="Next-Gen Knowledge Logo"
+                    class="h-10 w-auto group-hover:scale-105 transition duration-300">
+
+                <span
+                    class="text-lg sm:text-xl font-extrabold tracking-tight text-navy">
+                    Next-Gen Knowledge
+                </span>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+            <div
+                class="hidden md:flex items-center gap-7 lg:gap-8 font-bold text-sm text-navy">
+
+                <a href="index.html" class="nav-link hover:text-gold transition">
+                    Home
+                </a>
+
+                <a href="about.html" class="nav-link hover:text-gold transition">
+                    About Us
+                </a>
+
+                <a href="programs.html" class="nav-link hover:text-gold transition">
+                    Programs
+                </a>
+
+                <a href="team.html" class="nav-link active hover:text-gold transition">
+                    Team
+                </a>
+
+                <a href="trivia.html" class="nav-link hover:text-gold transition">
+                    NEW: TRIVIA ARENA
+                </a>
+
+                <a href="donate.html" class="nav-link hover:text-gold transition">
+                    Donate
+                </a>
 
             </div>
+
+
+            <!-- Enroll -->
+            <a
+                href="enroll.html"
+                class="bg-navy text-white px-5 sm:px-6 py-2.5 rounded-full font-bold text-sm
+                       hover:bg-gold hover:text-navy transition-all duration-300 shadow-md">
+
+                Enroll
+
+            </a>
+
         </div>
 
-        <!-- Tier 2: Directors & Leadership -->
-        <div>
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Directors</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
+    </nav>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <header class="hero-section pt-40 pb-20 lg:pt-52 lg:pb-28">
+
+        <div class="hero-grid"></div>
+
+        <div class="hero-orb orb-one"></div>
+        <div class="hero-orb orb-two"></div>
+
+
+        <div class="relative max-w-5xl mx-auto px-6 text-center reveal active">
+
+            <div class="gold-badge mb-7">
+
+                <span class="gold-dot"></span>
+
+                Student Leadership
+
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Director Template (Replace placeholder name and details) -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_8056.jpeg" alt="Arhaan Bhojwani" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Director of Outreach</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Arhaan Bhojwani</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Leads direct outreach and partnership oppurtunties with an expertise in networking/communication.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests: Sports, Business & Community Service</strong> </p>
-                        <p><strong>Hobbies: Basketball, Video Games</strong> </p>
-                    </div>
-                </div>
 
-            </div>
-        </div>
+            <h1
+                class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-navy leading-[1.02] mb-7">
 
-    </div>
-</section>
-    <!-- Tier 3: Marketing -->
+                Meet the People
+                <br class="hidden sm:block">
 
-    <div>
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-navy tracking-tight">Marketing Team</h2>
-                <div class="w-12 h-1 bg-gold mx-auto mt-3 rounded-full"></div>
-            </div>
+                <span class="text-gold">
+                    Behind the Mission
+                </span>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- Marketing Template (Replace placeholder name and details) -->
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_0994.jpeg" alt="Sophia Zachariah" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div> 
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase mb-3">Social Media Manager</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Sophia Zachariah</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Specializes in video editing and script management for all social media platforms.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests:</strong> Math, Biology</p>
-                        <p><strong>Hobbies:</strong> Dance, Art</p>
-                    </div>
-                </div>
-                
-                <div class="bg-surface p-6 md:p-8 rounded-[2.5rem] border border-navy/5 shadow-premium flex flex-col justify-between hover:shadow-premium-hover transition-all duration-300 group">
-                    <div>
-                        <div class="w-full h-56 rounded-2xl bg-gray-200 mb-6 overflow-hidden relative border border-navy/5">
-                            <img src="IMG_3353.jpeg" alt="Vince Yale" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            <div class="absolute inset-0 bg-navy/10 group-hover:bg-transparent transition"></div>
-                        </div>
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-navy/10 text-navy rounded-full text-xs font-bold uppercase mb-3">Social Media Manager</div>
-                        <h3 class="text-2xl font-extrabold text-navy mb-1">Vince Yale</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            Manages all social media accounts along with exposure.
-                        </p>
-                    </div>
-                    <div class="border-t border-navy/5 pt-4 space-y-2 text-xs text-navy/70">
-                        <p><strong>Interests: Finance, Politics</strong> </p>
-                        <p><strong>Hobbies: Pickleball, Going to the gym</strong> </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </h1>
 
-    </div>
-</section>
 
-<!-- Footer -->
-<footer class="py-16 bg-white border-t border-navy/5">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-        <div class="flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
-            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
-        </div>
-        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
-            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
-            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
-            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
-        </div>
-        <div class="flex flex-col items-center md:items-end gap-1">
-            <p class="text-navy/60 text-xs max-w-xs text-center md:text-right">
-                Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
+            <p
+                class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+
+                Next-Gen Knowledge is built by students who believe
+                education should prepare the next generation for the
+                real world. Meet the team turning that idea into action.
+
             </p>
-            <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
+
+
+            <!-- Small stats / identity row -->
+
+            <div
+                class="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs sm:text-sm font-semibold text-navy/60">
+
+                <div class="flex items-center gap-2">
+
+                    <i data-lucide="users" class="w-4 h-4 text-gold"></i>
+
+                    Student-Led
+
+                </div>
+
+                <div class="flex items-center gap-2">
+
+                    <i data-lucide="lightbulb" class="w-4 h-4 text-gold"></i>
+
+                    Built for the Next Generation
+
+                </div>
+
+                <div class="flex items-center gap-2">
+
+                    <i data-lucide="graduation-cap" class="w-4 h-4 text-gold"></i>
+
+                    Education Through Action
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</footer>
 
-<script>
-    // Initialize icons
-    lucide.createIcons();
+    </header>
 
-    // Scroll reveal animation script
-    window.addEventListener('scroll', revealOnScroll);
-    function revealOnScroll() {
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active');
-            }
+
+
+    <!-- =========================================================
+         MAIN TEAM CONTENT
+    ========================================================= -->
+
+    <main class="bg-white">
+
+
+        <!-- =====================================================
+             MISSION INTRO
+        ===================================================== -->
+
+        <section class="px-6 pb-20">
+
+            <div
+                class="max-w-6xl mx-auto mission-card px-7 sm:px-10 lg:px-14 py-10 sm:py-12 reveal">
+
+                <div
+                    class="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-14 items-center">
+
+                    <div>
+
+                        <p
+                            class="text-gold text-xs font-extrabold uppercase tracking-[0.16em] mb-3">
+
+                            More than a team
+
+                        </p>
+
+
+                        <h2
+                            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
+
+                            Different backgrounds.
+                            <br class="hidden sm:block">
+                            One shared mission.
+
+                        </h2>
+
+
+                        <p
+                            class="text-white/70 leading-relaxed max-w-2xl text-sm sm:text-base">
+
+                            From finance and business strategy to outreach,
+                            product development, and social media, every member
+                            of our team contributes a different perspective to
+                            making financial literacy more practical, engaging,
+                            and accessible.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="flex lg:flex-col gap-3">
+
+                        <div
+                            class="px-5 py-3 rounded-2xl bg-white/10 border border-white/10">
+
+                            <p class="text-white text-sm font-bold">
+                                Student Powered
+                            </p>
+
+                            <p class="text-white/50 text-xs mt-1">
+                                Built by the next generation
+                            </p>
+
+                        </div>
+
+
+                        <div
+                            class="px-5 py-3 rounded-2xl bg-white/10 border border-white/10">
+
+                            <p class="text-white text-sm font-bold">
+                                Mission Driven
+                            </p>
+
+                            <p class="text-white/50 text-xs mt-1">
+                                Education with real-world impact
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             TEAM WRAPPER
+        ===================================================== -->
+
+        <section class="px-6 pb-28">
+
+            <div class="max-w-7xl mx-auto space-y-28">
+
+
+                <!-- =================================================
+                     EXECUTIVE BOARD
+                ================================================= -->
+
+                <section class="reveal">
+
+                    <div class="text-center mb-12">
+
+                        <p class="section-label">
+                            Leadership
+                        </p>
+
+                        <h2
+                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
+
+                            Executive Board
+
+                        </h2>
+
+                        <div class="section-line"></div>
+
+                        <p
+                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
+
+                            The founders responsible for shaping Next-Gen
+                            Knowledge's vision, strategy, and direction.
+
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
+
+
+                        <!-- ============================
+                             SVAR PATEL
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="13F86006-1D7F-40F9-AFD8-84CE3C572132.png"
+                                    alt="Svar Patel">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-executive mb-4">
+                                    Founder & CEO
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Svar Patel
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Leads financial literacy curriculum
+                                    development. Passionate about bridging
+                                    the gap between technology and personal
+                                    finance.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        Finance, Tech, Entrepreneurship
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Baseball, Investing
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- ============================
+                             PUSHAN PATEL
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="IMG_7201.jpeg"
+                                    alt="Pushan Patel">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-executive mb-4">
+                                    Co-Founder & CFO
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Pushan Patel
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Focuses on organizational entrepreneurship
+                                    and building sustainable business frameworks
+                                    for student-led initiatives.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        Finance, Business Strategy
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Go-karting, Pickleball
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- ============================
+                             MAX PARK
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="IMG_5641.jpeg"
+                                    alt="Max Park">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-executive mb-4">
+                                    Co-Founder & CMO
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Max Park
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Brings a unique perspective to
+                                    entrepreneurship by combining historical
+                                    context with modern business writing and
+                                    communication.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        History, English, Business
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Baseball, Hiking
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- ============================
+                             ILHAN RASHEED
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg"
+                                    alt="Ilhan Rasheed">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-executive mb-4">
+                                    Co-Founder & CPO
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Ilhan Rasheed
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Expert in financial data and logic,
+                                    balancing interests in high-level medicine
+                                    and fiscal responsibility.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        Medicine, Finance
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Basketball, Taekwondo
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     DIRECTORS
+                ================================================= -->
+
+                <section class="reveal">
+
+                    <div class="text-center mb-12">
+
+                        <p class="section-label">
+                            Leadership
+                        </p>
+
+                        <h2
+                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
+
+                            Directors
+
+                        </h2>
+
+                        <div class="section-line"></div>
+
+                        <p
+                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
+
+                            Leaders who turn our ideas into action and help
+                            Next-Gen Knowledge grow beyond the classroom.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+
+
+                        <!-- ============================
+                             ARHAAN BHOJWANI
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="IMG_8056.jpeg"
+                                    alt="Arhaan Bhojwani">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-leadership mb-4">
+                                    Director of Outreach
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Arhaan Bhojwani
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Leads direct outreach and partnership
+                                    oppurtunties with an expertise in
+                                    networking/communication.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        Sports, Business & Community Service
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Basketball, Video Games
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     MARKETING
+                ================================================= -->
+
+                <section class="reveal">
+
+                    <div class="text-center mb-12">
+
+                        <p class="section-label">
+                            Creative & Growth
+                        </p>
+
+                        <h2
+                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
+
+                            Marketing Team
+
+                        </h2>
+
+                        <div class="section-line"></div>
+
+                        <p
+                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
+
+                            The creative force helping Next-Gen Knowledge
+                            reach more students, families, and communities.
+
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
+
+
+                        <!-- ============================
+                             SOPHIA ZACHARIAH
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="IMG_0994.jpeg"
+                                    alt="Sophia Zachariah">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-marketing mb-4">
+                                    Social Media Manager
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Sophia Zachariah
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Specializes in video editing and script
+                                    management for all social media platforms.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        Math, Biology
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Dance, Art
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- ============================
+                             VINCE YALE
+                        ============================= -->
+
+                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
+
+                            <div class="team-image mb-6">
+
+                                <img
+                                    src="IMG_3353.jpeg"
+                                    alt="Vince Yale">
+
+                                <div class="image-overlay"></div>
+
+                            </div>
+
+
+                            <div class="flex-1">
+
+                                <span class="role-badge role-marketing mb-4">
+                                    Social Media Manager
+                                </span>
+
+
+                                <h3
+                                    class="text-2xl font-extrabold text-navy tracking-tight">
+
+                                    Vince Yale
+
+                                </h3>
+
+
+                                <p
+                                    class="text-sm text-gray-600 leading-relaxed mt-3">
+
+                                    Manages all social media accounts along
+                                    with exposure.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="team-divider my-5"></div>
+
+
+                            <div class="space-y-2.5">
+
+                                <div class="info-row">
+
+                                    <strong>Interests:</strong>
+
+                                    <span>
+                                        Finance, Politics
+                                    </span>
+
+                                </div>
+
+                                <div class="info-row">
+
+                                    <strong>Hobbies:</strong>
+
+                                    <span>
+                                        Pickleball, Going to the gym
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="py-16 bg-surface border-t border-navy/5">
+
+        <div
+            class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+
+
+            <!-- Brand -->
+
+            <div class="flex items-center gap-3">
+
+                <img
+                    src="IMG_1383.jpeg"
+                    alt="Next-Gen Knowledge Logo"
+                    class="h-8 w-auto">
+
+                <span class="font-extrabold text-navy">
+                    Next-Gen Knowledge
+                </span>
+
+            </div>
+
+
+            <!-- Links -->
+
+            <div
+                class="flex flex-wrap justify-center gap-x-7 gap-y-3 font-bold text-sm text-navy/70">
+
+                <a
+                    href="https://www.instagram.com/nextgen.knowledge"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link">
+
+                    Instagram
+
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/company/next-gen-knowledge/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-link">
+
+                    Company LinkedIn
+
+                </a>
+
+
+                <a
+                    href="mailto:nextgen.knowledge123@gmail.com"
+                    class="footer-link">
+
+                    Email Us
+
+                </a>
+
+            </div>
+
+
+            <!-- Legal -->
+
+            <div
+                class="flex flex-col items-center md:items-end gap-1">
+
+                <p
+                    class="text-navy/60 text-xs max-w-xs text-center md:text-right leading-relaxed">
+
+                    Next-Gen Knowledge is a fiscally sponsored project
+                    of the Hack Club Foundation, a 501(c)(3) non-profit.
+
+                </p>
+
+
+                <p class="text-navy/50 text-sm">
+
+                    &copy; 2026 Next-Gen Knowledge.
+                    All rights reserved.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* -----------------------------------------------
+           Initialize Lucide Icons
+        ----------------------------------------------- */
+
+        lucide.createIcons();
+
+
+        /* -----------------------------------------------
+           Scroll Reveal
+        ----------------------------------------------- */
+
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach((element) => {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                const elementVisible = 120;
+
+                if (elementTop < windowHeight - elementVisible) {
+
+                    element.classList.add('active');
+
+                }
+
+            });
+
         }
-    }
-    revealOnScroll();
-</script>
+
+
+        window.addEventListener(
+            'scroll',
+            revealOnScroll,
+            { passive: true }
+        );
+
+
+        window.addEventListener(
+            'load',
+            revealOnScroll
+        );
+
+
+        revealOnScroll();
+
+
+        /* -----------------------------------------------
+           Navbar Shadow on Scroll
+        ----------------------------------------------- */
+
+        const nav = document.querySelector('nav');
+
+        window.addEventListener(
+            'scroll',
+            () => {
+
+                if (window.scrollY > 20) {
+
+                    nav.classList.add(
+                        'shadow-[0_8px_30px_rgba(10,35,66,0.06)]'
+                    );
+
+                } else {
+
+                    nav.classList.remove(
+                        'shadow-[0_8px_30px_rgba(10,35,66,0.06)]'
+                    );
+
+                }
+
+            },
+            { passive: true }
+        );
+
+    </script>
+
 </body>
+
 </html>
