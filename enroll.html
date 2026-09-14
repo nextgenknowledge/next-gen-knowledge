@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enroll | Next-Gen Knowledge</title>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag.js?id=G-FXJKCLQMSN"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date()); 
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date()); 
 
-      gtag('config', 'G-FXJKCLQMSN');
+      gtag('config', 'G-FXJKCLQMSN');
     </script>   
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -39,206 +39,192 @@
             transform: translateY(0);
         }
 
-        /* MOBILE HEADER FIX: Forces links to stay visible on phones */
-      @media (max-width: 768px) {
+        /* Mobile Header */
+        @media (max-width: 767px) {
             nav {
-                background-color: rgba(255,255,255,0.4);
-                backdrop-filter: blur(8px);
-            }
-
-            nav .max-w-7xl {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-            nav .hidden.md\:flex {
-                display: flex !important;
-                gap: 1rem !important;
-                font-size: 0.75rem;
-                width: 100%;
-                justify-content: center;
-                border-top: 1px solid rgba(10, 35, 66, 0.05);
-                padding-top: 0.5rem;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(12px);
             }
         }
     </style>
 </head>
 <body class="bg-surface flex flex-col min-h-screen"> 
 
-    <!-- Navigation Bar -->
-    <<!-- Navigation -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
 
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
-                    <img
-                        src="IMG_1383.jpeg"
-                        alt="Next-Gen Knowledge Logo"
-                        class="w-full h-full object-cover"
-                    >
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+                        <img
+                            src="IMG_1383.jpeg"
+                            alt="Next-Gen Knowledge Logo"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+
+                    <div class="hidden sm:block">
+                        <div class="text-lg font-extrabold tracking-tight text-[#0A2342]">
+                            Next-Gen Knowledge
+                        </div>
+                        <div class="text-[11px] font-semibold uppercase tracking-widest text-[#C9A227]">
+                            Empowering the Next Generation
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-1">
+
+                    <a href="index.html"
+                       class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Home
+                    </a>
+
+                    <a href="about.html"
+                       class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        About Us
+                    </a>
+
+                    <a href="programs.html"
+                       class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Programs
+                    </a>
+
+                    <a href="team.html"
+                       class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Team
+                    </a>
+
+                    <a href="trivia.html"
+                       class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Trivia Arena
+                    </a>
+
+                    <a href="donate.html"
+                       class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Donate
+                    </a>
+
+                    <!-- Enroll Button -->
+                    <a href="enroll.html"
+                       class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
+                        Enroll
+                    </a>
+
                 </div>
 
-                <div class="hidden sm:block">
-                    <div class="text-lg font-extrabold tracking-tight text-[#0A2342]">
-                        Next-Gen Knowledge
-                    </div>
-                    <div class="text-[11px] font-semibold uppercase tracking-widest text-[#C9A227]">
-                        Empowering the Next Generation
-                    </div>
-                </div>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center gap-1">
-
-                <a href="index.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Home
-                </a>
-
-                <a href="about.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    About Us
-                </a>
-
-                <a href="programs.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Programs
-                </a>
-
-                <a href="team.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Team
-                </a>
-
-                <a href="trivia.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Trivia Arena
-                </a>
-
-                <a href="donate.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Donate
-                </a>
-
-                <!-- Enroll Button -->
-                <a href="enroll.html"
-                   class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
-                    Enroll
-                </a>
+                <!-- Mobile Menu Button -->
+                <button
+                    id="mobile-menu-button"
+                    class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
+                    aria-label="Open menu"
+                >
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
 
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button
-                id="mobile-menu-button"
-                class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
-                aria-label="Open menu"
-            >
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="hidden md:hidden pb-5">
 
-        </div>
+                <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
 
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden pb-5">
+                    <a href="index.html"
+                       class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Home
+                    </a>
 
-            <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
+                    <a href="about.html"
+                       class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        About Us
+                    </a>
 
-                <a href="index.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Home
-                </a>
+                    <a href="programs.html"
+                       class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Programs
+                    </a>
 
-                <a href="about.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    About Us
-                </a>
+                    <a href="team.html"
+                       class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Team
+                    </a>
 
-                <a href="programs.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Programs
-                </a>
+                    <a href="trivia.html"
+                       class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Trivia Arena
+                    </a>
 
-                <a href="team.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Team
-                </a>
+                    <a href="donate.html"
+                       class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                        Donate
+                    </a>
 
-                <a href="trivia.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Trivia Arena
-                </a>
+                    <a href="enroll.html"
+                       class="mt-2 px-4 py-3 text-center bg-[#0A2342] text-white text-sm font-bold rounded-lg hover:bg-[#14355B] transition-all">
+                        Enroll
+                    </a>
 
-                <a href="donate.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Donate
-                </a>
-
-                <a href="enroll.html"
-                   class="mt-2 px-4 py-3 text-center bg-[#0A2342] text-white text-sm font-bold rounded-lg hover:bg-[#14355B] transition-all">
-                    Enroll
-                </a>
-
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Header Spacer -->
-<div class="h-20"></div>
+    <!-- Header Spacer -->
+    <div class="h-20"></div>
 
-<script>
-    // Mobile menu
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+    <script>
+        // Mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
 
-            const icon = mobileMenuButton.querySelector('i');
+                const icon = mobileMenuButton.querySelector('i');
 
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.setAttribute('data-lucide', 'menu');
-            } else {
-                icon.setAttribute('data-lucide', 'x');
-            }
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.setAttribute('data-lucide', 'menu');
+                } else {
+                    icon.setAttribute('data-lucide', 'x');
+                }
 
-            lucide.createIcons();
-        });
-    }
-
-    // Navbar shadow when scrolling
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            navbar.classList.add('shadow-md');
-        } else {
-            navbar.classList.remove('shadow-md');
+                lucide.createIcons();
+            });
         }
-    });
-</script>
+
+        // Navbar shadow when scrolling
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
 
     <!-- Main Content -->
-<main class="flex-grow py-8 px-6">
-    <div class="max-w-3xl mx-auto">
-        <h1 class="text-3xl font-extrabold text-navy mb-8 text-center">Enroll in Our Programs</h1>
-        <!-- Added a container with controlled height -->
-        <div class="bg-white rounded-2xl shadow-xl shadow-navy/5 overflow-hidden" style="height: 80vh;">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5E7PUOnu9HloQDy9im4iAAh8gDK0UWoFcnWNRgZRNsPdurg/viewform" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="overflow-y: auto;">Loading...</iframe>
+    <main class="flex-grow py-8 px-6">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-extrabold text-navy mb-8 text-center">Enroll in Our Programs</h1>
+
+            <!-- Added a container with controlled height -->
+            <div class="bg-white rounded-2xl shadow-xl shadow-navy/5 overflow-hidden" style="height: 80vh;">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf5E7PUOnu9HloQDy9im4iAAh8gDK0UWoFcnWNRgZRNsPdurg/viewform" 
+                        width="100%" 
+                        height="100%" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0"
+                        style="overflow-y: auto;">Loading...</iframe>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+
+</body>
+</html>
