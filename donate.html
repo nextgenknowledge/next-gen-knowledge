@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Us | Next-Gen Knowledge</title>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag.js?id=G-FXJKCLQMSN"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -44,31 +44,17 @@
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        @media (max-width: 768px) {
+        /* Mobile Header */
+        @media (max-width: 767px) {
             nav {
-                background-color: rgba(255,255,255,0.4);
-                backdrop-filter: blur(8px);
-            }
-            nav .max-w-7xl {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.75rem;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-            nav .hidden.md\:flex {
-                display: flex !important;
-                gap: 1rem !important;
-                font-size: 0.75rem;
-                width: 100%;
-                justify-content: center;
-                border-top: 1px solid rgba(10, 35, 66, 0.05);
-                padding-top: 0.5rem;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(12px);
             }
         }
     </style>
@@ -130,7 +116,7 @@
                 </a>
 
                 <a href="donate.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                   class="px-4 py-2 text-sm font-semibold text-[#0A2342] bg-gray-50 rounded-lg transition-all">
                     Donate
                 </a>
 
@@ -184,7 +170,7 @@
                 </a>
 
                 <a href="donate.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                   class="px-4 py-3 text-sm font-semibold text-[#0A2342] bg-gray-50 rounded-lg transition-all">
                     Donate
                 </a>
 
