@@ -1,71 +1,224 @@
-```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs & Curriculum | Next-Gen Knowledge</title>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-FXJKCLQMSN');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FXJKCLQMSN');
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: { DEFAULT: '#0A2342', light: '#14355B', dark: '#051224' },
-                        gold: { DEFAULT: '#C9A227', light: '#DFB73C', dark: '#A6841C' },
-                        surface: '#F9FAFB'
+                        navy: {
+                            DEFAULT: '#0A2342',
+                            light: '#14355B',
+                            dark: '#051224'
+                        },
+                        gold: {
+                            DEFAULT: '#C9A227',
+                            light: '#DFB73C',
+                            dark: '#A6841C'
+                        },
+                        surface: '#F7F8FA'
                     },
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    boxShadow: { 
-                        'premium': '0 20px 40px -15px rgba(10, 35, 66, 0.05)', 
-                        'premium-hover': '0 30px 60px -15px rgba(10, 35, 66, 0.12)' 
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        premium: '0 20px 50px -20px rgba(10, 35, 66, 0.14)',
+                        'premium-hover': '0 30px 70px -20px rgba(10, 35, 66, 0.22)'
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        marquee: 'marquee 25s linear infinite',
+                        pulseSoft: 'pulseSoft 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        marquee: {
+                            from: { transform: 'translateX(0)' },
+                            to: { transform: 'translateX(-50%)' }
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '1' }
+                        }
                     }
                 }
             }
         }
-    </script>        
+    </script>
+
     <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(32px);
+            transition:
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Mobile Header */
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(10,35,66,0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10,35,66,0.045) 1px, transparent 1px);
+            background-size: 44px 44px;
+        }
+
+        .hero-glow {
+            background:
+                radial-gradient(circle at 50% 20%, rgba(201,162,39,0.15), transparent 30%),
+                radial-gradient(circle at 85% 70%, rgba(20,53,91,0.10), transparent 28%);
+        }
+
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.18),
+                transparent
+            );
+            transform: skewX(-18deg);
+            transition: left 0.8s ease;
+        }
+
+        .shine:hover::after {
+            left: 140%;
+        }
+
+        .program-card {
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 70px -25px rgba(10,35,66,0.24);
+            border-color: rgba(201,162,39,0.35);
+        }
+
+        .week-btn {
+            transition: all 0.25s ease;
+        }
+
+        .week-btn.active {
+            background: #0A2342;
+            color: white;
+            border-color: #0A2342;
+            box-shadow: 0 15px 30px -15px rgba(10,35,66,0.5);
+            transform: translateX(4px);
+        }
+
+        .week-btn.active .week-number {
+            background: rgba(201,162,39,0.18);
+            color: #C9A227;
+        }
+
+        .week-btn.active .week-arrow {
+            color: #C9A227;
+            transform: translateX(3px);
+        }
+
+        .week-arrow {
+            transition: all 0.25s ease;
+        }
+
+        .timeline-line {
+            background: linear-gradient(
+                to bottom,
+                rgba(201,162,39,0.75),
+                rgba(10,35,66,0.08)
+            );
+        }
+
+        .metric-card {
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .marquee-track {
+            width: max-content;
+            animation: marquee 28s linear infinite;
+        }
+
+        .mobile-menu {
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+
         @media (max-width: 767px) {
             nav {
-                background-color: rgba(255, 255, 255, 0.95);
+                background-color: rgba(255,255,255,0.95);
                 backdrop-filter: blur(12px);
+            }
+
+            .week-btn.active {
+                transform: none;
             }
         }
     </style>
 </head>
-<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
 
-<!-- Unified Navigation Bar -->
-<!-- Navigation -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
+<body class="bg-white text-navy font-sans antialiased">
+
+<!-- ========================================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================================= -->
+
+<nav id="navbar"
+     class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div class="flex items-center justify-between h-20">
 
             <!-- Logo -->
@@ -82,6 +235,7 @@
                     <div class="text-lg font-extrabold tracking-tight text-[#0A2342]">
                         Next-Gen Knowledge
                     </div>
+
                     <div class="text-[11px] font-semibold uppercase tracking-widest text-[#C9A227]">
                         Empowering the Next Generation
                     </div>
@@ -102,7 +256,7 @@
                 </a>
 
                 <a href="programs.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                   class="px-4 py-2 text-sm font-bold text-[#0A2342] bg-gray-50 rounded-lg transition-all">
                     Programs
                 </a>
 
@@ -121,7 +275,6 @@
                     Donate
                 </a>
 
-                <!-- Enroll Button -->
                 <a href="enroll.html"
                    class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
                     Enroll
@@ -129,7 +282,7 @@
 
             </div>
 
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Button -->
             <button
                 id="mobile-menu-button"
                 class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
@@ -156,7 +309,7 @@
                 </a>
 
                 <a href="programs.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                   class="px-4 py-3 text-sm font-bold text-[#0A2342] bg-gray-50 rounded-lg">
                     Programs
                 </a>
 
@@ -182,19 +335,1554 @@
 
             </div>
         </div>
+
     </div>
 </nav>
 
-<!-- Header Spacer -->
 <div class="h-20"></div>
 
+<!-- ========================================================= -->
+<!-- HERO -->
+<!-- ========================================================= -->
+
+<section class="relative overflow-hidden hero-grid hero-glow bg-surface">
+
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-gold/10 blur-3xl"></div>
+        <div class="absolute top-1/2 -left-48 w-[500px] h-[500px] rounded-full bg-navy/5 blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 pt-24 pb-20 lg:pt-32 lg:pb-28">
+
+        <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
+
+            <!-- Hero Copy -->
+            <div class="reveal active">
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gold/20 rounded-full shadow-sm mb-7">
+                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                    <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-gold">
+                        Learn • Practice • Apply
+                    </span>
+                </div>
+
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.045em] leading-[0.98] text-navy">
+                    Education that
+                    <span class="relative inline-block">
+                        <span class="text-gold">moves</span>
+                        <span class="absolute left-0 right-0 -bottom-1 h-1 bg-gold/30 rounded-full"></span>
+                    </span>
+                    with the real world.
+                </h1>
+
+                <p class="mt-7 text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                    Interactive financial education designed to help students understand money,
+                    analyze opportunities, and make decisions through real-world simulations.
+                </p>
+
+                <div class="mt-9 flex flex-col sm:flex-row gap-3">
+
+                    <a href="enroll.html"
+                       class="shine inline-flex items-center justify-center gap-2 bg-navy text-white font-bold px-7 py-4 rounded-xl hover:bg-navy-light transition-all shadow-lg shadow-navy/15">
+                        Explore Enrollment
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+
+                    <a href="#programs"
+                       class="inline-flex items-center justify-center gap-2 bg-white text-navy font-bold px-7 py-4 rounded-xl border border-navy/10 hover:border-gold/40 hover:bg-gray-50 transition-all">
+                        Explore Programs
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                    </a>
+
+                </div>
+
+                <div class="mt-9 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-gray-500">
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i>
+                        Live instruction
+                    </span>
+
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i>
+                        Hands-on simulations
+                    </span>
+
+                    <span class="flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-gold"></i>
+                        Student-led
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="relative min-h-[430px] reveal active">
+
+                <!-- Background Orb -->
+                <div class="absolute inset-10 rounded-full border border-navy/5"></div>
+                <div class="absolute inset-20 rounded-full border border-gold/20"></div>
+
+                <!-- Main Dashboard -->
+                <div class="absolute left-4 right-4 md:left-8 md:right-8 top-10 bg-white rounded-[2rem] border border-navy/10 shadow-premium p-6 animate-float">
+
+                    <div class="flex items-center justify-between mb-7">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.2em] font-extrabold text-gray-400">
+                                Learning Dashboard
+                            </p>
+                            <h3 class="text-lg font-extrabold text-navy mt-1">
+                                Your Financial Journey
+                            </h3>
+                        </div>
+
+                        <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-gold"></i>
+                        </div>
+                    </div>
+
+                    <!-- Progress -->
+                    <div class="p-4 rounded-2xl bg-surface border border-navy/5">
+
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm font-bold text-navy">
+                                Program Progress
+                            </span>
+
+                            <span class="text-sm font-black text-gold">
+                                72%
+                            </span>
+                        </div>
+
+                        <div class="h-2 rounded-full bg-gray-200 overflow-hidden">
+                            <div class="h-full w-[72%] bg-gold rounded-full"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Learning Steps -->
+                    <div class="grid grid-cols-4 gap-2 mt-5">
+
+                        <div class="text-center">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-navy text-white flex items-center justify-center">
+                                <i data-lucide="book-open" class="w-4 h-4"></i>
+                            </div>
+                            <p class="text-[9px] font-bold text-gray-500 mt-2">LEARN</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-gold/15 text-gold flex items-center justify-center">
+                                <i data-lucide="gamepad-2" class="w-4 h-4"></i>
+                            </div>
+                            <p class="text-[9px] font-bold text-gray-500 mt-2">SIMULATE</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-navy/10 text-navy flex items-center justify-center">
+                                <i data-lucide="search" class="w-4 h-4"></i>
+                            </div>
+                            <p class="text-[9px] font-bold text-gray-500 mt-2">ANALYZE</p>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-10 h-10 mx-auto rounded-xl bg-gold text-navy flex items-center justify-center">
+                                <i data-lucide="presentation" class="w-4 h-4"></i>
+                            </div>
+                            <p class="text-[9px] font-bold text-gray-500 mt-2">APPLY</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Chart -->
+                    <div class="mt-6 h-28 relative overflow-hidden rounded-xl bg-navy/[0.025]">
+
+                        <svg
+                            viewBox="0 0 500 120"
+                            class="absolute inset-0 w-full h-full"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                d="M0 95 C45 92, 55 80, 90 84 C125 88, 140 65, 175 70 C210 75, 225 52, 260 58 C295 65, 315 35, 350 45 C385 55, 400 25, 430 30 C460 35, 475 14, 500 20"
+                                fill="none"
+                                stroke="#C9A227"
+                                stroke-width="4"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+
+                        <div class="absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider text-gray-400">
+                            Skills Growth
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Floating Card -->
+                <div class="absolute -bottom-2 -left-1 md:left-0 bg-navy text-white p-5 rounded-2xl shadow-xl animate-float-slow">
+
+                    <div class="flex items-center gap-3">
+
+                        <div class="w-11 h-11 rounded-xl bg-gold/15 flex items-center justify-center">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-gold"></i>
+                        </div>
+
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest text-white/50 font-bold">
+                                Hands-On
+                            </p>
+                            <p class="font-extrabold">
+                                Real-world practice
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Floating Tag -->
+                <div class="absolute top-1 right-0 md:right-2 bg-white border border-navy/10 rounded-2xl shadow-lg px-5 py-4 animate-float">
+
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-gold"></span>
+                        <span class="text-xs font-extrabold text-navy">
+                            Built for the next generation
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ========================================================= -->
+<!-- MARQUEE -->
+<!-- ========================================================= -->
+
+<div class="bg-navy text-white overflow-hidden border-y border-white/5">
+
+    <div class="marquee-track flex items-center py-4">
+
+        <div class="flex items-center gap-8 px-4 whitespace-nowrap">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Financial Literacy</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Investing</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Entrepreneurship</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Critical Thinking</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Real-World Skills</span>
+            <span class="text-gold">✦</span>
+        </div>
+
+        <div class="flex items-center gap-8 px-4 whitespace-nowrap">
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Financial Literacy</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Investing</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Entrepreneurship</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Critical Thinking</span>
+            <span class="text-gold">✦</span>
+            <span class="text-xs font-bold uppercase tracking-[0.25em] text-white/60">Real-World Skills</span>
+            <span class="text-gold">✦</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- PROGRAMS AT A GLANCE -->
+<!-- ========================================================= -->
+
+<section id="programs" class="py-24 lg:py-28 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="max-w-3xl mb-14 reveal">
+
+            <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                Our Programs
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                Two programs.<br>
+                One practical approach.
+            </h2>
+
+            <p class="mt-5 text-lg text-gray-600 leading-relaxed max-w-2xl">
+                Students progress from understanding the fundamentals of money to analyzing
+                companies, managing portfolios, and presenting investment ideas.
+            </p>
+
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-7">
+
+            <!-- Money Masters -->
+            <div class="program-card relative overflow-hidden rounded-[2.5rem] bg-surface border border-navy/5 p-8 md:p-10 reveal">
+
+                <div class="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-gold/10 blur-3xl"></div>
+
+                <div class="relative z-10">
+
+                    <div class="flex items-start justify-between">
+
+                        <div class="w-14 h-14 rounded-2xl bg-navy text-white flex items-center justify-center shadow-lg">
+                            <i data-lucide="wallet-cards" class="w-7 h-7"></i>
+                        </div>
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-navy">
+                            Foundations
+                        </span>
+
+                    </div>
+
+                    <p class="text-gold text-xs uppercase tracking-[0.2em] font-extrabold mt-9">
+                        Grades 5–8
+                    </p>
+
+                    <h3 class="text-3xl md:text-4xl font-black text-navy mt-2">
+                        Money Masters
+                    </h3>
+
+                    <p class="text-gray-600 leading-relaxed mt-4">
+                        A five-week introduction to personal finance, investing,
+                        entrepreneurship, and financial decision-making.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 mt-8">
+
+                        <div class="bg-white rounded-2xl p-4 border border-navy/5">
+                            <p class="text-[10px] uppercase tracking-wider font-bold text-gray-400">Length</p>
+                            <p class="font-extrabold text-navy mt-1">5 Weeks</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-4 border border-navy/5">
+                            <p class="text-[10px] uppercase tracking-wider font-bold text-gray-400">Format</p>
+                            <p class="font-extrabold text-navy mt-1">Live Classes</p>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-7 pt-6 border-t border-navy/10 flex items-center justify-between">
+
+                        <span class="text-sm font-semibold text-gray-500">
+                            Learn the fundamentals
+                        </span>
+
+                        <a href="#money-masters"
+                           class="inline-flex items-center gap-2 font-extrabold text-navy hover:text-gold transition">
+                            Explore
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Investor Academy -->
+            <div class="program-card relative overflow-hidden rounded-[2.5rem] bg-navy text-white p-8 md:p-10 reveal">
+
+                <div class="absolute -right-24 -bottom-24 w-80 h-80 rounded-full bg-gold/10 blur-3xl"></div>
+
+                <div class="absolute right-8 top-8 opacity-10">
+                    <i data-lucide="candlestick-chart" class="w-32 h-32"></i>
+                </div>
+
+                <div class="relative z-10">
+
+                    <div class="flex items-start justify-between">
+
+                        <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center">
+                            <i data-lucide="chart-no-axes-combined" class="w-7 h-7 text-gold"></i>
+                        </div>
+
+                        <span class="px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-gold">
+                            Advanced Track
+                        </span>
+
+                    </div>
+
+                    <p class="text-gold text-xs uppercase tracking-[0.2em] font-extrabold mt-9">
+                        Grades 7+ / Returning Students
+                    </p>
+
+                    <h3 class="text-3xl md:text-4xl font-black mt-2">
+                        Investor Academy
+                    </h3>
+
+                    <p class="text-white/65 leading-relaxed mt-4">
+                        A deeper dive into investing, financial statements, business models,
+                        portfolio construction, and investment analysis.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 mt-8">
+
+                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10">
+                            <p class="text-[10px] uppercase tracking-wider font-bold text-white/40">Length</p>
+                            <p class="font-extrabold mt-1">5 Weeks</p>
+                        </div>
+
+                        <div class="bg-white/5 rounded-2xl p-4 border border-white/10">
+                            <p class="text-[10px] uppercase tracking-wider font-bold text-white/40">Simulation</p>
+                            <p class="font-extrabold mt-1">$100K Portfolio</p>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-7 pt-6 border-t border-white/10 flex items-center justify-between">
+
+                        <span class="text-sm font-semibold text-white/50">
+                            Think like an investor
+                        </span>
+
+                        <a href="#investor-academy"
+                           class="inline-flex items-center gap-2 font-extrabold text-gold hover:text-gold-light transition">
+                            Explore
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- MONEY MASTERS -->
+<!-- ========================================================= -->
+
+<section id="money-masters" class="py-24 lg:py-32 bg-surface border-y border-navy/5">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-start">
+
+            <!-- Left -->
+            <div class="reveal">
+
+                <div class="sticky top-28">
+
+                    <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                        Program 01
+                    </span>
+
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                        Money Masters
+                    </h2>
+
+                    <p class="text-lg text-gray-600 leading-relaxed mt-5">
+                        Start with the decisions students make every day:
+                        spending, saving, budgeting, investing, and building ideas.
+                    </p>
+
+                    <div class="mt-8 space-y-3">
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-white border border-navy/5 flex items-center justify-center">
+                                <i data-lucide="calendar-days" class="w-4 h-4 text-gold"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Duration</p>
+                                <p class="text-sm font-extrabold text-navy">5 weeks • 10 classes</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-white border border-navy/5 flex items-center justify-center">
+                                <i data-lucide="users" class="w-4 h-4 text-gold"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Audience</p>
+                                <p class="text-sm font-extrabold text-navy">Grades 5–8</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-white border border-navy/5 flex items-center justify-center">
+                                <i data-lucide="monitor-play" class="w-4 h-4 text-gold"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">Format</p>
+                                <p class="text-sm font-extrabold text-navy">Live online instruction</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="enroll.html"
+                       class="mt-9 inline-flex items-center gap-2 bg-navy text-white font-bold px-6 py-3.5 rounded-xl hover:bg-navy-light transition shadow-lg shadow-navy/10">
+                        Register for a Cohort
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Curriculum -->
+            <div class="relative reveal">
+
+                <div class="absolute left-[18px] top-7 bottom-7 w-px timeline-line hidden sm:block"></div>
+
+                <div class="space-y-5">
+
+                    <!-- Week 1 -->
+                    <div class="relative pl-0 sm:pl-14">
+
+                        <div class="absolute left-0 top-6 w-9 h-9 rounded-full bg-white border-4 border-gold shadow-sm hidden sm:flex items-center justify-center z-10">
+                            <span class="text-[9px] font-black text-navy">01</span>
+                        </div>
+
+                        <div class="bg-white rounded-[2rem] border border-navy/5 shadow-premium p-7 md:p-8">
+
+                            <div class="flex flex-wrap gap-2 items-center">
+                                <span class="text-gold text-xs font-extrabold uppercase tracking-wider">Week 01</span>
+                                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                <span class="text-xs font-semibold text-gray-400">Mindset</span>
+                            </div>
+
+                            <h3 class="text-xl md:text-2xl font-extrabold text-navy mt-2">
+                                The Psychology of Spending
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed mt-3">
+                                Students explore how advertising, social media, and digital shopping
+                                influence financial decisions and learn to distinguish wants from needs.
+                            </p>
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Consumer Awareness</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Spending Audit</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Marketing Traps</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Week 2 -->
+                    <div class="relative pl-0 sm:pl-14">
+
+                        <div class="absolute left-0 top-6 w-9 h-9 rounded-full bg-white border-4 border-gold shadow-sm hidden sm:flex items-center justify-center z-10">
+                            <span class="text-[9px] font-black text-navy">02</span>
+                        </div>
+
+                        <div class="bg-white rounded-[2rem] border border-navy/5 shadow-premium p-7 md:p-8">
+
+                            <div class="flex flex-wrap gap-2 items-center">
+                                <span class="text-gold text-xs font-extrabold uppercase tracking-wider">Week 02</span>
+                                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                <span class="text-xs font-semibold text-gray-400">Management</span>
+                            </div>
+
+                            <h3 class="text-xl md:text-2xl font-extrabold text-navy mt-2">
+                                Budgeting & Resource Management
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed mt-3">
+                                Students construct realistic monthly allocations, adapt the 50/30/20
+                                framework for youth, and manage a mock budget through changing scenarios.
+                            </p>
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Budgeting</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Cash Flow</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Simulation</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Week 3 -->
+                    <div class="relative pl-0 sm:pl-14">
+
+                        <div class="absolute left-0 top-6 w-9 h-9 rounded-full bg-white border-4 border-gold shadow-sm hidden sm:flex items-center justify-center z-10">
+                            <span class="text-[9px] font-black text-navy">03</span>
+                        </div>
+
+                        <div class="bg-white rounded-[2rem] border border-navy/5 shadow-premium p-7 md:p-8">
+
+                            <div class="flex flex-wrap gap-2 items-center">
+                                <span class="text-gold text-xs font-extrabold uppercase tracking-wider">Week 03</span>
+                                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                <span class="text-xs font-semibold text-gray-400">Investing</span>
+                            </div>
+
+                            <h3 class="text-xl md:text-2xl font-extrabold text-navy mt-2">
+                                Introduction to Investing
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed mt-3">
+                                Students are introduced to the stock market, asset classes, and
+                                compound growth through an accessible simulated portfolio experience.
+                            </p>
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Stocks</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Compound Growth</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Portfolio Simulation</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Week 4 -->
+                    <div class="relative pl-0 sm:pl-14">
+
+                        <div class="absolute left-0 top-6 w-9 h-9 rounded-full bg-white border-4 border-gold shadow-sm hidden sm:flex items-center justify-center z-10">
+                            <span class="text-[9px] font-black text-navy">04</span>
+                        </div>
+
+                        <div class="bg-white rounded-[2rem] border border-navy/5 shadow-premium p-7 md:p-8">
+
+                            <div class="flex flex-wrap gap-2 items-center">
+                                <span class="text-gold text-xs font-extrabold uppercase tracking-wider">Week 04</span>
+                                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                                <span class="text-xs font-semibold text-gray-400">Entrepreneurship</span>
+                            </div>
+
+                            <h3 class="text-xl md:text-2xl font-extrabold text-navy mt-2">
+                                Entrepreneurship Essentials
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed mt-3">
+                                Students turn ideas into business concepts by identifying problems,
+                                evaluating customers, testing pricing, and calculating basic profit margins.
+                            </p>
+
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Business Models</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Pricing</span>
+                                <span class="px-3 py-1.5 rounded-lg bg-surface text-xs font-bold text-navy">Pitching</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Week 5 -->
+                    <div class="relative pl-0 sm:pl-14">
+
+                        <div class="absolute left-0 top-6 w-9 h-9 rounded-full bg-gold border-4 border-gold shadow-sm hidden sm:flex items-center justify-center z-10">
+                            <span class="text-[9px] font-black text-navy">05</span>
+                        </div>
+
+                        <div class="bg-navy text-white rounded-[2rem] shadow-xl p-7 md:p-8 relative overflow-hidden">
+
+                            <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-gold/10 rounded-full blur-3xl"></div>
+
+                            <div class="relative z-10">
+
+                                <div class="flex flex-wrap gap-2 items-center">
+                                    <span class="text-gold text-xs font-extrabold uppercase tracking-wider">Week 05</span>
+                                    <span class="w-1 h-1 rounded-full bg-white/20"></span>
+                                    <span class="text-xs font-semibold text-white/40">Application</span>
+                                </div>
+
+                                <h3 class="text-xl md:text-2xl font-extrabold mt-2">
+                                    Strategic Financial Planning
+                                </h3>
+
+                                <p class="text-white/65 leading-relaxed mt-3">
+                                    Students bring the program together through investment and
+                                    business presentations, peer feedback, and a final showcase.
+                                </p>
+
+                                <div class="mt-5 flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold">Portfolio Showcase</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold">Peer Feedback</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-bold">Final Certificate</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- LEARNING MODEL -->
+<!-- ========================================================= -->
+
+<section class="py-24 lg:py-32 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-[0.75fr_1.25fr] gap-16 items-center">
+
+            <div class="reveal">
+
+                <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                    The Next-Gen Method
+                </span>
+
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                    We don't stop at teaching.
+                </h2>
+
+                <p class="text-lg text-gray-600 leading-relaxed mt-5">
+                    Students repeatedly move from a concept to a decision, then see the
+                    consequences of that decision in a simulated environment.
+                </p>
+
+                <div class="mt-8 p-5 rounded-2xl bg-surface border border-navy/5">
+                    <div class="flex items-start gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-gold"></i>
+                        </div>
+                        <div>
+                            <p class="font-extrabold text-navy">Concept → Decision → Feedback</p>
+                            <p class="text-sm text-gray-500 mt-1">
+                                Every stage is designed to make financial concepts tangible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5 reveal">
+
+                <!-- 01 -->
+                <div class="bg-surface rounded-[2rem] p-7 border border-navy/5 program-card">
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-5xl font-black text-navy/5">01</span>
+                        <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                            <i data-lucide="book-open" class="w-5 h-5 text-gold"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="font-extrabold text-xl text-navy mt-7">
+                        Learn
+                    </h3>
+
+                    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                        Understand the concept through clear instruction and discussion.
+                    </p>
+
+                </div>
+
+                <!-- 02 -->
+                <div class="bg-navy rounded-[2rem] p-7 text-white program-card">
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-5xl font-black text-white/5">02</span>
+                        <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
+                            <i data-lucide="gamepad-2" class="w-5 h-5 text-gold"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="font-extrabold text-xl mt-7">
+                        Simulate
+                    </h3>
+
+                    <p class="text-sm text-white/55 leading-relaxed mt-2">
+                        Test ideas through budgets, portfolios, scenarios, and challenges.
+                    </p>
+
+                </div>
+
+                <!-- 03 -->
+                <div class="bg-white rounded-[2rem] p-7 border border-navy/10 program-card">
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-5xl font-black text-navy/5">03</span>
+                        <div class="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center">
+                            <i data-lucide="search-check" class="w-5 h-5 text-gold"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="font-extrabold text-xl text-navy mt-7">
+                        Analyze
+                    </h3>
+
+                    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                        Evaluate results, identify tradeoffs, and understand why outcomes changed.
+                    </p>
+
+                </div>
+
+                <!-- 04 -->
+                <div class="bg-gold rounded-[2rem] p-7 text-navy program-card">
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-5xl font-black text-navy/10">04</span>
+                        <div class="w-11 h-11 rounded-xl bg-white/50 flex items-center justify-center">
+                            <i data-lucide="presentation" class="w-5 h-5 text-navy"></i>
+                        </div>
+                    </div>
+
+                    <h3 class="font-extrabold text-xl mt-7">
+                        Apply
+                    </h3>
+
+                    <p class="text-sm text-navy/65 leading-relaxed mt-2">
+                        Present ideas, defend decisions, and connect lessons to the real world.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- INVESTOR ACADEMY -->
+<!-- ========================================================= -->
+
+<section id="investor-academy" class="relative py-24 lg:py-32 bg-navy text-white overflow-hidden">
+
+    <div class="absolute inset-0 pointer-events-none">
+
+        <div class="absolute top-[-200px] right-[-150px] w-[600px] h-[600px] rounded-full bg-gold/10 blur-3xl"></div>
+
+        <div class="absolute bottom-[-250px] left-[-200px] w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-3xl"></div>
+
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
+
+            <!-- Intro -->
+            <div class="reveal">
+
+                <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                    Program 02 • Advanced Track
+                </span>
+
+                <h2 class="text-4xl md:text-6xl font-black tracking-tight mt-3">
+                    Investor<br>
+                    <span class="text-gold">Academy</span>
+                </h2>
+
+                <p class="text-lg text-white/60 leading-relaxed mt-6 max-w-xl">
+                    Moving beyond basic budgeting, students explore how investors evaluate
+                    companies, construct portfolios, and communicate an investment thesis.
+                </p>
+
+                <div class="grid grid-cols-2 gap-3 mt-9">
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-[10px] uppercase tracking-wider text-white/35 font-bold">Format</p>
+                        <p class="font-extrabold mt-1">5 Weeks</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-[10px] uppercase tracking-wider text-white/35 font-bold">Classes</p>
+                        <p class="font-extrabold mt-1">10 Total</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-[10px] uppercase tracking-wider text-white/35 font-bold">Portfolio</p>
+                        <p class="font-extrabold mt-1">$100K Virtual</p>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                        <p class="text-[10px] uppercase tracking-wider text-white/35 font-bold">Experience</p>
+                        <p class="font-extrabold mt-1">Hands-On</p>
+                    </div>
+
+                </div>
+
+                <a href="enroll.html"
+                   class="mt-9 inline-flex items-center gap-2 bg-gold text-navy font-extrabold px-7 py-4 rounded-xl hover:bg-gold-light transition-all shadow-lg shadow-gold/10">
+                    Enroll in Investor Academy
+                    <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                </a>
+
+            </div>
+
+            <!-- 3 Part Structure -->
+            <div class="reveal">
+
+                <div class="bg-white/5 border border-white/10 rounded-[2.5rem] p-7 md:p-9">
+
+                    <div class="flex items-center justify-between mb-8">
+
+                        <div>
+                            <p class="text-[10px] uppercase tracking-[0.2em] text-white/35 font-extrabold">
+                                Inside Every Class
+                            </p>
+                            <h3 class="text-2xl font-extrabold mt-1">
+                                The 60-minute framework
+                            </h3>
+                        </div>
+
+                        <div class="hidden sm:flex w-12 h-12 rounded-2xl bg-gold/10 items-center justify-center">
+                            <i data-lucide="timer" class="w-5 h-5 text-gold"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="space-y-3">
+
+                        <div class="group p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition">
+
+                            <div class="flex gap-4">
+
+                                <div class="w-11 h-11 shrink-0 rounded-xl bg-gold/10 flex items-center justify-center">
+                                    <span class="text-xs font-black text-gold">01</span>
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h4 class="font-extrabold">Market Update</h4>
+                                        <span class="text-[10px] font-bold text-gold uppercase tracking-wider">10 mins</span>
+                                    </div>
+
+                                    <p class="text-sm text-white/50 leading-relaxed mt-1">
+                                        Track major markets, discuss financial news, and develop
+                                        student-led market awareness.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="group p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition">
+
+                            <div class="flex gap-4">
+
+                                <div class="w-11 h-11 shrink-0 rounded-xl bg-gold/10 flex items-center justify-center">
+                                    <span class="text-xs font-black text-gold">02</span>
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h4 class="font-extrabold">Main Lesson</h4>
+                                        <span class="text-[10px] font-bold text-gold uppercase tracking-wider">35 mins</span>
+                                    </div>
+
+                                    <p class="text-sm text-white/50 leading-relaxed mt-1">
+                                        Work through case studies, business breakdowns, games,
+                                        and economic activities.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="group p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/30 transition">
+
+                            <div class="flex gap-4">
+
+                                <div class="w-11 h-11 shrink-0 rounded-xl bg-gold/10 flex items-center justify-center">
+                                    <span class="text-xs font-black text-gold">03</span>
+                                </div>
+
+                                <div class="flex-1">
+
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h4 class="font-extrabold">Investment Challenge</h4>
+                                        <span class="text-[10px] font-bold text-gold uppercase tracking-wider">15 mins</span>
+                                    </div>
+
+                                    <p class="text-sm text-white/50 leading-relaxed mt-1">
+                                        Apply the lesson to virtual portfolios, company analysis,
+                                        stock ideas, and team challenges.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- INVESTOR ACADEMY CURRICULUM -->
+<!-- ========================================================= -->
+
+<section class="py-24 lg:py-32 bg-surface">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto reveal">
+
+            <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                The Advanced Curriculum
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                Ten classes. Five themes.
+            </h2>
+
+            <p class="text-lg text-gray-600 leading-relaxed mt-4">
+                Students progress from understanding companies to building portfolios
+                and ultimately defending their own investment thesis.
+            </p>
+
+        </div>
+
+        <div class="mt-14 grid md:grid-cols-2 gap-5">
+
+            <!-- Week 1 -->
+            <div class="program-card bg-white rounded-[2rem] border border-navy/5 p-7 md:p-8 reveal">
+
+                <div class="flex items-center justify-between">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-[0.18em]">
+                        Week 01
+                    </span>
+
+                    <span class="w-9 h-9 rounded-xl bg-gold/10 text-gold flex items-center justify-center text-xs font-black">
+                        01
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-black text-navy mt-4">
+                    Valuation & Financial Statements
+                </h3>
+
+                <div class="mt-6 space-y-3">
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 1</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            How Investors Think — intrinsic value, Mr. Market, safety margins,
+                            and company comparisons.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 2</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Financial Statements Made Simple — revenue, profit, balance sheets,
+                            and company analysis.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Week 2 -->
+            <div class="program-card bg-white rounded-[2rem] border border-navy/5 p-7 md:p-8 reveal">
+
+                <div class="flex items-center justify-between">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-[0.18em]">
+                        Week 02
+                    </span>
+
+                    <span class="w-9 h-9 rounded-xl bg-gold/10 text-gold flex items-center justify-center text-xs font-black">
+                        02
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-black text-navy mt-4">
+                    Moats & Investor Psychology
+                </h3>
+
+                <div class="mt-6 space-y-3">
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 3</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Billion Dollar Companies — economic moats, network effects,
+                            and business case studies.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 4</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Psychology of Investing — FOMO, bubbles, behavioral finance,
+                            and historical market crises.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Week 3 -->
+            <div class="program-card bg-white rounded-[2rem] border border-navy/5 p-7 md:p-8 reveal">
+
+                <div class="flex items-center justify-between">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-[0.18em]">
+                        Week 03
+                    </span>
+
+                    <span class="w-9 h-9 rounded-xl bg-gold/10 text-gold flex items-center justify-center text-xs font-black">
+                        03
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-black text-navy mt-4">
+                    Portfolios & Business Models
+                </h3>
+
+                <div class="mt-6 space-y-3">
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 5</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Building Portfolios — diversification, risk tolerance,
+                            and launching the $100K virtual portfolio.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 6</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Business Models — subscription, marketplace, franchise,
+                            advertising, and luxury models.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Week 4 -->
+            <div class="program-card bg-white rounded-[2rem] border border-navy/5 p-7 md:p-8 reveal">
+
+                <div class="flex items-center justify-between">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-[0.18em]">
+                        Week 04
+                    </span>
+
+                    <span class="w-9 h-9 rounded-xl bg-gold/10 text-gold flex items-center justify-center text-xs font-black">
+                        04
+                    </span>
+                </div>
+
+                <h3 class="text-2xl font-black text-navy mt-4">
+                    Buffett Metrics & Entrepreneurship
+                </h3>
+
+                <div class="mt-6 space-y-3">
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 7</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Reading Companies Like Warren Buffett — ROE, margins,
+                            free cash flow, and company analysis.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-surface">
+                        <p class="text-xs font-black text-navy">Class 8</p>
+                        <p class="text-sm text-gray-600 mt-1">
+                            Entrepreneurship & Unit Economics — scaling,
+                            recurring revenue, CAC, and LTV.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Week 5 -->
+            <div class="md:col-span-2 program-card bg-navy text-white rounded-[2rem] p-7 md:p-9 relative overflow-hidden reveal">
+
+                <div class="absolute right-0 bottom-0 w-72 h-72 bg-gold/10 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10 grid lg:grid-cols-[0.45fr_1.55fr] gap-8 items-center">
+
+                    <div>
+
+                        <div class="flex items-center gap-3">
+                            <span class="text-gold text-xs font-extrabold uppercase tracking-[0.18em]">
+                                Week 05
+                            </span>
+
+                            <span class="px-2.5 py-1 rounded-lg bg-gold/10 text-gold text-[10px] font-bold">
+                                FINAL SHOWCASE
+                            </span>
+                        </div>
+
+                        <h3 class="text-3xl font-black mt-3">
+                            Mistakes & Investment Competition
+                        </h3>
+
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-3">
+
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="text-xs font-black text-gold">Class 9</p>
+                            <p class="text-sm text-white/55 leading-relaxed mt-2">
+                                Biggest Investing Mistakes — emotional investing,
+                                market timing, and concentration risk.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10">
+                            <p class="text-xs font-black text-gold">Class 10</p>
+                            <p class="text-sm text-white/55 leading-relaxed mt-2">
+                                Investment Competition — students present a company thesis,
+                                financials, and risks.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- WHAT STUDENTS EXPERIENCE -->
+<!-- ========================================================= -->
+
+<section class="py-24 lg:py-32 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-3xl mx-auto reveal">
+
+            <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                Beyond The Classroom
+            </span>
+
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                Students don't just sit and listen.
+            </h2>
+
+            <p class="text-lg text-gray-600 leading-relaxed mt-4">
+                Our programs are built around activities that turn abstract financial
+                ideas into decisions students can actually experience.
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+
+            <div class="program-card rounded-[2rem] bg-surface border border-navy/5 p-7 reveal">
+                <div class="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center">
+                    <i data-lucide="wallet" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-extrabold text-xl text-navy mt-6">Build Budgets</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                    Make decisions about income, spending, saving, and unexpected expenses.
+                </p>
+            </div>
+
+            <div class="program-card rounded-[2rem] bg-surface border border-navy/5 p-7 reveal">
+                <div class="w-12 h-12 rounded-2xl bg-gold text-navy flex items-center justify-center">
+                    <i data-lucide="candlestick-chart" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-extrabold text-xl text-navy mt-6">Track Markets</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                    Follow markets and manage simulated investments over time.
+                </p>
+            </div>
+
+            <div class="program-card rounded-[2rem] bg-surface border border-navy/5 p-7 reveal">
+                <div class="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center">
+                    <i data-lucide="building-2" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-extrabold text-xl text-navy mt-6">Analyze Companies</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                    Break down business models, financials, competitive advantages, and risks.
+                </p>
+            </div>
+
+            <div class="program-card rounded-[2rem] bg-surface border border-navy/5 p-7 reveal">
+                <div class="w-12 h-12 rounded-2xl bg-gold text-navy flex items-center justify-center">
+                    <i data-lucide="mic-2" class="w-5 h-5"></i>
+                </div>
+                <h3 class="font-extrabold text-xl text-navy mt-6">Present Ideas</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                    Defend decisions, explain reasoning, and communicate financial ideas clearly.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- OUTCOMES -->
+<!-- ========================================================= -->
+
+<section class="py-24 lg:py-32 bg-surface border-y border-navy/5">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-center">
+
+            <div class="reveal">
+
+                <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
+                    What Students Build
+                </span>
+
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                    Skills that extend beyond one course.
+                </h2>
+
+                <p class="text-lg text-gray-600 leading-relaxed mt-5">
+                    The goal isn't simply to memorize financial vocabulary.
+                    It's to build the confidence to use it.
+                </p>
+
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 reveal">
+
+                <div class="metric-card bg-white rounded-2xl p-6 border border-navy/5 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
+                        <i data-lucide="brain" class="w-5 h-5 text-gold"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navy mt-5">
+                        Financial Reasoning
+                    </h3>
+                    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                        Understand the reasoning behind everyday financial decisions.
+                    </p>
+                </div>
+
+                <div class="metric-card bg-white rounded-2xl p-6 border border-navy/5 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-gold"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navy mt-5">
+                        Financial Confidence
+                    </h3>
+                    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                        Become more comfortable discussing money, markets, and financial choices.
+                    </p>
+                </div>
+
+                <div class="metric-card bg-white rounded-2xl p-6 border border-navy/5 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5 text-gold"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navy mt-5">
+                        Analytical Skills
+                    </h3>
+                    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                        Evaluate companies, portfolios, tradeoffs, and outcomes.
+                    </p>
+                </div>
+
+                <div class="metric-card bg-white rounded-2xl p-6 border border-navy/5 shadow-sm">
+                    <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center">
+                        <i data-lucide="message-square-text" class="w-5 h-5 text-gold"></i>
+                    </div>
+                    <h3 class="font-extrabold text-lg text-navy mt-5">
+                        Communication
+                    </h3>
+                    <p class="text-sm text-gray-500 leading-relaxed mt-2">
+                        Explain financial ideas and defend decisions with clarity.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- FINAL CTA -->
+<!-- ========================================================= -->
+
+<section class="py-24 px-6 bg-white">
+
+    <div class="max-w-6xl mx-auto">
+
+        <div class="relative overflow-hidden rounded-[3rem] bg-navy text-white px-8 py-16 md:px-16 md:py-20 text-center shadow-2xl reveal">
+
+            <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gold/10 blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-32 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+
+            <div class="relative z-10 max-w-3xl mx-auto">
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-7">
+                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                    <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-white/70">
+                        Start the journey
+                    </span>
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-black tracking-tight">
+                    Give students more than financial vocabulary.
+                </h2>
+
+                <p class="text-lg md:text-xl text-white/55 leading-relaxed mt-6">
+                    Give them a place to practice making financial decisions,
+                    asking better questions, and thinking about the future.
+                </p>
+
+                <div class="mt-9 flex flex-col sm:flex-row justify-center gap-3">
+
+                    <a href="enroll.html"
+                       class="shine inline-flex items-center justify-center gap-2 bg-gold text-navy font-extrabold px-8 py-4 rounded-xl hover:bg-gold-light transition-all shadow-lg shadow-gold/10">
+                        Explore Enrollment
+                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+
+                    <a href="about.html"
+                       class="inline-flex items-center justify-center gap-2 bg-white/5 text-white font-bold px-8 py-4 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        Learn About Next-Gen
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<footer class="py-16 bg-white border-t border-navy/5">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+
+            <div class="flex items-center gap-3">
+
+                <img
+                    src="IMG_1383.jpeg"
+                    alt="Next-Gen Knowledge Logo"
+                    class="h-9 w-auto"
+                >
+
+                <div>
+                    <div class="font-extrabold text-navy">
+                        Next-Gen Knowledge
+                    </div>
+
+                    <div class="text-[10px] uppercase tracking-widest text-gold font-bold">
+                        Empowering the Next Generation
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-7 font-bold text-sm text-navy/70">
+
+                <a href="https://www.instagram.com/nextgen.knowledge"
+                   target="_blank"
+                   class="hover:text-gold transition">
+                    Instagram
+                </a>
+
+                <a href="https://www.linkedin.com/company/next-gen-knowledge/"
+                   target="_blank"
+                   class="hover:text-gold transition">
+                    Company LinkedIn
+                </a>
+
+                <a href="mailto:nextgen.knowledge123@gmail.com"
+                   class="hover:text-gold transition">
+                    Email Us
+                </a>
+
+            </div>
+
+            <div class="flex flex-col items-center md:items-end gap-2">
+
+                <p class="text-navy/55 text-xs max-w-xs text-center md:text-right leading-relaxed">
+                    Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation,
+                    a 501(c)(3) non-profit.
+                </p>
+
+                <p class="text-navy/40 text-xs">
+                    &copy; 2026 Next-Gen Knowledge. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
 <script>
-    // Mobile menu
+
+    /* ---------------------------------------------------------
+       Icons
+    --------------------------------------------------------- */
+
+    lucide.createIcons();
+
+
+    /* ---------------------------------------------------------
+       Mobile Navigation
+    --------------------------------------------------------- */
+
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
     if (mobileMenuButton && mobileMenu) {
+
         mobileMenuButton.addEventListener('click', () => {
+
             mobileMenu.classList.toggle('hidden');
 
             const icon = mobileMenuButton.querySelector('i');
@@ -206,445 +1894,56 @@
             }
 
             lucide.createIcons();
+
         });
+
     }
 
-    // Navbar shadow when scrolling
+
+    /* ---------------------------------------------------------
+       Navbar Shadow
+    --------------------------------------------------------- */
+
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
+
         if (window.scrollY > 10) {
             navbar.classList.add('shadow-md');
         } else {
             navbar.classList.remove('shadow-md');
         }
+
     });
-</script>
 
-<!-- Header Section -->
-<section class="pt-36 pb-16 lg:pt-52 lg:pb-24 bg-gradient-to-b from-surface to-white text-center">
-    <div class="max-w-4xl mx-auto px-6 reveal active">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-6">
-            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-            Transforming Financial Education
-        </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-navy">The Money Masters Curriculum</h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            A high-impact, 5-week interactive program built explicitly for middle schoolers (Grades 5–8) to master modern wealth building, budgeting, and entrepreneurial thinking.
-        </p>
-    </div>
-</section>
 
-<!-- Interactive Weekly Curriculum Section -->
-<section class="py-16 px-6 bg-white reveal">
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <h2 class="text-3xl font-extrabold text-navy mb-3">Explore the 5-Week Journey</h2>
-            <p class="text-gray-600">Click through each week below to see what topics, simulations, and real-world tools students dive into.</p>
-        </div>
+    /* ---------------------------------------------------------
+       Scroll Reveal
+    --------------------------------------------------------- */
 
-        <!-- Interactive Tabs Container -->
-        <div class="bg-surface p-6 md:p-12 rounded-[2.5rem] border border-navy/5 shadow-premium grid lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Tab Navigation Buttons (Left Column) -->
-            <div class="lg:col-span-5 flex flex-col gap-3">
-                <button onclick="switchWeek(1)" id="tab-btn-1" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-navy text-white shadow-md">
-                    <span class="flex items-center gap-3">
-                        <span id="badge-1" class="w-7 h-7 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-xs">01</span> 
-                        The Psychology of Spending
-                    </span>
-                    <i data-lucide="chevron-right" id="icon-1" class="w-4 h-4 text-gold"></i>
-                </button>
-
-                <button onclick="switchWeek(2)" id="tab-btn-2" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3">
-                        <span id="badge-2" class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">02</span> 
-                        Budgeting & Resource Management
-                    </span>
-                    <i data-lucide="chevron-right" id="icon-2" class="w-4 h-4 text-navy/30"></i>
-                </button>
-
-                <button onclick="switchWeek(3)" id="tab-btn-3" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3">
-                        <span id="badge-3" class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">03</span> 
-                        Introduction to Investing
-                    </span>
-                    <i data-lucide="chevron-right" id="icon-3" class="w-4 h-4 text-navy/30"></i>
-                </button>
-
-                <button onclick="switchWeek(4)" id="tab-btn-4" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3">
-                        <span id="badge-4" class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">04</span> 
-                        Entrepreneurship Essentials
-                    </span>
-                    <i data-lucide="chevron-right" id="icon-4" class="w-4 h-4 text-navy/30"></i>
-                </button>
-
-                <button onclick="switchWeek(5)" id="tab-btn-5" class="w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold">
-                    <span class="flex items-center gap-3">
-                        <span id="badge-5" class="w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs">05</span> 
-                        Strategic Financial Planning
-                    </span>
-                    <i data-lucide="chevron-right" id="icon-5" class="w-4 h-4 text-navy/30"></i>
-                </button>
-            </div>
-
-            <!-- Tab Content Display (Right Column) -->
-            <div class="lg:col-span-7 bg-white p-8 md:p-10 rounded-[2rem] border border-navy/10 shadow-sm relative min-h-[420px] flex flex-col justify-between">
-                
-                <!-- Week 1 Content Panel -->
-                <div id="panel-1" class="week-panel space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Week 01 Focus</div>
-                    <h3 class="text-2xl font-extrabold text-navy">The Psychology of Spending & Consumer Awareness</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Students learn how modern advertising, social media influences, and digital shopping platforms trigger impulse buying. We teach critical evaluation frameworks to separate temporary "wants" from foundational "needs."
-                    </p>
-                    <div class="border-t border-gray-100 pt-4 space-y-2">
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Interactive Activity: Analyzing real-world marketing traps</div>
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Takeaway: Personal Spending Audit Template</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Live Classes via Google Meet</span>
-                        <a href="enroll.html" class="inline-flex items-center gap-1 text-sm font-extrabold text-navy hover:text-gold transition">
-                            Register for Cohort <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Week 2 Content Panel -->
-                <div id="panel-2" class="week-panel space-y-6 hidden">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Week 02 Focus</div>
-                    <h3 class="text-2xl font-extrabold text-navy">Budgeting & Cash Flow Management</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Money management starts with tracking where it goes. Students construct realistic monthly allocations, understand the 50/30/20 rule adapted for youth, and practice maintaining a mock budget across dynamic scenarios.
-                    </p>
-                    <div class="border-t border-gray-100 pt-4 space-y-2">
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Interactive Activity: The Monthly Income Simulation Game</div>
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Takeaway: Custom Digital Budget Tracker</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Live Classes via Google Meet</span>
-                        <a href="enroll.html" class="inline-flex items-center gap-1 text-sm font-extrabold text-navy hover:text-gold transition">
-                            Register for Cohort <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Week 3 Content Panel -->
-                <div id="panel-3" class="week-panel space-y-6 hidden">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Week 03 Focus</div>
-                    <h3 class="text-2xl font-extrabold text-navy">Introduction to Investing & Compound Growth</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Demystifying the stock market, asset classes, and the staggering power of compound interest over time. Students learn why starting early creates massive long-term advantages.
-                    </p>
-                    <div class="border-t border-gray-100 pt-4 space-y-2">
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Interactive Activity: Simulated Stock Portfolio Challenge</div>
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Takeaway: Compound Growth Visual Calculator Guide</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Live Classes via Google Meet</span>
-                        <a href="enroll.html" class="inline-flex items-center gap-1 text-sm font-extrabold text-navy hover:text-gold transition">
-                            Register for Cohort <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Week 4 Content Panel -->
-                <div id="panel-4" class="week-panel space-y-6 hidden">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Week 04 Focus</div>
-                    <h3 class="text-2xl font-extrabold text-navy">Entrepreneurship Essentials & Business Planning</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Turning ideas into income. Students explore how businesses solve problems, evaluate target audiences, test pricing structures, and calculate basic profit margins.
-                    </p>
-                    <div class="border-t border-gray-100 pt-4 space-y-2">
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Interactive Activity: Pitch a Micro-Business Concept</div>
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Takeaway: Startup Canvas Worksheet</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Live Classes via Google Meet</span>
-                        <a href="enroll.html" class="inline-flex items-center gap-1 text-sm font-extrabold text-navy hover:text-gold transition">
-                            Register for Cohort <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Week 5 Content Panel -->
-                <div id="panel-5" class="week-panel space-y-6 hidden">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase">Week 05 Focus</div>
-                    <h3 class="text-2xl font-extrabold text-navy">Strategic Financial Planning & Final Showcase</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Students tie everything together by presenting their simulated investment portfolios and business plans, receiving feedback from high school mentors and peers in a collaborative graduation session.
-                    </p>
-                    <div class="border-t border-gray-100 pt-4 space-y-2">
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Interactive Activity: Final Peer Portfolio Showcase</div>
-                        <div class="flex items-center gap-2 text-sm text-navy font-semibold"><i data-lucide="check" class="w-4 h-4 text-gold"></i> Takeaway: Next-Gen Knowledge Master Graduate Certificate</div>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Live Classes via Google Meet</span>
-                        <a href="enroll.html" class="inline-flex items-center gap-1 text-sm font-extrabold text-navy hover:text-gold transition">
-                            Register for Cohort <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- Investor Academy Program Section (NEW) -->
-<section class="py-24 bg-surface border-t border-navy/5">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-bold tracking-widest uppercase border border-gold/20 mb-4">
-                <span>Advanced Track • Grades 7+/Money Masters Graduates</span>
-            </div>
-            <h2 class="text-3xl md:text-5xl font-extrabold text-navy tracking-tight mb-4">Investor Academy</h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
-                We develop young investors and entrepreneurs. Moving beyond basic budgeting, students learn how money actually grows through live market tracking, business analysis, and stock simulations.
-            </p>
-        </div>
-
-        <!-- Program Overview Grid -->
-        <div class="grid md:grid-cols-3 gap-6 mb-16">
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium text-center">
-                <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mx-auto mb-4">
-                    <i data-lucide="clock" class="w-6 h-6"></i>
-                </div>
-                <h4 class="font-bold text-navy text-lg mb-1">Format & Length</h4>
-                <p class="text-sm text-gray-500">5 Weeks • 2 Classes/Week<br>10 Classes Total (1 hour each)</p>
-            </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium text-center">
-                <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mx-auto mb-4">
-                    <i data-lucide="trending-up" class="w-6 h-6"></i>
-                </div>
-                <h4 class="font-bold text-navy text-lg mb-1">$100k Virtual Portfolio</h4>
-                <p class="text-sm text-gray-500">Manage stocks, ETFs, & crypto weekly with live leaderboards.</p>
-            </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium text-center">
-                <div class="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold mx-auto mb-4">
-                    <i data-lucide="award" class="w-6 h-6"></i>
-                </div>
-                <h4 class="font-bold text-navy text-lg mb-1">Competitions & Pitches</h4>
-                <p class="text-sm text-gray-500">Shark Tank style pitches & final analyst presentations.</p>
-            </div>
-        </div>
-
-        <!-- 3-Part Class Structure -->
-        <div class="bg-navy text-white p-8 md:p-12 rounded-[2.5rem] shadow-xl mb-16 relative overflow-hidden">
-            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="relative z-10">
-                <h3 class="text-2xl font-bold mb-6 text-center">Every Class Features a Dynamic 3-Part Structure</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <span class="text-gold font-bold text-xs uppercase tracking-wider">Part 1 (10 mins)</span>
-                        <h4 class="font-bold text-lg mt-1 mb-2">Market Update</h4>
-                        <p class="text-sm text-gray-300">Track S&P 500, Nasdaq, Bitcoin, gold, and student-led news presentations.</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <span class="text-gold font-bold text-xs uppercase tracking-wider">Part 2 (35 mins)</span>
-                        <h4 class="font-bold text-lg mt-1 mb-2">Main Lesson</h4>
-                        <p class="text-sm text-gray-300">Interactive case studies, business breakdowns, games, and economic activities.</p>
-                    </div>
-                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-                        <span class="text-gold font-bold text-xs uppercase tracking-wider">Part 3 (15 mins)</span>
-                        <h4 class="font-bold text-lg mt-1 mb-2">Investment Challenge</h4>
-                        <p class="text-sm text-gray-300">Hands-on application to virtual portfolios, stock picks, and team challenges.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 10-Class Curriculum Breakdown -->
-        <div class="space-y-8">
-            <div class="text-center">
-                <h3 class="text-2xl md:text-3xl font-extrabold text-navy">Complete 5-Week Curriculum</h3>
-                <p class="text-gray-600 mt-2">Think like investors, analyze financial statements, and build companies.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Week 1 -->
-                <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium">
-                    <span class="text-gold font-bold text-xs uppercase tracking-wider">Week 1</span>
-                    <h4 class="text-xl font-bold text-navy mt-1 mb-4">Valuation & Financial Statements</h4>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li><strong>Class 1:</strong> How Investors Think (Intrinsic Value, Mr. Market, Safety Margins, Apple vs Crocs vs Costco).</li>
-                        <li><strong>Class 2:</strong> Financial Statements Made Simple (Revenue, Profit, Balance Sheets, Analyzing Nike).</li>
-                    </ul>
-                </div>
-
-                <!-- Week 2 -->
-                <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium">
-                    <span class="text-gold font-bold text-xs uppercase tracking-wider">Week 2</span>
-                    <h4 class="text-xl font-bold text-navy mt-1 mb-4">Moats & Investor Psychology</h4>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li><strong>Class 3:</strong> Billion Dollar Companies (Economic Moats, Network Effects, Case Studies like Visa & Amazon).</li>
-                        <li><strong>Class 4:</strong> Psychology of Investing (FOMO, Bubbles, Behavioral Finance, Tulip Mania, Dot-Com Crisis).</li>
-                    </ul>
-                </div>
-
-                <!-- Week 3 -->
-                <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium">
-                    <span class="text-gold font-bold text-xs uppercase tracking-wider">Week 3</span>
-                    <h4 class="text-xl font-bold text-navy mt-1 mb-4">Portfolios & Business Models</h4>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li><strong>Class 5:</strong> Building Portfolios (Diversification, Risk Tolerance, Launching the $100k Virtual Portfolio).</li>
-                        <li><strong>Class 6:</strong> Business Models (Subscription, Marketplace, Franchise, Advertising, Luxury models).</li>
-                    </ul>
-                </div>
-
-                <!-- Week 4 -->
-                <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium">
-                    <span class="text-gold font-bold text-xs uppercase tracking-wider">Week 4</span>
-                    <h4 class="text-xl font-bold text-navy mt-1 mb-4">Buffett Metrics & Entrepreneurship</h4>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li><strong>Class 7:</strong> Reading Companies Like Warren Buffett (ROE, Margins, Free Cash Flow, Disney & Tesla).</li>
-                        <li><strong>Class 8:</strong> Entrepreneurship & Unit Economics (Scaling, Recurring Revenue, CAC, LTV, Lemonade Stand Redesign).</li>
-                    </ul>
-                </div>
-
-                <!-- Week 5 -->
-                <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium md:col-span-2">
-                    <span class="text-gold font-bold text-xs uppercase tracking-wider">Week 5</span>
-                    <h4 class="text-xl font-bold text-navy mt-1 mb-4">Mistakes & Final Investment Competition</h4>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li><strong>Class 9:</strong> Biggest Investing Mistakes (Emotional Investing, Timing the Market, Concentration Risk).</li>
-                        <li><strong>Class 10:</strong> Investment Competition (Students present their favorite company thesis, financials, and risks. Class votes & awards).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center pt-8">
-                <a href="enroll.html" class="inline-flex items-center justify-center text-base font-bold text-navy bg-gold hover:bg-gold-light px-8 py-4 rounded-full transition-all duration-300 shadow-lg shadow-gold/25">
-                    Enroll in Investor Academy
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- What Students Gain (Outcomes Grid) -->
-<section class="py-24 bg-surface reveal">
-    <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="text-gold font-extrabold uppercase tracking-widest text-xs">Tangible Results</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-navy mt-2 mb-4">What Students Leave With</h2>
-            <p class="text-gray-600">Our program is designed to deliver lifetime utility, equipping children with practical tools they will use long after middle school.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium space-y-4">
-                <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                    <i data-lucide="shield-check" class="w-7 h-7"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy">Financial Confidence</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">No more confusion around banking terms, interest rates, or digital payments. Students speak fluently about money management.</p>
-            </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium space-y-4">
-                <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                    <i data-lucide="award" class="w-7 h-7"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy">Real-World Competitiveness</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Through market simulations and business planning, students develop early problem-solving skills that set them apart academically and personally.</p>
-            </div>
-            <div class="bg-white p-8 rounded-[2rem] border border-navy/5 shadow-premium space-y-4">
-                <div class="w-14 h-14 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                    <i data-lucide="users" class="w-7 h-7"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy">Peer-to-Peer Mentorship</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Learning from motivated high school instructors makes complex economic concepts approachable, relatable, and fun.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action Banner -->
-<section class="py-20 px-6 reveal">
-    <div class="max-w-5xl mx-auto bg-navy rounded-[2.5rem] p-10 md:p-16 text-white text-center relative overflow-hidden shadow-2xl">
-        <div class="absolute -right-20 -top-20 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
-            <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">Ready to Secure Your Child's Financial Future?</h2>
-            <p class="text-gray-300 text-lg leading-relaxed">Spots for our upcoming cohorts fill up quickly to ensure small group sizes and maximum engagement during live sessions.</p>
-            <div class="pt-4">
-                <a href="enroll.html" class="inline-block bg-gold text-navy font-bold px-10 py-4 rounded-full hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/25 hover:-translate-y-0.5">
-                    Enroll via Registration Form
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="py-16 bg-white border-t border-navy/5">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-        <div class="flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="Logo" class="h-8 w-auto">
-            <span class="font-extrabold text-navy">Next-Gen Knowledge</span>
-        </div>
-        <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
-            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" class="hover:text-gold transition">Instagram</a>
-            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" class="hover:text-gold transition">Company LinkedIn</a>
-            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-gold transition">Email Us</a>
-        </div>
-        <div class="flex flex-col items-center md:items-end gap-1">
-            <p class="text-navy/60 text-xs max-w-xs text-center md:text-right">
-                Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
-            </p>
-            <p class="text-navy/50 text-sm">&copy; 2026 Next-Gen Knowledge. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    // Initialize icons
-    lucide.createIcons();
-
-    // Bulletproof Tab Switcher Function
-    function switchWeek(targetNum) {
-        // Hide all content panels and reset all buttons
-        for (let i = 1; i <= 5; i++) {
-            let panel = document.getElementById(`panel-${i}`);
-            let btn = document.getElementById(`tab-btn-${i}`);
-            let badge = document.getElementById(`badge-${i}`);
-            
-            if (panel) panel.classList.add('hidden');
-            
-            if (btn) {
-                btn.className = "w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-white text-navy border border-navy/10 hover:border-gold";
-                if (badge) badge.className = "w-7 h-7 rounded-lg bg-surface text-navy flex items-center justify-center text-xs";
-            }
-        }
-
-        // Show selected panel
-        let selectedPanel = document.getElementById(`panel-${targetNum}`);
-        if (selectedPanel) selectedPanel.classList.remove('hidden');
-
-        // Highlight selected button
-        let selectedBtn = document.getElementById(`tab-btn-${targetNum}`);
-        let selectedBadge = document.getElementById(`badge-${targetNum}`);
-        
-        if (selectedBtn) {
-            selectedBtn.className = "w-full text-left p-4 rounded-2xl font-bold transition-all flex items-center justify-between bg-navy text-white shadow-md";
-            if (selectedBadge) selectedBadge.className = "w-7 h-7 rounded-lg bg-gold/20 text-gold flex items-center justify-center text-xs";
-        }
-    }
-
-    // Scroll reveal animation script
-    window.addEventListener('scroll', revealOnScroll);
     function revealOnScroll() {
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active');
+
+        const reveals = document.querySelectorAll('.reveal');
+
+        reveals.forEach((element) => {
+
+            const elementTop = element.getBoundingClientRect().top;
+
+            const elementVisible = 120;
+
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('active');
             }
-        }
+
+        });
+
     }
+
+    window.addEventListener('scroll', revealOnScroll);
+
     revealOnScroll();
+
 </script>
+
 </body>
 </html>
-```
