@@ -233,5 +233,45 @@
         </div>
     </main>
 
+
+    <!-- =========================================================
+         MOBILE MENU SCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* Mobile menu */
+
+        const mobileMenuButton =
+            document.getElementById('mobile-menu-button');
+
+        const mobileMenu =
+            document.getElementById('mobile-menu');
+
+
+        if (mobileMenuButton && mobileMenu) {
+
+            mobileMenuButton.addEventListener('click', () => {
+
+                mobileMenu.classList.toggle('hidden');
+
+                const isOpen =
+                    !mobileMenu.classList.contains('hidden');
+
+                mobileMenuButton.setAttribute(
+                    'aria-label',
+                    isOpen ? 'Close menu' : 'Open menu'
+                );
+
+                mobileMenuButton.innerHTML = isOpen
+                    ? '<span class="text-2xl leading-none">×</span>'
+                    : '<span class="text-2xl leading-none">☰</span>';
+
+            });
+
+        }
+
+    </script>
+
 </body>
 </html>
