@@ -1822,23 +1822,25 @@
 
     </script>
 
-    !-- =========================================================
-     SCRIPTS
-========================================================= -->
+ <!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
 
 <script>
+
+    /* ---------------------------------------------------------
+       Icons
+    --------------------------------------------------------- */
 
     lucide.createIcons();
 
 
-    /* Mobile menu */
+    /* ---------------------------------------------------------
+       Mobile Navigation
+    --------------------------------------------------------- */
 
-    const mobileMenuButton =
-        document.getElementById('mobile-menu-button');
-
-    const mobileMenu =
-        document.getElementById('mobile-menu');
-
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     if (mobileMenuButton && mobileMenu) {
 
@@ -1846,16 +1848,13 @@
 
             mobileMenu.classList.toggle('hidden');
 
-            const isOpen = !mobileMenu.classList.contains('hidden');
+            const icon = mobileMenuButton.querySelector('i');
 
-            mobileMenuButton.setAttribute(
-                'aria-label',
-                isOpen ? 'Close menu' : 'Open menu'
-            );
-
-            mobileMenuButton.innerHTML = isOpen
-                ? '<i data-lucide="x" class="w-6 h-6"></i>'
-                : '<i data-lucide="menu" class="w-6 h-6"></i>';
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
 
             lucide.createIcons();
 
@@ -1864,60 +1863,48 @@
     }
 
 
-    /* Navbar shadow */
+    /* ---------------------------------------------------------
+       Navbar Shadow
+    --------------------------------------------------------- */
 
-    const navbar =
-        document.getElementById('navbar');
+    const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
 
         if (window.scrollY > 10) {
-
-            navbar.classList.add('shadow-lg');
-
+            navbar.classList.add('shadow-md');
         } else {
-
-            navbar.classList.remove('shadow-lg');
-
+            navbar.classList.remove('shadow-md');
         }
 
     });
 
 
-    /* Reveal animations */
+    /* ---------------------------------------------------------
+       Scroll Reveal
+    --------------------------------------------------------- */
 
-    const reveals =
-        document.querySelectorAll('.reveal');
+    function revealOnScroll() {
 
+        const reveals = document.querySelectorAll('.reveal');
 
-    const revealObserver =
-        new IntersectionObserver(
-            (entries) => {
+        reveals.forEach((element) => {
 
-                entries.forEach((entry) => {
+            const elementTop = element.getBoundingClientRect().top;
 
-                    if (entry.isIntersecting) {
+            const elementVisible = 120;
 
-                        entry.target.classList.add('active');
-
-                        revealObserver.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('active');
             }
-        );
 
+        });
 
-    reveals.forEach((element) => {
+    }
 
-        revealObserver.observe(element);
+    window.addEventListener('scroll', revealOnScroll);
 
-    });
+    revealOnScroll();
 
 </script>
 
