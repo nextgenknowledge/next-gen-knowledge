@@ -11,8 +11,8 @@
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
+        gtag('js', new Date());
         gtag('config', 'G-FXJKCLQMSN');
     </script>
 
@@ -20,7 +20,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,6 +77,7 @@
             color: #0A2342;
         }
 
+
         /* =========================================================
            REVEAL ANIMATION
         ========================================================= */
@@ -81,6 +85,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(35px);
+
             transition:
                 opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -91,6 +96,7 @@
             transform: translateY(0);
         }
 
+
         /* =========================================================
            HERO GRID
         ========================================================= */
@@ -99,12 +105,14 @@
             background-image:
                 linear-gradient(rgba(10,35,66,0.055) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(10,35,66,0.055) 1px, transparent 1px);
+
             background-size: 48px 48px;
         }
 
         .hero-glow {
             filter: blur(70px);
         }
+
 
         /* =========================================================
            NETWORK ANIMATION
@@ -119,21 +127,27 @@
         }
 
         @keyframes orbit {
+
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
+
         }
 
         @keyframes orbitReverse {
+
             from {
                 transform: rotate(360deg);
             }
+
             to {
                 transform: rotate(0deg);
             }
+
         }
 
         .pulse-node {
@@ -141,6 +155,7 @@
         }
 
         @keyframes pulseNode {
+
             0%, 100% {
                 transform: scale(1);
                 opacity: 1;
@@ -150,7 +165,9 @@
                 transform: scale(1.08);
                 opacity: 0.8;
             }
+
         }
+
 
         /* =========================================================
            PARTNERSHIP CARDS
@@ -165,7 +182,10 @@
 
         .partner-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 30px 70px -25px rgba(10,35,66,0.22);
+
+            box-shadow:
+                0 30px 70px -25px rgba(10,35,66,0.22);
+
             border-color: rgba(201,162,39,0.45);
         }
 
@@ -178,22 +198,28 @@
             transform: scale(1.06);
         }
 
+
         /* =========================================================
            CONNECTING LINE
         ========================================================= */
 
         .connection-line {
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(201,162,39,0.8),
-                transparent
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(201,162,39,0.8),
+                    transparent
+                );
+
             background-size: 200% 100%;
-            animation: connectionMove 3s linear infinite;
+
+            animation:
+                connectionMove 3s linear infinite;
         }
 
         @keyframes connectionMove {
+
             0% {
                 background-position: 200% 0;
             }
@@ -201,7 +227,9 @@
             100% {
                 background-position: -200% 0;
             }
+
         }
+
 
         /* =========================================================
            MOBILE HEADER
@@ -217,6 +245,7 @@
             .hero-grid {
                 background-size: 32px 32px;
             }
+
         }
 
     </style>
@@ -307,8 +336,10 @@
                     Donate
                 </a>
 
-                <a href="enroll.html"
-                   class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
+                <a
+                    href="enroll.html"
+                    class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all"
+                >
                     Enroll
                 </a>
 
@@ -322,7 +353,9 @@
                 class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
                 aria-label="Open menu"
             >
+
                 <i data-lucide="menu" class="w-6 h-6"></i>
+
             </button>
 
         </div>
@@ -514,31 +547,34 @@
                 </div>
 
 
-                <!-- Partner Nodes -->
+                <!-- Bridge Finance Network -->
 
                 <div class="absolute top-[28px] left-1/2 -translate-x-1/2 z-30">
 
-                    <div class="w-24 h-24 bg-white rounded-2xl shadow-premium border border-navy/10 flex items-center justify-center">
+                    <div class="w-24 h-24 bg-white rounded-2xl shadow-premium border border-navy/10 flex items-center justify-center overflow-hidden">
 
-                        <!-- Replace logo -->
-
-                        <span class="IMG_7880.jpeg">
-                        </span>
+                        <img
+                            src="IMG_7880.jpeg"
+                            alt="Bridge Finance Network Logo"
+                            class="w-full h-full object-contain p-3"
+                        >
 
                     </div>
 
                 </div>
 
 
+                <!-- Moniqo -->
+
                 <div class="absolute bottom-[28px] left-1/2 -translate-x-1/2 z-30">
 
-                    <div class="w-24 h-24 bg-white rounded-2xl shadow-premium border border-navy/10 flex items-center justify-center">
+                    <div class="w-24 h-24 bg-white rounded-2xl shadow-premium border border-navy/10 flex items-center justify-center overflow-hidden">
 
-                        <!-- Replace logo -->
-
-                        <span class="text-xs font-black text-navy text-center px-2">
-                            MONIQO
-                        </span>
+                        <img
+                            src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg"
+                            alt="Moniqo Logo"
+                            class="w-full h-full object-contain p-3"
+                        >
 
                     </div>
 
@@ -689,14 +725,15 @@
 
                     <div class="flex items-start justify-between gap-6">
 
-                        <!-- LOGO -->
+                        <!-- BFN LOGO -->
 
                         <div class="partner-logo w-28 h-28 rounded-3xl bg-white border border-navy/10 shadow-lg flex items-center justify-center overflow-hidden">
 
-                            <!-- REPLACE THIS WITH PARTNER LOGO -->
-
-                            <span class="IMG_7880.jpeg">
-                            </span>
+                            <img
+                                src="IMG_7880.jpeg"
+                                alt="Bridge Finance Network Logo"
+                                class="w-full h-full object-contain p-3"
+                            >
 
                         </div>
 
@@ -718,11 +755,45 @@
                             Bridge Finance Network
                         </h3>
 
-                        <p class="mt-4 text-gray-600 leading-relaxed">
-                            <!-- REPLACE WITH YOUR PARTNER DESCRIPTION -->
 
-                            Add a short description of Bridge Finance Network here. Explain who they are, what they focus on, and how the partnership connects to Next-Gen Knowledge.
-                        </p>
+                        <!-- =================================================
+                             BFN DESCRIPTION — EDIT THIS TEXT
+                        ================================================== -->
+
+                        <div class="mt-4 p-4 rounded-2xl border border-dashed border-gold/40 bg-gold/5">
+
+                            <div class="flex items-center gap-2 text-gold text-[10px] font-black uppercase tracking-[0.15em] mb-2">
+
+                                <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+
+                                Edit Partner Description
+
+                            </div>
+
+                            <p class="text-gray-600 leading-relaxed">
+
+                                <!--
+                                ==================================================
+                                WRITE YOUR BFN DESCRIPTION HERE.
+
+                                Replace the text below with your actual
+                                description of Bridge Finance Network.
+
+                                Example structure:
+
+                                "Bridge Finance Network is a student-led
+                                organization focused on ________. Through our
+                                partnership, Next-Gen Knowledge and BFN
+                                collaborate on ________."
+
+                                ==================================================
+                                -->
+
+                                Add a short description of Bridge Finance Network here. Explain who they are, what they focus on, and how the partnership connects to Next-Gen Knowledge.
+
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -755,10 +826,10 @@
                         </span>
 
 
-                        <!-- REPLACE WEBSITE URL -->
+                        <!-- BFN WEBSITE -->
 
                         <a
-                            href="https://example.com"
+                            href="https://www.bridgefinance.network"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="inline-flex items-center gap-2 text-sm font-extrabold text-navy hover:text-gold transition"
@@ -799,15 +870,15 @@
 
                     <div class="flex items-start justify-between gap-6">
 
-                        <!-- LOGO -->
+                        <!-- MONIQO LOGO -->
 
                         <div class="partner-logo w-28 h-28 rounded-3xl bg-white border border-navy/10 shadow-lg flex items-center justify-center overflow-hidden">
 
-                            <!-- REPLACE THIS WITH MONIQO LOGO -->
-
-                            <span class="text-center text-lg font-black text-navy">
-                                MONIQO
-                            </span>
+                            <img
+                                src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg"
+                                alt="Moniqo Logo"
+                                class="w-full h-full object-contain p-3"
+                            >
 
                         </div>
 
@@ -829,16 +900,48 @@
                             Moniqo
                         </h3>
 
-                        <p class="mt-4 text-gray-600 leading-relaxed">
 
-                            <!-- REPLACE WITH YOUR PARTNER DESCRIPTION -->
+                        <!-- =================================================
+                             MONIQO DESCRIPTION — EDIT THIS TEXT
+                        ================================================== -->
 
-                            Add a short description of Moniqo here. Explain what Moniqo does and what students or the Next-Gen community gain through the partnership.
+                        <div class="mt-4 p-4 rounded-2xl border border-dashed border-gold/40 bg-gold/5">
 
-                        </p>
+                            <div class="flex items-center gap-2 text-gold text-[10px] font-black uppercase tracking-[0.15em] mb-2">
+
+                                <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
+
+                                Edit Partner Description
+
+                            </div>
+
+                            <p class="text-gray-600 leading-relaxed">
+
+                                <!--
+                                ==================================================
+                                WRITE YOUR MONIQO DESCRIPTION HERE.
+
+                                Replace the text below with your actual
+                                description of Moniqo.
+
+                                Example structure:
+
+                                "Moniqo is focused on ________. Through our
+                                partnership, students can ________."
+
+                                ==================================================
+                                -->
+
+                                Add a short description of Moniqo here. Explain what Moniqo does and what students or the Next-Gen community gain through the partnership.
+
+                            </p>
+
+                        </div>
 
                     </div>
 
+
+                    <!-- Tags -->
 
                     <div class="flex flex-wrap gap-2 mt-6">
 
@@ -857,6 +960,8 @@
                     </div>
 
 
+                    <!-- Bottom -->
+
                     <div class="mt-8 pt-6 border-t border-navy/10 flex items-center justify-between gap-4">
 
                         <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
@@ -864,20 +969,17 @@
                         </span>
 
 
-                        <!-- REPLACE WEBSITE URL -->
+                        <!-- MONIQO WEBSITE — COMING SOON -->
 
-                        <a
-                            href="https://example.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-sm font-extrabold text-navy hover:text-gold transition"
+                        <span
+                            class="inline-flex items-center gap-2 text-sm font-extrabold text-gray-400 cursor-default"
                         >
 
-                            Visit Website
+                            Coming Soon
 
-                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                            <i data-lucide="clock-3" class="w-4 h-4"></i>
 
-                        </a>
+                        </span>
 
                     </div>
 
@@ -900,7 +1002,6 @@
 <section class="py-28 bg-surface border-y border-navy/5">
 
     <div class="max-w-7xl mx-auto px-6">
-
 
         <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
 
@@ -1286,8 +1387,6 @@
 
 
                     <div class="reveal">
-
-                        <!-- CHANGE EMAIL HERE IF NEEDED -->
 
                         <a
                             href="mailto:nextgen.knowledge123@gmail.com?subject=Partnership Inquiry"
