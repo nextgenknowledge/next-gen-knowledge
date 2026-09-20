@@ -62,7 +62,46 @@
                 }
             }
         }
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 767px) {
+            nav {
+                background-color: rgba(255,255,255,.96);
+                backdrop-filter: blur(14px);
+            }
+
+            .hero-grid {
+                background-size: 30px 30px;
+            }
+
+            .hero-glow {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
     </script>
+
+    
 
  <!-- =========================================================
      NAVIGATION
