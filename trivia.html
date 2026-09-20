@@ -1221,5 +1221,109 @@ async function renderLeaderboard() {
     lucide.createIcons();
 }
 </script>
+    !-- =========================================================
+     SCRIPTS
+========================================================= -->
+
+<script>
+
+    lucide.createIcons();
+
+
+    /* Mobile menu */
+
+    const mobileMenuButton =
+        document.getElementById('mobile-menu-button');
+
+    const mobileMenu =
+        document.getElementById('mobile-menu');
+
+
+    if (mobileMenuButton && mobileMenu) {
+
+        mobileMenuButton.addEventListener('click', () => {
+
+            mobileMenu.classList.toggle('hidden');
+
+            const icon =
+                mobileMenuButton.querySelector('i');
+
+            if (mobileMenu.classList.contains('hidden')) {
+
+                icon.setAttribute('data-lucide', 'menu');
+
+            } else {
+
+                icon.setAttribute('data-lucide', 'x');
+
+            }
+
+            lucide.createIcons();
+
+        });
+
+    }
+
+
+    /* Navbar shadow */
+
+    const navbar =
+        document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 10) {
+
+            navbar.classList.add('shadow-lg');
+
+        } else {
+
+            navbar.classList.remove('shadow-lg');
+
+        }
+
+    });
+
+
+    /* Reveal animations */
+
+    const reveals =
+        document.querySelectorAll('.reveal');
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('active');
+
+                        revealObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    reveals.forEach((element) => {
+
+        revealObserver.observe(element);
+
+    });
+
+</script>
+
+
+</body>
+</html>
 </body>
 </html>
