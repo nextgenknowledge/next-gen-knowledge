@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -63,171 +64,163 @@
             }
         }
     </script>
- <!-- =========================================================
-     NAVIGATION
-========================================================= -->
-
-<nav
-    id="navbar"
-    class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200/70 transition-shadow duration-300">
-
+ <<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <div class="flex items-center justify-between h-20">
 
             <!-- Logo -->
-
             <a href="index.html" class="flex items-center gap-3 group">
-
-                <div
-                    class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:-rotate-2">
-
+                <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
                     <img
                         src="IMG_1383.jpeg"
                         alt="Next-Gen Knowledge Logo"
-                        class="w-full h-full object-cover">
-
+                        class="w-full h-full object-cover"
+                    >
                 </div>
 
                 <div class="hidden sm:block">
-
-                    <div class="text-lg font-extrabold tracking-tight text-navy">
+                    <div class="text-lg font-extrabold tracking-tight text-[#0A2342]">
                         Next-Gen Knowledge
                     </div>
-
-                    <div class="text-[10px] font-bold uppercase tracking-[.2em] text-gold">
+                    <div class="text-[11px] font-semibold uppercase tracking-widest text-[#C9A227]">
                         Empowering the Next Generation
                     </div>
-
                 </div>
-
             </a>
 
-
             <!-- Desktop Navigation -->
-
             <div class="hidden md:flex items-center gap-1">
 
                 <a href="index.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-navy rounded-lg">
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Home
                 </a>
 
                 <a href="about.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     About Us
                 </a>
 
                 <a href="programs.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Programs
                 </a>
 
                 <a href="team.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Team
                 </a>
 
-                <a href="partnerships.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    Partnerships
-                </a>
-
                 <a href="trivia.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Trivia Arena
                 </a>
 
                 <a href="donate.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Donate
                 </a>
 
-                <a
-                    href="enroll.html"
-                    class="ml-3 inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-white text-sm font-bold rounded-xl shadow-lg shadow-navy/10 hover:bg-navy-light hover:-translate-y-0.5 transition-all">
-
+                <!-- Enroll Button -->
+                <a href="enroll.html"
+                   class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
                     Enroll
-
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-
                 </a>
 
             </div>
 
-
             <!-- Mobile Menu Button -->
-
             <button
                 id="mobile-menu-button"
-                class="md:hidden p-2 rounded-lg text-navy hover:bg-gray-100 transition"
-                aria-label="Open menu">
-
+                class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
+                aria-label="Open menu"
+            >
                 <i data-lucide="menu" class="w-6 h-6"></i>
-
             </button>
 
         </div>
 
-
         <!-- Mobile Navigation -->
-
         <div id="mobile-menu" class="hidden md:hidden pb-5">
 
             <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
 
                 <a href="index.html"
-                   class="px-4 py-3 text-sm font-semibold text-navy bg-gray-50 rounded-lg">
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Home
                 </a>
 
                 <a href="about.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     About Us
                 </a>
 
                 <a href="programs.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Programs
                 </a>
 
                 <a href="team.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Team
                 </a>
 
-                <a href="partnerships.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    Partnerships
-                </a>
-
                 <a href="trivia.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Trivia Arena
                 </a>
 
                 <a href="donate.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
                     Donate
                 </a>
 
-                <a
-                    href="enroll.html"
-                    class="mt-2 px-4 py-3 text-center bg-navy text-white text-sm font-bold rounded-xl">
+                <a href="enroll.html"
+                   class="mt-2 px-4 py-3 text-center bg-[#0A2342] text-white text-sm font-bold rounded-lg hover:bg-[#14355B] transition-all">
                     Enroll
                 </a>
 
             </div>
-
         </div>
-
     </div>
-
 </nav>
 
-
+<!-- Header Spacer -->
 <div class="h-20"></div>
-    <script>
+
+<script>
+    // Mobile menu
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+
+            const icon = mobileMenuButton.querySelector('i');
+
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+
+            lucide.createIcons();
+        });
+    }
+
+    // Navbar shadow when scrolling
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            navbar.classList.add('shadow-md');
+        } else {
+            navbar.classList.remove('shadow-md');
+        }
+    });
+</script>
     <style>
 
         /* =========================================================
@@ -1785,3 +1778,4 @@
 </body>
 
 </html>
+```
