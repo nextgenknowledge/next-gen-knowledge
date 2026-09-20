@@ -260,44 +260,107 @@
     </main>
 
 
-    <!-- =========================================================
-         MOBILE MENU SCRIPT
-    ========================================================= -->
+ <!-- =========================================================
+     SCRIPTS
+========================================================= -->
 
-    <script>
+<script>
 
-        /* Mobile menu */
-
-        const mobileMenuButton =
-            document.getElementById('mobile-menu-button');
-
-        const mobileMenu =
-            document.getElementById('mobile-menu');
+    lucide.createIcons();
 
 
-        if (mobileMenuButton && mobileMenu) {
+    /* Mobile menu */
 
-            mobileMenuButton.addEventListener('click', () => {
+    const mobileMenuButton =
+        document.getElementById('mobile-menu-button');
 
-                mobileMenu.classList.toggle('hidden');
+    const mobileMenu =
+        document.getElementById('mobile-menu');
 
-                const isOpen =
-                    !mobileMenu.classList.contains('hidden');
 
-                mobileMenuButton.setAttribute(
-                    'aria-label',
-                    isOpen ? 'Close menu' : 'Open menu'
-                );
+    if (mobileMenuButton && mobileMenu) {
 
-                mobileMenuButton.innerHTML = isOpen
-                    ? '<span class="text-2xl leading-none">×</span>'
-                    : '<span class="text-2xl leading-none">☰</span>';
+        mobileMenuButton.addEventListener('click', () => {
 
-            });
+            mobileMenu.classList.toggle('hidden');
+
+            const icon =
+                mobileMenuButton.querySelector('i');
+
+            if (mobileMenu.classList.contains('hidden')) {
+
+                icon.setAttribute('data-lucide', 'menu');
+
+            } else {
+
+                icon.setAttribute('data-lucide', 'x');
+
+            }
+
+            lucide.createIcons();
+
+        });
+
+    }
+
+
+    /* Navbar shadow */
+
+    const navbar =
+        document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 10) {
+
+            navbar.classList.add('shadow-lg');
+
+        } else {
+
+            navbar.classList.remove('shadow-lg');
 
         }
 
-    </script>
+    });
+
+
+    /* Reveal animations */
+
+    const reveals =
+        document.querySelectorAll('.reveal');
+
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add('active');
+
+                        revealObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    reveals.forEach((element) => {
+
+        revealObserver.observe(element);
+
+    });
+
+</script>
+
 
 </body>
 </html>
