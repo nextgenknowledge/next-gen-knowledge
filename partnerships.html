@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Partnerships | Next-Gen Knowledge</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FXJKCLQMSN');
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A2342',
+                            light: '#14355B',
+                            dark: '#051224'
+                        },
+                        gold: {
+                            DEFAULT: '#C9A227',
+                            light: '#DFB73C',
+                            dark: '#A6841C'
+                        },
+                        surface: '#F7F9FC'
+                    },
+
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+
+                    boxShadow: {
+                        premium: '0 20px 50px -20px rgba(10,35,66,0.12)',
+                        'premium-hover': '0 30px 70px -20px rgba(10,35,66,0.20)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+        /* =========================================================
+           BASE
+        ========================================================= */
+
+        body {
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: #C9A227;
+            color: #0A2342;
+        }
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================================
+           HERO GRID
+        ========================================================= */
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(10,35,66,0.055) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10,35,66,0.055) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        .hero-glow {
+            filter: blur(70px);
+        }
+
+        /* =========================================================
+           NETWORK ANIMATION
+        ========================================================= */
+
+        .network-orbit {
+            animation: orbit 18s linear infinite;
+        }
+
+        .network-orbit-reverse {
+            animation: orbitReverse 24s linear infinite;
+        }
+
+        @keyframes orbit {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes orbitReverse {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .pulse-node {
+            animation: pulseNode 2.8s ease-in-out infinite;
+        }
+
+        @keyframes pulseNode {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 0.8;
+            }
+        }
+
+        /* =========================================================
+           PARTNERSHIP CARDS
+        ========================================================= */
+
+        .partner-card {
+            transition:
+                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.45s ease,
+                border-color 0.45s ease;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 70px -25px rgba(10,35,66,0.22);
+            border-color: rgba(201,162,39,0.45);
+        }
+
+        .partner-logo {
+            transition:
+                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .partner-card:hover .partner-logo {
+            transform: scale(1.06);
+        }
+
+        /* =========================================================
+           CONNECTING LINE
+        ========================================================= */
+
+        .connection-line {
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(201,162,39,0.8),
+                transparent
+            );
+            background-size: 200% 100%;
+            animation: connectionMove 3s linear infinite;
+        }
+
+        @keyframes connectionMove {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* =========================================================
+           MOBILE HEADER
+        ========================================================= */
+
+        @media (max-width: 767px) {
+
+            nav {
+                background-color: rgba(255,255,255,0.95);
+                backdrop-filter: blur(12px);
+            }
+
+            .hero-grid {
+                background-size: 32px 32px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body class="bg-white text-navy font-sans antialiased">
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav
+    id="navbar"
+    class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300"
+>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="flex items-center justify-between h-20">
+
+            <!-- Logo -->
+
+            <a href="index.html" class="flex items-center gap-3 group">
+
+                <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+
+                    <img
+                        src="IMG_1383.jpeg"
+                        alt="Next-Gen Knowledge Logo"
+                        class="w-full h-full object-cover"
+                    >
+
+                </div>
+
+                <div class="hidden sm:block">
+
+                    <div class="text-lg font-extrabold tracking-tight text-[#0A2342]">
+                        Next-Gen Knowledge
+                    </div>
+
+                    <div class="text-[11px] font-semibold uppercase tracking-widest text-[#C9A227]">
+                        Empowering the Next Generation
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+
+            <div class="hidden md:flex items-center gap-1">
+
+                <a href="index.html"
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                    Home
+                </a>
+
+                <a href="about.html"
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                    About Us
+                </a>
+
+                <a href="programs.html"
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                    Programs
+                </a>
+
+                <a href="team.html"
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                    Team
+                </a>
+
+                <a href="partnerships.html"
+                   class="px-4 py-2 text-sm font-semibold text-navy bg-gray-50 rounded-lg transition-all">
+                    Partnerships
+                </a>
+
+                <a href="trivia.html"
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                    Trivia Arena
+                </a>
+
+                <a href="donate.html"
+                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
+                    Donate
+                </a>
+
+                <a href="enroll.html"
+                   class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all">
+                    Enroll
+                </a>
+
+            </div>
+
+
+            <!-- Mobile Button -->
+
+            <button
+                id="mobile-menu-button"
+                class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
+                aria-label="Open menu"
+            >
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+
+        </div>
+
+
+        <!-- Mobile Navigation -->
+
+        <div id="mobile-menu" class="hidden md:hidden pb-5">
+
+            <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
+
+                <a href="index.html"
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    Home
+                </a>
+
+                <a href="about.html"
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    About Us
+                </a>
+
+                <a href="programs.html"
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    Programs
+                </a>
+
+                <a href="team.html"
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    Team
+                </a>
+
+                <a href="partnerships.html"
+                   class="px-4 py-3 text-sm font-semibold text-navy bg-gray-50 rounded-lg">
+                    Partnerships
+                </a>
+
+                <a href="trivia.html"
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    Trivia Arena
+                </a>
+
+                <a href="donate.html"
+                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    Donate
+                </a>
+
+                <a href="enroll.html"
+                   class="mt-2 px-4 py-3 text-center bg-[#0A2342] text-white text-sm font-bold rounded-lg">
+                    Enroll
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Spacer -->
+
+<div class="h-20"></div>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="relative overflow-hidden hero-grid bg-surface">
+
+    <!-- Ambient glow -->
+
+    <div class="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] bg-gold/10 rounded-full hero-glow"></div>
+
+    <div class="absolute bottom-[-200px] right-[-150px] w-[600px] h-[600px] bg-blue-200/30 rounded-full hero-glow"></div>
+
+
+    <div class="relative max-w-7xl mx-auto px-6 pt-28 pb-24 lg:pt-36 lg:pb-32">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+
+            <!-- Hero Copy -->
+
+            <div class="reveal">
+
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 border border-gold/20 text-gold rounded-full text-xs font-extrabold uppercase tracking-[0.18em] mb-7">
+
+                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+
+                    Our Network
+
+                </div>
+
+
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95] text-navy">
+
+                    Building a
+                    <span class="text-gold"> stronger</span>
+                    future,
+
+                    <span class="block">
+                        together.
+                    </span>
+
+                </h1>
+
+
+                <p class="mt-7 text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+
+                    We collaborate with organizations that share our commitment to expanding access to meaningful education, financial literacy, and opportunities for the next generation.
+
+                </p>
+
+
+                <div class="mt-9 flex flex-wrap gap-4">
+
+                    <a
+                        href="#partners"
+                        class="inline-flex items-center gap-2 px-6 py-3.5 bg-navy text-white font-bold rounded-xl hover:bg-navy-light hover:-translate-y-1 transition-all shadow-lg"
+                    >
+
+                        Explore Our Partners
+
+                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
+
+                    </a>
+
+
+                    <a
+                        href="#partner-with-us"
+                        class="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-navy font-bold rounded-xl border border-navy/10 hover:border-gold hover:-translate-y-1 transition-all"
+                    >
+
+                        Partner With Us
+
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Network Visualization -->
+
+            <div class="relative flex items-center justify-center min-h-[420px] reveal">
+
+                <!-- Outer rings -->
+
+                <div class="absolute w-[390px] h-[390px] rounded-full border border-navy/10"></div>
+
+                <div class="absolute w-[290px] h-[290px] rounded-full border border-gold/25 network-orbit"></div>
+
+                <div class="absolute w-[210px] h-[210px] rounded-full border border-navy/10 network-orbit-reverse"></div>
+
+
+                <!-- Connection lines -->
+
+                <div class="absolute w-[330px] h-px connection-line"></div>
+
+                <div class="absolute h-[330px] w-px connection-line rotate-90"></div>
+
+
+                <!-- Center -->
+
+                <div class="relative z-20 w-32 h-32 rounded-[2rem] bg-navy shadow-2xl flex items-center justify-center pulse-node">
+
+                    <div class="absolute inset-2 rounded-[1.5rem] border border-white/10"></div>
+
+                    <div class="text-center">
+
+                        <img
+                            src="IMG_1383.jpeg"
+                            alt="Next-Gen Knowledge"
+                            class="w-12 h-12 rounded-xl mx-auto object-cover"
+                        >
+
+                        <div class="text-white text-[9px] font-extrabold uppercase tracking-widest mt-2">
+                            Next-Gen
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Partner Nodes -->
+
+                <div class="absolute top-[28px] left-1/2 -translate-x-1/2 z-30">
+
+                    <div class="w-24 h-24 bg-white rounded-2xl shadow-premium border border-navy/10 flex items-center justify-center">
+
+                        <!-- Replace logo -->
+
+                        <span class="text-xs font-black text-navy text-center px-2">
+                            BRIDGE<br>FINANCE
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="absolute bottom-[28px] left-1/2 -translate-x-1/2 z-30">
+
+                    <div class="w-24 h-24 bg-white rounded-2xl shadow-premium border border-navy/10 flex items-center justify-center">
+
+                        <!-- Replace logo -->
+
+                        <span class="text-xs font-black text-navy text-center px-2">
+                            MONIQO
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Decorative dots -->
+
+                <div class="absolute top-1/2 left-[35px] w-3 h-3 rounded-full bg-gold"></div>
+
+                <div class="absolute top-1/2 right-[35px] w-3 h-3 rounded-full bg-navy"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     NETWORK STATS
+========================================================= -->
+
+<section class="bg-navy text-white border-y border-white/5">
+
+    <div class="max-w-7xl mx-auto px-6 py-8">
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+            <div class="reveal">
+
+                <div class="text-3xl font-black text-gold">
+                    02
+                </div>
+
+                <div class="text-xs uppercase tracking-[0.18em] text-white/50 mt-1">
+                    Current Partners
+                </div>
+
+            </div>
+
+
+            <div class="reveal">
+
+                <div class="text-3xl font-black text-white">
+                    01
+                </div>
+
+                <div class="text-xs uppercase tracking-[0.18em] text-white/50 mt-1">
+                    Shared Mission
+                </div>
+
+            </div>
+
+
+            <div class="reveal">
+
+                <div class="text-3xl font-black text-white">
+                    ∞
+                </div>
+
+                <div class="text-xs uppercase tracking-[0.18em] text-white/50 mt-1">
+                    Possibilities
+                </div>
+
+            </div>
+
+
+            <div class="reveal">
+
+                <div class="text-3xl font-black text-gold">
+                    100%
+                </div>
+
+                <div class="text-xs uppercase tracking-[0.18em] text-white/50 mt-1">
+                    Student-Focused
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PARTNERS
+========================================================= -->
+
+<section id="partners" class="py-28 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <!-- Section Heading -->
+
+        <div class="max-w-3xl mx-auto text-center reveal">
+
+            <div class="text-gold font-extrabold text-xs uppercase tracking-[0.2em]">
+                Our Partners
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy mt-3">
+                Organizations in our network
+            </h2>
+
+            <p class="text-gray-600 text-lg leading-relaxed mt-5">
+                Our partnerships create opportunities to connect students with new ideas, resources, experiences, and communities.
+            </p>
+
+        </div>
+
+
+
+        <!-- Partner Cards -->
+
+        <div class="grid lg:grid-cols-2 gap-8 mt-16">
+
+
+            <!-- =================================================
+                 BRIDGE FINANCE NETWORK
+            ================================================== -->
+
+            <article class="partner-card group bg-surface rounded-[2.5rem] border border-navy/5 overflow-hidden reveal">
+
+                <!-- Top -->
+
+                <div class="relative h-20 bg-navy overflow-hidden">
+
+                    <div class="absolute -right-20 -top-24 w-72 h-72 bg-gold/20 rounded-full blur-3xl"></div>
+
+                    <div class="absolute left-10 top-1/2 -translate-y-1/2 text-white/30 text-[10px] uppercase tracking-[0.4em] font-black">
+                        PARTNER 01
+                    </div>
+
+                </div>
+
+
+                <!-- Main -->
+
+                <div class="p-8 md:p-10">
+
+                    <div class="flex items-start justify-between gap-6">
+
+                        <!-- LOGO -->
+
+                        <div class="partner-logo w-28 h-28 rounded-3xl bg-white border border-navy/10 shadow-lg flex items-center justify-center overflow-hidden">
+
+                            <!-- REPLACE THIS WITH PARTNER LOGO -->
+
+                            <span class="text-center text-xs font-black text-navy px-3">
+                                BRIDGE<br>
+                                FINANCE<br>
+                                NETWORK
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 text-green-700 rounded-full text-[10px] font-extrabold uppercase tracking-wider">
+
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+
+                            Active Partner
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-8">
+
+                        <h3 class="text-3xl font-black text-navy">
+                            Bridge Finance Network
+                        </h3>
+
+                        <p class="mt-4 text-gray-600 leading-relaxed">
+                            <!-- REPLACE WITH YOUR PARTNER DESCRIPTION -->
+
+                            Add a short description of Bridge Finance Network here. Explain who they are, what they focus on, and how the partnership connects to Next-Gen Knowledge.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Tags -->
+
+                    <div class="flex flex-wrap gap-2 mt-6">
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-xs font-bold text-navy">
+                            Financial Education
+                        </span>
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-xs font-bold text-navy">
+                            Student Opportunities
+                        </span>
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-xs font-bold text-navy">
+                            Collaboration
+                        </span>
+
+                    </div>
+
+
+                    <!-- Bottom -->
+
+                    <div class="mt-8 pt-6 border-t border-navy/10 flex items-center justify-between gap-4">
+
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
+                            Bridge Finance Network
+                        </span>
+
+
+                        <!-- REPLACE WEBSITE URL -->
+
+                        <a
+                            href="https://example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-extrabold text-navy hover:text-gold transition"
+                        >
+
+                            Visit Website
+
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- =================================================
+                 MONIQO
+            ================================================== -->
+
+            <article class="partner-card group bg-surface rounded-[2.5rem] border border-navy/5 overflow-hidden reveal">
+
+                <div class="relative h-20 bg-navy overflow-hidden">
+
+                    <div class="absolute -left-20 -top-24 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
+
+                    <div class="absolute right-10 top-1/2 -translate-y-1/2 text-white/30 text-[10px] uppercase tracking-[0.4em] font-black">
+                        PARTNER 02
+                    </div>
+
+                </div>
+
+
+                <div class="p-8 md:p-10">
+
+                    <div class="flex items-start justify-between gap-6">
+
+                        <!-- LOGO -->
+
+                        <div class="partner-logo w-28 h-28 rounded-3xl bg-white border border-navy/10 shadow-lg flex items-center justify-center overflow-hidden">
+
+                            <!-- REPLACE THIS WITH MONIQO LOGO -->
+
+                            <span class="text-center text-lg font-black text-navy">
+                                MONIQO
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center gap-2 px-3 py-1.5 bg-green-50 text-green-700 rounded-full text-[10px] font-extrabold uppercase tracking-wider">
+
+                            <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+
+                            Active Partner
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mt-8">
+
+                        <h3 class="text-3xl font-black text-navy">
+                            Moniqo
+                        </h3>
+
+                        <p class="mt-4 text-gray-600 leading-relaxed">
+
+                            <!-- REPLACE WITH YOUR PARTNER DESCRIPTION -->
+
+                            Add a short description of Moniqo here. Explain what Moniqo does and what students or the Next-Gen community gain through the partnership.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="flex flex-wrap gap-2 mt-6">
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-xs font-bold text-navy">
+                            Innovation
+                        </span>
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-xs font-bold text-navy">
+                            Education
+                        </span>
+
+                        <span class="px-3 py-1.5 bg-white border border-navy/10 rounded-full text-xs font-bold text-navy">
+                            Collaboration
+                        </span>
+
+                    </div>
+
+
+                    <div class="mt-8 pt-6 border-t border-navy/10 flex items-center justify-between gap-4">
+
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">
+                            Moniqo
+                        </span>
+
+
+                        <!-- REPLACE WEBSITE URL -->
+
+                        <a
+                            href="https://example.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-extrabold text-navy hover:text-gold transition"
+                        >
+
+                            Visit Website
+
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY PARTNERSHIPS
+========================================================= -->
+
+<section class="py-28 bg-surface border-y border-navy/5">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
+
+
+            <!-- Heading -->
+
+            <div class="reveal">
+
+                <div class="text-gold text-xs font-extrabold uppercase tracking-[0.2em]">
+                    Why We Collaborate
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-black text-navy tracking-tight mt-3">
+                    Partnerships should create real value.
+                </h2>
+
+                <p class="text-gray-600 text-lg leading-relaxed mt-6">
+                    We believe the strongest partnerships go beyond logos. They create experiences, resources, and opportunities that students can actually use.
+                </p>
+
+            </div>
+
+
+            <!-- Cards -->
+
+            <div class="grid sm:grid-cols-2 gap-5">
+
+
+                <div class="bg-white rounded-3xl p-7 border border-navy/5 shadow-premium reveal">
+
+                    <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-5">
+
+                        <i data-lucide="users-round" class="w-6 h-6"></i>
+
+                    </div>
+
+                    <h3 class="font-black text-navy text-lg">
+                        Reach Students
+                    </h3>
+
+                    <p class="text-sm text-gray-600 leading-relaxed mt-2">
+                        Connect with a growing community of students interested in finance, entrepreneurship, technology, and education.
+                    </p>
+
+                </div>
+
+
+                <div class="bg-white rounded-3xl p-7 border border-navy/5 shadow-premium reveal">
+
+                    <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-5">
+
+                        <i data-lucide="lightbulb" class="w-6 h-6"></i>
+
+                    </div>
+
+                    <h3 class="font-black text-navy text-lg">
+                        Share Expertise
+                    </h3>
+
+                    <p class="text-sm text-gray-600 leading-relaxed mt-2">
+                        Bring new perspectives, knowledge, and experiences into the learning environment.
+                    </p>
+
+                </div>
+
+
+                <div class="bg-white rounded-3xl p-7 border border-navy/5 shadow-premium reveal">
+
+                    <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-5">
+
+                        <i data-lucide="rocket" class="w-6 h-6"></i>
+
+                    </div>
+
+                    <h3 class="font-black text-navy text-lg">
+                        Build Together
+                    </h3>
+
+                    <p class="text-sm text-gray-600 leading-relaxed mt-2">
+                        Develop workshops, programs, resources, or initiatives that combine the strengths of both organizations.
+                    </p>
+
+                </div>
+
+
+                <div class="bg-white rounded-3xl p-7 border border-navy/5 shadow-premium reveal">
+
+                    <div class="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-5">
+
+                        <i data-lucide="globe-2" class="w-6 h-6"></i>
+
+                    </div>
+
+                    <h3 class="font-black text-navy text-lg">
+                        Expand Access
+                    </h3>
+
+                    <p class="text-sm text-gray-600 leading-relaxed mt-2">
+                        Help make useful educational opportunities available to students who may not otherwise encounter them.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOW WE PARTNER
+========================================================= -->
+
+<section class="py-28 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <div class="text-center max-w-3xl mx-auto reveal">
+
+            <div class="text-gold text-xs font-extrabold uppercase tracking-[0.2em]">
+                Collaboration Models
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-black text-navy mt-3">
+                There is more than one way to collaborate.
+            </h2>
+
+            <p class="text-gray-600 text-lg mt-5 leading-relaxed">
+                We are open to partnerships that make sense for both organizations and create meaningful value for students.
+            </p>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-6 mt-16">
+
+
+            <div class="group p-8 rounded-[2rem] border border-navy/10 hover:border-gold/40 hover:shadow-premium-hover transition-all reveal">
+
+                <div class="flex items-center justify-between">
+
+                    <div class="w-14 h-14 rounded-2xl bg-navy text-white flex items-center justify-center">
+
+                        <i data-lucide="presentation" class="w-7 h-7"></i>
+
+                    </div>
+
+                    <span class="text-5xl font-black text-navy/5 group-hover:text-gold/20 transition">
+                        01
+                    </span>
+
+                </div>
+
+                <h3 class="text-xl font-black text-navy mt-8">
+                    Workshops & Events
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                    Collaborate on virtual or in-person workshops, guest sessions, panels, competitions, and educational events.
+                </p>
+
+            </div>
+
+
+
+            <div class="group p-8 rounded-[2rem] border border-navy/10 hover:border-gold/40 hover:shadow-premium-hover transition-all reveal">
+
+                <div class="flex items-center justify-between">
+
+                    <div class="w-14 h-14 rounded-2xl bg-navy text-white flex items-center justify-center">
+
+                        <i data-lucide="layers-3" class="w-7 h-7"></i>
+
+                    </div>
+
+                    <span class="text-5xl font-black text-navy/5 group-hover:text-gold/20 transition">
+                        02
+                    </span>
+
+                </div>
+
+                <h3 class="text-xl font-black text-navy mt-8">
+                    Program Partnerships
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                    Work with us to expand existing programs or create new educational experiences for students.
+                </p>
+
+            </div>
+
+
+
+            <div class="group p-8 rounded-[2rem] border border-navy/10 hover:border-gold/40 hover:shadow-premium-hover transition-all reveal">
+
+                <div class="flex items-center justify-between">
+
+                    <div class="w-14 h-14 rounded-2xl bg-navy text-white flex items-center justify-center">
+
+                        <i data-lucide="handshake" class="w-7 h-7"></i>
+
+                    </div>
+
+                    <span class="text-5xl font-black text-navy/5 group-hover:text-gold/20 transition">
+                        03
+                    </span>
+
+                </div>
+
+                <h3 class="text-xl font-black text-navy mt-8">
+                    Strategic Collaboration
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed mt-3">
+                    Explore longer-term collaborations involving content, community building, outreach, technology, or shared initiatives.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PARTNERSHIP PROCESS
+========================================================= -->
+
+<section class="py-28 bg-navy text-white overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-[0.7fr_1.3fr] gap-16 items-center">
+
+
+            <div class="reveal">
+
+                <div class="text-gold text-xs font-extrabold uppercase tracking-[0.2em]">
+                    Simple Process
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-3">
+                    From conversation to collaboration.
+                </h2>
+
+                <p class="text-white/60 text-lg leading-relaxed mt-6">
+                    We keep the process straightforward. Start a conversation, explore the fit, and build something useful together.
+                </p>
+
+            </div>
+
+
+            <div class="space-y-4">
+
+
+                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 reveal">
+
+                    <div class="shrink-0 w-12 h-12 rounded-2xl bg-gold text-navy flex items-center justify-center font-black">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-black text-lg">
+                            Start a conversation
+                        </h3>
+
+                        <p class="text-sm text-white/55 mt-1">
+                            Tell us about your organization, your goals, and what you have in mind.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 reveal">
+
+                    <div class="shrink-0 w-12 h-12 rounded-2xl bg-white/10 text-gold flex items-center justify-center font-black">
+                        02
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-black text-lg">
+                            Explore the fit
+                        </h3>
+
+                        <p class="text-sm text-white/55 mt-1">
+                            We discuss potential audiences, goals, resources, and possible collaboration formats.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 reveal">
+
+                    <div class="shrink-0 w-12 h-12 rounded-2xl bg-white/10 text-gold flex items-center justify-center font-black">
+                        03
+                    </div>
+
+                    <div>
+
+                        <h3 class="font-black text-lg">
+                            Build something meaningful
+                        </h3>
+
+                        <p class="text-sm text-white/55 mt-1">
+                            Turn the conversation into a clear initiative with defined goals and responsibilities.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PARTNER WITH US CTA
+========================================================= -->
+
+<section id="partner-with-us" class="py-28 bg-surface">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="relative overflow-hidden rounded-[3rem] bg-white border border-navy/10 shadow-premium">
+
+            <!-- Background decoration -->
+
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+
+
+            <div class="relative z-10 p-10 md:p-16 lg:p-20">
+
+                <div class="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+
+
+                    <div class="reveal">
+
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-gold/10 text-gold rounded-full text-xs font-extrabold uppercase tracking-wider">
+
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+
+                            Let's Build Together
+
+                        </div>
+
+
+                        <h2 class="text-4xl md:text-5xl font-black text-navy tracking-tight mt-5">
+                            Interested in partnering with Next-Gen Knowledge?
+                        </h2>
+
+
+                        <p class="text-gray-600 text-lg leading-relaxed mt-5 max-w-2xl">
+
+                            Whether you're a student organization, nonprofit, company, educator, or community organization, we'd love to hear what you're working on and explore how we could collaborate.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="reveal">
+
+                        <!-- CHANGE EMAIL HERE IF NEEDED -->
+
+                        <a
+                            href="mailto:nextgen.knowledge123@gmail.com?subject=Partnership Inquiry"
+                            class="group inline-flex items-center justify-center gap-3 bg-navy text-white font-extrabold px-8 py-5 rounded-2xl shadow-xl hover:bg-navy-light hover:-translate-y-1 transition-all whitespace-nowrap"
+                        >
+
+                            Reach Out
+
+                            <span class="w-9 h-9 rounded-xl bg-gold text-navy flex items-center justify-center group-hover:translate-x-1 transition-transform">
+
+                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+
+                            </span>
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="py-16 bg-white border-t border-navy/5">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+
+
+            <div class="flex items-center gap-3">
+
+                <img
+                    src="IMG_1383.jpeg"
+                    alt="Next-Gen Knowledge Logo"
+                    class="h-9 w-9 rounded-lg object-cover"
+                >
+
+                <div>
+
+                    <div class="font-extrabold text-navy">
+                        Next-Gen Knowledge
+                    </div>
+
+                    <div class="text-[10px] text-gold font-bold uppercase tracking-widest">
+                        Empowering the Next Generation
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="flex flex-wrap justify-center gap-8 font-bold text-sm text-navy/70">
+
+                <a
+                    href="https://www.instagram.com/nextgen.knowledge"
+                    target="_blank"
+                    class="hover:text-gold transition"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/company/next-gen-knowledge/"
+                    target="_blank"
+                    class="hover:text-gold transition"
+                >
+                    Company LinkedIn
+                </a>
+
+                <a
+                    href="mailto:nextgen.knowledge123@gmail.com"
+                    class="hover:text-gold transition"
+                >
+                    Email Us
+                </a>
+
+            </div>
+
+
+            <div class="flex flex-col items-center md:items-end gap-1">
+
+                <p class="text-navy/60 text-xs max-w-xs text-center md:text-right">
+
+                    Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
+
+                </p>
+
+                <p class="text-navy/50 text-sm">
+                    &copy; 2026 Next-Gen Knowledge. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* =========================================================
+       LUCIDE ICONS
+    ========================================================= */
+
+    lucide.createIcons();
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    const mobileMenuButton =
+        document.getElementById('mobile-menu-button');
+
+    const mobileMenu =
+        document.getElementById('mobile-menu');
+
+
+    if (mobileMenuButton && mobileMenu) {
+
+        mobileMenuButton.addEventListener('click', () => {
+
+            mobileMenu.classList.toggle('hidden');
+
+            const icon =
+                mobileMenuButton.querySelector('i');
+
+
+            if (mobileMenu.classList.contains('hidden')) {
+
+                icon.setAttribute('data-lucide', 'menu');
+
+            } else {
+
+                icon.setAttribute('data-lucide', 'x');
+
+            }
+
+
+            lucide.createIcons();
+
+        });
+
+    }
+
+
+    /* =========================================================
+       NAVBAR SHADOW
+    ========================================================= */
+
+    const navbar =
+        document.getElementById('navbar');
+
+
+    window.addEventListener('scroll', () => {
+
+        if (window.scrollY > 10) {
+
+            navbar.classList.add('shadow-md');
+
+        } else {
+
+            navbar.classList.remove('shadow-md');
+
+        }
+
+    });
+
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    function revealOnScroll() {
+
+        const reveals =
+            document.querySelectorAll('.reveal');
+
+
+        for (let i = 0; i < reveals.length; i++) {
+
+            const windowHeight =
+                window.innerHeight;
+
+            const elementTop =
+                reveals[i].getBoundingClientRect().top;
+
+            const elementVisible = 120;
+
+
+            if (elementTop < windowHeight - elementVisible) {
+
+                reveals[i].classList.add('active');
+
+            }
+
+        }
+
+    }
+
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    revealOnScroll();
+
+</script>
+
+
+</body>
+</html>
