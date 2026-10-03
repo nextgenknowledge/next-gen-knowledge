@@ -1,112 +1,384 @@
 
-<!-- Footer -->
-<footer class="bg-[#0A2342] text-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate | Next-Gen Knowledge</title>
+  <meta name="description" content="Support Next-Gen Knowledge and help make financial literacy accessible to the next generation.">
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-      <!-- Brand -->
-      <div>
-        <a href="index.html" class="inline-flex items-center gap-3 mb-4">
-          <div class="w-12 h-12 rounded-xl overflow-hidden bg-white">
-            <img
-              src="IMG_1383.jpeg"
-              alt="Next-Gen Knowledge Logo"
-              class="w-full h-full object-contain"
-            >
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
+  </script>
+
+  <style>
+    :root {
+      --navy: #0A2342;
+      --gold: #C9A227;
+      --light: #F7F8FA;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--navy);
+      background: var(--light);
+    }
+
+    .nav-link {
+      color: #4B5563;
+      transition: color .2s, background .2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--navy);
+      background: #F3F4F6;
+    }
+
+    .donation-frame {
+      display: block;
+      width: 100%;
+      height: 750px;
+      border: 0;
+      background: white;
+    }
+
+    @media (max-width: 640px) {
+      .donation-frame { height: 850px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-xl overflow-hidden">
+            <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge Logo" class="w-full h-full object-cover">
           </div>
-          <span class="text-lg font-extrabold tracking-tight">
-            Next-Gen Knowledge
-          </span>
+
+          <div class="hidden sm:block">
+            <div class="text-lg font-extrabold tracking-tight">Next-Gen Knowledge</div>
+            <div class="text-[11px] font-semibold uppercase tracking-widest" style="color:var(--gold)">
+              Empowering the Next Generation
+            </div>
+          </div>
         </a>
 
-        <p class="text-sm text-gray-300 leading-relaxed max-w-sm">
-          Empowering the next generation through accessible financial literacy and real-world education.
-        </p>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Home</a>
+          <a href="about.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">About Us</a>
+          <a href="programs.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Programs</a>
+          <a href="team.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Team</a>
+          <a href="partnerships.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Partnerships</a>
+          <a href="trivia.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Trivia Arena</a>
+          <a href="donate.html" class="nav-link active px-3 py-2 text-sm font-semibold rounded-lg">Donate</a>
+          <a href="enroll.html" class="ml-2 px-5 py-2.5 text-sm font-bold text-white rounded-lg shadow-sm hover:-translate-y-0.5 transition-all" style="background:var(--navy)">Enroll</a>
+        </div>
+
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
       </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#C9A227]">
-          Quick Links
-        </h3>
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden md:hidden pb-5">
+        <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
+          <a href="index.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Home</a>
+          <a href="about.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">About Us</a>
+          <a href="programs.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Programs</a>
+          <a href="team.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Team</a>
+          <a href="partnerships.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Partnerships</a>
+          <a href="trivia.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Trivia Arena</a>
+          <a href="donate.html" class="nav-link active px-4 py-3 text-sm font-semibold rounded-lg">Donate</a>
+          <a href="enroll.html" class="mt-2 px-4 py-3 text-center text-white text-sm font-bold rounded-lg" style="background:var(--navy)">Enroll</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-300">
-          <a href="index.html" class="hover:text-[#C9A227] transition-colors">Home</a>
-          <a href="about.html" class="hover:text-[#C9A227] transition-colors">About Us</a>
-          <a href="programs.html" class="hover:text-[#C9A227] transition-colors">Programs</a>
-          <a href="team.html" class="hover:text-[#C9A227] transition-colors">Team</a>
-          <a href="partnerships.html" class="hover:text-[#C9A227] transition-colors">Partnerships</a>
-          <a href="trivia.html" class="hover:text-[#C9A227] transition-colors">Trivia Arena</a>
-          <a href="donate.html" class="hover:text-[#C9A227] transition-colors">Donate</a>
-          <a href="enroll.html" class="hover:text-[#C9A227] transition-colors">Enroll</a>
+  <main class="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14">
+
+    <!-- Heading -->
+    <section class="text-center mb-10">
+      <p class="text-sm uppercase tracking-[0.2em] font-bold mb-3" style="color:var(--gold)">
+        Make an Impact
+      </p>
+
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+        Support the Next Generation
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-gray-600 text-base md:text-lg leading-relaxed">
+        Help us make financial literacy and real-world education accessible to more students.
+      </p>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+
+      <!-- Mission -->
+      <div class="lg:col-span-2">
+        <div class="rounded-2xl p-7 md:p-8 text-white shadow-sm" style="background:var(--navy)">
+
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:var(--gold)">
+            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+          </div>
+
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">
+            Help Students Build Real-World Skills
+          </h2>
+
+          <p class="text-gray-200 leading-relaxed mb-7">
+            Next-Gen Knowledge is a student-led financial literacy nonprofit focused on making practical education accessible to the next generation.
+          </p>
+
+          <div class="space-y-6">
+
+            <div class="flex gap-3 items-start">
+              <i data-lucide="check-circle-2" class="shrink-0 mt-1" style="color:var(--gold)"></i>
+              <div>
+                <h3 class="font-semibold">Financial Literacy</h3>
+                <p class="text-sm text-gray-300 mt-1">
+                  Teach students about budgeting, banking, and investing.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start">
+              <i data-lucide="check-circle-2" class="shrink-0 mt-1" style="color:var(--gold)"></i>
+              <div>
+                <h3 class="font-semibold">Accessible Education</h3>
+                <p class="text-sm text-gray-300 mt-1">
+                  Support free learning opportunities and educational programs.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 items-start">
+              <i data-lucide="check-circle-2" class="shrink-0 mt-1" style="color:var(--gold)"></i>
+              <div>
+                <h3 class="font-semibold">Community Outreach</h3>
+                <p class="text-sm text-gray-300 mt-1">
+                  Help bring practical financial education to more students.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="mt-5 flex items-start gap-2 text-xs text-gray-500 leading-relaxed">
+          <i data-lucide="shield-check" class="w-4 h-4 shrink-0 mt-0.5"></i>
+          <p>
+            Donations are processed through Hack Club's donation platform.
+          </p>
         </div>
       </div>
 
-      <!-- Connect -->
-      <div>
-        <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#C9A227]">
-          Connect With Us
-        </h3>
+      <!-- Embedded Donation Form -->
+      <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
 
-        <div class="flex items-center gap-4 mb-5">
-          <a
-            href="https://www.instagram.com/nextgen.knowledge/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
-          >
-            <i data-lucide="instagram" class="w-5 h-5"></i>
+        <div class="px-6 md:px-8 py-5 border-b border-gray-100">
+          <h2 class="text-xl md:text-2xl font-bold">Make a Donation</h2>
+          <p class="text-sm text-gray-500 mt-1">
+            Complete your donation securely below.
+          </p>
+        </div>
+
+        <iframe
+          class="donation-frame"
+          src="https://hcb.hackclub.com/donations/start/nextgen-knowledge"
+          title="Donate to Next-Gen Knowledge"
+          loading="eager"
+          scrolling="auto"
+          allow="payment"
+        >
+          Loading donation form...
+        </iframe>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#0A2342] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <!-- Brand -->
+        <div>
+          <a href="index.html" class="inline-flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl overflow-hidden bg-white">
+              <img
+                src="IMG_1383.jpeg"
+                alt="Next-Gen Knowledge Logo"
+                class="w-full h-full object-contain"
+              >
+            </div>
+            <span class="text-lg font-extrabold tracking-tight">
+              Next-Gen Knowledge
+            </span>
           </a>
 
-          <a
-            href="https://www.linkedin.com/company/next-gen-knowledge/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
-          >
-            <i data-lucide="linkedin" class="w-5 h-5"></i>
-          </a>
+          <p class="text-sm text-gray-300 leading-relaxed max-w-sm">
+            Empowering the next generation through accessible financial literacy and real-world education.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#C9A227]">
+            Quick Links
+          </h3>
+
+          <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-300">
+            <a href="index.html" class="hover:text-[#C9A227] transition-colors">Home</a>
+            <a href="about.html" class="hover:text-[#C9A227] transition-colors">About Us</a>
+            <a href="programs.html" class="hover:text-[#C9A227] transition-colors">Programs</a>
+            <a href="team.html" class="hover:text-[#C9A227] transition-colors">Team</a>
+            <a href="partnerships.html" class="hover:text-[#C9A227] transition-colors">Partnerships</a>
+            <a href="trivia.html" class="hover:text-[#C9A227] transition-colors">Trivia Arena</a>
+            <a href="donate.html" class="hover:text-[#C9A227] transition-colors">Donate</a>
+            <a href="enroll.html" class="hover:text-[#C9A227] transition-colors">Enroll</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#C9A227]">
+            Connect With Us
+          </h3>
+
+          <div class="flex items-center gap-4 mb-5">
+
+            <a
+              href="https://www.instagram.com/nextgen.knowledge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+            >
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/next-gen-knowledge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+            >
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+
+            <a
+              href="mailto:nextgen.knowledge123@gmail.com"
+              aria-label="Email"
+              class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+            >
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </a>
+
+          </div>
 
           <a
             href="mailto:nextgen.knowledge123@gmail.com"
-            aria-label="Email"
-            class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+            class="text-sm text-gray-300 hover:text-[#C9A227] transition-colors break-all"
           >
-            <i data-lucide="mail" class="w-5 h-5"></i>
+            nextgen.knowledge123@gmail.com
           </a>
         </div>
 
-        <a
-          href="mailto:nextgen.knowledge123@gmail.com"
-          class="text-sm text-gray-300 hover:text-[#C9A227] transition-colors break-all"
-        >
-          nextgen.knowledge123@gmail.com
-        </a>
       </div>
 
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+
+        <p class="text-xs text-gray-400">
+          © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
+        </p>
+
+        <p class="text-xs text-gray-400 leading-relaxed sm:text-right max-w-xl">
+          Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.
+        </p>
+
+      </div>
     </div>
+  </footer>
 
-    <!-- Bottom Bar -->
-    <div class="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-      <p class="text-xs text-gray-400">
-        © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
-      </p>
-
-      <p class="text-xs text-gray-400 leading-relaxed sm:text-right max-w-xl">
-        Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.
-      </p>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-  document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-  if (window.lucide) {
+  <script>
     lucide.createIcons();
-  }
-</script>
+
+    document.getElementById('footer-year').textContent =
+      new Date().getFullYear();
+
+    const navbar = document.getElementById('navbar');
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('shadow-lg', window.scrollY > 10);
+    });
+
+    menuButton.addEventListener('click', () => {
+      const opening = mobileMenu.classList.contains('hidden');
+
+      mobileMenu.classList.toggle('hidden');
+      menuButton.setAttribute('aria-expanded', String(opening));
+      menuButton.setAttribute(
+        'aria-label',
+        opening ? 'Close menu' : 'Open menu'
+      );
+
+      menuButton.innerHTML = opening
+        ? '<i data-lucide="x" class="w-6 h-6"></i>'
+        : '<i data-lucide="menu" class="w-6 h-6"></i>';
+
+      lucide.createIcons();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open menu');
+        menuButton.innerHTML =
+          '<i data-lucide="menu" class="w-6 h-6"></i>';
+        lucide.createIcons();
+      });
+    });
+  </script>
+
+</body>
+</html>
