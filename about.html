@@ -1,22 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Next-Gen Knowledge</title>
 
-    <!-- Google tag (gtag.js) -->
+    <title>About Next-Gen Knowledge | Student-Led Financial Literacy</title>
+    <meta name="description" content="Discover Next-Gen Knowledge, a student-led educational initiative making financial literacy and practical real-world learning accessible to the next generation.">
+    <meta name="keywords" content="Next-Gen Knowledge, financial literacy for students, student-led nonprofit, financial education, youth financial literacy, personal finance education, Money Masters">
+    <meta name="author" content="Next-Gen Knowledge">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0A2342">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Us | Next-Gen Knowledge">
+    <meta property="og:description" content="We're students building practical, engaging education for the next generation. Learn about our mission, story, and approach.">
+    <meta property="og:image" content="IMG_1383.jpeg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us | Next-Gen Knowledge">
+    <meta name="twitter:description" content="Discover our mission to make practical financial education accessible to students.">
+    <meta name="twitter:image" content="IMG_1383.jpeg">
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-FXJKCLQMSN');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FXJKCLQMSN');
+    </script>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Next-Gen Knowledge",
+      "description": "A student-led educational initiative focused on making financial literacy and real-world learning accessible to the next generation.",
+      "email": "nextgen.knowledge123@gmail.com",
+      "logo": "IMG_1383.jpeg",
+      "sameAs": [
+        "https://www.instagram.com/nextgen.knowledge",
+        "https://www.linkedin.com/company/next-gen-knowledge/"
+      ],
+      "nonprofitStatus": "Nonprofit501c3"
+    }
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -27,64 +60,125 @@
                 extend: {
                     colors: {
                         navy: {
-                            DEFAULT: '#0A2342',
-                            light: '#14355B',
-                            dark: '#051224'
+                            DEFAULT: "#0A2342",
+                            light: "#14355B",
+                            dark: "#051224"
                         },
                         gold: {
-                            DEFAULT: '#C9A227',
-                            light: '#DFB73C',
-                            dark: '#A6841C'
+                            DEFAULT: "#C9A227",
+                            light: "#DFB73C",
+                            dark: "#A6841C"
                         },
-                        surface: '#F7F9FC'
+                        paper: "#F7F9FC"
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif']
+                        sans: ["Inter", "sans-serif"]
                     },
                     boxShadow: {
-                        premium: '0 20px 50px -20px rgba(10, 35, 66, 0.14)',
-                        'premium-hover': '0 30px 70px -20px rgba(10, 35, 66, 0.22)'
-                    },
-                    animation: {
-                        float: 'float 6s ease-in-out infinite',
-                        'float-slow': 'float 9s ease-in-out infinite',
-                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-                        marquee: 'marquee 25s linear infinite'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        pulseSoft: {
-                            '0%, 100%': { opacity: '0.45' },
-                            '50%': { opacity: '1' }
-                        },
-                        marquee: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' }
-                        }
+                        soft: "0 12px 40px rgba(10,35,66,.07)",
+                        deep: "0 24px 70px rgba(5,18,36,.18)"
                     }
                 }
             }
-        }
+        };
     </script>
 
     <style>
+        :root {
+            --navy: #0A2342;
+            --navy-light: #14355B;
+            --navy-dark: #051224;
+            --gold: #C9A227;
+            --paper: #F7F9FC;
+        }
+
         * {
+            box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
         body {
+            margin: 0;
             overflow-x: hidden;
+            font-family: Inter, sans-serif;
+        }
+
+        ::selection {
+            color: var(--navy);
+            background: #F2D982;
+        }
+
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            height: 3px;
+            width: 0%;
+            background: var(--gold);
+            transition: width .08s linear;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color .2s ease, background .2s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 5px;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .25s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link[aria-current="page"]::after {
+            transform: scaleX(1);
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(10,35,66,.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10,35,66,.045) 1px, transparent 1px);
+            background-size: 42px 42px;
+        }
+
+        .hero-glow {
+            background:
+                radial-gradient(circle at 75% 30%, rgba(201,162,39,.13), transparent 30%),
+                radial-gradient(circle at 15% 75%, rgba(20,53,91,.08), transparent 32%);
+        }
+
+        .gradient-text {
+            color: transparent;
+            background: linear-gradient(115deg, #0A2342 15%, #14355B 55%, #C9A227 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(35px);
-            transition:
-                opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(24px);
+            transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
         }
 
         .reveal.active {
@@ -92,88 +186,118 @@
             transform: translateY(0);
         }
 
-        .hero-grid {
-            background-image:
-                linear-gradient(rgba(10,35,66,0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10,35,66,0.045) 1px, transparent 1px);
-            background-size: 42px 42px;
+        .float-card {
+            animation: float 5s ease-in-out infinite;
         }
 
-        .hero-glow {
-            background:
-                radial-gradient(circle at 50% 30%, rgba(201,162,39,0.16), transparent 28%),
-                radial-gradient(circle at 85% 20%, rgba(20,53,91,0.12), transparent 30%);
+        .float-card-delay {
+            animation: float 6s ease-in-out 1s infinite;
         }
 
-        .dot-pattern {
-            background-image: radial-gradient(rgba(201,162,39,0.3) 1px, transparent 1px);
-            background-size: 16px 16px;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-9px); }
         }
 
-        .glass {
-            background: rgba(255,255,255,0.72);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+        @keyframes slow-spin {
+            to { transform: rotate(360deg); }
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #0A2342 20%, #14355B 55%, #C9A227 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .orbit {
+            animation: slow-spin 28s linear infinite;
         }
 
-        .gold-line {
-            background: linear-gradient(90deg, transparent, #C9A227, transparent);
+        .orbit-reverse {
+            animation: slow-spin 38s linear infinite reverse;
         }
 
-        .timeline-line {
-            background: linear-gradient(
-                to bottom,
-                rgba(201,162,39,0.15),
-                rgba(201,162,39,0.75),
-                rgba(201,162,39,0.15)
-            );
+        .interactive-card {
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
         }
 
-        .pillar-btn {
-            position: relative;
-            overflow: hidden;
+        .interactive-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 50px rgba(10,35,66,.12);
+            border-color: rgba(201,162,39,.55);
         }
 
-        .pillar-btn::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                110deg,
-                transparent 20%,
-                rgba(255,255,255,0.16) 50%,
-                transparent 80%
-            );
-            transform: translateX(-120%);
-            transition: transform 0.7s ease;
+        .value-tab {
+            transition: all .25s ease;
         }
 
-        .pillar-btn:hover::after {
-            transform: translateX(120%);
+        .value-tab[aria-selected="true"] {
+            color: white;
+            background: var(--navy);
+            border-color: var(--navy);
+            box-shadow: 0 10px 25px rgba(10,35,66,.16);
         }
 
-        .number-ring {
-            box-shadow:
-                0 0 0 1px rgba(201,162,39,0.22),
-                0 0 0 8px rgba(201,162,39,0.045);
+        .value-tab[aria-selected="false"]:hover {
+            border-color: var(--gold);
+            background: #fffdf7;
         }
 
-        /* Mobile Header */
+        .value-panel {
+            animation: panel-in .35s ease;
+        }
+
+        @keyframes panel-in {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .story-step {
+            transition: border-color .25s ease, background .25s ease, transform .25s ease;
+        }
+
+        .story-step[aria-pressed="true"] {
+            border-color: var(--gold);
+            background: white;
+            transform: translateX(4px);
+            box-shadow: 0 12px 30px rgba(10,35,66,.06);
+        }
+
+        .story-step[aria-pressed="true"] .step-number {
+            color: white;
+            background: var(--navy);
+        }
+
+        .step-number {
+            transition: all .25s ease;
+        }
+
+        .faq-item[open] .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-icon {
+            transition: transform .2s ease;
+        }
+
+        .hero-orb {
+            filter: blur(1px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .magnetic-button {
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .magnetic-button:hover {
+            box-shadow: 0 16px 32px rgba(10,35,66,.18);
+        }
+
         @media (max-width: 767px) {
-            nav {
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(12px);
-            }
-
             .hero-grid {
                 background-size: 28px 28px;
+            }
+
+            .reveal {
+                transform: translateY(14px);
+            }
+
+            .story-step[aria-pressed="true"] {
+                transform: none;
             }
         }
 
@@ -182,9 +306,9 @@
             *::before,
             *::after {
                 scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
+                animation-duration: .01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                transition-duration: .01ms !important;
             }
 
             .reveal {
@@ -195,1402 +319,935 @@
     </style>
 </head>
 
-<body class="bg-surface text-gray-900 flex flex-col min-h-screen">
+<body class="bg-white text-gray-900 antialiased">
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+    <div class="progress-bar" id="reading-progress" aria-hidden="true"></div>
 
-<nav
-    id="navbar"
-    class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300"
->
+    <!-- NAVIGATION -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-[76px]">
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="flex items-center justify-between h-20">
-
-            <!-- Logo -->
-
-            <a href="index.html" class="flex items-center gap-3 group">
-
-                <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
-
-                    <img
-                        src="IMG_1383.jpeg"
-                        alt="Next-Gen Knowledge Logo"
-                        class="w-full h-full object-cover"
-                    >
-
-                </div>
-
-                <div class="hidden sm:block">
-
-                    <div class="text-lg font-extrabold tracking-tight text-[#0A2342]">
-                        Next-Gen Knowledge
-                    </div>
-
-                    <div class="text-[11px] font-semibold uppercase tracking-widest text-[#C9A227]">
-                        Empowering the Next Generation
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <!-- Desktop Navigation -->
-
-            <div class="hidden md:flex items-center gap-1">
-
-                <a href="index.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Home
-                </a>
-
-                <a href="about.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    About Us
-                </a>
-
-                <a href="programs.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Programs
-                </a>
-
-                <a href="team.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Team
-                </a>
-
-                <a href="partnerships.html"
-                   class="px-4 py-2 text-sm font-semibold text-navy bg-gray-50 rounded-lg transition-all">
-                    Partnerships
-                </a>
-
-                <a href="trivia.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Trivia Arena
-                </a>
-
-                <a href="donate.html"
-                   class="px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#0A2342] hover:bg-gray-50 rounded-lg transition-all">
-                    Donate
-                </a>
-
-                <a
-                    href="enroll.html"
-                    class="ml-2 px-5 py-2.5 bg-[#0A2342] text-white text-sm font-bold rounded-lg shadow-sm hover:bg-[#14355B] hover:-translate-y-0.5 hover:shadow-md transition-all"
-                >
-                    Enroll
-                </a>
-
-            </div>
-
-
-            <!-- Mobile Button -->
-
-            <button
-                id="mobile-menu-button"
-                class="md:hidden p-2 rounded-lg text-[#0A2342] hover:bg-gray-100 transition-colors"
-                aria-label="Open menu"
-            >
-
-                <i data-lucide="menu" class="w-6 h-6"></i>
-
-            </button>
-
-        </div>
-
-
-        <!-- Mobile Navigation -->
-
-        <div id="mobile-menu" class="hidden md:hidden pb-5">
-
-            <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
-
-                <a href="index.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
-                    Home
-                </a>
-
-                <a href="about.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
-                    About Us
-                </a>
-
-                <a href="programs.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
-                    Programs
-                </a>
-
-                <a href="team.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
-                    Team
-                </a>
-
-                <a href="partnerships.html"
-                   class="px-4 py-3 text-sm font-semibold text-navy bg-gray-50 rounded-lg">
-                    Partnerships
-                </a>
-
-                <a href="trivia.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
-                    Trivia Arena
-                </a>
-
-                <a href="donate.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">
-                    Donate
-                </a>
-
-                <a href="enroll.html"
-                   class="mt-2 px-4 py-3 text-center bg-[#0A2342] text-white text-sm font-bold rounded-lg">
-                    Enroll
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</nav>
-
-
-<!-- Spacer -->
-
-<div class="h-20"></div>
-
-<!-- ========================= HEADER SCRIPT ========================= -->
-
-<script>
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-
-            const icon = mobileMenuButton.querySelector('i');
-
-            if (mobileMenu.classList.contains('hidden')) {
-                icon.setAttribute('data-lucide', 'menu');
-                mobileMenuButton.setAttribute('aria-label', 'Open menu');
-            } else {
-                icon.setAttribute('data-lucide', 'x');
-                mobileMenuButton.setAttribute('aria-label', 'Close menu');
-            }
-
-            lucide.createIcons();
-        });
-    }
-
-    const navbar = document.getElementById('navbar');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            navbar.classList.add('shadow-md');
-        } else {
-            navbar.classList.remove('shadow-md');
-        }
-    });
-</script>
-
-
-<!-- ========================= HERO ========================= -->
-
-<section class="relative overflow-hidden bg-white hero-grid hero-glow">
-
-    <div class="absolute top-20 left-[-120px] w-72 h-72 rounded-full bg-gold/10 blur-3xl"></div>
-    <div class="absolute top-40 right-[-150px] w-96 h-96 rounded-full bg-navy/10 blur-3xl"></div>
-
-    <div class="max-w-7xl mx-auto px-6 pt-20 pb-20 lg:pt-28 lg:pb-28">
-
-        <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-14 lg:gap-20 items-center">
-
-            <!-- Hero Copy -->
-            <div class="reveal">
-
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-extrabold uppercase tracking-[0.18em] mb-7">
-                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                    Our Origin & Philosophy
-                </div>
-
-                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black tracking-[-0.045em] leading-[0.98] text-navy mb-7">
-                    Education should prepare you for
-                    <span class="gradient-text">real life.</span>
-                </h1>
-
-                <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl mb-9">
-                    Next-Gen Knowledge was built by students who saw a gap in practical education—and decided to do something about it.
-                </p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="programs.html"
-                       class="inline-flex items-center gap-2 bg-navy text-white px-6 py-3.5 rounded-xl font-bold hover:bg-navy-light hover:-translate-y-1 transition-all shadow-lg">
-                        Explore Our Programs
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-
-                    <a href="#our-story"
-                       class="inline-flex items-center gap-2 bg-white border border-navy/10 text-navy px-6 py-3.5 rounded-xl font-bold hover:border-gold hover:-translate-y-1 transition-all">
-                        Our Story
-                        <i data-lucide="arrow-down" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hero Visual -->
-            <div class="relative min-h-[430px] reveal">
-
-                <div class="absolute inset-0 flex items-center justify-center">
-
-                    <div class="relative w-[310px] sm:w-[380px] h-[310px] sm:h-[380px]">
-
-                        <!-- Decorative rings -->
-                        <div class="absolute inset-0 rounded-full border border-navy/10"></div>
-                        <div class="absolute inset-7 rounded-full border border-gold/20"></div>
-                        <div class="absolute inset-16 rounded-full border border-navy/10"></div>
-
-                        <!-- Orbit dots -->
-                        <div class="absolute inset-[-12px] animate-[spin_18s_linear_infinite]">
-                            <div class="absolute top-1/2 left-0 w-3 h-3 bg-gold rounded-full shadow-lg"></div>
-                        </div>
-
-                        <div class="absolute inset-[-32px] animate-[spin_26s_linear_infinite_reverse]">
-                            <div class="absolute bottom-1/2 right-0 w-2.5 h-2.5 bg-navy rounded-full"></div>
-                        </div>
-
-                        <!-- Center Card -->
-                        <div class="absolute inset-16 sm:inset-20 bg-navy rounded-[2.5rem] shadow-2xl flex flex-col items-center justify-center text-white overflow-hidden">
-
-                            <div class="absolute inset-0 opacity-30">
-                                <div class="absolute -top-20 -right-20 w-48 h-48 bg-gold rounded-full blur-3xl"></div>
-                                <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-blue-400 rounded-full blur-3xl"></div>
-                            </div>
-
-                            <div class="relative z-10 text-center px-6">
-                                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center">
-                                    <i data-lucide="lightbulb" class="w-8 h-8 text-gold"></i>
-                                </div>
-
-                                <div class="text-xs uppercase tracking-[0.2em] font-bold text-gold mb-2">
-                                    The Next Generation
-                                </div>
-
-                                <div class="text-3xl font-black tracking-tight">
-                                    Learn.
-                                </div>
-                                <div class="text-3xl font-black tracking-tight">
-                                    Apply.
-                                </div>
-                                <div class="text-3xl font-black tracking-tight">
-                                    Build.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Floating card 1 -->
-                        <div class="absolute -top-3 -right-5 sm:right-[-30px] bg-white rounded-2xl border border-navy/10 shadow-premium px-4 py-3 animate-float">
-                            <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-xl bg-gold/10 flex items-center justify-center">
-                                    <i data-lucide="trending-up" class="w-5 h-5 text-gold"></i>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-                                        Learn by doing
-                                    </div>
-                                    <div class="text-sm font-extrabold text-navy">
-                                        Real-world skills
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Floating card 2 -->
-                        <div class="absolute bottom-1 left-[-18px] sm:left-[-42px] bg-white rounded-2xl border border-navy/10 shadow-premium px-4 py-3 animate-float-slow">
-                            <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-xl bg-navy flex items-center justify-center">
-                                    <i data-lucide="users" class="w-5 h-5 text-white"></i>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400">
-                                        Built by students
-                                    </div>
-                                    <div class="text-sm font-extrabold text-navy">
-                                        Peer-driven learning
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Bottom transition -->
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent"></div>
-</section>
-
-
-<!-- ========================= MARQUEE ========================= -->
-
-<section class="bg-navy overflow-hidden border-y border-white/10">
-    <div class="flex whitespace-nowrap animate-marquee py-4">
-
-        <div class="flex items-center gap-10 px-5">
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Financial Literacy</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Entrepreneurship</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Critical Thinking</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Student Leadership</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Practical Education</span>
-            <span class="text-gold">✦</span>
-        </div>
-
-        <div class="flex items-center gap-10 px-5">
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Financial Literacy</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Entrepreneurship</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Critical Thinking</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Student Leadership</span>
-            <span class="text-gold">✦</span>
-            <span class="text-white/80 text-sm font-bold uppercase tracking-[0.2em]">Practical Education</span>
-            <span class="text-gold">✦</span>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ========================= STORY ========================= -->
-
-<section id="our-story" class="relative py-24 lg:py-32 bg-white overflow-hidden">
-
-    <div class="absolute top-0 right-0 w-72 h-72 dot-pattern opacity-30"></div>
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-[0.85fr_1.15fr] gap-14 lg:gap-24 items-start">
-
-            <!-- Section Label -->
-            <div class="reveal lg:sticky lg:top-32">
-
-                <div class="flex items-center gap-3 mb-5">
-                    <div class="w-10 h-px bg-gold"></div>
-                    <span class="text-gold text-xs font-extrabold uppercase tracking-[0.2em]">
-                        The Beginning
-                    </span>
-                </div>
-
-                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-navy leading-tight">
-                    It started with a simple realization.
-                </h2>
-
-                <p class="mt-6 text-gray-500 leading-relaxed">
-                    Some of the most important skills students need are rarely taught early enough—or in a way that feels relevant.
-                </p>
-
-                <div class="mt-8 flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-navy flex items-center justify-center">
-                        <i data-lucide="sparkles" class="w-5 h-5 text-gold"></i>
+                <a href="index.html" class="flex items-center gap-3 group" aria-label="Next-Gen Knowledge homepage">
+                    <div class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+                        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" class="w-full h-full object-cover" width="44" height="44">
                     </div>
                     <div>
-                        <div class="text-sm font-extrabold text-navy">Built by four students</div>
-                        <div class="text-xs text-gray-400">For the next generation</div>
+                        <div class="font-extrabold tracking-tight text-navy text-base sm:text-lg">Next-Gen Knowledge</div>
+                        <div class="text-[9px] sm:text-[10px] font-bold uppercase tracking-[.16em] text-gold mt-0.5">Empowering the Next Generation</div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Story Content -->
-            <div class="reveal space-y-6">
-
-                <div class="relative bg-surface rounded-[2.5rem] border border-navy/5 p-8 md:p-12 shadow-premium overflow-hidden">
-
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-full blur-3xl"></div>
-
-                    <div class="relative z-10">
-
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center">
-                                <i data-lucide="search" class="w-6 h-6"></i>
-                            </div>
-
-                            <div>
-                                <div class="text-xs font-bold uppercase tracking-widest text-gold">
-                                    The Realization
-                                </div>
-                                <div class="text-lg font-extrabold text-navy">
-                                    There was a gap.
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="text-xl text-gray-700 leading-relaxed mb-7">
-                            Next-Gen Knowledge was founded by four high school students on a simple, powerful realization: the most important skills for the future—financial literacy, entrepreneurship, and critical thinking—are rarely taught in a way that resonates with young students.
-                        </p>
-
-                        <div class="h-px bg-navy/10 mb-7"></div>
-
-                        <p class="text-lg text-gray-600 leading-relaxed">
-                            We started by teaching our foundational pilot course,
-                            <strong class="text-navy">Money Masters</strong>,
-                            to bridge the gap between abstract academic concepts and real-world application. What began as an experiment has grown into a comprehensive platform offering both personal finance fundamentals and our advanced
-                            <strong class="text-navy">Investor Academy</strong>
-                            for high-growth economic learners.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!-- Quote / Philosophy -->
-                <div class="grid sm:grid-cols-2 gap-5">
-
-                    <div class="bg-navy rounded-[2rem] p-7 text-white relative overflow-hidden">
-                        <div class="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-gold/15 blur-2xl"></div>
-
-                        <i data-lucide="quote" class="w-7 h-7 text-gold mb-5"></i>
-
-                        <p class="relative text-lg font-bold leading-relaxed">
-                            “The goal isn't just to know. It's to know what to do.”
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-[2rem] p-7 border border-navy/10 shadow-premium">
-                        <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
-                            <i data-lucide="rocket" class="w-5 h-5 text-gold"></i>
-                        </div>
-
-                        <div class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
-                            What changed
-                        </div>
-
-                        <p class="text-gray-600 leading-relaxed">
-                            We turned that realization into a student-led platform focused on practical, accessible learning.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ========================= MISSION ========================= -->
-
-<section class="relative py-24 lg:py-32 bg-surface overflow-hidden">
-
-    <div class="absolute inset-0 hero-grid opacity-50"></div>
-
-    <div class="relative max-w-6xl mx-auto px-6">
-
-        <div class="bg-navy rounded-[3rem] p-8 md:p-14 lg:p-20 text-white overflow-hidden relative shadow-2xl reveal">
-
-            <div class="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-[-150px] left-[-100px] w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-
-            <div class="relative z-10 grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
-
-                <div>
-                    <div class="inline-flex items-center gap-2 text-gold text-xs font-extrabold uppercase tracking-[0.2em] mb-5">
-                        <span class="w-8 h-px bg-gold"></span>
-                        Our Evolving Mission
-                    </div>
-
-                    <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight mb-7">
-                        We teach finance.
-                        <br>
-                        We develop
-                        <span class="text-gold">young thinkers.</span>
-                    </h2>
-
-                    <p class="text-gray-300 text-lg leading-relaxed max-w-2xl">
-                        While personal finance teaches students how to manage and save money, our programs go further to teach how money actually grows. Through live market tracking, business model breakdowns, and simulated stock portfolios, we bridge the gap between classroom theory and lifelong economic success.
-                    </p>
-                </div>
-
-                <!-- Mission Visual -->
-                <div class="relative">
-
-                    <div class="aspect-square max-w-[280px] mx-auto rounded-[2.5rem] bg-white/5 border border-white/10 p-5 rotate-3">
-
-                        <div class="h-full rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 flex flex-col justify-between -rotate-3">
-
-                            <div class="flex justify-between items-start">
-                                <div class="text-xs font-bold uppercase tracking-widest text-gray-400">
-                                    Our Approach
-                                </div>
-                                <div class="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center">
-                                    <i data-lucide="target" class="w-4 h-4 text-gold"></i>
-                                </div>
-                            </div>
-
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 rounded-full bg-gold"></div>
-                                    <span class="text-sm font-bold">Understand</span>
-                                </div>
-
-                                <div class="ml-1 w-px h-5 bg-white/10"></div>
-
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 rounded-full bg-gold"></div>
-                                    <span class="text-sm font-bold">Practice</span>
-                                </div>
-
-                                <div class="ml-1 w-px h-5 bg-white/10"></div>
-
-                                <div class="flex items-center gap-3">
-                                    <div class="w-2 h-2 rounded-full bg-gold"></div>
-                                    <span class="text-sm font-bold">Apply</span>
-                                </div>
-                            </div>
-
-                            <div class="text-xs text-gray-500">
-                                Education → Experience
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ========================= CORE PILLARS ========================= -->
-
-<section class="py-24 lg:py-32 bg-white">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="max-w-3xl mx-auto text-center reveal">
-
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-extrabold uppercase tracking-widest">
-                <i data-lucide="compass" class="w-3.5 h-3.5"></i>
-                Our Foundation
-            </div>
-
-            <h2 class="mt-5 text-4xl md:text-5xl font-black tracking-tight text-navy">
-                Four principles guide everything we build.
-            </h2>
-
-            <p class="mt-5 text-gray-600 text-lg leading-relaxed">
-                From our curriculum to our community, these ideas shape how Next-Gen Knowledge approaches education.
-            </p>
-
-        </div>
-
-
-        <!-- Pillar Tabs -->
-        <div class="mt-14 reveal">
-
-            <div class="flex flex-wrap justify-center gap-3 mb-8">
-
-                <button onclick="switchPillar(1)"
-                        id="pillar-btn-1"
-                        class="pillar-btn px-5 py-3 rounded-xl font-bold transition-all bg-navy text-white shadow-md text-sm">
-                    Practical Learning
-                </button>
-
-                <button onclick="switchPillar(2)"
-                        id="pillar-btn-2"
-                        class="pillar-btn px-5 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm">
-                    Student Mentorship
-                </button>
-
-                <button onclick="switchPillar(3)"
-                        id="pillar-btn-3"
-                        class="pillar-btn px-5 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm">
-                    Radical Accessibility
-                </button>
-
-                <button onclick="switchPillar(4)"
-                        id="pillar-btn-4"
-                        class="pillar-btn px-5 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm">
-                    Modern Innovation
-                </button>
-
-            </div>
-
-
-            <div class="bg-surface rounded-[2.5rem] border border-navy/5 shadow-premium overflow-hidden">
-
-                <div class="grid lg:grid-cols-[0.35fr_0.65fr] min-h-[350px]">
-
-                    <!-- Left visual -->
-                    <div class="bg-navy p-10 md:p-12 flex flex-col justify-between relative overflow-hidden">
-
-                        <div class="absolute inset-0 opacity-20">
-                            <div class="absolute top-[-80px] left-[-80px] w-72 h-72 rounded-full bg-gold blur-3xl"></div>
-                            <div class="absolute bottom-[-100px] right-[-100px] w-72 h-72 rounded-full bg-blue-400 blur-3xl"></div>
-                        </div>
-
-                        <div class="relative z-10">
-
-                            <div id="pillar-icon-1"
-                                 class="w-16 h-16 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center">
-                                <i data-lucide="wrench" class="w-8 h-8 text-gold"></i>
-                            </div>
-
-                            <div id="pillar-number"
-                                 class="mt-8 text-7xl font-black text-white/10">
-                                01
-                            </div>
-
-                        </div>
-
-                        <div class="relative z-10">
-    <div class="text-gold text-xs uppercase tracking-[0.2em] font-extrabold">
-        Core Principle
-    </div>
-
-    <div id="pillar-side-title" class="mt-2 text-2xl font-black text-white">
-        Practical Over Theoretical
-    </div>
-</div>
-
-
-                    <!-- Right content -->
-                    <div class="p-8 md:p-12 lg:p-14 flex items-center">
-
-                        <div id="pillar-content-1" class="pillar-content space-y-5">
-
-                            <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase tracking-wider">
-                                Core Value One
-                            </div>
-
-                            <h3 class="text-3xl md:text-4xl font-black text-navy">
-                                Practical Over Theoretical
-                            </h3>
-
-                            <p class="text-gray-600 leading-relaxed text-lg">
-                                Textbooks explain what compound interest is; our students run simulated stock portfolios and budget games to watch it happen live. We focus strictly on applicable tools they can use immediately.
-                            </p>
-
-                            <div class="flex items-center gap-3 pt-3 text-sm font-bold text-navy">
-                                <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
-                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
-                                </div>
-                                Learn through real-world application
-                            </div>
-
-                        </div>
-
-
-                        <div id="pillar-content-2" class="pillar-content space-y-5 hidden">
-
-                            <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase tracking-wider">
-                                Core Value Two
-                            </div>
-
-                            <h3 class="text-3xl md:text-4xl font-black text-navy">
-                                Student-Led Empowerment
-                            </h3>
-
-                            <p class="text-gray-600 leading-relaxed text-lg">
-                                Middle schoolers learn best from role models who are only a few steps ahead. By pairing them with motivated high school mentors, we remove intimidation and spark genuine engagement.
-                            </p>
-
-                            <div class="flex items-center gap-3 pt-3 text-sm font-bold text-navy">
-                                <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
-                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
-                                </div>
-                                Learn from relatable peer mentors
-                            </div>
-
-                        </div>
-
-
-                        <div id="pillar-content-3" class="pillar-content space-y-5 hidden">
-
-                            <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase tracking-wider">
-                                Core Value Three
-                            </div>
-
-                            <h3 class="text-3xl md:text-4xl font-black text-navy">
-                                Accessibility for Every Family
-                            </h3>
-
-                            <p class="text-gray-600 leading-relaxed text-lg">
-                                High-level financial guidance should not be a luxury. We are committed to keeping our interactive online programs accessible, ensuring every curious student has a seat at the table.
-                            </p>
-
-                            <div class="flex items-center gap-3 pt-3 text-sm font-bold text-navy">
-                                <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
-                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
-                                </div>
-                                Make meaningful education accessible
-                            </div>
-
-                        </div>
-
-
-                        <div id="pillar-content-4" class="pillar-content space-y-5 hidden">
-
-                            <div class="inline-flex items-center gap-2 px-3 py-1 bg-gold/10 text-gold rounded-full text-xs font-bold uppercase tracking-wider">
-                                Core Value Four
-                            </div>
-
-                            <h3 class="text-3xl md:text-4xl font-black text-navy">
-                                Innovation in Learning
-                            </h3>
-
-                            <p class="text-gray-600 leading-relaxed text-lg">
-                                The economy changes fast, and education must keep pace. We integrate modern digital tools, collaborative challenges, and live virtual environments into every single session.
-                            </p>
-
-                            <div class="flex items-center gap-3 pt-3 text-sm font-bold text-navy">
-                                <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center">
-                                    <i data-lucide="check" class="w-4 h-4 text-gold"></i>
-                                </div>
-                                Keep education relevant to a changing world
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ========================= HOW WE THINK ========================= -->
-
-<section class="py-24 lg:py-32 bg-surface overflow-hidden">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center max-w-3xl mx-auto reveal">
-
-            <span class="text-gold font-extrabold uppercase tracking-[0.2em] text-xs">
-                More Than a Curriculum
-            </span>
-
-            <h2 class="text-4xl md:text-5xl font-black text-navy tracking-tight mt-3">
-                We turn knowledge into experience.
-            </h2>
-
-            <p class="mt-5 text-gray-600 text-lg">
-                Every part of the learning experience is designed to move students from understanding an idea to actually using it.
-            </p>
-
-        </div>
-
-
-        <div class="grid md:grid-cols-3 gap-6 mt-14">
-
-            <!-- Step 1 -->
-            <div class="reveal group bg-white rounded-[2rem] border border-navy/5 p-8 shadow-premium hover:shadow-premium-hover hover:-translate-y-2 transition-all duration-500">
-
-                <div class="flex items-start justify-between">
-                    <div class="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center">
-                        <i data-lucide="book-open" class="w-6 h-6"></i>
-                    </div>
-
-                    <span class="text-5xl font-black text-navy/5 group-hover:text-gold/20 transition-colors">
-                        01
-                    </span>
-                </div>
-
-                <div class="mt-10">
-                    <div class="text-xs uppercase tracking-widest font-bold text-gold">
-                        Understand
-                    </div>
-
-                    <h3 class="mt-2 text-2xl font-black text-navy">
-                        Build the foundation.
-                    </h3>
-
-                    <p class="mt-4 text-gray-600 leading-relaxed">
-                        Students learn the concepts and vocabulary behind money, markets, business, and decision-making.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <!-- Step 2 -->
-            <div class="reveal group bg-white rounded-[2rem] border border-navy/5 p-8 shadow-premium hover:shadow-premium-hover hover:-translate-y-2 transition-all duration-500">
-
-                <div class="flex items-start justify-between">
-                    <div class="w-12 h-12 rounded-2xl bg-gold text-navy flex items-center justify-center">
-                        <i data-lucide="flask-conical" class="w-6 h-6"></i>
-                    </div>
-
-                    <span class="text-5xl font-black text-navy/5 group-hover:text-gold/20 transition-colors">
-                        02
-                    </span>
-                </div>
-
-                <div class="mt-10">
-                    <div class="text-xs uppercase tracking-widest font-bold text-gold">
-                        Practice
-                    </div>
-
-                    <h3 class="mt-2 text-2xl font-black text-navy">
-                        Experiment safely.
-                    </h3>
-
-                    <p class="mt-4 text-gray-600 leading-relaxed">
-                        Simulations, challenges, discussions, and collaborative activities give students room to test what they learn.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <!-- Step 3 -->
-            <div class="reveal group bg-white rounded-[2rem] border border-navy/5 p-8 shadow-premium hover:shadow-premium-hover hover:-translate-y-2 transition-all duration-500">
-
-                <div class="flex items-start justify-between">
-                    <div class="w-12 h-12 rounded-2xl bg-navy text-white flex items-center justify-center">
-                        <i data-lucide="rocket" class="w-6 h-6"></i>
-                    </div>
-
-                    <span class="text-5xl font-black text-navy/5 group-hover:text-gold/20 transition-colors">
-                        03
-                    </span>
-                </div>
-
-                <div class="mt-10">
-                    <div class="text-xs uppercase tracking-widest font-bold text-gold">
-                        Apply
-                    </div>
-
-                    <h3 class="mt-2 text-2xl font-black text-navy">
-                        Take it beyond class.
-                    </h3>
-
-                    <p class="mt-4 text-gray-600 leading-relaxed">
-                        The goal is confidence students can carry into future academic, entrepreneurial, and financial decisions.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ========================= TIMELINE ========================= -->
-
-<section class="py-24 lg:py-32 bg-white">
-
-    <div class="max-w-6xl mx-auto px-6">
-
-        <div class="text-center max-w-3xl mx-auto reveal">
-
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy/5 text-navy text-xs font-extrabold uppercase tracking-widest">
-                <i data-lucide="route" class="w-3.5 h-3.5"></i>
-                Our Journey
-            </div>
-
-            <h2 class="mt-5 text-4xl md:text-5xl font-black text-navy tracking-tight">
-                How we got here.
-            </h2>
-
-            <p class="mt-5 text-gray-600 text-lg">
-                A few milestones that shaped Next-Gen Knowledge into what it is today.
-            </p>
-
-        </div>
-
-
-        <div class="relative mt-20">
-
-            <!-- Desktop timeline line -->
-            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px timeline-line transform -translate-x-1/2"></div>
-
-            <!-- Phase 1 -->
-            <div class="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 reveal">
-
-                <div class="md:text-right">
-                    <span class="inline-flex px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-extrabold uppercase tracking-widest">
-                        Phase 01
-                    </span>
-
-                    <h3 class="mt-4 text-2xl md:text-3xl font-black text-navy">
-                        The Initial Idea
-                    </h3>
-
-                    <p class="mt-4 text-gray-600 leading-relaxed md:ml-auto max-w-lg">
-                        Four high school peers recognized a critical absence of personal finance and business curriculum in early schooling.
-                    </p>
-                </div>
-
-                <div class="hidden md:flex justify-start">
-                    <div class="number-ring w-16 h-16 rounded-full bg-white flex items-center justify-center border border-gold/30">
-                        <span class="text-lg font-black text-navy">01</span>
-                    </div>
-                </div>
-
-                <div class="md:hidden flex items-center gap-4">
-                    <div class="number-ring w-12 h-12 rounded-full bg-white flex items-center justify-center border border-gold/30">
-                        <span class="font-black text-navy">01</span>
-                    </div>
-                    <span class="text-sm font-bold text-gray-400">The beginning</span>
-                </div>
-
-            </div>
-
-
-            <!-- Phase 2 -->
-            <div class="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-16 reveal">
-
-                <div class="hidden md:flex justify-end order-1">
-                    <div class="number-ring w-16 h-16 rounded-full bg-white flex items-center justify-center border border-gold/30">
-                        <span class="text-lg font-black text-navy">02</span>
-                    </div>
-                </div>
-
-                <div class="order-2">
-                    <span class="inline-flex px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-extrabold uppercase tracking-widest">
-                        Phase 02
-                    </span>
-
-                    <h3 class="mt-4 text-2xl md:text-3xl font-black text-navy">
-                        Money Masters Pilot
-                    </h3>
-
-                    <p class="mt-4 text-gray-600 leading-relaxed max-w-lg">
-                        Designed and tested our signature curriculum focused on budgeting, saving, and practical personal finance fundamentals.
-                    </p>
-                </div>
-
-                <div class="md:hidden order-3 flex items-center gap-4">
-                    <div class="number-ring w-12 h-12 rounded-full bg-white flex items-center justify-center border border-gold/30">
-                        <span class="font-black text-navy">02</span>
-                    </div>
-                    <span class="text-sm font-bold text-gray-400">First program</span>
-                </div>
-
-            </div>
-
-
-            <!-- Phase 3 -->
-            <div class="relative grid md:grid-cols-2 gap-8 md:gap-16 items-center reveal">
-
-                <div class="md:text-right">
-                    <span class="inline-flex px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-extrabold uppercase tracking-widest">
-                        Phase 03
-                    </span>
-
-                    <h3 class="mt-4 text-2xl md:text-3xl font-black text-navy">
-                        Dual-Course Expansion
-                    </h3>
-
-                    <p class="mt-4 text-gray-600 leading-relaxed md:ml-auto max-w-lg">
-                        Expanded into a multi-track platform featuring both Money Masters and Investor Academy for advanced investing and startups.
-                    </p>
-                </div>
-
-                <div class="hidden md:flex justify-start">
-                    <div class="number-ring w-16 h-16 rounded-full bg-white flex items-center justify-center border border-gold/30">
-                        <span class="text-lg font-black text-navy">03</span>
-                    </div>
-                </div>
-
-                <div class="md:hidden flex items-center gap-4">
-                    <div class="number-ring w-12 h-12 rounded-full bg-white flex items-center justify-center border border-gold/30">
-                        <span class="font-black text-navy">03</span>
-                    </div>
-                    <span class="text-sm font-bold text-gray-400">Where we are now</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ========================= DIFFERENCE SECTION ========================= -->
-
-<section class="py-24 lg:py-32 bg-surface overflow-hidden">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-center">
-
-            <div class="reveal">
-
-                <div class="flex items-center gap-3 mb-5">
-                    <div class="w-10 h-px bg-gold"></div>
-                    <span class="text-gold text-xs font-extrabold uppercase tracking-[0.2em]">
-                        Why We Exist
-                    </span>
-                </div>
-
-                <h2 class="text-4xl md:text-5xl font-black text-navy tracking-tight leading-tight">
-                    Different by design.
-                </h2>
-
-                <p class="mt-6 text-gray-600 text-lg leading-relaxed">
-                    We aren't trying to recreate a traditional classroom online. We are building an environment where students can learn from people who understand their perspective.
-                </p>
-
-                <a href="team.html"
-                   class="inline-flex items-center gap-2 mt-8 text-navy font-extrabold hover:text-gold transition-colors">
-                    Meet the team
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
 
+                <div class="hidden lg:flex items-center gap-0.5">
+                    <a href="index.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Home</a>
+                    <a href="about.html" class="nav-link px-3 py-3 text-sm font-semibold text-navy rounded-lg" aria-current="page">About Us</a>
+                    <a href="programs.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Programs</a>
+                    <a href="team.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Team</a>
+                    <a href="partnerships.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Partnerships</a>
+                    <a href="trivia.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Trivia Arena</a>
+                    <a href="donate.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Donate</a>
+                    <a href="enroll.html" class="magnetic-button ml-2 inline-flex items-center gap-2 px-5 py-3 bg-navy text-white text-sm font-bold rounded-xl hover:bg-navy-light">
+                        Get Started <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <button id="mobile-menu-button" class="lg:hidden p-2.5 rounded-xl text-navy hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gold" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
 
-
-            <div class="grid sm:grid-cols-2 gap-5 reveal">
-
-                <div class="bg-white rounded-[2rem] p-7 border border-navy/5 shadow-premium hover:-translate-y-1 transition-transform">
-                    <div class="w-11 h-11 rounded-xl bg-gold/10 flex items-center justify-center">
-                        <i data-lucide="users-round" class="w-5 h-5 text-gold"></i>
-                    </div>
-
-                    <h3 class="mt-6 text-xl font-black text-navy">
-                        Student-led
-                    </h3>
-
-                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
-                        Students aren't just participants. They help shape the learning experience.
-                    </p>
+            <div id="mobile-menu" class="hidden lg:hidden pb-5">
+                <div class="grid grid-cols-2 gap-1 border-t border-gray-100 pt-4">
+                    <a href="index.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">Home</a>
+                    <a href="about.html" class="px-4 py-3 text-sm font-semibold text-navy bg-gold/10 rounded-lg" aria-current="page">About Us</a>
+                    <a href="programs.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">Programs</a>
+                    <a href="team.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">Team</a>
+                    <a href="partnerships.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">Partnerships</a>
+                    <a href="trivia.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">Trivia Arena</a>
+                    <a href="donate.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg">Donate</a>
+                    <a href="enroll.html" class="px-4 py-3 text-sm font-bold text-white bg-navy hover:bg-navy-light rounded-lg text-center">Get Started</a>
                 </div>
+            </div>
+        </div>
+    </nav>
 
+    <main>
+        <!-- HERO -->
+        <section class="relative overflow-hidden bg-paper hero-grid hero-glow pt-28 sm:pt-32 lg:pt-36 pb-20 lg:pb-28">
+            <div class="absolute top-24 -left-28 w-80 h-80 bg-gold/10 rounded-full blur-3xl hero-orb" aria-hidden="true"></div>
+            <div class="absolute right-[-100px] top-36 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" aria-hidden="true"></div>
 
-                <div class="bg-white rounded-[2rem] p-7 border border-navy/5 shadow-premium hover:-translate-y-1 transition-transform">
-                    <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center">
-                        <i data-lucide="briefcase-business" class="w-5 h-5 text-white"></i>
-                    </div>
+            <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-14 lg:gap-16 items-center">
 
-                    <h3 class="mt-6 text-xl font-black text-navy">
-                        Real-world
-                    </h3>
-
-                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
-                        Our activities connect concepts to decisions students may encounter outside school.
-                    </p>
-                </div>
-
-
-                <div class="bg-white rounded-[2rem] p-7 border border-navy/5 shadow-premium hover:-translate-y-1 transition-transform">
-                    <div class="w-11 h-11 rounded-xl bg-navy flex items-center justify-center">
-                        <i data-lucide="globe-2" class="w-5 h-5 text-white"></i>
-                    </div>
-
-                    <h3 class="mt-6 text-xl font-black text-navy">
-                        Accessible
-                    </h3>
-
-                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
-                        We work to make meaningful financial education available to curious students regardless of background.
-                    </p>
-                </div>
-
-
-                <div class="bg-navy rounded-[2rem] p-7 text-white shadow-xl hover:-translate-y-1 transition-transform relative overflow-hidden">
-                    <div class="absolute -right-12 -bottom-12 w-32 h-32 rounded-full bg-gold/15 blur-2xl"></div>
-
-                    <div class="relative">
-                        <div class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center">
-                            <i data-lucide="zap" class="w-5 h-5 text-gold"></i>
+                    <div class="reveal">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-gold/30 shadow-sm text-navy text-xs font-extrabold uppercase tracking-[.16em] mb-7">
+                            <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                            Student-led. Future-focused.
                         </div>
 
-                        <h3 class="mt-6 text-xl font-black">
-                            Built to evolve
-                        </h3>
+                        <h1 class="text-5xl sm:text-6xl lg:text-[76px] font-black tracking-[-.055em] leading-[.98] text-navy">
+                            Real life deserves
+                            <span class="gradient-text block mt-2">real education.</span>
+                        </h1>
 
-                        <p class="mt-3 text-sm text-gray-300 leading-relaxed">
-                            As technology and the economy change, our approach changes with them.
+                        <p class="mt-7 max-w-xl text-lg sm:text-xl leading-relaxed text-gray-600">
+                            We're students building the kind of practical, engaging education we believe every young person should have access to.
                         </p>
-                    </div>
-                </div>
 
+                        <div class="mt-9 flex flex-col sm:flex-row gap-3">
+                            <a href="#our-story" class="magnetic-button inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-navy text-white font-bold hover:bg-navy-light">
+                                Discover our story
+                                <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+                            </a>
+                            <a href="programs.html" class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white border border-gray-200 text-navy font-bold hover:border-gold transition-all">
+                                Explore our programs
+                                <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+
+                        <div class="mt-10 flex items-center gap-4 text-sm text-gray-500">
+                            <div class="flex -space-x-2" aria-hidden="true">
+                                <div class="w-9 h-9 rounded-full bg-navy text-white border-2 border-paper flex items-center justify-center"><i data-lucide="book-open" class="w-4 h-4"></i></div>
+                                <div class="w-9 h-9 rounded-full bg-gold text-navy border-2 border-paper flex items-center justify-center"><i data-lucide="lightbulb" class="w-4 h-4"></i></div>
+                                <div class="w-9 h-9 rounded-full bg-blue-100 text-navy border-2 border-paper flex items-center justify-center"><i data-lucide="users" class="w-4 h-4"></i></div>
+                            </div>
+                            <p><strong class="text-navy">Learn.</strong> Practice. Apply. Repeat.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive-style visual -->
+                    <div class="relative min-h-[390px] sm:min-h-[490px] reveal">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="relative w-[300px] h-[300px] sm:w-[390px] sm:h-[390px]">
+
+                                <div class="absolute inset-0 rounded-full border border-navy/10"></div>
+                                <div class="absolute inset-7 rounded-full border border-dashed border-gold/40 orbit"></div>
+                                <div class="absolute inset-16 rounded-full border border-navy/10 orbit-reverse"></div>
+
+                                <div class="absolute top-1/2 left-[-7px] w-3.5 h-3.5 bg-gold rounded-full shadow-lg shadow-gold/40"></div>
+                                <div class="absolute right-3 top-16 w-3 h-3 bg-navy rounded-full"></div>
+
+                                <div class="absolute inset-[54px] sm:inset-[70px] rounded-[2rem] sm:rounded-[2.5rem] bg-navy shadow-deep overflow-hidden flex flex-col items-center justify-center text-center p-6 sm:p-8">
+                                    <div class="absolute -top-20 -right-10 w-48 h-48 rounded-full bg-gold/20 blur-3xl"></div>
+                                    <div class="absolute -bottom-16 -left-12 w-48 h-48 rounded-full bg-blue-400/20 blur-3xl"></div>
+
+                                    <div class="relative z-10 w-16 h-16 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center mb-5">
+                                        <i data-lucide="lightbulb" class="w-8 h-8 text-gold"></i>
+                                    </div>
+                                    <p class="relative z-10 text-xs font-bold uppercase tracking-[.2em] text-gold mb-3">The Next Generation</p>
+                                    <p class="relative z-10 text-3xl sm:text-4xl font-black text-white leading-tight">Think<br>Beyond<br>the Classroom.</p>
+                                    <div class="relative z-10 mt-5 w-12 h-1 rounded-full bg-gold"></div>
+                                </div>
+
+                                <div class="float-card absolute -top-2 -right-4 sm:-right-10 bg-white border border-gray-100 rounded-2xl shadow-soft p-4 max-w-[185px]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-gold/15 text-gold flex items-center justify-center shrink-0">
+                                            <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] uppercase tracking-wider font-extrabold text-gray-400">Build skills</p>
+                                            <p class="text-sm font-extrabold text-navy">For real life</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="float-card-delay absolute -bottom-1 -left-5 sm:-left-10 bg-white border border-gray-100 rounded-2xl shadow-soft p-4 max-w-[200px]">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-xl bg-navy text-white flex items-center justify-center shrink-0">
+                                            <i data-lucide="users" class="w-5 h-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] uppercase tracking-wider font-extrabold text-gray-400">Student powered</p>
+                                            <p class="text-sm font-extrabold text-navy">Peer-led learning</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
-        </div>
+            <a href="#our-story" class="absolute bottom-5 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-gray-400 hover:text-navy transition-colors" aria-label="Scroll to our story">
+                <span class="text-[10px] font-bold uppercase tracking-[.18em]">Scroll to explore</span>
+                <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce"></i>
+            </a>
+        </section>
 
-    </div>
-</section>
+        <!-- CORE AREAS STRIP -->
+        <section class="bg-navy py-5 overflow-hidden" aria-label="Our areas of focus">
+            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap justify-center items-center gap-x-7 gap-y-3 sm:gap-x-12">
+                    <span class="text-white/90 text-xs sm:text-sm font-bold uppercase tracking-[.14em]">Financial Literacy</span>
+                    <span class="text-gold" aria-hidden="true">✦</span>
+                    <span class="text-white/90 text-xs sm:text-sm font-bold uppercase tracking-[.14em]">Practical Education</span>
+                    <span class="text-gold" aria-hidden="true">✦</span>
+                    <span class="text-white/90 text-xs sm:text-sm font-bold uppercase tracking-[.14em]">Student Leadership</span>
+                    <span class="text-gold" aria-hidden="true">✦</span>
+                    <span class="text-white/90 text-xs sm:text-sm font-bold uppercase tracking-[.14em]">Critical Thinking</span>
+                </div>
+            </div>
+        </section>
 
+        <!-- STORY -->
+        <section id="our-story" class="py-24 lg:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
 
-<!-- ========================= CTA ========================= -->
+                <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24 items-start">
 
-<section class="py-24 px-6 bg-white">
+                    <div class="reveal lg:sticky lg:top-32">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="w-10 h-px bg-gold"></span>
+                            <span class="text-xs font-extrabold uppercase tracking-[.2em] text-gold">Our story</span>
+                        </div>
 
-    <div class="max-w-6xl mx-auto reveal">
+                        <h2 class="text-4xl sm:text-5xl font-black tracking-tight leading-[1.06] text-navy">
+                            A different kind of learning starts with a question.
+                        </h2>
 
-        <div class="relative overflow-hidden rounded-[3rem] bg-navy p-10 md:p-16 lg:p-20 text-white shadow-2xl">
+                        <p class="mt-6 text-gray-600 text-lg leading-relaxed">
+                            What if students could learn important life skills before they needed them?
+                        </p>
 
-            <div class="absolute inset-0 hero-grid opacity-[0.07]"></div>
+                        <p class="mt-4 text-gray-500 leading-relaxed">
+                            That question helped inspire a student-led effort to make practical education more accessible, engaging, and relevant.
+                        </p>
 
-            <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold/15 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+                        <a href="team.html" class="mt-7 inline-flex items-center gap-2 font-bold text-navy hover:text-gold transition-colors">
+                            Meet the people behind it
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
 
-            <div class="relative z-10 max-w-3xl">
+                    <div class="reveal">
+                        <div class="rounded-[2rem] sm:rounded-[2.5rem] bg-paper border border-gray-100 p-6 sm:p-10 lg:p-12">
+                            <div class="flex items-center justify-between gap-4 mb-8">
+                                <div>
+                                    <p class="text-xs uppercase tracking-[.17em] text-gold font-extrabold">How it began</p>
+                                    <h3 class="text-2xl sm:text-3xl font-black text-navy mt-2">From a gap to an initiative.</h3>
+                                </div>
+                                <div class="hidden sm:flex w-14 h-14 rounded-2xl bg-white border border-gray-100 items-center justify-center text-navy shadow-sm">
+                                    <i data-lucide="route" class="w-7 h-7"></i>
+                                </div>
+                            </div>
 
-                <div class="inline-flex items-center gap-2 text-gold text-xs font-extrabold uppercase tracking-[0.2em] mb-6">
-                    <span class="w-8 h-px bg-gold"></span>
-                    The next step
+                            <div class="space-y-3" id="story-steps">
+                                <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 sm:p-5 rounded-2xl border border-transparent bg-white/70" data-story="0" aria-pressed="true">
+                                    <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/15 text-navy flex items-center justify-center font-black">01</span>
+                                    <span class="flex-1">
+                                        <span class="block font-extrabold text-navy">Recognize the gap</span>
+                                        <span class="block text-sm text-gray-500 mt-1">Students need skills they can use beyond the classroom.</span>
+                                    </span>
+                                    <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
+                                </button>
+
+                                <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 sm:p-5 rounded-2xl border border-transparent bg-white/70" data-story="1" aria-pressed="false">
+                                    <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/15 text-navy flex items-center justify-center font-black">02</span>
+                                    <span class="flex-1">
+                                        <span class="block font-extrabold text-navy">Start with students</span>
+                                        <span class="block text-sm text-gray-500 mt-1">Build learning experiences with a peer-led perspective.</span>
+                                    </span>
+                                    <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
+                                </button>
+
+                                <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 sm:p-5 rounded-2xl border border-transparent bg-white/70" data-story="2" aria-pressed="false">
+                                    <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/15 text-navy flex items-center justify-center font-black">03</span>
+                                    <span class="flex-1">
+                                        <span class="block font-extrabold text-navy">Make learning practical</span>
+                                        <span class="block text-sm text-gray-500 mt-1">Connect financial concepts to decisions people actually make.</span>
+                                    </span>
+                                    <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
+                                </button>
+
+                                <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 sm:p-5 rounded-2xl border border-transparent bg-white/70" data-story="3" aria-pressed="false">
+                                    <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/15 text-navy flex items-center justify-center font-black">04</span>
+                                    <span class="flex-1">
+                                        <span class="block font-extrabold text-navy">Keep expanding access</span>
+                                        <span class="block text-sm text-gray-500 mt-1">Create more ways for young learners to explore new skills.</span>
+                                    </span>
+                                    <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
+                                </button>
+                            </div>
+
+                            <div class="mt-6 rounded-2xl bg-navy p-6 sm:p-7 text-white min-h-[170px]" aria-live="polite">
+                                <div class="flex items-center gap-2 text-gold text-xs font-extrabold uppercase tracking-[.18em]">
+                                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                    <span id="story-kicker">The realization</span>
+                                </div>
+                                <p id="story-detail" class="mt-3 text-gray-200 leading-relaxed">
+                                    Important topics like money, decision-making, and entrepreneurship can feel abstract when students don't have opportunities to apply them.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION -->
+        <section class="py-20 lg:py-28 bg-paper relative overflow-hidden">
+            <div class="absolute inset-0 hero-grid opacity-60" aria-hidden="true"></div>
+
+            <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="reveal relative overflow-hidden rounded-[2rem] sm:rounded-[3rem] bg-navy p-8 sm:p-12 lg:p-16 text-white shadow-deep">
+                    <div class="absolute -top-24 -right-12 w-80 h-80 bg-gold/15 rounded-full blur-3xl" aria-hidden="true"></div>
+                    <div class="absolute -bottom-40 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl" aria-hidden="true"></div>
+
+                    <div class="relative grid lg:grid-cols-[1.15fr_.85fr] gap-12 items-center">
+                        <div>
+                            <div class="inline-flex items-center gap-2 text-gold text-xs font-extrabold uppercase tracking-[.2em]">
+                                <span class="w-8 h-px bg-gold"></span>
+                                Our mission
+                            </div>
+
+                            <h2 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.04]">
+                                Make real-world education
+                                <span class="text-gold">more accessible.</span>
+                            </h2>
+
+                            <p class="mt-6 max-w-2xl text-gray-300 text-lg leading-relaxed">
+                                Next-Gen Knowledge is focused on helping students build practical financial knowledge and confidence through accessible, student-led learning experiences.
+                            </p>
+
+                            <a href="programs.html" class="mt-8 inline-flex items-center gap-2 px-5 py-3.5 bg-gold text-navy rounded-xl font-extrabold hover:bg-gold-light transition-colors">
+                                See what we teach
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                        </div>
+
+                        <div class="relative max-w-md w-full mx-auto">
+                            <div class="rounded-[2rem] border border-white/15 bg-white/[.05] p-6 sm:p-8 backdrop-blur">
+                                <div class="flex items-center justify-between gap-4 mb-8">
+                                    <span class="text-xs font-extrabold uppercase tracking-[.18em] text-gray-400">Our learning loop</span>
+                                    <span class="w-10 h-10 rounded-xl bg-gold/15 text-gold flex items-center justify-center"><i data-lucide="target" class="w-5 h-5"></i></span>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-4">
+                                        <span class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-gold"><i data-lucide="book-open" class="w-5 h-5"></i></span>
+                                        <div>
+                                            <p class="font-extrabold">Understand</p>
+                                            <p class="text-sm text-gray-400">Learn the core idea.</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-5 h-6 border-l border-dashed border-white/20"></div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-gold"><i data-lucide="flask-conical" class="w-5 h-5"></i></span>
+                                        <div>
+                                            <p class="font-extrabold">Practice</p>
+                                            <p class="text-sm text-gray-400">Explore how it works.</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-5 h-6 border-l border-dashed border-white/20"></div>
+                                    <div class="flex items-center gap-4">
+                                        <span class="w-11 h-11 rounded-xl bg-gold text-navy flex items-center justify-center"><i data-lucide="rocket" class="w-5 h-5"></i></span>
+                                        <div>
+                                            <p class="font-extrabold">Apply</p>
+                                            <p class="text-sm text-gray-400">Connect it to real decisions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-8 h-1.5 rounded-full bg-white/10 overflow-hidden">
+                                    <div class="h-full w-2/3 rounded-full bg-gold"></div>
+                                </div>
+                                <p class="mt-3 text-xs text-gray-400">From learning a concept to using it with confidence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE VALUES -->
+        <section class="py-24 lg:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center reveal">
+                    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold text-xs font-extrabold uppercase tracking-[.18em]">
+                        <i data-lucide="compass" class="w-4 h-4"></i>
+                        What guides us
+                    </span>
+                    <h2 class="mt-5 text-4xl sm:text-5xl font-black tracking-tight text-navy">Four principles. One purpose.</h2>
+                    <p class="mt-5 text-lg text-gray-600 leading-relaxed">Choose a principle to see how it shapes the way we think about education.</p>
                 </div>
 
-                <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">
-                    Give the next generation a head start.
-                </h2>
+                <div class="mt-12 lg:mt-16 grid lg:grid-cols-[.8fr_1.2fr] gap-8 lg:gap-12 items-stretch reveal">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-3" role="tablist" aria-label="Our core principles">
+                        <button class="value-tab text-left p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-0" aria-selected="true" aria-controls="value-panel" data-value="0">
+                            <span class="flex items-center gap-4">
+                                <span class="w-11 h-11 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="wrench" class="w-5 h-5"></i></span>
+                                <span>
+                                    <span class="block text-xs uppercase tracking-wider font-extrabold text-gold">01 / Learn by doing</span>
+                                    <span class="block mt-1 font-extrabold text-navy">Practical learning</span>
+                                </span>
+                            </span>
+                        </button>
 
-                <p class="mt-6 text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl">
-                    Explore our programs, meet the students behind Next-Gen Knowledge, or get started with an upcoming course.
+                        <button class="value-tab text-left p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-1" aria-selected="false" aria-controls="value-panel" data-value="1" tabindex="-1">
+                            <span class="flex items-center gap-4">
+                                <span class="w-11 h-11 rounded-xl bg-blue-50 text-navy flex items-center justify-center"><i data-lucide="users" class="w-5 h-5"></i></span>
+                                <span>
+                                    <span class="block text-xs uppercase tracking-wider font-extrabold text-gold">02 / Students teaching students</span>
+                                    <span class="block mt-1 font-extrabold text-navy">Peer-led mentorship</span>
+                                </span>
+                            </span>
+                        </button>
+
+                        <button class="value-tab text-left p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-2" aria-selected="false" aria-controls="value-panel" data-value="2" tabindex="-1">
+                            <span class="flex items-center gap-4">
+                                <span class="w-11 h-11 rounded-xl bg-green-50 text-navy flex items-center justify-center"><i data-lucide="door-open" class="w-5 h-5"></i></span>
+                                <span>
+                                    <span class="block text-xs uppercase tracking-wider font-extrabold text-gold">03 / More access</span>
+                                    <span class="block mt-1 font-extrabold text-navy">Accessible education</span>
+                                </span>
+                            </span>
+                        </button>
+
+                        <button class="value-tab text-left p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-3" aria-selected="false" aria-controls="value-panel" data-value="3" tabindex="-1">
+                            <span class="flex items-center gap-4">
+                                <span class="w-11 h-11 rounded-xl bg-purple-50 text-navy flex items-center justify-center"><i data-lucide="sparkles" class="w-5 h-5"></i></span>
+                                <span>
+                                    <span class="block text-xs uppercase tracking-wider font-extrabold text-gold">04 / Keep evolving</span>
+                                    <span class="block mt-1 font-extrabold text-navy">Modern innovation</span>
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div id="value-panel" class="min-h-[350px] sm:min-h-[390px] rounded-[2rem] bg-paper border border-gray-100 p-7 sm:p-10 lg:p-12 flex flex-col justify-between" role="tabpanel" aria-labelledby="value-tab-0" tabindex="0">
+                        <div class="value-panel" id="value-panel-content">
+                            <div class="w-14 h-14 rounded-2xl bg-navy text-gold flex items-center justify-center">
+                                <i data-lucide="wrench" class="w-7 h-7"></i>
+                            </div>
+                            <p id="value-eyebrow" class="mt-8 text-xs font-extrabold uppercase tracking-[.18em] text-gold">Principle one</p>
+                            <h3 id="value-title" class="mt-3 text-3xl sm:text-4xl font-black tracking-tight text-navy">Practical over purely theoretical.</h3>
+                            <p id="value-description" class="mt-5 text-gray-600 text-lg leading-relaxed">Financial concepts become more meaningful when students can connect them to everyday decisions. We aim to pair clear explanations with examples, activities, and opportunities to practice.</p>
+                            <div class="mt-7 flex items-start gap-3 text-navy font-bold">
+                                <span class="w-8 h-8 shrink-0 rounded-lg bg-gold/15 flex items-center justify-center text-gold"><i data-lucide="check" class="w-4 h-4"></i></span>
+                                <span id="value-takeaway">Learn a concept, then explore how it works in real life.</span>
+                            </div>
+                        </div>
+                        <div class="mt-8 pt-5 border-t border-gray-200 flex items-center justify-between gap-4">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Explore our approach</span>
+                            <span id="value-count" class="text-sm font-extrabold text-navy">01 <span class="text-gray-400">/ 04</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT WE TEACH -->
+        <section class="py-24 lg:py-28 bg-paper overflow-hidden">
+            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-12 lg:gap-20 items-center">
+                    <div class="reveal">
+                        <span class="text-xs font-extrabold uppercase tracking-[.2em] text-gold">Learning for life</span>
+                        <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight text-navy leading-tight">
+                            Knowledge should go somewhere.
+                        </h2>
+                        <p class="mt-6 text-lg leading-relaxed text-gray-600">
+                            We focus on helping young learners understand concepts, ask better questions, and connect what they learn to the world around them.
+                        </p>
+
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-start gap-3">
+                                <span class="w-9 h-9 shrink-0 rounded-xl bg-white text-gold flex items-center justify-center shadow-sm"><i data-lucide="wallet" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h3 class="font-extrabold text-navy">Personal finance</h3>
+                                    <p class="mt-1 text-sm text-gray-500 leading-relaxed">Explore budgeting, saving, financial choices, and the habits that support informed decisions.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-9 h-9 shrink-0 rounded-xl bg-white text-gold flex items-center justify-center shadow-sm"><i data-lucide="chart-no-axes-combined" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h3 class="font-extrabold text-navy">Investing and economics</h3>
+                                    <p class="mt-1 text-sm text-gray-500 leading-relaxed">Build familiarity with markets, business concepts, risk, and long-term thinking.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="w-9 h-9 shrink-0 rounded-xl bg-white text-gold flex items-center justify-center shadow-sm"><i data-lucide="brain" class="w-5 h-5"></i></span>
+                                <div>
+                                    <h3 class="font-extrabold text-navy">Critical thinking</h3>
+                                    <p class="mt-1 text-sm text-gray-500 leading-relaxed">Practice comparing options, evaluating information, and thinking through consequences.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="programs.html" class="mt-9 inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-navy text-white font-bold hover:bg-navy-light transition-colors">
+                            Explore our programs <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <div class="reveal relative">
+                        <div class="absolute -inset-5 bg-gold/10 rounded-[3rem] rotate-3" aria-hidden="true"></div>
+                        <div class="relative bg-white rounded-[2.5rem] border border-gray-100 p-6 sm:p-9 shadow-soft">
+                            <div class="flex items-center justify-between gap-4">
+                                <div>
+                                    <p class="text-xs font-extrabold uppercase tracking-[.17em] text-gold">The big picture</p>
+                                    <h3 class="mt-2 text-2xl font-black text-navy">From concept to confidence</h3>
+                                </div>
+                                <div class="w-12 h-12 rounded-2xl bg-navy text-gold flex items-center justify-center">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 space-y-4">
+                                <div class="rounded-2xl border border-gray-100 p-5 hover:border-gold/50 transition-colors">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-navy flex items-center justify-center"><i data-lucide="book-open" class="w-5 h-5"></i></div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between gap-2">
+                                                <p class="font-extrabold text-navy">Understand</p>
+                                                <span class="text-xs text-gray-400 font-bold">STEP 01</span>
+                                            </div>
+                                            <p class="mt-1 text-sm text-gray-500">Learn the idea in clear, approachable terms.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-center text-gold"><i data-lucide="arrow-down" class="w-5 h-5"></i></div>
+
+                                <div class="rounded-2xl border border-gray-100 p-5 hover:border-gold/50 transition-colors">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="puzzle" class="w-5 h-5"></i></div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between gap-2">
+                                                <p class="font-extrabold text-navy">Explore</p>
+                                                <span class="text-xs text-gray-400 font-bold">STEP 02</span>
+                                            </div>
+                                            <p class="mt-1 text-sm text-gray-500">Work through examples and see how choices connect.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex justify-center text-gold"><i data-lucide="arrow-down" class="w-5 h-5"></i></div>
+
+                                <div class="rounded-2xl bg-navy p-5 text-white">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-xl bg-white/10 text-gold flex items-center justify-center"><i data-lucide="compass" class="w-5 h-5"></i></div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between gap-2">
+                                                <p class="font-extrabold">Apply</p>
+                                                <span class="text-xs text-gold font-bold">STEP 03</span>
+                                            </div>
+                                            <p class="mt-1 text-sm text-gray-300">Connect new knowledge to real-world situations.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- WHO WE ARE -->
+        <section class="py-24 lg:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="reveal relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-gray-100 p-8 sm:p-12 lg:p-14">
+                    <div class="absolute right-0 top-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl" aria-hidden="true"></div>
+
+                    <div class="relative grid lg:grid-cols-[1fr_auto] gap-10 items-center">
+                        <div class="max-w-3xl">
+                            <div class="flex items-center gap-3">
+                                <span class="w-9 h-px bg-gold"></span>
+                                <span class="text-xs font-extrabold uppercase tracking-[.2em] text-gold">Built by students</span>
+                            </div>
+                            <h2 class="mt-5 text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight">We believe students can help shape the education they want to see.</h2>
+                            <p class="mt-5 text-gray-600 text-lg leading-relaxed">
+                                As a student-led initiative, we bring a peer perspective to the learning experience. We want financial topics to feel less intimidating, more understandable, and easier to connect to everyday life.
+                            </p>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <a href="team.html" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-navy text-white font-bold hover:bg-navy-light transition-colors">Meet our team <i data-lucide="users" class="w-4 h-4"></i></a>
+                                <a href="partnerships.html" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-gray-200 text-navy font-bold hover:border-gold transition-colors">Partner with us <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="relative w-36 h-36 sm:w-48 sm:h-48 mx-auto lg:mx-0">
+                            <div class="absolute inset-0 rounded-full border border-dashed border-gold/50 orbit"></div>
+                            <div class="absolute inset-4 rounded-full bg-navy flex items-center justify-center shadow-deep">
+                                <div class="text-center">
+                                    <i data-lucide="users" class="w-9 h-9 text-gold mx-auto"></i>
+                                    <p class="mt-2 text-white font-black text-sm">Student-led</p>
+                                    <p class="text-white/60 text-[10px] uppercase tracking-widest">Future-focused</p>
+                                </div>
+                            </div>
+                            <span class="absolute top-1 right-4 w-3 h-3 rounded-full bg-gold"></span>
+                            <span class="absolute bottom-4 left-0 w-2.5 h-2.5 rounded-full bg-navy"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 lg:py-24 bg-paper">
+            <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+                <div class="text-center reveal">
+                    <span class="text-xs font-extrabold uppercase tracking-[.2em] text-gold">A few quick answers</span>
+                    <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight text-navy">Curious about us?</h2>
+                    <p class="mt-4 text-gray-600 text-lg">Here are a few things people often want to know.</p>
+                </div>
+
+                <div class="mt-10 space-y-3 reveal">
+                    <details class="faq-item group rounded-2xl bg-white border border-gray-100 px-5 sm:px-7 py-5">
+                        <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
+                            <span class="font-extrabold text-navy">What is Next-Gen Knowledge?</span>
+                            <span class="faq-icon w-8 h-8 shrink-0 rounded-lg bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                        </summary>
+                        <p class="pt-4 pr-8 text-gray-600 leading-relaxed">Next-Gen Knowledge is a student-led educational initiative focused on making practical financial literacy and real-world learning accessible to the next generation.</p>
+                    </details>
+
+                    <details class="faq-item group rounded-2xl bg-white border border-gray-100 px-5 sm:px-7 py-5">
+                        <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
+                            <span class="font-extrabold text-navy">Who are the programs designed for?</span>
+                            <span class="faq-icon w-8 h-8 shrink-0 rounded-lg bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                        </summary>
+                        <p class="pt-4 pr-8 text-gray-600 leading-relaxed">Our programs are designed for young learners. Specific age and grade requirements vary by program, so check the Programs page for current details.</p>
+                    </details>
+
+                    <details class="faq-item group rounded-2xl bg-white border border-gray-100 px-5 sm:px-7 py-5">
+                        <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
+                            <span class="font-extrabold text-navy">How can I get involved?</span>
+                            <span class="faq-icon w-8 h-8 shrink-0 rounded-lg bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                        </summary>
+                        <p class="pt-4 pr-8 text-gray-600 leading-relaxed">Students can explore available programs, families can review enrollment details, and organizations can learn about partnership opportunities through the links below.</p>
+                        <div class="pt-4 flex flex-wrap gap-3">
+                            <a href="enroll.html" class="text-sm font-bold text-navy underline decoration-gold underline-offset-4">Enrollment</a>
+                            <a href="programs.html" class="text-sm font-bold text-navy underline decoration-gold underline-offset-4">Programs</a>
+                            <a href="partnerships.html" class="text-sm font-bold text-navy underline decoration-gold underline-offset-4">Partnerships</a>
+                        </div>
+                    </details>
+
+                    <details class="faq-item group rounded-2xl bg-white border border-gray-100 px-5 sm:px-7 py-5">
+                        <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
+                            <span class="font-extrabold text-navy">Is Next-Gen Knowledge a nonprofit?</span>
+                            <span class="faq-icon w-8 h-8 shrink-0 rounded-lg bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
+                        </summary>
+                        <p class="pt-4 pr-8 text-gray-600 leading-relaxed">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit organization.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="relative overflow-hidden bg-gold py-20 sm:py-24">
+            <div class="absolute inset-0 opacity-20 hero-grid" aria-hidden="true"></div>
+            <div class="absolute -right-20 -top-28 w-80 h-80 rounded-full border border-navy/20" aria-hidden="true"></div>
+            <div class="absolute -right-10 -top-16 w-60 h-60 rounded-full border border-navy/20" aria-hidden="true"></div>
+
+            <div class="relative max-w-5xl mx-auto px-5 sm:px-6 text-center reveal">
+                <span class="inline-flex items-center gap-2 text-navy text-xs font-extrabold uppercase tracking-[.2em]">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    The next step starts here
+                </span>
+                <h2 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy leading-[1.05]">
+                    Don't just learn about the real world.
+                    <span class="block">Learn how to navigate it.</span>
+                </h2>
+                <p class="mt-5 max-w-2xl mx-auto text-navy/75 text-lg leading-relaxed">
+                    Explore our programs, meet the team, or connect with us to help make practical education more accessible.
                 </p>
 
-                <div class="flex flex-wrap gap-4 mt-9">
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+                    <a href="programs.html" class="magnetic-button inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-navy text-white font-extrabold hover:bg-navy-light">
+                        Explore programs <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="enroll.html" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/70 border border-navy/15 text-navy font-extrabold hover:bg-white transition-colors">
+                        Get started <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-                    <a href="programs.html"
-                       class="inline-flex items-center gap-2 bg-gold text-navy font-extrabold px-7 py-4 rounded-xl hover:bg-gold-light hover:-translate-y-1 transition-all shadow-lg shadow-gold/20">
-                        Explore Programs
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+    <!-- FOOTER -->
+    <footer class="bg-navy text-white">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14 sm:py-16">
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-white/10">
+                <div class="sm:col-span-2">
+                    <a href="index.html" class="inline-flex items-center gap-3">
+                        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" width="44" height="44" class="w-11 h-11 rounded-xl object-cover">
+                        <span>
+                            <span class="block font-extrabold text-lg">Next-Gen Knowledge</span>
+                            <span class="block mt-0.5 text-[10px] uppercase tracking-[.18em] font-bold text-gold">Empowering the Next Generation</span>
+                        </span>
                     </a>
 
-                    <a href="enroll.html"
-                       class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-white font-extrabold px-7 py-4 rounded-xl hover:bg-white/15 hover:-translate-y-1 transition-all">
-                        Enroll Now
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
-                    </a>
+                    <p class="mt-5 max-w-md text-sm leading-relaxed text-gray-400">
+                        A student-led educational initiative focused on making financial literacy and practical real-world learning accessible to the next generation.
+                    </p>
 
-                </div>
-
-            </div>
-
-            <!-- Decorative corner -->
-            <div class="absolute right-10 bottom-10 hidden lg:block">
-                <div class="w-28 h-28 rounded-full border border-white/10 flex items-center justify-center">
-                    <div class="w-16 h-16 rounded-full border border-gold/30 flex items-center justify-center">
-                        <i data-lucide="arrow-up-right" class="w-7 h-7 text-gold"></i>
+                    <div class="mt-6 flex items-center gap-3">
+                        <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" rel="noopener noreferrer" aria-label="Next-Gen Knowledge on Instagram" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-white/10 hover:text-gold transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer" aria-label="Next-Gen Knowledge on LinkedIn" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-white/10 hover:text-gold transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:nextgen.knowledge123@gmail.com" aria-label="Email Next-Gen Knowledge" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:bg-white/10 hover:text-gold transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ========================= FOOTER ========================= -->
-
-<footer class="py-16 bg-white border-t border-navy/5">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid md:grid-cols-3 gap-10 items-center">
-
-            <!-- Brand -->
-            <div class="flex items-center gap-3">
-
-                <img
-                    src="IMG_1383.jpeg"
-                    alt="Next-Gen Knowledge Logo"
-                    class="h-10 w-10 rounded-xl object-cover"
-                >
 
                 <div>
-                    <div class="font-extrabold text-navy">
-                        Next-Gen Knowledge
-                    </div>
-                    <div class="text-[10px] uppercase tracking-widest text-gold font-bold">
-                        Empowering the Next Generation
+                    <h2 class="text-xs font-extrabold uppercase tracking-[.18em] text-gold mb-5">Explore</h2>
+                    <div class="flex flex-col gap-3 text-sm text-gray-400">
+                        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                        <a href="about.html" class="hover:text-white transition-colors">About Us</a>
+                        <a href="programs.html" class="hover:text-white transition-colors">Programs</a>
+                        <a href="team.html" class="hover:text-white transition-colors">Our Team</a>
+                        <a href="trivia.html" class="hover:text-white transition-colors">Trivia Arena</a>
                     </div>
                 </div>
 
+                <div>
+                    <h2 class="text-xs font-extrabold uppercase tracking-[.18em] text-gold mb-5">Get involved</h2>
+                    <div class="flex flex-col gap-3 text-sm text-gray-400">
+                        <a href="enroll.html" class="hover:text-white transition-colors">Enroll in a Program</a>
+                        <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
+                        <a href="donate.html" class="hover:text-white transition-colors">Support Our Mission</a>
+                        <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-white transition-colors">Contact Us</a>
+                    </div>
+                </div>
             </div>
 
-
-            <!-- Links -->
-            <div class="flex flex-wrap justify-center gap-x-7 gap-y-3 font-bold text-sm text-navy/70">
-
-                <a href="https://www.instagram.com/nextgen.knowledge"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="hover:text-gold transition">
-                    Instagram
-                </a>
-
-                <a href="https://www.linkedin.com/company/next-gen-knowledge/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="hover:text-gold transition">
-                    Company LinkedIn
-                </a>
-
-                <a href="mailto:nextgen.knowledge123@gmail.com"
-                   class="hover:text-gold transition">
-                    Email Us
-                </a>
-
-            </div>
-
-
-            <!-- Legal -->
-            <div class="flex flex-col items-center md:items-end gap-2">
-
-                <p class="text-navy/60 text-xs max-w-sm text-center md:text-right leading-relaxed">
-                    Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.
+            <div class="pt-7 flex flex-col md:flex-row justify-between gap-5">
+                <p class="max-w-2xl text-xs leading-relaxed text-gray-500">
+                    Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.
                 </p>
-
-                <p class="text-navy/50 text-sm">
-                    &copy; 2026 Next-Gen Knowledge. All rights reserved.
-                </p>
-
+                <p class="text-xs text-gray-500">© <span id="current-year">2026</span> Next-Gen Knowledge. All rights reserved.</p>
             </div>
-
         </div>
+    </footer>
 
-    </div>
-</footer>
-
-
-<!-- ========================= JAVASCRIPT ========================= -->
-
-<script>
-
-    lucide.createIcons();
-
-
-    /* =========================
-       PILLAR SWITCHER
-    ========================= */
-
-    const pillarData = {
-        1: {
-            number: '01',
-            title: 'Practical Over Theoretical',
-            icon: 'wrench'
-        },
-        2: {
-            number: '02',
-            title: 'Student-Led Empowerment',
-            icon: 'users'
-        },
-        3: {
-            number: '03',
-            title: 'Accessibility for Every Family',
-            icon: 'globe-2'
-        },
-        4: {
-            number: '04',
-            title: 'Innovation in Learning',
-            icon: 'sparkles'
+    <script>
+        // Icons
+        if (window.lucide) {
+            lucide.createIcons();
         }
-    };
 
+        // Mobile navigation
+        const menuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
 
-    function switchPillar(pillarNum) {
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener("click", () => {
+                const isOpen = !mobileMenu.classList.contains("hidden");
+                mobileMenu.classList.toggle("hidden");
+                menuButton.setAttribute("aria-expanded", String(!isOpen));
+                menuButton.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
 
-        for (let i = 1; i <= 4; i++) {
+                const icon = menuButton.querySelector("i");
+                if (icon) {
+                    icon.setAttribute("data-lucide", isOpen ? "menu" : "x");
+                    if (window.lucide) lucide.createIcons();
+                }
+            });
 
-            const content = document.getElementById(`pillar-content-${i}`);
-            const btn = document.getElementById(`pillar-btn-${i}`);
+            mobileMenu.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                    menuButton.setAttribute("aria-expanded", "false");
+                    menuButton.setAttribute("aria-label", "Open navigation menu");
 
-            if (content) {
-                content.classList.add('hidden');
+                    const icon = menuButton.querySelector("i");
+                    if (icon) {
+                        icon.setAttribute("data-lucide", "menu");
+                        if (window.lucide) lucide.createIcons();
+                    }
+                });
+            });
+
+            document.addEventListener("keydown", event => {
+                if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+                    mobileMenu.classList.add("hidden");
+                    menuButton.setAttribute("aria-expanded", "false");
+                    menuButton.focus();
+                }
+            });
+        }
+
+        // Navbar shadow and reading progress
+        const navbar = document.getElementById("navbar");
+        const progressBar = document.getElementById("reading-progress");
+
+        function updateScrollUI() {
+            if (navbar) {
+                navbar.classList.toggle("shadow-md", window.scrollY > 10);
             }
 
-            if (btn) {
-                btn.className =
-                    "pillar-btn px-5 py-3 rounded-xl font-bold transition-all bg-white text-navy border border-navy/10 hover:border-gold text-sm";
+            if (progressBar) {
+                const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+                progressBar.style.width = Math.min(100, Math.max(0, progress)) + "%";
             }
         }
 
+        window.addEventListener("scroll", updateScrollUI, { passive: true });
+        updateScrollUI();
 
-        const activeContent =
-            document.getElementById(`pillar-content-${pillarNum}`);
+        // Reveal elements as they enter the viewport
+        const revealElements = document.querySelectorAll(".reveal");
 
-        const activeBtn =
-            document.getElementById(`pillar-btn-${pillarNum}`);
+        if ("IntersectionObserver" in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
 
-
-        if (activeContent) {
-            activeContent.classList.remove('hidden');
+            revealElements.forEach(element => revealObserver.observe(element));
+        } else {
+            revealElements.forEach(element => element.classList.add("active"));
         }
 
-        if (activeBtn) {
-            activeBtn.className =
-                "pillar-btn px-5 py-3 rounded-xl font-bold transition-all bg-navy text-white shadow-md text-sm";
-        }
-
-
-        const data = pillarData[pillarNum];
-
-        const number = document.getElementById('pillar-number');
-        const title = document.getElementById('pillar-side-title');
-        const iconContainer = document.getElementById('pillar-icon-1');
-
-        if (number) {
-            number.textContent = data.number;
-        }
-
-        if (title) {
-            title.textContent = data.title;
-        }
-
-        if (iconContainer) {
-            iconContainer.innerHTML =
-                `<i data-lucide="${data.icon}" class="w-8 h-8 text-gold"></i>`;
-        }
-
-        lucide.createIcons();
-    }
-
-
-    /* =========================
-       SCROLL REVEAL
-    ========================= */
-
-    function revealOnScroll() {
-
-        const reveals = document.querySelectorAll('.reveal');
-
-        reveals.forEach((element) => {
-
-            const windowHeight = window.innerHeight;
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 100;
-
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
+        // Interactive story steps
+        const storyData = [
+            {
+                kicker: "The realization",
+                detail: "Important topics like money, decision-making, and entrepreneurship can feel abstract when students don't have opportunities to apply them."
+            },
+            {
+                kicker: "The student perspective",
+                detail: "A student-led approach helps bring learning closer to the questions young people actually ask and the situations they want to understand."
+            },
+            {
+                kicker: "The practical approach",
+                detail: "Financial education can include more than definitions. Examples, discussions, and interactive exercises can help students connect concepts to everyday choices."
+            },
+            {
+                kicker: "The ongoing mission",
+                detail: "We continue working toward learning experiences that are approachable, relevant, and accessible to more young people."
             }
+        ];
 
+        const storyButtons = document.querySelectorAll("[data-story]");
+        const storyKicker = document.getElementById("story-kicker");
+        const storyDetail = document.getElementById("story-detail");
+
+        storyButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const index = Number(button.dataset.story);
+                if (!storyData[index]) return;
+
+                storyButtons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+
+                if (storyKicker) storyKicker.textContent = storyData[index].kicker;
+                if (storyDetail) storyDetail.textContent = storyData[index].detail;
+            });
         });
 
-    }
+        // Interactive core-principles tabs
+        const valueData = [
+            {
+                icon: "wrench",
+                eyebrow: "Principle one",
+                title: "Practical over purely theoretical.",
+                description: "Financial concepts become more meaningful when students can connect them to everyday decisions. We aim to pair clear explanations with examples, activities, and opportunities to practice.",
+                takeaway: "Learn a concept, then explore how it works in real life."
+            },
+            {
+                icon: "users",
+                eyebrow: "Principle two",
+                title: "Learn with a peer perspective.",
+                description: "Students can bring relatable questions and experiences to learning. A student-led environment can make unfamiliar topics feel more approachable and encourage curiosity.",
+                takeaway: "Make learning collaborative, welcoming, and easy to engage with."
+            },
+            {
+                icon: "door-open",
+                eyebrow: "Principle three",
+                title: "Make useful education accessible.",
+                description: "Practical financial knowledge should be easier for young people to explore. We aim to make our learning experiences approachable and to reduce barriers to getting started.",
+                takeaway: "Help more learners find a starting point that works for them."
+            },
+            {
+                icon: "sparkles",
+                eyebrow: "Principle four",
+                title: "Keep learning relevant.",
+                description: "The world changes, and the questions students face change with it. We want learning experiences to stay engaging, adaptable, and connected to the world students are growing into.",
+                takeaway: "Use modern, interactive approaches to encourage curiosity."
+            }
+        ];
 
+        const valueTabs = document.querySelectorAll("[data-value]");
+        const valuePanel = document.getElementById("value-panel");
+        const valuePanelContent = document.getElementById("value-panel-content");
+        const valueEyebrow = document.getElementById("value-eyebrow");
+        const valueTitle = document.getElementById("value-title");
+        const valueDescription = document.getElementById("value-description");
+        const valueTakeaway = document.getElementById("value-takeaway");
+        const valueCount = document.getElementById("value-count");
+        const valueIcon = valuePanel ? valuePanel.querySelector(".w-14 i") : null;
 
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('resize', revealOnScroll);
+        function selectValue(index, focusTab = false) {
+            const item = valueData[index];
+            if (!item) return;
 
-    revealOnScroll();
+            valueTabs.forEach((tab, i) => {
+                const selected = i === index;
+                tab.setAttribute("aria-selected", String(selected));
+                tab.tabIndex = selected ? 0 : -1;
+                if (selected && focusTab) tab.focus();
+            });
 
-</script>
+            if (valuePanel) valuePanel.setAttribute("aria-labelledby", "value-tab-" + index);
+            if (valueEyebrow) valueEyebrow.textContent = item.eyebrow;
+            if (valueTitle) valueTitle.textContent = item.title;
+            if (valueDescription) valueDescription.textContent = item.description;
+            if (valueTakeaway) valueTakeaway.textContent = item.takeaway;
+            if (valueCount) {
+                valueCount.innerHTML = String(index + 1).padStart(2, "0") + ' <span class="text-gray-400">/ 04</span>';
+            }
 
+            if (valueIcon) {
+                valueIcon.setAttribute("data-lucide", item.icon);
+                if (window.lucide) lucide.createIcons();
+            }
+
+            if (valuePanelContent) {
+                valuePanelContent.classList.remove("value-panel");
+                void valuePanelContent.offsetWidth;
+                valuePanelContent.classList.add("value-panel");
+            }
+        }
+
+        valueTabs.forEach((tab, index) => {
+            tab.addEventListener("click", () => selectValue(index));
+
+            tab.addEventListener("keydown", event => {
+                let nextIndex = index;
+
+                if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+                    nextIndex = (index + 1) % valueTabs.length;
+                } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+                    nextIndex = (index - 1 + valueTabs.length) % valueTabs.length;
+                } else if (event.key === "Home") {
+                    nextIndex = 0;
+                } else if (event.key === "End") {
+                    nextIndex = valueTabs.length - 1;
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
+                selectValue(nextIndex, true);
+            });
+        });
+
+        // Keep the footer year current
+        const yearElement = document.getElementById("current-year");
+        if (yearElement) yearElement.textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
