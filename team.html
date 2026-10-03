@@ -1,1912 +1,997 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Our Team | Next-Gen Knowledge</title>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-FXJKCLQMSN');
-    </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            DEFAULT: '#0A2342',
-                            light: '#14355B',
-                            dark: '#051224'
-                        },
-
-                        gold: {
-                            DEFAULT: '#C9A227',
-                            light: '#DFB73C',
-                            dark: '#A6841C'
-                        },
-
-                        surface: '#F7F9FC'
-                    },
-
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
-                    },
-
-                    boxShadow: {
-                        premium: '0 15px 45px -20px rgba(10, 35, 66, 0.18)',
-                        'premium-hover': '0 25px 65px -20px rgba(10, 35, 66, 0.25)',
-                        gold: '0 15px 35px -15px rgba(201, 162, 39, 0.25)'
-                    }
-                }
-            }
-        }
-
-    </script>
-
-    <style>
-
-/* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 767px) {
-            nav {
-                background-color: rgba(255,255,255,.96);
-                backdrop-filter: blur(14px);
-            }
-
-            .hero-grid {
-                background-size: 30px 30px;
-            }
-
-            .hero-glow {
-                width: 300px;
-                height: 300px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: .01ms !important;
-            }
-        }
-
-
-        /* =========================================================
-           BASE
-        ========================================================= */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #0A2342;
-        }
-
-        ::selection {
-            background: rgba(201, 162, 39, 0.25);
-            color: #0A2342;
-        }
-
-
-        /* =========================================================
-           SCROLL REVEAL
-        ========================================================= */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        
-
-
-        /* =========================================================
-           HERO
-        ========================================================= */
-
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(201, 162, 39, 0.10),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 85% 25%,
-                    rgba(10, 35, 66, 0.07),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    180deg,
-                    #F7F9FC 0%,
-                    #FFFFFF 100%
-                );
-        }
-
-        .hero-grid {
-            position: absolute;
-            inset: 0;
-            opacity: 0.35;
-            background-image:
-                linear-gradient(rgba(10, 35, 66, 0.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10, 35, 66, 0.035) 1px, transparent 1px);
-            background-size: 45px 45px;
-            mask-image: linear-gradient(
-                to bottom,
-                black 0%,
-                transparent 85%
-            );
-        }
-
-        .hero-orb {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            filter: blur(70px);
-            opacity: 0.14;
-            pointer-events: none;
-        }
-
-        .orb-one {
-            top: 100px;
-            left: -120px;
-            background: #C9A227;
-        }
-
-        .orb-two {
-            right: -120px;
-            top: 160px;
-            background: #0A2342;
-        }
-
-
-        /* =========================================================
-           BADGES
-        ========================================================= */
-
-        .gold-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 15px;
-            border-radius: 999px;
-            background: rgba(201, 162, 39, 0.09);
-            border: 1px solid rgba(201, 162, 39, 0.20);
-            color: #A6841C;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-        }
-
-        .gold-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #C9A227;
-            box-shadow: 0 0 0 5px rgba(201, 162, 39, 0.10);
-        }
-
-
-        /* =========================================================
-           SECTION HEADINGS
-        ========================================================= */
-
-        .section-line {
-            width: 48px;
-            height: 4px;
-            border-radius: 999px;
-            background: #C9A227;
-            margin: 14px auto 0;
-        }
-
-        .section-label {
-            color: #A6841C;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-
-        /* =========================================================
-           TEAM CARDS
-        ========================================================= */
-
-        .team-card {
-            position: relative;
-            overflow: hidden;
-            background: #F7F9FC;
-            border: 1px solid rgba(10, 35, 66, 0.07);
-            border-radius: 28px;
-            box-shadow: 0 15px 45px -20px rgba(10, 35, 66, 0.18);
-            transition:
-                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.4s ease,
-                border-color 0.4s ease;
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(
-                90deg,
-                #C9A227,
-                #DFB73C,
-                #C9A227
-            );
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-9px);
-            box-shadow: 0 28px 65px -22px rgba(10, 35, 66, 0.25);
-            border-color: rgba(201, 162, 39, 0.25);
-        }
-
-        .team-card:hover::before {
-            opacity: 1;
-        }
-
-        .team-image {
-            position: relative;
-            overflow: hidden;
-            height: 285px;
-            border-radius: 21px;
-            background: #E9EDF2;
-        }
-
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .team-card:hover .team-image img {
-            transform: scale(1.045);
-        }
-
-        .image-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(5, 18, 36, 0.22),
-                transparent 45%
-            );
-            pointer-events: none;
-        }
-
-        .role-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 11px;
-            border-radius: 999px;
-            font-size: 10px;
-            line-height: 1;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-        }
-
-        .role-executive {
-            background: rgba(201, 162, 39, 0.11);
-            color: #A6841C;
-        }
-
-        .role-leadership {
-            background: rgba(10, 35, 66, 0.08);
-            color: #0A2342;
-        }
-
-        .role-finance {
-            background: rgba(201, 162, 39, 0.11);
-            color: #A6841C;
-        }
-
-        .role-marketing {
-            background: rgba(10, 35, 66, 0.08);
-            color: #0A2342;
-        }
-
-        .team-divider {
-            height: 1px;
-            background: rgba(10, 35, 66, 0.07);
-        }
-
-        .info-row {
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
-            color: rgba(10, 35, 66, 0.68);
-            font-size: 11px;
-            line-height: 1.6;
-        }
-
-        .info-row strong {
-            color: #0A2342;
-            font-weight: 700;
-        }
-
-
-        /* =========================================================
-           MISSION CARD
-        ========================================================= */
-
-        .mission-card {
-            position: relative;
-            overflow: hidden;
-            background: #0A2342;
-            border-radius: 30px;
-        }
-
-        .mission-card::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            right: -120px;
-            top: -140px;
-            border-radius: 50%;
-            background: rgba(201, 162, 39, 0.16);
-            filter: blur(5px);
-        }
-
-        .mission-card::after {
-            content: '';
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            left: -90px;
-            bottom: -100px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-
-        .footer-link {
-            transition: color 0.2s ease;
-        }
-
-        .footer-link:hover {
-            color: #C9A227;
-        }
-
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 767px) {
-
-            .mobile-nav {
-                background: rgba(255, 255, 255, 0.96);
-                backdrop-filter: blur(15px);
-            }
-
-            .hero-section {
-                padding-top: 135px;
-            }
-
-            .team-image {
-                height: 300px;
-            }
-
-            .team-card {
-                border-radius: 24px;
-            }
-
-            .mission-card {
-                border-radius: 24px;
-            }
-        }
-
-
-        /* =========================================================
-           REDUCED MOTION
-        ========================================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team | Next-Gen Knowledge</title>
+  <meta name="description" content="Meet the student team behind Next-Gen Knowledge.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
+  </script>
+
+  <style>
+    :root {
+      --navy: #0A2342;
+      --navy-light: #14355B;
+      --gold: #C9A227;
+      --gold-light: #DFB73C;
+      --surface: #F7F9FC;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--navy);
+      background: white;
+    }
+
+    ::selection {
+      background: rgba(201,162,39,.25);
+      color: var(--navy);
+    }
+
+    .nav-link {
+      color: #4B5563;
+      transition: color .2s, background .2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.current {
+      color: var(--navy);
+      background: #F3F5F8;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(201,162,39,.12), transparent 28%),
+        radial-gradient(circle at 90% 25%, rgba(10,35,66,.08), transparent 30%),
+        linear-gradient(180deg, #F7F9FC, #FFFFFF);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: .4;
+      background-image:
+        linear-gradient(rgba(10,35,66,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,35,66,.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      pointer-events: none;
+    }
+
+    .gold-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 14px;
+      border: 1px solid rgba(201,162,39,.25);
+      border-radius: 999px;
+      background: rgba(201,162,39,.09);
+      color: #967515;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .gold-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .mission-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      border-radius: 28px;
+    }
+
+    .mission-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -100px;
+      top: -130px;
+      border-radius: 50%;
+      background: rgba(201,162,39,.14);
+      pointer-events: none;
+    }
+
+    .section-label {
+      color: #A6841C;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .section-line {
+      width: 44px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--gold);
+      margin: 14px auto 0;
+    }
+
+    .department-heading {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+
+    .department-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      color: var(--navy);
+      background: rgba(201,162,39,.13);
+    }
+
+    .department-rule {
+      height: 1px;
+      flex: 1;
+      background: #E8ECF1;
+      margin-left: 8px;
+    }
+
+    .team-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid #E9EDF2;
+      border-radius: 22px;
+      background: white;
+      box-shadow: 0 8px 30px rgba(10,35,66,.045);
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201,162,39,.5);
+      box-shadow: 0 18px 42px rgba(10,35,66,.10);
+    }
+
+    .team-photo {
+      position: relative;
+      height: 245px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #E9EEF5, #F8F5E9);
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      transition: transform .45s ease;
+    }
+
+    .team-card:hover .team-photo img {
+      transform: scale(1.035);
+    }
+
+    .photo-placeholder {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 9px;
+      color: #718096;
+      background:
+        radial-gradient(circle at 75% 20%, rgba(201,162,39,.15), transparent 35%),
+        linear-gradient(135deg, #E8EDF4, #F7F9FC);
+    }
+
+    .photo-placeholder .initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      color: white;
+      background: var(--navy);
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .role-executive {
+      background: #FBF4DA;
+      color: #886A12;
+    }
+
+    .role-lead {
+      background: #EAF0F7;
+      color: #173B65;
+    }
+
+    .role-associate {
+      background: #F1F4F8;
+      color: #45566C;
+    }
+
+    .team-description {
+      min-height: 66px;
+      color: #687386;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .team-divider {
+      height: 1px;
+      background: #EDF0F4;
+      margin: 18px 0;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 11px;
+      line-height: 1.7;
+      color: #687386;
+    }
+
+    .info-row strong {
+      flex-shrink: 0;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .placeholder-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      color: #98761A;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .footer-link {
+      color: #D1D8E2;
+      transition: color .2s;
+    }
+
+    .footer-link:hover {
+      color: var(--gold-light);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 767px) {
+      .team-photo { height: 270px; }
+      .team-description { min-height: auto; }
+      .mission-card { border-radius: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
+<body class="antialiased overflow-x-hidden">
 
-<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
-    
+  <!-- NAVIGATION -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/80 transition-shadow">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-20 flex items-center justify-between">
 
-    
-<nav
-    id="navbar"
-    class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200/70 transition-shadow duration-300">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" class="w-11 h-11 rounded-xl object-cover">
+          <div class="hidden sm:block">
+            <div class="text-lg font-extrabold tracking-tight">Next-Gen Knowledge</div>
+            <div class="text-[10px] font-bold uppercase tracking-[.16em]" style="color:var(--gold)">
+              Empowering the Next Generation
+            </div>
+          </div>
+        </a>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="hidden md:flex items-center gap-1">
+          <a href="index.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Home</a>
+          <a href="about.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">About Us</a>
+          <a href="programs.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Programs</a>
+          <a href="team.html" class="nav-link current px-3 py-2.5 text-sm font-semibold rounded-lg" aria-current="page">Team</a>
+          <a href="partnerships.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Partnerships</a>
+          <a href="trivia.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Trivia Arena</a>
+          <a href="donate.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Donate</a>
+          <a href="enroll.html" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white hover:-translate-y-0.5 transition" style="background:var(--navy)">Enroll</a>
+        </div>
 
-        <div class="flex items-center justify-between h-20">
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
 
-            <!-- Logo -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col gap-1 border-t border-gray-100 pt-3">
+          <a href="index.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Home</a>
+          <a href="about.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">About Us</a>
+          <a href="programs.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Programs</a>
+          <a href="team.html" class="nav-link current px-4 py-3 text-sm font-semibold rounded-lg" aria-current="page">Team</a>
+          <a href="partnerships.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Partnerships</a>
+          <a href="trivia.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Trivia Arena</a>
+          <a href="donate.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Donate</a>
+          <a href="enroll.html" class="px-4 py-3 mt-1 text-center text-sm font-bold text-white rounded-lg" style="background:var(--navy)">Enroll</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-            <a href="index.html" class="flex items-center gap-3 group">
+  <main class="pt-20">
 
-                <div
-                    class="w-11 h-11 rounded-xl overflow-hidden shadow-sm group-hover:shadow-lg transition-all duration-300 group-hover:-rotate-2">
+    <!-- HERO -->
+    <section class="hero px-5 sm:px-6 pt-20 sm:pt-28 pb-16 sm:pb-20">
+      <div class="hero-grid"></div>
 
-                    <img
-                        src="IMG_1383.jpeg"
-                        alt="Next-Gen Knowledge Logo"
-                        class="w-full h-full object-cover">
+      <div class="relative max-w-5xl mx-auto text-center">
+        <div class="gold-badge mb-6">
+          <span class="gold-dot"></span>
+          Our People, Our Mission
+        </div>
 
-                </div>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-[-0.045em] leading-[1.06] mb-6">
+          Meet the Team<br>
+          <span style="color:var(--gold)">Behind the Mission</span>
+        </h1>
 
-                <div class="hidden sm:block">
+        <p class="max-w-2xl mx-auto text-gray-600 text-base sm:text-lg leading-relaxed">
+          We're students working together to make financial literacy and real-world education accessible to the next generation.
+        </p>
 
-                    <div class="text-lg font-extrabold tracking-tight text-navy">
-                        Next-Gen Knowledge
-                    </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <span class="px-4 py-2 rounded-full bg-white border border-gray-200 text-xs sm:text-sm font-semibold text-gray-600">
+            <i data-lucide="users" class="inline w-4 h-4 mr-1.5" style="color:var(--gold)"></i>
+            17 Team Members
+          </span>
+          <span class="px-4 py-2 rounded-full bg-white border border-gray-200 text-xs sm:text-sm font-semibold text-gray-600">
+            <i data-lucide="graduation-cap" class="inline w-4 h-4 mr-1.5" style="color:var(--gold)"></i>
+            Student-Led
+          </span>
+          <span class="px-4 py-2 rounded-full bg-white border border-gray-200 text-xs sm:text-sm font-semibold text-gray-600">
+            <i data-lucide="lightbulb" class="inline w-4 h-4 mr-1.5" style="color:var(--gold)"></i>
+            Mission-Driven
+          </span>
+        </div>
+      </div>
+    </section>
 
-                    <div class="text-[10px] font-bold uppercase tracking-[.2em] text-gold">
-                        Empowering the Next Generation
-                    </div>
+    <!-- MISSION -->
+    <section class="px-5 sm:px-6 pt-8 pb-8">
+      <div class="max-w-7xl mx-auto mission-card px-7 sm:px-10 lg:px-14 py-9 sm:py-12 reveal">
+        <div class="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[.16em] mb-3" style="color:var(--gold-light)">One shared mission</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4">
+              Different strengths.<br class="hidden sm:block"> One goal.
+            </h2>
+            <p class="max-w-2xl text-sm sm:text-base leading-relaxed text-white/75">
+              From finance and curriculum development to outreach and marketing, every department contributes to making practical education more accessible.
+            </p>
+          </div>
 
-                </div>
+          <div class="grid grid-cols-2 lg:grid-cols-1 gap-3">
+            <div class="rounded-xl bg-white/10 border border-white/10 px-4 py-3">
+              <p class="text-sm text-white font-bold">Learn</p>
+              <p class="text-xs text-white/60 mt-1">Build real-world knowledge</p>
+            </div>
+            <div class="rounded-xl bg-white/10 border border-white/10 px-4 py-3">
+              <p class="text-sm text-white font-bold">Make an impact</p>
+              <p class="text-xs text-white/60 mt-1">Share knowledge with others</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- TEAM DIRECTORY -->
+    <section class="px-5 sm:px-6 py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-10 reveal">
+          <p class="section-label">The people behind the work</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2">Meet Our Team</h2>
+          <div class="section-line"></div>
+          <p class="text-sm text-gray-500 mt-4">Explore our leadership and departments.</p>
+        </div>
+
+        <!-- Department filters -->
+        <div id="department-filters" class="flex flex-wrap justify-center gap-2 mb-12">
+          <button data-filter="all" class="filter-btn px-4 py-2.5 rounded-full text-sm font-bold border transition" style="background:var(--navy);color:white;border-color:var(--navy)">Everyone <span class="ml-1 opacity-70">17</span></button>
+          <button data-filter="Executive Board" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Executive Board</button>
+          <button data-filter="Finance" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Finance</button>
+          <button data-filter="Curriculum" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Curriculum</button>
+          <button data-filter="Outreach" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Outreach</button>
+          <button data-filter="Marketing" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Marketing</button>
+        </div>
+
+        <!-- Cards are generated from the team list below -->
+        <div id="team-sections" class="space-y-16"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0A2342] text-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <div>
+          <a href="index.html" class="inline-flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-xl overflow-hidden bg-white">
+              <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" class="w-full h-full object-contain">
+            </div>
+            <span class="text-lg font-extrabold">Next-Gen Knowledge</span>
+          </a>
+          <p class="max-w-sm text-sm text-gray-300 leading-relaxed">
+            Empowering the next generation through accessible financial literacy and real-world education.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest mb-4" style="color:var(--gold)">Quick Links</h3>
+          <div class="grid grid-cols-2 gap-x-5 gap-y-3 text-sm">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="programs.html" class="footer-link">Programs</a>
+            <a href="team.html" class="footer-link">Team</a>
+            <a href="partnerships.html" class="footer-link">Partnerships</a>
+            <a href="trivia.html" class="footer-link">Trivia Arena</a>
+            <a href="donate.html" class="footer-link">Donate</a>
+            <a href="enroll.html" class="footer-link">Enroll</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-widest mb-4" style="color:var(--gold)">Connect With Us</h3>
+          <div class="flex items-center gap-3 mb-4">
+            <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
             </a>
-
-
-            <!-- Desktop Navigation -->
-
-            <div class="hidden md:flex items-center gap-1">
-
-                <a href="index.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-navy rounded-lg">
-                    Home
-                </a>
-
-                <a href="about.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    About Us
-                </a>
-
-                <a href="programs.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    Programs
-                </a>
-
-                <a href="team.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    Team
-                </a>
-
-                <a href="partnerships.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    Partnerships
-                </a>
-
-                <a href="trivia.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    Trivia Arena
-                </a>
-
-                <a href="donate.html"
-                   class="nav-link px-4 py-2.5 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg transition">
-                    Donate
-                </a>
-
-                <a
-                    href="enroll.html"
-                    class="ml-3 inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-white text-sm font-bold rounded-xl shadow-lg shadow-navy/10 hover:bg-navy-light hover:-translate-y-0.5 transition-all">
-
-                    Enroll
-
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-
-                </a>
-
-            </div>
-
-
-            <!-- Mobile Menu Button -->
-
-            <button
-                id="mobile-menu-button"
-                class="md:hidden p-2 rounded-lg text-navy hover:bg-gray-100 transition"
-                aria-label="Open menu">
-
-                <i data-lucide="menu" class="w-6 h-6"></i>
-
-            </button>
-
+            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="mailto:nextgen.knowledge123@gmail.com" aria-label="Email" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </a>
+          </div>
+          <a href="mailto:nextgen.knowledge123@gmail.com" class="text-sm text-gray-300 hover:text-white break-all transition">
+            nextgen.knowledge123@gmail.com
+          </a>
         </div>
 
+      </div>
 
-        <!-- Mobile Navigation -->
-
-        <div id="mobile-menu" class="hidden md:hidden pb-5">
-
-            <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
-
-                <a href="index.html"
-                   class="px-4 py-3 text-sm font-semibold text-navy bg-gray-50 rounded-lg">
-                    Home
-                </a>
-
-                <a href="about.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    About Us
-                </a>
-
-                <a href="programs.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    Programs
-                </a>
-
-                <a href="team.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    Team
-                </a>
-
-                <a href="partnerships.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    Partnerships
-                </a>
-
-                <a href="trivia.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    Trivia Arena
-                </a>
-
-                <a href="donate.html"
-                   class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-lg transition">
-                    Donate
-                </a>
-
-                <a
-                    href="enroll.html"
-                    class="mt-2 px-4 py-3 text-center bg-navy text-white text-sm font-bold rounded-xl">
-                    Enroll
-                </a>
-
-            </div>
-
-        </div>
+      <div class="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3">
+        <p class="text-xs text-gray-400">
+          © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
+        </p>
+        <p class="max-w-xl text-xs text-gray-400 leading-relaxed sm:text-right">
+          Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.
+        </p>
+      </div>
 
     </div>
+  </footer>
 
-</nav>
+  <script>
+    /*
+      TEAM MEMBER EDITING GUIDE
+      -------------------------
+      1. To add a member, copy one object in the teamMembers array.
+      2. photo: use the image filename in your website's project folder.
+      3. If a photo is not available, leave photo as "".
+      4. For missing descriptions, interests, or hobbies, replace the
+         ADD_... text with the member's information when available.
+      5. Use one of these department names:
+         Executive Board, Finance, Curriculum, Outreach, Marketing.
+    */
 
+    const teamMembers = [
 
-<div class="h-20"></div>
+      // EXECUTIVE BOARD — 4 MEMBERS
+      {
+        name: "Svar Patel",
+        position: "Founder & CEO",
+        department: "Executive Board",
+        level: "executive",
+        photo: "13F86006-1D7F-40F9-AFD8-84CE3C572132.png",
+        description: "Leads financial literacy curriculum development and helps guide the organization's vision and strategy.",
+        interests: "Finance, Technology, Entrepreneurship",
+        hobbies: "Baseball, Investing"
+      },
+      {
+        name: "Pushan Patel",
+        position: "Co-Founder & CFO",
+        department: "Executive Board",
+        level: "executive",
+        photo: "IMG_7201.jpeg",
+        description: "Focuses on entrepreneurship, organizational strategy, and building sustainable frameworks for student-led initiatives.",
+        interests: "Finance, Business Strategy",
+        hobbies: "Go-karting, Pickleball"
+      },
+      {
+        name: "Max Park",
+        position: "Co-Founder & CMO",
+        department: "Executive Board",
+        level: "executive",
+        photo: "IMG_1689.jpeg",
+        description: "Helps shape the organization's communication and marketing strategy, bringing together writing, creativity, and business.",
+        interests: "History, English, Business",
+        hobbies: "Baseball, Hiking"
+      },
+      {
+        name: "Ilhan Rasheed",
+        position: "Co-Founder & CPO",
+        department: "Executive Board",
+        level: "executive",
+        photo: "DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg",
+        description: "Contributes to product direction and the development of educational initiatives.",
+        interests: "Medicine, Finance",
+        hobbies: "Basketball, Taekwondo"
+      },
 
+      // FINANCE — 3 MEMBERS
+      {
+        name: "Leo Sorenson",
+        position: "Finance Associate",
+        department: "Finance",
+        level: "associate",
+        photo: "IMG_1839.jpeg",
+        description: "Helps manage and track finances while supporting fundraising and financial organization.",
+        interests: "Basketball, Math",
+        hobbies: "Lego, Cooking"
+      },
+      {
+        name: "Vince Yale",
+        position: "Finance Associate",
+        department: "Finance",
+        level: "associate",
+        photo: "IMG_3353.jpeg",
+        description: "Supports financial analysis, organization, and financial initiatives across Next-Gen Knowledge.",
+        interests: "Finance, Politics",
+        hobbies: "Pickleball, Going to the gym"
+      },
+      {
+        name: "Hannah George",
+        position: "Finance Associate",
+        department: "Finance",
+        level: "associate",
+        photo: "photo.png", // TODO: Replace with Hannah's actual image filename
+        description: "Supports financial operations, budgeting, fundraising, and sustainable growth.",
+        interests: "Finance, Entrepreneurship, Math",
+        hobbies: "Dance, Baking"
+      },
 
+      // CURRICULUM — 3 MEMBERS
+      {
+        name: "Liam Alexander",
+        position: "Curriculum Head",
+        department: "Curriculum",
+        level: "lead",
+        photo: "", // ADD IMAGE FILENAME HERE
+        description: "ADD DESCRIPTION HERE — describe Liam's role and curriculum responsibilities.",
+        interests: "ADD INTERESTS HERE",
+        hobbies: "ADD HOBBIES HERE"
+      },
+      {
+        name: "Micheal Fleischman",
+        position: "Curriculum Associate",
+        department: "Curriculum",
+        level: "associate",
+        photo: "IMG_0900.jpeg",
+        description: "Supports curriculum development and educational content for Next-Gen Knowledge programs.",
+        interests: "Finance, Sports",
+        hobbies: "Basketball, Biking"
+      },
+      {
+        name: "Filipe Loureiro",
+        position: "Curriculum Associate",
+        department: "Curriculum",
+        level: "associate",
+        photo: "", // ADD IMAGE FILENAME HERE
+        description: "ADD DESCRIPTION HERE — describe Filipe's role and curriculum responsibilities.",
+        interests: "ADD INTERESTS HERE",
+        hobbies: "ADD HOBBIES HERE"
+      },
 
+      // OUTREACH — 4 MEMBERS
+      {
+        name: "Arhaan Bhojwani",
+        position: "Director of Outreach",
+        department: "Outreach",
+        level: "lead",
+        photo: "IMG_8056.jpeg",
+        description: "Leads outreach initiatives and partnership opportunities, with a focus on networking and communication.",
+        interests: "Sports, Business, Community Service",
+        hobbies: "Basketball, Video Games"
+      },
+      {
+        name: "Lucas Liu",
+        position: "Outreach Associate",
+        department: "Outreach",
+        level: "associate",
+        photo: "81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg",
+        description: "Supports outreach initiatives and helps build connections with students, organizations, and community partners.",
+        interests: "Sports, Math",
+        hobbies: "Cooking, Video Games"
+      },
+      {
+        name: "Henry Rothman",
+        position: "Outreach Associate",
+        department: "Outreach",
+        level: "associate",
+        photo: "81259759075__33B12B5C-31F5-4A67-98D4-344590CD62B7.jpeg",
+        description: "Supports outreach and helps expand connections with students, organizations, and potential partners.",
+        interests: "Economics, Entrepreneurship",
+        hobbies: "Sports, Hanging out with friends"
+      },
+      {
+        name: "Sejong Kim",
+        position: "Outreach Associate",
+        department: "Outreach",
+        level: "associate",
+        photo: "", // ADD IMAGE FILENAME HERE WHEN AVAILABLE
+        description: "Supports outreach and community engagement to help expand access to financial education.",
+        interests: "Financial Freedom, Stock Trading",
+        hobbies: "Baseball, Stock Investing"
+      },
 
+      // MARKETING — 3 MEMBERS
+      {
+        name: "Sophia Zachariah",
+        position: "Social Media Manager",
+        department: "Marketing",
+        level: "lead",
+        photo: "IMG_0994.jpeg",
+        description: "Focuses on video editing and script management for Next-Gen Knowledge's social media content.",
+        interests: "Math, Biology",
+        hobbies: "Dance, Art"
+      },
+      {
+        name: "Collin Kim",
+        position: "Marketing Associate",
+        department: "Marketing",
+        level: "associate",
+        photo: "81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg",
+        description: "Supports marketing initiatives through creative content and digital media.",
+        interests: "Cooking, Athletics",
+        hobbies: "Video Editing, Lacrosse"
+      },
+      {
+        name: "Ciara Perruzzi",
+        position: "Marketing Associate",
+        department: "Marketing",
+        level: "associate",
+        photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
+        description: "Supports marketing initiatives and develops creative content to help expand the organization's reach.",
+        interests: "Medical Science, Neuroscience",
+        hobbies: "Dance, Scouts of America"
+      }
+    ];
 
+    const departments = [
+      {
+        name: "Executive Board",
+        subtitle: "Leadership & Strategy",
+        icon: "compass",
+        description: "Guiding the organization's mission, strategy, and direction."
+      },
+      {
+        name: "Finance",
+        subtitle: "Financial Operations",
+        icon: "chart-no-axes-combined",
+        description: "Supporting financial organization and fundraising."
+      },
+      {
+        name: "Curriculum",
+        subtitle: "Education & Learning",
+        icon: "book-open",
+        description: "Developing educational content and learning experiences."
+      },
+      {
+        name: "Outreach",
+        subtitle: "Partnerships & Community",
+        icon: "handshake",
+        description: "Building connections and bringing our programs to more students."
+      },
+      {
+        name: "Marketing",
+        subtitle: "Brand & Communications",
+        icon: "megaphone",
+        description: "Sharing our mission through creative content and communication."
+      }
+    ];
 
-    <!-- =========================================================
-         HERO
-    ========================================================= -->
+    const teamSections = document.getElementById("team-sections");
+    let activeFilter = "all";
 
-    <header class="hero-section pt-40 pb-20 lg:pt-52 lg:pb-28">
+    function initials(name) {
+      return name
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(part => part[0])
+        .join("")
+        .toUpperCase();
+    }
 
-        <div class="hero-grid"></div>
+    function hasPlaceholder(value) {
+      return !value || value.startsWith("ADD_");
+    }
 
-        <div class="hero-orb orb-one"></div>
-        <div class="hero-orb orb-two"></div>
+    function renderPhoto(member) {
+      if (member.photo && !member.photo.startsWith("ADD_")) {
+        return `
+          <img
+            src="${member.photo}"
+            alt="${member.name}"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          >
+          <div class="photo-placeholder" style="display:none">
+            <div class="initials">${initials(member.name)}</div>
+            <span class="text-xs font-semibold">Photo coming soon</span>
+          </div>
+        `;
+      }
 
+      return `
+        <div class="photo-placeholder">
+          <div class="initials">${initials(member.name)}</div>
+          <span class="text-xs font-semibold">Photo coming soon</span>
+        </div>
+      `;
+    }
 
-        <div class="relative max-w-5xl mx-auto px-6 text-center reveal active">
+    function renderInfo(label, value) {
+      const missing = hasPlaceholder(value);
+      const displayedValue = missing
+        ? (value || `ADD_${label.toUpperCase()}_HERE`)
+        : value;
 
-            <div class="gold-badge mb-7">
+      return `
+        <div class="info-row">
+          <strong>${label}:</strong>
+          <span class="${missing ? 'text-amber-700 font-semibold' : ''}">${displayedValue}</span>
+        </div>
+      `;
+    }
 
-                <span class="gold-dot"></span>
+    function renderMember(member) {
+      const needsDescription = hasPlaceholder(member.description);
+      const roleClass = member.level === "executive"
+        ? "role-executive"
+        : member.level === "lead"
+          ? "role-lead"
+          : "role-associate";
 
-                Student Leadership
+      return `
+        <article class="team-card flex flex-col reveal">
+          <div class="team-photo">
+            ${renderPhoto(member)}
+            <div class="absolute bottom-3 left-3">
+              <span class="px-3 py-1.5 rounded-lg bg-white/95 text-xs font-bold text-gray-600 shadow-sm">
+                ${member.department}
+              </span>
+            </div>
+          </div>
 
+          <div class="p-5 sm:p-6 flex flex-col flex-1">
+            <div class="mb-3">
+              <span class="role-badge ${roleClass}">${member.position}</span>
             </div>
 
+            <h3 class="text-xl font-extrabold tracking-tight">${member.name}</h3>
 
-            <h1
-                class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-[-0.04em] text-navy leading-[1.02] mb-7">
-
-                Meet the People
-                <br class="hidden sm:block">
-
-                <span class="text-gold">
-                    Behind the Mission
-                </span>
-
-            </h1>
-
-
-            <p
-                class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-
-                Next-Gen Knowledge is built by students who believe
-                education should prepare the next generation for the
-                real world. Meet the team turning that idea into action.
-
+            <p class="team-description mt-3 ${needsDescription ? 'text-amber-700' : ''}">
+              ${member.description}
             </p>
 
+            <div class="team-divider"></div>
 
-            <div
-                class="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs sm:text-sm font-semibold text-navy/60">
-
-                <div class="flex items-center gap-2">
-
-                    <i data-lucide="users" class="w-4 h-4 text-gold"></i>
-
-                    Student-Led
-
-                </div>
-
-                <div class="flex items-center gap-2">
-
-                    <i data-lucide="lightbulb" class="w-4 h-4 text-gold"></i>
-
-                    Built for the Next Generation
-
-                </div>
-
-                <div class="flex items-center gap-2">
-
-                    <i data-lucide="graduation-cap" class="w-4 h-4 text-gold"></i>
-
-                    Education Through Action
-
-                </div>
-
+            <div class="space-y-2">
+              ${renderInfo("Interests", member.interests)}
+              ${renderInfo("Hobbies", member.hobbies)}
             </div>
 
-        </div>
-
-    </header>
-
-
-
-    <!-- =========================================================
-         MAIN
-    ========================================================= -->
-
-    <main class="bg-white">
-
-
-        <!-- =====================================================
-             MISSION INTRO
-        ===================================================== -->
-
-        <section class="px-6 pb-20">
-
-            <div
-                class="max-w-6xl mx-auto mission-card px-7 sm:px-10 lg:px-14 py-10 sm:py-12 reveal">
-
-                <div
-                    class="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-14 items-center">
-
-                    <div>
-
-                        <p
-                            class="text-gold text-xs font-extrabold uppercase tracking-[0.16em] mb-3">
-
-                            More than a team
-
-                        </p>
-
-
-                        <h2
-                            class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
-
-                            Different backgrounds.
-                            <br class="hidden sm:block">
-                            One shared mission.
-
-                        </h2>
-
-
-                        <p
-                            class="text-white/70 leading-relaxed max-w-2xl text-sm sm:text-base">
-
-                            From finance and business strategy to outreach,
-                            product development, and social media, every member
-                            of our team contributes a different perspective to
-                            making financial literacy more practical, engaging,
-                            and accessible.
-
-                        </p>
-
-                    </div>
-
-
-                    <div class="flex lg:flex-col gap-3">
-
-                        <div
-                            class="px-5 py-3 rounded-2xl bg-white/10 border border-white/10">
-
-                            <p class="text-white text-sm font-bold">
-                                Student Powered
-                            </p>
-
-                            <p class="text-white/50 text-xs mt-1">
-                                Built by the next generation
-                            </p>
-
-                        </div>
-
-
-                        <div
-                            class="px-5 py-3 rounded-2xl bg-white/10 border border-white/10">
-
-                            <p class="text-white text-sm font-bold">
-                                Mission Driven
-                            </p>
-
-                            <p class="text-white/50 text-xs mt-1">
-                                Education with real-world impact
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             TEAM SECTIONS
-        ===================================================== -->
-
-        <section class="px-6 pb-28">
-
-            <div class="max-w-7xl mx-auto space-y-28">
-
-
-                <!-- =================================================
-                     EXECUTIVE BOARD
-                ================================================= -->
-
-                <section class="reveal">
-
-                    <div class="text-center mb-12">
-
-                        <p class="section-label">
-                            Leadership
-                        </p>
-
-                        <h2
-                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
-                            Executive Board
-                        </h2>
-
-                        <div class="section-line"></div>
-
-                        <p
-                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
-                            The founders responsible for shaping Next-Gen
-                            Knowledge's vision, strategy, and direction.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-7">
-
-
-                        <!-- SVAR PATEL -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="13F86006-1D7F-40F9-AFD8-84CE3C572132.png"
-                                    alt="Svar Patel">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-executive mb-4">
-                                    Founder & CEO
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Svar Patel
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Leads financial literacy curriculum
-                                    development. Passionate about bridging
-                                    the gap between technology and personal
-                                    finance.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Finance, Tech, Entrepreneurship</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Baseball, Investing</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- PUSHAN PATEL -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="IMG_7201.jpeg"
-                                    alt="Pushan Patel">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-executive mb-4">
-                                    Co-Founder & CFO
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Pushan Patel
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Focuses on organizational entrepreneurship
-                                    and building sustainable business frameworks
-                                    for student-led initiatives.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Finance, Business Strategy</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Go-karting, Pickleball</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- MAX PARK -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="IMG_1689.jpeg"
-                                    alt="Max Park">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-executive mb-4">
-                                    Co-Founder & CMO
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Max Park
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Brings a unique perspective to
-                                    entrepreneurship by combining historical
-                                    context with modern business writing and
-                                    communication.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>History, English, Business</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Baseball, Hiking</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- ILHAN RASHEED -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg"
-                                    alt="Ilhan Rasheed">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-executive mb-4">
-                                    Co-Founder & CPO
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Ilhan Rasheed
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Expert in financial data and logic,
-                                    balancing interests in high-level medicine
-                                    and fiscal responsibility.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Medicine, Finance</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Basketball, Taekwondo</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-                     FINANCE DEPARTMENT
-                ================================================= -->
-
-                <section class="reveal">
-
-                    <div class="text-center mb-12">
-
-                        <p class="section-label">
-                            Finance
-                        </p>
-
-                        <h2
-                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
-                            Finance Department
-                        </h2>
-
-                        <div class="section-line"></div>
-
-                        <p
-                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
-                            The team supporting Next-Gen Knowledge's financial
-                            operations, fundraising, and financial initiatives.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-
-
-                        <!-- LEO SORENSON -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="IMG_1839.jpeg"
-                                    alt="Leo Sorenson">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-finance mb-4">
-                                    Finance Associate
-                                </span>
-
-                                <h3
-                                    class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Leo Sorenson
-                                </h3>
-
-                                <p
-                                    class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Helps manage and track Next-Gen Knowledge's
-                                    finances while supporting fundraising
-                                    initiatives and helping maintain strong
-                                    financial organization.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Basketball, Math</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Lego, Cooking</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- VINCE YALE -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="IMG_3353.jpeg"
-                                    alt="Vince Yale">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-finance mb-4">
-                                    Finance Associate
-                                </span>
-
-                                <h3
-                                    class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Vince Yale
-                                </h3>
-
-                                <p
-                                    class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Supports financial analysis, organization,
-                                    and financial initiatives across
-                                    Next-Gen Knowledge.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Finance, Politics</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Pickleball, Going to the gym</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- HANNAH GEORGE -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <!-- PHOTO LINK HERE -->
-                                <img
-                                    src="photo.png"
-                                    alt="Hannah George">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-finance mb-4">
-                                    Finance Associate
-                                </span>
-
-                                <h3
-                                    class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Hannah George
-                                </h3>
-
-                                <p
-                                    class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Supports Next-Gen Knowledge's financial
-                                    operations by organizing financial records,
-                                    assisting with budgeting and fundraising
-                                    efforts, and helping develop strategies for
-                                    sustainable growth.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Finance, Entrepreneurship, Math</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Dance, Baking</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-                     OUTREACH DEPARTMENT
-                ================================================= -->
-
-                <section class="reveal">
-
-                    <div class="text-center mb-12">
-
-                        <p class="section-label">
-                            Outreach
-                        </p>
-
-                        <h2
-                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
-                            Outreach Department
-                        </h2>
-
-                        <div class="section-line"></div>
-
-                        <p
-                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
-                            The team building partnerships, expanding our reach,
-                            and connecting Next-Gen Knowledge with new communities.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-
-
-                        <!-- ARHAAN BHOJWANI -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="IMG_8056.jpeg"
-                                    alt="Arhaan Bhojwani">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-leadership mb-4">
-                                    Director of Outreach
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Arhaan Bhojwani
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Leads direct outreach and partnership
-                                    opportunities with an expertise in
-                                    networking and communication.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Sports, Business & Community Service</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Basketball, Video Games</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- LUCAS LIU -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <!-- PHOTO LINK HERE -->
-                                <img
-                                    src="81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg" 
-                                    alt="Lucas Liu"
-                                    class="w-full h-full object-cover">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-leadership mb-4">
-                                    Outreach Associate
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Lucas Liu
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Supports outreach initiatives and helps
-                                    build connections with students, organizations,
-                                    and community partners.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Sports, Math</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Cooking, Video Games</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-                     MARKETING DEPARTMENT
-                ================================================= -->
-
-                <section class="reveal">
-
-                    <div class="text-center mb-12">
-
-                        <p class="section-label">
-                            Marketing
-                        </p>
-
-                        <h2
-                            class="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight mt-2">
-                            Marketing Department
-                        </h2>
-
-                        <div class="section-line"></div>
-
-                        <p
-                            class="text-gray-500 text-sm sm:text-base max-w-2xl mx-auto mt-5 leading-relaxed">
-                            The creative team helping Next-Gen Knowledge grow its
-                            brand, reach new audiences, and communicate its mission.
-                        </p>
-
-                    </div>
-
-
-                    <div
-                        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-
-
-                        <!-- SOPHIA ZACHARIAH -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="IMG_0994.jpeg"
-                                    alt="Sophia Zachariah">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-marketing mb-4">
-                                    Social Media Manager
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Sophia Zachariah
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Specializes in video editing and script
-                                    management for all social media platforms.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Math, Biology</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Dance, Art</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- COLLIN KIM -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <img
-                                    src="81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg"
-                                    alt="Collin Kim">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-marketing mb-4">
-                                    Marketing Associate
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Collin Kim
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Supports Next-Gen Knowledge's marketing
-                                    efforts through creative content and
-                                    digital media.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span>Cooking, Athletics</span>
-                                </div>
-
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span>Video Editing, Lacrosse</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-
-                        <!-- CIARA PERRUZZI -->
-
-                        <article class="team-card p-5 sm:p-6 flex flex-col max-w-md mx-auto w-full">
-
-                            <div class="team-image mb-6">
-
-                                <!-- PHOTO LINK HERE -->
-                                <img
-                                    src="7CD85C53-0021-4384-8DE9-75FE00BD655B.png"
-                                    alt="Ciara Perruzzi"
-                                    class="w-full h-full object-cover">
-
-                                <div class="image-overlay"></div>
-
-                            </div>
-
-
-                            <div class="flex-1">
-
-                                <span class="role-badge role-marketing mb-4">
-                                    Marketing Associate
-                                </span>
-
-                                <h3 class="text-2xl font-extrabold text-navy tracking-tight">
-                                    Ciara Perruzzi
-                                </h3>
-
-                                <p class="text-sm text-gray-600 leading-relaxed mt-3">
-                                    Supports Next-Gen Knowledge's marketing
-                                    initiatives and helps develop creative
-                                    content to expand our reach.
-                                </p>
-
-                            </div>
-
-
-                            <div class="team-divider my-5"></div>
-
-                            <div class="space-y-2.5">
-
-                                <!-- INTERESTS HERE -->
-                                <div class="info-row">
-                                    <strong>Interests:</strong>
-                                    <span class="text-gray-400">Medical Science, Neuroscience</span>
-                                </div>
-
-                                <!-- HOBBIES HERE -->
-                                <div class="info-row">
-                                    <strong>Hobbies:</strong>
-                                    <span class="text-gray-400">Dance, Scouts of America</span>
-                                </div>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
-
-                </section>
-
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
-
-    <footer class="py-16 bg-surface border-t border-navy/5">
-
-        <div
-            class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
-
-
-            <div class="flex items-center gap-3">
-
-                <img
-                    src="IMG_1383.jpeg"
-                    alt="Next-Gen Knowledge Logo"
-                    class="h-8 w-auto">
-
-                <span class="font-extrabold text-navy">
-                    Next-Gen Knowledge
-                </span>
-
-            </div>
-
-
-            <div
-                class="flex flex-wrap justify-center gap-x-7 gap-y-3 font-bold text-sm text-navy/70">
-
-                <a
-                    href="https://www.instagram.com/nextgen.knowledge"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-link">
-
-                    Instagram
-
-                </a>
-
-
-                <a
-                    href="https://www.linkedin.com/company/next-gen-knowledge/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="footer-link">
-
-                    Company LinkedIn
-
-                </a>
-
-
-                <a
-                    href="mailto:nextgen.knowledge123@gmail.com"
-                    class="footer-link">
-
-                    Email Us
-
-                </a>
-
-            </div>
-
-
-            <div
-                class="flex flex-col items-center md:items-end gap-1">
-
-                <p
-                    class="text-navy/60 text-xs max-w-xs text-center md:text-right leading-relaxed">
-
-                    Next-Gen Knowledge is a fiscally sponsored project
-                    of the Hack Club Foundation, a 501(c)(3) non-profit.
-
-                </p>
-
-
-                <p class="text-navy/50 text-sm">
-
-                    &copy; 2026 Next-Gen Knowledge.
-                    All rights reserved.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </footer>
-
-
-
-    <!-- =========================================================
-         JAVASCRIPT
-    ========================================================= -->
-
-    <script>
-
-        lucide.createIcons();
-
-
-        const reveals = document.querySelectorAll('.reveal');
-
-        function revealOnScroll() {
-
-            const windowHeight = window.innerHeight;
-
-            reveals.forEach((element) => {
-
-                const elementTop =
-                    element.getBoundingClientRect().top;
-
-                const elementVisible = 120;
-
-                if (elementTop < windowHeight - elementVisible) {
-
-                    element.classList.add('active');
-
-                }
-
-            });
-
-        }
-
-
-        window.addEventListener(
-            'scroll',
-            revealOnScroll,
-            { passive: true }
-        );
-
-
-        window.addEventListener(
-            'load',
-            revealOnScroll
-        );
-
-
-        revealOnScroll();
-
-
-        const nav = document.querySelector('nav');
-
-        window.addEventListener(
-            'scroll',
-            () => {
-
-                if (window.scrollY > 20) {
-
-                    nav.classList.add(
-                        'shadow-[0_8px_30px_rgba(10,35,66,0.06)]'
-                    );
-
-                } else {
-
-                    nav.classList.remove(
-                        'shadow-[0_8px_30px_rgba(10,35,66,0.06)]'
-                    );
-
-                }
-
-            },
-            { passive: true }
-        );
-
-    </script>
-
- <!-- ========================================================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================================================= -->
-
-<script>
-
-    /* ---------------------------------------------------------
-       Icons
-    --------------------------------------------------------- */
-
-    lucide.createIcons();
-
-
-    /* ---------------------------------------------------------
-       Mobile Navigation
-    --------------------------------------------------------- */
-
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
-
-        mobileMenuButton.addEventListener('click', () => {
-
-            mobileMenu.classList.toggle('hidden');
-
-            const isOpen = !mobileMenu.classList.contains('hidden');
-
-            mobileMenuButton.setAttribute(
-                'aria-label',
-                isOpen ? 'Close menu' : 'Open menu'
-            );
-
-            mobileMenuButton.innerHTML = isOpen
-                ? '<i data-lucide="x" class="w-6 h-6"></i>'
-                : '<i data-lucide="menu" class="w-6 h-6"></i>';
-
-            lucide.createIcons();
-
-        });
-
+            ${needsDescription || !member.photo || hasPlaceholder(member.interests) || hasPlaceholder(member.hobbies) ? `
+              <div class="placeholder-note">
+                <i data-lucide="pencil-line" class="w-3.5 h-3.5"></i>
+                Profile needs updating
+              </div>
+            ` : ""}
+          </div>
+        </article>
+      `;
     }
 
+    function renderTeam(filter = "all") {
+      teamSections.innerHTML = "";
 
-    /* ---------------------------------------------------------
-       Navbar Shadow
-    --------------------------------------------------------- */
+      const visibleDepartments = departments.filter(department =>
+        filter === "all" || department.name === filter
+      );
 
-    const navbar = document.getElementById('navbar');
+      visibleDepartments.forEach(department => {
+        const members = teamMembers.filter(member =>
+          member.department === department.name
+        );
 
-    window.addEventListener('scroll', () => {
+        if (!members.length) return;
 
-        if (window.scrollY > 10) {
-            navbar.classList.add('shadow-md');
-        } else {
-            navbar.classList.remove('shadow-md');
-        }
+        const section = document.createElement("section");
+        section.className = "department-section";
+        section.dataset.department = department.name;
 
+        section.innerHTML = `
+          <div class="department-heading">
+            <div class="department-icon">
+              <i data-lucide="${department.icon}" class="w-5 h-5"></i>
+            </div>
+
+            <div class="min-w-0">
+              <p class="text-xs font-bold uppercase tracking-widest" style="color:#A6841C">${department.subtitle}</p>
+              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">${department.name}</h2>
+              <p class="text-sm text-gray-500 mt-1">${department.description}</p>
+            </div>
+
+            <div class="department-rule hidden sm:block"></div>
+
+            <span class="hidden sm:inline-flex px-3 py-1.5 rounded-full bg-gray-100 text-xs font-bold text-gray-600">
+              ${members.length} ${members.length === 1 ? "member" : "members"}
+            </span>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
+            ${members.map(renderMember).join("")}
+          </div>
+        `;
+
+        teamSections.appendChild(section);
+      });
+
+      lucide.createIcons();
+
+      // Reveal newly rendered cards without leaving them invisible.
+      document.querySelectorAll("#team-sections .reveal").forEach(element => {
+        element.classList.add("active");
+      });
+    }
+
+    // Department filters
+    document.querySelectorAll(".filter-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+          const selected = btn.dataset.filter === activeFilter;
+
+          btn.style.background = selected ? "var(--navy)" : "white";
+          btn.style.color = selected ? "white" : "#4B5563";
+          btn.style.borderColor = selected ? "var(--navy)" : "#E5E7EB";
+        });
+
+        renderTeam(activeFilter);
+      });
     });
 
+    // Mobile navigation
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    /* ---------------------------------------------------------
-       Scroll Reveal
-    --------------------------------------------------------- */
+    menuButton.addEventListener("click", () => {
+      const opening = mobileMenu.classList.contains("hidden");
+      mobileMenu.classList.toggle("hidden");
+      menuButton.setAttribute("aria-expanded", String(opening));
+      menuButton.setAttribute("aria-label", opening ? "Close menu" : "Open menu");
+      menuButton.innerHTML = opening
+        ? '<i data-lucide="x" class="w-6 h-6"></i>'
+        : '<i data-lucide="menu" class="w-6 h-6"></i>';
+      lucide.createIcons();
+    });
 
-    function revealOnScroll() {
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open menu");
+        menuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+        lucide.createIcons();
+      });
+    });
 
-        const reveals = document.querySelectorAll('.reveal');
+    // Navbar shadow
+    const navbar = document.getElementById("navbar");
 
-        reveals.forEach((element) => {
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("shadow-md", window.scrollY > 10);
+    }, { passive: true });
 
-            const elementTop = element.getBoundingClientRect().top;
+    // Footer year
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-            const elementVisible = 120;
+    // Initial render
+    renderTeam();
 
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('active');
-            }
+    // Reveal static content on scroll
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
 
-        });
-
-    }
-
-    window.addEventListener('scroll', revealOnScroll);
-
-    revealOnScroll();
-
-</script>
+    document.querySelectorAll(".reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
 
 </body>
 </html>
