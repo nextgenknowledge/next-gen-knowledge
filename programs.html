@@ -4,23 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0A2342" />
+  <meta name="theme-color" content="#081629" />
 
   <title>Programs | Next-Gen Knowledge</title>
-  <meta
-    name="description"
-    content="Explore Next-Gen Knowledge's free financial literacy programs, including Money Masters and Investor Academy."
-  />
+  <meta name="description" content="Explore Next-Gen Knowledge's free financial literacy programs, including Money Masters and Investor Academy." />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
@@ -28,19 +30,21 @@
         extend: {
           colors: {
             navy: "#0A2342",
-            gold: "#C9A227",
-            "gold-light": "#F8F1D9",
-            ink: "#172B45",
-            muted: "#65758B",
-            canvas: "#F7F9FC"
+            gold: "#D9B64D",
+            "gold-light": "#F5E8B4",
+            ink: "#F3F5FA",
+            muted: "#9DADC2",
+            canvas: "#081629",
+            panel: "#0D2038",
+            line: "#263C57"
           },
           fontFamily: {
             sans: ["DM Sans", "sans-serif"],
-            heading: ["Manrope", "sans-serif"]
+            pixel: ['"Press Start 2P"', "monospace"],
+            mono: ['"DM Mono"', "monospace"]
           },
           boxShadow: {
-            soft: "0 12px 40px rgba(10, 35, 66, 0.07)",
-            card: "0 20px 60px rgba(10, 35, 66, 0.10)"
+            pixel: "5px 5px 0 rgba(0,0,0,.32)"
           }
         }
       }
@@ -48,21 +52,253 @@
   </script>
 
   <style>
+    :root {
+      --bg: #081629;
+      --bg-deep: #050D19;
+      --panel: #0D2038;
+      --panel-light: #142C49;
+      --panel-hover: #193653;
+      --navy: #0A2342;
+      --gold: #D9B64D;
+      --gold-bright: #F1D778;
+      --gold-dark: #9C7B25;
+      --cream: #F5F0DF;
+      --text: #F3F5FA;
+      --muted: #9DADC2;
+      --line: #263C57;
+      --green: #7CE0B0;
+      --blue: #84B7FF;
+      --pixel-font: "Press Start 2P", monospace;
+      --body-font: "DM Sans", sans-serif;
+      --mono-font: "DM Mono", monospace;
+      --max: 1180px;
+      --pixel-shadow: 5px 5px 0 rgba(0,0,0,.32);
+    }
+
+    * { box-sizing: border-box; }
+
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
-      font-family: "DM Sans", sans-serif;
-      color: #172B45;
-      background: #fff;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, h4 {
-      font-family: "Manrope", sans-serif;
-      letter-spacing: -0.035em;
+      letter-spacing: -.025em;
+    }
+
+    a { -webkit-tap-highlight-color: transparent; }
+
+    .pixel-heading {
+      font-family: var(--pixel-font);
+      line-height: 1.7;
+      letter-spacing: -.04em;
+    }
+
+    .mono-label {
+      font-family: var(--mono-font);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .site-container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,13,25,.96);
+      border-bottom: 2px solid #263A52;
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+      border: 1px solid #40536A;
+      border-radius: 3px;
+    }
+
+    .brand-name {
+      color: #fff;
+      font-size: .95rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -.035em;
+    }
+
+    .brand-name small {
+      display: block;
+      margin-top: 5px;
+      color: var(--gold-bright);
+      font-family: var(--mono-font);
+      font-size: .58rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 19px;
+    }
+
+    .nav-links > a:not(.btn) {
+      color: #B7C4D5;
+      font-size: .8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color .2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links > a:not(.btn):hover,
+    .nav-links > a[aria-current="page"] {
+      color: var(--gold-bright);
+    }
+
+    .nav-links .fin-city-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 11px;
+      color: var(--gold-bright) !important;
+      background: rgba(217,182,77,.08);
+      border: 1px solid rgba(217,182,77,.45);
+      font-family: var(--mono-font);
+      font-size: .73rem !important;
+    }
+
+    .nav-links .fin-city-link:hover {
+      background: rgba(217,182,77,.16);
+    }
+
+    .nav-links .btn {
+      min-height: 40px;
+      padding: 8px 12px;
+      font-size: .78rem;
+    }
+
+    .pixel-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 17px;
+      color: var(--bg-deep);
+      background: var(--gold);
+      border: 1px solid var(--gold-bright);
+      border-radius: 3px;
+      box-shadow: 3px 3px 0 var(--gold-dark);
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .pixel-btn:hover {
+      background: var(--gold-bright);
+      transform: translate(-1px,-1px);
+      box-shadow: 4px 4px 0 var(--gold-dark);
+    }
+
+    .pixel-btn:active {
+      transform: translate(2px,2px);
+      box-shadow: 1px 1px 0 var(--gold-dark);
+    }
+
+    .pixel-btn.secondary {
+      color: var(--text);
+      background: var(--panel);
+      border-color: #3A506A;
+      box-shadow: 3px 3px 0 #030A12;
+    }
+
+    .pixel-btn.secondary:hover {
+      background: var(--panel-light);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      color: var(--gold-bright);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      font-size: 1.35rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 8px 0 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 14px;
+      color: #D4DDEA;
+      border-bottom: 1px solid rgba(255,255,255,.045);
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a[aria-current="page"] {
+      color: var(--gold-bright);
+      background: rgba(255,255,255,.025);
+    }
+
+    .mobile-menu .fin-city-link {
+      color: var(--gold-bright);
+      background: rgba(217,182,77,.07);
+      border: 1px solid rgba(217,182,77,.25);
+      margin: 7px 0;
+    }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 12px;
+      justify-content: center;
+      color: var(--bg-deep);
+      background: var(--gold);
+      border: 1px solid var(--gold-bright);
     }
 
     .hero-grid {
@@ -73,33 +309,46 @@
     }
 
     .hero-glow {
-      background: radial-gradient(
-        circle at 75% 45%,
-        rgba(201,162,39,.17),
-        transparent 36%
-      );
+      background: radial-gradient(circle at 75% 45%, rgba(217,182,77,.14), transparent 36%);
     }
 
     .gold-line {
-      background: linear-gradient(90deg, #C9A227, #E9D38A);
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright), transparent);
+    }
+
+    .pixel-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: var(--pixel-shadow);
     }
 
     .program-card {
-      transition: transform .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: var(--pixel-shadow);
+      transition: transform .25s ease, border-color .25s ease;
     }
 
     .program-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 24px 65px rgba(10,35,66,.12);
+      transform: translateY(-4px);
+      border-color: var(--gold-dark);
     }
 
     .week-card {
-      transition: border-color .2s ease, background .2s ease;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      transition: border-color .2s ease, background .2s ease, transform .2s ease;
     }
 
     .week-card:hover {
-      border-color: #C9A227;
-      background: #fffdf7;
+      border-color: var(--gold);
+      background: var(--panel-light);
+      transform: translateY(-2px);
     }
 
     .reveal {
@@ -123,82 +372,120 @@
       to { transform: scaleY(1); }
     }
 
+    .section-kicker {
+      color: var(--gold-bright);
+      font-family: var(--mono-font);
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      color: var(--text);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .body-copy { color: var(--muted); }
+
+    .muted-line { border-color: var(--line); }
+
+    .light-card {
+      background: var(--panel-light);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .icon-tile {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      color: var(--gold-bright);
+      background: rgba(217,182,77,.1);
+      border: 1px solid rgba(217,182,77,.28);
+      border-radius: 3px;
+    }
+
+    .site-footer {
+      background: var(--bg-deep);
+      border-top: 2px solid var(--line);
+    }
+
+    .footer-link {
+      color: var(--muted);
+      transition: color .2s ease;
+    }
+
+    .footer-link:hover { color: var(--gold-bright); }
+
+    @media (max-width: 1100px) {
+      .nav-links { gap: 12px; }
+      .nav-links > a:not(.btn) { font-size: .75rem; }
+      .brand-name { font-size: .87rem; }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+    }
+
+    @media (max-width: 640px) {
+      .site-container { width: min(var(--max), calc(100% - 30px)); }
+      .navbar { min-height: 70px; }
+      .brand img { width: 39px; height: 39px; }
+      .brand-name { font-size: .85rem; }
+      .brand-name small { font-size: .54rem; }
+      .pixel-heading { font-size: 1.25rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
       }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAVIGATION -->
-  <header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8"
-         aria-label="Main navigation">
-
-      <a href="index.html" class="flex shrink-0 items-center gap-3" aria-label="Next-Gen Knowledge home">
-        <img
-          src="IMG_1383.jpeg"
-          alt="Next-Gen Knowledge logo"
-          class="h-11 w-11 rounded-xl object-contain"
-        />
-        <div class="leading-tight">
-          <span class="block font-heading text-base font-extrabold tracking-tight text-navy sm:text-lg">
-            Next-Gen
-          </span>
-          <span class="block text-xs font-semibold tracking-wide text-slate-500">
-            KNOWLEDGE
-          </span>
-        </div>
+  <!-- SHARED SITE NAVIGATION -->
+  <header class="nav-wrap">
+    <nav class="navbar site-container" aria-label="Main navigation">
+      <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
+        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" />
+        <span class="brand-name">
+          Next-Gen
+          <small>KNOWLEDGE</small>
+        </span>
       </a>
 
-      <div class="hidden items-center gap-1 lg:flex">
-        <a href="index.html"
-           class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-navy">
-          Home
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="fin-city.html" class="fin-city-link">
+          <i data-lucide="gamepad-2" class="h-4 w-4"></i>
+          Fin City
         </a>
-        <a href="about.html"
-           class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-navy">
-          About Us
-        </a>
-        <a href="programs.html"
-           aria-current="page"
-           class="rounded-lg bg-slate-100 px-3 py-2 text-sm font-bold text-navy">
-          Programs
-        </a>
-        <a href="team.html"
-           class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-navy">
-          Team
-        </a>
-        <a href="partnerships.html"
-           class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-navy">
-          Partnerships
-        </a>
-        <a href="trivia.html"
-           class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-navy">
-          Trivia Arena
-        </a>
-        <a href="donate.html"
-           class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-50 hover:text-navy">
-          Donate
-        </a>
-        <a href="enroll.html"
-           class="ml-2 inline-flex items-center gap-2 rounded-xl bg-navy px-5 py-2.5 text-sm font-bold text-white transition hover:bg-slate-800">
+        <a href="about.html">About Us</a>
+        <a href="programs.html" aria-current="page">Programs</a>
+        <a href="team.html">Team</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="donate.html">Donate</a>
+        <a href="enroll.html" class="pixel-btn btn">
           Enroll Now <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
         </a>
       </div>
 
       <button
         id="menu-button"
-        class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-navy lg:hidden"
+        class="menu-toggle"
+        type="button"
         aria-label="Open navigation menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -207,34 +494,34 @@
       </button>
     </nav>
 
-    <div id="mobile-menu" class="hidden border-t border-slate-100 bg-white px-5 pb-5 pt-3 lg:hidden">
-      <div class="mx-auto flex max-w-7xl flex-col gap-1">
-        <a href="index.html" class="rounded-lg px-4 py-3 text-sm font-semibold text-slate-600">Home</a>
-        <a href="about.html" class="rounded-lg px-4 py-3 text-sm font-semibold text-slate-600">About Us</a>
-        <a href="programs.html" aria-current="page" class="rounded-lg bg-slate-100 px-4 py-3 text-sm font-bold text-navy">Programs</a>
-        <a href="team.html" class="rounded-lg px-4 py-3 text-sm font-semibold text-slate-600">Team</a>
-        <a href="partnerships.html" class="rounded-lg px-4 py-3 text-sm font-semibold text-slate-600">Partnerships</a>
-        <a href="trivia.html" class="rounded-lg px-4 py-3 text-sm font-semibold text-slate-600">Trivia Arena</a>
-        <a href="donate.html" class="rounded-lg px-4 py-3 text-sm font-semibold text-slate-600">Donate</a>
-        <a href="enroll.html" class="mt-2 flex items-center justify-center gap-2 rounded-xl bg-navy px-4 py-3 font-bold text-white">
-          Enroll Now <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-        </a>
-      </div>
+    <div id="mobile-menu" class="mobile-menu site-container">
+      <a href="index.html">Home</a>
+      <a href="fin-city.html" class="fin-city-link">
+        <i data-lucide="gamepad-2" class="h-4 w-4"></i> Fin City
+      </a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html" aria-current="page">Programs</a>
+      <a href="team.html">Team</a>
+      <a href="partnerships.html">Partnerships</a>
+      <a href="donate.html">Donate</a>
+      <a href="enroll.html" class="mobile-cta">
+        Enroll Now <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+      </a>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="relative isolate overflow-hidden bg-navy text-white">
+    <section class="relative isolate overflow-hidden bg-[#081629] text-white">
       <div class="hero-grid absolute inset-0 -z-10 opacity-60"></div>
       <div class="hero-glow absolute inset-0 -z-10"></div>
       <div class="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full border border-white/10"></div>
       <div class="absolute -right-8 -top-8 -z-10 h-64 w-64 rounded-full border border-white/10"></div>
 
-      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 py-20 sm:py-24 lg:grid-cols-2 lg:px-8 lg:py-28">
+      <div class="site-container grid items-center gap-14 py-20 sm:py-24 lg:grid-cols-2 lg:py-28">
         <div class="max-w-2xl">
-          <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[.06] px-4 py-2 text-xs font-bold uppercase tracking-[.14em] text-slate-200">
-            <span class="h-2 w-2 rounded-full bg-gold"></span>
+          <div class="mb-7 inline-flex items-center gap-2 border border-white/15 bg-white/[.04] px-4 py-2 text-xs font-bold uppercase tracking-[.14em] text-slate-200">
+            <span class="h-2 w-2 bg-gold"></span>
             Learn skills that last a lifetime
           </div>
 
@@ -249,13 +536,11 @@
             designed for the next generation.
           </p>
 
-          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="#programs"
-               class="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-bold text-navy transition hover:bg-yellow-300">
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="#programs" class="pixel-btn">
               Explore Programs <i data-lucide="arrow-down" class="h-4 w-4"></i>
             </a>
-            <a href="enroll.html"
-               class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-6 py-3.5 font-bold text-white transition hover:bg-white/10">
+            <a href="enroll.html" class="pixel-btn secondary">
               How to Enroll <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
             </a>
           </div>
@@ -267,63 +552,63 @@
           </div>
         </div>
 
-        <!-- FINANCIAL DASHBOARD ILLUSTRATION -->
+        <!-- FINANCIAL DASHBOARD -->
         <div class="relative mx-auto w-full max-w-lg">
-          <div class="absolute -inset-5 rounded-[2rem] bg-gold/10 blur-2xl"></div>
+          <div class="absolute -inset-5 bg-gold/10 blur-2xl"></div>
 
-          <div class="relative overflow-hidden rounded-3xl border border-white/15 bg-white p-5 text-navy shadow-2xl sm:p-7">
+          <div class="pixel-panel relative overflow-hidden p-5 text-white sm:p-7">
             <div class="flex items-start justify-between gap-4">
               <div>
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-500">Your financial future</p>
-                <h2 class="mt-2 text-2xl font-extrabold">Built through knowledge.</h2>
+                <p class="mono-label text-xs text-slate-400">Your financial future</p>
+                <h2 class="mt-3 text-2xl font-extrabold">Built through knowledge.</h2>
               </div>
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold-light text-navy">
+              <div class="icon-tile h-12 w-12">
                 <i data-lucide="trending-up" class="h-6 w-6"></i>
               </div>
             </div>
 
             <div class="mt-7 grid grid-cols-2 gap-3">
-              <div class="rounded-2xl bg-slate-50 p-4">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-500">
+              <div class="light-card p-4">
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
                   <i data-lucide="wallet" class="h-4 w-4"></i> Money skills
                 </div>
                 <p class="mt-3 text-lg font-extrabold">Build a plan</p>
-                <p class="mt-1 text-xs text-slate-500">Budget with purpose</p>
+                <p class="mt-1 text-xs text-slate-400">Budget with purpose</p>
               </div>
-              <div class="rounded-2xl bg-slate-50 p-4">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-500">
+              <div class="light-card p-4">
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
                   <i data-lucide="chart-no-axes-combined" class="h-4 w-4"></i> Investing
                 </div>
                 <p class="mt-3 text-lg font-extrabold">Think long-term</p>
-                <p class="mt-1 text-xs text-slate-500">Analyze opportunities</p>
+                <p class="mt-1 text-xs text-slate-400">Analyze opportunities</p>
               </div>
             </div>
 
-            <div class="mt-5 rounded-2xl border border-slate-100 p-4 sm:p-5">
+            <div class="mt-5 border border-slate-700 p-4 sm:p-5">
               <div class="flex items-center justify-between gap-3">
                 <div>
                   <p class="text-sm font-bold">Learning in action</p>
-                  <p class="mt-1 text-xs text-slate-500">Knowledge → Practice → Confidence</p>
+                  <p class="mt-1 text-xs text-slate-400">Knowledge → Practice → Confidence</p>
                 </div>
                 <i data-lucide="activity" class="h-5 w-5 text-gold"></i>
               </div>
 
               <div class="mt-5 flex h-28 items-end gap-2 sm:gap-3">
-                <div class="dashboard-bar h-[35%] flex-1 rounded-t-md bg-navy/20" style="animation-delay:0ms"></div>
-                <div class="dashboard-bar h-[50%] flex-1 rounded-t-md bg-navy/30" style="animation-delay:100ms"></div>
-                <div class="dashboard-bar h-[43%] flex-1 rounded-t-md bg-navy/40" style="animation-delay:200ms"></div>
-                <div class="dashboard-bar h-[70%] flex-1 rounded-t-md bg-gold/60" style="animation-delay:300ms"></div>
-                <div class="dashboard-bar h-[62%] flex-1 rounded-t-md bg-gold/75" style="animation-delay:400ms"></div>
-                <div class="dashboard-bar h-[90%] flex-1 rounded-t-md bg-gold" style="animation-delay:500ms"></div>
+                <div class="dashboard-bar h-[35%] flex-1 bg-white/20" style="animation-delay:0ms"></div>
+                <div class="dashboard-bar h-[50%] flex-1 bg-white/30" style="animation-delay:100ms"></div>
+                <div class="dashboard-bar h-[43%] flex-1 bg-white/40" style="animation-delay:200ms"></div>
+                <div class="dashboard-bar h-[70%] flex-1 bg-gold/60" style="animation-delay:300ms"></div>
+                <div class="dashboard-bar h-[62%] flex-1 bg-gold/75" style="animation-delay:400ms"></div>
+                <div class="dashboard-bar h-[90%] flex-1 bg-gold" style="animation-delay:500ms"></div>
               </div>
               <div class="mt-3 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                 <span>Learn</span><span>Practice</span><span>Apply</span>
               </div>
             </div>
 
-            <div class="mt-4 flex items-center gap-3 rounded-xl bg-navy p-4 text-white">
+            <div class="mt-4 flex items-center gap-3 border border-slate-700 bg-[#071321] p-4">
               <i data-lucide="lightbulb" class="h-5 w-5 shrink-0 text-gold"></i>
-              <p class="text-sm leading-6 text-slate-200">
+              <p class="text-sm leading-6 text-slate-300">
                 The goal isn't just to know more. It's to make better-informed decisions.
               </p>
             </div>
@@ -333,14 +618,12 @@
     </section>
 
     <!-- PROGRAM OVERVIEW -->
-    <section id="programs" class="scroll-mt-24 bg-canvas px-5 py-20 sm:py-24 lg:px-8">
-      <div class="mx-auto max-w-7xl">
+    <section id="programs" class="scroll-mt-24 bg-[#0A1A2D] px-5 py-20 sm:py-24 lg:px-8">
+      <div class="site-container">
         <div class="mx-auto max-w-2xl text-center reveal">
-          <p class="text-xs font-extrabold uppercase tracking-[.18em] text-gold">Our programs</p>
-          <h2 class="mt-4 text-3xl font-extrabold text-navy sm:text-4xl">
-            Two paths. One stronger foundation.
-          </h2>
-          <p class="mt-5 leading-7 text-muted">
+          <p class="section-kicker">Our programs</p>
+          <h2 class="section-title mt-4">Two paths. One stronger foundation.</h2>
+          <p class="body-copy mt-5 leading-7">
             Whether you're learning the basics of personal finance or ready
             to analyze investments, there's a place to start building your skills.
           </p>
@@ -348,14 +631,14 @@
 
         <div class="mt-12 grid gap-7 lg:grid-cols-2">
           <!-- MONEY MASTERS -->
-          <article class="program-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft reveal">
-            <div class="relative overflow-hidden bg-navy p-7 text-white sm:p-9">
+          <article class="program-card reveal">
+            <div class="relative overflow-hidden border-b border-slate-700 bg-[#0A2342] p-7 text-white sm:p-9">
               <div class="absolute -right-10 -top-10 h-44 w-44 rounded-full border border-white/10"></div>
               <div class="absolute -right-2 -top-2 h-28 w-28 rounded-full border border-white/10"></div>
 
               <div class="relative flex items-start justify-between gap-4">
                 <div>
-                  <span class="inline-flex rounded-full bg-white/10 px-3 py-1.5 text-xs font-bold text-slate-200">
+                  <span class="inline-flex border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-bold text-slate-200">
                     FOUNDATIONAL PROGRAM
                   </span>
                   <h3 class="mt-5 text-3xl font-extrabold">Money Masters</h3>
@@ -364,76 +647,75 @@
                     about spending, saving, investing, and entrepreneurship.
                   </p>
                 </div>
-                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gold text-navy">
+                <div class="icon-tile h-14 w-14">
                   <i data-lucide="wallet" class="h-7 w-7"></i>
                 </div>
               </div>
 
               <div class="relative mt-7 flex flex-wrap gap-2">
-                <span class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold">Grades 5–8</span>
-                <span class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold">5 weeks</span>
-                <span class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold">10 live classes</span>
+                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">Grades 5–8</span>
+                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">5 weeks</span>
+                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">10 live classes</span>
               </div>
             </div>
 
             <div class="p-7 sm:p-9">
-              <h4 class="text-lg font-extrabold text-navy">What you'll learn</h4>
+              <h4 class="text-lg font-extrabold text-white">What you'll learn</h4>
 
               <ul class="mt-5 space-y-4">
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="receipt" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="receipt" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Spending and budgeting</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Understand needs, wants, trade-offs, and how to plan around limited resources.</p>
+                    <p class="font-bold text-white">Spending and budgeting</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Understand needs, wants, trade-offs, and how to plan around limited resources.</p>
                   </div>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="piggy-bank" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="piggy-bank" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Saving and financial planning</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Set goals, prepare for future expenses, and evaluate financial choices.</p>
+                    <p class="font-bold text-white">Saving and financial planning</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Set goals, prepare for future expenses, and evaluate financial choices.</p>
                   </div>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="chart-no-axes-combined" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="chart-no-axes-combined" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Investing fundamentals</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Explore stocks, risk, returns, diversification, and long-term thinking.</p>
+                    <p class="font-bold text-white">Investing fundamentals</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Explore stocks, risk, returns, diversification, and long-term thinking.</p>
                   </div>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="lightbulb" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="lightbulb" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Entrepreneurship</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Explore business ideas, costs, revenue, and how businesses create value.</p>
+                    <p class="font-bold text-white">Entrepreneurship</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Explore business ideas, costs, revenue, and how businesses create value.</p>
                   </div>
                 </li>
               </ul>
 
-              <div class="mt-7 rounded-2xl bg-slate-50 p-5">
-                <p class="text-xs font-extrabold uppercase tracking-widest text-slate-500">The experience</p>
-                <p class="mt-2 text-sm leading-6 text-slate-600">
+              <div class="light-card mt-7 p-5">
+                <p class="mono-label text-xs text-slate-400">The experience</p>
+                <p class="body-copy mt-2 text-sm leading-6">
                   Interactive lessons, practical scenarios, guided activities,
                   and opportunities to apply concepts to everyday life.
                 </p>
               </div>
 
-              <a href="enroll.html"
-                 class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-navy px-5 py-3.5 font-bold text-white transition hover:bg-slate-800">
+              <a href="enroll.html" class="pixel-btn mt-7 w-full">
                 Explore Enrollment <i data-lucide="arrow-right" class="h-4 w-4"></i>
               </a>
             </div>
           </article>
 
           <!-- INVESTOR ACADEMY -->
-          <article class="program-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-soft reveal">
-            <div class="relative overflow-hidden bg-[#102D50] p-7 text-white sm:p-9">
+          <article class="program-card reveal">
+            <div class="relative overflow-hidden border-b border-slate-700 bg-[#102D50] p-7 text-white sm:p-9">
               <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-gold/20"></div>
               <div class="absolute -right-3 -top-3 h-32 w-32 rounded-full border border-gold/20"></div>
 
               <div class="relative flex items-start justify-between gap-4">
                 <div>
-                  <span class="inline-flex rounded-full border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-bold text-gold">
+                  <span class="inline-flex border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-bold text-gold">
                     ADVANCED PROGRAM
                   </span>
                   <h3 class="mt-5 text-3xl font-extrabold">Investor Academy</h3>
@@ -442,74 +724,73 @@
                     companies, interpret financial information, and build investment theses.
                   </p>
                 </div>
-                <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gold text-navy">
+                <div class="icon-tile h-14 w-14">
                   <i data-lucide="chart-no-axes-combined" class="h-7 w-7"></i>
                 </div>
               </div>
 
               <div class="relative mt-7 flex flex-wrap gap-2">
-                <span class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold">Grades 7+</span>
-                <span class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold">5 weeks</span>
-                <span class="rounded-full border border-white/15 px-3 py-1.5 text-xs font-semibold">10 live classes</span>
+                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">Grades 7+</span>
+                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">5 weeks</span>
+                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">10 live classes</span>
               </div>
             </div>
 
             <div class="p-7 sm:p-9">
-              <h4 class="text-lg font-extrabold text-navy">What you'll explore</h4>
+              <h4 class="text-lg font-extrabold text-white">What you'll explore</h4>
 
               <ul class="mt-5 space-y-4">
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="building-2" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="building-2" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Business and company analysis</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Examine business models, competitive advantages, and how companies make money.</p>
+                    <p class="font-bold text-white">Business and company analysis</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Examine business models, competitive advantages, and how companies make money.</p>
                   </div>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="file-chart-column" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="file-chart-column" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Financial statements and valuation</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Learn to interpret financial statements and consider what a company may be worth.</p>
+                    <p class="font-bold text-white">Financial statements and valuation</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Learn to interpret financial statements and consider what a company may be worth.</p>
                   </div>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="briefcase-business" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="briefcase-business" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Portfolio construction</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Explore diversification, portfolio decisions, investment risks, and market behavior.</p>
+                    <p class="font-bold text-white">Portfolio construction</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Explore diversification, portfolio decisions, investment risks, and market behavior.</p>
                   </div>
                 </li>
                 <li class="flex gap-3">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold-light text-navy"><i data-lucide="trophy" class="h-4 w-4"></i></span>
+                  <span class="icon-tile"><i data-lucide="trophy" class="h-4 w-4"></i></span>
                   <div>
-                    <p class="font-bold text-navy">Investment thesis competition</p>
-                    <p class="mt-1 text-sm leading-6 text-muted">Apply your learning by presenting a company analysis and defending your investment reasoning.</p>
+                    <p class="font-bold text-white">Investment thesis competition</p>
+                    <p class="body-copy mt-1 text-sm leading-6">Apply your learning by presenting a company analysis and defending your investment reasoning.</p>
                   </div>
                 </li>
               </ul>
 
               <div class="mt-7 grid grid-cols-2 gap-3">
-                <div class="rounded-2xl border border-slate-200 p-4">
+                <div class="light-card p-4">
                   <i data-lucide="calendar-days" class="h-5 w-5 text-gold"></i>
-                  <p class="mt-3 text-xl font-extrabold text-navy">5 Weeks</p>
-                  <p class="mt-1 text-xs leading-5 text-muted">Structured learning program</p>
+                  <p class="mt-3 text-xl font-extrabold text-white">5 Weeks</p>
+                  <p class="body-copy mt-1 text-xs leading-5">Structured learning program</p>
                 </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
+                <div class="light-card p-4">
                   <i data-lucide="chart-no-axes-combined" class="h-5 w-5 text-gold"></i>
-                  <p class="mt-3 text-xl font-extrabold text-navy">$100K Virtual</p>
-                  <p class="mt-1 text-xs leading-5 text-muted">Portfolio simulation</p>
+                  <p class="mt-3 text-xl font-extrabold text-white">$100K Virtual</p>
+                  <p class="body-copy mt-1 text-xs leading-5">Portfolio simulation</p>
                 </div>
               </div>
 
-              <a href="enroll.html"
-                 class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-navy px-5 py-3.5 font-bold text-white transition hover:bg-slate-800">
+              <a href="enroll.html" class="pixel-btn mt-7 w-full">
                 Explore Enrollment <i data-lucide="arrow-right" class="h-4 w-4"></i>
               </a>
             </div>
           </article>
         </div>
 
-        <p class="mt-6 text-center text-sm leading-6 text-muted">
+        <p class="body-copy mt-6 text-center text-sm leading-6">
           Program availability, eligibility, schedules, and enrollment details
           are provided through the enrollment page.
         </p>
@@ -518,55 +799,44 @@
 
     <!-- HOW WE TEACH -->
     <section class="px-5 py-20 sm:py-24 lg:px-8">
-      <div class="mx-auto max-w-7xl">
+      <div class="site-container">
         <div class="grid items-center gap-12 lg:grid-cols-[.85fr_1.15fr]">
           <div class="reveal">
-            <p class="text-xs font-extrabold uppercase tracking-[.18em] text-gold">Our approach</p>
-            <h2 class="mt-4 text-3xl font-extrabold leading-tight text-navy sm:text-4xl">
-              Learn it. Practice it. Put it to work.
-            </h2>
-            <p class="mt-5 leading-7 text-muted">
+            <p class="section-kicker">Our approach</p>
+            <h2 class="section-title mt-4">Learn it. Practice it. Put it to work.</h2>
+            <p class="body-copy mt-5 leading-7">
               Financial literacy becomes more meaningful when students can
               connect concepts to decisions. Our programs pair instruction
               with hands-on practice to build understanding and confidence.
             </p>
-            <a href="#curriculum"
-               class="mt-7 inline-flex items-center gap-2 font-bold text-navy hover:text-gold">
+            <a href="#curriculum" class="mt-7 inline-flex items-center gap-2 font-bold text-gold-bright hover:text-white">
               Explore the curriculum <i data-lucide="arrow-down-right" class="h-4 w-4"></i>
             </a>
           </div>
 
           <div class="grid gap-4 sm:grid-cols-2">
-            <div class="reveal rounded-2xl border border-slate-200 p-6">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-light text-navy">
-                <i data-lucide="book-open" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-5 text-lg font-extrabold text-navy">01. Learn</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Understand key concepts through structured lessons and guided discussion.</p>
+            <div class="pixel-panel reveal p-6">
+              <div class="icon-tile"><i data-lucide="book-open" class="h-5 w-5"></i></div>
+              <h3 class="mt-5 text-lg font-extrabold text-white">01. Learn</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Understand key concepts through structured lessons and guided discussion.</p>
             </div>
 
-            <div class="reveal rounded-2xl border border-slate-200 p-6">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-light text-navy">
-                <i data-lucide="gamepad-2" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-5 text-lg font-extrabold text-navy">02. Simulate</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Work through realistic scenarios and practice making informed decisions.</p>
+            <div class="pixel-panel reveal p-6">
+              <div class="icon-tile"><i data-lucide="gamepad-2" class="h-5 w-5"></i></div>
+              <h3 class="mt-5 text-lg font-extrabold text-white">02. Simulate</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Work through realistic scenarios and practice making informed decisions.</p>
             </div>
 
-            <div class="reveal rounded-2xl border border-slate-200 p-6">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-light text-navy">
-                <i data-lucide="search" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-5 text-lg font-extrabold text-navy">03. Analyze</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Compare alternatives, evaluate trade-offs, and explain your reasoning.</p>
+            <div class="pixel-panel reveal p-6">
+              <div class="icon-tile"><i data-lucide="search" class="h-5 w-5"></i></div>
+              <h3 class="mt-5 text-lg font-extrabold text-white">03. Analyze</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Compare alternatives, evaluate trade-offs, and explain your reasoning.</p>
             </div>
 
-            <div class="reveal rounded-2xl border border-slate-200 p-6">
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gold-light text-navy">
-                <i data-lucide="target" class="h-5 w-5"></i>
-              </div>
-              <h3 class="mt-5 text-lg font-extrabold text-navy">04. Apply</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Use your knowledge in projects, financial plans, and investment challenges.</p>
+            <div class="pixel-panel reveal p-6">
+              <div class="icon-tile"><i data-lucide="target" class="h-5 w-5"></i></div>
+              <h3 class="mt-5 text-lg font-extrabold text-white">04. Apply</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Use your knowledge in projects, financial plans, and investment challenges.</p>
             </div>
           </div>
         </div>
@@ -574,14 +844,12 @@
     </section>
 
     <!-- CURRICULUM -->
-    <section id="curriculum" class="scroll-mt-24 bg-canvas px-5 py-20 sm:py-24 lg:px-8">
-      <div class="mx-auto max-w-7xl">
+    <section id="curriculum" class="scroll-mt-24 bg-[#0A1A2D] px-5 py-20 sm:py-24 lg:px-8">
+      <div class="site-container">
         <div class="mx-auto max-w-2xl text-center reveal">
-          <p class="text-xs font-extrabold uppercase tracking-[.18em] text-gold">Inside the programs</p>
-          <h2 class="mt-4 text-3xl font-extrabold text-navy sm:text-4xl">
-            A structured path from concepts to application.
-          </h2>
-          <p class="mt-5 leading-7 text-muted">
+          <p class="section-kicker">Inside the programs</p>
+          <h2 class="section-title mt-4">A structured path from concepts to application.</h2>
+          <p class="body-copy mt-5 leading-7">
             Explore the main topics covered throughout each five-week program.
           </p>
         </div>
@@ -590,37 +858,37 @@
         <div class="mt-14 reveal">
           <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span class="text-xs font-extrabold uppercase tracking-widest text-gold">Program 01</span>
-              <h3 class="mt-2 text-2xl font-extrabold text-navy">Money Masters curriculum</h3>
+              <span class="section-kicker">Program 01</span>
+              <h3 class="mt-2 text-2xl font-extrabold text-white">Money Masters curriculum</h3>
             </div>
-            <span class="text-sm font-semibold text-muted">Foundational financial literacy</span>
+            <span class="body-copy text-sm font-semibold">Foundational financial literacy</span>
           </div>
 
           <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
-            <div class="week-card rounded-2xl border border-slate-200 bg-white p-5">
-              <span class="text-xs font-extrabold uppercase tracking-wider text-gold">Week 01</span>
-              <h4 class="mt-3 font-extrabold text-navy">Money Fundamentals</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">Money, earning, spending choices, needs, wants, and opportunity cost.</p>
+            <div class="week-card p-5">
+              <span class="mono-label text-xs text-gold">Week 01</span>
+              <h4 class="mt-3 font-extrabold text-white">Money Fundamentals</h4>
+              <p class="body-copy mt-2 text-sm leading-6">Money, earning, spending choices, needs, wants, and opportunity cost.</p>
             </div>
-            <div class="week-card rounded-2xl border border-slate-200 bg-white p-5">
-              <span class="text-xs font-extrabold uppercase tracking-wider text-gold">Week 02</span>
-              <h4 class="mt-3 font-extrabold text-navy">Budgeting and Saving</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">Budgets, financial goals, saving strategies, and planning ahead.</p>
+            <div class="week-card p-5">
+              <span class="mono-label text-xs text-gold">Week 02</span>
+              <h4 class="mt-3 font-extrabold text-white">Budgeting and Saving</h4>
+              <p class="body-copy mt-2 text-sm leading-6">Budgets, financial goals, saving strategies, and planning ahead.</p>
             </div>
-            <div class="week-card rounded-2xl border border-slate-200 bg-white p-5">
-              <span class="text-xs font-extrabold uppercase tracking-wider text-gold">Week 03</span>
-              <h4 class="mt-3 font-extrabold text-navy">Investing Basics</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">Stocks, risk and return, diversification, and compound growth.</p>
+            <div class="week-card p-5">
+              <span class="mono-label text-xs text-gold">Week 03</span>
+              <h4 class="mt-3 font-extrabold text-white">Investing Basics</h4>
+              <p class="body-copy mt-2 text-sm leading-6">Stocks, risk and return, diversification, and compound growth.</p>
             </div>
-            <div class="week-card rounded-2xl border border-slate-200 bg-white p-5">
-              <span class="text-xs font-extrabold uppercase tracking-wider text-gold">Week 04</span>
-              <h4 class="mt-3 font-extrabold text-navy">Entrepreneurship</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">Business ideas, customers, costs, revenue, and creating value.</p>
+            <div class="week-card p-5">
+              <span class="mono-label text-xs text-gold">Week 04</span>
+              <h4 class="mt-3 font-extrabold text-white">Entrepreneurship</h4>
+              <p class="body-copy mt-2 text-sm leading-6">Business ideas, customers, costs, revenue, and creating value.</p>
             </div>
-            <div class="week-card rounded-2xl border border-slate-200 bg-white p-5">
-              <span class="text-xs font-extrabold uppercase tracking-wider text-gold">Week 05</span>
-              <h4 class="mt-3 font-extrabold text-navy">Putting It Together</h4>
-              <p class="mt-2 text-sm leading-6 text-muted">Apply financial concepts to integrated scenarios and planning challenges.</p>
+            <div class="week-card p-5">
+              <span class="mono-label text-xs text-gold">Week 05</span>
+              <h4 class="mt-3 font-extrabold text-white">Putting It Together</h4>
+              <p class="body-copy mt-2 text-sm leading-6">Apply financial concepts to integrated scenarios and planning challenges.</p>
             </div>
           </div>
         </div>
@@ -629,75 +897,75 @@
         <div class="mt-16 reveal">
           <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span class="text-xs font-extrabold uppercase tracking-widest text-gold">Program 02</span>
-              <h3 class="mt-2 text-2xl font-extrabold text-navy">Investor Academy curriculum</h3>
+              <span class="section-kicker">Program 02</span>
+              <h3 class="mt-2 text-2xl font-extrabold text-white">Investor Academy curriculum</h3>
             </div>
-            <span class="text-sm font-semibold text-muted">10 classes · 5 weeks</span>
+            <span class="body-copy text-sm font-semibold">10 classes · 5 weeks</span>
           </div>
 
-          <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white">
+          <div class="overflow-hidden border border-slate-700 bg-[#0D2038]">
             <div class="grid gap-0 md:grid-cols-2">
-              <div class="border-b border-slate-200 p-6 md:border-r">
+              <div class="border-b border-slate-700 p-6 md:border-r">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-extrabold text-gold">01</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">01</span>
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Week 1 · Classes 1–2</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-navy">Markets and Business Models</h4>
+                    <p class="mono-label text-xs text-slate-400">Week 1 · Classes 1–2</p>
+                    <h4 class="mt-1 text-lg font-extrabold text-white">Markets and Business Models</h4>
                   </div>
                 </div>
-                <p class="mt-4 text-sm leading-6 text-muted">Explore financial markets, how businesses generate revenue, and the role of competitive advantage.</p>
+                <p class="body-copy mt-4 text-sm leading-6">Explore financial markets, how businesses generate revenue, and the role of competitive advantage.</p>
               </div>
 
-              <div class="border-b border-slate-200 p-6">
+              <div class="border-b border-slate-700 p-6">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-extrabold text-gold">02</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">02</span>
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Week 2 · Classes 3–4</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-navy">Financial Statements</h4>
+                    <p class="mono-label text-xs text-slate-400">Week 2 · Classes 3–4</p>
+                    <h4 class="mt-1 text-lg font-extrabold text-white">Financial Statements</h4>
                   </div>
                 </div>
-                <p class="mt-4 text-sm leading-6 text-muted">Read the income statement, balance sheet, and cash flow statement; examine important financial metrics.</p>
+                <p class="body-copy mt-4 text-sm leading-6">Read the income statement, balance sheet, and cash flow statement; examine important financial metrics.</p>
               </div>
 
-              <div class="border-b border-slate-200 p-6 md:border-r">
+              <div class="border-b border-slate-700 p-6 md:border-r">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-extrabold text-gold">03</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">03</span>
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Week 3 · Classes 5–6</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-navy">Valuation and Investor Thinking</h4>
+                    <p class="mono-label text-xs text-slate-400">Week 3 · Classes 5–6</p>
+                    <h4 class="mt-1 text-lg font-extrabold text-white">Valuation and Investor Thinking</h4>
                   </div>
                 </div>
-                <p class="mt-4 text-sm leading-6 text-muted">Explore valuation fundamentals, business quality, competitive moats, behavioral finance, and common investing mistakes.</p>
+                <p class="body-copy mt-4 text-sm leading-6">Explore valuation fundamentals, business quality, competitive moats, behavioral finance, and common investing mistakes.</p>
               </div>
 
-              <div class="border-b border-slate-200 p-6">
+              <div class="border-b border-slate-700 p-6">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-extrabold text-gold">04</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">04</span>
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Week 4 · Classes 7–8</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-navy">Portfolios and Investment Research</h4>
+                    <p class="mono-label text-xs text-slate-400">Week 4 · Classes 7–8</p>
+                    <h4 class="mt-1 text-lg font-extrabold text-white">Portfolios and Investment Research</h4>
                   </div>
                 </div>
-                <p class="mt-4 text-sm leading-6 text-muted">Build a virtual portfolio, research companies, evaluate risks, and develop a structured investment thesis.</p>
+                <p class="body-copy mt-4 text-sm leading-6">Build a virtual portfolio, research companies, evaluate risks, and develop a structured investment thesis.</p>
               </div>
 
-              <div class="p-6 md:border-r md:border-slate-200">
+              <div class="border-b border-slate-700 p-6 md:border-b-0 md:border-r">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold text-sm font-extrabold text-navy">05</span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center bg-gold text-sm font-extrabold text-[#081629]">05</span>
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-gold">Week 5 · Class 9</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-navy">Thesis Preparation</h4>
+                    <p class="mono-label text-xs text-gold">Week 5 · Class 9</p>
+                    <h4 class="mt-1 text-lg font-extrabold text-white">Thesis Preparation</h4>
                   </div>
                 </div>
-                <p class="mt-4 text-sm leading-6 text-muted">Refine company research, review financials, identify key risks, and prepare a persuasive investment presentation.</p>
+                <p class="body-copy mt-4 text-sm leading-6">Refine company research, review financials, identify key risks, and prepare a persuasive investment presentation.</p>
               </div>
 
-              <div class="bg-navy p-6 text-white">
+              <div class="bg-[#081629] p-6">
                 <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold text-navy"><i data-lucide="trophy" class="h-5 w-5"></i></span>
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center bg-gold text-[#081629]"><i data-lucide="trophy" class="h-5 w-5"></i></span>
                   <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-gold">Week 5 · Class 10</p>
-                    <h4 class="mt-1 text-lg font-extrabold">Investment Competition</h4>
+                    <p class="mono-label text-xs text-gold">Week 5 · Class 10</p>
+                    <h4 class="mt-1 text-lg font-extrabold text-white">Investment Competition</h4>
                   </div>
                 </div>
                 <p class="mt-4 text-sm leading-6 text-slate-300">Present a company thesis, discuss financials and risks, answer questions, participate in voting, and recognize outstanding work with awards.</p>
@@ -705,9 +973,9 @@
             </div>
           </div>
 
-          <div class="mt-5 flex items-start gap-3 rounded-xl border border-gold/30 bg-gold-light/50 p-4">
-            <i data-lucide="info" class="mt-0.5 h-5 w-5 shrink-0 text-navy"></i>
-            <p class="text-sm leading-6 text-slate-700">
+          <div class="mt-5 flex items-start gap-3 border border-gold/30 bg-[rgba(217,182,77,.07)] p-4">
+            <i data-lucide="info" class="mt-0.5 h-5 w-5 shrink-0 text-gold"></i>
+            <p class="text-sm leading-6 text-slate-300">
               The $100K portfolio is a virtual educational simulation, not real
               money or a promise of investment returns. Activities are designed
               to teach research, risk awareness, and analytical thinking.
@@ -719,14 +987,12 @@
 
     <!-- OUTCOMES -->
     <section class="px-5 py-20 sm:py-24 lg:px-8">
-      <div class="mx-auto max-w-7xl">
+      <div class="site-container">
         <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div class="reveal">
-            <p class="text-xs font-extrabold uppercase tracking-[.18em] text-gold">What students gain</p>
-            <h2 class="mt-4 text-3xl font-extrabold text-navy sm:text-4xl">
-              Skills that extend beyond the classroom.
-            </h2>
-            <p class="mt-5 leading-7 text-muted">
+            <p class="section-kicker">What students gain</p>
+            <h2 class="section-title mt-4">Skills that extend beyond the classroom.</h2>
+            <p class="body-copy mt-5 leading-7">
               Our goal is to help students develop the knowledge and judgment
               to approach financial decisions thoughtfully, ask better
               questions, and understand the world around them.
@@ -734,25 +1000,25 @@
           </div>
 
           <div class="grid gap-4 sm:grid-cols-2">
-            <div class="reveal rounded-2xl bg-canvas p-5">
+            <div class="pixel-panel reveal p-5">
               <i data-lucide="wallet" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-navy">Financial confidence</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Understand essential financial concepts and everyday decisions.</p>
+              <h3 class="mt-4 font-extrabold text-white">Financial confidence</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Understand essential financial concepts and everyday decisions.</p>
             </div>
-            <div class="reveal rounded-2xl bg-canvas p-5">
+            <div class="pixel-panel reveal p-5">
               <i data-lucide="brain" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-navy">Critical thinking</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Evaluate alternatives, identify trade-offs, and explain decisions.</p>
+              <h3 class="mt-4 font-extrabold text-white">Critical thinking</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Evaluate alternatives, identify trade-offs, and explain decisions.</p>
             </div>
-            <div class="reveal rounded-2xl bg-canvas p-5">
+            <div class="pixel-panel reveal p-5">
               <i data-lucide="chart-no-axes-combined" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-navy">Analytical skills</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Interpret financial information and examine business opportunities.</p>
+              <h3 class="mt-4 font-extrabold text-white">Analytical skills</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Interpret financial information and examine business opportunities.</p>
             </div>
-            <div class="reveal rounded-2xl bg-canvas p-5">
+            <div class="pixel-panel reveal p-5">
               <i data-lucide="presentation" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-navy">Communication</h3>
-              <p class="mt-2 text-sm leading-6 text-muted">Present ideas clearly and support conclusions with evidence.</p>
+              <h3 class="mt-4 font-extrabold text-white">Communication</h3>
+              <p class="body-copy mt-2 text-sm leading-6">Present ideas clearly and support conclusions with evidence.</p>
             </div>
           </div>
         </div>
@@ -761,30 +1027,28 @@
 
     <!-- CTA -->
     <section class="px-5 pb-20 lg:px-8 lg:pb-24">
-      <div class="relative mx-auto max-w-7xl overflow-hidden rounded-3xl bg-navy px-6 py-14 text-center text-white sm:px-12 sm:py-16">
-        <div class="hero-grid absolute inset-0 opacity-40"></div>
+      <div class="relative mx-auto max-w-7xl overflow-hidden border border-slate-700 bg-[#0D2038] px-6 py-14 text-center text-white sm:px-12 sm:py-16">
+        <div class="hero-grid absolute inset-0 opacity-30"></div>
         <div class="absolute -right-16 -top-20 h-64 w-64 rounded-full border border-white/10"></div>
         <div class="absolute -left-20 -bottom-24 h-64 w-64 rounded-full border border-white/10"></div>
 
         <div class="relative mx-auto max-w-2xl">
-          <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-gold">
+          <span class="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-gold">
             Your next step starts here
           </span>
           <h2 class="mt-6 text-3xl font-extrabold sm:text-4xl">
             Make your next decision an informed one.
           </h2>
-          <p class="mt-5 leading-7 text-slate-300">
+          <p class="body-copy mt-5 leading-7">
             Start building practical skills in financial literacy, investing,
             and business analysis with Next-Gen Knowledge.
           </p>
 
-          <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <a href="enroll.html"
-               class="inline-flex items-center justify-center gap-2 rounded-xl bg-gold px-6 py-3.5 font-bold text-navy transition hover:bg-yellow-300">
+          <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="enroll.html" class="pixel-btn">
               Get Started <i data-lucide="arrow-right" class="h-4 w-4"></i>
             </a>
-            <a href="about.html"
-               class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-6 py-3.5 font-bold text-white transition hover:bg-white/10">
+            <a href="about.html" class="pixel-btn secondary">
               About Our Mission
             </a>
           </div>
@@ -794,59 +1058,54 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto max-w-7xl px-5 py-12 lg:px-8">
+  <footer class="site-footer">
+    <div class="site-container py-12">
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div class="sm:col-span-2">
-          <a href="index.html" class="inline-flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" class="h-11 w-11 rounded-xl object-contain" />
-            <div class="leading-tight">
-              <span class="block font-heading text-lg font-extrabold text-navy">Next-Gen</span>
-              <span class="block text-xs font-semibold tracking-wider text-slate-500">KNOWLEDGE</span>
-            </div>
+          <a href="index.html" class="brand">
+            <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" />
+            <span class="brand-name">
+              Next-Gen
+              <small>KNOWLEDGE</small>
+            </span>
           </a>
-          <p class="mt-5 max-w-sm text-sm leading-7 text-muted">
+          <p class="body-copy mt-5 max-w-sm text-sm leading-7">
             A student-led financial literacy nonprofit working to make
             real-world education accessible to the next generation.
           </p>
         </div>
 
         <div>
-          <h3 class="font-extrabold text-navy">Explore</h3>
-          <div class="mt-4 flex flex-col gap-3 text-sm text-muted">
-            <a href="about.html" class="transition hover:text-gold">About Us</a>
-            <a href="programs.html" class="font-bold text-navy">Programs</a>
-            <a href="team.html" class="transition hover:text-gold">Our Team</a>
-            <a href="partnerships.html" class="transition hover:text-gold">Partnerships</a>
-            <a href="trivia.html" class="transition hover:text-gold">Trivia Arena</a>
+          <h3 class="font-extrabold text-white">Explore</h3>
+          <div class="mt-4 flex flex-col gap-3 text-sm">
+            <a href="fin-city.html" class="footer-link">Fin City</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="programs.html" class="font-bold text-gold-bright">Programs</a>
+            <a href="team.html" class="footer-link">Our Team</a>
+            <a href="partnerships.html" class="footer-link">Partnerships</a>
           </div>
         </div>
 
         <div>
-          <h3 class="font-extrabold text-navy">Connect</h3>
-          <div class="mt-4 flex flex-col gap-3 text-sm text-muted">
-            <a href="https://www.instagram.com/nextgen.knowledge/"
-               target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 transition hover:text-gold">
+          <h3 class="font-extrabold text-white">Connect</h3>
+          <div class="mt-4 flex flex-col gap-3 text-sm">
+            <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer" class="footer-link inline-flex items-center gap-2">
               <i data-lucide="instagram" class="h-4 w-4"></i> Instagram
             </a>
-            <a href="https://www.linkedin.com/"
-               target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 transition hover:text-gold">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-link inline-flex items-center gap-2">
               <i data-lucide="linkedin" class="h-4 w-4"></i> LinkedIn
             </a>
-            <a href="mailto:nextgenknowledge@gmail.com"
-               class="inline-flex items-center gap-2 transition hover:text-gold">
+            <a href="mailto:nextgenknowledge@gmail.com" class="footer-link inline-flex items-center gap-2">
               <i data-lucide="mail" class="h-4 w-4"></i> Email Us
             </a>
-            <a href="donate.html" class="inline-flex items-center gap-2 transition hover:text-gold">
+            <a href="donate.html" class="footer-link inline-flex items-center gap-2">
               <i data-lucide="heart-handshake" class="h-4 w-4"></i> Support Our Mission
             </a>
           </div>
         </div>
       </div>
 
-      <div class="mt-10 flex flex-col gap-4 border-t border-slate-100 pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <div class="mt-10 flex flex-col gap-4 border-t border-slate-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p class="text-xs leading-5 text-slate-500">
           © <span id="current-year"></span> Next-Gen Knowledge. All rights reserved.
         </p>
@@ -872,17 +1131,17 @@
         isExpanded ? "Open navigation menu" : "Close navigation menu"
       );
 
-      mobileMenu.classList.toggle("hidden", isExpanded);
+      mobileMenu.classList.toggle("open", !isExpanded);
 
       const icon = menuButton.querySelector("i");
       icon.setAttribute("data-lucide", isExpanded ? "menu" : "x");
       lucide.createIcons();
     });
 
-    // Close the menu after a navigation link is selected
+    // Close the mobile menu when a link is selected
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("open");
         menuButton.setAttribute("aria-expanded", "false");
         menuButton.setAttribute("aria-label", "Open navigation menu");
 
@@ -913,7 +1172,7 @@
       revealElements.forEach((element) => element.classList.add("visible"));
     }
 
-    // Initialize icons
+    // Initialize Lucide icons
     lucide.createIcons();
 
     // Automatically update copyright year
