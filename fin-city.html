@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#071a32">
-  <title>Fin City — Coming Soon | Next-Gen Knowledge</title>
-  <meta name="description" content="Fin City is coming soon: an interactive financial-literacy game by Next-Gen Knowledge.">
+  <title>Fin City — Coming Soon | NextGen Knowledge</title>
+  <meta name="description" content="Discover Fin City, an interactive financial-literacy game created by NextGen Knowledge. Learn about money, banking, budgeting, and investing through play.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -85,9 +84,13 @@
       background: rgba(44,116,180,.12);
     }
 
-    .nav {
+    .nav, .hero, .bottom {
       width: min(1180px, calc(100% - 48px));
-      margin: auto;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .nav {
       height: 86px;
       display: flex;
       align-items: center;
@@ -107,6 +110,7 @@
     .brand-mark {
       width: 42px;
       height: 42px;
+      flex-shrink: 0;
       border-radius: 13px;
       display: grid;
       place-items: center;
@@ -126,6 +130,9 @@
     }
 
     .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       font-size: 13px;
       color: #c7d0dd;
       transition: color .2s;
@@ -134,8 +141,6 @@
     .nav-link:hover { color: var(--gold-light); }
 
     .hero {
-      width: min(1180px, calc(100% - 48px));
-      margin: auto;
       min-height: calc(100vh - 150px);
       display: grid;
       grid-template-columns: 1fr 1.02fr;
@@ -143,6 +148,8 @@
       gap: 48px;
       padding: 54px 0 70px;
     }
+
+    .copy { min-width: 0; }
 
     .eyebrow {
       display: inline-flex;
@@ -162,18 +169,29 @@
     .pulse {
       width: 7px;
       height: 7px;
+      flex-shrink: 0;
       border-radius: 50%;
       background: var(--gold);
       box-shadow: 0 0 0 5px rgba(201,162,39,.12);
       animation: pulse 2s infinite;
     }
 
+    .hero-logo {
+      display: block;
+      width: min(100%, 390px);
+      max-height: 180px;
+      object-fit: contain;
+      object-position: left center;
+      margin: 27px 0 18px;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.16));
+    }
+
     h1 {
-      margin: 25px 0 0;
+      margin: 0;
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(54px,6.5vw,88px);
-      line-height: .99;
-      letter-spacing: -5px;
+      font-size: clamp(48px,5.5vw,72px);
+      line-height: 1.02;
+      letter-spacing: -3.5px;
       font-weight: 700;
     }
 
@@ -185,18 +203,20 @@
 
     .lead {
       max-width: 500px;
-      margin: 24px 0 0;
+      margin: 23px 0 0;
       color: #bac6d5;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.85;
     }
+
+    .lead strong { color: #fff; }
 
     .actions {
       display: flex;
       align-items: center;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 31px;
+      margin-top: 29px;
     }
 
     .button {
@@ -234,6 +254,7 @@
       margin-top: 19px;
       color: #7f91a8;
       font-size: 11px;
+      line-height: 1.7;
     }
 
     .micro strong { color: #c3cedb; }
@@ -262,6 +283,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
       padding: 21px 23px;
       border-bottom: 1px solid rgba(255,255,255,.09);
     }
@@ -285,6 +307,7 @@
       display: flex;
       align-items: center;
       gap: 7px;
+      flex-shrink: 0;
       border: 1px solid rgba(255,255,255,.11);
       border-radius: 99px;
       padding: 8px 10px;
@@ -292,6 +315,12 @@
       font-size: 9px;
       letter-spacing: 1px;
       text-transform: uppercase;
+    }
+
+    .live-chip .pulse {
+      width: 6px;
+      height: 6px;
+      box-shadow: 0 0 0 4px rgba(201,162,39,.1);
     }
 
     .city {
@@ -336,7 +365,7 @@
       border-right: 1px solid #c9a22755;
     }
 
-    .road:after {
+    .road::after {
       content: "";
       position: absolute;
       left: 50%;
@@ -352,7 +381,7 @@
       box-shadow: inset 0 0 30px rgba(0,0,0,.16);
     }
 
-    .building:before {
+    .building::before {
       content: "";
       position: absolute;
       left: 0;
@@ -381,7 +410,12 @@
 
     .b1 { left: 7%; width: 19%; height: 119px; }
     .b2 { left: 29%; width: 18%; height: 166px; }
-    .b3 { right: 27%; width: 20%; height: 213px; background: linear-gradient(135deg,#2a628b,#123455); }
+    .b3 {
+      right: 27%;
+      width: 20%;
+      height: 213px;
+      background: linear-gradient(135deg,#2a628b,#123455);
+    }
     .b4 { right: 5%; width: 19%; height: 137px; }
 
     .building-label {
@@ -420,6 +454,7 @@
       height: 32px;
       display: grid;
       place-items: center;
+      flex-shrink: 0;
       border-radius: 9px;
       background: rgba(201,162,39,.13);
       color: var(--gold-light);
@@ -446,6 +481,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
       padding: 13px 15px;
       border: 1px solid rgba(255,255,255,.13);
       border-radius: 13px;
@@ -475,18 +511,119 @@
       font-size: 8px;
       font-weight: 700;
       letter-spacing: 1.4px;
+      white-space: nowrap;
     }
 
     .card-foot {
       padding: 13px 20px;
       color: #8295ac;
       font-size: 10px;
+      line-height: 1.7;
       text-align: center;
     }
 
+    .details {
+      width: min(1000px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 5px 0 75px;
+    }
+
+    .details-heading {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .section-label {
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .details h2 {
+      margin: 12px 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(28px,4vw,42px);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    .details-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      padding: 23px 21px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 17px;
+      background: linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border: 1px solid rgba(201,162,39,.23);
+      border-radius: 12px;
+      background: rgba(201,162,39,.09);
+      color: var(--gold-light);
+    }
+
+    .feature h3 {
+      margin: 0 0 9px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 16px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #9eafc3;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .closing {
+      width: min(1000px, calc(100% - 48px));
+      margin: 0 auto 65px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border: 1px solid rgba(201,162,39,.25);
+      border-radius: 20px;
+      background: linear-gradient(110deg,rgba(201,162,39,.09),rgba(255,255,255,.025));
+    }
+
+    .closing h2 {
+      margin: 0 0 7px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 22px;
+    }
+
+    .closing p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .closing .button { flex-shrink: 0; }
+
     .bottom {
-      width: min(1180px,calc(100% - 48px));
-      margin: auto;
       padding: 20px 0 25px;
       border-top: 1px solid rgba(255,255,255,.09);
       display: flex;
@@ -494,7 +631,7 @@
       gap: 16px;
       color: #7f91a8;
       font-size: 10px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .bottom strong { color: #b9c5d3; }
@@ -512,6 +649,8 @@
     .copy > *:nth-child(2) { animation-delay: .08s; }
     .copy > *:nth-child(3) { animation-delay: .16s; }
     .copy > *:nth-child(4) { animation-delay: .24s; }
+    .copy > *:nth-child(5) { animation-delay: .32s; }
+    .copy > *:nth-child(6) { animation-delay: .4s; }
 
     @media (max-width: 900px) {
       .hero {
@@ -520,38 +659,66 @@
         padding-top: 55px;
         max-width: 720px;
       }
+
       .copy { text-align: center; }
+      .hero-logo { margin-left: auto; margin-right: auto; object-position: center; }
       .lead { margin-left: auto; margin-right: auto; }
       .actions { justify-content: center; }
       .visual { width: 100%; max-width: 620px; margin: auto; }
       .tag-top { left: -2%; }
       .tag-bottom { right: -2%; }
       h1 { letter-spacing: -3px; }
+      .details { padding-top: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature { padding: 20px; }
+      .feature-icon { margin-bottom: 13px; }
+      .closing { flex-direction: column; align-items: flex-start; padding: 24px; }
     }
 
     @media (max-width: 520px) {
       .nav, .hero, .bottom { width: calc(100% - 32px); }
       .nav { height: 72px; }
       .brand-mark { width: 38px; height: 38px; }
-      .brand { font-size: 13px; }
-      .brand small { font-size: 8px; letter-spacing: 1.4px; }
+      .brand { font-size: 12px; gap: 9px; }
+      .brand small { font-size: 7px; letter-spacing: 1.2px; }
       .nav-link { font-size: 11px; }
       .hero { padding-top: 42px; padding-bottom: 42px; gap: 43px; }
-      h1 { font-size: 54px; letter-spacing: -3px; }
+      .eyebrow { font-size: 8px; letter-spacing: 1.4px; }
+      .hero-logo { max-height: 135px; margin-top: 24px; margin-bottom: 22px; }
+      h1 { font-size: 47px; letter-spacing: -2.5px; }
       .lead { font-size: 14px; line-height: 1.8; }
+      .actions { gap: 10px; }
+      .button { padding: 12px 14px; font-size: 12px; }
       .city-card { min-height: 410px; border-radius: 20px; }
       .card-top { padding: 16px; }
+      .card-title { font-size: 15px; }
+      .card-kicker { font-size: 8px; letter-spacing: 1.2px; }
+      .live-chip { padding: 7px 8px; font-size: 7px; letter-spacing: .5px; }
       .city { height: 300px; }
       .b1 { left: 4%; width: 21%; }
       .b2 { left: 28%; width: 19%; }
       .b3 { right: 26%; width: 21%; }
       .b4 { right: 3%; width: 21%; }
+      .windows { gap: 6px; padding: 12px 7px; }
+      .windows span { height: 14px; }
       .floating-tag { padding: 8px; gap: 7px; }
       .tag-icon { width: 27px; height: 27px; }
       .floating-tag b { font-size: 9px; }
       .floating-tag small { font-size: 7px; }
       .tag-top { top: 18%; left: -2%; }
       .tag-bottom { right: -2%; bottom: 20%; }
+      .balance { left: 9px; right: 9px; bottom: 10px; padding: 10px; }
+      .balance strong { font-size: 17px; }
+      .preview { font-size: 7px; letter-spacing: .7px; padding: 6px 7px; }
+      .card-foot { padding: 12px 15px; font-size: 9px; }
+      .details, .closing { width: calc(100% - 32px); }
+      .details { padding-bottom: 48px; }
+      .details h2 { letter-spacing: -1px; }
+      .closing { margin-bottom: 45px; }
+      .closing h2 { font-size: 20px; }
       .bottom { flex-direction: column; gap: 7px; }
     }
 
@@ -567,112 +734,247 @@
 
 <body>
 <div class="page">
-  <div class="grid"></div>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="orb one" aria-hidden="true"></div>
+  <div class="orb two" aria-hidden="true"></div>
 
   <header class="nav">
-    <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
-      <span class="brand-mark"><i data-lucide="landmark" style="width:22px;height:22px"></i></span>
-      <span>Next-Gen Knowledge<small>Learn today. Lead tomorrow.</small></span>
+    <a href="index.html" class="brand" aria-label="NextGen Knowledge home">
+      <span class="brand-mark">
+        <i data-lucide="landmark" style="width:22px;height:22px"></i>
+      </span>
+      <span>NextGen Knowledge<small>Learn today. Lead tomorrow.</small></span>
     </a>
+
     <a href="index.html" class="nav-link">
-      <i data-lucide="arrow-left" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:5px"></i>
+      <i data-lucide="arrow-left" style="width:14px;height:14px"></i>
       Back to website
     </a>
   </header>
 
-  <main class="hero">
-    <section class="copy">
-      <div class="eyebrow"><span class="pulse"></span> Something big is taking shape</div>
-      <h1>The future of<br>financial learning<span class="gold">is a city.</span></h1>
-      <p class="lead">
-        Meet <strong style="color:#fff">Fin City</strong> — an interactive virtual world where money skills come to life. Explore the city, make choices, and discover the fundamentals of personal finance and investing through play.
-      </p>
-      <div class="actions">
-        <span class="button primary"><i data-lucide="sparkles" style="width:17px;height:17px"></i> Coming Soon</span>
-        <a href="#preview" class="button secondary">Get a preview <i data-lucide="arrow-down-right" style="width:16px;height:16px"></i></a>
+  <main>
+    <section class="hero">
+      <div class="copy">
+        <div class="eyebrow">
+          <span class="pulse"></span>
+          The next level of learning
+        </div>
+
+        <img
+          class="hero-logo"
+          src="Fin-City%20Pixel%20Skyline%20Logo.png"
+          alt="Fin City pixel skyline logo"
+          fetchpriority="high"
+        >
+
+        <h1>The future of financial learning <span class="gold">is a city.</span></h1>
+
+        <p class="lead">
+          Meet <strong>Fin City</strong> — an interactive virtual world created by
+          <strong>NextGen Knowledge</strong>, where money skills come to life.
+          Explore a city, make financial decisions, and learn the fundamentals
+          of personal finance and investing through play.
+        </p>
+
+        <div class="actions">
+          <span class="button primary">
+            <i data-lucide="sparkles" style="width:17px;height:17px"></i>
+            Coming Soon
+          </span>
+
+          <a href="#preview" class="button secondary">
+            Explore the preview
+            <i data-lucide="arrow-down-right" style="width:16px;height:16px"></i>
+          </a>
+        </div>
+
+        <p class="micro">
+          A NextGen Knowledge project · <strong>Real-world skills. Interactive learning.</strong>
+        </p>
       </div>
-      <p class="micro">A new project from <strong>Next-Gen Knowledge</strong> · Built for curious minds.</p>
+
+      <section class="visual" id="preview" aria-label="Fin City concept preview">
+        <div class="visual-glow" aria-hidden="true"></div>
+
+        <div class="floating-tag tag-top">
+          <span class="tag-icon">
+            <i data-lucide="wallet" style="width:17px;height:17px"></i>
+          </span>
+          <span>
+            <small>Your journey</small>
+            <b>Start with $100</b>
+          </span>
+        </div>
+
+        <div class="floating-tag tag-bottom">
+          <span class="tag-icon">
+            <i data-lucide="trending-up" style="width:17px;height:17px"></i>
+          </span>
+          <span>
+            <small>Build your skills</small>
+            <b>Learn by doing</b>
+          </span>
+        </div>
+
+        <div class="city-card">
+          <div class="card-top">
+            <div>
+              <div class="card-kicker">Your world. Your choices.</div>
+              <div class="card-title">Welcome to Fin City</div>
+            </div>
+            <span class="live-chip">
+              <span class="pulse"></span>
+              In development
+            </span>
+          </div>
+
+          <div class="city">
+            <div class="stars" aria-hidden="true"></div>
+            <div class="moon" aria-hidden="true"></div>
+
+            <div class="building b1">
+              <span class="building-label">Bank</span>
+              <div class="windows">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="building b2">
+              <span class="building-label">Marketplace</span>
+              <div class="windows">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="building b3">
+              <span class="building-label">Investments</span>
+              <div class="windows">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span>
+              </div>
+            </div>
+
+            <div class="building b4">
+              <span class="building-label">Your future</span>
+              <div class="windows">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="road" aria-hidden="true"></div>
+
+            <div class="balance">
+              <div>
+                <small>Starting balance</small>
+                <strong>$100.00</strong>
+              </div>
+              <span class="preview">CONCEPT PREVIEW</span>
+            </div>
+          </div>
+
+          <div class="card-foot">
+            A glimpse of the world we're building. More details coming soon.
+          </div>
+        </div>
+      </section>
     </section>
 
-    <section class="visual" id="preview" aria-label="Fin City concept preview">
-      <div class="visual-glow"></div>
-      <div class="floating-tag tag-top">
-        <span class="tag-icon"><i data-lucide="wallet" style="width:17px;height:17px"></i></span>
-        <span><small>Your journey</small><b>Start with $100</b></span>
+    <section class="details" aria-labelledby="features-heading">
+      <div class="details-heading">
+        <span class="section-label">More than a game</span>
+        <h2 id="features-heading">Learn money skills by experiencing them.</h2>
+        <p>
+          Fin City is designed to make financial concepts more engaging by
+          giving learners a virtual world in which to explore, practice, and
+          make decisions.
+        </p>
       </div>
-      <div class="floating-tag tag-bottom">
-        <span class="tag-icon"><i data-lucide="trending-up" style="width:17px;height:17px"></i></span>
-        <span><small>Build your skills</small><b>Learn by doing</b></span>
+
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-icon">
+            <i data-lucide="landmark" style="width:21px;height:21px"></i>
+          </div>
+          <h3>Explore the city</h3>
+          <p>
+            Discover virtual locations inspired by real-world financial
+            institutions and everyday money decisions.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">
+            <i data-lucide="wallet" style="width:21px;height:21px"></i>
+          </div>
+          <h3>Make financial choices</h3>
+          <p>
+            Practice managing virtual money and learn how financial decisions
+            can affect your goals.
+          </p>
+        </article>
+
+        <article class="feature">
+          <div class="feature-icon">
+            <i data-lucide="chart-no-axes-combined" style="width:21px;height:21px"></i>
+          </div>
+          <h3>Discover investing</h3>
+          <p>
+            Build familiarity with investing concepts through interactive
+            activities designed for learning.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing" aria-label="Fin City launch announcement">
+      <div>
+        <h2>A new way to learn is on the horizon.</h2>
+        <p>
+          Fin City is an upcoming project from NextGen Knowledge.
+          Stay tuned as development continues.
+        </p>
       </div>
 
-      <div class="city-card">
-        <div class="card-top">
-          <div>
-            <div class="card-kicker">Your world. Your choices.</div>
-            <div class="card-title">Welcome to Fin City</div>
-          </div>
-          <span class="live-chip"><span class="pulse"></span> In development</span>
-        </div>
-
-        <div class="city">
-          <div class="stars"></div>
-          <div class="moon"></div>
-
-          <div class="building b1">
-            <span class="building-label">Bank</span>
-            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-
-          <div class="building b2">
-            <span class="building-label">Marketplace</span>
-            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-
-          <div class="building b3">
-            <span class="building-label">Investments</span>
-            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-
-          <div class="building b4">
-            <span class="building-label">Your future</span>
-            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-          </div>
-
-          <div class="road"></div>
-
-          <div class="balance">
-            <div><small>Starting balance</small><strong>$100.00</strong></div>
-            <span class="preview">CONCEPT PREVIEW</span>
-          </div>
-        </div>
-
-        <div class="card-foot">A first look at the world we're building. More details coming soon.</div>
-      </div>
+      <a href="index.html" class="button secondary">
+        Discover NextGen Knowledge
+        <i data-lucide="arrow-up-right" style="width:16px;height:16px"></i>
+      </a>
     </section>
   </main>
 
   <footer class="bottom">
-    <span>© <span id="year"></span> <strong>Next-Gen Knowledge</strong>. All rights reserved.</span>
-    <span>Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</span>
+    <span>
+      © <span id="year"></span> <strong>NextGen Knowledge</strong>. All rights reserved.
+    </span>
+    <span>
+      NextGen Knowledge is a fiscally sponsored project of the Hack Club Foundation,
+      a 501(c)(3) nonprofit.
+    </span>
   </footer>
 </div>
 
 <script>
-  if (window.lucide) lucide.createIcons();
-  document.getElementById('year').textContent = new Date().getFullYear();
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
 
   /*
     WHEN FIN CITY LAUNCHES:
-    Replace the Coming Soon <span> above with this link after the game is deployed
-    and play.nextgenknowledge.org has been configured:
+    Replace the Coming Soon <span> in the hero with this link once the game
+    is deployed and play.nextgenknowledge.org has been configured.
 
     <a class="button primary"
        href="https://play.nextgenknowledge.org"
        target="_blank"
        rel="noopener noreferrer">
-      <i data-lucide="gamepad-2"></i> Play Fin City
+      <i data-lucide="gamepad-2"></i>
+      Play Fin City
       <i data-lucide="external-link"></i>
     </a>
   */
