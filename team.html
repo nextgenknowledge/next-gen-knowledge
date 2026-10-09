@@ -1,186 +1,678 @@
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Team | Next-Gen Knowledge</title>
-  <meta name="description" content="Meet the student team behind Next-Gen Knowledge.">
+  <meta name="theme-color" content="#081629">
 
+  <title>Our Team | Next-Gen Knowledge</title>
+  <meta name="description" content="Meet the student team behind Next-Gen Knowledge, making financial literacy and real-world education accessible to the next generation.">
+
+  <link rel="icon" href="IMG_1383.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
     gtag('js', new Date());
     gtag('config', 'G-FXJKCLQMSN');
   </script>
 
   <style>
     :root {
+      --bg: #081629;
+      --bg-deep: #050D19;
+      --panel: #0D2038;
+      --panel-light: #142C49;
+      --panel-hover: #193653;
       --navy: #0A2342;
-      --navy-light: #14355B;
-      --gold: #C9A227;
-      --gold-light: #DFB73C;
-      --surface: #F7F9FC;
+      --gold: #D9B64D;
+      --gold-bright: #F1D778;
+      --gold-dark: #9C7B25;
+      --text: #F3F5FA;
+      --muted: #9DADC2;
+      --line: #263C57;
+      --blue: #84B7FF;
+      --pixel-font: "Press Start 2P", monospace;
+      --body-font: "DM Sans", sans-serif;
+      --mono-font: "DM Mono", monospace;
+      --max: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
 
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: var(--navy);
-      background: white;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(20, 44, 73, .38), transparent 55%),
+        var(--bg);
+      font-family: var(--body-font);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .16;
+      background-image: radial-gradient(var(--line) .8px, transparent .8px);
+      background-size: 18px 18px;
     }
 
     ::selection {
-      background: rgba(201,162,39,.25);
-      color: var(--navy);
+      background: rgba(217, 182, 77, .35);
+      color: white;
     }
 
-    .nav-link {
-      color: #4B5563;
-      transition: color .2s, background .2s;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .nav-link:hover,
-    .nav-link.current {
-      color: var(--navy);
-      background: #F3F5F8;
+    button {
+      font: inherit;
     }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(217, 182, 77, .42);
+      border-radius: 3px;
+      background: rgba(217, 182, 77, .08);
+      color: var(--gold-bright);
+      font-family: var(--mono-font);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      background: var(--gold-bright);
+      box-shadow: 0 0 10px rgba(241, 215, 120, .55);
+    }
+
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.045em;
+    }
+
+    .section-description {
+      max-width: 650px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+      text-align: center;
+    }
+
+    .section-line {
+      width: 48px;
+      height: 4px;
+      margin: 18px auto 0;
+      background: var(--gold);
+      box-shadow: 4px 4px 0 rgba(217, 182, 77, .16);
+    }
+
+    /* NAVIGATION */
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 13, 25, .96);
+      border-bottom: 2px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+      border: 1px solid #40536A;
+      border-radius: 3px;
+      background: white;
+    }
+
+    .brand-name {
+      color: white;
+      font-size: .95rem;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -.035em;
+    }
+
+    .brand-name small {
+      display: block;
+      margin-top: 5px;
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: .58rem;
+      font-weight: 400;
+      letter-spacing: .04em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-links > a:not(.btn) {
+      padding: 8px 0;
+      color: #B7C4D5;
+      font-size: .78rem;
+      font-weight: 700;
+      transition: color .2s;
+      white-space: nowrap;
+    }
+
+    .nav-links > a:not(.btn):hover,
+    .nav-links > a.current {
+      color: var(--gold-bright);
+    }
+
+    .nav-links .fin-city-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 10px;
+      border: 1px solid rgba(217, 182, 77, .42);
+      border-radius: 3px;
+      background: rgba(217, 182, 77, .08);
+      color: var(--gold-bright) !important;
+      font-family: var(--mono-font);
+      font-size: .69rem !important;
+    }
+
+    .nav-links .fin-city-link:hover {
+      background: rgba(217, 182, 77, .16);
+    }
+
+    .nav-links .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 8px 12px;
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      background: var(--gold);
+      color: var(--bg-deep);
+      font-size: .78rem;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background .2s, transform .2s;
+    }
+
+    .nav-links .btn:hover {
+      transform: translateY(-2px);
+      background: var(--gold-bright);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--panel);
+      color: var(--gold-bright);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 0 18px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu-inner {
+      display: grid;
+      gap: 5px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-menu a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 12px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      color: #C0CBD9;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .mobile-menu a:hover,
+    .mobile-menu a.current {
+      border-color: var(--line);
+      background: var(--panel);
+      color: var(--gold-bright);
+    }
+
+    .mobile-menu .mobile-fin-city {
+      border-color: rgba(217, 182, 77, .35);
+      background: rgba(217, 182, 77, .07);
+      color: var(--gold-bright);
+    }
+
+    .mobile-menu .mobile-enroll {
+      justify-content: center;
+      margin-top: 5px;
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--bg-deep);
+    }
+
+    /* HERO */
 
     .hero {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
+      padding: 86px 20px 74px;
+      border-bottom: 1px solid var(--line);
       background:
-        radial-gradient(circle at 12% 20%, rgba(201,162,39,.12), transparent 28%),
-        radial-gradient(circle at 90% 25%, rgba(10,35,66,.08), transparent 30%),
-        linear-gradient(180deg, #F7F9FC, #FFFFFF);
+        radial-gradient(ellipse at 14% 25%, rgba(217, 182, 77, .10), transparent 34%),
+        radial-gradient(ellipse at 88% 35%, rgba(65, 117, 172, .12), transparent 35%),
+        linear-gradient(180deg, rgba(13, 32, 56, .72), rgba(8, 22, 41, .12));
+      text-align: center;
     }
 
     .hero-grid {
       position: absolute;
       inset: 0;
-      opacity: .4;
-      background-image:
-        linear-gradient(rgba(10,35,66,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,35,66,.035) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
+      z-index: -1;
       pointer-events: none;
+      opacity: .28;
+      background-image:
+        linear-gradient(rgba(132, 183, 255, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(132, 183, 255, .07) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 95%);
     }
 
-    .gold-badge {
+    .hero-inner {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 27px 0 22px;
+      color: white;
+      font-size: clamp(34px, 6vw, 66px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -.055em;
+    }
+
+    .hero h1 span {
+      color: var(--gold-bright);
+      text-shadow: 3px 3px 0 rgba(156, 123, 37, .18);
+    }
+
+    .hero-copy {
+      max-width: 690px;
+      margin: 0 auto;
+      color: #B4C2D4;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.85;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 31px;
+    }
+
+    .stat-chip {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      padding: 8px 14px;
-      border: 1px solid rgba(201,162,39,.25);
-      border-radius: 999px;
-      background: rgba(201,162,39,.09);
-      color: #967515;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .13em;
-      text-transform: uppercase;
+      gap: 8px;
+      padding: 10px 13px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: rgba(13, 32, 56, .82);
+      color: #CFD8E4;
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    .gold-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
+    .stat-chip svg {
+      width: 15px;
+      height: 15px;
+      color: var(--gold);
+    }
+
+    /* MISSION */
+
+    .mission-section {
+      padding: 36px 0 24px;
     }
 
     .mission-card {
       position: relative;
       overflow: hidden;
-      background: var(--navy);
-      border-radius: 28px;
+      padding: 35px 38px;
+      border: 1px solid #304863;
+      border-radius: 4px;
+      background: linear-gradient(115deg, rgba(20, 44, 73, .98), rgba(10, 35, 66, .96));
+      box-shadow: 5px 5px 0 rgba(0, 0, 0, .24);
     }
 
     .mission-card::after {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
-      right: -100px;
-      top: -130px;
-      border-radius: 50%;
-      background: rgba(201,162,39,.14);
+      top: -85px;
+      right: -55px;
+      width: 240px;
+      height: 240px;
+      border: 28px solid rgba(217, 182, 77, .07);
+      transform: rotate(24deg);
       pointer-events: none;
     }
 
-    .section-label {
-      color: #A6841C;
+    .mission-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 245px;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .mission-kicker {
+      margin: 0 0 12px;
+      color: var(--gold-bright);
+      font-family: var(--mono-font);
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .16em;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
-    .section-line {
-      width: 44px;
-      height: 4px;
-      border-radius: 999px;
+    .mission-card h2 {
+      margin: 0 0 14px;
+      color: white;
+      font-size: clamp(25px, 3vw, 38px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.04em;
+    }
+
+    .mission-card p:not(.mission-kicker) {
+      max-width: 640px;
+      margin: 0;
+      color: #B7C7D9;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .mission-points {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mission-point {
+      padding: 13px 15px;
+      border: 1px solid rgba(184, 202, 222, .17);
+      border-radius: 3px;
+      background: rgba(255, 255, 255, .045);
+    }
+
+    .mission-point strong {
+      display: block;
+      color: white;
+      font-size: 13px;
+    }
+
+    .mission-point span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* TEAM DIRECTORY */
+
+    .team-directory {
+      padding: 72px 0 90px;
+    }
+
+    .filter-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin: 0 auto 50px;
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 41px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--panel);
+      color: #B6C5D7;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, color .2s, transform .2s;
+    }
+
+    .filter-btn:hover {
+      transform: translateY(-1px);
+      border-color: #607895;
+      color: white;
+    }
+
+    .filter-btn.active {
+      border-color: var(--gold);
       background: var(--gold);
-      margin: 14px auto 0;
+      color: var(--bg-deep);
+      box-shadow: 3px 3px 0 rgba(217, 182, 77, .15);
+    }
+
+    .filter-count {
+      font-family: var(--mono-font);
+      font-size: 10px;
+      opacity: .8;
+    }
+
+    #team-sections {
+      display: grid;
+      gap: 58px;
+    }
+
+    .department-section {
+      min-width: 0;
     }
 
     .department-heading {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 25px;
+      gap: 15px;
+      margin-bottom: 24px;
     }
 
     .department-icon {
       display: flex;
+      width: 50px;
+      height: 50px;
+      flex-shrink: 0;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      border-radius: 15px;
-      color: var(--navy);
-      background: rgba(201,162,39,.13);
+      border: 1px solid rgba(217, 182, 77, .35);
+      border-radius: 3px;
+      background: rgba(217, 182, 77, .08);
+      color: var(--gold-bright);
+    }
+
+    .department-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .department-heading-copy {
+      min-width: 0;
+    }
+
+    .department-subtitle {
+      margin: 0 0 3px;
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .department-heading h2 {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(21px, 3vw, 28px);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -.035em;
+    }
+
+    .department-description {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
     }
 
     .department-rule {
       height: 1px;
       flex: 1;
-      background: #E8ECF1;
-      margin-left: 8px;
+      min-width: 12px;
+      margin-left: 5px;
+      background: var(--line);
+    }
+
+    .department-count {
+      flex-shrink: 0;
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--panel);
+      color: #B8C6D8;
+      font-family: var(--mono-font);
+      font-size: 10px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 19px;
     }
 
     .team-card {
+      display: flex;
       min-width: 0;
+      flex-direction: column;
       overflow: hidden;
-      border: 1px solid #E9EDF2;
-      border-radius: 22px;
-      background: white;
-      box-shadow: 0 8px 30px rgba(10,35,66,.045);
-      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+      border: 1px solid #263C57;
+      border-radius: 4px;
+      background: linear-gradient(180deg, #10243C, #0B1C31);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .17);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
     }
 
     .team-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(201,162,39,.5);
-      box-shadow: 0 18px 42px rgba(10,35,66,.10);
+      transform: translateY(-4px);
+      border-color: rgba(217, 182, 77, .65);
+      box-shadow: 5px 7px 0 rgba(0, 0, 0, .2);
     }
 
     .team-photo {
       position: relative;
-      height: 245px;
+      height: 220px;
       overflow: hidden;
-      background: linear-gradient(135deg, #E9EEF5, #F8F5E9);
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(132, 183, 255, .08), transparent 55%),
+        #10243B;
     }
 
     .team-photo img {
@@ -188,7 +680,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center 35%;
-      transition: transform .45s ease;
+      transition: transform .35s ease;
     }
 
     .team-card:hover .team-photo img {
@@ -199,110 +691,292 @@
       display: flex;
       width: 100%;
       height: 100%;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      gap: 9px;
-      color: #718096;
+      gap: 12px;
       background:
-        radial-gradient(circle at 75% 20%, rgba(201,162,39,.15), transparent 35%),
-        linear-gradient(135deg, #E8EDF4, #F7F9FC);
+        linear-gradient(rgba(132, 183, 255, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(132, 183, 255, .035) 1px, transparent 1px),
+        #10243B;
+      background-size: 14px 14px;
+      color: var(--muted);
     }
 
-    .photo-placeholder .initials {
+    .initials {
       display: flex;
+      width: 76px;
+      height: 76px;
       align-items: center;
       justify-content: center;
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      color: white;
-      background: var(--navy);
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -.04em;
+      border: 2px solid var(--gold-dark);
+      border-radius: 3px;
+      background: var(--panel-light);
+      color: var(--gold-bright);
+      font-family: var(--mono-font);
+      font-size: 24px;
+      font-weight: 500;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .2);
+    }
+
+    .placeholder-caption {
+      font-family: var(--mono-font);
+      font-size: 10px;
+    }
+
+    .photo-department {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 6px 8px;
+      border: 1px solid rgba(217, 182, 77, .45);
+      border-radius: 2px;
+      background: rgba(5, 13, 25, .9);
+      color: var(--gold-bright);
+      font-family: var(--mono-font);
+      font-size: 9px;
+      letter-spacing: .03em;
+      backdrop-filter: blur(8px);
+    }
+
+    .team-card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 19px;
     }
 
     .role-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
       max-width: 100%;
-      padding: 7px 10px;
-      border-radius: 8px;
-      font-size: 10px;
-      font-weight: 800;
-      line-height: 1.4;
-      letter-spacing: .04em;
+      padding: 6px 8px;
+      border: 1px solid;
+      border-radius: 2px;
+      font-family: var(--mono-font);
+      font-size: 9px;
+      line-height: 1.6;
+      letter-spacing: .025em;
       text-transform: uppercase;
     }
 
     .role-executive {
-      background: #FBF4DA;
-      color: #886A12;
+      border-color: rgba(217, 182, 77, .4);
+      background: rgba(217, 182, 77, .10);
+      color: var(--gold-bright);
     }
 
     .role-lead {
-      background: #EAF0F7;
-      color: #173B65;
+      border-color: rgba(132, 183, 255, .34);
+      background: rgba(132, 183, 255, .08);
+      color: var(--blue);
     }
 
     .role-associate {
-      background: #F1F4F8;
-      color: #45566C;
+      border-color: #344A63;
+      background: #14263D;
+      color: #B7C5D6;
+    }
+
+    .team-card h3 {
+      margin: 13px 0 0;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -.035em;
     }
 
     .team-description {
-      min-height: 66px;
-      color: #687386;
-      font-size: 13px;
-      line-height: 1.75;
+      min-height: 104px;
+      margin: 11px 0 0;
+      color: #A8B8CA;
+      font-size: 12px;
+      line-height: 1.8;
     }
 
     .team-divider {
       height: 1px;
-      background: #EDF0F4;
-      margin: 18px 0;
+      margin: 17px 0;
+      background: var(--line);
+    }
+
+    .team-info {
+      display: grid;
+      gap: 10px;
     }
 
     .info-row {
-      display: flex;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 67px minmax(0, 1fr);
       gap: 7px;
+      color: #A7B6C9;
       font-size: 11px;
-      line-height: 1.7;
-      color: #687386;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
     }
 
     .info-row strong {
-      flex-shrink: 0;
-      color: var(--navy);
+      color: #E3EAF3;
       font-weight: 700;
     }
 
     .placeholder-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 13px;
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: 9px;
+    }
+
+    .placeholder-note svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 2px solid var(--line);
+      background: var(--bg-deep);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 45px;
+      padding-top: 52px;
+      padding-bottom: 42px;
+    }
+
+    .footer-brand {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      margin-top: 12px;
-      color: #98761A;
+      gap: 12px;
+      margin-bottom: 17px;
+    }
+
+    .footer-brand img {
+      width: 45px;
+      height: 45px;
+      padding: 3px;
+      border: 1px solid #40536A;
+      border-radius: 3px;
+      background: white;
+      object-fit: contain;
+    }
+
+    .footer-brand span {
+      color: white;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .footer-description {
+      max-width: 330px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .footer-heading {
+      margin: 3px 0 18px;
+      color: var(--gold);
+      font-family: var(--mono-font);
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 500;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 18px;
     }
 
     .footer-link {
-      color: #D1D8E2;
+      color: #B7C4D5;
+      font-size: 12px;
       transition: color .2s;
     }
 
     .footer-link:hover {
-      color: var(--gold-light);
+      color: var(--gold-bright);
     }
+
+    .social-links {
+      display: flex;
+      gap: 9px;
+      margin-bottom: 17px;
+    }
+
+    .social-link {
+      display: flex;
+      width: 39px;
+      height: 39px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--panel);
+      color: #D2DCE8;
+      transition: border-color .2s, color .2s, background .2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--gold);
+      background: rgba(217, 182, 77, .09);
+      color: var(--gold-bright);
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .email-link {
+      color: #B7C4D5;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+      transition: color .2s;
+    }
+
+    .email-link:hover {
+      color: var(--gold-bright);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      padding-bottom: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      color: #8294AA;
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .footer-bottom .sponsor-note {
+      max-width: 570px;
+      text-align: right;
+    }
+
+    /* ANIMATIONS */
 
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .55s ease, transform .55s ease;
+      transform: translateY(15px);
+      transition: opacity .5s ease, transform .5s ease;
     }
 
     .reveal.active {
@@ -310,14 +984,222 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 767px) {
-      .team-photo { height: 270px; }
-      .team-description { min-height: auto; }
-      .mission-card { border-radius: 22px; }
+    #team-sections .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1120px) {
+      .nav-links {
+        gap: 11px;
+      }
+
+      .nav-links > a:not(.btn) {
+        font-size: .72rem;
+      }
+
+      .brand-name {
+        font-size: .86rem;
+      }
+
+      .brand-name small {
+        font-size: .52rem;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .team-description {
+        min-height: 88px;
+      }
+    }
+
+    @media (max-width: 950px) {
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .mission-layout {
+        grid-template-columns: minmax(0, 1fr) 220px;
+      }
+
+      .footer-main {
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(var(--max), calc(100% - 30px));
+      }
+
+      .hero {
+        padding: 64px 15px 55px;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 9vw, 48px);
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .stat-chip {
+        padding: 9px 10px;
+        font-size: 11px;
+      }
+
+      .mission-section {
+        padding-top: 24px;
+      }
+
+      .mission-card {
+        padding: 25px 22px;
+      }
+
+      .mission-layout {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .mission-points {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .team-directory {
+        padding: 55px 0 65px;
+      }
+
+      .section-heading {
+        margin-bottom: 30px;
+      }
+
+      .filter-list {
+        gap: 7px;
+        margin-bottom: 38px;
+      }
+
+      .filter-btn {
+        min-height: 38px;
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+
+      #team-sections {
+        gap: 43px;
+      }
+
+      .department-heading {
+        gap: 11px;
+      }
+
+      .department-icon {
+        width: 43px;
+        height: 43px;
+      }
+
+      .department-rule,
+      .department-count {
+        display: none;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .team-photo {
+        height: 195px;
+      }
+
+      .team-card-body {
+        padding: 13px;
+      }
+
+      .team-card h3 {
+        font-size: 16px;
+      }
+
+      .team-description {
+        min-height: 0;
+        font-size: 11px;
+      }
+
+      .role-badge {
+        font-size: 8px;
+      }
+
+      .info-row {
+        grid-template-columns: 1fr;
+        gap: 1px;
+        font-size: 10px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 24px;
+        padding-top: 38px;
+      }
+
+      .footer-about {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-bottom .sponsor-note {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand-name {
+        font-size: .8rem;
+      }
+
+      .brand-name small {
+        font-size: .47rem;
+      }
+
+      .brand img {
+        width: 39px;
+        height: 39px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-photo {
+        height: 250px;
+      }
+
+      .team-description {
+        font-size: 12px;
+      }
+
+      .info-row {
+        grid-template-columns: 67px minmax(0, 1fr);
+        gap: 7px;
+        font-size: 11px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
@@ -331,114 +1213,135 @@
   </style>
 </head>
 
-<body class="antialiased overflow-x-hidden">
+<body>
 
-  <!-- NAVIGATION -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-200/80 transition-shadow">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-20 flex items-center justify-between">
+  <!-- NAVIGATION: KEEP CONSISTENT ACROSS ALL PAGES -->
 
-        <a href="index.html" class="flex items-center gap-3">
-          <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" class="w-11 h-11 rounded-xl object-cover">
-          <div class="hidden sm:block">
-            <div class="text-lg font-extrabold tracking-tight">Next-Gen Knowledge</div>
-            <div class="text-[10px] font-bold uppercase tracking-[.16em]" style="color:var(--gold)">
-              Empowering the Next Generation
-            </div>
-          </div>
+  <header class="nav-wrap" id="navbar">
+    <nav class="container navbar" aria-label="Main navigation">
+
+      <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
+        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo">
+        <span class="brand-name">
+          Next-Gen Knowledge
+          <small>Empowering the Next Generation</small>
+        </span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="fin-city.html" class="fin-city-link">
+          <i data-lucide="gamepad-2" aria-hidden="true"></i>
+          Fin City
         </a>
-
-        <div class="hidden md:flex items-center gap-1">
-          <a href="index.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Home</a>
-          <a href="about.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">About Us</a>
-          <a href="programs.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Programs</a>
-          <a href="team.html" class="nav-link current px-3 py-2.5 text-sm font-semibold rounded-lg" aria-current="page">Team</a>
-          <a href="partnerships.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Partnerships</a>
-          <a href="trivia.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Trivia Arena</a>
-          <a href="donate.html" class="nav-link px-3 py-2.5 text-sm font-semibold rounded-lg">Donate</a>
-          <a href="enroll.html" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white hover:-translate-y-0.5 transition" style="background:var(--navy)">Enroll</a>
-        </div>
-
-        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
+        <a href="about.html">About Us</a>
+        <a href="programs.html">Programs</a>
+        <a href="team.html" class="current" aria-current="page">Team</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="trivia.html">Trivia Arena</a>
+        <a href="donate.html">Donate</a>
+        <a href="enroll.html" class="btn">Enroll Now</a>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden pb-4">
-        <div class="flex flex-col gap-1 border-t border-gray-100 pt-3">
-          <a href="index.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Home</a>
-          <a href="about.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">About Us</a>
-          <a href="programs.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Programs</a>
-          <a href="team.html" class="nav-link current px-4 py-3 text-sm font-semibold rounded-lg" aria-current="page">Team</a>
-          <a href="partnerships.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Partnerships</a>
-          <a href="trivia.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Trivia Arena</a>
-          <a href="donate.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Donate</a>
-          <a href="enroll.html" class="px-4 py-3 mt-1 text-center text-sm font-bold text-white rounded-lg" style="background:var(--navy)">Enroll</a>
-        </div>
-      </div>
+      <button
+        id="mobile-menu-button"
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu">
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
     </nav>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="container mobile-menu-inner">
+        <a href="index.html">Home</a>
+        <a href="fin-city.html" class="mobile-fin-city">
+          <i data-lucide="gamepad-2" aria-hidden="true"></i>
+          Fin City
+        </a>
+        <a href="about.html">About Us</a>
+        <a href="programs.html">Programs</a>
+        <a href="team.html" class="current" aria-current="page">Team</a>
+        <a href="partnerships.html">Partnerships</a>
+        <a href="trivia.html">Trivia Arena</a>
+        <a href="donate.html">Donate</a>
+        <a href="enroll.html" class="mobile-enroll">Enroll Now</a>
+      </div>
+    </div>
   </header>
 
-  <main class="pt-20">
+  <main>
 
     <!-- HERO -->
-    <section class="hero px-5 sm:px-6 pt-20 sm:pt-28 pb-16 sm:pb-20">
-      <div class="hero-grid"></div>
 
-      <div class="relative max-w-5xl mx-auto text-center">
-        <div class="gold-badge mb-6">
-          <span class="gold-dot"></span>
+    <section class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
           Our People, Our Mission
         </div>
 
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-[-0.045em] leading-[1.06] mb-6">
+        <h1>
           Meet the Team<br>
-          <span style="color:var(--gold)">Behind the Mission</span>
+          <span>Behind the Mission</span>
         </h1>
 
-        <p class="max-w-2xl mx-auto text-gray-600 text-base sm:text-lg leading-relaxed">
-          We're students working together to make financial literacy and real-world education accessible to the next generation.
+        <p class="hero-copy">
+          We're students working together to make financial literacy and
+          real-world education accessible to the next generation.
         </p>
 
-        <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <span class="px-4 py-2 rounded-full bg-white border border-gray-200 text-xs sm:text-sm font-semibold text-gray-600">
-            <i data-lucide="users" class="inline w-4 h-4 mr-1.5" style="color:var(--gold)"></i>
-            17 Team Members
-          </span>
-          <span class="px-4 py-2 rounded-full bg-white border border-gray-200 text-xs sm:text-sm font-semibold text-gray-600">
-            <i data-lucide="graduation-cap" class="inline w-4 h-4 mr-1.5" style="color:var(--gold)"></i>
-            Student-Led
-          </span>
-          <span class="px-4 py-2 rounded-full bg-white border border-gray-200 text-xs sm:text-sm font-semibold text-gray-600">
-            <i data-lucide="lightbulb" class="inline w-4 h-4 mr-1.5" style="color:var(--gold)"></i>
-            Mission-Driven
-          </span>
+        <div class="hero-stats">
+          <div class="stat-chip">
+            <i data-lucide="users" aria-hidden="true"></i>
+            <span>18 Team Members</span>
+          </div>
+          <div class="stat-chip">
+            <i data-lucide="graduation-cap" aria-hidden="true"></i>
+            <span>Student-Led</span>
+          </div>
+          <div class="stat-chip">
+            <i data-lucide="lightbulb" aria-hidden="true"></i>
+            <span>Mission-Driven</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- MISSION -->
-    <section class="px-5 sm:px-6 pt-8 pb-8">
-      <div class="max-w-7xl mx-auto mission-card px-7 sm:px-10 lg:px-14 py-9 sm:py-12 reveal">
-        <div class="relative z-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
-          <div>
-            <p class="text-xs font-extrabold uppercase tracking-[.16em] mb-3" style="color:var(--gold-light)">One shared mission</p>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4">
-              Different strengths.<br class="hidden sm:block"> One goal.
-            </h2>
-            <p class="max-w-2xl text-sm sm:text-base leading-relaxed text-white/75">
-              From finance and curriculum development to outreach and marketing, every department contributes to making practical education more accessible.
-            </p>
-          </div>
+    <!-- SHARED MISSION -->
 
-          <div class="grid grid-cols-2 lg:grid-cols-1 gap-3">
-            <div class="rounded-xl bg-white/10 border border-white/10 px-4 py-3">
-              <p class="text-sm text-white font-bold">Learn</p>
-              <p class="text-xs text-white/60 mt-1">Build real-world knowledge</p>
+    <section class="mission-section">
+      <div class="container">
+        <div class="mission-card reveal">
+          <div class="mission-layout">
+            <div>
+              <p class="mission-kicker">One shared mission</p>
+
+              <h2>
+                Different strengths.<br>
+                One goal.
+              </h2>
+
+              <p>
+                From finance and curriculum development to software
+                development, outreach, and marketing, every department
+                contributes to making practical education more accessible.
+              </p>
             </div>
-            <div class="rounded-xl bg-white/10 border border-white/10 px-4 py-3">
-              <p class="text-sm text-white font-bold">Make an impact</p>
-              <p class="text-xs text-white/60 mt-1">Share knowledge with others</p>
+
+            <div class="mission-points">
+              <div class="mission-point">
+                <strong>Learn</strong>
+                <span>Build real-world knowledge</span>
+              </div>
+              <div class="mission-point">
+                <strong>Make an impact</strong>
+                <span>Share knowledge with others</span>
+              </div>
             </div>
           </div>
         </div>
@@ -446,95 +1349,129 @@
     </section>
 
     <!-- TEAM DIRECTORY -->
-    <section class="px-5 sm:px-6 py-12 sm:py-16">
-      <div class="max-w-7xl mx-auto">
 
-        <div class="text-center mb-10 reveal">
-          <p class="section-label">The people behind the work</p>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-2">Meet Our Team</h2>
+    <section class="team-directory">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <p class="section-kicker">The people behind the work</p>
+          <h2 class="section-title">Meet Our Team</h2>
           <div class="section-line"></div>
-          <p class="text-sm text-gray-500 mt-4">Explore our leadership and departments.</p>
-        </div>
-
-        <!-- Department filters -->
-        <div id="department-filters" class="flex flex-wrap justify-center gap-2 mb-12">
-          <button data-filter="all" class="filter-btn px-4 py-2.5 rounded-full text-sm font-bold border transition" style="background:var(--navy);color:white;border-color:var(--navy)">Everyone <span class="ml-1 opacity-70">17</span></button>
-          <button data-filter="Executive Board" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Executive Board</button>
-          <button data-filter="Finance" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Finance</button>
-          <button data-filter="Curriculum" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Curriculum</button>
-          <button data-filter="Outreach" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Outreach</button>
-          <button data-filter="Marketing" class="filter-btn px-4 py-2.5 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-600 hover:border-gray-400 transition">Marketing</button>
-        </div>
-
-        <!-- Cards are generated from the team list below -->
-        <div id="team-sections" class="space-y-16"></div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-[#0A2342] text-white">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12">
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-        <div>
-          <a href="index.html" class="inline-flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl overflow-hidden bg-white">
-              <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" class="w-full h-full object-contain">
-            </div>
-            <span class="text-lg font-extrabold">Next-Gen Knowledge</span>
-          </a>
-          <p class="max-w-sm text-sm text-gray-300 leading-relaxed">
-            Empowering the next generation through accessible financial literacy and real-world education.
+          <p class="section-description">
+            Explore our leadership team and the departments working together
+            to bring our educational initiatives to life.
           </p>
         </div>
 
-        <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest mb-4" style="color:var(--gold)">Quick Links</h3>
-          <div class="grid grid-cols-2 gap-x-5 gap-y-3 text-sm">
-            <a href="index.html" class="footer-link">Home</a>
-            <a href="about.html" class="footer-link">About Us</a>
-            <a href="programs.html" class="footer-link">Programs</a>
-            <a href="team.html" class="footer-link">Team</a>
-            <a href="partnerships.html" class="footer-link">Partnerships</a>
-            <a href="trivia.html" class="footer-link">Trivia Arena</a>
-            <a href="donate.html" class="footer-link">Donate</a>
-            <a href="enroll.html" class="footer-link">Enroll</a>
-          </div>
+        <!-- DEPARTMENT FILTERS -->
+
+        <div id="department-filters" class="filter-list" aria-label="Filter team by department">
+          <button type="button" data-filter="all" class="filter-btn active" aria-pressed="true">
+            Everyone <span class="filter-count">18</span>
+          </button>
+          <button type="button" data-filter="Executive Board" class="filter-btn" aria-pressed="false">
+            Executive Board
+          </button>
+          <button type="button" data-filter="Finance" class="filter-btn" aria-pressed="false">
+            Finance
+          </button>
+          <button type="button" data-filter="Curriculum" class="filter-btn" aria-pressed="false">
+            Curriculum
+          </button>
+          <button type="button" data-filter="Outreach" class="filter-btn" aria-pressed="false">
+            Outreach
+          </button>
+          <button type="button" data-filter="Marketing" class="filter-btn" aria-pressed="false">
+            Marketing
+          </button>
         </div>
 
-        <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest mb-4" style="color:var(--gold)">Connect With Us</h3>
-          <div class="flex items-center gap-3 mb-4">
-            <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
-              <i data-lucide="instagram" class="w-5 h-5"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
-              <i data-lucide="linkedin" class="w-5 h-5"></i>
-            </a>
-            <a href="mailto:nextgen.knowledge123@gmail.com" aria-label="Email" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition">
-              <i data-lucide="mail" class="w-5 h-5"></i>
-            </a>
-          </div>
-          <a href="mailto:nextgen.knowledge123@gmail.com" class="text-sm text-gray-300 hover:text-white break-all transition">
-            nextgen.knowledge123@gmail.com
+        <!-- TEAM SECTIONS ARE GENERATED FROM THE ARRAY BELOW -->
+
+        <div id="team-sections"></div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container footer-main">
+
+      <div class="footer-about">
+        <a href="index.html" class="footer-brand">
+          <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo">
+          <span>Next-Gen Knowledge</span>
+        </a>
+
+        <p class="footer-description">
+          Empowering the next generation through accessible financial
+          literacy and real-world education.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Quick Links</h2>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="fin-city.html" class="footer-link">Fin City</a>
+          <a href="about.html" class="footer-link">About Us</a>
+          <a href="programs.html" class="footer-link">Programs</a>
+          <a href="team.html" class="footer-link">Team</a>
+          <a href="partnerships.html" class="footer-link">Partnerships</a>
+          <a href="trivia.html" class="footer-link">Trivia Arena</a>
+          <a href="donate.html" class="footer-link">Donate</a>
+          <a href="enroll.html" class="footer-link">Enroll</a>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Connect With Us</h2>
+
+        <div class="social-links">
+          <a
+            href="https://www.instagram.com/nextgen.knowledge/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="social-link">
+            <i data-lucide="instagram" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/next-gen-knowledge/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="social-link">
+            <i data-lucide="linkedin" aria-hidden="true"></i>
+          </a>
+
+          <a
+            href="mailto:nextgen.knowledge123@gmail.com"
+            aria-label="Email Next-Gen Knowledge"
+            class="social-link">
+            <i data-lucide="mail" aria-hidden="true"></i>
           </a>
         </div>
 
+        <a href="mailto:nextgen.knowledge123@gmail.com" class="email-link">
+          nextgen.knowledge123@gmail.com
+        </a>
       </div>
 
-      <div class="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3">
-        <p class="text-xs text-gray-400">
-          © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
-        </p>
-        <p class="max-w-xl text-xs text-gray-400 leading-relaxed sm:text-right">
-          Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.
-        </p>
-      </div>
+    </div>
 
+    <div class="container footer-bottom">
+      <p>
+        © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
+      </p>
+
+      <p class="sponsor-note">
+        Next-Gen Knowledge is a fiscally sponsored project of the Hack Club
+        Foundation, a 501(c)(3) nonprofit.
+      </p>
     </div>
   </footer>
 
@@ -542,18 +1479,19 @@
     /*
       TEAM MEMBER EDITING GUIDE
       -------------------------
-      1. To add a member, copy one object in the teamMembers array.
-      2. photo: use the image filename in your website's project folder.
-      3. If a photo is not available, leave photo as "".
-      4. For missing descriptions, interests, or hobbies, replace the
-         ADD_... text with the member's information when available.
-      5. Use one of these department names:
+      1. Add or edit people in the teamMembers array.
+      2. Put each member's photo filename in the photo field.
+      3. If a photo is unavailable, use an empty string: photo: ""
+      4. Use one of the following department names:
          Executive Board, Finance, Curriculum, Outreach, Marketing.
+      5. The department filter and section counts update automatically.
+      6. Eshwar Bompali is listed first under Curriculum as Head Developer.
     */
 
     const teamMembers = [
 
       // EXECUTIVE BOARD — 4 MEMBERS
+
       {
         name: "Svar Patel",
         position: "Founder & CEO",
@@ -596,6 +1534,7 @@
       },
 
       // FINANCE — 3 MEMBERS
+
       {
         name: "Leo Sorenson",
         position: "Finance Associate",
@@ -621,19 +1560,31 @@
         position: "Finance Associate",
         department: "Finance",
         level: "associate",
-        photo: "photo.png", // TODO: Replace with Hannah's actual image filename
+        photo: "photo.png",
         description: "Supports financial operations, budgeting, fundraising, and sustainable growth.",
         interests: "Finance, Entrepreneurship, Math",
         hobbies: "Dance, Baking"
       },
 
-      // CURRICULUM — 3 MEMBERS
+      // CURRICULUM — 4 MEMBERS
+      // Eshwar is intentionally listed first as Head Developer.
+
+      {
+        name: "Eshwar Bompali",
+        position: "Head Developer",
+        department: "Curriculum",
+        level: "lead",
+        photo: "",
+        description: "Leads software development and technical implementation for Next-Gen Knowledge's digital learning initiatives, helping build and improve the tools that make interactive education accessible to students.",
+        interests: "Software Development, Technology",
+        hobbies: "Programming, Building Projects"
+      },
       {
         name: "Liam Alexander",
         position: "Curriculum Head",
         department: "Curriculum",
         level: "lead",
-        photo: "IMG_2041.jpeg", 
+        photo: "IMG_2041.jpeg",
         description: "Leads curriculum design and the development of asynchronous courses and certification programs, helping create engaging, structured learning experiences that make financial education accessible to students.",
         interests: "Economics, Finance",
         hobbies: "Tennis, Soccer"
@@ -653,13 +1604,14 @@
         position: "Curriculum Associate",
         department: "Curriculum",
         level: "associate",
-        photo: "IMG_3123.jpeg", 
+        photo: "IMG_3123.jpeg",
         description: "Contributes to the design and development of asynchronous courses and certification programs, helping create educational materials that allow students to learn independently and strengthen their real-world financial skills.",
         interests: "Investing, Psychology",
-        hobbies: "Going to the Gym, Playing basketball"
+        hobbies: "Going to the Gym, Playing Basketball"
       },
 
       // OUTREACH — 4 MEMBERS
+
       {
         name: "Arhaan Bhojwani",
         position: "Director of Outreach",
@@ -702,6 +1654,7 @@
       },
 
       // MARKETING — 3 MEMBERS
+
       {
         name: "Sophia Zachariah",
         position: "Social Media Manager",
@@ -745,13 +1698,13 @@
         name: "Finance",
         subtitle: "Financial Operations",
         icon: "chart-no-axes-combined",
-        description: "Supporting financial organization and fundraising."
+        description: "Supporting financial organization, budgeting, and fundraising."
       },
       {
         name: "Curriculum",
-        subtitle: "Education & Learning",
-        icon: "book-open",
-        description: "Developing educational content and learning experiences."
+        subtitle: "Education, Technology & Development",
+        icon: "code",
+        description: "Building educational content, digital tools, and engaging learning experiences."
       },
       {
         name: "Outreach",
@@ -768,7 +1721,7 @@
     ];
 
     const teamSections = document.getElementById("team-sections");
-    let activeFilter = "all";
+    const filterButtons = document.querySelectorAll(".filter-btn");
 
     function initials(name) {
       return name
@@ -784,26 +1737,41 @@
       return !value || value.startsWith("ADD_");
     }
 
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
     function renderPhoto(member) {
+      const safeName = escapeHTML(member.name);
+      const memberInitials = escapeHTML(initials(member.name));
+
       if (member.photo && !member.photo.startsWith("ADD_")) {
+        const safePhoto = escapeHTML(member.photo);
+
         return `
           <img
-            src="${member.photo}"
-            alt="${member.name}"
+            src="${safePhoto}"
+            alt="${safeName}"
             loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
           >
           <div class="photo-placeholder" style="display:none">
-            <div class="initials">${initials(member.name)}</div>
-            <span class="text-xs font-semibold">Photo coming soon</span>
+            <div class="initials">${memberInitials}</div>
+            <span class="placeholder-caption">Photo coming soon</span>
           </div>
         `;
       }
 
       return `
         <div class="photo-placeholder">
-          <div class="initials">${initials(member.name)}</div>
-          <span class="text-xs font-semibold">Photo coming soon</span>
+          <div class="initials">${memberInitials}</div>
+          <span class="placeholder-caption">Photo coming soon</span>
         </div>
       `;
     }
@@ -816,52 +1784,57 @@
 
       return `
         <div class="info-row">
-          <strong>${label}:</strong>
-          <span class="${missing ? 'text-amber-700 font-semibold' : ''}">${displayedValue}</span>
+          <strong>${escapeHTML(label)}:</strong>
+          <span>${escapeHTML(displayedValue)}</span>
         </div>
       `;
     }
 
     function renderMember(member) {
       const needsDescription = hasPlaceholder(member.description);
+
       const roleClass = member.level === "executive"
         ? "role-executive"
         : member.level === "lead"
           ? "role-lead"
           : "role-associate";
 
+      const profileNeedsUpdate =
+        needsDescription ||
+        !member.photo ||
+        hasPlaceholder(member.interests) ||
+        hasPlaceholder(member.hobbies);
+
       return `
-        <article class="team-card flex flex-col reveal">
+        <article class="team-card">
           <div class="team-photo">
             ${renderPhoto(member)}
-            <div class="absolute bottom-3 left-3">
-              <span class="px-3 py-1.5 rounded-lg bg-white/95 text-xs font-bold text-gray-600 shadow-sm">
-                ${member.department}
-              </span>
-            </div>
+            <div class="photo-department">${escapeHTML(member.department)}</div>
           </div>
 
-          <div class="p-5 sm:p-6 flex flex-col flex-1">
-            <div class="mb-3">
-              <span class="role-badge ${roleClass}">${member.position}</span>
+          <div class="team-card-body">
+            <div>
+              <span class="role-badge ${roleClass}">
+                ${escapeHTML(member.position)}
+              </span>
             </div>
 
-            <h3 class="text-xl font-extrabold tracking-tight">${member.name}</h3>
+            <h3>${escapeHTML(member.name)}</h3>
 
-            <p class="team-description mt-3 ${needsDescription ? 'text-amber-700' : ''}">
-              ${member.description}
+            <p class="team-description">
+              ${escapeHTML(member.description)}
             </p>
 
             <div class="team-divider"></div>
 
-            <div class="space-y-2">
+            <div class="team-info">
               ${renderInfo("Interests", member.interests)}
               ${renderInfo("Hobbies", member.hobbies)}
             </div>
 
-            ${needsDescription || !member.photo || hasPlaceholder(member.interests) || hasPlaceholder(member.hobbies) ? `
+            ${profileNeedsUpdate ? `
               <div class="placeholder-note">
-                <i data-lucide="pencil-line" class="w-3.5 h-3.5"></i>
+                <i data-lucide="pencil-line" aria-hidden="true"></i>
                 Profile needs updating
               </div>
             ` : ""}
@@ -891,23 +1864,23 @@
         section.innerHTML = `
           <div class="department-heading">
             <div class="department-icon">
-              <i data-lucide="${department.icon}" class="w-5 h-5"></i>
+              <i data-lucide="${department.icon}" aria-hidden="true"></i>
             </div>
 
-            <div class="min-w-0">
-              <p class="text-xs font-bold uppercase tracking-widest" style="color:#A6841C">${department.subtitle}</p>
-              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">${department.name}</h2>
-              <p class="text-sm text-gray-500 mt-1">${department.description}</p>
+            <div class="department-heading-copy">
+              <p class="department-subtitle">${escapeHTML(department.subtitle)}</p>
+              <h2>${escapeHTML(department.name)}</h2>
+              <p class="department-description">${escapeHTML(department.description)}</p>
             </div>
 
-            <div class="department-rule hidden sm:block"></div>
+            <div class="department-rule" aria-hidden="true"></div>
 
-            <span class="hidden sm:inline-flex px-3 py-1.5 rounded-full bg-gray-100 text-xs font-bold text-gray-600">
-              ${members.length} ${members.length === 1 ? "member" : "members"}
+            <span class="department-count">
+              ${members.length} ${members.length === 1 ? "MEMBER" : "MEMBERS"}
             </span>
           </div>
 
-          <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
+          <div class="team-grid">
             ${members.map(renderMember).join("")}
           </div>
         `;
@@ -915,82 +1888,105 @@
         teamSections.appendChild(section);
       });
 
-      lucide.createIcons();
-
-      // Reveal newly rendered cards without leaving them invisible.
-      document.querySelectorAll("#team-sections .reveal").forEach(element => {
-        element.classList.add("active");
-      });
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
-    // Department filters
-    document.querySelectorAll(".filter-btn").forEach(button => {
+    // Update the filter buttons and render the selected department.
+
+    filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        activeFilter = button.dataset.filter;
+        const selectedFilter = button.dataset.filter;
 
-        document.querySelectorAll(".filter-btn").forEach(btn => {
-          const selected = btn.dataset.filter === activeFilter;
-
-          btn.style.background = selected ? "var(--navy)" : "white";
-          btn.style.color = selected ? "white" : "#4B5563";
-          btn.style.borderColor = selected ? "var(--navy)" : "#E5E7EB";
+        filterButtons.forEach(filterButton => {
+          const selected = filterButton === button;
+          filterButton.classList.toggle("active", selected);
+          filterButton.setAttribute("aria-pressed", String(selected));
         });
 
-        renderTeam(activeFilter);
+        renderTeam(selectedFilter);
       });
     });
 
-    // Mobile navigation
+    // Mobile navigation.
+
     const menuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
 
     menuButton.addEventListener("click", () => {
-      const opening = mobileMenu.classList.contains("hidden");
-      mobileMenu.classList.toggle("hidden");
+      const opening = !mobileMenu.classList.contains("open");
+
+      mobileMenu.classList.toggle("open", opening);
       menuButton.setAttribute("aria-expanded", String(opening));
-      menuButton.setAttribute("aria-label", opening ? "Close menu" : "Open menu");
+      menuButton.setAttribute(
+        "aria-label",
+        opening ? "Close navigation menu" : "Open navigation menu"
+      );
+
       menuButton.innerHTML = opening
-        ? '<i data-lucide="x" class="w-6 h-6"></i>'
-        : '<i data-lucide="menu" class="w-6 h-6"></i>';
-      lucide.createIcons();
+        ? '<i data-lucide="x" aria-hidden="true"></i>'
+        : '<i data-lucide="menu" aria-hidden="true"></i>';
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     });
 
     mobileMenu.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("open");
         menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open menu");
-        menuButton.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-        lucide.createIcons();
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        menuButton.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
+
+        if (window.lucide) {
+          lucide.createIcons();
+        }
       });
     });
 
-    // Navbar shadow
+    // Add a shadow to the sticky navigation after scrolling.
+
     const navbar = document.getElementById("navbar");
 
     window.addEventListener("scroll", () => {
-      navbar.classList.toggle("shadow-md", window.scrollY > 10);
+      navbar.style.boxShadow = window.scrollY > 10
+        ? "0 6px 22px rgba(0, 0, 0, .22)"
+        : "none";
     }, { passive: true });
 
-    // Footer year
-    document.getElementById("footer-year").textContent = new Date().getFullYear();
+    // Footer year.
 
-    // Initial render
-    renderTeam();
+    document.getElementById("footer-year").textContent =
+      new Date().getFullYear();
 
-    // Reveal static content on scroll
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          revealObserver.unobserve(entry.target);
-        }
+    // Reveal static sections as they enter the viewport.
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealElements.forEach(element => {
+        revealObserver.observe(element);
       });
-    }, { threshold: 0.08 });
+    } else {
+      revealElements.forEach(element => {
+        element.classList.add("active");
+      });
+    }
 
-    document.querySelectorAll(".reveal").forEach(element => {
-      revealObserver.observe(element);
-    });
+    // Initial render: all 18 team members.
+
+    renderTeam("all");
   </script>
 
 </body>
