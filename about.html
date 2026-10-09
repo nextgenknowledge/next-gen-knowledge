@@ -1,102 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081629" />
 
   <title>About Us | NextGen Knowledge</title>
-  <meta name="description" content="Discover NextGen Knowledge, a student-led educational initiative making financial literacy and practical real-world learning accessible to young learners.">
-  <meta name="keywords" content="NextGen Knowledge, financial literacy, youth financial education, student-led education, Money Masters, financial literacy for students">
-  <meta name="author" content="NextGen Knowledge">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0A2342">
+  <meta
+    name="description"
+    content="Learn about NextGen Knowledge, a student-led educational organization making financial literacy and real-world education accessible to the next generation."
+  />
+  <meta property="og:title" content="About Us | NextGen Knowledge" />
+  <meta
+    property="og:description"
+    content="Making real-world financial education accessible to the next generation."
+  />
+  <meta property="og:type" content="website" />
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="About Us | NextGen Knowledge">
-  <meta property="og:description" content="Level up your real-world knowledge with NextGen Knowledge.">
-  <meta property="og:image" content="IMG_1383.jpeg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Us | NextGen Knowledge">
-  <meta name="twitter:description" content="Learn about our mission to make real-world education accessible.">
-  <meta name="twitter:image" content="IMG_1383.jpeg">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FXJKCLQMSN');
-  </script>
-
-  <!-- Organization structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NextGen Knowledge",
-    "description": "A student-led educational initiative focused on making financial literacy and real-world learning accessible to young learners.",
-    "email": "nextgen.knowledge123@gmail.com",
-    "logo": "IMG_1383.jpeg",
-    "sameAs": [
-      "https://www.instagram.com/nextgen.knowledge",
-      "https://www.linkedin.com/company/next-gen-knowledge/"
-    ]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="IMG_1383.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
+    rel="stylesheet"
+  />
   <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: {
-              DEFAULT: "#0A2342",
-              light: "#14355B",
-              dark: "#051224"
-            },
-            gold: {
-              DEFAULT: "#C9A227",
-              light: "#E3C45C",
-              dark: "#A6841C"
-            },
-            paper: "#F6F8FC",
-            mint: "#DDF7EB",
-            sky: "#E4F0FF",
-            lavender: "#EEE9FF"
-          },
-          fontFamily: {
-            sans: ["Inter", "sans-serif"]
-          },
-          boxShadow: {
-            soft: "0 10px 35px rgba(10,35,66,.07)",
-            card: "0 18px 45px rgba(10,35,66,.10)",
-            deep: "0 25px 70px rgba(5,18,36,.22)"
-          }
-        }
-      }
-    };
-  </script>
 
   <style>
     :root {
-      --navy: #0A2342;
-      --gold: #C9A227;
-      --paper: #F6F8FC;
+      --bg: #081629;
+      --bg-deep: #050d19;
+      --panel: #0d2038;
+      --panel-light: #142c49;
+      --panel-hover: #193653;
+      --navy: #0a2342;
+      --gold: #d9b64d;
+      --gold-bright: #f1d778;
+      --gold-dark: #9c7b25;
+      --cream: #f5f0df;
+      --text: #f3f5fa;
+      --muted: #9dadc2;
+      --line: #263c57;
+      --green: #7ce0b0;
+      --blue: #84b7ff;
+      --red: #ff9b9b;
+      --pixel-shadow: 4px 4px 0 rgba(0, 0, 0, 0.28);
+      --font-body: "DM Sans", sans-serif;
+      --font-pixel: "Press Start 2P", monospace;
+      --font-mono: "DM Mono", monospace;
+      --max-width: 1160px;
     }
 
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -106,199 +64,1455 @@
 
     body {
       margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
       overflow-x: hidden;
-      font-family: Inter, sans-serif;
     }
 
-    ::selection {
-      color: var(--navy);
-      background: #F2D982;
+    body.menu-open {
+      overflow: hidden;
     }
 
-    button, a {
-      -webkit-tap-highlight-color: transparent;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
     }
 
     button {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    ::selection {
+      color: var(--bg-deep);
+      background: var(--gold);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-alt {
+      background: var(--bg-deep);
+      border-top: 1px solid rgba(38, 60, 87, 0.65);
+      border-bottom: 1px solid rgba(38, 60, 87, 0.65);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 4px;
+      background: var(--gold);
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      font-weight: 800;
+    }
+
+    .section-heading p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .pixel-heading {
+      font-family: var(--font-pixel);
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.65;
+      letter-spacing: -1px;
+    }
+
+    .gold-text {
+      color: var(--gold-bright);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      font-size: 14px;
+      font-weight: 800;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
       cursor: pointer;
     }
 
-    .progress-bar {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: var(--bg-deep);
+      background: var(--gold);
+      box-shadow: 4px 4px 0 var(--gold-dark);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-bright);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(13, 32, 56, 0.7);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      background: var(--panel-light);
+      border-color: var(--gold-dark);
+    }
+
+    /* NAVIGATION */
+
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 13, 25, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar-inner {
+      width: min(1380px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 43px;
+      height: 43px;
+      object-fit: cover;
+      border: 1px solid var(--gold-dark);
+      border-radius: 3px;
+      background: var(--panel);
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.35;
+    }
+
+    .brand-name {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-tagline {
+      margin-top: 3px;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(12px, 1.7vw, 25px);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 8px 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link[aria-current="page"] {
+      color: var(--gold-bright);
+    }
+
+    .nav-link[aria-current="page"]::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .fin-city-link {
+      color: var(--gold);
+    }
+
+    .fin-city-link i {
+      width: 13px;
+      height: 13px;
+      vertical-align: -2px;
+      margin-right: 3px;
+    }
+
+    .nav-cta {
+      min-height: 39px;
+      padding: 9px 13px;
+      color: var(--bg-deep);
+      background: var(--gold);
+      box-shadow: 3px 3px 0 var(--gold-dark);
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-bright);
+    }
+
+    #mobile-menu-button {
+      display: none;
+      width: 43px;
+      height: 43px;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    #mobile-menu {
+      display: none;
+      padding: 8px 0 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    #mobile-menu:not([hidden]) {
+      display: block;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 10px;
+      color: var(--muted);
+      border-bottom: 1px solid rgba(38, 60, 87, 0.55);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link[aria-current="page"] {
+      color: var(--gold-bright);
+      background: rgba(217, 182, 77, 0.05);
+    }
+
+    .mobile-nav-link.fin-city-link {
+      color: var(--gold);
+    }
+
+    .mobile-nav-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+      padding: 13px;
+      color: var(--bg-deep);
+      background: var(--gold);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* READING PROGRESS */
+
+    #reading-progress {
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 100;
-      height: 4px;
+      z-index: 1100;
       width: 0;
-      background: linear-gradient(90deg, #C9A227, #F2D982);
-    }
-
-    /* Navigation */
-    .nav-link {
-      position: relative;
-      transition: color .2s ease, background .2s ease;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 5px;
-      height: 2px;
-      border-radius: 5px;
+      height: 3px;
       background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .2s ease;
+      box-shadow: 0 0 12px rgba(217, 182, 77, 0.5);
     }
 
-    .nav-link:hover::after,
-    .nav-link[aria-current="page"]::after {
-      transform: scaleX(1);
+    /* HERO */
+
+    .hero {
+      position: relative;
+      padding: 100px 0 85px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at 80% 30%,
+          rgba(30, 68, 106, 0.35),
+          transparent 48%
+        ),
+        linear-gradient(180deg, var(--bg) 0%, #091a2e 100%);
     }
 
-    /* Background patterns */
-    .dot-grid {
-      background-image: radial-gradient(rgba(10,35,66,.12) 1px, transparent 1px);
-      background-size: 22px 22px;
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(
+        rgba(217, 182, 77, 0.16) 1px,
+        transparent 1px
+      );
+      background-size: 26px 26px;
+      opacity: 0.32;
+      pointer-events: none;
+      content: "";
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
     }
 
     .hero-grid {
-      background-image:
-        linear-gradient(rgba(10,35,66,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,35,66,.035) 1px, transparent 1px);
-      background-size: 40px 40px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 65px;
     }
 
-    .hero-glow {
+    .hero-copy {
+      max-width: 670px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 25px;
+      padding: 7px 12px;
+      color: var(--gold-bright);
+      background: rgba(217, 182, 77, 0.08);
+      border: 1px solid rgba(217, 182, 77, 0.3);
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-badge i {
+      width: 15px;
+      height: 15px;
+    }
+
+    .hero h1 {
+      margin: 0 0 25px;
+      font-size: clamp(42px, 6vw, 69px);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -3px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-bright);
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 0 0 30px;
+      color: #b6c4d5;
+      font-size: clamp(16px, 1.6vw, 19px);
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 25px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+    }
+
+    .hero-note i {
+      width: 15px;
+      height: 15px;
+      color: var(--green);
+    }
+
+    /* HERO DASHBOARD */
+
+    .dashboard {
+      position: relative;
+      padding: 19px;
+      background: rgba(13, 32, 56, 0.92);
+      border: 1px solid #35506d;
+      border-radius: 5px;
+      box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.18);
+      transform: rotate(1deg);
+    }
+
+    .dashboard::before {
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 60px;
+      height: 8px;
+      background: var(--gold-dark);
+      content: "";
+    }
+
+    .dashboard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dashboard-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .dashboard-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: 9px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(124, 224, 176, 0.6);
+    }
+
+    .dashboard-intro {
+      padding: 21px 0;
+    }
+
+    .dashboard-label {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .dashboard-big-number {
+      margin: 8px 0 0;
+      color: var(--gold-bright);
+      font-size: clamp(30px, 4vw, 43px);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .dashboard-caption {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .dashboard-stat {
+      padding: 14px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .dashboard-stat i {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .dashboard-stat strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    .dashboard-stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .dashboard-bottom {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-top: 15px;
+      padding: 13px;
+      background: rgba(124, 224, 176, 0.07);
+      border: 1px solid rgba(124, 224, 176, 0.2);
+      border-radius: 3px;
+    }
+
+    .dashboard-bottom i {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--green);
+    }
+
+    .dashboard-bottom p {
+      margin: 0;
+      color: #c1d8d0;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    /* MISSION STRIP */
+
+    .mission-strip {
+      padding: 28px 0;
+      background: #0b1d32;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mission-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px 35px;
+      text-align: center;
+    }
+
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #c4cfdd;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .strip-item i {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+    }
+
+    .strip-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--line);
+    }
+
+    /* LEARNING QUESTS */
+
+    .quest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .quest-card {
+      position: relative;
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .quest-card:hover {
+      transform: translateY(-5px);
+      background: var(--panel-light);
+      border-color: var(--gold-dark);
+    }
+
+    .quest-number {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      color: #657b96;
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+
+    .quest-icon {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 23px;
+      color: var(--gold);
+      background: rgba(217, 182, 77, 0.09);
+      border: 1px solid rgba(217, 182, 77, 0.22);
+      border-radius: 4px;
+    }
+
+    .quest-icon i {
+      width: 23px;
+      height: 23px;
+    }
+
+    .quest-card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .quest-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .quest-tag {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 5px 8px;
+      color: var(--gold-bright);
+      background: rgba(217, 182, 77, 0.07);
+      border: 1px solid rgba(217, 182, 77, 0.18);
+      border-radius: 2px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* OUR STORY */
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: start;
+      gap: 70px;
+    }
+
+    .story-aside {
+      position: sticky;
+      top: 115px;
+    }
+
+    .story-aside h2 {
+      margin: 0 0 20px;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .story-aside p {
+      margin: 0 0 25px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .story-aside .btn {
+      margin-top: 4px;
+    }
+
+    .story-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+    }
+
+    .story-timeline::before {
+      position: absolute;
+      top: 25px;
+      bottom: 25px;
+      left: 20px;
+      width: 2px;
+      background: var(--line);
+      content: "";
+    }
+
+    .story-step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 17px;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      cursor: pointer;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .story-step:hover,
+    .story-step.active {
+      background: var(--panel-light);
+      border-color: var(--gold-dark);
+    }
+
+    .story-step-number {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-bright);
+      background: var(--bg);
+      border: 1px solid var(--gold-dark);
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .story-step h3 {
+      margin: 0 0 7px;
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .story-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+    .story-detail {
+      display: none;
+      margin-top: 13px;
+      padding-top: 13px;
+      color: #c5d1df;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .story-step.active .story-detail {
+      display: block;
+    }
+
+    /* MISSION */
+
+    .mission-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+    }
+
+    .mission-copy {
+      padding: clamp(28px, 5vw, 52px);
+    }
+
+    .mission-copy h2 {
+      margin: 0 0 20px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .mission-copy p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .mission-visual {
+      position: relative;
+      display: flex;
+      min-height: 390px;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       background:
-        radial-gradient(circle at 78% 22%, rgba(201,162,39,.18), transparent 30%),
-        radial-gradient(circle at 10% 85%, rgba(80,145,220,.12), transparent 35%);
+        radial-gradient(
+          circle at center,
+          rgba(217, 182, 77, 0.14),
+          transparent 65%
+        ),
+        #09182a;
+      border-left: 1px solid var(--line);
     }
 
-    .gradient-text {
-      background: linear-gradient(110deg, #0A2342 15%, #23507C 65%, #C9A227 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+    .mission-visual::before {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(132, 183, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(132, 183, 255, 0.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+      content: "";
     }
 
-    /* Motion */
+    .pixel-city {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      height: 235px;
+      padding: 0 15px 25px;
+      border-bottom: 3px solid var(--gold-dark);
+    }
+
+    .pixel-building {
+      position: relative;
+      width: 48px;
+      background: #142e4c;
+      border: 3px solid #345272;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .pixel-building::before {
+      position: absolute;
+      top: 10px;
+      right: 7px;
+      left: 7px;
+      height: 6px;
+      background: var(--gold-dark);
+      box-shadow:
+        0 19px 0 rgba(217, 182, 77, 0.65),
+        0 38px 0 rgba(217, 182, 77, 0.35);
+      content: "";
+    }
+
+    .pixel-building:nth-child(1) {
+      height: 105px;
+    }
+
+    .pixel-building:nth-child(2) {
+      width: 58px;
+      height: 160px;
+      background: #1a3b5d;
+    }
+
+    .pixel-building:nth-child(3) {
+      height: 125px;
+    }
+
+    .pixel-building:nth-child(4) {
+      width: 60px;
+      height: 195px;
+      background: #173454;
+      border-color: var(--gold-dark);
+    }
+
+    .pixel-building:nth-child(5) {
+      height: 135px;
+    }
+
+    .pixel-building:nth-child(6) {
+      height: 90px;
+    }
+
+    .city-label {
+      position: absolute;
+      right: 0;
+      bottom: -34px;
+      left: 0;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* PRINCIPLES */
+
+    .principles-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .principles-intro h2 {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .principles-intro p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .principle-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .principle-tab {
+      padding: 10px 13px;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .principle-tab:hover,
+    .principle-tab.active {
+      color: var(--gold-bright);
+      background: var(--panel-light);
+      border-color: var(--gold-dark);
+    }
+
+    .principle-content {
+      min-height: 220px;
+      padding: 29px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .principle-content[hidden] {
+      display: none;
+    }
+
+    .principle-content .principle-icon {
+      display: flex;
+      width: 43px;
+      height: 43px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--gold);
+      background: rgba(217, 182, 77, 0.08);
+      border: 1px solid rgba(217, 182, 77, 0.2);
+      border-radius: 3px;
+    }
+
+    .principle-content h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
+
+    .principle-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    /* LEARNING LOOP */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .skill-card {
+      padding: 23px 19px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      text-align: center;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-dark);
+    }
+
+    .skill-icon {
+      display: flex;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: var(--gold);
+      background: rgba(217, 182, 77, 0.08);
+      border: 1px solid rgba(217, 182, 77, 0.18);
+      border-radius: 3px;
+    }
+
+    .skill-icon i {
+      width: 22px;
+      height: 22px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .skill-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    /* STUDENT-LED */
+
+    .student-led-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .student-led-copy h2 {
+      margin: 0 0 20px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .student-led-copy p {
+      margin: 0 0 17px;
+      color: var(--muted);
+    }
+
+    .student-led-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 25px 0 30px;
+    }
+
+    .student-led-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .student-led-point i {
+      flex-shrink: 0;
+      width: 19px;
+      height: 19px;
+      margin-top: 3px;
+      color: var(--green);
+    }
+
+    .student-led-point span {
+      color: #c6d2e0;
+      font-size: 14px;
+    }
+
+    .student-card {
+      padding: 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.14);
+    }
+
+    .student-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 23px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .student-card-header span:first-child {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .student-card-header span:last-child {
+      padding: 5px 8px;
+      color: var(--green);
+      background: rgba(124, 224, 176, 0.08);
+      border: 1px solid rgba(124, 224, 176, 0.2);
+      border-radius: 2px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+    }
+
+    .student-role {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(38, 60, 87, 0.6);
+    }
+
+    .student-role:last-child {
+      border-bottom: 0;
+    }
+
+    .student-role-icon {
+      display: flex;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .student-role-icon i {
+      width: 20px;
+      height: 20px;
+    }
+
+    .student-role h3 {
+      margin: 0 0 3px;
+      font-size: 14px;
+    }
+
+    .student-role p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* FAQ */
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .faq-intro h2 {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .faq-intro p {
+      margin: 0 0 25px;
+      color: var(--muted);
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .faq-question {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 20px;
+      color: var(--text);
+      background: transparent;
+      border: 0;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .faq-question i {
+      flex-shrink: 0;
+      width: 17px;
+      height: 17px;
+      color: var(--gold);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-question i {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 20px 19px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .faq-answer[hidden] {
+      display: none;
+    }
+
+    /* CTA */
+
+    .final-cta {
+      padding: 90px 0;
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(217, 182, 77, 0.13),
+          transparent 65%
+        ),
+        #09182a;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .final-cta-inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .final-cta h2 {
+      margin: 0 0 20px;
+      font-size: clamp(34px, 5vw, 53px);
+      line-height: 1.15;
+      letter-spacing: -2px;
+    }
+
+    .final-cta p {
+      max-width: 600px;
+      margin: 0 auto 29px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 55px 0 22px;
+      background: var(--bg-deep);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+      margin: 17px 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--gold);
+      border-color: var(--gold-dark);
+    }
+
+    .footer-socials i {
+      width: 17px;
+      height: 17px;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 17px;
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer-column a {
+      display: block;
+      width: fit-content;
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--gold-bright);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: #8192a8;
+      font-size: 11px;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+    }
+
+    .footer-disclaimer {
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    /* REVEAL ANIMATIONS */
+
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .65s ease, transform .65s ease;
+      transform: translateY(20px);
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
     }
 
-    .reveal.active {
+    .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .float {
-      animation: float 5s ease-in-out infinite;
+    .delay-1 {
+      transition-delay: 0.1s;
     }
 
-    .float-delay {
-      animation: float 5.8s ease-in-out 1s infinite;
+    .delay-2 {
+      transition-delay: 0.2s;
     }
 
-    .slow-spin {
-      animation: spin 35s linear infinite;
+    .delay-3 {
+      transition-delay: 0.3s;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+    /* ACCESSIBILITY */
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes pop-in {
-      from { opacity: 0; transform: scale(.96) translateY(8px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .pop-in {
-      animation: pop-in .35s ease both;
-    }
-
-    /* Cards */
-    .game-card {
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-
-    .game-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 42px rgba(10,35,66,.11);
-      border-color: rgba(201,162,39,.65);
-    }
-
-    .quest-card:hover .quest-arrow {
-      transform: translateX(4px);
-    }
-
-    .quest-arrow {
-      transition: transform .2s ease;
-    }
-
-    /* Story steps */
-    .story-step {
-      transition: border-color .2s ease, background .2s ease, transform .2s ease;
-    }
-
-    .story-step[aria-pressed="true"] {
-      background: white;
-      border-color: var(--gold);
-      box-shadow: 0 8px 25px rgba(10,35,66,.06);
-    }
-
-    .story-step[aria-pressed="true"] .step-number {
-      background: var(--navy);
-      color: white;
-    }
-
-    /* Tabs */
-    .value-tab {
-      transition: all .2s ease;
-    }
-
-    .value-tab[aria-selected="true"] {
-      color: white;
-      background: var(--navy);
-      border-color: var(--navy);
-      box-shadow: 0 8px 24px rgba(10,35,66,.12);
-    }
-
-    .value-tab[aria-selected="false"]:hover {
-      border-color: var(--gold);
-      background: #FFFCF3;
-    }
-
-    /* FAQ */
-    .faq-item[open] .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    .faq-icon {
-      transition: transform .2s ease;
-    }
-
-    @media (max-width: 767px) {
-      .hero-grid {
-        background-size: 28px 28px;
-      }
-
-      .reveal {
-        transform: translateY(12px);
-      }
-
-      .story-step[aria-pressed="true"] {
-        transform: none;
-      }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--gold-bright);
+      outline-offset: 4px;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -306,9 +1520,9 @@
       *::before,
       *::after {
         scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
+        animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+        transition-duration: 0.01ms !important;
       }
 
       .reveal {
@@ -316,414 +1530,608 @@
         transform: none;
       }
     }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1120px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-link {
+        font-size: 11px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      .brand-tagline {
+        font-size: 8px;
+      }
+
+      .brand-logo {
+        width: 39px;
+        height: 39px;
+      }
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+      }
+
+      #mobile-menu-button {
+        display: inline-flex;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 0.85fr;
+        gap: 35px;
+      }
+
+      .story-grid,
+      .principles-layout,
+      .faq-layout {
+        gap: 35px;
+      }
+
+      .quest-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-main {
+        grid-template-columns: 1.3fr 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 34px, var(--max-width));
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .navbar-inner {
+        width: calc(100% - 28px);
+      }
+
+      .nav-row {
+        min-height: 68px;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-name {
+        font-size: 13px;
+      }
+
+      .brand-tagline {
+        font-size: 8px;
+      }
+
+      .hero {
+        padding: 70px 0 60px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .hero h1 {
+        font-size: clamp(40px, 11vw, 60px);
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .dashboard {
+        max-width: 470px;
+        width: 100%;
+        margin: 0 auto;
+        transform: none;
+      }
+
+      .mission-strip-inner {
+        gap: 15px 20px;
+      }
+
+      .strip-divider {
+        display: none;
+      }
+
+      .strip-item {
+        font-size: 12px;
+      }
+
+      .quest-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quest-card {
+        padding: 24px;
+      }
+
+      .story-grid,
+      .principles-layout,
+      .student-led-grid,
+      .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .story-aside {
+        position: static;
+      }
+
+      .mission-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-visual {
+        min-height: 320px;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .pixel-city {
+        transform: scale(0.85);
+      }
+
+      .principle-content {
+        min-height: auto;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 11px;
+      }
+
+      .skill-card {
+        padding: 20px 13px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-name {
+        font-size: 12px;
+      }
+
+      .brand-tagline {
+        font-size: 7px;
+      }
+
+      .hero-actions .btn,
+      .final-cta-actions .btn {
+        width: 100%;
+      }
+
+      .dashboard {
+        padding: 14px;
+      }
+
+      .dashboard-stats {
+        gap: 8px;
+      }
+
+      .dashboard-stat {
+        padding: 11px;
+      }
+
+      .story-step {
+        grid-template-columns: 35px 1fr;
+        gap: 12px;
+        padding: 15px;
+      }
+
+      .story-step-number {
+        width: 35px;
+        height: 35px;
+      }
+
+      .footer-main {
+        gap: 25px 18px;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-white text-gray-900 antialiased">
-
-  <div id="reading-progress" class="progress-bar" aria-hidden="true"></div>
+<body>
+  <div id="reading-progress" aria-hidden="true"></div>
 
   <!-- NAVIGATION -->
-  <nav id="navbar" class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-xl border-b border-gray-100 transition-shadow duration-300">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-      <div class="h-[76px] flex items-center justify-between gap-4">
-
-        <a href="index.html" class="flex items-center gap-3 shrink-0" aria-label="NextGen Knowledge homepage">
-          <img src="IMG_1383.jpeg" alt="NextGen Knowledge logo" width="44" height="44" class="w-11 h-11 rounded-xl object-cover shadow-sm">
-          <span>
-            <span class="block font-extrabold tracking-tight text-navy text-base sm:text-lg">NextGen Knowledge</span>
-            <span class="block text-[9px] sm:text-[10px] font-extrabold uppercase tracking-[.13em] text-gold mt-0.5">Learn skills for life</span>
+  <header id="navbar">
+    <div class="navbar-inner">
+      <div class="nav-row">
+        <a class="brand" href="index.html" aria-label="NextGen Knowledge home">
+          <img
+            class="brand-logo"
+            src="IMG_1383.jpeg"
+            alt="NextGen Knowledge logo"
+            onerror="this.style.display='none'"
+          />
+          <span class="brand-copy">
+            <span class="brand-name">NextGen Knowledge</span>
+            <span class="brand-tagline">Learn Today. Lead Tomorrow.</span>
           </span>
         </a>
 
-        <div class="hidden xl:flex items-center gap-0.5">
-          <a href="index.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Home</a>
-          <a href="about.html" class="nav-link px-3 py-3 text-sm font-bold text-navy rounded-lg" aria-current="page">About</a>
-          <a href="programs.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Programs</a>
-          <a href="team.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Our Team</a>
-          <a href="partnerships.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Partners</a>
-          <a href="trivia.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Trivia Arena</a>
-          <a href="donate.html" class="nav-link px-3 py-3 text-sm font-semibold text-gray-600 hover:text-navy rounded-lg">Donate</a>
-          <a href="enroll.html" class="ml-2 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-navy text-white text-sm font-bold hover:bg-navy-light transition-colors">
-            Start exploring <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a
+            class="nav-link"
+            href="about.html"
+            aria-current="page"
+          >About</a>
+          <a class="nav-link" href="programs.html">Programs</a>
+          <a class="nav-link" href="team.html">Our Team</a>
+          <a class="nav-link" href="partnerships.html">Partners</a>
+          <a class="nav-link fin-city-link" href="fin-city.html">
+            <i data-lucide="gamepad-2" aria-hidden="true"></i>
+            Fin City
           </a>
-        </div>
+          <a class="nav-link" href="donate.html">Donate</a>
+          <a class="nav-cta" href="enroll.html">Get Started <span aria-hidden="true">→</span></a>
+        </nav>
 
-        <button id="mobile-menu-button" type="button" class="xl:hidden p-2.5 rounded-xl text-navy hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gold" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-          <i data-lucide="menu" class="w-6 h-6"></i>
+        <button
+          id="mobile-menu-button"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <i data-lucide="menu" id="mobile-menu-icon" aria-hidden="true"></i>
         </button>
       </div>
 
-      <div id="mobile-menu" class="hidden xl:hidden pb-5">
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 border-t border-gray-100 pt-4">
-          <a href="index.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl">Home</a>
-          <a href="about.html" aria-current="page" class="px-4 py-3 text-sm font-bold text-navy bg-gold/10 rounded-xl">About</a>
-          <a href="programs.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl">Programs</a>
-          <a href="team.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl">Our Team</a>
-          <a href="partnerships.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl">Partners</a>
-          <a href="trivia.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl">Trivia Arena</a>
-          <a href="donate.html" class="px-4 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 rounded-xl">Donate</a>
-          <a href="enroll.html" class="px-4 py-3 text-sm font-bold text-white bg-navy hover:bg-navy-light rounded-xl text-center">Get started ↗</a>
+      <nav id="mobile-menu" aria-label="Mobile navigation" hidden>
+        <div class="mobile-nav-links">
+          <a class="mobile-nav-link" href="index.html">Home</a>
+          <a class="mobile-nav-link" href="about.html" aria-current="page">About Us</a>
+          <a class="mobile-nav-link" href="programs.html">Programs</a>
+          <a class="mobile-nav-link" href="team.html">Our Team</a>
+          <a class="mobile-nav-link" href="partnerships.html">Partners</a>
+          <a class="mobile-nav-link fin-city-link" href="fin-city.html">
+            <span><i data-lucide="gamepad-2" aria-hidden="true"></i> Fin City</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="mobile-nav-link" href="donate.html">Donate</a>
+          <a class="mobile-nav-cta" href="enroll.html">Get Started →</a>
         </div>
-      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <main>
-
     <!-- HERO -->
-    <section class="relative overflow-hidden bg-paper hero-grid hero-glow pt-32 sm:pt-36 pb-20 lg:pt-40 lg:pb-28">
-      <div class="absolute -top-24 -left-20 w-80 h-80 bg-gold/15 rounded-full blur-3xl" aria-hidden="true"></div>
-      <div class="absolute right-0 top-32 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl" aria-hidden="true"></div>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-badge">
+            <i data-lucide="sparkles" aria-hidden="true"></i>
+            STUDENT-LED. FUTURE-FOCUSED.
+          </div>
 
-      <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-[1.08fr_.92fr] gap-12 lg:gap-16 items-center">
+          <h1>
+            Real-world skills.<br />
+            <span>Real opportunities.</span>
+          </h1>
 
-          <div class="reveal">
-            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-gold/30 shadow-sm text-navy text-xs font-extrabold uppercase tracking-[.13em]">
-              <span class="w-2 h-2 rounded-full bg-green-500"></span>
-              Your real-world learning adventure
+          <p class="hero-description">
+            We believe every student deserves access to the knowledge that
+            helps them navigate the real world. NextGen Knowledge makes
+            financial literacy and practical education more accessible
+            through engaging programs, hands-on learning, and innovative
+            educational experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="programs.html">
+              Explore Our Programs
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-secondary" href="#our-story">
+              Discover Our Story
+              <i data-lucide="arrow-down" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <i data-lucide="check-circle-2" aria-hidden="true"></i>
+            Education designed to be accessible, practical, and engaging.
+          </div>
+        </div>
+
+        <div class="dashboard reveal delay-2" aria-label="NextGen Knowledge impact overview">
+          <div class="dashboard-top">
+            <span class="dashboard-title">NEXTGEN // IMPACT</span>
+            <span class="dashboard-status">
+              <span class="status-dot"></span>
+              MAKING PROGRESS
+            </span>
+          </div>
+
+          <div class="dashboard-intro">
+            <div class="dashboard-label">Learning beyond the classroom</div>
+            <div class="dashboard-big-number">350+</div>
+            <div class="dashboard-caption">Students reached through our educational initiatives</div>
+          </div>
+
+          <div class="dashboard-stats">
+            <div class="dashboard-stat">
+              <i data-lucide="globe-2" aria-hidden="true"></i>
+              <strong>15+</strong>
+              <span>Countries reached</span>
             </div>
+            <div class="dashboard-stat">
+              <i data-lucide="book-open" aria-hidden="true"></i>
+              <strong>Real</strong>
+              <span>World applications</span>
+            </div>
+            <div class="dashboard-stat">
+              <i data-lucide="users" aria-hidden="true"></i>
+              <strong>Student-led</strong>
+              <span>Community-driven</span>
+            </div>
+            <div class="dashboard-stat">
+              <i data-lucide="lightbulb" aria-hidden="true"></i>
+              <strong>Hands-on</strong>
+              <span>Practical learning</span>
+            </div>
+          </div>
 
-            <h1 class="mt-7 text-5xl sm:text-6xl lg:text-[76px] leading-[.98] tracking-[-.055em] font-black text-navy">
-              School teaches a lot.
-              <span class="gradient-text block mt-3">Life teaches more.</span>
-            </h1>
-
-            <p class="mt-7 max-w-xl text-lg sm:text-xl leading-relaxed text-gray-600">
-              We're students making real-world education easier to explore, from understanding money to making smarter decisions and thinking beyond the classroom.
+          <div class="dashboard-bottom">
+            <i data-lucide="trending-up" aria-hidden="true"></i>
+            <p>
+              Our goal: turn important real-world concepts into knowledge
+              students can actually use.
             </p>
-
-            <div class="mt-8 flex flex-col sm:flex-row gap-3">
-              <a href="#learning-quests" class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-navy text-white font-bold hover:bg-navy-light transition-colors shadow-soft">
-                Explore the learning quests
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-              </a>
-              <a href="programs.html" class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white border border-gray-200 text-navy font-bold hover:border-gold transition-colors">
-                View programs
-                <i data-lucide="compass" class="w-5 h-5"></i>
-              </a>
-            </div>
-
-            <div class="mt-9 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-gray-500">
-              <span class="inline-flex items-center gap-2"><i data-lucide="users" class="w-4 h-4 text-gold"></i> Student-led</span>
-              <span class="inline-flex items-center gap-2"><i data-lucide="puzzle" class="w-4 h-4 text-gold"></i> Interactive learning</span>
-              <span class="inline-flex items-center gap-2"><i data-lucide="globe" class="w-4 h-4 text-gold"></i> Real-world skills</span>
-            </div>
           </div>
-
-          <!-- GAME-INSPIRED LEARNING DASHBOARD -->
-          <div class="relative reveal">
-            <div class="absolute -inset-4 sm:-inset-7 rounded-[3rem] bg-gold/10 rotate-2" aria-hidden="true"></div>
-
-            <div class="relative rounded-[2rem] border border-gray-200 bg-white p-5 sm:p-7 shadow-deep">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="text-xs font-extrabold uppercase tracking-[.15em] text-gray-400">Your learning journey</p>
-                  <h2 class="mt-1 text-xl sm:text-2xl font-black text-navy">The Real-World Quest</h2>
-                </div>
-                <div class="w-12 h-12 rounded-2xl bg-gold/15 text-gold flex items-center justify-center">
-                  <i data-lucide="compass" class="w-6 h-6"></i>
-                </div>
-              </div>
-
-              <div class="mt-7 rounded-2xl bg-navy p-5 sm:p-6 text-white relative overflow-hidden">
-                <div class="absolute -right-8 -top-12 w-40 h-40 rounded-full bg-gold/15 blur-2xl" aria-hidden="true"></div>
-                <div class="relative flex items-center justify-between gap-3">
-                  <div>
-                    <p class="text-xs font-bold uppercase tracking-[.15em] text-gold">Mission briefing</p>
-                    <p class="mt-2 text-xl font-black">Knowledge is your superpower.</p>
-                    <p class="mt-2 text-sm text-gray-300 leading-relaxed">Discover skills that help you understand the world around you.</p>
-                  </div>
-                  <i data-lucide="trophy" class="w-10 h-10 shrink-0 text-gold"></i>
-                </div>
-              </div>
-
-              <div class="mt-6">
-                <div class="flex items-center justify-between gap-3">
-                  <p class="text-sm font-extrabold text-navy">Your skill map</p>
-                  <span class="text-xs text-gray-400 font-semibold">4 areas to explore</span>
-                </div>
-
-                <div class="mt-4 grid grid-cols-2 gap-3">
-                  <div class="game-card rounded-2xl border border-gray-100 p-4 bg-paper">
-                    <div class="w-10 h-10 rounded-xl bg-gold/20 text-navy flex items-center justify-center">
-                      <i data-lucide="wallet" class="w-5 h-5"></i>
-                    </div>
-                    <p class="mt-3 text-sm font-extrabold text-navy">Money Skills</p>
-                    <p class="mt-1 text-xs leading-relaxed text-gray-500">Make sense of money.</p>
-                  </div>
-
-                  <div class="game-card rounded-2xl border border-gray-100 p-4 bg-paper">
-                    <div class="w-10 h-10 rounded-xl bg-sky text-navy flex items-center justify-center">
-                      <i data-lucide="trending-up" class="w-5 h-5"></i>
-                    </div>
-                    <p class="mt-3 text-sm font-extrabold text-navy">Investing</p>
-                    <p class="mt-1 text-xs leading-relaxed text-gray-500">Explore risk and growth.</p>
-                  </div>
-
-                  <div class="game-card rounded-2xl border border-gray-100 p-4 bg-paper">
-                    <div class="w-10 h-10 rounded-xl bg-mint text-navy flex items-center justify-center">
-                      <i data-lucide="brain" class="w-5 h-5"></i>
-                    </div>
-                    <p class="mt-3 text-sm font-extrabold text-navy">Smart Thinking</p>
-                    <p class="mt-1 text-xs leading-relaxed text-gray-500">Compare and question.</p>
-                  </div>
-
-                  <div class="game-card rounded-2xl border border-gray-100 p-4 bg-paper">
-                    <div class="w-10 h-10 rounded-xl bg-lavender text-navy flex items-center justify-center">
-                      <i data-lucide="rocket" class="w-5 h-5"></i>
-                    </div>
-                    <p class="mt-3 text-sm font-extrabold text-navy">Future Skills</p>
-                    <p class="mt-1 text-xs leading-relaxed text-gray-500">Prepare for what's next.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-6 flex items-center gap-3 rounded-xl border border-dashed border-gold/50 bg-amber-50/60 p-4">
-                <i data-lucide="star" class="w-6 h-6 shrink-0 text-gold"></i>
-                <p class="text-sm text-navy leading-relaxed"><strong>Every question is a starting point.</strong> Keep exploring, practicing, and building skills you can use.</p>
-              </div>
-            </div>
-
-            <div class="float absolute -top-5 -right-2 sm:-right-5 rounded-2xl bg-white border border-gray-100 shadow-soft p-3 sm:p-4">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-gold/15 text-gold flex items-center justify-center"><i data-lucide="lightbulb" class="w-5 h-5"></i></div>
-                <div>
-                  <p class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400">Power up</p>
-                  <p class="text-xs sm:text-sm font-extrabold text-navy">Learn something new</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="float-delay absolute -bottom-5 -left-2 sm:-left-5 rounded-2xl bg-white border border-gray-100 shadow-soft p-3 sm:p-4">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-xl bg-navy text-gold flex items-center justify-center"><i data-lucide="puzzle" class="w-5 h-5"></i></div>
-                <div>
-                  <p class="text-[10px] font-extrabold uppercase tracking-wider text-gray-400">Your next move</p>
-                  <p class="text-xs sm:text-sm font-extrabold text-navy">Put knowledge to work</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- BRAND PILLARS -->
-    <section class="bg-navy py-5">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 sm:gap-x-10 text-center">
-          <span class="text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider">Learn</span>
-          <i data-lucide="plus" class="w-4 h-4 text-gold"></i>
-          <span class="text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider">Explore</span>
-          <i data-lucide="plus" class="w-4 h-4 text-gold"></i>
-          <span class="text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider">Practice</span>
-          <i data-lucide="plus" class="w-4 h-4 text-gold"></i>
-          <span class="text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider">Apply</span>
+    <!-- MISSION STRIP -->
+    <section class="mission-strip" aria-label="Our approach">
+      <div class="container mission-strip-inner">
+        <div class="strip-item">
+          <i data-lucide="graduation-cap" aria-hidden="true"></i>
+          Student-led learning
+        </div>
+        <span class="strip-divider" aria-hidden="true"></span>
+        <div class="strip-item">
+          <i data-lucide="wallet" aria-hidden="true"></i>
+          Financial literacy
+        </div>
+        <span class="strip-divider" aria-hidden="true"></span>
+        <div class="strip-item">
+          <i data-lucide="gamepad-2" aria-hidden="true"></i>
+          Interactive education
+        </div>
+        <span class="strip-divider" aria-hidden="true"></span>
+        <div class="strip-item">
+          <i data-lucide="heart-handshake" aria-hidden="true"></i>
+          Community impact
         </div>
       </div>
     </section>
 
-    <!-- LEARNING QUESTS -->
-    <section id="learning-quests" class="py-20 sm:py-24 lg:py-28 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="reveal max-w-3xl">
-          <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.18em] text-gold">
-            <i data-lucide="map" class="w-4 h-4"></i> Choose your path
-          </span>
-          <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight text-navy">Every skill unlocks a new possibility.</h2>
-          <p class="mt-5 text-lg leading-relaxed text-gray-600">The real world comes with plenty of questions. We help young learners start finding the answers, one concept at a time.</p>
+    <!-- WHAT WE DO -->
+    <section class="section" id="what-we-do">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">What We Do</span>
+          <h2>Learning should prepare you for <span class="gold-text">life.</span></h2>
+          <p>
+            We focus on practical knowledge that students can carry beyond
+            the classroom, with learning experiences built around
+            participation, curiosity, and real-world applications.
+          </p>
         </div>
 
-        <div class="mt-10 grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
-          <a href="programs.html" class="quest-card game-card reveal group rounded-3xl border border-gray-200 bg-white p-6">
-            <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-gold/20 text-navy flex items-center justify-center"><i data-lucide="wallet" class="w-6 h-6"></i></div>
-              <span class="text-[10px] font-extrabold uppercase tracking-wider rounded-full bg-gold/15 text-navy px-3 py-1.5">Quest 01</span>
+        <div class="quest-grid">
+          <article class="quest-card reveal">
+            <span class="quest-number">01 / LEARN</span>
+            <div class="quest-icon">
+              <i data-lucide="wallet" aria-hidden="true"></i>
             </div>
-            <h3 class="mt-6 text-xl font-black text-navy">Money Mastery</h3>
-            <p class="mt-3 text-sm leading-relaxed text-gray-500">Explore budgeting, saving, spending choices, and how everyday money decisions work.</p>
-            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-bold text-navy">
-              Explore this path <i data-lucide="arrow-up-right" class="quest-arrow w-4 h-4 text-gold"></i>
-            </div>
-          </a>
+            <h3>Financial Literacy</h3>
+            <p>
+              Help students understand money, budgeting, banking, saving,
+              investing, and the financial decisions they will encounter
+              as they grow.
+            </p>
+            <span class="quest-tag">Money Skills</span>
+          </article>
 
-          <a href="programs.html" class="quest-card game-card reveal group rounded-3xl border border-gray-200 bg-white p-6" style="transition-delay:70ms">
-            <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-sky text-navy flex items-center justify-center"><i data-lucide="chart-no-axes-combined" class="w-6 h-6"></i></div>
-              <span class="text-[10px] font-extrabold uppercase tracking-wider rounded-full bg-sky text-navy px-3 py-1.5">Quest 02</span>
+          <article class="quest-card reveal delay-1">
+            <span class="quest-number">02 / APPLY</span>
+            <div class="quest-icon">
+              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
             </div>
-            <h3 class="mt-6 text-xl font-black text-navy">Investing Explorer</h3>
-            <p class="mt-3 text-sm leading-relaxed text-gray-500">Get introduced to investing, markets, risk, and the decisions behind building wealth over time.</p>
-            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-bold text-navy">
-              Explore this path <i data-lucide="arrow-up-right" class="quest-arrow w-4 h-4 text-gold"></i>
-            </div>
-          </a>
+            <h3>Practical Programs</h3>
+            <p>
+              Our courses and workshops turn concepts into approachable
+              learning experiences through examples, activities, and
+              guided participation.
+            </p>
+            <span class="quest-tag">Hands-On Learning</span>
+          </article>
 
-          <a href="trivia.html" class="quest-card game-card reveal group rounded-3xl border border-gray-200 bg-white p-6" style="transition-delay:140ms">
-            <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-mint text-navy flex items-center justify-center"><i data-lucide="brain" class="w-6 h-6"></i></div>
-              <span class="text-[10px] font-extrabold uppercase tracking-wider rounded-full bg-mint text-navy px-3 py-1.5">Quest 03</span>
+          <article class="quest-card reveal delay-2">
+            <span class="quest-number">03 / EXPLORE</span>
+            <div class="quest-icon">
+              <i data-lucide="gamepad-2" aria-hidden="true"></i>
             </div>
-            <h3 class="mt-6 text-xl font-black text-navy">Critical Thinker</h3>
-            <p class="mt-3 text-sm leading-relaxed text-gray-500">Practice asking questions, comparing options, and thinking through the consequences of decisions.</p>
-            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-bold text-navy">
-              Try the Trivia Arena <i data-lucide="arrow-up-right" class="quest-arrow w-4 h-4 text-gold"></i>
-            </div>
-          </a>
-
-          <a href="programs.html" class="quest-card game-card reveal group rounded-3xl border border-gray-200 bg-white p-6" style="transition-delay:210ms">
-            <div class="flex items-center justify-between">
-              <div class="w-12 h-12 rounded-2xl bg-lavender text-navy flex items-center justify-center"><i data-lucide="rocket" class="w-6 h-6"></i></div>
-              <span class="text-[10px] font-extrabold uppercase tracking-wider rounded-full bg-lavender text-navy px-3 py-1.5">Quest 04</span>
-            </div>
-            <h3 class="mt-6 text-xl font-black text-navy">Future Builder</h3>
-            <p class="mt-3 text-sm leading-relaxed text-gray-500">Discover useful knowledge, build confidence, and connect what you learn to future opportunities.</p>
-            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-sm font-bold text-navy">
-              Find a program <i data-lucide="arrow-up-right" class="quest-arrow w-4 h-4 text-gold"></i>
-            </div>
-          </a>
+            <h3>Interactive Education</h3>
+            <p>
+              Through projects such as Fin City, we are exploring new ways
+              to make financial concepts more engaging, memorable, and
+              approachable for young learners.
+            </p>
+            <span class="quest-tag">Learning Through Play</span>
+          </article>
         </div>
-
-        <p class="reveal mt-6 text-sm text-gray-400">These paths represent our learning focus. Available courses and activities vary by program.</p>
       </div>
     </section>
 
     <!-- OUR STORY -->
-    <section id="our-story" class="py-20 sm:py-24 lg:py-28 bg-paper hero-grid">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-[.85fr_1.15fr] gap-12 lg:gap-20 items-start">
+    <section class="section section-alt" id="our-story">
+      <div class="container story-grid">
+        <div class="story-aside reveal">
+          <span class="eyebrow">Our Story</span>
+          <h2>Built by students. <span class="gold-text">For the next generation.</span></h2>
+          <p>
+            We started with a simple idea: students should have more
+            opportunities to learn the practical skills that traditional
+            classrooms may not always have time to cover.
+          </p>
+          <p>
+            That idea continues to shape our programs, community
+            partnerships, and educational projects.
+          </p>
+          <a class="btn btn-secondary" href="programs.html">
+            See What We're Building
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
 
-          <div class="reveal lg:sticky lg:top-32">
-            <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.18em] text-gold">
-              <i data-lucide="book-open" class="w-4 h-4"></i> Our story
-            </span>
-            <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight leading-tight text-navy">It started with a simple question.</h2>
-            <p class="mt-6 text-lg leading-relaxed text-gray-600">What if students could learn important life skills before they needed them?</p>
-            <p class="mt-4 leading-relaxed text-gray-500">That question helped inspire a student-led effort to make practical education more accessible, engaging, and relevant to young learners.</p>
-
-            <a href="team.html" class="mt-7 inline-flex items-center gap-2 font-bold text-navy hover:text-gold transition-colors">
-              Meet the people behind it <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
-          </div>
-
-          <div class="reveal rounded-[2rem] bg-white border border-gray-100 p-5 sm:p-8 lg:p-10 shadow-soft">
-            <div class="flex items-center justify-between gap-4 mb-7">
-              <div>
-                <p class="text-xs font-extrabold uppercase tracking-[.16em] text-gold">The origin story</p>
-                <h3 class="mt-2 text-2xl sm:text-3xl font-black text-navy">Four steps. One mission.</h3>
-              </div>
-              <div class="hidden sm:flex w-14 h-14 rounded-2xl bg-navy text-gold items-center justify-center">
-                <i data-lucide="route" class="w-7 h-7"></i>
+        <div class="story-timeline reveal delay-1">
+          <article class="story-step active" tabindex="0" role="button" aria-expanded="true">
+            <div class="story-step-number">01</div>
+            <div>
+              <h3>The Idea</h3>
+              <p>
+                Make practical education more accessible to young people.
+              </p>
+              <div class="story-detail">
+                We recognized that learning about money and real-world
+                decisions early can help students build a stronger
+                foundation for the future.
               </div>
             </div>
+          </article>
 
-            <div class="space-y-3" id="story-steps">
-              <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 rounded-2xl border border-transparent bg-paper" data-story="0" aria-pressed="true">
-                <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/20 text-navy flex items-center justify-center font-black">01</span>
-                <span class="flex-1">
-                  <span class="block font-extrabold text-navy">Spot the gap</span>
-                  <span class="block mt-1 text-sm text-gray-500">Students need skills they can use beyond the classroom.</span>
-                </span>
-                <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
-              </button>
-
-              <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 rounded-2xl border border-transparent bg-paper" data-story="1" aria-pressed="false">
-                <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/20 text-navy flex items-center justify-center font-black">02</span>
-                <span class="flex-1">
-                  <span class="block font-extrabold text-navy">Think student-first</span>
-                  <span class="block mt-1 text-sm text-gray-500">Build learning experiences around relatable questions.</span>
-                </span>
-                <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
-              </button>
-
-              <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 rounded-2xl border border-transparent bg-paper" data-story="2" aria-pressed="false">
-                <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/20 text-navy flex items-center justify-center font-black">03</span>
-                <span class="flex-1">
-                  <span class="block font-extrabold text-navy">Make it practical</span>
-                  <span class="block mt-1 text-sm text-gray-500">Connect concepts to decisions people actually make.</span>
-                </span>
-                <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
-              </button>
-
-              <button type="button" class="story-step w-full text-left flex items-start gap-4 p-4 rounded-2xl border border-transparent bg-paper" data-story="3" aria-pressed="false">
-                <span class="step-number shrink-0 w-10 h-10 rounded-xl bg-gold/20 text-navy flex items-center justify-center font-black">04</span>
-                <span class="flex-1">
-                  <span class="block font-extrabold text-navy">Expand opportunities</span>
-                  <span class="block mt-1 text-sm text-gray-500">Create more ways for young learners to discover useful skills.</span>
-                </span>
-                <i data-lucide="plus" class="w-4 h-4 mt-1 text-gold"></i>
-              </button>
-            </div>
-
-            <div class="mt-5 rounded-2xl bg-navy p-6 sm:p-7 text-white min-h-[170px]" aria-live="polite">
-              <div class="flex items-center gap-2 text-gold text-xs font-extrabold uppercase tracking-[.16em]">
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                <span id="story-kicker">The realization</span>
+          <article class="story-step" tabindex="0" role="button" aria-expanded="false">
+            <div class="story-step-number">02</div>
+            <div>
+              <h3>Building Learning Experiences</h3>
+              <p>
+                Turn important concepts into structured, engaging programs.
+              </p>
+              <div class="story-detail">
+                Our educational initiatives include Money Masters,
+                Investors Academy, financial literacy workshops, and
+                interactive learning projects.
               </div>
-              <p id="story-detail" class="mt-3 text-gray-200 leading-relaxed">Important topics like money and decision-making can feel abstract when students don't have opportunities to apply them.</p>
             </div>
-          </div>
+          </article>
+
+          <article class="story-step" tabindex="0" role="button" aria-expanded="false">
+            <div class="story-step-number">03</div>
+            <div>
+              <h3>Growing Our Community</h3>
+              <p>
+                Connect with students, families, and community organizations.
+              </p>
+              <div class="story-detail">
+                We are working to broaden access through outreach,
+                educational partnerships, and opportunities to bring
+                financial literacy to more communities.
+              </div>
+            </div>
+          </article>
+
+          <article class="story-step" tabindex="0" role="button" aria-expanded="false">
+            <div class="story-step-number">04</div>
+            <div>
+              <h3>Looking Ahead</h3>
+              <p>
+                Develop new ways to make real-world education accessible.
+              </p>
+              <div class="story-detail">
+                From expanded workshops to Fin City, we continue to
+                explore practical and interactive ways for students to
+                learn, practice, and build confidence.
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- MISSION -->
-    <section class="py-20 sm:py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="reveal relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-navy p-7 sm:p-10 lg:p-14 text-white shadow-deep">
-          <div class="absolute -right-20 -top-20 w-80 h-80 bg-gold/15 rounded-full blur-3xl" aria-hidden="true"></div>
-          <div class="absolute -bottom-32 left-1/4 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" aria-hidden="true"></div>
+    <section class="section" id="mission">
+      <div class="container">
+        <div class="mission-panel reveal">
+          <div class="mission-copy">
+            <span class="eyebrow">Our Mission</span>
+            <h2>Make real-world education <span class="gold-text">accessible.</span></h2>
+            <p>
+              NextGen Knowledge is a student-led educational organization
+              focused on making practical learning available to the next
+              generation.
+            </p>
+            <p>
+              We believe students should have opportunities to explore
+              financial concepts, ask questions, practice decision-making,
+              and develop skills that can support them throughout life.
+            </p>
+            <p>
+              We aim to make that learning approachable through free
+              educational programs, community workshops, and new
+              interactive experiences.
+            </p>
+            <a class="btn btn-primary" href="enroll.html">
+              Get Involved
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
 
-          <div class="relative grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center">
-            <div>
-              <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.18em] text-gold">
-                <i data-lucide="target" class="w-4 h-4"></i> The mission
-              </span>
-              <h2 class="mt-5 text-4xl sm:text-5xl lg:text-6xl leading-[1.04] tracking-tight font-black">
-                Make real-world education
-                <span class="text-gold">accessible to more students.</span>
-              </h2>
-              <p class="mt-6 max-w-xl text-gray-300 text-lg leading-relaxed">
-                NextGen Knowledge helps students build practical financial knowledge and confidence through accessible, student-led learning experiences.
-              </p>
-              <a href="programs.html" class="mt-8 inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-gold text-navy font-extrabold hover:bg-gold-light transition-colors">
-                Discover our programs <i data-lucide="arrow-right" class="w-5 h-5"></i>
-              </a>
-            </div>
-
-            <div class="rounded-3xl border border-white/15 bg-white/[.05] p-6 sm:p-8">
-              <div class="flex items-center justify-between gap-3 mb-8">
-                <div>
-                  <p class="text-xs font-extrabold uppercase tracking-[.15em] text-gray-400">The learning formula</p>
-                  <p class="mt-2 text-xl font-black">Knowledge in action</p>
-                </div>
-                <i data-lucide="compass" class="w-8 h-8 text-gold"></i>
-              </div>
-
-              <div class="space-y-5">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-white/10 text-gold flex items-center justify-center"><i data-lucide="book-open" class="w-6 h-6"></i></div>
-                  <div><p class="font-extrabold">01. Understand</p><p class="mt-1 text-sm text-gray-400">Start with the core concept.</p></div>
-                </div>
-                <div class="ml-6 h-5 border-l border-dashed border-white/25"></div>
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-white/10 text-gold flex items-center justify-center"><i data-lucide="puzzle" class="w-6 h-6"></i></div>
-                  <div><p class="font-extrabold">02. Explore</p><p class="mt-1 text-sm text-gray-400">Try examples and ask questions.</p></div>
-                </div>
-                <div class="ml-6 h-5 border-l border-dashed border-white/25"></div>
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-2xl bg-gold text-navy flex items-center justify-center"><i data-lucide="rocket" class="w-6 h-6"></i></div>
-                  <div><p class="font-extrabold">03. Apply</p><p class="mt-1 text-sm text-gray-400">Use your knowledge in real life.</p></div>
-                </div>
-              </div>
-
-              <div class="mt-8 rounded-xl bg-white/10 p-4 flex items-center gap-3">
-                <i data-lucide="star" class="w-5 h-5 text-gold shrink-0"></i>
-                <p class="text-sm leading-relaxed text-gray-300">The goal isn't just to know more. It's to understand more.</p>
-              </div>
+          <div class="mission-visual" aria-label="Pixel-inspired city representing Fin City and the future of learning">
+            <div class="pixel-city" aria-hidden="true">
+              <div class="pixel-building"></div>
+              <div class="pixel-building"></div>
+              <div class="pixel-building"></div>
+              <div class="pixel-building"></div>
+              <div class="pixel-building"></div>
+              <div class="pixel-building"></div>
+              <div class="city-label">Build Your Future</div>
             </div>
           </div>
         </div>
@@ -731,194 +2139,266 @@
     </section>
 
     <!-- PRINCIPLES -->
-    <section class="py-20 sm:py-24 lg:py-28 bg-paper">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center reveal">
-          <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white border border-gold/25 text-gold text-xs font-extrabold uppercase tracking-[.16em]">
-            <i data-lucide="compass" class="w-4 h-4"></i> Our guiding principles
-          </span>
-          <h2 class="mt-5 text-4xl sm:text-5xl font-black tracking-tight text-navy">How we make learning count.</h2>
-          <p class="mt-5 text-lg text-gray-600 leading-relaxed">Select a badge to discover the idea behind how we approach education.</p>
+    <section class="section section-alt" id="principles">
+      <div class="container principles-layout">
+        <div class="principles-intro reveal">
+          <span class="eyebrow">What Guides Us</span>
+          <h2>Our work starts with <span class="gold-text">what matters.</span></h2>
+          <p>
+            These principles shape how we design our programs, work with
+            communities, and approach educational opportunities.
+          </p>
         </div>
 
-        <div class="mt-10 grid lg:grid-cols-[.8fr_1.2fr] gap-6 lg:gap-10 items-stretch reveal">
-          <div class="grid sm:grid-cols-2 lg:grid-cols-1 gap-3" role="tablist" aria-label="Our principles">
-            <button class="value-tab text-left p-4 sm:p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-0" aria-selected="true" aria-controls="value-panel" data-value="0">
-              <span class="flex items-center gap-4">
-                <span class="w-12 h-12 rounded-2xl bg-gold/20 text-navy flex items-center justify-center"><i data-lucide="wrench" class="w-6 h-6"></i></span>
-                <span><span class="block text-[10px] uppercase tracking-wider font-extrabold text-gold">Badge 01</span><span class="block mt-1 font-extrabold">Learn by doing</span></span>
-              </span>
-            </button>
+        <div class="principles-interactive reveal delay-1">
+          <div class="principle-tabs" role="tablist" aria-label="Our guiding principles">
+            <button
+              class="principle-tab active"
+              id="tab-accessibility"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="principle-accessibility"
+              data-principle="accessibility"
+            >Accessibility</button>
 
-            <button class="value-tab text-left p-4 sm:p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-1" aria-selected="false" aria-controls="value-panel" data-value="1" tabindex="-1">
-              <span class="flex items-center gap-4">
-                <span class="w-12 h-12 rounded-2xl bg-sky text-navy flex items-center justify-center"><i data-lucide="users" class="w-6 h-6"></i></span>
-                <span><span class="block text-[10px] uppercase tracking-wider font-extrabold text-gold">Badge 02</span><span class="block mt-1 font-extrabold">Learn together</span></span>
-              </span>
-            </button>
+            <button
+              class="principle-tab"
+              id="tab-practical"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="principle-practical"
+              data-principle="practical"
+            >Practicality</button>
 
-            <button class="value-tab text-left p-4 sm:p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-2" aria-selected="false" aria-controls="value-panel" data-value="2" tabindex="-1">
-              <span class="flex items-center gap-4">
-                <span class="w-12 h-12 rounded-2xl bg-mint text-navy flex items-center justify-center"><i data-lucide="door-open" class="w-6 h-6"></i></span>
-                <span><span class="block text-[10px] uppercase tracking-wider font-extrabold text-gold">Badge 03</span><span class="block mt-1 font-extrabold">Open opportunities</span></span>
-              </span>
-            </button>
+            <button
+              class="principle-tab"
+              id="tab-community"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="principle-community"
+              data-principle="community"
+            >Community</button>
 
-            <button class="value-tab text-left p-4 sm:p-5 rounded-2xl border border-gray-200 bg-white" role="tab" id="value-tab-3" aria-selected="false" aria-controls="value-panel" data-value="3" tabindex="-1">
-              <span class="flex items-center gap-4">
-                <span class="w-12 h-12 rounded-2xl bg-lavender text-navy flex items-center justify-center"><i data-lucide="sparkles" class="w-6 h-6"></i></span>
-                <span><span class="block text-[10px] uppercase tracking-wider font-extrabold text-gold">Badge 04</span><span class="block mt-1 font-extrabold">Keep innovating</span></span>
-              </span>
-            </button>
+            <button
+              class="principle-tab"
+              id="tab-innovation"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="principle-innovation"
+              data-principle="innovation"
+            >Innovation</button>
           </div>
 
-          <div id="value-panel" class="rounded-[2rem] bg-white border border-gray-100 p-7 sm:p-10 lg:p-12 flex flex-col justify-between shadow-soft min-h-[340px]" role="tabpanel" aria-labelledby="value-tab-0" tabindex="0">
-            <div id="value-panel-content">
-              <div class="w-14 h-14 rounded-2xl bg-navy text-gold flex items-center justify-center">
-                <i data-lucide="wrench" class="w-7 h-7"></i>
-              </div>
-              <p id="value-eyebrow" class="mt-7 text-xs font-extrabold uppercase tracking-[.16em] text-gold">Badge 01 unlocked</p>
-              <h3 id="value-title" class="mt-3 text-3xl sm:text-4xl font-black tracking-tight text-navy">Practical over purely theoretical.</h3>
-              <p id="value-description" class="mt-5 text-gray-600 text-lg leading-relaxed">Financial concepts become more meaningful when students connect them to everyday decisions. We aim to pair clear explanations with examples, activities, and opportunities to practice.</p>
-              <div class="mt-7 flex items-start gap-3 text-navy font-bold">
-                <span class="w-9 h-9 shrink-0 rounded-xl bg-gold/15 flex items-center justify-center text-gold"><i data-lucide="check" class="w-5 h-5"></i></span>
-                <span id="value-takeaway" class="pt-1">Learn a concept, then explore how it works in real life.</span>
-              </div>
+          <div
+            class="principle-content"
+            id="principle-accessibility"
+            role="tabpanel"
+            aria-labelledby="tab-accessibility"
+          >
+            <div class="principle-icon">
+              <i data-lucide="door-open" aria-hidden="true"></i>
             </div>
+            <h3>Learning should be within reach.</h3>
+            <p>
+              We work to lower barriers to educational opportunities.
+              Our free programs and outreach efforts aim to help more
+              students access useful knowledge, regardless of their
+              previous experience.
+            </p>
+          </div>
 
-            <div class="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between gap-4">
-              <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Our learning code</span>
-              <span id="value-count" class="text-sm font-extrabold text-navy">01 <span class="text-gray-400">/ 04</span></span>
+          <div
+            class="principle-content"
+            id="principle-practical"
+            role="tabpanel"
+            aria-labelledby="tab-practical"
+            hidden
+          >
+            <div class="principle-icon">
+              <i data-lucide="puzzle" aria-hidden="true"></i>
             </div>
+            <h3>Knowledge should have a purpose.</h3>
+            <p>
+              We emphasize concepts students can apply outside a lesson.
+              Through examples, activities, and guided exercises, we aim
+              to connect learning with real decisions and everyday life.
+            </p>
+          </div>
+
+          <div
+            class="principle-content"
+            id="principle-community"
+            role="tabpanel"
+            aria-labelledby="tab-community"
+            hidden
+          >
+            <div class="principle-icon">
+              <i data-lucide="users" aria-hidden="true"></i>
+            </div>
+            <h3>Progress happens together.</h3>
+            <p>
+              Students, families, volunteers, educators, and community
+              organizations all play a role in expanding access to
+              education. We value collaboration and shared learning.
+            </p>
+          </div>
+
+          <div
+            class="principle-content"
+            id="principle-innovation"
+            role="tabpanel"
+            aria-labelledby="tab-innovation"
+            hidden
+          >
+            <div class="principle-icon">
+              <i data-lucide="lightbulb" aria-hidden="true"></i>
+            </div>
+            <h3>There is always a better way to learn.</h3>
+            <p>
+              We explore new formats for educational experiences,
+              including interactive projects, simulations, and
+              technology-enabled tools that can make learning more
+              engaging.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- WHAT WE TEACH -->
-    <section class="py-20 sm:py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div class="reveal">
-            <span class="text-xs font-extrabold uppercase tracking-[.18em] text-gold">Skills for the real world</span>
-            <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight text-navy leading-tight">Knowledge should go somewhere.</h2>
-            <p class="mt-6 text-lg leading-relaxed text-gray-600">We help young learners understand concepts, ask better questions, and connect what they learn to the world around them.</p>
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Beyond the Classroom</span>
+          <h2>Skills that move with <span class="gold-text">you.</span></h2>
+          <p>
+            Our educational approach connects foundational knowledge
+            with the habits and skills students can continue developing
+            as they grow.
+          </p>
+        </div>
 
-            <div class="mt-8 space-y-5">
-              <div class="flex items-start gap-4">
-                <div class="w-11 h-11 shrink-0 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="wallet" class="w-5 h-5"></i></div>
-                <div>
-                  <h3 class="font-extrabold text-navy">Personal finance</h3>
-                  <p class="mt-1 text-sm leading-relaxed text-gray-500">Explore budgeting, saving, financial choices, and the habits that support informed decisions.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-11 h-11 shrink-0 rounded-xl bg-sky text-navy flex items-center justify-center"><i data-lucide="chart-no-axes-combined" class="w-5 h-5"></i></div>
-                <div>
-                  <h3 class="font-extrabold text-navy">Investing and economics</h3>
-                  <p class="mt-1 text-sm leading-relaxed text-gray-500">Build familiarity with markets, business concepts, risk, and long-term thinking.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-11 h-11 shrink-0 rounded-xl bg-mint text-navy flex items-center justify-center"><i data-lucide="brain" class="w-5 h-5"></i></div>
-                <div>
-                  <h3 class="font-extrabold text-navy">Critical thinking</h3>
-                  <p class="mt-1 text-sm leading-relaxed text-gray-500">Practice comparing options, evaluating information, and thinking through consequences.</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="w-11 h-11 shrink-0 rounded-xl bg-lavender text-navy flex items-center justify-center"><i data-lucide="code-2" class="w-5 h-5"></i></div>
-                <div>
-                  <h3 class="font-extrabold text-navy">Technology and other practical skills</h3>
-                  <p class="mt-1 text-sm leading-relaxed text-gray-500">Discover ways to build useful knowledge through approachable, engaging learning experiences.</p>
-                </div>
-              </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-icon">
+              <i data-lucide="wallet" aria-hidden="true"></i>
             </div>
+            <h3>Money Management</h3>
+            <p>Understand budgeting, spending choices, saving, and financial planning.</p>
+          </article>
 
-            <a href="programs.html" class="mt-9 inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-navy text-white font-bold hover:bg-navy-light transition-colors">
-              Explore our programs <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </a>
-          </div>
-
-          <div class="reveal">
-            <div class="relative rounded-[2rem] bg-paper border border-gray-100 p-5 sm:p-8 lg:p-10">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="text-xs font-extrabold uppercase tracking-[.16em] text-gold">The learning loop</p>
-                  <h3 class="mt-2 text-2xl sm:text-3xl font-black text-navy">From curious to confident.</h3>
-                </div>
-                <div class="w-12 h-12 shrink-0 rounded-2xl bg-navy text-gold flex items-center justify-center"><i data-lucide="layers" class="w-6 h-6"></i></div>
-              </div>
-
-              <div class="mt-8 space-y-3">
-                <div class="game-card rounded-2xl bg-white border border-gray-100 p-5 flex items-center gap-4">
-                  <div class="w-12 h-12 shrink-0 rounded-xl bg-sky text-navy flex items-center justify-center"><i data-lucide="book-open" class="w-6 h-6"></i></div>
-                  <div class="flex-1">
-                    <div class="flex items-center justify-between gap-2"><h4 class="font-extrabold text-navy">Understand</h4><span class="text-[10px] font-extrabold text-gray-400">STEP 01</span></div>
-                    <p class="mt-1 text-sm text-gray-500">Learn the idea in clear, approachable terms.</p>
-                  </div>
-                </div>
-
-                <div class="flex justify-center text-gold"><i data-lucide="arrow-down" class="w-5 h-5"></i></div>
-
-                <div class="game-card rounded-2xl bg-white border border-gray-100 p-5 flex items-center gap-4">
-                  <div class="w-12 h-12 shrink-0 rounded-xl bg-gold/20 text-navy flex items-center justify-center"><i data-lucide="puzzle" class="w-6 h-6"></i></div>
-                  <div class="flex-1">
-                    <div class="flex items-center justify-between gap-2"><h4 class="font-extrabold text-navy">Explore</h4><span class="text-[10px] font-extrabold text-gray-400">STEP 02</span></div>
-                    <p class="mt-1 text-sm text-gray-500">Work through examples and see how choices connect.</p>
-                  </div>
-                </div>
-
-                <div class="flex justify-center text-gold"><i data-lucide="arrow-down" class="w-5 h-5"></i></div>
-
-                <div class="rounded-2xl bg-navy border border-navy p-5 flex items-center gap-4 text-white">
-                  <div class="w-12 h-12 shrink-0 rounded-xl bg-gold text-navy flex items-center justify-center"><i data-lucide="rocket" class="w-6 h-6"></i></div>
-                  <div class="flex-1">
-                    <div class="flex items-center justify-between gap-2"><h4 class="font-extrabold">Apply</h4><span class="text-[10px] font-extrabold text-gold">STEP 03</span></div>
-                    <p class="mt-1 text-sm text-gray-300">Connect new knowledge to real-world situations.</p>
-                  </div>
-                </div>
-              </div>
-
-              <p class="mt-6 text-center text-sm text-gray-500">The best learning doesn't end when the lesson does.</p>
+          <article class="skill-card reveal delay-1">
+            <div class="skill-icon">
+              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
             </div>
-          </div>
+            <h3>Financial Thinking</h3>
+            <p>Explore investing, risk, returns, and the trade-offs behind decisions.</p>
+          </article>
+
+          <article class="skill-card reveal delay-2">
+            <div class="skill-icon">
+              <i data-lucide="brain" aria-hidden="true"></i>
+            </div>
+            <h3>Critical Thinking</h3>
+            <p>Ask questions, compare alternatives, and reason through problems.</p>
+          </article>
+
+          <article class="skill-card reveal delay-3">
+            <div class="skill-icon">
+              <i data-lucide="target" aria-hidden="true"></i>
+            </div>
+            <h3>Decision-Making</h3>
+            <p>Build confidence in evaluating options and considering consequences.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- STUDENT-LED -->
-    <section class="py-20 sm:py-24 bg-paper">
-      <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="reveal relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-white border border-gray-100 p-7 sm:p-10 lg:p-14">
-          <div class="absolute right-0 top-0 w-72 h-72 bg-gold/10 rounded-full blur-3xl" aria-hidden="true"></div>
+    <section class="section section-alt" id="student-led">
+      <div class="container student-led-grid">
+        <div class="student-led-copy reveal">
+          <span class="eyebrow">Student-Led by Design</span>
+          <h2>Students helping students <span class="gold-text">move forward.</span></h2>
+          <p>
+            NextGen Knowledge is built by students who want to make
+            practical education more accessible to their peers and younger
+            learners.
+          </p>
+          <p>
+            Our student-led approach brings together people interested
+            in education, finance, outreach, and building new learning
+            experiences.
+          </p>
 
-          <div class="relative grid lg:grid-cols-[1fr_auto] gap-10 items-center">
-            <div class="max-w-3xl">
-              <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[.18em] text-gold"><i data-lucide="users" class="w-4 h-4"></i> Built by students</span>
-              <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight">Students can help shape the education they want to see.</h2>
-              <p class="mt-5 text-gray-600 text-lg leading-relaxed">As a student-led initiative, we bring a peer perspective to learning. We want financial topics to feel less intimidating, more understandable, and easier to connect to everyday life.</p>
-
-              <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
-                <a href="team.html" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-navy text-white font-bold hover:bg-navy-light transition-colors">Meet our team <i data-lucide="users" class="w-4 h-4"></i></a>
-                <a href="partnerships.html" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-gray-200 text-navy font-bold hover:border-gold transition-colors">Partner with us <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
-              </div>
+          <div class="student-led-points">
+            <div class="student-led-point">
+              <i data-lucide="check-circle-2" aria-hidden="true"></i>
+              <span>Programs designed around student learning needs.</span>
             </div>
+            <div class="student-led-point">
+              <i data-lucide="check-circle-2" aria-hidden="true"></i>
+              <span>Collaborative projects with practical educational goals.</span>
+            </div>
+            <div class="student-led-point">
+              <i data-lucide="check-circle-2" aria-hidden="true"></i>
+              <span>Opportunities to contribute to meaningful community initiatives.</span>
+            </div>
+          </div>
 
-            <div class="relative w-44 h-44 sm:w-52 sm:h-52 mx-auto">
-              <div class="absolute inset-0 rounded-full border-2 border-dashed border-gold/50 slow-spin"></div>
-              <div class="absolute inset-5 rounded-full bg-navy shadow-deep flex items-center justify-center">
-                <div class="text-center">
-                  <i data-lucide="users" class="w-10 h-10 text-gold mx-auto"></i>
-                  <p class="mt-3 text-white font-black">Student-led</p>
-                  <p class="mt-1 text-[10px] uppercase tracking-[.15em] text-white/60">Future-focused</p>
-                </div>
-              </div>
-              <span class="absolute top-3 right-5 w-3 h-3 rounded-full bg-gold"></span>
-              <span class="absolute bottom-6 left-0 w-3 h-3 rounded-full bg-navy"></span>
+          <a class="btn btn-primary" href="team.html">
+            Meet Our Team
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="student-card reveal delay-1">
+          <div class="student-card-header">
+            <span>HOW WE WORK</span>
+            <span>STUDENT-LED</span>
+          </div>
+
+          <div class="student-role">
+            <div class="student-role-icon">
+              <i data-lucide="book-open" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>Education & Programs</h3>
+              <p>Develop useful, approachable learning experiences.</p>
+            </div>
+          </div>
+
+          <div class="student-role">
+            <div class="student-role-icon">
+              <i data-lucide="handshake" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>Outreach & Partnerships</h3>
+              <p>Connect with schools and community organizations.</p>
+            </div>
+          </div>
+
+          <div class="student-role">
+            <div class="student-role-icon">
+              <i data-lucide="megaphone" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>Communications & Community</h3>
+              <p>Share resources and make programs easier to discover.</p>
+            </div>
+          </div>
+
+          <div class="student-role">
+            <div class="student-role-icon">
+              <i data-lucide="lightbulb" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h3>Innovation & Projects</h3>
+              <p>Explore new tools and formats for practical education.</p>
             </div>
           </div>
         </div>
@@ -926,82 +2406,152 @@
     </section>
 
     <!-- FAQ -->
-    <section class="py-20 sm:py-24 bg-white">
-      <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div class="text-center reveal">
-          <span class="text-xs font-extrabold uppercase tracking-[.18em] text-gold">Quick answers</span>
-          <h2 class="mt-4 text-4xl sm:text-5xl font-black tracking-tight text-navy">Before you begin your quest.</h2>
-          <p class="mt-4 text-gray-600 text-lg">A few things to know about NextGen Knowledge.</p>
+    <section class="section" id="faq">
+      <div class="container faq-layout">
+        <div class="faq-intro reveal">
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2>Good questions deserve <span class="gold-text">clear answers.</span></h2>
+          <p>
+            Learn more about our organization, our educational programs,
+            and ways to get involved.
+          </p>
+          <a class="btn btn-secondary" href="enroll.html">
+            Explore Opportunities
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+          </a>
         </div>
 
-        <div class="mt-10 space-y-3 reveal">
-          <details class="faq-item rounded-2xl bg-paper border border-gray-100 px-5 sm:px-7 py-5">
-            <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
-              <span class="font-extrabold text-navy">What is NextGen Knowledge?</span>
-              <span class="faq-icon w-9 h-9 shrink-0 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
-            </summary>
-            <p class="pt-4 pr-8 text-gray-600 leading-relaxed">NextGen Knowledge is a student-led educational initiative focused on making practical financial literacy and real-world learning accessible to the next generation.</p>
-          </details>
-
-          <details class="faq-item rounded-2xl bg-paper border border-gray-100 px-5 sm:px-7 py-5">
-            <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
-              <span class="font-extrabold text-navy">Who are the programs designed for?</span>
-              <span class="faq-icon w-9 h-9 shrink-0 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
-            </summary>
-            <p class="pt-4 pr-8 text-gray-600 leading-relaxed">Our programs are designed for young learners. Age and grade requirements vary by program, so visit the Programs page for current details.</p>
-          </details>
-
-          <details class="faq-item rounded-2xl bg-paper border border-gray-100 px-5 sm:px-7 py-5">
-            <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
-              <span class="font-extrabold text-navy">Do I need experience to get started?</span>
-              <span class="faq-icon w-9 h-9 shrink-0 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
-            </summary>
-            <p class="pt-4 pr-8 text-gray-600 leading-relaxed">You don't need to know everything before you begin. Check the details of each program to find an option that fits your interests and experience.</p>
-          </details>
-
-          <details class="faq-item rounded-2xl bg-paper border border-gray-100 px-5 sm:px-7 py-5">
-            <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
-              <span class="font-extrabold text-navy">How can I get involved?</span>
-              <span class="faq-icon w-9 h-9 shrink-0 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
-            </summary>
-            <p class="pt-4 pr-8 text-gray-600 leading-relaxed">Students and families can explore our programs, and schools or community organizations can visit our Partnerships page to learn about opportunities to work together.</p>
-            <div class="pt-4 flex flex-wrap gap-4">
-              <a href="enroll.html" class="text-sm font-bold text-navy underline decoration-gold underline-offset-4">Enrollment</a>
-              <a href="programs.html" class="text-sm font-bold text-navy underline decoration-gold underline-offset-4">Programs</a>
-              <a href="partnerships.html" class="text-sm font-bold text-navy underline decoration-gold underline-offset-4">Partnerships</a>
+        <div class="faq-list reveal delay-1">
+          <article class="faq-item open">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="true"
+            >
+              What is NextGen Knowledge?
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer">
+              NextGen Knowledge is a student-led educational organization
+              focused on making real-world education, especially financial
+              literacy, more accessible to young learners through programs,
+              workshops, and interactive educational projects.
             </div>
-          </details>
+          </article>
 
-          <details class="faq-item rounded-2xl bg-paper border border-gray-100 px-5 sm:px-7 py-5">
-            <summary class="flex items-center justify-between gap-4 list-none cursor-pointer">
-              <span class="font-extrabold text-navy">Is NextGen Knowledge a nonprofit?</span>
-              <span class="faq-icon w-9 h-9 shrink-0 rounded-xl bg-gold/15 text-navy flex items-center justify-center"><i data-lucide="plus" class="w-4 h-4"></i></span>
-            </summary>
-            <p class="pt-4 pr-8 text-gray-600 leading-relaxed">NextGen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit organization.</p>
-          </details>
+          <article class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              Who can participate in your programs?
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" hidden>
+              Our programs are designed for young learners, with the
+              intended age or grade range depending on the specific course
+              or workshop. Visit our Programs page for details about
+              current offerings.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              Do students have to pay to participate?
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" hidden>
+              Our educational initiatives are designed to expand access,
+              and our programs may be offered free of charge. Check the
+              individual program information for current participation
+              details.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              What is Fin City?
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" hidden>
+              Fin City is an interactive financial literacy game project
+              from NextGen Knowledge. It is being developed to help young
+              learners explore financial concepts through a virtual
+              environment and practical activities.
+              <a class="gold-text" href="fin-city.html">Learn more about Fin City →</a>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              Can a school, library, or community center partner with us?
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" hidden>
+              Yes. We welcome conversations with schools, libraries,
+              community centers, and other organizations interested in
+              financial literacy workshops or educational partnerships.
+              Visit our
+              <a class="gold-text" href="partnerships.html">Partnerships page</a>
+              to learn more.
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+            >
+              How can I support NextGen Knowledge?
+              <i data-lucide="plus" aria-hidden="true"></i>
+            </button>
+            <div class="faq-answer" hidden>
+              You can explore our programs, share our educational
+              resources, discuss a community partnership, contribute
+              to our work, or learn about opportunities to join the team.
+              Visit our
+              <a class="gold-text" href="donate.html">Donate page</a>
+              or
+              <a class="gold-text" href="team.html">Team page</a>
+              to get started.
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="relative overflow-hidden bg-gold py-20 sm:py-24">
-      <div class="absolute inset-0 dot-grid opacity-40" aria-hidden="true"></div>
-      <div class="absolute -right-16 -top-24 w-80 h-80 rounded-full border border-navy/15" aria-hidden="true"></div>
-      <div class="absolute -right-2 -top-10 w-52 h-52 rounded-full border border-navy/15" aria-hidden="true"></div>
+    <section class="final-cta">
+      <div class="container final-cta-inner reveal">
+        <span class="eyebrow">Your Next Step Starts Here</span>
+        <h2>Let's make learning <span class="gold-text">matter.</span></h2>
+        <p>
+          Discover our programs, explore our projects, or connect with us
+          to help make practical education accessible to more students.
+        </p>
 
-      <div class="relative max-w-5xl mx-auto px-5 sm:px-6 text-center reveal">
-        <span class="inline-flex items-center gap-2 text-navy text-xs font-extrabold uppercase tracking-[.18em]"><i data-lucide="flag" class="w-4 h-4"></i> Ready for your next step?</span>
-        <h2 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-navy leading-[1.05]">
-          Your next skill starts with one question.
-        </h2>
-        <p class="mt-5 max-w-2xl mx-auto text-navy/75 text-lg leading-relaxed">Explore a program, meet our team, or connect with us to help make practical education more accessible.</p>
-
-        <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
-          <a href="programs.html" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-navy text-white font-extrabold hover:bg-navy-light transition-colors shadow-soft">
-            Explore programs <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        <div class="final-cta-actions">
+          <a class="btn btn-primary" href="programs.html">
+            Explore Programs
+            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
           </a>
-          <a href="enroll.html" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/80 border border-navy/15 text-navy font-extrabold hover:bg-white transition-colors">
-            Get started <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+          <a class="btn btn-secondary" href="partnerships.html">
+            Partner With Us
+            <i data-lucide="handshake" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -1009,298 +2559,282 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-navy text-white">
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-10 border-b border-white/10">
-
-        <div class="sm:col-span-2">
-          <a href="index.html" class="inline-flex items-center gap-3">
-            <img src="IMG_1383.jpeg" alt="NextGen Knowledge logo" width="44" height="44" class="w-11 h-11 rounded-xl object-cover">
-            <span>
-              <span class="block font-extrabold text-lg">NextGen Knowledge</span>
-              <span class="block mt-0.5 text-[10px] uppercase tracking-[.15em] font-bold text-gold">Learn skills for life</span>
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="NextGen Knowledge home">
+            <img
+              class="brand-logo"
+              src="IMG_1383.jpeg"
+              alt="NextGen Knowledge logo"
+              onerror="this.style.display='none'"
+            />
+            <span class="brand-copy">
+              <span class="brand-name">NextGen Knowledge</span>
+              <span class="brand-tagline">Learn Today. Lead Tomorrow.</span>
             </span>
           </a>
 
-          <p class="mt-5 max-w-md text-sm leading-relaxed text-gray-400">
-            A student-led educational initiative focused on making financial literacy and practical real-world learning accessible to the next generation.
+          <p>
+            A student-led educational organization making real-world
+            education and financial literacy more accessible to the next
+            generation.
           </p>
 
-          <div class="mt-6 flex items-center gap-3">
-            <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" rel="noopener noreferrer" aria-label="NextGen Knowledge on Instagram" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-gold hover:bg-white/10 transition-colors">
-              <i data-lucide="instagram" class="w-5 h-5"></i>
+          <div class="footer-socials">
+            <a
+              href="https://www.instagram.com/nextgen.knowledge"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <i data-lucide="instagram" aria-hidden="true"></i>
             </a>
-            <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer" aria-label="NextGen Knowledge on LinkedIn" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-gold hover:bg-white/10 transition-colors">
-              <i data-lucide="linkedin" class="w-5 h-5"></i>
-            </a>
-            <a href="mailto:nextgen.knowledge123@gmail.com" aria-label="Email NextGen Knowledge" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-gold hover:bg-white/10 transition-colors">
-              <i data-lucide="mail" class="w-5 h-5"></i>
+            <a
+              href="https://www.linkedin.com/company/next-gen-knowledge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i data-lucide="linkedin" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
-        <div>
-          <h2 class="text-xs font-extrabold uppercase tracking-[.16em] text-gold mb-5">Explore</h2>
-          <div class="flex flex-col gap-3 text-sm text-gray-400">
-            <a href="index.html" class="hover:text-white transition-colors">Home</a>
-            <a href="about.html" class="hover:text-white transition-colors">About Us</a>
-            <a href="programs.html" class="hover:text-white transition-colors">Programs</a>
-            <a href="team.html" class="hover:text-white transition-colors">Our Team</a>
-            <a href="trivia.html" class="hover:text-white transition-colors">Trivia Arena</a>
-          </div>
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="team.html">Our Team</a>
         </div>
 
-        <div>
-          <h2 class="text-xs font-extrabold uppercase tracking-[.16em] text-gold mb-5">Get involved</h2>
-          <div class="flex flex-col gap-3 text-sm text-gray-400">
-            <a href="enroll.html" class="hover:text-white transition-colors">Enroll in a Program</a>
-            <a href="partnerships.html" class="hover:text-white transition-colors">Partnerships</a>
-            <a href="donate.html" class="hover:text-white transition-colors">Support Our Mission</a>
-            <a href="mailto:nextgen.knowledge123@gmail.com" class="hover:text-white transition-colors">Contact Us</a>
-          </div>
+        <div class="footer-column">
+          <h3>Get Involved</h3>
+          <a href="enroll.html">Enroll</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Donate</a>
+          <a href="fin-city.html">Fin City</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Our Focus</h3>
+          <a href="programs.html">Financial Literacy</a>
+          <a href="programs.html">Money Masters</a>
+          <a href="programs.html">Investors Academy</a>
+          <a href="partnerships.html">Community Workshops</a>
         </div>
       </div>
 
-      <div class="pt-7 flex flex-col md:flex-row justify-between gap-4">
-        <p class="max-w-2xl text-xs leading-relaxed text-gray-500">NextGen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.</p>
-        <p class="text-xs text-gray-500">© <span id="current-year">2026</span> NextGen Knowledge. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>© <span id="footer-year"></span> NextGen Knowledge. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          NextGen Knowledge is a fiscally sponsored project of Hack Club
+          Foundation, a 501(c)(3) nonprofit organization.
+        </p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Initialize Lucide icons
-    function renderIcons() {
+    // Initialize icons.
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    // Mobile navigation.
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuIcon = document.getElementById("mobile-menu-icon");
+
+    function closeMobileMenu() {
+      mobileMenu.hidden = true;
+      mobileMenuButton.setAttribute("aria-expanded", "false");
+      mobileMenuButton.setAttribute("aria-label", "Open navigation menu");
+      document.body.classList.remove("menu-open");
+
+      if (mobileMenuIcon) {
+        mobileMenuIcon.setAttribute("data-lucide", "menu");
+      }
+
       if (window.lucide) {
         window.lucide.createIcons();
       }
     }
 
-    renderIcons();
+    function openMobileMenu() {
+      mobileMenu.hidden = false;
+      mobileMenuButton.setAttribute("aria-expanded", "true");
+      mobileMenuButton.setAttribute("aria-label", "Close navigation menu");
+      document.body.classList.add("menu-open");
 
-    // Mobile navigation
-    const menuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenuIcon) {
+        mobileMenuIcon.setAttribute("data-lucide", "x");
+      }
 
-    function setMobileMenu(open) {
-      if (!menuButton || !mobileMenu) return;
-
-      mobileMenu.classList.toggle("hidden", !open);
-      menuButton.setAttribute("aria-expanded", String(open));
-      menuButton.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
-
-      const icon = menuButton.querySelector("i");
-      if (icon) {
-        icon.setAttribute("data-lucide", open ? "x" : "menu");
-        renderIcons();
+      if (window.lucide) {
+        window.lucide.createIcons();
       }
     }
 
-    if (menuButton && mobileMenu) {
-      menuButton.addEventListener("click", () => {
-        const open = menuButton.getAttribute("aria-expanded") !== "true";
-        setMobileMenu(open);
-      });
+    mobileMenuButton.addEventListener("click", () => {
+      const isOpen = mobileMenuButton.getAttribute("aria-expanded") === "true";
 
-      mobileMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => setMobileMenu(false));
-      });
-
-      document.addEventListener("keydown", event => {
-        if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
-          setMobileMenu(false);
-          menuButton.focus();
-        }
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth >= 1280) setMobileMenu(false);
-      });
-    }
-
-    // Navbar shadow and reading progress
-    const navbar = document.getElementById("navbar");
-    const progressBar = document.getElementById("reading-progress");
-
-    function updateScrollUI() {
-      if (navbar) navbar.classList.toggle("shadow-md", window.scrollY > 10);
-
-      if (progressBar) {
-        const height = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = height > 0 ? (window.scrollY / height) * 100 : 0;
-        progressBar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
       }
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMobileMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 960) {
+        closeMobileMenu();
+      }
+    });
+
+    // Reading progress bar.
+    const readingProgress = document.getElementById("reading-progress");
+
+    function updateReadingProgress() {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const progress =
+        scrollableHeight > 0
+          ? (window.scrollY / scrollableHeight) * 100
+          : 0;
+
+      readingProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
     }
 
-    window.addEventListener("scroll", updateScrollUI, { passive: true });
-    updateScrollUI();
+    window.addEventListener("scroll", updateReadingProgress, {
+      passive: true
+    });
 
-    // Reveal elements as they enter the viewport
+    window.addEventListener("resize", updateReadingProgress);
+    updateReadingProgress();
+
+    // Reveal sections as they enter the viewport.
     const revealElements = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.10 });
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
 
-      revealElements.forEach(element => revealObserver.observe(element));
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
     } else {
-      revealElements.forEach(element => element.classList.add("active"));
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
     }
 
-    // Interactive story steps
-    const storyData = [
-      {
-        kicker: "The realization",
-        detail: "Important topics like money and decision-making can feel abstract when students don't have opportunities to apply them."
-      },
-      {
-        kicker: "The student perspective",
-        detail: "A student-led approach brings learning closer to the questions young people actually ask and the situations they want to understand."
-      },
-      {
-        kicker: "The practical approach",
-        detail: "Examples, discussions, and interactive exercises can help students connect concepts to everyday choices."
-      },
-      {
-        kicker: "The ongoing mission",
-        detail: "We continue working toward learning experiences that are approachable, relevant, and accessible to more young people."
-      }
-    ];
+    // Interactive story timeline.
+    const storySteps = document.querySelectorAll(".story-step");
 
-    const storyButtons = document.querySelectorAll("[data-story]");
-    const storyKicker = document.getElementById("story-kicker");
-    const storyDetail = document.getElementById("story-detail");
+    function activateStoryStep(selectedStep) {
+      storySteps.forEach((step) => {
+        const isActive = step === selectedStep;
+        step.classList.toggle("active", isActive);
+        step.setAttribute("aria-expanded", String(isActive));
+      });
+    }
 
-    storyButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const index = Number(button.dataset.story);
-        const item = storyData[index];
-        if (!item) return;
+    storySteps.forEach((step) => {
+      step.addEventListener("click", () => {
+        activateStoryStep(step);
+      });
 
-        storyButtons.forEach(step => {
-          step.setAttribute("aria-pressed", String(step === button));
-        });
-
-        if (storyKicker) storyKicker.textContent = item.kicker;
-
-        if (storyDetail) {
-          storyDetail.classList.remove("pop-in");
-          storyDetail.textContent = item.detail;
-          void storyDetail.offsetWidth;
-          storyDetail.classList.add("pop-in");
+      step.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          activateStoryStep(step);
         }
       });
     });
 
-    // Interactive principles
-    const valueData = [
-      {
-        icon: "wrench",
-        eyebrow: "Badge 01",
-        title: "Practical over purely theoretical.",
-        description: "Financial concepts become more meaningful when students connect them to everyday decisions. We aim to pair clear explanations with examples, activities, and opportunities to practice.",
-        takeaway: "Learn a concept, then explore how it works in real life."
-      },
-      {
-        icon: "users",
-        eyebrow: "Badge 02",
-        title: "Learn with a peer perspective.",
-        description: "Students bring relatable questions and experiences to learning. A student-led environment can make unfamiliar topics feel more approachable and encourage curiosity.",
-        takeaway: "Make learning collaborative, welcoming, and easy to engage with."
-      },
-      {
-        icon: "door-open",
-        eyebrow: "Badge 03",
-        title: "Make useful education accessible.",
-        description: "Practical financial knowledge should be easier for young people to explore. We aim to make our learning experiences approachable and reduce barriers to getting started.",
-        takeaway: "Help more learners find a starting point that works for them."
-      },
-      {
-        icon: "sparkles",
-        eyebrow: "Badge 04",
-        title: "Keep learning relevant.",
-        description: "The world changes, and the questions students face change with it. We want learning experiences to stay engaging, adaptable, and connected to the world students are growing into.",
-        takeaway: "Use modern, interactive approaches to encourage curiosity."
-      }
-    ];
+    // Interactive principles tabs.
+    const principleTabs = document.querySelectorAll(".principle-tab");
+    const principlePanels = document.querySelectorAll(".principle-content");
 
-    const valueTabs = document.querySelectorAll("[data-value]");
-    const valuePanel = document.getElementById("value-panel");
-    const valuePanelContent = document.getElementById("value-panel-content");
-    const valueEyebrow = document.getElementById("value-eyebrow");
-    const valueTitle = document.getElementById("value-title");
-    const valueDescription = document.getElementById("value-description");
-    const valueTakeaway = document.getElementById("value-takeaway");
-    const valueCount = document.getElementById("value-count");
-    const valueIcon = valuePanel ? valuePanel.querySelector(".w-14 i") : null;
+    principleTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const targetId = tab.getAttribute("aria-controls");
 
-    function selectValue(index, focusTab = false) {
-      const item = valueData[index];
-      if (!item) return;
+        principleTabs.forEach((otherTab) => {
+          const isSelected = otherTab === tab;
+          otherTab.classList.toggle("active", isSelected);
+          otherTab.setAttribute("aria-selected", String(isSelected));
+          otherTab.tabIndex = isSelected ? 0 : -1;
+        });
 
-      valueTabs.forEach((tab, i) => {
-        const selected = i === index;
-        tab.setAttribute("aria-selected", String(selected));
-        tab.tabIndex = selected ? 0 : -1;
-        if (selected && focusTab) tab.focus();
+        principlePanels.forEach((panel) => {
+          panel.hidden = panel.id !== targetId;
+        });
       });
 
-      if (valuePanel) valuePanel.setAttribute("aria-labelledby", "value-tab-" + index);
-      if (valueEyebrow) valueEyebrow.textContent = item.eyebrow;
-      if (valueTitle) valueTitle.textContent = item.title;
-      if (valueDescription) valueDescription.textContent = item.description;
-      if (valueTakeaway) valueTakeaway.textContent = item.takeaway;
+      tab.addEventListener("keydown", (event) => {
+        const tabs = Array.from(principleTabs);
+        const currentIndex = tabs.indexOf(tab);
+        let nextIndex = currentIndex;
 
-      if (valueCount) {
-        valueCount.innerHTML =
-          String(index + 1).padStart(2, "0") +
-          ' <span class="text-gray-400">/ 04</span>';
-      }
-
-      if (valueIcon) {
-        valueIcon.setAttribute("data-lucide", item.icon);
-        renderIcons();
-      }
-
-      if (valuePanelContent) {
-        valuePanelContent.classList.remove("pop-in");
-        void valuePanelContent.offsetWidth;
-        valuePanelContent.classList.add("pop-in");
-      }
-    }
-
-    valueTabs.forEach((tab, index) => {
-      tab.addEventListener("click", () => selectValue(index));
-
-      tab.addEventListener("keydown", event => {
-        let nextIndex = index;
-
-        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-          nextIndex = (index + 1) % valueTabs.length;
-        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-          nextIndex = (index - 1 + valueTabs.length) % valueTabs.length;
-        } else if (event.key === "Home") {
-          nextIndex = 0;
-        } else if (event.key === "End") {
-          nextIndex = valueTabs.length - 1;
+        if (event.key === "ArrowRight") {
+          nextIndex = (currentIndex + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft") {
+          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
         } else {
           return;
         }
 
         event.preventDefault();
-        selectValue(nextIndex, true);
+        tabs[nextIndex].focus();
+        tabs[nextIndex].click();
       });
     });
 
-    // Current footer year
-    const yearElement = document.getElementById("current-year");
-    if (yearElement) yearElement.textContent = new Date().getFullYear();
+    // FAQ accordion.
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+
+      question.addEventListener("click", () => {
+        const willOpen = !item.classList.contains("open");
+
+        item.classList.toggle("open", willOpen);
+        question.setAttribute("aria-expanded", String(willOpen));
+        answer.hidden = !willOpen;
+      });
+    });
+
+    // Dynamic footer year.
+    document.getElementById("footer-year").textContent =
+      new Date().getFullYear();
   </script>
 </body>
 </html>
