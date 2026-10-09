@@ -4,21 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Next-Gen Knowledge | Interactive Financial Literacy for Students</title>
-  <meta name="description" content="Explore free, student-led financial literacy programs, money challenges, and investing education with Next-Gen Knowledge. Helping the next generation build real-world financial skills.">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#081a33">
+  <title>NextGen Knowledge | Explore Fin City</title>
+  <meta name="description" content="Discover NextGen Knowledge, a student-led educational organization making real-world financial education accessible. Explore Fin City, our upcoming interactive financial-literacy game.">
+  <meta name="theme-color" content="#0A2342">
   <meta name="author" content="Next-Gen Knowledge">
-
+  <meta property="og:title" content="NextGen Knowledge | Real-World Skills for the Next Generation">
+  <meta property="og:description" content="Discover Fin City, our upcoming interactive financial-literacy game, alongside our free educational programs.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Next-Gen Knowledge | Real-World Skills for the Next Generation">
-  <meta property="og:description" content="Learn money skills by exploring, experimenting, and putting financial knowledge into action.">
   <meta property="og:image" content="IMG_1383.jpeg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Next-Gen Knowledge">
-  <meta name="twitter:description" content="Interactive financial literacy and real-world education for the next generation.">
-  <meta name="twitter:image" content="IMG_1383.jpeg">
 
   <link rel="icon" href="IMG_1383.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,22 +24,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FXJKCLQMSN');
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Next-Gen Knowledge",
-    "description": "A student-led financial literacy nonprofit project helping young people develop real-world money management and financial decision-making skills.",
-    "email": "nextgen.knowledge123@gmail.com",
-    "logo": "IMG_1383.jpeg",
-    "sameAs": [
-      "https://www.instagram.com/nextgen.knowledge",
-      "https://www.linkedin.com/company/next-gen-knowledge/"
-    ],
-    "nonprofitStatus": "Nonprofit501c3"
-  }
   </script>
 
   <style>
@@ -63,7 +40,7 @@
       --white: #FFFFFF;
       --line: #E5E9F0;
       --green: #3BAA7B;
-      --radius: 24px;
+      --radius: 22px;
       --shadow: 0 18px 55px rgba(9, 30, 61, .09);
       --max: 1180px;
     }
@@ -79,28 +56,20 @@
       margin: 0;
       font-family: "DM Sans", sans-serif;
       color: var(--ink);
-      background: var(--white);
-      line-height: 1.65;
+      background: white;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
-    body, button, input { font-family: "DM Sans", sans-serif; }
-
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    img { max-width: 100%; }
     button, a, input { -webkit-tap-highlight-color: transparent; }
 
-    button { color: inherit; }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button:focus-visible, a:focus-visible, input:focus-visible {
+    a:focus-visible, button:focus-visible, input:focus-visible {
       outline: 3px solid var(--gold);
       outline-offset: 4px;
     }
-
-    img { max-width: 100%; }
 
     h1, h2, h3, h4 {
       font-family: "Manrope", sans-serif;
@@ -109,8 +78,8 @@
       margin-top: 0;
     }
 
-    h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); }
-    h2 { font-size: clamp(2rem, 4vw, 3.35rem); }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.1rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
     h3 { font-size: 1.3rem; }
 
     p { margin-top: 0; }
@@ -120,39 +89,45 @@
       margin-inline: auto;
     }
 
-    .section { padding: 105px 0; }
-
+    .section { padding: 95px 0; }
     .section-soft { background: var(--paper); }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      color: #9A7816;
+      color: #947313;
       font-size: .76rem;
       font-weight: 800;
-      letter-spacing: .14em;
+      letter-spacing: .13em;
       text-transform: uppercase;
-      margin-bottom: 19px;
+      margin-bottom: 18px;
     }
 
     .eyebrow::before {
       content: "";
-      width: 23px;
+      width: 22px;
       height: 2px;
       background: var(--gold);
     }
 
+    .gradient-text {
+      color: var(--gold-light);
+      background: linear-gradient(110deg, #E7C75A, #FFF0B1 50%, #C9A227);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     .section-heading {
       max-width: 720px;
-      margin-bottom: 45px;
+      margin-bottom: 42px;
     }
 
     .section-heading p {
-      max-width: 620px;
-      font-size: 1.08rem;
       color: var(--muted);
-      margin-bottom: 0;
+      font-size: 1.05rem;
+      max-width: 650px;
     }
 
     .section-heading.centered {
@@ -162,27 +137,19 @@
 
     .section-heading.centered p { margin-inline: auto; }
 
-    .gradient-text {
-      color: var(--gold-light);
-      background: linear-gradient(110deg, #E7C75A 10%, #FFF0B1 50%, #C9A227 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
     .btn {
-      min-height: 49px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 13px 21px;
-      border-radius: 12px;
+      gap: 9px;
+      padding: 12px 20px;
       border: 1px solid transparent;
-      font-size: .92rem;
+      border-radius: 11px;
+      font-size: .91rem;
       font-weight: 700;
       cursor: pointer;
-      transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
     }
 
     .btn:hover { transform: translateY(-3px); }
@@ -193,10 +160,7 @@
       box-shadow: 0 8px 22px rgba(201, 162, 39, .2);
     }
 
-    .btn-primary:hover {
-      background: #F1D77D;
-      box-shadow: 0 12px 28px rgba(201, 162, 39, .28);
-    }
+    .btn-primary:hover { background: #F1D77D; }
 
     .btn-dark {
       color: white;
@@ -206,23 +170,20 @@
     .btn-dark:hover { background: var(--navy-light); }
 
     .btn-outline {
-      border-color: rgba(255,255,255,.25);
       color: white;
-      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.3);
+      background: rgba(255,255,255,.05);
     }
 
-    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .btn-outline:hover { background: rgba(255,255,255,.12); }
 
-    .btn-outline-light {
+    .btn-light {
       color: var(--navy);
       border-color: var(--line);
       background: white;
     }
 
-    .btn-outline-light:hover { background: var(--paper); }
-
-    .arrow { transition: transform .2s ease; }
-    a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
+    .btn-light:hover { background: var(--paper); }
 
     /* Navigation */
 
@@ -230,17 +191,17 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.94);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(229,233,240,.8);
+      border-bottom: 1px solid var(--line);
     }
 
     .navbar {
-      height: 78px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 22px;
     }
 
     .brand {
@@ -253,97 +214,99 @@
     .brand img {
       width: 43px;
       height: 43px;
-      border-radius: 12px;
+      border-radius: 11px;
       object-fit: contain;
     }
 
     .brand-name {
       font-family: "Manrope", sans-serif;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: .98rem;
       letter-spacing: -.035em;
       line-height: 1.2;
     }
 
     .brand-name small {
       display: block;
-      margin-top: 3px;
-      font-family: "DM Sans", sans-serif;
-      font-size: .65rem;
-      font-weight: 600;
-      letter-spacing: .08em;
+      margin-top: 4px;
       color: var(--muted);
+      font-family: "DM Sans", sans-serif;
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .09em;
       text-transform: uppercase;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 19px;
     }
 
     .nav-links > a:not(.btn) {
-      font-size: .83rem;
-      font-weight: 600;
       color: #526077;
+      font-size: .82rem;
+      font-weight: 700;
       transition: color .2s ease;
     }
 
-    .nav-links > a:not(.btn):hover,
-    .nav-links > a.active { color: var(--navy); }
+    .nav-links > a:not(.btn):hover { color: var(--navy); }
+
+    .nav-links .fin-city-link {
+      color: #947313 !important;
+      font-weight: 800 !important;
+    }
 
     .nav-links .btn {
-      min-height: 42px;
-      padding: 10px 16px;
-      font-size: .83rem;
+      min-height: 41px;
+      padding: 9px 14px;
+      font-size: .82rem;
     }
 
     .menu-toggle {
       display: none;
+      width: 43px;
+      height: 43px;
       border: 1px solid var(--line);
       border-radius: 10px;
       background: white;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
       font-size: 1.3rem;
+      cursor: pointer;
     }
 
     /* Hero */
 
     .hero {
       position: relative;
-      min-height: 690px;
-      padding: 86px 0 100px;
+      padding: 82px 0 95px;
       color: white;
       background:
-        radial-gradient(ellipse at 75% 40%, rgba(34,80,130,.5), transparent 43%),
-        radial-gradient(ellipse at 15% 90%, rgba(201,162,39,.09), transparent 32%),
+        radial-gradient(ellipse at 80% 35%, rgba(34,80,130,.48), transparent 45%),
+        radial-gradient(ellipse at 10% 90%, rgba(201,162,39,.1), transparent 32%),
         linear-gradient(120deg, #051224, #0A2342 58%, #102C4E);
-      isolation: isolate;
       overflow: hidden;
+      isolation: isolate;
     }
 
     .hero::before {
       content: "";
       position: absolute;
       z-index: -1;
-      width: 680px;
-      height: 680px;
-      right: -230px;
-      top: -310px;
+      width: 650px;
+      height: 650px;
+      right: -250px;
+      top: -320px;
       border: 1px solid rgba(231,199,90,.15);
       border-radius: 50%;
-      box-shadow:
-        0 0 0 70px rgba(231,199,90,.025),
-        0 0 0 140px rgba(231,199,90,.02);
+      box-shadow: 0 0 0 70px rgba(231,199,90,.025),
+                  0 0 0 140px rgba(231,199,90,.02);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.05fr .95fr;
       align-items: center;
-      gap: 60px;
+      gap: 55px;
     }
 
     .hero-copy { position: relative; z-index: 2; }
@@ -353,64 +316,60 @@
       align-items: center;
       gap: 9px;
       padding: 8px 13px;
-      border: 1px solid rgba(231,199,90,.28);
+      margin-bottom: 23px;
+      border: 1px solid rgba(231,199,90,.3);
       border-radius: 100px;
       background: rgba(231,199,90,.07);
       color: #F0D982;
-      font-size: .78rem;
+      font-size: .77rem;
       font-weight: 700;
-      margin-bottom: 25px;
     }
 
     .pulse-dot {
       width: 7px;
       height: 7px;
-      background: var(--gold-light);
       border-radius: 50%;
+      background: var(--gold-light);
       box-shadow: 0 0 0 5px rgba(231,199,90,.12);
       animation: pulse 2s infinite;
     }
 
     .hero h1 {
-      max-width: 680px;
-      margin-bottom: 23px;
+      max-width: 690px;
+      margin-bottom: 22px;
       font-weight: 800;
       line-height: 1.04;
     }
 
     .hero-copy > p {
-      max-width: 540px;
+      max-width: 560px;
       color: #C0CDDD;
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       line-height: 1.8;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .hero-actions {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 13px;
+      gap: 12px;
     }
 
     .hero-note {
       display: flex;
       align-items: center;
       gap: 9px;
-      margin-top: 25px;
+      margin-top: 23px;
       color: #AABAD0;
       font-size: .82rem;
     }
 
     .hero-note span { color: var(--gold-light); }
 
-    /* Interactive dashboard */
+    /* Hero dashboard */
 
-    .hero-visual {
-      min-width: 0;
-      position: relative;
-      padding: 20px 0;
-    }
+    .hero-visual { min-width: 0; position: relative; padding: 20px 0; }
 
     .dashboard {
       position: relative;
@@ -434,11 +393,7 @@
       margin-bottom: 23px;
     }
 
-    .dash-label {
-      color: #B6C6D9;
-      font-size: .78rem;
-      font-weight: 600;
-    }
+    .dash-label { color: #B6C6D9; font-size: .78rem; font-weight: 600; }
 
     .live-pill {
       display: inline-flex;
@@ -456,8 +411,8 @@
       content: "";
       width: 6px;
       height: 6px;
-      background: #61D99E;
       border-radius: 50%;
+      background: #61D99E;
     }
 
     .dash-balance {
@@ -468,24 +423,9 @@
       line-height: 1.2;
     }
 
-    .dash-subtitle {
-      color: #AABAD0;
-      font-size: .8rem;
-      margin-top: 6px;
-    }
+    .dash-subtitle { color: #AABAD0; font-size: .8rem; margin-top: 6px; }
 
-    .mini-chart {
-      width: 100%;
-      height: 100px;
-      margin: 17px 0 24px;
-      overflow: visible;
-    }
-
-    .chart-line {
-      stroke-dasharray: 500;
-      stroke-dashoffset: 500;
-      animation: draw-line 2s ease forwards .3s;
-    }
+    .mini-chart { width: 100%; height: 100px; margin: 17px 0 24px; }
 
     .dash-divider {
       height: 1px;
@@ -516,7 +456,6 @@
       place-items: center;
       border-radius: 10px;
       background: rgba(255,255,255,.08);
-      font-size: 1rem;
     }
 
     .dash-amount { color: white; font-weight: 700; }
@@ -527,7 +466,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 13px 16px;
+      padding: 12px 15px;
       color: var(--ink);
       background: white;
       border: 1px solid rgba(255,255,255,.6);
@@ -536,56 +475,29 @@
       animation: float 5s ease-in-out infinite;
     }
 
-    .floating-chip.one {
-      top: 6%;
-      right: -3%;
-      animation-delay: -.7s;
-    }
-
-    .floating-chip.two {
-      bottom: 5%;
-      left: -6%;
-      animation-delay: -2s;
-    }
+    .floating-chip.one { top: 5%; right: -2%; }
+    .floating-chip.two { bottom: 4%; left: -5%; animation-delay: -2s; }
 
     .chip-icon {
       width: 35px;
       height: 35px;
       display: grid;
       place-items: center;
-      border-radius: 11px;
+      border-radius: 10px;
       background: var(--gold-pale);
-      font-size: 1.1rem;
     }
 
-    .chip-copy strong {
-      display: block;
-      font-size: .81rem;
-    }
+    .chip-copy strong { display: block; font-size: .8rem; }
+    .chip-copy small { display: block; color: var(--muted); font-size: .69rem; }
 
-    .chip-copy small {
-      display: block;
-      color: var(--muted);
-      font-size: .7rem;
-    }
+    /* Impact */
 
-    /* Impact strip */
+    .impact-strip { background: white; border-bottom: 1px solid var(--line); }
 
-    .impact-strip {
-      position: relative;
-      z-index: 5;
-      margin-top: -1px;
-      background: white;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 
     .impact-item {
-      padding: 29px 18px;
+      padding: 27px 15px;
       text-align: center;
       border-right: 1px solid var(--line);
     }
@@ -593,103 +505,29 @@
     .impact-item:last-child { border-right: 0; }
 
     .impact-number {
-      font-family: "Manrope", sans-serif;
       color: var(--navy);
-      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1.65rem, 3vw, 2.4rem);
       font-weight: 800;
       letter-spacing: -.06em;
       line-height: 1.2;
     }
 
-    .impact-label {
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: .82rem;
-    }
+    .impact-label { margin-top: 7px; color: var(--muted); font-size: .82rem; }
 
-    /* Interactive section intro */
+    /* Fin City feature */
 
     .intro-grid {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
-      gap: 75px;
+      gap: 70px;
       align-items: center;
     }
 
-    .intro-art {
-      position: relative;
-      min-height: 380px;
-      display: grid;
-      place-items: center;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(201,162,39,.13), transparent 52%),
-        #F4F6F9;
-      overflow: hidden;
-    }
-
-    .orbit {
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border: 1px solid #DDE3EC;
-      border-radius: 50%;
-    }
-
-    .orbit.two {
-      width: 205px;
-      height: 205px;
-      border-style: dashed;
-    }
-
-    .orbit.three {
-      width: 350px;
-      height: 350px;
-      border-color: #E7EAF0;
-    }
-
-    .center-coin {
-      width: 112px;
-      height: 112px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--navy);
-      font-family: "Manrope", sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      background: linear-gradient(145deg, #F4D66E, #C9A227);
-      box-shadow: 0 18px 45px rgba(201,162,39,.24);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    .orbit-tag {
-      position: absolute;
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: white;
-      box-shadow: 0 8px 22px rgba(9,30,61,.06);
-      font-size: .78rem;
-      font-weight: 700;
-    }
-
-    .orbit-tag.a { top: 14%; left: 11%; }
-    .orbit-tag.b { right: 8%; top: 34%; }
-    .orbit-tag.c { bottom: 13%; left: 19%; }
-
     .intro-copy h2 { margin-bottom: 20px; }
+    .intro-copy > p { color: var(--muted); font-size: 1.02rem; }
 
-    .intro-copy > p {
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
-
-    .check-list {
-      list-style: none;
-      padding: 0;
-      margin: 25px 0 30px;
-    }
+    .check-list { list-style: none; padding: 0; margin: 24px 0 30px; }
 
     .check-list li {
       display: flex;
@@ -710,20 +548,88 @@
       background: #E3F6ED;
       font-size: .76rem;
       font-weight: 800;
+      margin-top: 2px;
     }
+
+    .intro-art {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #071A32, #14355B);
+      overflow: hidden;
+    }
+
+    .city-glow {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(201,162,39,.12);
+      filter: blur(30px);
+    }
+
+    .orbit {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+    }
+
+    .orbit.two {
+      width: 205px;
+      height: 205px;
+      border-style: dashed;
+      border-color: rgba(231,199,90,.4);
+    }
+
+    .orbit.three { width: 350px; height: 350px; }
+
+    .center-coin {
+      position: relative;
+      z-index: 1;
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--navy);
+      background: linear-gradient(145deg, #F4D66E, #C9A227);
+      box-shadow: 0 18px 45px rgba(201,162,39,.24);
+      font-family: "Manrope", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.1;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .orbit-tag {
+      position: absolute;
+      padding: 10px 13px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 11px;
+      color: white;
+      background: rgba(255,255,255,.09);
+      backdrop-filter: blur(8px);
+      font-size: .76rem;
+      font-weight: 700;
+    }
+
+    .orbit-tag.a { top: 14%; left: 7%; }
+    .orbit-tag.b { right: 6%; top: 36%; }
+    .orbit-tag.c { bottom: 12%; left: 14%; }
 
     /* Programs */
 
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
+    .program-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 
     .program-card {
       position: relative;
-      min-height: 300px;
-      padding: 32px;
+      min-height: 285px;
+      padding: 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -731,64 +637,36 @@
       border-radius: var(--radius);
       background: white;
       overflow: hidden;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-    }
-
-    .program-card::after {
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      right: -95px;
-      top: -100px;
-      border-radius: 50%;
-      background: var(--gold-pale);
-      opacity: .65;
-      transition: transform .35s ease;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
     }
 
     .program-card:hover {
-      transform: translateY(-7px);
+      transform: translateY(-6px);
       border-color: #D9C57D;
       box-shadow: var(--shadow);
     }
 
-    .program-card:hover::after { transform: scale(1.45); }
-
     .program-icon {
-      position: relative;
-      z-index: 1;
-      width: 57px;
-      height: 57px;
+      width: 55px;
+      height: 55px;
       display: grid;
       place-items: center;
-      border-radius: 17px;
+      border-radius: 16px;
       background: var(--navy);
       color: white;
-      font-size: 1.55rem;
-      margin-bottom: 25px;
-    }
-
-    .program-card:nth-child(2) .program-icon {
-      color: var(--navy);
-      background: #F4E8B8;
+      font-size: 1.5rem;
+      margin-bottom: 23px;
     }
 
     .program-card h3 { margin-bottom: 12px; }
-
-    .program-card p {
-      max-width: 450px;
-      color: var(--muted);
-      font-size: .94rem;
-      margin-bottom: 25px;
-    }
+    .program-card p { color: var(--muted); font-size: .94rem; margin-bottom: 22px; }
 
     .program-meta {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-top: auto;
-      margin-bottom: 23px;
+      margin-bottom: 20px;
     }
 
     .tag {
@@ -811,48 +689,39 @@
     }
 
     .text-link span { transition: transform .2s ease; }
-    .text-link:hover span { transform: translateX(5px); }
+    .text-link:hover span { transform: translateX(4px); }
 
-    /* Money simulator */
+    /* Budget simulator */
 
     .simulator {
       display: grid;
       grid-template-columns: 1fr .92fr;
       gap: 30px;
       padding: 35px;
-      border: 1px solid rgba(255,255,255,.12);
       border-radius: 28px;
+      color: white;
       background:
         radial-gradient(circle at 90% 10%, rgba(201,162,39,.12), transparent 30%),
         var(--navy-dark);
-      color: white;
       box-shadow: 0 28px 75px rgba(5,18,36,.12);
     }
 
-    .sim-copy { padding: 10px 10px 10px 0; }
-
+    .sim-copy { padding: 10px; }
     .sim-copy .eyebrow { color: var(--gold-light); }
-
-    .sim-copy h2 { margin-bottom: 16px; }
-
     .sim-copy > p { color: #B9C6D7; }
 
     .sim-tip {
-      display: flex;
-      gap: 12px;
       padding: 15px;
-      margin-top: 26px;
+      margin-top: 24px;
       border: 1px solid rgba(255,255,255,.1);
-      border-radius: 14px;
+      border-radius: 13px;
       color: #C6D2E0;
       background: rgba(255,255,255,.045);
-      font-size: .82rem;
+      font-size: .83rem;
     }
 
-    .sim-tip strong { color: white; }
-
     .sim-panel {
-      padding: 26px;
+      padding: 25px;
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 20px;
       background: rgba(255,255,255,.055);
@@ -862,81 +731,39 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 22px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
-    .sim-panel-top h3 {
-      margin: 0;
-      font-size: 1rem;
-    }
+    .sim-panel-top h3 { margin: 0; font-size: 1rem; }
 
     .sim-total {
       color: var(--gold-light);
       font-family: "Manrope", sans-serif;
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       font-weight: 800;
     }
 
-    .allocation-item { margin: 24px 0; }
+    .allocation-item { margin: 23px 0; }
 
     .allocation-label {
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 10px;
-      font-size: .85rem;
+      margin-bottom: 9px;
+      font-size: .84rem;
     }
 
-    .allocation-label span:first-child {
-      color: #D4DEEA;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .allocation-value {
-      color: white;
-      font-weight: 700;
-    }
-
-    .alloc-dot {
-      width: 10px;
-      height: 10px;
-      display: inline-block;
-      border-radius: 3px;
-    }
-
-    .alloc-saving { background: #6AC6A0; }
-    .alloc-spending { background: #E6BD4B; }
-    .alloc-investing { background: #7CA7F8; }
+    .allocation-label span:first-child { color: #D4DEEA; }
+    .allocation-value { color: white; font-weight: 700; }
 
     input[type="range"] {
       width: 100%;
       height: 6px;
       border-radius: 100px;
-      background: rgba(255,255,255,.18);
       appearance: none;
       cursor: pointer;
       accent-color: var(--gold-light);
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-      appearance: none;
-      width: 17px;
-      height: 17px;
-      border-radius: 50%;
-      background: var(--gold-light);
-      border: 3px solid white;
-      box-shadow: 0 2px 8px rgba(0,0,0,.2);
-    }
-
-    input[type="range"]::-moz-range-thumb {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--gold-light);
-      border: 3px solid white;
     }
 
     .allocation-bar {
@@ -946,15 +773,10 @@
       overflow: hidden;
       border-radius: 100px;
       background: rgba(255,255,255,.1);
-      margin-top: 26px;
+      margin-top: 25px;
     }
 
-    .allocation-segment {
-      height: 100%;
-      border-radius: 100px;
-      transition: width .22s ease;
-    }
-
+    .allocation-segment { height: 100%; border-radius: 100px; transition: width .2s ease; }
     .segment-saving { background: #6AC6A0; }
     .segment-spending { background: #E6BD4B; }
     .segment-investing { background: #7CA7F8; }
@@ -962,13 +784,11 @@
     .sim-feedback {
       margin-top: 17px;
       padding: 12px 14px;
-      border-radius: 12px;
+      border-radius: 11px;
       color: #E4EAF2;
       background: rgba(255,255,255,.055);
       font-size: .8rem;
     }
-
-    .sim-feedback strong { color: var(--gold-light); }
 
     /* Quiz */
 
@@ -976,12 +796,19 @@
       display: grid;
       grid-template-columns: .8fr 1.2fr;
       align-items: start;
-      gap: 65px;
+      gap: 55px;
     }
 
     .quiz-intro h2 { margin-bottom: 17px; }
-
     .quiz-intro p { color: var(--muted); }
+
+    .quiz-card {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
 
     .quiz-progress-label {
       display: flex;
@@ -996,315 +823,155 @@
       overflow: hidden;
       border-radius: 100px;
       background: #E8ECF2;
-      margin-bottom: 26px;
+      margin-bottom: 25px;
     }
 
     .quiz-progress-fill {
       width: 0;
       height: 100%;
       background: var(--gold);
-      transition: width .3s ease;
+      transition: width .25s ease;
     }
 
-    .quiz-card {
-      padding: 30px;
-      border: 1px solid var(--line);
-      border-radius: 23px;
-      background: white;
-      box-shadow: var(--shadow);
-    }
-
-    .quiz-kicker {
-      color: #9A7816;
-      font-size: .75rem;
+    .quiz-category {
+      display: inline-block;
+      padding: 5px 9px;
+      margin-bottom: 12px;
+      border-radius: 7px;
+      color: #7E6416;
+      background: var(--gold-pale);
+      font-size: .74rem;
       font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
     }
 
-    .quiz-question {
-      font-family: "Manrope", sans-serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
-      font-weight: 800;
-      letter-spacing: -.035em;
-      line-height: 1.35;
-      margin-bottom: 22px;
-    }
+    .quiz-question { font-size: 1.25rem; margin-bottom: 20px; }
 
-    .quiz-options {
-      display: grid;
-      gap: 10px;
-    }
+    .quiz-options { display: grid; gap: 10px; }
 
     .quiz-option {
-      width: 100%;
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 14px;
+      width: 100%;
+      padding: 13px;
       text-align: left;
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 11px;
       background: white;
       cursor: pointer;
-      transition: border-color .2s ease, background .2s ease, transform .2s ease;
+      transition: border-color .2s ease, background .2s ease;
     }
 
     .quiz-option:hover:not(:disabled) {
-      transform: translateX(3px);
-      border-color: #D8C16C;
+      border-color: var(--gold);
       background: #FFFCF1;
     }
 
+    .quiz-option:disabled { cursor: default; }
+    .quiz-option.correct { border-color: #70C49B; background: #ECF9F1; }
+    .quiz-option.incorrect { border-color: #E6A0A0; background: #FFF0F0; }
+
     .option-letter {
-      width: 31px;
-      height: 31px;
+      width: 29px;
+      height: 29px;
+      flex-shrink: 0;
       display: grid;
       place-items: center;
-      flex-shrink: 0;
-      border-radius: 9px;
+      border-radius: 8px;
       color: var(--navy);
-      background: #F0F3F8;
+      background: #F0F3F7;
+      font-size: .8rem;
       font-weight: 800;
-      font-size: .82rem;
     }
-
-    .quiz-option.correct {
-      border-color: #65BB8F;
-      background: #F0FBF5;
-    }
-
-    .quiz-option.correct .option-letter {
-      color: #216947;
-      background: #D6F5E3;
-    }
-
-    .quiz-option.incorrect {
-      border-color: #E4A09A;
-      background: #FFF5F4;
-    }
-
-    .quiz-option:disabled { cursor: default; }
 
     .quiz-feedback {
       display: none;
-      margin-top: 17px;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: .88rem;
-    }
-
-    .quiz-feedback.show { display: block; }
-    .quiz-feedback.good { background: #EFFAF4; color: #236745; }
-    .quiz-feedback.bad { background: #FFF5F3; color: #93453D; }
-
-    .quiz-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .quiz-score {
-      color: var(--muted);
+      padding: 13px;
+      margin-top: 15px;
+      border-radius: 10px;
       font-size: .85rem;
     }
 
-    .quiz-result {
-      display: none;
-      text-align: center;
-      padding: 15px 0;
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.good { color: #236747; background: #E9F8F0; }
+    .quiz-feedback.bad { color: #8A3333; background: #FFF0F0; }
+
+    .quiz-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 22px;
     }
 
+    .quiz-score { color: var(--muted); font-size: .82rem; font-weight: 700; }
+
+    .quiz-result { display: none; text-align: center; padding: 20px 5px; }
     .quiz-result.show { display: block; }
+    .quiz-result-icon { font-size: 2.6rem; margin-bottom: 10px; }
+    .quiz-result p { color: var(--muted); }
 
-    .quiz-result-icon {
-      width: 76px;
-      height: 76px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 22px;
-      border-radius: 23px;
-      background: var(--gold-pale);
-      font-size: 2rem;
-    }
-
-    /* Facts */
-
-    .fact-section {
-      padding: 0 0 100px;
-    }
+    /* Financial facts */
 
     .fact-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 35px;
-      padding: 40px 45px;
+      padding: 35px;
       border-radius: 24px;
-      border: 1px solid #EDE3BC;
-      background: linear-gradient(115deg, #FFFCF0, #FFF8DE);
-      overflow: hidden;
-    }
-
-    .fact-card::after {
-      content: "“";
-      position: absolute;
-      right: 115px;
-      top: -75px;
-      font-family: Georgia, serif;
-      font-size: 19rem;
-      color: rgba(201,162,39,.09);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .fact-copy { position: relative; z-index: 1; }
-
-    .fact-copy .eyebrow { margin-bottom: 12px; }
-
-    .fact-copy h3 {
-      max-width: 800px;
-      font-size: clamp(1.35rem, 3vw, 2.1rem);
-      line-height: 1.4;
-      margin-bottom: 0;
-    }
-
-    .fact-actions {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-    }
-
-    .fact-count {
-      color: #89701E;
-      font-size: .75rem;
-      font-weight: 700;
-    }
-
-    /* Steps */
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .step-card {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: white;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 13px;
-      color: var(--navy);
-      background: var(--gold-pale);
-      font-family: "Manrope", sans-serif;
-      font-weight: 800;
-      margin-bottom: 22px;
-    }
-
-    .step-card p {
-      color: var(--muted);
-      font-size: .91rem;
-      margin-bottom: 0;
-    }
-
-    /* Final CTA */
-
-    .final-cta {
-      position: relative;
-      padding: 90px 0;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(201,162,39,.15), transparent 32%),
-        linear-gradient(115deg, #051224, #0A2342 72%, #14355B);
       color: white;
-      overflow: hidden;
+      background: linear-gradient(120deg, #071A32, #14355B);
     }
 
-    .final-cta-inner {
-      position: relative;
-      z-index: 1;
+    .fact-card .eyebrow { color: var(--gold-light); }
+    .fact-card p { max-width: 800px; color: #D1DBE8; font-size: 1.15rem; }
+    .fact-bottom { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+    .fact-count { color: #AABAD0; font-size: .76rem; font-weight: 800; letter-spacing: .1em; }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 75px 0;
+      color: white;
+      background: var(--navy);
+    }
+
+    .cta-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 35px;
     }
 
-    .final-cta h2 {
-      max-width: 680px;
-      margin-bottom: 16px;
-    }
-
-    .final-cta p {
-      max-width: 600px;
-      color: #BDCADB;
-      margin-bottom: 0;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      flex-shrink: 0;
-    }
+    .cta-inner h2 { margin-bottom: 12px; }
+    .cta-inner p { max-width: 620px; margin-bottom: 0; color: #C0CDDD; }
 
     /* Footer */
 
-    footer {
-      color: #C1CDDB;
-      background: #030D1A;
-      padding: 58px 0 25px;
+    .footer {
+      padding: 55px 0 25px;
+      color: #D2DCE9;
+      background: #051224;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr .8fr .8fr 1fr;
-      gap: 45px;
-      padding-bottom: 40px;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 40px;
+      padding-bottom: 35px;
     }
 
-    .footer-brand .brand-name { color: white; }
-
-    .footer-brand .brand-name small { color: #93A3B9; }
-
-    .footer-brand p {
-      max-width: 300px;
-      margin-top: 20px;
-      color: #9EADC1;
-      font-size: .88rem;
-    }
+    .footer-brand { color: white; margin-bottom: 15px; }
+    .footer-about { max-width: 310px; color: #AABAD0; font-size: .87rem; }
 
     .footer-col h4 {
+      margin-bottom: 17px;
       color: white;
-      font-size: .86rem;
+      font-size: .94rem;
       letter-spacing: 0;
-      margin-bottom: 18px;
     }
 
     .footer-col a {
       display: block;
       margin: 10px 0;
-      color: #9EADC1;
+      color: #AABAD0;
       font-size: .84rem;
       transition: color .2s ease;
     }
@@ -1313,94 +980,31 @@
 
     .footer-bottom {
       display: flex;
-      align-items: flex-start;
       justify-content: space-between;
-      flex-wrap: wrap;
       gap: 20px;
-      padding-top: 23px;
-      border-top: 1px solid rgba(255,255,255,.1);
-      color: #8798AE;
-      font-size: .77rem;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: #91A2B8;
+      font-size: .78rem;
     }
 
-    .footer-bottom p { margin: 0; max-width: 650px; }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
+    .sponsor-note {
+      max-width: 760px;
+      margin-top: 18px;
+      color: #91A2B8;
+      font-size: .76rem;
     }
 
-    .social-links a { color: #C1CDDB; }
-    .social-links a:hover { color: var(--gold-light); }
+    /* Animations */
 
-    /* Scroll progress */
-
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 200;
-      height: 3px;
-      width: 0;
-      background: var(--gold-light);
-      pointer-events: none;
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 5px rgba(231,199,90,.12); }
+      50% { box-shadow: 0 0 0 8px rgba(231,199,90,.04); }
     }
-
-    /* Back to top */
-
-    .back-top {
-      position: fixed;
-      right: 23px;
-      bottom: 23px;
-      z-index: 80;
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      color: var(--navy);
-      background: white;
-      box-shadow: 0 8px 24px rgba(0,0,0,.12);
-      font-size: 1.15rem;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: opacity .2s ease, transform .2s ease;
-    }
-
-    .back-top.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    /* Reveal animations */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .65s ease, transform .65s cubic-bezier(.2,.65,.3,1);
-    }
-
-    .reveal.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 { transition-delay: .08s; }
-    .delay-2 { transition-delay: .16s; }
-    .delay-3 { transition-delay: .24s; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-9px); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 4px rgba(231,199,90,.1); }
-      50% { box-shadow: 0 0 0 7px rgba(231,199,90,.04); }
     }
 
     @keyframes draw-line {
@@ -1410,121 +1014,85 @@
     /* Responsive */
 
     @media (max-width: 1050px) {
-      .nav-links { gap: 14px; }
-      .nav-links > a:not(.btn) { font-size: .78rem; }
-      .hero-grid { gap: 30px; }
+      .nav-links { gap: 12px; }
+      .nav-links > a:not(.btn) { font-size: .77rem; }
+      .hero-grid { gap: 35px; }
       .floating-chip.one { right: -1%; }
-      .floating-chip.two { left: -2%; }
-      .intro-grid { gap: 45px; }
-      .footer-grid { gap: 25px; }
+      .intro-grid { gap: 40px; }
     }
 
     @media (max-width: 850px) {
-      .section { padding: 78px 0; }
-
-      .menu-toggle {
-        display: grid;
-        place-items: center;
-      }
+      .menu-toggle { display: block; }
 
       .nav-links {
+        display: none;
         position: absolute;
-        top: 78px;
+        top: 76px;
         left: 0;
         right: 0;
-        display: none;
+        padding: 22px 24px 25px;
+        flex-direction: column;
         align-items: stretch;
-        gap: 0;
-        padding: 14px 24px 23px;
-        border-bottom: 1px solid var(--line);
+        gap: 17px;
         background: white;
-        box-shadow: 0 16px 25px rgba(9,30,61,.08);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 15px 25px rgba(0,0,0,.06);
       }
 
-      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links.open { display: flex; }
+      .nav-links > a:not(.btn) { font-size: .9rem; }
+      .nav-links .btn { width: 100%; }
 
-      .nav-links > a:not(.btn) {
-        padding: 12px 0;
-        border-bottom: 1px solid #F0F2F6;
-        font-size: .92rem;
+      .hero-grid, .intro-grid, .simulator, .quiz-layout {
+        grid-template-columns: 1fr;
       }
 
-      .nav-links .btn { margin-top: 13px; }
-
-      .hero { padding: 72px 0 80px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 45px; }
+      .hero { padding: 65px 0 80px; }
       .hero-copy { max-width: 700px; }
       .hero-visual { max-width: 560px; width: 100%; margin-inline: auto; }
-      .dashboard { max-width: 440px; }
-
       .impact-grid { grid-template-columns: repeat(2, 1fr); }
       .impact-item:nth-child(2) { border-right: 0; }
       .impact-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-
-      .intro-grid { grid-template-columns: 1fr; gap: 35px; }
-      .intro-art { min-height: 330px; }
-
-      .simulator { grid-template-columns: 1fr; gap: 25px; }
-      .sim-copy { padding-right: 0; }
-
-      .quiz-layout { grid-template-columns: 1fr; gap: 30px; }
-      .quiz-intro { max-width: 650px; }
-
-      .final-cta-inner { align-items: flex-start; flex-direction: column; }
+      .intro-art { order: -1; }
+      .quiz-layout { gap: 25px; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-inner { align-items: flex-start; flex-direction: column; }
     }
 
     @media (max-width: 560px) {
-      .container { width: min(100% - 32px, var(--max)); }
-      .section { padding: 65px 0; }
-      .hero { padding: 60px 0 68px; }
-      .hero h1 { font-size: clamp(2.6rem, 12vw, 3.8rem); }
+      .container { width: min(var(--max), calc(100% - 32px)); }
+      .section { padding: 68px 0; }
+      .hero { padding: 55px 0 65px; }
+      .hero h1 { font-size: clamp(2.55rem, 12vw, 3.5rem); }
       .hero-copy > p { font-size: 1rem; }
       .hero-actions { align-items: stretch; flex-direction: column; }
       .hero-actions .btn { width: 100%; }
-
-      .floating-chip { padding: 9px 11px; }
-      .floating-chip.one { right: -1%; top: 0; }
-      .floating-chip.two { left: -1%; bottom: 0; }
-      .chip-icon { width: 29px; height: 29px; }
-      .chip-copy strong { font-size: .72rem; }
-      .chip-copy small { font-size: .65rem; }
       .dashboard { padding: 20px; }
-
-      .impact-item { padding: 23px 10px; }
-      .impact-label { font-size: .75rem; }
-
-      .intro-art { min-height: 300px; }
+      .floating-chip { padding: 9px 10px; }
+      .floating-chip.one { right: -2%; }
+      .floating-chip.two { left: -2%; }
+      .chip-copy strong { font-size: .72rem; }
+      .chip-copy small { font-size: .64rem; }
+      .impact-item { padding: 22px 8px; }
+      .impact-label { font-size: .74rem; }
+      .intro-art { min-height: 320px; }
       .orbit.three { width: 290px; height: 290px; }
       .orbit { width: 235px; height: 235px; }
       .orbit.two { width: 175px; height: 175px; }
-      .orbit-tag { font-size: .7rem; padding: 8px 10px; }
-
+      .orbit-tag { padding: 8px 9px; font-size: .67rem; }
       .program-grid { grid-template-columns: 1fr; }
-      .program-card { padding: 26px; min-height: 280px; }
-
-      .simulator { padding: 23px 17px; }
-      .sim-panel { padding: 20px 16px; }
-      .sim-panel-top { align-items: flex-start; flex-direction: column; }
-
-      .quiz-card { padding: 22px 17px; }
-      .quiz-bottom { align-items: flex-start; flex-direction: column; }
-
-      .fact-section { padding-bottom: 65px; }
-      .fact-card { grid-template-columns: 1fr; padding: 27px 22px; gap: 22px; }
-      .fact-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
-      .fact-card::after { right: -5px; }
-
-      .steps-grid { grid-template-columns: 1fr; }
-
-      .final-cta { padding: 65px 0; }
-      .cta-actions { width: 100%; flex-direction: column; }
-      .cta-actions .btn { width: 100%; }
-
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 18px; }
-      .footer-brand { grid-column: 1 / -1; }
+      .program-card { padding: 25px; }
+      .simulator { padding: 22px; }
+      .sim-panel { padding: 19px; }
+      .quiz-card { padding: 20px; }
+      .quiz-footer { align-items: stretch; flex-direction: column; }
+      .quiz-footer .btn { width: 100%; }
+      .fact-card { padding: 25px; }
+      .fact-card p { font-size: 1rem; }
+      .fact-bottom { align-items: flex-start; flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
       .footer-bottom { flex-direction: column; }
-      .back-top { right: 14px; bottom: 14px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1534,41 +1102,35 @@
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
-
-      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
   <!-- Navigation -->
   <header class="nav-wrap">
-    <nav class="navbar container" aria-label="Main navigation">
-      <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
-        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" width="43" height="43">
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="IMG_1383.jpeg" alt="NextGen Knowledge logo">
         <span class="brand-name">
-          Next-Gen Knowledge
-          <small>Skills for the real world</small>
+          NextGen Knowledge
+          <small>Real-world education</small>
         </span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
-        <span id="menuIcon" aria-hidden="true">☰</span>
-      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false">☰</button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="active">Home</a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
         <a href="about.html">About Us</a>
         <a href="programs.html">Programs</a>
         <a href="team.html">Team</a>
         <a href="partnerships.html">Partnerships</a>
-        <a href="trivia.html">Trivia Arena</a>
+        <a href="fin-city.html" class="fin-city-link">Fin City ↗</a>
         <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="btn btn-dark">Get Started <span class="arrow">→</span></a>
-      </div>
-    </nav>
+        <a href="enroll.html" class="btn btn-dark">Get Started →</a>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -1578,268 +1140,306 @@
         <div class="hero-copy">
           <div class="hero-badge">
             <span class="pulse-dot"></span>
-            Student-led. Future-focused.
+            Introducing Our Next Big Project
           </div>
 
-          <h1>Real-world skills.<br> <span class="gradient-text">A stronger future.</span></h1>
+          <h1>Learn money skills.<br><span class="gradient-text">Explore Fin City.</span></h1>
 
           <p>
-            Money, investing, and life skills shouldn't be a mystery.
-            Explore interactive financial education built by students, for the next generation.
+            What if learning about money felt like exploring a whole new world?
+            Fin City is our upcoming interactive financial-literacy game, designed
+            to help students discover banking, budgeting, investing, and real-world
+            financial decisions through hands-on experiences.
           </p>
 
           <div class="hero-actions">
-            <a href="programs.html" class="btn btn-primary">Explore Our Programs <span class="arrow">→</span></a>
-            <a href="#money-lab" class="btn btn-outline">Try the Money Lab <span class="arrow">↘</span></a>
+            <a href="fin-city.html" class="btn btn-primary">Discover Fin City <span>→</span></a>
+            <a href="#fin-city-feature" class="btn btn-outline">Explore the Vision <span>↘</span></a>
           </div>
 
           <div class="hero-note">
             <span aria-hidden="true">✦</span>
-            Learn by doing — not just by reading.
+            A new way to experience financial education. Coming soon.
           </div>
         </div>
 
         <div class="hero-visual" aria-label="Illustration of a financial dashboard">
-          <div class="floating-chip one">
-            <span class="chip-icon">↗</span>
-            <span class="chip-copy">
-              <strong>Think long term</strong>
-              <small>Build money habits</small>
-            </span>
-          </div>
-
           <div class="dashboard">
             <div class="dash-top">
-              <span class="dash-label">YOUR FINANCIAL FUTURE</span>
-              <span class="live-pill">Explore</span>
+              <span class="dash-label">YOUR FINANCIAL JOURNEY</span>
+              <span class="live-pill">IN PROGRESS</span>
             </div>
 
-            <div class="dash-label">Your learning starts here</div>
-            <div class="dash-balance">$1,000</div>
-            <div class="dash-subtitle">A hypothetical budget to experiment with</div>
+            <div class="dash-label">Starting balance</div>
+            <div class="dash-balance">$100.00</div>
+            <div class="dash-subtitle">Learn by making financial decisions</div>
 
-            <svg class="mini-chart" viewBox="0 0 400 100" role="img" aria-label="Decorative upward financial learning chart">
+            <svg class="mini-chart" viewBox="0 0 400 100" role="img" aria-label="Illustrative rising financial chart">
               <defs>
-                <linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0%" stop-color="#E7C75A" stop-opacity=".28"/>
+                <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#E7C75A" stop-opacity=".32"/>
                   <stop offset="100%" stop-color="#E7C75A" stop-opacity="0"/>
                 </linearGradient>
               </defs>
-              <path d="M0,82 C35,76 40,52 75,61 S120,77 155,48 S200,62 230,38 S280,48 305,25 S360,35 400,7 L400,100 L0,100 Z" fill="url(#chartFill)"/>
-              <path class="chart-line" d="M0,82 C35,76 40,52 75,61 S120,77 155,48 S200,62 230,38 S280,48 305,25 S360,35 400,7" fill="none" stroke="#E7C75A" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="400" cy="7" r="5" fill="#E7C75A"/>
+              <path d="M0 80 L42 70 L80 76 L120 48 L160 59 L202 37 L245 45 L285 22 L325 32 L365 9 L400 15 L400 100 L0 100 Z" fill="url(#chartFill)"/>
+              <path class="chart-line" d="M0 80 L42 70 L80 76 L120 48 L160 59 L202 37 L245 45 L285 22 L325 32 L365 9 L400 15" fill="none" stroke="#E7C75A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
 
             <div class="dash-divider"></div>
 
             <div class="dash-row">
-              <div class="dash-row-left"><span class="dash-icon">🏦</span> Saving</div>
-              <span class="dash-amount">Build a cushion</span>
+              <div class="dash-row-left"><span class="dash-icon">🏦</span>Banking</div>
+              <span class="dash-amount">Learn</span>
             </div>
             <div class="dash-row">
-              <div class="dash-row-left"><span class="dash-icon">🛍️</span> Spending</div>
-              <span class="dash-amount">Plan ahead</span>
+              <div class="dash-row-left"><span class="dash-icon">🛍️</span>Marketplace</div>
+              <span class="dash-amount">Explore</span>
             </div>
             <div class="dash-row">
-              <div class="dash-row-left"><span class="dash-icon">📈</span> Investing</div>
-              <span class="dash-amount">Understand risk</span>
+              <div class="dash-row-left"><span class="dash-icon">📈</span>Investment Center</div>
+              <span class="dash-amount">Discover</span>
             </div>
           </div>
 
+          <div class="floating-chip one">
+            <span class="chip-icon">💡</span>
+            <span class="chip-copy"><strong>Learn by doing</strong><small>Interactive experiences</small></span>
+          </div>
+
           <div class="floating-chip two">
-            <span class="chip-icon">🧠</span>
-            <span class="chip-copy">
-              <strong>Knowledge compounds</strong>
-              <small>One skill at a time</small>
-            </span>
+            <span class="chip-icon">🎯</span>
+            <span class="chip-copy"><strong>Real-world skills</strong><small>Built for the next generation</small></span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Impact -->
-    <section class="impact-strip" aria-label="Our reach">
+    <section class="impact-strip" aria-label="NextGen Knowledge impact">
       <div class="container impact-grid">
-        <div class="impact-item reveal">
-          <div class="impact-number" data-count="300" data-suffix="+">300+</div>
+        <div class="impact-item">
+          <div class="impact-number">350+</div>
           <div class="impact-label">Students reached</div>
         </div>
-        <div class="impact-item reveal delay-1">
-          <div class="impact-number" data-count="15">15</div>
+        <div class="impact-item">
+          <div class="impact-number">15+</div>
           <div class="impact-label">Countries reached</div>
         </div>
-        <div class="impact-item reveal delay-2">
-          <div class="impact-number" data-count="80" data-suffix="+">80+</div>
-          <div class="impact-label">Students in finance cohorts</div>
+        <div class="impact-item">
+          <div class="impact-number">Free</div>
+          <div class="impact-label">Educational programs</div>
         </div>
-        <div class="impact-item reveal delay-3">
-          <div class="impact-number" data-count="100" data-suffix="%">100%</div>
-          <div class="impact-label">Student-built initiative</div>
+        <div class="impact-item">
+          <div class="impact-number">Student-led</div>
+          <div class="impact-label">Built for the next generation</div>
         </div>
       </div>
     </section>
 
-    <!-- Mission -->
-    <section class="section">
+    <!-- Fin City Feature -->
+    <section class="section section-soft" id="fin-city-feature">
       <div class="container intro-grid">
-        <div class="intro-art reveal">
-          <div class="orbit three"></div>
-          <div class="orbit"></div>
-          <div class="orbit two"></div>
-          <div class="center-coin">$</div>
-          <div class="orbit-tag a">💡 Learn</div>
-          <div class="orbit-tag b">📊 Practice</div>
-          <div class="orbit-tag c">🚀 Apply</div>
-        </div>
-
-        <div class="intro-copy reveal delay-1">
-          <span class="eyebrow">The Next-Gen approach</span>
-          <h2>Education should prepare you for <span style="color:#A6841C;">real life.</span></h2>
+        <div class="intro-copy">
+          <span class="eyebrow">Coming Soon · A NextGen Knowledge Project</span>
+          <h2>Financial education, <span style="color:#A6841C;">reimagined.</span></h2>
           <p>
-            Many important money decisions happen long before students have had a chance to learn how they work.
-            We're working to make practical financial education easier to access and more engaging.
+            Meet Fin City: an interactive virtual city where financial concepts
+            become experiences. Instead of only reading about money, students
+            will be able to explore a virtual world and learn by making decisions.
           </p>
 
           <ul class="check-list">
-            <li><span class="check">✓</span><span><strong>Practical learning.</strong> Explore concepts through examples, activities, and real-world scenarios.</span></li>
-            <li><span class="check">✓</span><span><strong>Student-led education.</strong> Learn from a team that understands what young people want to explore.</span></li>
-            <li><span class="check">✓</span><span><strong>Accessible opportunities.</strong> Discover programs designed to help more students build useful skills.</span></li>
+            <li><span class="check">✓</span><span><strong>Explore a virtual city.</strong> Discover different locations and their financial purposes.</span></li>
+            <li><span class="check">✓</span><span><strong>Build real-world money skills.</strong> Become familiar with budgeting, banking, and investing.</span></li>
+            <li><span class="check">✓</span><span><strong>Learn through decisions.</strong> Experience financial concepts through interactive gameplay.</span></li>
           </ul>
 
-          <a href="about.html" class="text-link">Get to know our mission <span>→</span></a>
+          <a href="fin-city.html" class="btn btn-dark">Discover Fin City <span>→</span></a>
+          <p style="font-size:.82rem;color:var(--muted);margin-top:15px;">Fin City is currently in development. More details coming soon.</p>
+        </div>
+
+        <div class="intro-art" aria-label="Fin City concept illustration">
+          <div class="city-glow"></div>
+          <div class="orbit three"></div>
+          <div class="orbit"></div>
+          <div class="orbit two"></div>
+          <div class="center-coin">FIN<br>CITY</div>
+          <div class="orbit-tag a">Banking &amp; Budgeting</div>
+          <div class="orbit-tag b">Investing</div>
+          <div class="orbit-tag c">Learn by Doing</div>
         </div>
       </div>
     </section>
 
     <!-- Programs -->
-    <section class="section section-soft" id="programs">
+    <section class="section" id="programs">
       <div class="container">
-        <div class="section-heading centered reveal">
-          <span class="eyebrow">Learn your way</span>
-          <h2>Explore. Experiment. <span style="color:#A6841C;">Grow.</span></h2>
-          <p>Find a place to start, whether you're learning everyday money habits or exploring how investing works.</p>
+        <div class="section-heading">
+          <span class="eyebrow">Learn with NextGen</span>
+          <h2>Skills that go beyond the classroom.</h2>
+          <p>
+            We create opportunities for students to explore practical subjects
+            that can help them make informed decisions in the real world.
+          </p>
         </div>
 
         <div class="program-grid">
-          <article class="program-card reveal">
-            <div class="program-icon" aria-hidden="true">🪙</div>
+          <article class="program-card">
+            <div class="program-icon">💰</div>
             <h3>Money Masters</h3>
-            <p>Build a foundation in budgeting, saving, spending decisions, and other essential money concepts through student-friendly lessons.</p>
+            <p>
+              An approachable introduction to budgeting, saving, investing,
+              and everyday financial decision-making for younger students.
+            </p>
             <div class="program-meta">
+              <span class="tag">Financial literacy</span>
               <span class="tag">Grades 5–8</span>
-              <span class="tag">Financial foundations</span>
+              <span class="tag">Online learning</span>
             </div>
-            <a href="programs.html" class="text-link">Explore the program <span>→</span></a>
+            <a href="programs.html" class="text-link">Explore our programs <span>→</span></a>
           </article>
 
-          <article class="program-card reveal delay-1">
-            <div class="program-icon" aria-hidden="true">📈</div>
+          <article class="program-card">
+            <div class="program-icon">📊</div>
             <h3>Investors Academy</h3>
-            <p>Explore how markets work, learn investment fundamentals, and understand the relationship between risk, return, and time.</p>
+            <p>
+              Explore investing concepts, business fundamentals, risk, and
+              long-term thinking through structured educational activities.
+            </p>
             <div class="program-meta">
-              <span class="tag">Grades 6+</span>
-              <span class="tag">Markets and investing</span>
+              <span class="tag">Investing fundamentals</span>
+              <span class="tag">Practical learning</span>
             </div>
-            <a href="programs.html" class="text-link">Discover learning opportunities <span>→</span></a>
+            <a href="programs.html" class="text-link">Explore our programs <span>→</span></a>
           </article>
-        </div>
 
-        <div style="text-align:center;margin-top:30px;" class="reveal">
-          <a href="enroll.html" class="btn btn-dark">Find Your Next Step <span class="arrow">→</span></a>
+          <article class="program-card">
+            <div class="program-icon">💻</div>
+            <h3>Python &amp; Coding</h3>
+            <p>
+              Build foundational programming skills through guided lessons,
+              coding exercises, and opportunities to apply new concepts.
+            </p>
+            <div class="program-meta">
+              <span class="tag">Computer science</span>
+              <span class="tag">Beginner-friendly</span>
+            </div>
+            <a href="programs.html" class="text-link">Explore our programs <span>→</span></a>
+          </article>
+
+          <article class="program-card">
+            <div class="program-icon">🌎</div>
+            <h3>Community Workshops</h3>
+            <p>
+              We work with schools, libraries, and community organizations
+              to make useful, real-world educational opportunities accessible.
+            </p>
+            <div class="program-meta">
+              <span class="tag">Community partnerships</span>
+              <span class="tag">Flexible format</span>
+            </div>
+            <a href="partnerships.html" class="text-link">Partner with us <span>→</span></a>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Interactive money lab -->
-    <section class="section" id="money-lab">
+    <!-- Budget simulator -->
+    <section class="section section-soft" id="money-lab">
       <div class="container">
-        <div class="simulator reveal">
+        <div class="simulator">
           <div class="sim-copy">
-            <span class="eyebrow">The Money Lab</span>
-            <h2>You're in charge of <span class="gradient-text">$1,000.</span></h2>
+            <span class="eyebrow">Interactive Money Lab</span>
+            <h2>Every dollar is a decision.</h2>
             <p>
-              Imagine you have $1,000 to work with. How would you divide it between saving, everyday spending, and investing?
-              Adjust the sliders and explore your choices.
+              Try dividing a hypothetical $1,000 budget between saving,
+              spending, and investing. Adjust the sliders and see how your
+              choices change your allocation.
             </p>
             <div class="sim-tip">
-              <span aria-hidden="true">💡</span>
-              <div><strong>There isn't one perfect budget.</strong><br>Goals, expenses, and personal circumstances affect how people allocate their money. This is a learning activity, not financial advice.</div>
+              <strong>Remember:</strong> This is an educational example, not
+              personal financial advice. Investing involves risk, and returns
+              are never guaranteed.
             </div>
           </div>
 
           <div class="sim-panel">
             <div class="sim-panel-top">
               <h3>Your hypothetical budget</h3>
-              <div class="sim-total" id="simTotal">$1,000</div>
+              <div class="sim-total">$1,000</div>
             </div>
 
             <div class="allocation-item">
               <div class="allocation-label">
-                <span><i class="alloc-dot alloc-saving"></i> Saving</span>
+                <span>Saving</span>
                 <span class="allocation-value" id="savingValue">$400 · 40%</span>
               </div>
-              <input type="range" id="savingRange" min="0" max="100" value="40" aria-label="Percentage allocated to saving">
+              <input id="savingRange" type="range" min="0" max="100" value="40" aria-label="Saving allocation">
             </div>
 
             <div class="allocation-item">
               <div class="allocation-label">
-                <span><i class="alloc-dot alloc-spending"></i> Spending</span>
+                <span>Spending</span>
                 <span class="allocation-value" id="spendingValue">$350 · 35%</span>
               </div>
-              <input type="range" id="spendingRange" min="0" max="100" value="35" aria-label="Percentage allocated to spending">
+              <input id="spendingRange" type="range" min="0" max="100" value="35" aria-label="Spending allocation">
             </div>
 
             <div class="allocation-item">
               <div class="allocation-label">
-                <span><i class="alloc-dot alloc-investing"></i> Investing</span>
+                <span>Investing</span>
                 <span class="allocation-value" id="investingValue">$250 · 25%</span>
               </div>
-              <input type="range" id="investingRange" min="0" max="100" value="25" aria-label="Percentage allocated to investing">
+              <input id="investingRange" type="range" min="0" max="100" value="25" aria-label="Investing allocation">
             </div>
 
-            <div class="allocation-bar" role="img" id="allocationBar" aria-label="Your budget allocation">
+            <div class="allocation-bar" aria-label="Budget allocation chart">
               <div class="allocation-segment segment-saving" id="savingSegment" style="width:40%"></div>
               <div class="allocation-segment segment-spending" id="spendingSegment" style="width:35%"></div>
               <div class="allocation-segment segment-investing" id="investingSegment" style="width:25%"></div>
             </div>
 
             <div class="sim-feedback" id="simFeedback" aria-live="polite">
-              <strong>Your plan:</strong> You're giving each category a role. Adjust the sliders to explore different trade-offs.
+              Adjust the sliders to explore different ways to allocate a budget.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Quick quiz -->
-    <section class="section section-soft" id="quiz">
+    <!-- Financial literacy quiz -->
+    <section class="section" id="quiz">
       <div class="container quiz-layout">
-        <div class="quiz-intro reveal">
-          <span class="eyebrow">Test your knowledge</span>
-          <h2>Think you know money?</h2>
-          <p>Try this quick financial-literacy challenge. Answer five questions, learn from the explanations, and see how you do.</p>
+        <div class="quiz-intro">
+          <span class="eyebrow">Build your financial knowledge</span>
+          <h2>How well do you know money?</h2>
+          <p>
+            Try this quick financial-literacy challenge. Answer five questions,
+            learn from the explanations, and see how you do.
+          </p>
           <p style="font-size:.85rem;">No account. No pressure. Just a quick brain workout.</p>
-          <a href="trivia.html" class="text-link">Visit the full Trivia Arena <span>→</span></a>
+          <a href="fin-city.html" class="text-link">Discover our upcoming Fin City game <span>→</span></a>
         </div>
 
-        <div class="quiz-card reveal delay-1">
+        <div class="quiz-card">
           <div id="quizPlay">
             <div class="quiz-progress-label">
               <span id="quizStep">QUESTION 1 OF 5</span>
               <span id="quizProgressText">0% complete</span>
             </div>
+
             <div class="quiz-progress">
               <div class="quiz-progress-fill" id="quizProgressFill"></div>
             </div>
 
-            <div class="quiz-kicker" id="quizCategory">Money fundamentals</div>
-            <div class="quiz-question" id="quizQuestion">What is a budget mainly used for?</div>
+            <div class="quiz-category" id="quizCategory">Money fundamentals</div>
+            <h3 class="quiz-question" id="quizQuestion">What is a budget mainly used for?</h3>
             <div class="quiz-options" id="quizOptions"></div>
-            <div class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></div>
+            <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
 
-            <div class="quiz-bottom">
+            <div class="quiz-footer">
               <span class="quiz-score" id="quizScore">Score: 0 / 0</span>
-              <button class="btn btn-dark" id="quizNext" disabled>Choose an answer</button>
+              <button class="btn btn-dark" id="quizNext" disabled>Next Question →</button>
             </div>
           </div>
 
@@ -1849,96 +1449,45 @@
             <h3 id="resultHeading">Nice work!</h3>
             <p id="resultText"></p>
             <button class="btn btn-dark" id="quizRestart">Play Again ↻</button>
-            <a href="trivia.html" class="btn btn-outline-light" style="margin-top:10px;">More Challenges →</a>
+            <p style="margin-top:15px;">
+              <a href="fin-city.html" class="text-link">Discover Fin City →</a>
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Rotating facts -->
-    <section class="fact-section">
-      <div class="container">
-        <div class="fact-card reveal">
-          <div class="fact-copy">
-            <span class="eyebrow">A little food for thought</span>
-            <h3 id="factText" aria-live="polite">Compound growth means that returns can generate additional returns over time — although investment returns are never guaranteed.</h3>
-          </div>
-          <div class="fact-actions">
-            <span class="fact-count" id="factCount">FACT 1 OF 4</span>
-            <button class="btn btn-dark" id="nextFact">Another fact <span class="arrow">→</span></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="section">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <span class="eyebrow">Your journey starts here</span>
-          <h2>Three steps. More confidence.</h2>
-          <p>Start exploring financial skills at your own pace and find opportunities to put what you learn into practice.</p>
-        </div>
-
-        <div class="steps-grid">
-          <article class="step-card reveal">
-            <div class="step-number">01</div>
-            <h3>Explore</h3>
-            <p>Browse programs, try interactive challenges, and discover the financial topics that interest you.</p>
-          </article>
-
-          <article class="step-card reveal delay-1">
-            <div class="step-number">02</div>
-            <h3>Learn by doing</h3>
-            <p>Build your understanding through activities, examples, and opportunities to apply what you've learned.</p>
-          </article>
-
-          <article class="step-card reveal delay-2">
-            <div class="step-number">03</div>
-            <h3>Take the next step</h3>
-            <p>Find a program, explore resources, or connect with us to help bring financial education to more students.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trivia feature -->
+    <!-- Financial facts -->
     <section class="section section-soft">
       <div class="container">
-        <div class="intro-grid">
-          <div class="intro-copy reveal">
-            <span class="eyebrow">Challenge accepted?</span>
-            <h2>Make learning feel like <span style="color:#A6841C;">a game.</span></h2>
-            <p>
-              Test your knowledge, challenge what you think you know, and explore financial concepts in our Trivia Arena.
-              A few minutes of curiosity can be a great place to start.
-            </p>
-            <a href="trivia.html" class="btn btn-dark">Enter the Trivia Arena <span class="arrow">→</span></a>
-          </div>
-
-          <div class="intro-art reveal delay-1" style="background:linear-gradient(145deg,#0A2342,#14355B);">
-            <div class="orbit three" style="border-color:rgba(255,255,255,.13);"></div>
-            <div class="orbit" style="border-color:rgba(255,255,255,.16);"></div>
-            <div class="orbit two" style="border-color:rgba(231,199,90,.35);"></div>
-            <div class="center-coin" style="width:100px;height:100px;font-size:2rem;">?</div>
-            <div class="orbit-tag a">🧠 Knowledge</div>
-            <div class="orbit-tag b">⚡ Quick quiz</div>
-            <div class="orbit-tag c">🏆 Keep learning</div>
+        <div class="fact-card">
+          <span class="eyebrow">Financial Cheat Sheet</span>
+          <h2>One idea at a time.</h2>
+          <p id="factText">
+            Compound growth means returns can generate additional returns over
+            time — although investment returns are never guaranteed.
+          </p>
+          <div class="fact-bottom">
+            <span class="fact-count" id="factCount">FACT 1 OF 4</span>
+            <button class="btn btn-primary" id="nextFact">Next Financial Fact →</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="final-cta">
-      <div class="container final-cta-inner">
-        <div class="reveal">
-          <span class="eyebrow" style="color:var(--gold-light);">Your next chapter starts now</span>
-          <h2>Make your curiosity <span class="gradient-text">count.</span></h2>
-          <p>Explore a program, try a challenge, or help us make practical education accessible to more young people.</p>
+    <!-- Call to action -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div>
+          <span class="eyebrow" style="color:var(--gold-light);">Be part of the next generation</span>
+          <h2>Real-world learning starts here.</h2>
+          <p>
+            Explore our educational programs, join a learning opportunity,
+            or connect with us about bringing financial literacy to your community.
+          </p>
         </div>
-        <div class="cta-actions reveal delay-1">
-          <a href="enroll.html" class="btn btn-primary">Explore Enrollment <span class="arrow">→</span></a>
+        <div class="hero-actions">
+          <a href="enroll.html" class="btn btn-primary">Get Started →</a>
           <a href="partnerships.html" class="btn btn-outline">Partner With Us</a>
         </div>
       </div>
@@ -1946,18 +1495,18 @@
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand">
-            <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" width="43" height="43" loading="lazy">
-            <span class="brand-name">
-              Next-Gen Knowledge
-              <small>Skills for the real world</small>
-            </span>
+        <div>
+          <a href="index.html" class="brand footer-brand">
+            <img src="IMG_1383.jpeg" alt="NextGen Knowledge logo">
+            <span class="brand-name">NextGen Knowledge<small>Real-world education</small></span>
           </a>
-          <p>Student-led financial literacy and practical education helping the next generation build real-world skills.</p>
+          <p class="footer-about">
+            A student-led educational organization focused on making practical
+            financial literacy and real-world learning more accessible.
+          </p>
         </div>
 
         <div class="footer-col">
@@ -1965,47 +1514,46 @@
           <a href="about.html">About Us</a>
           <a href="programs.html">Programs</a>
           <a href="team.html">Our Team</a>
-          <a href="trivia.html">Trivia Arena</a>
+          <a href="fin-city.html">Fin City</a>
         </div>
 
         <div class="footer-col">
           <h4>Get Involved</h4>
-          <a href="enroll.html">Enrollment</a>
+          <a href="enroll.html">Enroll in a Program</a>
           <a href="partnerships.html">Partnerships</a>
           <a href="donate.html">Support Our Work</a>
         </div>
 
         <div class="footer-col">
           <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
-          <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© <span id="currentYear"></span> Next-Gen Knowledge. All rights reserved.<br>Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
-        <div class="social-links">
-          <a href="https://www.instagram.com/nextgen.knowledge" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-        </div>
+        <span>© <span id="currentYear"></span> Next-Gen Knowledge. All rights reserved.</span>
+        <span>Learning today. Preparing for tomorrow.</span>
       </div>
+
+      <p class="sponsor-note">
+        Next-Gen Knowledge is a fiscally sponsored project of the Hack Club
+        Foundation, a 501(c)(3) non-profit.
+      </p>
     </div>
   </footer>
-
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
   <script>
     // Mobile navigation
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
-    const menuIcon = document.getElementById("menuIcon");
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
       menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
-      menuIcon.textContent = isOpen ? "✕" : "☰";
+      menuToggle.textContent = isOpen ? "×" : "☰";
     });
 
     navLinks.querySelectorAll("a").forEach(link => {
@@ -2013,161 +1561,73 @@
         navLinks.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
         menuToggle.setAttribute("aria-label", "Open navigation menu");
-        menuIcon.textContent = "☰";
+        menuToggle.textContent = "☰";
       });
     });
 
-    // Scroll progress and back-to-top control
-    const scrollProgress = document.getElementById("scrollProgress");
-    const backTop = document.getElementById("backTop");
-
-    function updateScrollUI() {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-      scrollProgress.style.width = progress + "%";
-      backTop.classList.toggle("visible", window.scrollY > 550);
-    }
-
-    window.addEventListener("scroll", updateScrollUI, { passive: true });
-    updateScrollUI();
-
-    backTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Reveal elements as they enter the viewport
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      revealElements.forEach(element => revealObserver.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("in-view"));
-    }
-
-    // Animate impact numbers when visible
-    const counters = document.querySelectorAll("[data-count]");
-
-    function animateCounter(element) {
-      if (element.dataset.animated === "true") return;
-      element.dataset.animated = "true";
-
-      const target = Number(element.dataset.count);
-      const suffix = element.dataset.suffix || "";
-      const duration = 1100;
-      const startTime = performance.now();
-
-      function frame(now) {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        element.textContent = Math.round(target * eased).toLocaleString() + suffix;
-
-        if (progress < 1) requestAnimationFrame(frame);
-      }
-
-      requestAnimationFrame(frame);
-    }
-
-    if ("IntersectionObserver" in window) {
-      const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      counters.forEach(counter => counterObserver.observe(counter));
-    } else {
-      counters.forEach(animateCounter);
-    }
-
-    // Money Lab: allocation percentages and amounts update live.
+    // Interactive budget simulator
     const savingRange = document.getElementById("savingRange");
     const spendingRange = document.getElementById("spendingRange");
     const investingRange = document.getElementById("investingRange");
-
-    const savingValue = document.getElementById("savingValue");
-    const spendingValue = document.getElementById("spendingValue");
-    const investingValue = document.getElementById("investingValue");
-
-    const savingSegment = document.getElementById("savingSegment");
-    const spendingSegment = document.getElementById("spendingSegment");
-    const investingSegment = document.getElementById("investingSegment");
-    const simFeedback = document.getElementById("simFeedback");
-
-    const money = amount => "$" + Math.round(amount).toLocaleString();
 
     function updateMoneyLab(changedRange) {
       let saving = Number(savingRange.value);
       let spending = Number(spendingRange.value);
       let investing = Number(investingRange.value);
 
-      // Keep the total at exactly 100% by adjusting the other two categories.
-      const otherRanges = [
-        { element: savingRange, name: "saving" },
-        { element: spendingRange, name: "spending" },
-        { element: investingRange, name: "investing" }
-      ].filter(item => item.element !== changedRange);
-
-      const changedValue = Number(changedRange.value);
-      const remaining = 100 - changedValue;
-      const otherTotal = otherRanges.reduce((sum, item) => sum + Number(item.element.value), 0);
-
-      if (otherTotal === 0) {
-        otherRanges[0].element.value = remaining;
-        otherRanges[1].element.value = 0;
+      // Keep the three allocations equal to 100%.
+      if (changedRange === savingRange) {
+        const remainder = 100 - saving;
+        const oldRemainder = spending + investing;
+        spending = oldRemainder === 0 ? remainder / 2 : Math.round(remainder * spending / oldRemainder);
+        investing = remainder - spending;
+      } else if (changedRange === spendingRange) {
+        const remainder = 100 - spending;
+        const oldRemainder = saving + investing;
+        saving = oldRemainder === 0 ? remainder / 2 : Math.round(remainder * saving / oldRemainder);
+        investing = remainder - saving;
       } else {
-        const firstShare = Math.round(remaining * Number(otherRanges[0].element.value) / otherTotal);
-        otherRanges[0].element.value = firstShare;
-        otherRanges[1].element.value = remaining - firstShare;
+        const remainder = 100 - investing;
+        const oldRemainder = saving + spending;
+        saving = oldRemainder === 0 ? remainder / 2 : Math.round(remainder * saving / oldRemainder);
+        spending = remainder - saving;
       }
 
-      saving = Number(savingRange.value);
-      spending = Number(spendingRange.value);
-      investing = Number(investingRange.value);
+      saving = Math.max(0, Math.min(100, saving));
+      spending = Math.max(0, Math.min(100, spending));
+      investing = 100 - saving - spending;
 
-      savingValue.textContent = money(saving * 10) + " · " + saving + "%";
-      spendingValue.textContent = money(spending * 10) + " · " + spending + "%";
-      investingValue.textContent = money(investing * 10) + " · " + investing + "%";
+      savingRange.value = saving;
+      spendingRange.value = spending;
+      investingRange.value = investing;
 
-      savingSegment.style.width = saving + "%";
-      spendingSegment.style.width = spending + "%";
-      investingSegment.style.width = investing + "%";
+      document.getElementById("savingValue").textContent = "$" + (saving * 10).toLocaleString() + " · " + saving + "%";
+      document.getElementById("spendingValue").textContent = "$" + (spending * 10).toLocaleString() + " · " + spending + "%";
+      document.getElementById("investingValue").textContent = "$" + (investing * 10).toLocaleString() + " · " + investing + "%";
 
-      savingRange.setAttribute("aria-valuetext", saving + "% of budget");
-      spendingRange.setAttribute("aria-valuetext", spending + "% of budget");
-      investingRange.setAttribute("aria-valuetext", investing + "% of budget");
+      document.getElementById("savingSegment").style.width = saving + "%";
+      document.getElementById("spendingSegment").style.width = spending + "%";
+      document.getElementById("investingSegment").style.width = investing + "%";
 
       let message;
-
       if (saving >= 50) {
         message = "<strong>Your plan:</strong> You're prioritizing saving. Consider what you're saving for and when you might need the money.";
       } else if (investing >= 50) {
-        message = "<strong>Your plan:</strong> You're emphasizing investing. Remember that investments can lose value, and the right approach depends on your goals and time horizon.";
+        message = "<strong>Your plan:</strong> You're emphasizing investing. Investments can lose value, so consider goals, risk, and time horizon.";
       } else if (spending >= 60) {
-        message = "<strong>Your plan:</strong> You're allocating much of your budget to spending. Think about which expenses are essential and which can be adjusted.";
+        message = "<strong>Your plan:</strong> Much of your budget is allocated to spending. Consider which expenses are essential and which are flexible.";
       } else {
-        message = "<strong>Your plan:</strong> You're spreading your hypothetical budget across different goals. Try changing one category and see how the trade-offs change.";
+        message = "<strong>Your plan:</strong> You're spreading your hypothetical budget across different goals. Change a category and see how the trade-offs shift.";
       }
 
-      simFeedback.innerHTML = message;
+      document.getElementById("simFeedback").innerHTML = message;
     }
 
     [savingRange, spendingRange, investingRange].forEach(range => {
       range.addEventListener("input", () => updateMoneyLab(range));
     });
 
-    // Five-question financial literacy quiz
+    // Five-question financial-literacy quiz
     const quizQuestions = [
       {
         category: "Money fundamentals",
@@ -2253,9 +1713,8 @@
       answerLocked = false;
 
       quizStep.textContent = "QUESTION " + (quizIndex + 1) + " OF " + quizQuestions.length;
-      quizProgressText.textContent = Math.round((quizIndex / quizQuestions.length) * 100) + "% complete";
+      quizProgressText.textContent = Math.round(quizIndex / quizQuestions.length * 100) + "% complete";
       quizProgressFill.style.width = (quizIndex / quizQuestions.length * 100) + "%";
-
       quizCategory.textContent = q.category;
       quizQuestion.textContent = q.question;
       quizOptions.innerHTML = "";
@@ -2274,10 +1733,10 @@
         letter.className = "option-letter";
         letter.textContent = String.fromCharCode(65 + index);
 
-        const text = document.createElement("span");
-        text.textContent = option;
+        const optionText = document.createElement("span");
+        optionText.textContent = option;
 
-        button.append(letter, text);
+        button.append(letter, optionText);
         button.addEventListener("click", () => selectAnswer(index));
         quizOptions.appendChild(button);
       });
@@ -2292,14 +1751,10 @@
       const correct = selected === q.answer;
 
       quizAnswered++;
-
-      if (correct) {
-        quizCorrect++;
-      }
+      if (correct) quizCorrect++;
 
       options.forEach((button, index) => {
         button.disabled = true;
-
         if (index === q.answer) {
           button.classList.add("correct");
         } else if (index === selected) {
@@ -2309,9 +1764,8 @@
 
       quizFeedback.className = "quiz-feedback show " + (correct ? "good" : "bad");
       quizFeedback.textContent = (correct ? "Correct! " : "Not quite. ") + q.explanation;
-
       quizScore.textContent = "Score: " + quizCorrect + " / " + quizAnswered;
-      quizProgressText.textContent = Math.round(((quizIndex + 1) / quizQuestions.length) * 100) + "% complete";
+      quizProgressText.textContent = Math.round((quizIndex + 1) / quizQuestions.length * 100) + "% complete";
       quizProgressFill.style.width = ((quizIndex + 1) / quizQuestions.length * 100) + "%";
       quizNext.disabled = false;
       quizNext.textContent = quizIndex === quizQuestions.length - 1 ? "See Results" : "Next Question →";
@@ -2321,7 +1775,8 @@
       quizPlay.style.display = "none";
       quizResult.classList.add("show");
 
-      const percentage = Math.round((quizCorrect / quizQuestions.length) * 100);
+      const percentage = Math.round(quizCorrect / quizQuestions.length * 100);
+
       document.getElementById("resultIcon").textContent =
         percentage === 100 ? "🏆" : percentage >= 60 ? "🎉" : "🧠";
 
@@ -2362,7 +1817,7 @@
 
     renderQuestion();
 
-    // Rotating financial facts. Visitors advance them manually.
+    // Rotating financial facts
     const facts = [
       "Compound growth means that returns can generate additional returns over time — although investment returns are never guaranteed.",
       "Inflation is a rise in the general price level. When prices rise, the same amount of money may buy fewer goods and services.",
@@ -2373,9 +1828,8 @@
     let factIndex = 0;
     const factText = document.getElementById("factText");
     const factCount = document.getElementById("factCount");
-    const nextFact = document.getElementById("nextFact");
 
-    nextFact.addEventListener("click", () => {
+    document.getElementById("nextFact").addEventListener("click", () => {
       factIndex = (factIndex + 1) % facts.length;
 
       factText.animate(
@@ -2387,7 +1841,7 @@
       factCount.textContent = "FACT " + (factIndex + 1) + " OF " + facts.length;
     });
 
-    // Keep the footer year current.
+    // Automatically update the footer year
     document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
 </body>
