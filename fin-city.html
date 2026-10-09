@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071a32">
+  <title>Fin City — Coming Soon | Next-Gen Knowledge</title>
+  <meta name="description" content="Fin City is coming soon: an interactive financial-literacy game by Next-Gen Knowledge.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --navy: #071a32;
+      --navy2: #0b2545;
+      --gold: #c9a227;
+      --gold-light: #f0d47a;
+      --white: #f8fafc;
+      --muted: #a8b5c7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--white);
+      background: var(--navy);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 78% 44%, rgba(201,162,39,.12), transparent 30%),
+        radial-gradient(ellipse at 15% 85%, rgba(40,100,160,.2), transparent 38%),
+        linear-gradient(135deg, #071a32, #0a2342 54%, #061326);
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .25;
+      background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 46px 46px;
+    }
+
+    .orb {
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .orb.one {
+      width: 420px;
+      height: 420px;
+      right: -150px;
+      top: 12%;
+      background: rgba(201,162,39,.08);
+    }
+
+    .orb.two {
+      width: 300px;
+      height: 300px;
+      left: -170px;
+      bottom: 4%;
+      background: rgba(44,116,180,.12);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 48px));
+      margin: auto;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -.3px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: var(--gold-light);
+      border: 1px solid rgba(201,162,39,.35);
+      background: linear-gradient(145deg,rgba(201,162,39,.16),rgba(255,255,255,.035));
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 4px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: #c7d0dd;
+      transition: color .2s;
+    }
+
+    .nav-link:hover { color: var(--gold-light); }
+
+    .hero {
+      width: min(1180px, calc(100% - 48px));
+      margin: auto;
+      min-height: calc(100vh - 150px);
+      display: grid;
+      grid-template-columns: 1fr 1.02fr;
+      align-items: center;
+      gap: 48px;
+      padding: 54px 0 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      border-radius: 99px;
+      border: 1px solid rgba(201,162,39,.32);
+      background: rgba(201,162,39,.07);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(201,162,39,.12);
+      animation: pulse 2s infinite;
+    }
+
+    h1 {
+      margin: 25px 0 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(54px,6.5vw,88px);
+      line-height: .99;
+      letter-spacing: -5px;
+      font-weight: 700;
+    }
+
+    h1 .gold {
+      display: block;
+      color: var(--gold-light);
+      text-shadow: 0 0 42px rgba(201,162,39,.13);
+    }
+
+    .lead {
+      max-width: 500px;
+      margin: 24px 0 0;
+      color: #bac6d5;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 31px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 19px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+
+    .button.primary {
+      color: #091a2e;
+      background: linear-gradient(135deg,#f1d67f,#c9a227);
+      box-shadow: 0 8px 28px rgba(201,162,39,.15);
+    }
+
+    .button.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 34px rgba(201,162,39,.25);
+    }
+
+    .button.secondary {
+      color: #e1e7ef;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.035);
+    }
+
+    .button.secondary:hover { background: rgba(255,255,255,.08); }
+
+    .micro {
+      margin-top: 19px;
+      color: #7f91a8;
+      font-size: 11px;
+    }
+
+    .micro strong { color: #c3cedb; }
+
+    .visual { position: relative; min-width: 0; }
+
+    .visual-glow {
+      position: absolute;
+      inset: 12% 6%;
+      background: rgba(201,162,39,.13);
+      filter: blur(60px);
+      border-radius: 50%;
+    }
+
+    .city-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 460px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 26px;
+      background: linear-gradient(145deg,rgba(19,53,87,.92),rgba(5,20,39,.96));
+      box-shadow: 0 32px 100px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.06);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 21px 23px;
+      border-bottom: 1px solid rgba(255,255,255,.09);
+    }
+
+    .card-kicker {
+      color: var(--gold-light);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      margin-top: 5px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .live-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 99px;
+      padding: 8px 10px;
+      color: #d2dbe6;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .city {
+      height: 335px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg,#143c61 0%,#0d2a49 56%,#091d35 100%);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 13% 20%,#ffffff88 1px,transparent 1.5px),
+        radial-gradient(circle at 67% 15%,#ffffff88 1px,transparent 1.5px),
+        radial-gradient(circle at 83% 32%,#ffffff66 1px,transparent 1.5px),
+        radial-gradient(circle at 48% 27%,#ffffff66 1px,transparent 1.5px),
+        radial-gradient(circle at 25% 43%,#ffffff55 1px,transparent 1.5px);
+    }
+
+    .moon {
+      position: absolute;
+      right: 13%;
+      top: 11%;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(240,212,122,.13);
+      border: 1px solid rgba(240,212,122,.35);
+      box-shadow: 0 0 42px rgba(201,162,39,.12);
+    }
+
+    .road {
+      position: absolute;
+      bottom: -50px;
+      left: 26%;
+      width: 48%;
+      height: 200px;
+      background: #091a2c;
+      transform: perspective(170px) rotateX(28deg);
+      border-left: 1px solid #c9a22755;
+      border-right: 1px solid #c9a22755;
+    }
+
+    .road:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      border-left: 2px dashed rgba(240,212,122,.5);
+    }
+
+    .building {
+      position: absolute;
+      bottom: 34px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: linear-gradient(135deg,#24547a,#102c4a);
+      box-shadow: inset 0 0 30px rgba(0,0,0,.16);
+    }
+
+    .building:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -7px;
+      height: 7px;
+      background: #32638a;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .windows {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 8px;
+      padding: 13px 10px;
+    }
+
+    .windows span {
+      height: 17px;
+      border-radius: 2px;
+      background: rgba(240,212,122,.7);
+      box-shadow: 0 0 10px rgba(201,162,39,.12);
+    }
+
+    .windows span:nth-child(3n) { background: rgba(185,213,239,.45); }
+
+    .b1 { left: 7%; width: 19%; height: 119px; }
+    .b2 { left: 29%; width: 18%; height: 166px; }
+    .b3 { right: 27%; width: 20%; height: 213px; background: linear-gradient(135deg,#2a628b,#123455); }
+    .b4 { right: 5%; width: 19%; height: 137px; }
+
+    .building-label {
+      position: absolute;
+      top: -27px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      border: 1px solid rgba(240,212,122,.35);
+      border-radius: 5px;
+      background: #0a2039;
+      padding: 5px 8px;
+      color: var(--gold-light);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .floating-tag {
+      position: absolute;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 12px;
+      background: rgba(6,23,43,.88);
+      box-shadow: 0 12px 28px rgba(0,0,0,.2);
+      backdrop-filter: blur(12px);
+    }
+
+    .tag-icon {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 9px;
+      background: rgba(201,162,39,.13);
+      color: var(--gold-light);
+    }
+
+    .floating-tag small {
+      display: block;
+      color: #8295ac;
+      font-size: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .floating-tag b { display: block; margin-top: 3px; font-size: 11px; }
+    .tag-top { top: 22%; left: -5%; }
+    .tag-bottom { right: -4%; bottom: 21%; }
+
+    .balance {
+      position: absolute;
+      z-index: 4;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 15px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 13px;
+      background: rgba(5,19,36,.9);
+      backdrop-filter: blur(12px);
+    }
+
+    .balance small {
+      color: #8295ac;
+      font-size: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .balance strong {
+      display: block;
+      margin-top: 4px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 19px;
+    }
+
+    .preview {
+      border: 1px solid rgba(201,162,39,.3);
+      border-radius: 99px;
+      padding: 6px 9px;
+      color: var(--gold-light);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+    }
+
+    .card-foot {
+      padding: 13px 20px;
+      color: #8295ac;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .bottom {
+      width: min(1180px,calc(100% - 48px));
+      margin: auto;
+      padding: 20px 0 25px;
+      border-top: 1px solid rgba(255,255,255,.09);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: #7f91a8;
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .bottom strong { color: #b9c5d3; }
+
+    @keyframes pulse {
+      50% { box-shadow: 0 0 0 8px rgba(201,162,39,0); }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .copy > * { animation: rise .7s both; }
+    .copy > *:nth-child(2) { animation-delay: .08s; }
+    .copy > *:nth-child(3) { animation-delay: .16s; }
+    .copy > *:nth-child(4) { animation-delay: .24s; }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 55px;
+        padding-top: 55px;
+        max-width: 720px;
+      }
+      .copy { text-align: center; }
+      .lead { margin-left: auto; margin-right: auto; }
+      .actions { justify-content: center; }
+      .visual { width: 100%; max-width: 620px; margin: auto; }
+      .tag-top { left: -2%; }
+      .tag-bottom { right: -2%; }
+      h1 { letter-spacing: -3px; }
+    }
+
+    @media (max-width: 520px) {
+      .nav, .hero, .bottom { width: calc(100% - 32px); }
+      .nav { height: 72px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .brand { font-size: 13px; }
+      .brand small { font-size: 8px; letter-spacing: 1.4px; }
+      .nav-link { font-size: 11px; }
+      .hero { padding-top: 42px; padding-bottom: 42px; gap: 43px; }
+      h1 { font-size: 54px; letter-spacing: -3px; }
+      .lead { font-size: 14px; line-height: 1.8; }
+      .city-card { min-height: 410px; border-radius: 20px; }
+      .card-top { padding: 16px; }
+      .city { height: 300px; }
+      .b1 { left: 4%; width: 21%; }
+      .b2 { left: 28%; width: 19%; }
+      .b3 { right: 26%; width: 21%; }
+      .b4 { right: 3%; width: 21%; }
+      .floating-tag { padding: 8px; gap: 7px; }
+      .tag-icon { width: 27px; height: 27px; }
+      .floating-tag b { font-size: 9px; }
+      .floating-tag small { font-size: 7px; }
+      .tag-top { top: 18%; left: -2%; }
+      .tag-bottom { right: -2%; bottom: 20%; }
+      .bottom { flex-direction: column; gap: 7px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+  <div class="grid"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+
+  <header class="nav">
+    <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
+      <span class="brand-mark"><i data-lucide="landmark" style="width:22px;height:22px"></i></span>
+      <span>Next-Gen Knowledge<small>Learn today. Lead tomorrow.</small></span>
+    </a>
+    <a href="index.html" class="nav-link">
+      <i data-lucide="arrow-left" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:5px"></i>
+      Back to website
+    </a>
+  </header>
+
+  <main class="hero">
+    <section class="copy">
+      <div class="eyebrow"><span class="pulse"></span> Something big is taking shape</div>
+      <h1>The future of<br>financial learning<span class="gold">is a city.</span></h1>
+      <p class="lead">
+        Meet <strong style="color:#fff">Fin City</strong> — an interactive virtual world where money skills come to life. Explore the city, make choices, and discover the fundamentals of personal finance and investing through play.
+      </p>
+      <div class="actions">
+        <span class="button primary"><i data-lucide="sparkles" style="width:17px;height:17px"></i> Coming Soon</span>
+        <a href="#preview" class="button secondary">Get a preview <i data-lucide="arrow-down-right" style="width:16px;height:16px"></i></a>
+      </div>
+      <p class="micro">A new project from <strong>Next-Gen Knowledge</strong> · Built for curious minds.</p>
+    </section>
+
+    <section class="visual" id="preview" aria-label="Fin City concept preview">
+      <div class="visual-glow"></div>
+      <div class="floating-tag tag-top">
+        <span class="tag-icon"><i data-lucide="wallet" style="width:17px;height:17px"></i></span>
+        <span><small>Your journey</small><b>Start with $100</b></span>
+      </div>
+      <div class="floating-tag tag-bottom">
+        <span class="tag-icon"><i data-lucide="trending-up" style="width:17px;height:17px"></i></span>
+        <span><small>Build your skills</small><b>Learn by doing</b></span>
+      </div>
+
+      <div class="city-card">
+        <div class="card-top">
+          <div>
+            <div class="card-kicker">Your world. Your choices.</div>
+            <div class="card-title">Welcome to Fin City</div>
+          </div>
+          <span class="live-chip"><span class="pulse"></span> In development</span>
+        </div>
+
+        <div class="city">
+          <div class="stars"></div>
+          <div class="moon"></div>
+
+          <div class="building b1">
+            <span class="building-label">Bank</span>
+            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="building b2">
+            <span class="building-label">Marketplace</span>
+            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="building b3">
+            <span class="building-label">Investments</span>
+            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="building b4">
+            <span class="building-label">Your future</span>
+            <div class="windows"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="road"></div>
+
+          <div class="balance">
+            <div><small>Starting balance</small><strong>$100.00</strong></div>
+            <span class="preview">CONCEPT PREVIEW</span>
+          </div>
+        </div>
+
+        <div class="card-foot">A first look at the world we're building. More details coming soon.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom">
+    <span>© <span id="year"></span> <strong>Next-Gen Knowledge</strong>. All rights reserved.</span>
+    <span>Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</span>
+  </footer>
+</div>
+
+<script>
+  if (window.lucide) lucide.createIcons();
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /*
+    WHEN FIN CITY LAUNCHES:
+    Replace the Coming Soon <span> above with this link after the game is deployed
+    and play.nextgenknowledge.org has been configured:
+
+    <a class="button primary"
+       href="https://play.nextgenknowledge.org"
+       target="_blank"
+       rel="noopener noreferrer">
+      <i data-lucide="gamepad-2"></i> Play Fin City
+      <i data-lucide="external-link"></i>
+    </a>
+  */
+</script>
+</body>
+</html>
