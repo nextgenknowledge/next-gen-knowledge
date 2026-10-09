@@ -4,10 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donate | Next-Gen Knowledge</title>
-  <meta name="description" content="Support Next-Gen Knowledge and help make financial literacy accessible to the next generation.">
+  <meta name="theme-color" content="#081629">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Donate | NextGen Knowledge</title>
+  <meta
+    name="description"
+    content="Support NextGen Knowledge and help make financial literacy and real-world education accessible to the next generation."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
@@ -20,31 +28,505 @@
 
   <style>
     :root {
+      --bg: #081629;
+      --bg-deep: #050D19;
+      --panel: #0D2038;
+      --panel-light: #142C49;
+      --panel-hover: #193653;
       --navy: #0A2342;
-      --gold: #C9A227;
-      --light: #F7F8FA;
+      --gold: #D9B64D;
+      --gold-bright: #F1D778;
+      --gold-dark: #9C7B25;
+      --cream: #F5F0DF;
+      --text: #F3F5FA;
+      --muted: #9DADC2;
+      --line: #263C57;
+      --green: #7CE0B0;
+      --blue: #84B7FF;
+      --red: #FF9B9B;
+
+      --pixel-font: "Press Start 2P", monospace;
+      --body-font: "DM Sans", sans-serif;
+      --mono-font: "DM Mono", monospace;
+
+      --max: 1180px;
+      --pixel-shadow: 5px 5px 0 rgba(0,0,0,.32);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--navy);
-      background: var(--light);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(20,44,73,.35), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .12;
+      background-image:
+        linear-gradient(rgba(132,183,255,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(132,183,255,.12) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .pixel-label {
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: .76rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .pixel-heading {
+      font-family: var(--pixel-font);
+      font-size: clamp(1.35rem, 3.5vw, 2.3rem);
+      line-height: 1.65;
+      letter-spacing: -.04em;
+    }
+
+    .section-heading {
+      margin: 0;
+      color: var(--text);
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .pixel-border {
+      border: 2px solid var(--line);
+      box-shadow: var(--pixel-shadow);
+    }
+
+    /* Navigation */
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,13,25,.96);
+      border-bottom: 2px solid var(--line);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+      border: 1px solid #40536A;
+      border-radius: 3px;
+      background: var(--panel);
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-title {
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.3;
+    }
+
+    .brand-subtitle {
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: .62rem;
+      letter-spacing: .035em;
+      margin-top: 3px;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 3px;
     }
 
     .nav-link {
-      color: #4B5563;
-      transition: color .2s, background .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 10px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      color: #B7C4D5;
+      font-size: .79rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: color .18s, background .18s, border-color .18s;
     }
 
     .nav-link:hover,
     .nav-link.active {
-      color: var(--navy);
-      background: #F3F4F6;
+      color: var(--gold-bright);
+      background: rgba(217,182,77,.07);
+      border-color: rgba(217,182,77,.28);
+    }
+
+    .nav-link.fin-city-link {
+      color: var(--gold-bright);
+      border: 1px solid var(--gold-dark);
+      background: rgba(217,182,77,.09);
+      font-family: var(--mono-font);
+      font-size: .72rem;
+    }
+
+    .nav-link.fin-city-link:hover {
+      background: rgba(217,182,77,.18);
+      border-color: var(--gold-bright);
+    }
+
+    .nav-link.donate-link {
+      color: var(--gold-bright);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      margin-left: 5px;
+      color: var(--bg-deep);
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 2px;
+      font-family: var(--mono-font);
+      font-size: .7rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background .18s, transform .18s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-bright);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 0 18px;
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-nav {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .mobile-nav .nav-link {
+      justify-content: flex-start;
+      padding: 12px;
+      white-space: normal;
+      background: rgba(13,32,56,.65);
+      border-color: var(--line);
+    }
+
+    .mobile-nav .nav-cta {
+      margin: 0;
+      min-height: 44px;
+      grid-column: 1 / -1;
+    }
+
+    /* Main layout */
+
+    main {
+      padding: 62px 0 90px;
+    }
+
+    .page-heading {
+      max-width: 800px;
+      margin: 0 auto 46px;
+      text-align: center;
+    }
+
+    .page-heading .pixel-label {
+      margin: 0 0 20px;
+    }
+
+    .page-heading h1 {
+      margin: 0 auto 20px;
+      color: var(--cream);
+      font-family: var(--pixel-font);
+      font-size: clamp(1.45rem, 4.1vw, 2.55rem);
+      line-height: 1.7;
+      letter-spacing: -.055em;
+    }
+
+    .heading-accent {
+      color: var(--gold-bright);
+    }
+
+    .page-heading > p:last-child {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    .pixel-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin: 26px auto 0;
+    }
+
+    .pixel-divider span {
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+    }
+
+    .pixel-divider span:nth-child(2),
+    .pixel-divider span:nth-child(4) {
+      background: var(--gold-dark);
+    }
+
+    .pixel-divider span:nth-child(3) {
+      width: 22px;
+      background: var(--gold-bright);
+    }
+
+    /* Donation section */
+
+    .donation-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr);
+      align-items: start;
+      gap: 30px;
+    }
+
+    .mission-panel {
+      padding: 30px;
+      background:
+        linear-gradient(145deg, rgba(20,44,73,.95), rgba(9,25,45,.98));
+      border: 2px solid #344A65;
+      box-shadow: var(--pixel-shadow);
+    }
+
+    .icon-tile {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--bg-deep);
+      background: var(--gold);
+      border: 2px solid var(--gold-bright);
+      border-radius: 3px;
+      box-shadow: 3px 3px 0 rgba(0,0,0,.3);
+    }
+
+    .icon-tile svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .mission-panel h2 {
+      margin: 0 0 16px;
+      color: var(--cream);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -.04em;
+    }
+
+    .mission-intro {
+      margin: 0 0 28px;
+      color: #C4D0DF;
+      font-size: .96rem;
+      line-height: 1.85;
+    }
+
+    .impact-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .impact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .impact-item > svg {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+
+    .impact-item h3 {
+      margin: 0 0 5px;
+      color: var(--text);
+      font-size: .98rem;
+      font-weight: 700;
+    }
+
+    .impact-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.75;
+    }
+
+    .mission-bottom {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: #B6C5D8;
+      font-family: var(--mono-font);
+      font-size: .7rem;
+      line-height: 1.8;
+    }
+
+    .mission-bottom span {
+      color: var(--gold);
+    }
+
+    /* Donation form */
+
+    .donation-card {
+      min-width: 0;
+      overflow: hidden;
+      background: var(--panel);
+      border: 2px solid #344A65;
+      box-shadow: var(--pixel-shadow);
+    }
+
+    .donation-card-header {
+      padding: 25px 28px 22px;
+      background: rgba(20,44,73,.65);
+      border-bottom: 2px solid var(--line);
+    }
+
+    .donation-card-header .pixel-label {
+      margin: 0 0 10px;
+      font-size: .68rem;
+    }
+
+    .donation-card-header h2 {
+      margin: 0 0 8px;
+      color: var(--cream);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .donation-card-header p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-size: .91rem;
+      line-height: 1.7;
+    }
+
+    .secure-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      color: var(--green);
+      background: rgba(124,224,176,.055);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono-font);
+      font-size: .7rem;
+    }
+
+    .secure-note svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
     }
 
     .donation-frame {
@@ -52,333 +534,729 @@
       width: 100%;
       height: 750px;
       border: 0;
-      background: white;
+      background: #FFFFFF;
+    }
+
+    .donation-fallback {
+      padding: 22px 26px;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.7;
+      border-top: 1px solid var(--line);
+    }
+
+    .donation-fallback a {
+      color: var(--gold-bright);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Transparency section */
+
+    .transparency {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      gap: 18px;
+      margin-top: 36px;
+      padding: 24px 26px;
+      background: rgba(13,32,56,.65);
+      border: 1px solid var(--line);
+    }
+
+    .transparency-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      color: var(--gold);
+      background: rgba(217,182,77,.09);
+      border: 1px solid rgba(217,182,77,.35);
+      border-radius: 3px;
+    }
+
+    .transparency-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .transparency h2 {
+      margin: 0 0 7px;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .transparency p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.8;
+    }
+
+    /* Footer */
+
+    footer {
+      margin-top: 15px;
+      background: var(--bg-deep);
+      border-top: 2px solid var(--line);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.2fr .9fr .9fr;
+      gap: 55px;
+      padding: 52px 0 42px;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand img {
+      width: 47px;
+      height: 47px;
+      padding: 3px;
+      object-fit: contain;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .footer-brand span {
+      color: var(--cream);
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .footer-description {
+      max-width: 350px;
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.9;
+    }
+
+    .footer-heading {
+      margin: 4px 0 20px;
+      color: var(--gold);
+      font-family: var(--mono-font);
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px 20px;
+    }
+
+    .footer-links a,
+    .footer-email {
+      color: #B5C3D5;
+      font-size: .86rem;
+      transition: color .18s;
+    }
+
+    .footer-links a:hover,
+    .footer-email:hover {
+      color: var(--gold-bright);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 19px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      color: var(--gold);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      transition: color .18s, background .18s, border-color .18s;
+    }
+
+    .social-link:hover {
+      color: var(--bg-deep);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .social-link svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .footer-email {
+      display: inline-block;
+      overflow-wrap: anywhere;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 25px;
+      padding: 22px 0 27px;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      color: #8798AD;
+      font-size: .76rem;
+      line-height: 1.8;
+    }
+
+    .footer-bottom .sponsor-note {
+      max-width: 550px;
+      text-align: right;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 1100px) {
+      .desktop-nav {
+        gap: 1px;
+      }
+
+      .nav-link {
+        padding: 8px 7px;
+        font-size: .73rem;
+      }
+
+      .nav-link.fin-city-link {
+        font-size: .67rem;
+      }
+
+      .nav-cta {
+        padding-inline: 10px;
+        font-size: .66rem;
+      }
+
+      .brand-title {
+        font-size: .92rem;
+      }
+
+      .brand-subtitle {
+        font-size: .56rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .donation-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .mission-panel {
+        padding: 28px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 38px;
+      }
+
+      .footer-brand-column {
+        grid-column: 1 / -1;
+      }
     }
 
     @media (max-width: 640px) {
-      .donation-frame { height: 850px; }
+      .container {
+        width: min(100% - 30px, var(--max));
+      }
+
+      .navbar {
+        min-height: 70px;
+      }
+
+      .brand {
+        gap: 9px;
+      }
+
+      .brand img {
+        width: 39px;
+        height: 39px;
+      }
+
+      .brand-title {
+        font-size: .88rem;
+      }
+
+      .brand-subtitle {
+        max-width: 210px;
+        font-size: .53rem;
+      }
+
+      .mobile-nav {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      main {
+        padding: 44px 0 62px;
+      }
+
+      .page-heading {
+        margin-bottom: 34px;
+      }
+
+      .page-heading h1 {
+        font-size: clamp(1.2rem, 6vw, 1.8rem);
+        line-height: 1.8;
+      }
+
+      .page-heading > p:last-child {
+        font-size: .96rem;
+      }
+
+      .mission-panel {
+        padding: 23px;
+      }
+
+      .mission-panel h2 {
+        font-size: 1.55rem;
+      }
+
+      .donation-card-header {
+        padding: 22px 20px;
+      }
+
+      .donation-card-header h2 {
+        font-size: 1.35rem;
+      }
+
+      .secure-note {
+        padding-inline: 18px;
+        font-size: .65rem;
+      }
+
+      .donation-frame {
+        height: 850px;
+      }
+
+      .transparency {
+        grid-template-columns: 1fr;
+        padding: 21px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 40px 0 32px;
+      }
+
+      .footer-brand-column {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-bottom .sponsor-note {
+        text-align: left;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
-<body class="antialiased">
-
+<body>
   <!-- Navigation -->
-  <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-
-        <a href="index.html" class="flex items-center gap-3 group">
-          <div class="w-11 h-11 rounded-xl overflow-hidden">
-            <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge Logo" class="w-full h-full object-cover">
-          </div>
-
-          <div class="hidden sm:block">
-            <div class="text-lg font-extrabold tracking-tight">Next-Gen Knowledge</div>
-            <div class="text-[11px] font-semibold uppercase tracking-widest" style="color:var(--gold)">
-              Empowering the Next Generation
-            </div>
-          </div>
-        </a>
-
-        <div class="hidden md:flex items-center gap-1">
-          <a href="index.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Home</a>
-          <a href="about.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">About Us</a>
-          <a href="programs.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Programs</a>
-          <a href="team.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Team</a>
-          <a href="partnerships.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Partnerships</a>
-          <a href="trivia.html" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg">Trivia Arena</a>
-          <a href="donate.html" class="nav-link active px-3 py-2 text-sm font-semibold rounded-lg">Donate</a>
-          <a href="enroll.html" class="ml-2 px-5 py-2.5 text-sm font-bold text-white rounded-lg shadow-sm hover:-translate-y-0.5 transition-all" style="background:var(--navy)">Enroll</a>
+  <header class="nav-wrap" id="navbar">
+    <nav class="container navbar" aria-label="Main navigation">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge home">
+        <img src="IMG_1383.jpeg" alt="NextGen Knowledge logo">
+        <div class="brand-copy">
+          <div class="brand-title">NextGen Knowledge</div>
+          <div class="brand-subtitle">Empowering the Next Generation</div>
         </div>
+      </a>
 
-        <button
-          id="mobile-menu-button"
-          class="md:hidden p-2 rounded-lg hover:bg-gray-100"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
+      <div class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="fin-city.html" class="nav-link fin-city-link">Fin City</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="donate.html" class="nav-link active donate-link" aria-current="page">Donate</a>
+        <a href="enroll.html" class="nav-cta">Enroll Now</a>
       </div>
 
-      <!-- Mobile Navigation -->
-      <div id="mobile-menu" class="hidden md:hidden pb-5">
-        <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
-          <a href="index.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Home</a>
-          <a href="about.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">About Us</a>
-          <a href="programs.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Programs</a>
-          <a href="team.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Team</a>
-          <a href="partnerships.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Partnerships</a>
-          <a href="trivia.html" class="nav-link px-4 py-3 text-sm font-semibold rounded-lg">Trivia Arena</a>
-          <a href="donate.html" class="nav-link active px-4 py-3 text-sm font-semibold rounded-lg">Donate</a>
-          <a href="enroll.html" class="mt-2 px-4 py-3 text-center text-white text-sm font-bold rounded-lg" style="background:var(--navy)">Enroll</a>
-        </div>
-      </div>
+      <button
+        class="menu-toggle"
+        id="mobile-menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <i data-lucide="menu" aria-hidden="true"></i>
+      </button>
     </nav>
+
+    <div class="container mobile-menu" id="mobile-menu">
+      <div class="mobile-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="fin-city.html" class="nav-link fin-city-link">Fin City</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="partnerships.html" class="nav-link">Partnerships</a>
+        <a href="donate.html" class="nav-link active" aria-current="page">Donate</a>
+        <a href="enroll.html" class="nav-cta">Enroll Now</a>
+      </div>
+    </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-5 md:px-8 py-10 md:py-14">
+  <main>
+    <div class="container">
+      <!-- Page heading -->
+      <section class="page-heading">
+        <p class="pixel-label">/// Make an Impact</p>
 
-    <!-- Heading -->
-    <section class="text-center mb-10">
-      <p class="text-sm uppercase tracking-[0.2em] font-bold mb-3" style="color:var(--gold)">
-        Make an Impact
-      </p>
+        <h1>
+          Support the <span class="heading-accent">Next Generation</span>
+        </h1>
 
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-        Support the Next Generation
-      </h1>
+        <p>
+          Help us make financial literacy and real-world education
+          accessible to more students. Every contribution helps support
+          our mission to make practical learning available to everyone.
+        </p>
 
-      <p class="max-w-2xl mx-auto text-gray-600 text-base md:text-lg leading-relaxed">
-        Help us make financial literacy and real-world education accessible to more students.
-      </p>
-    </section>
+        <div class="pixel-divider" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
 
-    <!-- Donation Section -->
-    <section class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+      <!-- Donation section -->
+      <section class="donation-layout" aria-label="Donation information and form">
+        <!-- Mission panel -->
+        <div>
+          <div class="mission-panel">
+            <div class="icon-tile" aria-hidden="true">
+              <i data-lucide="heart-handshake"></i>
+            </div>
 
-      <!-- Mission -->
-      <div class="lg:col-span-2">
-        <div class="rounded-2xl p-7 md:p-8 text-white shadow-sm" style="background:var(--navy)">
+            <p class="pixel-label">/// Our Mission</p>
 
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:var(--gold)">
-            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
-          </div>
+            <h2>Help Students Build Real-World Skills</h2>
 
-          <h2 class="text-2xl md:text-3xl font-bold mb-4">
-            Help Students Build Real-World Skills
-          </h2>
+            <p class="mission-intro">
+              NextGen Knowledge is a student-led financial literacy
+              organization focused on making practical education
+              accessible to the next generation.
+            </p>
 
-          <p class="text-gray-200 leading-relaxed mb-7">
-            Next-Gen Knowledge is a student-led financial literacy nonprofit focused on making practical education accessible to the next generation.
-          </p>
+            <div class="impact-list">
+              <div class="impact-item">
+                <i data-lucide="check-circle-2" aria-hidden="true"></i>
+                <div>
+                  <h3>Financial Literacy</h3>
+                  <p>
+                    Help students learn about budgeting, banking,
+                    investing, and other essential financial concepts.
+                  </p>
+                </div>
+              </div>
 
-          <div class="space-y-6">
+              <div class="impact-item">
+                <i data-lucide="check-circle-2" aria-hidden="true"></i>
+                <div>
+                  <h3>Accessible Education</h3>
+                  <p>
+                    Support free learning opportunities and educational
+                    programs for students.
+                  </p>
+                </div>
+              </div>
 
-            <div class="flex gap-3 items-start">
-              <i data-lucide="check-circle-2" class="shrink-0 mt-1" style="color:var(--gold)"></i>
-              <div>
-                <h3 class="font-semibold">Financial Literacy</h3>
-                <p class="text-sm text-gray-300 mt-1">
-                  Teach students about budgeting, banking, and investing.
-                </p>
+              <div class="impact-item">
+                <i data-lucide="check-circle-2" aria-hidden="true"></i>
+                <div>
+                  <h3>Community Outreach</h3>
+                  <p>
+                    Help bring practical financial education to more
+                    schools, libraries, and community organizations.
+                  </p>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <i data-lucide="check-circle-2" aria-hidden="true"></i>
+                <div>
+                  <h3>Future Learning Projects</h3>
+                  <p>
+                    Help us develop new educational experiences that
+                    make real-world skills engaging and accessible.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div class="flex gap-3 items-start">
-              <i data-lucide="check-circle-2" class="shrink-0 mt-1" style="color:var(--gold)"></i>
-              <div>
-                <h3 class="font-semibold">Accessible Education</h3>
-                <p class="text-sm text-gray-300 mt-1">
-                  Support free learning opportunities and educational programs.
-                </p>
-              </div>
+            <div class="mission-bottom">
+              <span>PLAYER 01 //</span> Every student deserves access
+              to practical education.
             </div>
-
-            <div class="flex gap-3 items-start">
-              <i data-lucide="check-circle-2" class="shrink-0 mt-1" style="color:var(--gold)"></i>
-              <div>
-                <h3 class="font-semibold">Community Outreach</h3>
-                <p class="text-sm text-gray-300 mt-1">
-                  Help bring practical financial education to more students.
-                </p>
-              </div>
-            </div>
-
           </div>
         </div>
 
-        <div class="mt-5 flex items-start gap-2 text-xs text-gray-500 leading-relaxed">
-          <i data-lucide="shield-check" class="w-4 h-4 shrink-0 mt-0.5"></i>
+        <!-- Donation form -->
+        <div class="donation-card">
+          <div class="donation-card-header">
+            <p class="pixel-label">/// Support Our Work</p>
+            <h2>Make a Donation</h2>
+            <p>
+              Your support helps us continue creating free educational
+              opportunities for students.
+            </p>
+          </div>
+
+          <div class="secure-note">
+            <i data-lucide="shield-check" aria-hidden="true"></i>
+            <span>Donation form hosted by Hack Club</span>
+          </div>
+
+          <iframe
+            class="donation-frame"
+            src="https://hcb.hackclub.com/donations/start/nextgen-knowledge"
+            title="Secure donation form for NextGen Knowledge"
+            loading="eager"
+            scrolling="auto"
+            allow="payment"
+          >
+            Your browser does not support embedded forms.
+            <a href="https://hcb.hackclub.com/donations/start/nextgen-knowledge">
+              Open the donation page directly.
+            </a>
+          </iframe>
+
+          <div class="donation-fallback">
+            If the donation form does not load, you can
+            <a
+              href="https://hcb.hackclub.com/donations/start/nextgen-knowledge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >open the secure donation page directly</a>.
+          </div>
+        </div>
+      </section>
+
+      <!-- Transparency -->
+      <section class="transparency" aria-labelledby="transparency-heading">
+        <div class="transparency-icon" aria-hidden="true">
+          <i data-lucide="shield-check"></i>
+        </div>
+
+        <div>
+          <h2 id="transparency-heading">A Note About Donations</h2>
           <p>
-            Donations are processed through Hack Club's donation platform.
+            NextGen Knowledge is a fiscally sponsored project of the
+            Hack Club Foundation, a 501(c)(3) nonprofit. Donations are
+            processed through Hack Club's donation platform. For
+            questions about supporting our work, please contact us
+            using the email address below.
           </p>
         </div>
-      </div>
-
-      <!-- Embedded Donation Form -->
-      <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-
-        <div class="px-6 md:px-8 py-5 border-b border-gray-100">
-          <h2 class="text-xl md:text-2xl font-bold">Make a Donation</h2>
-          <p class="text-sm text-gray-500 mt-1">
-            Complete your donation securely below.
-          </p>
-        </div>
-
-        <iframe
-          class="donation-frame"
-          src="https://hcb.hackclub.com/donations/start/nextgen-knowledge"
-          title="Donate to Next-Gen Knowledge"
-          loading="eager"
-          scrolling="auto"
-          allow="payment"
-        >
-          Loading donation form...
-        </iframe>
-
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-[#0A2342] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
+  <footer>
+    <div class="container">
+      <div class="footer-main">
         <!-- Brand -->
-        <div>
-          <a href="index.html" class="inline-flex items-center gap-3 mb-4">
-            <div class="w-12 h-12 rounded-xl overflow-hidden bg-white">
-              <img
-                src="IMG_1383.jpeg"
-                alt="Next-Gen Knowledge Logo"
-                class="w-full h-full object-contain"
-              >
-            </div>
-            <span class="text-lg font-extrabold tracking-tight">
-              Next-Gen Knowledge
-            </span>
+        <div class="footer-brand-column">
+          <a href="index.html" class="footer-brand">
+            <img src="IMG_1383.jpeg" alt="NextGen Knowledge logo">
+            <span>NextGen Knowledge</span>
           </a>
 
-          <p class="text-sm text-gray-300 leading-relaxed max-w-sm">
-            Empowering the next generation through accessible financial literacy and real-world education.
+          <p class="footer-description">
+            A student-led financial literacy organization focused on
+            making real-world education accessible to the next generation.
           </p>
         </div>
 
-        <!-- Quick Links -->
+        <!-- Quick links -->
         <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#C9A227]">
-            Quick Links
-          </h3>
+          <h3 class="footer-heading">Quick Links</h3>
 
-          <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-300">
-            <a href="index.html" class="hover:text-[#C9A227] transition-colors">Home</a>
-            <a href="about.html" class="hover:text-[#C9A227] transition-colors">About Us</a>
-            <a href="programs.html" class="hover:text-[#C9A227] transition-colors">Programs</a>
-            <a href="team.html" class="hover:text-[#C9A227] transition-colors">Team</a>
-            <a href="partnerships.html" class="hover:text-[#C9A227] transition-colors">Partnerships</a>
-            <a href="trivia.html" class="hover:text-[#C9A227] transition-colors">Trivia Arena</a>
-            <a href="donate.html" class="hover:text-[#C9A227] transition-colors">Donate</a>
-            <a href="enroll.html" class="hover:text-[#C9A227] transition-colors">Enroll</a>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="fin-city.html">Fin City</a>
+            <a href="about.html">About Us</a>
+            <a href="programs.html">Programs</a>
+            <a href="team.html">Team</a>
+            <a href="partnerships.html">Partnerships</a>
+            <a href="donate.html">Donate</a>
+            <a href="enroll.html">Enroll Now</a>
           </div>
         </div>
 
         <!-- Contact -->
         <div>
-          <h3 class="text-sm font-bold uppercase tracking-widest mb-4 text-[#C9A227]">
-            Connect With Us
-          </h3>
+          <h3 class="footer-heading">Connect With Us</h3>
 
-          <div class="flex items-center gap-4 mb-5">
-
+          <div class="social-links">
             <a
               href="https://www.instagram.com/nextgen.knowledge/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
-              class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+              class="social-link"
+              aria-label="NextGen Knowledge on Instagram"
             >
-              <i data-lucide="instagram" class="w-5 h-5"></i>
+              <i data-lucide="instagram" aria-hidden="true"></i>
             </a>
 
             <a
               href="https://www.linkedin.com/company/next-gen-knowledge/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+              class="social-link"
+              aria-label="NextGen Knowledge on LinkedIn"
             >
-              <i data-lucide="linkedin" class="w-5 h-5"></i>
+              <i data-lucide="linkedin" aria-hidden="true"></i>
             </a>
 
             <a
               href="mailto:nextgen.knowledge123@gmail.com"
-              aria-label="Email"
-              class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C9A227] hover:text-[#0A2342] transition-colors"
+              class="social-link"
+              aria-label="Email NextGen Knowledge"
             >
-              <i data-lucide="mail" class="w-5 h-5"></i>
+              <i data-lucide="mail" aria-hidden="true"></i>
             </a>
-
           </div>
 
           <a
             href="mailto:nextgen.knowledge123@gmail.com"
-            class="text-sm text-gray-300 hover:text-[#C9A227] transition-colors break-all"
-          >
-            nextgen.knowledge123@gmail.com
-          </a>
+            class="footer-email"
+          >nextgen.knowledge123@gmail.com</a>
         </div>
-
       </div>
 
-      <!-- Bottom Bar -->
-      <div class="border-t border-white/15 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-
-        <p class="text-xs text-gray-400">
-          © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="footer-year"></span>
+          NextGen Knowledge. All rights reserved.
         </p>
 
-        <p class="text-xs text-gray-400 leading-relaxed sm:text-right max-w-xl">
-          Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) nonprofit.
+        <p class="sponsor-note">
+          NextGen Knowledge is a fiscally sponsored project of the
+          Hack Club Foundation, a 501(c)(3) nonprofit.
         </p>
-
       </div>
     </div>
   </footer>
 
   <script>
-    lucide.createIcons();
+    // Render Lucide icons.
+    if (window.lucide) {
+      lucide.createIcons();
+    }
 
-    document.getElementById('footer-year').textContent =
+    // Update copyright year.
+    document.getElementById("footer-year").textContent =
       new Date().getFullYear();
 
-    const navbar = document.getElementById('navbar');
-    const menuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Mobile navigation.
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('shadow-lg', window.scrollY > 10);
-    });
-
-    menuButton.addEventListener('click', () => {
-      const opening = mobileMenu.classList.contains('hidden');
-
-      mobileMenu.classList.toggle('hidden');
-      menuButton.setAttribute('aria-expanded', String(opening));
+    function setMobileMenu(open) {
+      mobileMenu.classList.toggle("open", open);
+      menuButton.setAttribute("aria-expanded", String(open));
       menuButton.setAttribute(
-        'aria-label',
-        opening ? 'Close menu' : 'Open menu'
+        "aria-label",
+        open ? "Close navigation menu" : "Open navigation menu"
       );
 
-      menuButton.innerHTML = opening
-        ? '<i data-lucide="x" class="w-6 h-6"></i>'
-        : '<i data-lucide="menu" class="w-6 h-6"></i>';
+      menuButton.innerHTML = open
+        ? '<i data-lucide="x" aria-hidden="true"></i>'
+        : '<i data-lucide="menu" aria-hidden="true"></i>';
 
-      lucide.createIcons();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    menuButton.addEventListener("click", () => {
+      const isOpen =
+        menuButton.getAttribute("aria-expanded") === "true";
+
+      setMobileMenu(!isOpen);
     });
 
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Open menu');
-        menuButton.innerHTML =
-          '<i data-lucide="menu" class="w-6 h-6"></i>';
-        lucide.createIcons();
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        setMobileMenu(false);
       });
     });
-  </script>
 
+    // Close the mobile menu when switching to desktop width.
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 900) {
+        setMobileMenu(false);
+      }
+    });
+
+    // Add a shadow to the sticky navigation after scrolling.
+    const navbar = document.getElementById("navbar");
+
+    function updateNavbarShadow() {
+      navbar.style.boxShadow = window.scrollY > 10
+        ? "0 8px 24px rgba(0,0,0,.24)"
+        : "none";
+    }
+
+    window.addEventListener("scroll", updateNavbarShadow, {
+      passive: true
+    });
+
+    updateNavbarShadow();
+  </script>
 </body>
 </html>
