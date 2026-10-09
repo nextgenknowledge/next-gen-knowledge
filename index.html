@@ -630,35 +630,52 @@
 
     .game-window-bottom strong { color: var(--green); }
 
-    /* LOGO PLACEHOLDER */
+    /* FIN CITY LOGO */
 
     .fin-city-logo-slot {
       position: absolute;
       z-index: 4;
       right: 15px;
       top: 52px;
-      width: 102px;
-      height: 63px;
+      width: 130px;
+      height: 82px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 7px;
-      border: 1px dashed rgba(241, 215, 120, .65);
-      background: rgba(5, 13, 25, .9);
-      text-align: center;
+      border: 1px solid rgba(241, 215, 120, .65);
+      background: rgba(5, 13, 25, .94);
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, .25);
     }
 
     .fin-city-logo-slot img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
 
-    .fin-city-logo-slot span {
-      color: #C9B875;
-      font-family: var(--mono-font);
-      font-size: .56rem;
-      line-height: 1.5;
+    .fin-city-feature-logo {
+      display: block;
+      width: min(100%, 380px);
+      max-height: 210px;
+      object-fit: contain;
+      margin: 0 auto 25px;
+      padding: 14px;
+      background: #081629;
+      border: 1px solid #344B65;
+      box-shadow: 5px 5px 0 #030A13;
+    }
+
+    .program-logo {
+      display: block;
+      width: 100%;
+      height: 115px;
+      object-fit: contain;
+      padding: 10px;
+      margin-bottom: 23px;
+      background: #081629;
+      border: 1px solid #344B65;
     }
 
     /* IMPACT */
@@ -1344,10 +1361,12 @@
       .city-sign strong { font-size: .48rem; }
       .city-sign small { font-size: .54rem; }
       .pixel-moon { width: 23px; height: 23px; }
-      .fin-city-logo-slot { top: 45px; right: 10px; width: 78px; height: 48px; }
-      .fin-city-logo-slot span { font-size: .48rem; }
+      .fin-city-logo-slot { top: 45px; right: 10px; width: 95px; height: 60px; }
       .scene-location { padding: 5px; font-size: .48rem; }
       .game-window-bottom { font-size: .56rem; }
+
+      .fin-city-feature-logo { max-height: 160px; }
+      .program-logo { height: 100px; }
 
       .impact-grid { grid-template-columns: repeat(2, 1fr); }
       .impact-item { padding: 23px 7px; }
@@ -1401,9 +1420,7 @@
 
 <body>
 
-  <!-- =========================================
-       NAVIGATION
-  ========================================== -->
+  <!-- NAVIGATION -->
   <header class="nav-wrap">
     <div class="container navbar">
 
@@ -1425,10 +1442,7 @@
 
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="index.html">Home</a>
-
-        <!-- Fin City intentionally appears near the beginning of the nav -->
         <a href="fin-city.html" class="fin-city-link">▣ FIN CITY ↗</a>
-
         <a href="about.html">About Us</a>
         <a href="programs.html">Programs</a>
         <a href="team.html">Team</a>
@@ -1441,9 +1455,7 @@
 
   <main>
 
-    <!-- =========================================
-         HERO / FIN CITY INTRODUCTION
-    ========================================== -->
+    <!-- HERO / FIN CITY INTRODUCTION -->
     <section class="hero">
       <div class="container hero-grid">
 
@@ -1509,14 +1521,12 @@
                 <small>YOUR NEXT ADVENTURE</small>
               </div>
 
-              <!--
-                FIN CITY LOGO PLACEHOLDER
-                Replace the span below with:
-                <img src="fin-city-logo.png" alt="Fin City logo">
-                Put fin-city-logo.png in the same folder as index.html.
-              -->
+              <!-- FIN CITY LOGO -->
               <div class="fin-city-logo-slot">
-                <span>ADD FIN CITY<br>LOGO HERE</span>
+                <img
+                  src="Fin-City%20Pixel%20Skyline%20Logo.png"
+                  alt="Fin City pixel skyline logo"
+                >
               </div>
 
               <div class="skyline" aria-hidden="true">
@@ -1554,9 +1564,7 @@
       </div>
     </section>
 
-    <!-- =========================================
-         IMPACT METRICS
-    ========================================== -->
+    <!-- IMPACT METRICS -->
     <section class="impact-strip" aria-label="NextGen Knowledge impact">
       <div class="container impact-grid">
 
@@ -1583,14 +1591,19 @@
       </div>
     </section>
 
-    <!-- =========================================
-         FIN CITY FEATURE
-    ========================================== -->
+    <!-- FIN CITY FEATURE -->
     <section class="section section-alt" id="fin-city-feature">
       <div class="container intro-grid">
 
         <div class="intro-copy">
           <span class="eyebrow">◆ OUR FLAGSHIP PROJECT</span>
+
+          <img
+            class="fin-city-feature-logo"
+            src="Fin-City%20Pixel%20Skyline%20Logo.png"
+            alt="Fin City — NextGen Knowledge's financial literacy game"
+            loading="lazy"
+          >
 
           <h2>
             A new world for
@@ -1672,9 +1685,7 @@
       </div>
     </section>
 
-    <!-- =========================================
-         PROGRAMS
-    ========================================== -->
+    <!-- PROGRAMS -->
     <section class="section" id="programs">
       <div class="container">
 
@@ -1690,7 +1701,12 @@
         <div class="program-grid">
 
           <article class="program-card featured">
-            <div class="program-icon">▣</div>
+            <img
+              class="program-logo"
+              src="Fin-City%20Pixel%20Skyline%20Logo.png"
+              alt="Fin City pixel skyline logo"
+              loading="lazy"
+            >
             <h3>Fin City</h3>
             <p>
               Explore our upcoming interactive financial-literacy game, where
@@ -1761,9 +1777,7 @@
       </div>
     </section>
 
-    <!-- =========================================
-         INTERACTIVE MONEY LAB
-    ========================================== -->
+    <!-- INTERACTIVE MONEY LAB -->
     <section class="section section-alt" id="money-lab">
       <div class="container">
 
@@ -1836,9 +1850,7 @@
       </div>
     </section>
 
-    <!-- =========================================
-         FINANCIAL LITERACY QUIZ
-    ========================================== -->
+    <!-- FINANCIAL LITERACY QUIZ -->
     <section class="section" id="quiz">
       <div class="container quiz-layout">
 
@@ -1898,9 +1910,7 @@
       </div>
     </section>
 
-    <!-- =========================================
-         FINANCIAL CHEAT SHEET
-    ========================================== -->
+    <!-- FINANCIAL CHEAT SHEET -->
     <section class="section section-alt">
       <div class="container">
 
@@ -1924,9 +1934,7 @@
       </div>
     </section>
 
-    <!-- =========================================
-         CALL TO ACTION
-    ========================================== -->
+    <!-- CALL TO ACTION -->
     <section class="cta-section">
       <div class="container cta-inner">
 
@@ -1949,9 +1957,7 @@
 
   </main>
 
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
 
@@ -2010,9 +2016,7 @@
   </footer>
 
   <script>
-    /* =========================================
-       MOBILE NAVIGATION
-    ========================================== */
+    /* MOBILE NAVIGATION */
 
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
@@ -2044,10 +2048,7 @@
     });
 
 
-    /* =========================================
-       INTERACTIVE MONEY LAB
-       The three allocations always total 100%.
-    ========================================== */
+    /* INTERACTIVE MONEY LAB */
 
     const savingRange = document.getElementById("savingRange");
     const spendingRange = document.getElementById("spendingRange");
@@ -2142,9 +2143,7 @@
     updateMoneyLab(savingRange);
 
 
-    /* =========================================
-       FINANCIAL LITERACY QUIZ
-    ========================================== */
+    /* FINANCIAL LITERACY QUIZ */
 
     const quizQuestions = [
       {
@@ -2379,9 +2378,7 @@
     renderQuestion();
 
 
-    /* =========================================
-       ROTATING FINANCIAL FACTS
-    ========================================== */
+    /* ROTATING FINANCIAL FACTS */
 
     const facts = [
       "Compound growth means that returns can generate additional returns over time — although investment returns are never guaranteed.",
@@ -2410,9 +2407,7 @@
     });
 
 
-    /* =========================================
-       FOOTER YEAR
-    ========================================== */
+    /* FOOTER YEAR */
 
     document.getElementById("currentYear").textContent =
       new Date().getFullYear();
