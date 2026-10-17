@@ -49,25 +49,6 @@
     .sf-count b { display: block; font-family: var(--term); font-size: 1.8rem; font-weight: 400; line-height: 1; color: var(--text); }
     .sf-count small { font-family: var(--pixel); font-size: .4rem; color: #8FA2BA; }
 
-    .wl-form label { display: block; margin-bottom: 8px; font-family: var(--pixel); font-size: .5rem; color: #8FA2BA; }
-    .wl-field { display: flex; gap: 14px; flex-wrap: wrap; }
-    .wl-field input {
-      flex: 1 1 220px; min-height: 52px; padding: 0 16px; border: 0;
-      font-family: var(--term); font-size: 1.5rem; color: var(--gold-bright); background: #050D19;
-      box-shadow: 0 0 0 3px #22406A; caret-color: var(--gold-bright);
-    }
-    .wl-field input::placeholder { color: #52637A; }
-    .wl-field input:focus { outline: none; box-shadow: 0 0 0 3px var(--gold-bright); }
-    .wl-field input[aria-invalid="true"] { box-shadow: 0 0 0 3px var(--red); }
-    .wl-field .btn { min-height: 52px; }
-    .wl-error { min-height: 1.4em; margin: 10px 0 0; font-size: .9rem; color: #FFB4A8; }
-    .wl-fine { margin: 6px 0 0; font-size: .85rem; color: #8FA2BA; }
-
-    .wl-done { position: relative; text-align: center; padding: 10px 0; }
-    .wl-done .star { width: 54px; height: 54px; margin: 0 auto 12px; color: var(--gold-bright); animation: spin 1.2s steps(8) 1; }
-    @keyframes spin { from { transform: rotateY(0) scale(.4); } to { transform: rotateY(360deg) scale(1); } }
-    .wl-done h3 { font-family: var(--pixel); font-size: .9rem; line-height: 1.7; color: var(--gold-bright); font-weight: 400; }
-    .wl-done p { margin: 8px auto 0; max-width: 360px; }
 
     .teaser { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .teaser .card .tile { color: #14110A; background: var(--tc); box-shadow: none; }
@@ -144,8 +125,8 @@
         </div>
 
         <div class="savefile px-border reveal" id="join">
-          <div class="sf-screen">
-            <div id="wlForm">
+          <div class="sf-screen waitlist">
+            <div data-wl-hide>
               <p class="sf-title">NEW GAME<br>JOIN THE WAITLIST</p>
               <p class="sf-sub">&gt; Be the first player through the gates.</p>
               <div class="sf-count" aria-hidden="true">
@@ -164,7 +145,7 @@
               </form>
             </div>
 
-            <div class="wl-done" id="wlDone" hidden tabindex="-1">
+            <div class="wl-done" hidden tabindex="-1">
               <svg class="px-icon star" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
               <h3>PLAYER ADDED!</h3>
               <p>You're on the list. We'll email you the moment the gates to Fin City open.</p>
@@ -252,74 +233,7 @@
 
   <script src="site.js"></script>
   <script src="games.js"></script>
-  <script>
-    /*
-      WAITLIST SETUP
-      --------------
-      Signups are sent to a Google Form so they land in a Google Sheet.
-      1. Create a Google Form with one "Short answer" question: Email.
-      2. Open the form's preview, right-click the email box > Inspect, and copy its name (entry.123456789).
-      3. Paste the form's ID (from .../forms/d/e/<ID>/viewform) and the entry name below.
-      Until both are filled in, the button opens an email to the team instead.
-    */
-    const WAITLIST = {
-      formId: "1FAIpQLScb49oREfL_ngM_pm_mGpV1C_3gcPOmrBF-WBM0qRgeojWeDA",  // "Fin-City Emails Waitlist"
-      emailEntry: "entry.1524611244"
-    };
-
-    const form = document.querySelector(".wl-form");
-    const input = document.getElementById("wlEmail");
-    const error = document.getElementById("wlError");
-
-    function finish() {
-      document.getElementById("wlForm").hidden = true;
-      const done = document.getElementById("wlDone");
-      done.hidden = false;
-      done.focus();
-    }
-
-    form.addEventListener("submit", async e => {
-      e.preventDefault();
-      const email = input.value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        input.setAttribute("aria-invalid", "true");
-        error.textContent = "That doesn't look like an email address. Try again?";
-        input.focus();
-        return;
-      }
-      input.removeAttribute("aria-invalid");
-      error.textContent = "";
-
-      if (!WAITLIST.formId || !WAITLIST.emailEntry) {
-        location.href = "mailto:nextgen.knowledge123@gmail.com?subject=" +
-          encodeURIComponent("Add me to the Fin City waitlist") +
-          "&body=" + encodeURIComponent("Please notify me when Fin City launches: " + email);
-        finish();
-        return;
-      }
-
-      const button = form.querySelector("button");
-      button.disabled = true;
-      button.textContent = "Saving…";
-      try {
-        // Google Forms doesn't send CORS headers, so the response is opaque; a network failure still throws.
-        await fetch("https://docs.google.com/forms/d/e/" + WAITLIST.formId + "/formResponse", {
-          method: "POST",
-          mode: "no-cors",
-          body: new URLSearchParams({ [WAITLIST.emailEntry]: email })
-        });
-        finish();
-      } catch (err) {
-        error.textContent = "Couldn't reach the server. Check your connection and try again.";
-        button.disabled = false;
-        button.textContent = "Notify me ▶";
-      }
-    });
-
-    input.addEventListener("input", () => {
-      if (input.getAttribute("aria-invalid")) { input.removeAttribute("aria-invalid"); error.textContent = ""; }
-    });
-  </script>
+  <script src="waitlist.js"></script>
 
 </body>
 </html>

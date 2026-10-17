@@ -214,7 +214,7 @@
             <a href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" class="btn" target="_blank" rel="noopener noreferrer">
               <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-play"/></svg> Watch the teaser
             </a>
-            <a href="#the-game" class="btn btn-ghost">Explore the game ↓</a>
+            <a href="#waitlist" class="btn btn-ghost">Join the waitlist ↓</a>
           </div>
         </div>
 
@@ -326,8 +326,26 @@
           <div class="label">
             <img src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="" width="170" height="170" loading="lazy">
             <div class="kicker">Get your first look</div>
-            <h2>The city is coming. See it for yourself.</h2>
-            <p>Want a glimpse of what we've been building? Watch the official Fin City teaser from NextGen Knowledge and get a first look at the world we're creating. This is only the beginning.</p>
+            <h2>The city is coming. Be first through the gates.</h2>
+            <p>Want a glimpse of what we've been building? Watch the official Fin City teaser and get a first look at the world we're creating. Then drop your email and we'll tell you the moment Fin City launches. It's free to play.</p>
+
+            <div class="waitlist on-paper" id="waitlist">
+              <form class="wl-form" novalidate>
+                <label for="fcEmail">JOIN THE WAITLIST</label>
+                <div class="wl-field">
+                  <input id="fcEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-describedby="fcError fcFine">
+                  <button class="btn btn-ink" type="submit">Notify me ▶</button>
+                </div>
+                <p class="wl-error" id="fcError" aria-live="polite"></p>
+                <p class="wl-fine" id="fcFine">We'll only email you about Fin City's launch. No spam, ever.</p>
+              </form>
+              <div class="wl-done" hidden tabindex="-1">
+                <svg class="px-icon star" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
+                <h3>PLAYER ADDED!</h3>
+                <p>You're on the list. We'll email you the moment the gates to Fin City open.</p>
+              </div>
+            </div>
+
             <div class="hero-actions">
               <a href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" class="btn btn-ink" target="_blank" rel="noopener noreferrer">Watch the official teaser</a>
               <a href="https://www.instagram.com/nextgen.knowledge/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Follow NextGen Knowledge</a>
@@ -385,6 +403,7 @@
 
   <script src="site.js"></script>
   <script src="games.js"></script>
+  <script src="waitlist.js"></script>
   <script>
     /* RPG DIALOG — click a building to hear about it */
     const places = {
