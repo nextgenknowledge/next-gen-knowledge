@@ -652,7 +652,11 @@ a.card:hover, .card.hoverable:hover { transform: translate(-3px, -3px); box-shad
 
 @media (max-width: 700px) {
   .dock { right: 12px; bottom: 12px; }
-  .dock-btn { min-height: 46px; padding: 8px 12px; }
+  /* icon-only on phones so it covers less of the page */
+  .dock-btn { width: 52px; height: 52px; min-height: 0; padding: 0; justify-content: center; }
+  .dock-btn span { display: none; }
+  .dock-hint { max-width: 190px; font-size: 1.1rem; }
+  .dock-hint::after { right: 18px; }
   .dock-menu { width: min(280px, calc(100vw - 24px)); }
   .win-body { padding: 14px; }
   .cabinet { padding: 0 10px 14px; }

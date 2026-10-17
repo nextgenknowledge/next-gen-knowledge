@@ -454,7 +454,7 @@
           <span class="tile">${icon(g.icon)}</span><span><b>${g.title}</b><small>${g.blurb}</small></span>
         </button>`).join("")}
     </div>
-    <button type="button" class="dock-btn" aria-expanded="false" aria-controls="dockMenu" title="Drag me anywhere">
+    <button type="button" class="dock-btn" aria-expanded="false" aria-controls="dockMenu" aria-label="Play money mini-games" title="Drag me anywhere">
       ${icon("gamepad")}<span>PLAY</span>
     </button>`;
   document.body.appendChild(dock);
