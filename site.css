@@ -677,3 +677,32 @@ a.card:hover, .card.hoverable:hover { transform: translate(-3px, -3px); box-shad
   box-shadow: 0 0 0 3px #030A13, 5px 5px 0 3px #030A13; animation: dock-bob 2.4s ease-in-out infinite;
 }
 .dock-hint::after { content: ""; position: absolute; right: 28px; bottom: -12px; border: 8px solid transparent; border-top-color: var(--paper); }
+
+/* ---------- Fin City waitlist signup (waitlist.js) ---------- */
+.wl-form label { display: block; margin-bottom: 8px; font-family: var(--pixel); font-size: .5rem; color: #8FA2BA; }
+.wl-field { display: flex; gap: 14px; flex-wrap: wrap; }
+.wl-field input {
+  flex: 1 1 220px; min-height: 52px; padding: 0 16px; border: 0;
+  font-family: var(--term); font-size: 1.5rem; color: var(--gold-bright); background: #050D19;
+  box-shadow: 0 0 0 3px #22406A; caret-color: var(--gold-bright);
+}
+.wl-field input::placeholder { color: #52637A; }
+.wl-field input:focus { outline: none; box-shadow: 0 0 0 3px var(--gold-bright); }
+.wl-field input[aria-invalid="true"] { box-shadow: 0 0 0 3px var(--red); }
+.wl-field .btn { min-height: 52px; }
+.wl-error { min-height: 1.4em; margin: 10px 0 0; font-size: .9rem; color: #FFB4A8; }
+.wl-fine { margin: 6px 0 0; font-size: .85rem; color: #8FA2BA; }
+
+.wl-done { position: relative; text-align: center; padding: 10px 0; }
+.wl-done .star { width: 54px; height: 54px; margin: 0 auto 12px; color: var(--gold-bright); animation: spin 1.2s steps(8) 1; }
+@keyframes spin { from { transform: rotateY(0) scale(.4); } to { transform: rotateY(360deg) scale(1); } }
+.wl-done h3 { font-family: var(--pixel); font-size: .9rem; line-height: 1.7; color: var(--gold-bright); font-weight: 400; }
+.wl-done p { margin: 8px auto 0; max-width: 360px; }
+
+/* waitlist on light paper (Fin City cartridge label) */
+.waitlist.on-paper { text-align: left; max-width: 520px; margin: 24px auto 0; }
+.waitlist.on-paper .wl-form label, .waitlist.on-paper .wl-fine { color: var(--ink-soft); }
+.waitlist.on-paper .wl-error { color: var(--stamp); }
+.waitlist.on-paper .wl-done h3 { color: var(--ink); }
+.waitlist.on-paper .wl-done p { color: #4A4334; }
+.waitlist.on-paper .wl-done .star { color: var(--gold-dark); }
