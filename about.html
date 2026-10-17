@@ -1,2269 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#081629" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>About Us | NextGen Knowledge</title>
-  <meta
-    name="description"
-    content="Learn about NextGen Knowledge, a student-led educational organization making financial literacy and real-world education accessible to the next generation."
-  />
-  <meta property="og:title" content="About Us | NextGen Knowledge" />
-  <meta
-    property="og:description"
-    content="Making real-world financial education accessible to the next generation."
-  />
-  <meta property="og:type" content="website" />
+  <meta name="description" content="NextGen Knowledge is a student-led educational organization making financial literacy and practical education accessible through free programs, hands-on learning, and Fin City.">
+  <meta name="theme-color" content="#081629">
+  <meta name="author" content="Next-Gen Knowledge">
+  <meta property="og:title" content="About Us | NextGen Knowledge">
+  <meta property="og:description" content="NextGen Knowledge is a student-led educational organization making financial literacy and practical education accessible through free programs, hands-on learning, and Fin City.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_1383.jpeg">
 
-  <link rel="icon" href="IMG_1383.jpeg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-    rel="stylesheet"
-  />
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" href="IMG_1383.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
+  </script>
 
   <style>
-    :root {
-      --bg: #081629;
-      --bg-deep: #050d19;
-      --panel: #0d2038;
-      --panel-light: #142c49;
-      --panel-hover: #193653;
-      --navy: #0a2342;
-      --gold: #d9b64d;
-      --gold-bright: #f1d778;
-      --gold-dark: #9c7b25;
-      --cream: #f5f0df;
-      --text: #f3f5fa;
-      --muted: #9dadc2;
-      --line: #263c57;
-      --green: #7ce0b0;
-      --blue: #84b7ff;
-      --red: #ff9b9b;
-      --pixel-shadow: 4px 4px 0 rgba(0, 0, 0, 0.28);
-      --font-body: "DM Sans", sans-serif;
-      --font-pixel: "Press Start 2P", monospace;
-      --font-mono: "DM Mono", monospace;
-      --max-width: 1160px;
+    /* annual report cover */
+    .report {
+      position: relative; padding: 30px 30px 26px; color: var(--ink); background: var(--paper);
+      box-shadow: 10px 10px 0 #030A13; transform: rotate(1.2deg);
     }
+    .report::before { content: ""; position: absolute; inset: 10px; border: 2px solid rgba(29,27,22,.16); pointer-events: none; }
+    .report-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--pixel); font-size: .5rem; line-height: 1.8; color: var(--ink-soft); border-bottom: 3px double var(--ink-soft); padding-bottom: 12px; }
+    .report-big { margin: 18px 0 2px; font-family: var(--term); font-size: 5rem; line-height: .9; color: var(--green-deep); }
+    .report-cap { margin: 0 0 18px; color: var(--ink-soft); font-size: .95rem; }
+    .report-figs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid #CDBF9C; }
+    .report-figs div { padding: 12px 6px; border-bottom: 1px solid #CDBF9C; }
+    .report-figs div:nth-child(odd) { border-right: 1px solid #CDBF9C; padding-right: 12px; }
+    .report-figs div:nth-child(even) { padding-left: 14px; }
+    .report-figs strong { display: block; font-family: var(--term); font-size: 1.8rem; font-weight: 400; line-height: 1; color: var(--ink); }
+    .report-figs span { font-size: .85rem; color: var(--ink-soft); }
+    .report-figs strong span { font-size: inherit; color: inherit; }
+    .report-foot { margin: 16px 0 0; font-family: var(--term); font-size: 1.15rem; color: var(--ink-soft); }
+    .report .stamp { position: absolute; right: 22px; top: 70px; }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
+    .focus-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; padding: 22px 0; background: #030A13; }
+    .focus-row span { display: inline-flex; align-items: center; gap: 10px; font-family: var(--term); font-size: 1.3rem; color: #C7D3E3; }
+    .focus-row .px-icon { width: 20px; height: 20px; color: var(--gold-bright); }
+
+    /* growth-chart timeline */
+    .chart { --c: #2B4566; padding: 24px; background: #0A1A2E; }
+    .bars { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: end; height: 260px; padding: 0 4px; border-left: 3px solid #22406A; border-bottom: 3px solid #22406A; background: repeating-linear-gradient(to top, transparent 0 51px, rgba(132,183,255,.08) 51px 52px); }
+    .milestone {
+      position: relative; height: var(--h); border: 0; cursor: pointer; padding: 0;
+      background: repeating-linear-gradient(to top, #2463C9 0 10px, #2E6FD8 10px 12px);
+      box-shadow: inset -6px 0 0 rgba(0,0,0,.25);
+      transition: background .12s steps(2);
     }
+    .milestone span { position: absolute; top: -30px; left: 0; right: 0; text-align: center; font-family: var(--pixel); font-size: .55rem; color: #8FA2BA; }
+    .milestone[aria-selected="true"] { background: repeating-linear-gradient(to top, var(--gold) 0 10px, var(--gold-bright) 10px 12px); }
+    .milestone[aria-selected="true"] span { color: var(--gold-bright); }
+    .milestone:hover { background: repeating-linear-gradient(to top, #2E9E5B 0 10px, #39B56B 10px 12px); }
+    .chart-axis { display: flex; justify-content: space-between; margin-top: 8px; font-family: var(--term); font-size: 1.05rem; color: #7E90A8; }
+    .milestone-detail { margin-top: 22px; padding: 18px; background: #071426; box-shadow: inset 4px 0 0 var(--gold); min-height: 150px; }
+    .milestone-detail h3 { margin: 0 0 6px; font-stretch: 100%; }
+    .milestone-detail .sub { color: var(--text); margin: 0 0 8px; font-weight: 600; }
+    .milestone-detail p { margin: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body.menu-open {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    button {
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    ::selection {
-      color: var(--bg-deep);
-      background: var(--gold);
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 48px));
-      margin-inline: auto;
-    }
-
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .section-alt {
-      background: var(--bg-deep);
-      border-top: 1px solid rgba(38, 60, 87, 0.65);
-      border-bottom: 1px solid rgba(38, 60, 87, 0.65);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: var(--gold);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      display: inline-block;
-      width: 20px;
-      height: 4px;
-      background: var(--gold);
-    }
-
-    .section-heading {
-      max-width: 750px;
-      margin-bottom: 44px;
-    }
-
-    .section-heading h2 {
-      margin: 0 0 18px;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-      font-weight: 800;
-    }
-
-    .section-heading p {
-      max-width: 680px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .pixel-heading {
-      font-family: var(--font-pixel);
-      font-size: clamp(22px, 3vw, 34px);
-      line-height: 1.65;
-      letter-spacing: -1px;
-    }
-
-    .gold-text {
-      color: var(--gold-bright);
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 12px 20px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      font-size: 14px;
-      font-weight: 800;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      color: var(--bg-deep);
-      background: var(--gold);
-      box-shadow: 4px 4px 0 var(--gold-dark);
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-bright);
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      background: rgba(13, 32, 56, 0.7);
-      border-color: var(--line);
-    }
-
-    .btn-secondary:hover {
-      background: var(--panel-light);
-      border-color: var(--gold-dark);
-    }
-
-    /* NAVIGATION */
-
-    #navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(5, 13, 25, 0.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
-    }
-
-    .navbar-inner {
-      width: min(1380px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      min-height: 78px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .brand-logo {
-      display: block;
-      width: 43px;
-      height: 43px;
-      object-fit: cover;
-      border: 1px solid var(--gold-dark);
-      border-radius: 3px;
-      background: var(--panel);
-    }
-
-    .brand-copy {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.35;
-    }
-
-    .brand-name {
-      color: var(--text);
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-
-    .brand-tagline {
-      margin-top: 3px;
-      color: var(--gold);
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: clamp(12px, 1.7vw, 25px);
-    }
-
-    .nav-link {
-      position: relative;
-      padding: 8px 0;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: color 0.2s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link[aria-current="page"] {
-      color: var(--gold-bright);
-    }
-
-    .nav-link[aria-current="page"]::after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      background: var(--gold);
-      content: "";
-    }
-
-    .fin-city-link {
-      color: var(--gold);
-    }
-
-    .fin-city-link i {
-      width: 13px;
-      height: 13px;
-      vertical-align: -2px;
-      margin-right: 3px;
-    }
-
-    .nav-cta {
-      min-height: 39px;
-      padding: 9px 13px;
-      color: var(--bg-deep);
-      background: var(--gold);
-      box-shadow: 3px 3px 0 var(--gold-dark);
-      font-size: 11px;
-      font-weight: 800;
-      white-space: nowrap;
-      transition: background 0.2s ease;
-    }
-
-    .nav-cta:hover {
-      background: var(--gold-bright);
-    }
-
-    #mobile-menu-button {
-      display: none;
-      width: 43px;
-      height: 43px;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    #mobile-menu {
-      display: none;
-      padding: 8px 0 22px;
-      border-top: 1px solid var(--line);
-    }
-
-    #mobile-menu:not([hidden]) {
-      display: block;
-    }
-
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .mobile-nav-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 10px;
-      color: var(--muted);
-      border-bottom: 1px solid rgba(38, 60, 87, 0.55);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .mobile-nav-link:hover,
-    .mobile-nav-link[aria-current="page"] {
-      color: var(--gold-bright);
-      background: rgba(217, 182, 77, 0.05);
-    }
-
-    .mobile-nav-link.fin-city-link {
-      color: var(--gold);
-    }
-
-    .mobile-nav-cta {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
-      padding: 13px;
-      color: var(--bg-deep);
-      background: var(--gold);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    /* READING PROGRESS */
-
-    #reading-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1100;
-      width: 0;
-      height: 3px;
-      background: var(--gold);
-      box-shadow: 0 0 12px rgba(217, 182, 77, 0.5);
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      padding: 100px 0 85px;
-      overflow: hidden;
+    /* mission certificate */
+    .certificate {
+      position: relative; padding: clamp(28px, 5vw, 54px); color: var(--ink); text-align: center;
       background:
-        radial-gradient(
-          ellipse at 80% 30%,
-          rgba(30, 68, 106, 0.35),
-          transparent 48%
-        ),
-        linear-gradient(180deg, var(--bg) 0%, #091a2e 100%);
-    }
-
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(
-        rgba(217, 182, 77, 0.16) 1px,
-        transparent 1px
-      );
-      background-size: 26px 26px;
-      opacity: 0.32;
-      pointer-events: none;
-      content: "";
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
-    }
-
-    .hero-grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 65px;
-    }
-
-    .hero-copy {
-      max-width: 670px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 25px;
-      padding: 7px 12px;
-      color: var(--gold-bright);
-      background: rgba(217, 182, 77, 0.08);
-      border: 1px solid rgba(217, 182, 77, 0.3);
-      border-radius: 3px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.5px;
-    }
-
-    .hero-badge i {
-      width: 15px;
-      height: 15px;
-    }
-
-    .hero h1 {
-      margin: 0 0 25px;
-      font-size: clamp(42px, 6vw, 69px);
-      font-weight: 800;
-      line-height: 1.04;
-      letter-spacing: -3px;
-    }
-
-    .hero h1 span {
-      color: var(--gold-bright);
-    }
-
-    .hero-description {
-      max-width: 600px;
-      margin: 0 0 30px;
-      color: #b6c4d5;
-      font-size: clamp(16px, 1.6vw, 19px);
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .hero-note {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 25px;
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 10px;
-    }
-
-    .hero-note i {
-      width: 15px;
-      height: 15px;
-      color: var(--green);
-    }
-
-    /* HERO DASHBOARD */
-
-    .dashboard {
-      position: relative;
-      padding: 19px;
-      background: rgba(13, 32, 56, 0.92);
-      border: 1px solid #35506d;
-      border-radius: 5px;
-      box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.18);
-      transform: rotate(1deg);
-    }
-
-    .dashboard::before {
-      position: absolute;
-      top: -8px;
-      left: 20px;
-      width: 60px;
-      height: 8px;
-      background: var(--gold-dark);
-      content: "";
-    }
-
-    .dashboard-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .dashboard-title {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-
-    .dashboard-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--green);
-      font-family: var(--font-mono);
-      font-size: 9px;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px rgba(124, 224, 176, 0.6);
-    }
-
-    .dashboard-intro {
-      padding: 21px 0;
-    }
-
-    .dashboard-label {
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .dashboard-big-number {
-      margin: 8px 0 0;
-      color: var(--gold-bright);
-      font-size: clamp(30px, 4vw, 43px);
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .dashboard-caption {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .dashboard-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .dashboard-stat {
-      padding: 14px;
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-    }
-
-    .dashboard-stat i {
-      width: 18px;
-      height: 18px;
-      margin-bottom: 8px;
-      color: var(--gold);
-    }
-
-    .dashboard-stat strong {
-      display: block;
-      font-size: 20px;
-      line-height: 1.3;
-    }
-
-    .dashboard-stat span {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .dashboard-bottom {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      margin-top: 15px;
-      padding: 13px;
-      background: rgba(124, 224, 176, 0.07);
-      border: 1px solid rgba(124, 224, 176, 0.2);
-      border-radius: 3px;
-    }
-
-    .dashboard-bottom i {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      color: var(--green);
-    }
-
-    .dashboard-bottom p {
-      margin: 0;
-      color: #c1d8d0;
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    /* MISSION STRIP */
-
-    .mission-strip {
-      padding: 28px 0;
-      background: #0b1d32;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .mission-strip-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 18px 35px;
-      text-align: center;
-    }
-
-    .strip-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #c4cfdd;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .strip-item i {
-      width: 18px;
-      height: 18px;
-      color: var(--gold);
-    }
-
-    .strip-divider {
-      width: 1px;
-      height: 22px;
-      background: var(--line);
-    }
-
-    /* LEARNING QUESTS */
-
-    .quest-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .quest-card {
-      position: relative;
-      padding: 27px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
-    }
-
-    .quest-card:hover {
-      transform: translateY(-5px);
-      background: var(--panel-light);
-      border-color: var(--gold-dark);
-    }
-
-    .quest-number {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      color: #657b96;
-      font-family: var(--font-mono);
-      font-size: 11px;
-    }
-
-    .quest-icon {
-      display: flex;
-      width: 48px;
-      height: 48px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 23px;
-      color: var(--gold);
-      background: rgba(217, 182, 77, 0.09);
-      border: 1px solid rgba(217, 182, 77, 0.22);
-      border-radius: 4px;
-    }
-
-    .quest-icon i {
-      width: 23px;
-      height: 23px;
-    }
-
-    .quest-card h3 {
-      margin: 0 0 12px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    .quest-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .quest-tag {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 5px 8px;
-      color: var(--gold-bright);
-      background: rgba(217, 182, 77, 0.07);
-      border: 1px solid rgba(217, 182, 77, 0.18);
-      border-radius: 2px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    /* OUR STORY */
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      align-items: start;
-      gap: 70px;
-    }
-
-    .story-aside {
-      position: sticky;
-      top: 115px;
-    }
-
-    .story-aside h2 {
-      margin: 0 0 20px;
-      font-size: clamp(30px, 4vw, 43px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-    }
-
-    .story-aside p {
-      margin: 0 0 25px;
-      color: var(--muted);
-      font-size: 16px;
-    }
-
-    .story-aside .btn {
-      margin-top: 4px;
-    }
-
-    .story-timeline {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 17px;
-    }
-
-    .story-timeline::before {
-      position: absolute;
-      top: 25px;
-      bottom: 25px;
-      left: 20px;
-      width: 2px;
-      background: var(--line);
-      content: "";
-    }
-
-    .story-step {
-      position: relative;
-      display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 17px;
-      padding: 20px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      cursor: pointer;
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .story-step:hover,
-    .story-step.active {
-      background: var(--panel-light);
-      border-color: var(--gold-dark);
-    }
-
-    .story-step-number {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      width: 42px;
-      height: 42px;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold-bright);
-      background: var(--bg);
-      border: 1px solid var(--gold-dark);
-      border-radius: 3px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-    }
-
-    .story-step h3 {
-      margin: 0 0 7px;
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    .story-step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
-    }
-
-    .story-detail {
-      display: none;
-      margin-top: 13px;
-      padding-top: 13px;
-      color: #c5d1df;
-      border-top: 1px solid var(--line);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .story-step.active .story-detail {
-      display: block;
-    }
-
-    /* MISSION */
-
-    .mission-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      overflow: hidden;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 5px;
-    }
-
-    .mission-copy {
-      padding: clamp(28px, 5vw, 52px);
-    }
-
-    .mission-copy h2 {
-      margin: 0 0 20px;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-    }
-
-    .mission-copy p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .mission-visual {
-      position: relative;
-      display: flex;
-      min-height: 390px;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(217, 182, 77, 0.14),
-          transparent 65%
-        ),
-        #09182a;
-      border-left: 1px solid var(--line);
-    }
-
-    .mission-visual::before {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(132, 183, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, 0.07) 1px, transparent 1px);
-      background-size: 28px 28px;
-      content: "";
-    }
-
-    .pixel-city {
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      height: 235px;
-      padding: 0 15px 25px;
-      border-bottom: 3px solid var(--gold-dark);
-    }
-
-    .pixel-building {
-      position: relative;
-      width: 48px;
-      background: #142e4c;
-      border: 3px solid #345272;
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .pixel-building::before {
-      position: absolute;
-      top: 10px;
-      right: 7px;
-      left: 7px;
-      height: 6px;
-      background: var(--gold-dark);
-      box-shadow:
-        0 19px 0 rgba(217, 182, 77, 0.65),
-        0 38px 0 rgba(217, 182, 77, 0.35);
-      content: "";
-    }
-
-    .pixel-building:nth-child(1) {
-      height: 105px;
-    }
-
-    .pixel-building:nth-child(2) {
-      width: 58px;
-      height: 160px;
-      background: #1a3b5d;
-    }
-
-    .pixel-building:nth-child(3) {
-      height: 125px;
-    }
-
-    .pixel-building:nth-child(4) {
-      width: 60px;
-      height: 195px;
-      background: #173454;
-      border-color: var(--gold-dark);
-    }
-
-    .pixel-building:nth-child(5) {
-      height: 135px;
-    }
-
-    .pixel-building:nth-child(6) {
-      height: 90px;
-    }
-
-    .city-label {
-      position: absolute;
-      right: 0;
-      bottom: -34px;
-      left: 0;
-      color: var(--gold);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    /* PRINCIPLES */
-
-    .principles-layout {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    .principles-intro h2 {
-      margin: 0 0 18px;
-      font-size: clamp(30px, 4vw, 43px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-    }
-
-    .principles-intro p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .principle-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .principle-tab {
-      padding: 10px 13px;
-      color: var(--muted);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .principle-tab:hover,
-    .principle-tab.active {
-      color: var(--gold-bright);
-      background: var(--panel-light);
-      border-color: var(--gold-dark);
-    }
-
-    .principle-content {
-      min-height: 220px;
-      padding: 29px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-    }
-
-    .principle-content[hidden] {
-      display: none;
-    }
-
-    .principle-content .principle-icon {
-      display: flex;
-      width: 43px;
-      height: 43px;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-      color: var(--gold);
-      background: rgba(217, 182, 77, 0.08);
-      border: 1px solid rgba(217, 182, 77, 0.2);
-      border-radius: 3px;
-    }
-
-    .principle-content h3 {
-      margin: 0 0 10px;
-      font-size: 21px;
-    }
-
-    .principle-content p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.85;
-    }
-
-    /* LEARNING LOOP */
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .skill-card {
-      padding: 23px 19px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      text-align: center;
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold-dark);
-    }
-
-    .skill-icon {
-      display: flex;
-      width: 46px;
-      height: 46px;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      color: var(--gold);
-      background: rgba(217, 182, 77, 0.08);
-      border: 1px solid rgba(217, 182, 77, 0.18);
-      border-radius: 3px;
-    }
-
-    .skill-icon i {
-      width: 22px;
-      height: 22px;
-    }
-
-    .skill-card h3 {
-      margin: 0 0 8px;
-      font-size: 15px;
-    }
-
-    .skill-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.75;
-    }
-
-    /* STUDENT-LED */
-
-    .student-led-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .student-led-copy h2 {
-      margin: 0 0 20px;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-    }
-
-    .student-led-copy p {
-      margin: 0 0 17px;
-      color: var(--muted);
-    }
-
-    .student-led-points {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin: 25px 0 30px;
-    }
-
-    .student-led-point {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .student-led-point i {
-      flex-shrink: 0;
-      width: 19px;
-      height: 19px;
-      margin-top: 3px;
-      color: var(--green);
-    }
-
-    .student-led-point span {
-      color: #c6d2e0;
-      font-size: 14px;
-    }
-
-    .student-card {
-      padding: 28px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.14);
-    }
-
-    .student-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 23px;
-      padding-bottom: 17px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .student-card-header span:first-child {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 1px;
-    }
-
-    .student-card-header span:last-child {
-      padding: 5px 8px;
-      color: var(--green);
-      background: rgba(124, 224, 176, 0.08);
-      border: 1px solid rgba(124, 224, 176, 0.2);
-      border-radius: 2px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-    }
-
-    .student-role {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(38, 60, 87, 0.6);
-    }
-
-    .student-role:last-child {
-      border-bottom: 0;
-    }
-
-    .student-role-icon {
-      display: flex;
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-    }
-
-    .student-role-icon i {
-      width: 20px;
-      height: 20px;
-    }
-
-    .student-role h3 {
-      margin: 0 0 3px;
-      font-size: 14px;
-    }
-
-    .student-role p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    /* FAQ */
-
-    .faq-layout {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 55px;
-      align-items: start;
-    }
-
-    .faq-intro h2 {
-      margin: 0 0 18px;
-      font-size: clamp(30px, 4vw, 43px);
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-    }
-
-    .faq-intro p {
-      margin: 0 0 25px;
-      color: var(--muted);
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .faq-item {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-    }
-
-    .faq-question {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 18px 20px;
-      color: var(--text);
-      background: transparent;
-      border: 0;
-      text-align: left;
-      font-size: 14px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .faq-question i {
-      flex-shrink: 0;
-      width: 17px;
-      height: 17px;
-      color: var(--gold);
-      transition: transform 0.2s ease;
-    }
-
-    .faq-item.open .faq-question i {
-      transform: rotate(45deg);
-    }
-
-    .faq-answer {
-      padding: 0 20px 19px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.85;
-    }
-
-    .faq-answer[hidden] {
-      display: none;
-    }
-
-    /* CTA */
-
-    .final-cta {
-      padding: 90px 0;
-      background:
-        radial-gradient(
-          ellipse at 50% 0%,
-          rgba(217, 182, 77, 0.13),
-          transparent 65%
-        ),
-        #09182a;
-      border-top: 1px solid var(--line);
-      text-align: center;
-    }
-
-    .final-cta-inner {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .final-cta h2 {
-      margin: 0 0 20px;
-      font-size: clamp(34px, 5vw, 53px);
-      line-height: 1.15;
-      letter-spacing: -2px;
-    }
-
-    .final-cta p {
-      max-width: 600px;
-      margin: 0 auto 29px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .final-cta-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 55px 0 22px;
-      background: var(--bg-deep);
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-main {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 40px;
-    }
-
-    .footer-brand p {
-      max-width: 300px;
-      margin: 17px 0 18px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 10px;
-    }
-
-    .footer-socials a {
-      display: flex;
-      width: 36px;
-      height: 36px;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      transition: all 0.2s ease;
-    }
-
-    .footer-socials a:hover {
-      color: var(--gold);
-      border-color: var(--gold-dark);
-    }
-
-    .footer-socials i {
-      width: 17px;
-      height: 17px;
-    }
-
-    .footer-column h3 {
-      margin: 0 0 17px;
-      color: var(--text);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .footer-column a {
-      display: block;
-      width: fit-content;
-      margin: 10px 0;
-      color: var(--muted);
-      font-size: 13px;
-      transition: color 0.2s ease;
-    }
-
-    .footer-column a:hover {
-      color: var(--gold-bright);
-    }
-
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      color: #8192a8;
-      font-size: 11px;
-    }
-
-    .footer-bottom p {
-      margin: 0;
-    }
-
-    .footer-disclaimer {
-      max-width: 620px;
-      line-height: 1.7;
-    }
-
-    /* REVEAL ANIMATIONS */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition:
-        opacity 0.65s ease,
-        transform 0.65s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .delay-3 {
-      transition-delay: 0.3s;
-    }
-
-    /* ACCESSIBILITY */
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--gold-bright);
-      outline-offset: 4px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 1120px) {
-      .nav-links {
-        gap: 13px;
-      }
-
-      .nav-link {
-        font-size: 11px;
-      }
-
-      .brand-name {
-        font-size: 14px;
-      }
-
-      .brand-tagline {
-        font-size: 8px;
-      }
-
-      .brand-logo {
-        width: 39px;
-        height: 39px;
-      }
-    }
-
-    @media (max-width: 960px) {
-      .nav-links {
-        display: none;
-      }
-
-      #mobile-menu-button {
-        display: inline-flex;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr 0.85fr;
-        gap: 35px;
-      }
-
-      .story-grid,
-      .principles-layout,
-      .faq-layout {
-        gap: 35px;
-      }
-
-      .quest-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-main {
-        grid-template-columns: 1.3fr 1fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        width: min(100% - 34px, var(--max-width));
-      }
-
-      .section {
-        padding: 70px 0;
-      }
-
-      .navbar-inner {
-        width: calc(100% - 28px);
-      }
-
-      .nav-row {
-        min-height: 68px;
-      }
-
-      .brand-logo {
-        width: 38px;
-        height: 38px;
-      }
-
-      .brand-name {
-        font-size: 13px;
-      }
-
-      .brand-tagline {
-        font-size: 8px;
-      }
-
-      .hero {
-        padding: 70px 0 60px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 42px;
-      }
-
-      .hero h1 {
-        font-size: clamp(40px, 11vw, 60px);
-        letter-spacing: -2px;
-      }
-
-      .hero-description {
-        font-size: 16px;
-      }
-
-      .dashboard {
-        max-width: 470px;
-        width: 100%;
-        margin: 0 auto;
-        transform: none;
-      }
-
-      .mission-strip-inner {
-        gap: 15px 20px;
-      }
-
-      .strip-divider {
-        display: none;
-      }
-
-      .strip-item {
-        font-size: 12px;
-      }
-
-      .quest-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .quest-card {
-        padding: 24px;
-      }
-
-      .story-grid,
-      .principles-layout,
-      .student-led-grid,
-      .faq-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .story-aside {
-        position: static;
-      }
-
-      .mission-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .mission-visual {
-        min-height: 320px;
-        border-top: 1px solid var(--line);
-        border-left: 0;
-      }
-
-      .pixel-city {
-        transform: scale(0.85);
-      }
-
-      .principle-content {
-        min-height: auto;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 11px;
-      }
-
-      .skill-card {
-        padding: 20px 13px;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      .footer-bottom {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .brand {
-        gap: 8px;
-      }
-
-      .brand-name {
-        font-size: 12px;
-      }
-
-      .brand-tagline {
-        font-size: 7px;
-      }
-
-      .hero-actions .btn,
-      .final-cta-actions .btn {
-        width: 100%;
-      }
-
-      .dashboard {
-        padding: 14px;
-      }
-
-      .dashboard-stats {
-        gap: 8px;
-      }
-
-      .dashboard-stat {
-        padding: 11px;
-      }
-
-      .story-step {
-        grid-template-columns: 35px 1fr;
-        gap: 12px;
-        padding: 15px;
-      }
-
-      .story-step-number {
-        width: 35px;
-        height: 35px;
-      }
-
-      .footer-main {
-        gap: 25px 18px;
-      }
+        radial-gradient(circle at 50% 50%, transparent 60%, rgba(156,123,37,.12)),
+        var(--paper);
+      box-shadow: 12px 12px 0 #030A13;
+    }
+    .certificate::before { content: ""; position: absolute; inset: 14px; border: 6px double var(--gold-dark); pointer-events: none; }
+    .certificate .kicker { justify-content: center; color: var(--gold-dark); }
+    .certificate .kicker::before { background: var(--gold-dark); box-shadow: 12px 0 0 var(--gold), 24px 0 0 var(--gold-bright); }
+    .certificate h2 { color: var(--ink); max-width: 760px; margin: 0 auto 20px; }
+    .certificate p { color: #4A4334; max-width: 680px; margin-inline: auto; }
+    .signatures { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin: 30px 0 28px; }
+    .signatures span { min-width: 180px; padding-top: 8px; border-top: 2px solid var(--ink); font-family: var(--pixel); font-size: .48rem; line-height: 1.8; color: var(--ink-soft); }
+    .signatures b { display: block; font-family: var(--term); font-size: 1.6rem; font-weight: 400; color: #1C3B6B; margin-bottom: -2px; }
+    .certificate .stamp { position: absolute; right: 44px; bottom: 40px; transform: rotate(-12deg); }
+
+    .principle { display: grid; grid-template-columns: 64px 1fr; gap: 20px; padding: 26px; background: #0D2038; box-shadow: 0 0 0 3px var(--gold-dark); }
+    .principle .tile { width: 64px; height: 64px; }
+    .principle h3 { margin: 4px 0 8px; font-stretch: 100%; }
+    .principle p { margin: 0; }
+
+    .roles .role { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center; padding: 14px; margin-bottom: 10px; background: #0F2541; box-shadow: 0 0 0 3px #1B3554; }
+    .roles .role:last-child { margin-bottom: 0; }
+    .roles h3 { margin: 0 0 2px; font-size: 1rem; font-stretch: 100%; }
+    .roles p { margin: 0; font-size: .9rem; }
+
+    @media (max-width: 1020px) { .report { transform: none; } }
+    @media (max-width: 600px) {
+      .report-big { font-size: 3.8rem; }
+      .bars { height: 210px; gap: 8px; }
+      .milestone span { font-size: .45rem; }
+      .certificate .stamp { position: static; margin-top: 10px; }
+      .principle { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <div id="reading-progress" aria-hidden="true"></div>
 
   <!-- NAVIGATION -->
-  <header id="navbar">
-    <div class="navbar-inner">
-      <div class="nav-row">
-        <a class="brand" href="index.html" aria-label="NextGen Knowledge home">
-          <img
-            class="brand-logo"
-            src="IMG_1383.jpeg"
-            alt="NextGen Knowledge logo"
-            onerror="this.style.display='none'"
-          />
-          <span class="brand-copy">
-            <span class="brand-name">NextGen Knowledge</span>
-            <span class="brand-tagline">Learn Today. Lead Tomorrow.</span>
-          </span>
-        </a>
+  <header class="nav-wrap">
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+        <span class="brand-name">
+          NextGen Knowledge
+          <small>REAL-WORLD EDUCATION</small>
+        </span>
+      </a>
 
-        <nav class="nav-links" aria-label="Main navigation">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link fin-city-link" href="fin-city.html">
-            <i data-lucide="gamepad-2" aria-hidden="true"></i>
-            Fin City
-          </a>
-          <a
-            class="nav-link"
-            href="about.html"
-            aria-current="page"
-          >About</a>
-          <a class="nav-link" href="programs.html">Programs</a>
-          <a class="nav-link" href="team.html">Our Team</a>
-          <a class="nav-link" href="partnerships.html">Partners</a>
-          <a class="nav-link" href="donate.html">Donate</a>
-          <a class="nav-cta" href="enroll.html">Get Started <span aria-hidden="true">→</span></a>
-        </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
 
-        <button
-          id="mobile-menu-button"
-          type="button"
-          aria-label="Open navigation menu"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-        >
-          <i data-lucide="menu" id="mobile-menu-icon" aria-hidden="true"></i>
-        </button>
-      </div>
-
-      <nav id="mobile-menu" aria-label="Mobile navigation" hidden>
-        <div class="mobile-nav-links">
-          <a class="mobile-nav-link" href="index.html">Home</a>
-          <a class="mobile-nav-link" href="about.html" aria-current="page">About Us</a>
-          <a class="mobile-nav-link" href="programs.html">Programs</a>
-          <a class="mobile-nav-link" href="team.html">Our Team</a>
-          <a class="mobile-nav-link" href="partnerships.html">Partners</a>
-          <a class="mobile-nav-link fin-city-link" href="fin-city.html">
-            <span><i data-lucide="gamepad-2" aria-hidden="true"></i> Fin City</span>
-            <span aria-hidden="true">→</span>
-          </a>
-          <a class="mobile-nav-link" href="donate.html">Donate</a>
-          <a class="mobile-nav-cta" href="enroll.html">Get Started →</a>
-        </div>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="fin-city.html" class="fin-link">FIN CITY</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="team.html">Team</a>
+        <a href="partnerships.html">Partners</a>
+        <a href="donate.html">Donate</a>
+        <a href="enroll.html" class="btn btn-small">Get Started</a>
       </nav>
+    </div>
+
+    <div class="ticker" aria-label="Money concepts ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"><b>PAY.YOURSELF.FIRST</b><span class="up">▲ always</span></span>
+        <span class="ticker-item"><b>IMPULSE.BUYS</b><span class="down">▼ −$38/wk</span></span>
+        <span class="ticker-item"><b>COMPOUND.INTEREST</b><span class="up">▲▲ over time</span></span>
+        <span class="ticker-item"><b>LATE.FEES</b><span class="down">▼ avoid</span></span>
+        <span class="ticker-item"><b>EMERGENCY.FUND</b><span class="up">▲ 3–6 mo</span></span>
+        <span class="ticker-item"><b>RULE.OF.72</b><span class="up">▲ 72 ÷ rate = years to 2×</span></span>
+        <span class="ticker-item"><b>INFLATION</b><span class="down">▼ buying power</span></span>
+        <span class="ticker-item"><b>DIVERSIFY</b><span class="up">▲ spread risk</span></span>
+        <span class="ticker-item"><b>FOMO</b><span class="down">▼ bad trades</span></span>
+        <span class="ticker-item"><b>CREDIT.SCORE</b><span class="up">▲ 300–850</span></span>
+      </div>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="hero-badge">
-            <i data-lucide="sparkles" aria-hidden="true"></i>
-            STUDENT-LED. FUTURE-FOCUSED.
-          </div>
-
-          <h1>
-            Real-world skills.<br />
-            <span>Real opportunities.</span>
-          </h1>
-
-          <p class="hero-description">
-            We believe every student deserves access to the knowledge that
-            helps them navigate the real world. NextGen Knowledge makes
-            financial literacy and practical education more accessible
-            through engaging programs, hands-on learning, and innovative
+    <section class="page-hero">
+      <div class="container split-2">
+        <div>
+          <div class="kicker">Student-led. Future-focused.</div>
+          <h1>Real-world skills.<br><span class="gold">Real opportunities.</span></h1>
+          <p class="lede">
+            We believe every student deserves access to the knowledge that helps them navigate
+            the real world. NextGen Knowledge makes financial literacy and practical education
+            more accessible through engaging programs, hands-on learning, and innovative
             educational experiences.
           </p>
-
           <div class="hero-actions">
-            <a class="btn btn-primary" href="programs.html">
-              Explore Our Programs
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-            </a>
-            <a class="btn btn-secondary" href="#our-story">
-              Discover Our Story
-              <i data-lucide="arrow-down" aria-hidden="true"></i>
-            </a>
-          </div>
-
-          <div class="hero-note">
-            <i data-lucide="check-circle-2" aria-hidden="true"></i>
-            Education designed to be accessible, practical, and engaging.
+            <a class="btn" href="programs.html">Explore our programs →</a>
+            <a class="btn btn-ghost" href="#our-story">Our story ↓</a>
           </div>
         </div>
 
-        <div class="dashboard reveal delay-2" aria-label="NextGen Knowledge impact overview">
-          <div class="dashboard-top">
-            <span class="dashboard-title">NEXTGEN // IMPACT</span>
-            <span class="dashboard-status">
-              <span class="status-dot"></span>
-              MAKING PROGRESS
-            </span>
+        <div class="report reveal" aria-label="NextGen Knowledge impact overview">
+          <div class="report-head"><span>NEXTGEN KNOWLEDGE</span><span>IMPACT REPORT</span></div>
+          <div class="report-big"><span data-count="350" data-suffix="+">350+</span></div>
+          <p class="report-cap">Students reached through our educational initiatives.</p>
+          <div class="report-figs">
+            <div><strong><span data-count="15" data-suffix="+">15+</span></strong><span>Countries reached</span></div>
+            <div><strong>Real</strong><span>World applications</span></div>
+            <div><strong>Student-led</strong><span>Community-driven</span></div>
+            <div><strong>Hands-on</strong><span>Practical learning</span></div>
           </div>
-
-          <div class="dashboard-intro">
-            <div class="dashboard-label">Learning beyond the classroom</div>
-            <div class="dashboard-big-number">350+</div>
-            <div class="dashboard-caption">Students reached through our educational initiatives</div>
-          </div>
-
-          <div class="dashboard-stats">
-            <div class="dashboard-stat">
-              <i data-lucide="globe-2" aria-hidden="true"></i>
-              <strong>15+</strong>
-              <span>Countries reached</span>
-            </div>
-            <div class="dashboard-stat">
-              <i data-lucide="book-open" aria-hidden="true"></i>
-              <strong>Real</strong>
-              <span>World applications</span>
-            </div>
-            <div class="dashboard-stat">
-              <i data-lucide="users" aria-hidden="true"></i>
-              <strong>Student-led</strong>
-              <span>Community-driven</span>
-            </div>
-            <div class="dashboard-stat">
-              <i data-lucide="lightbulb" aria-hidden="true"></i>
-              <strong>Hands-on</strong>
-              <span>Practical learning</span>
-            </div>
-          </div>
-
-          <div class="dashboard-bottom">
-            <i data-lucide="trending-up" aria-hidden="true"></i>
-            <p>
-              Our goal: turn important real-world concepts into knowledge
-              students can actually use.
-            </p>
-          </div>
+          <p class="report-foot">Our goal: turn important real-world concepts into knowledge students can actually use.</p>
+          <span class="stamp" aria-hidden="true">Audited by students</span>
         </div>
       </div>
     </section>
 
-    <!-- MISSION STRIP -->
-    <section class="mission-strip" aria-label="Our approach">
-      <div class="container mission-strip-inner">
-        <div class="strip-item">
-          <i data-lucide="graduation-cap" aria-hidden="true"></i>
-          Student-led learning
-        </div>
-        <span class="strip-divider" aria-hidden="true"></span>
-        <div class="strip-item">
-          <i data-lucide="wallet" aria-hidden="true"></i>
-          Financial literacy
-        </div>
-        <span class="strip-divider" aria-hidden="true"></span>
-        <div class="strip-item">
-          <i data-lucide="gamepad-2" aria-hidden="true"></i>
-          Interactive education
-        </div>
-        <span class="strip-divider" aria-hidden="true"></span>
-        <div class="strip-item">
-          <i data-lucide="heart-handshake" aria-hidden="true"></i>
-          Community impact
-        </div>
-      </div>
-    </section>
+    <div class="focus-row" aria-label="Our approach">
+      <span><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-cap"/></svg>Student-led learning</span>
+      <span><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg>Financial literacy</span>
+      <span><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg>Interactive education</span>
+      <span><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-heart"/></svg>Community impact</span>
+    </div>
 
     <!-- WHAT WE DO -->
     <section class="section" id="what-we-do">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">What We Do</span>
-          <h2>Learning should prepare you for <span class="gold-text">life.</span></h2>
-          <p>
-            We focus on practical knowledge that students can carry beyond
-            the classroom, with learning experiences built around
-            participation, curiosity, and real-world applications.
-          </p>
+        <div class="section-head reveal">
+          <div class="kicker">What we do</div>
+          <h2>Learning should prepare you for <span class="gold">life.</span></h2>
+          <p>We focus on practical knowledge that students can carry beyond the classroom, with learning experiences built around participation, curiosity, and real-world applications.</p>
         </div>
-
-        <div class="quest-grid">
-          <article class="quest-card reveal">
-            <span class="quest-number">01 / LEARN</span>
-            <div class="quest-icon">
-              <i data-lucide="wallet" aria-hidden="true"></i>
-            </div>
+        <div class="cards">
+          <article class="card reveal">
+            <span class="num">01 / LEARN</span>
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg></span>
             <h3>Financial Literacy</h3>
-            <p>
-              Help students understand money, budgeting, banking, saving,
-              investing, and the financial decisions they will encounter
-              as they grow.
-            </p>
-            <span class="quest-tag">Money Skills</span>
+            <p>Help students understand money, budgeting, banking, saving, investing, and the financial decisions they will encounter as they grow.</p>
+            <div class="tags"><span class="tag gold">Money skills</span></div>
           </article>
-
-          <article class="quest-card reveal delay-1">
-            <span class="quest-number">02 / APPLY</span>
-            <div class="quest-icon">
-              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
-            </div>
+          <article class="card reveal">
+            <span class="num">02 / APPLY</span>
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span>
             <h3>Practical Programs</h3>
-            <p>
-              Our courses and workshops turn concepts into approachable
-              learning experiences through examples, activities, and
-              guided participation.
-            </p>
-            <span class="quest-tag">Hands-On Learning</span>
+            <p>Our courses and workshops turn concepts into approachable learning experiences through examples, activities, and guided participation.</p>
+            <div class="tags"><span class="tag gold">Hands-on learning</span></div>
           </article>
-
-          <article class="quest-card reveal delay-2">
-            <span class="quest-number">03 / EXPLORE</span>
-            <div class="quest-icon">
-              <i data-lucide="gamepad-2" aria-hidden="true"></i>
-            </div>
+          <article class="card reveal">
+            <span class="num">03 / EXPLORE</span>
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg></span>
             <h3>Interactive Education</h3>
-            <p>
-              Through projects such as Fin City, we are exploring new ways
-              to make financial concepts more engaging, memorable, and
-              approachable for young learners.
-            </p>
-            <span class="quest-tag">Learning Through Play</span>
+            <p>Through projects such as Fin City, we are exploring new ways to make financial concepts more engaging, memorable, and approachable for young learners.</p>
+            <div class="tags"><span class="tag gold">Learning through play</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- OUR STORY -->
-    <section class="section section-alt" id="our-story">
-      <div class="container story-grid">
-        <div class="story-aside reveal">
-          <span class="eyebrow">Our Story</span>
-          <h2>Built by students. <span class="gold-text">For the next generation.</span></h2>
-          <p>
-            We started with a simple idea: students should have more
-            opportunities to learn the practical skills that traditional
-            classrooms may not always have time to cover.
-          </p>
-          <p>
-            That idea continues to shape our programs, community
-            partnerships, and educational projects.
-          </p>
-          <a class="btn btn-secondary" href="programs.html">
-            See What We're Building
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
+    <!-- OUR STORY: GROWTH CHART -->
+    <section class="section alt" id="our-story">
+      <div class="container split-2">
+        <div class="reveal">
+          <div class="kicker">Our story</div>
+          <h2>Built by students. <span class="gold">For the next generation.</span></h2>
+          <p>We started with a simple idea: students should have more opportunities to learn the practical skills that traditional classrooms may not always have time to cover.</p>
+          <p>That idea continues to shape our programs, community partnerships, and educational projects. Our story reads best as a growth chart, so click a bar.</p>
+          <a class="btn btn-ghost" href="programs.html">See what we're building →</a>
         </div>
 
-        <div class="story-timeline reveal delay-1">
-          <article class="story-step active" tabindex="0" role="button" aria-expanded="true">
-            <div class="story-step-number">01</div>
-            <div>
-              <h3>The Idea</h3>
-              <p>
-                Make practical education more accessible to young people.
-              </p>
-              <div class="story-detail">
-                We recognized that learning about money and real-world
-                decisions early can help students build a stronger
-                foundation for the future.
-              </div>
-            </div>
-          </article>
+        <div class="chart px-border reveal">
+          <div class="panel-bar"><span>NGK // GROWTH CHART</span><span class="live">▲ TRENDING UP</span></div>
+          <div class="bars" role="tablist" aria-label="Our story milestones">
+            <button class="milestone" style="--h:28%" role="tab" id="m1" aria-controls="md1" aria-selected="true"><span>01</span></button>
+            <button class="milestone" style="--h:48%" role="tab" id="m2" aria-controls="md2" aria-selected="false" tabindex="-1"><span>02</span></button>
+            <button class="milestone" style="--h:68%" role="tab" id="m3" aria-controls="md3" aria-selected="false" tabindex="-1"><span>03</span></button>
+            <button class="milestone" style="--h:92%" role="tab" id="m4" aria-controls="md4" aria-selected="false" tabindex="-1"><span>04</span></button>
+          </div>
+          <div class="chart-axis" aria-hidden="true"><span>THE IDEA</span><span>TODAY</span><span>NEXT</span></div>
 
-          <article class="story-step" tabindex="0" role="button" aria-expanded="false">
-            <div class="story-step-number">02</div>
-            <div>
-              <h3>Building Learning Experiences</h3>
-              <p>
-                Turn important concepts into structured, engaging programs.
-              </p>
-              <div class="story-detail">
-                Our educational initiatives include Money Masters,
-                Investors Academy, financial literacy workshops, and
-                interactive learning projects.
-              </div>
-            </div>
-          </article>
-
-          <article class="story-step" tabindex="0" role="button" aria-expanded="false">
-            <div class="story-step-number">03</div>
-            <div>
-              <h3>Growing Our Community</h3>
-              <p>
-                Connect with students, families, and community organizations.
-              </p>
-              <div class="story-detail">
-                We are working to broaden access through outreach,
-                educational partnerships, and opportunities to bring
-                financial literacy to more communities.
-              </div>
-            </div>
-          </article>
-
-          <article class="story-step" tabindex="0" role="button" aria-expanded="false">
-            <div class="story-step-number">04</div>
-            <div>
-              <h3>Looking Ahead</h3>
-              <p>
-                Develop new ways to make real-world education accessible.
-              </p>
-              <div class="story-detail">
-                From expanded workshops to Fin City, we continue to
-                explore practical and interactive ways for students to
-                learn, practice, and build confidence.
-              </div>
-            </div>
-          </article>
+          <div class="milestone-detail" id="md1" role="tabpanel" aria-labelledby="m1">
+            <h3>The Idea</h3>
+            <p class="sub">Make practical education more accessible to young people.</p>
+            <p>We recognized that learning about money and real-world decisions early can help students build a stronger foundation for the future.</p>
+          </div>
+          <div class="milestone-detail" id="md2" role="tabpanel" aria-labelledby="m2" hidden>
+            <h3>Building Learning Experiences</h3>
+            <p class="sub">Turn important concepts into structured, engaging programs.</p>
+            <p>Our educational initiatives include Money Masters, Investors Academy, financial literacy workshops, and interactive learning projects.</p>
+          </div>
+          <div class="milestone-detail" id="md3" role="tabpanel" aria-labelledby="m3" hidden>
+            <h3>Growing Our Community</h3>
+            <p class="sub">Connect with students, families, and community organizations.</p>
+            <p>We are working to broaden access through outreach, educational partnerships, and opportunities to bring financial literacy to more communities.</p>
+          </div>
+          <div class="milestone-detail" id="md4" role="tabpanel" aria-labelledby="m4" hidden>
+            <h3>Looking Ahead</h3>
+            <p class="sub">Develop new ways to make real-world education accessible.</p>
+            <p>From expanded workshops to Fin City, we continue to explore practical and interactive ways for students to learn, practice, and build confidence.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- MISSION -->
+    <!-- MISSION CERTIFICATE -->
     <section class="section" id="mission">
       <div class="container">
-        <div class="mission-panel reveal">
-          <div class="mission-copy">
-            <span class="eyebrow">Our Mission</span>
-            <h2>Make real-world education <span class="gold-text">accessible.</span></h2>
-            <p>
-              NextGen Knowledge is a student-led educational organization
-              focused on making practical learning available to the next
-              generation.
-            </p>
-            <p>
-              We believe students should have opportunities to explore
-              financial concepts, ask questions, practice decision-making,
-              and develop skills that can support them throughout life.
-            </p>
-            <p>
-              We aim to make that learning approachable through free
-              educational programs, community workshops, and new
-              interactive experiences.
-            </p>
-            <a class="btn btn-primary" href="enroll.html">
-              Get Involved
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-            </a>
+        <div class="certificate reveal">
+          <div class="kicker">Our mission</div>
+          <h2>Make real-world education accessible.</h2>
+          <p>NextGen Knowledge is a student-led educational organization focused on making practical learning available to the next generation.</p>
+          <p>We believe students should have opportunities to explore financial concepts, ask questions, practice decision-making, and develop skills that can support them throughout life. We aim to make that learning approachable through free educational programs, community workshops, and new interactive experiences.</p>
+          <div class="signatures" aria-hidden="true">
+            <span><b>NextGen Knowledge</b>ISSUED BY</span>
+            <span><b>The next generation</b>PAYABLE TO</span>
           </div>
-
-          <div class="mission-visual" aria-label="Pixel-inspired city representing Fin City and the future of learning">
-            <div class="pixel-city" aria-hidden="true">
-              <div class="pixel-building"></div>
-              <div class="pixel-building"></div>
-              <div class="pixel-building"></div>
-              <div class="pixel-building"></div>
-              <div class="pixel-building"></div>
-              <div class="pixel-building"></div>
-              <div class="city-label">Build Your Future</div>
-            </div>
-          </div>
+          <a class="btn btn-ink" href="enroll.html">Get involved →</a>
+          <span class="stamp" aria-hidden="true">Free of charge</span>
         </div>
       </div>
     </section>
 
     <!-- PRINCIPLES -->
-    <section class="section section-alt" id="principles">
-      <div class="container principles-layout">
-        <div class="principles-intro reveal">
-          <span class="eyebrow">What Guides Us</span>
-          <h2>Our work starts with <span class="gold-text">what matters.</span></h2>
-          <p>
-            These principles shape how we design our programs, work with
-            communities, and approach educational opportunities.
-          </p>
+    <section class="section alt" id="principles">
+      <div class="container split-2 top">
+        <div class="reveal">
+          <div class="kicker">What guides us</div>
+          <h2>Our work starts with <span class="gold">what matters.</span></h2>
+          <p>These principles shape how we design our programs, work with communities, and approach educational opportunities.</p>
         </div>
 
-        <div class="principles-interactive reveal delay-1">
-          <div class="principle-tabs" role="tablist" aria-label="Our guiding principles">
-            <button
-              class="principle-tab active"
-              id="tab-accessibility"
-              type="button"
-              role="tab"
-              aria-selected="true"
-              aria-controls="principle-accessibility"
-              data-principle="accessibility"
-            >Accessibility</button>
-
-            <button
-              class="principle-tab"
-              id="tab-practical"
-              type="button"
-              role="tab"
-              aria-selected="false"
-              aria-controls="principle-practical"
-              data-principle="practical"
-            >Practicality</button>
-
-            <button
-              class="principle-tab"
-              id="tab-community"
-              type="button"
-              role="tab"
-              aria-selected="false"
-              aria-controls="principle-community"
-              data-principle="community"
-            >Community</button>
-
-            <button
-              class="principle-tab"
-              id="tab-innovation"
-              type="button"
-              role="tab"
-              aria-selected="false"
-              aria-controls="principle-innovation"
-              data-principle="innovation"
-            >Innovation</button>
+        <div class="reveal">
+          <div class="tablist" role="tablist" aria-label="Our guiding principles">
+            <button role="tab" id="t-acc" aria-controls="p-acc" aria-selected="true">Accessibility</button>
+            <button role="tab" id="t-pra" aria-controls="p-pra" aria-selected="false" tabindex="-1">Practicality</button>
+            <button role="tab" id="t-com" aria-controls="p-com" aria-selected="false" tabindex="-1">Community</button>
+            <button role="tab" id="t-inn" aria-controls="p-inn" aria-selected="false" tabindex="-1">Innovation</button>
           </div>
-
-          <div
-            class="principle-content"
-            id="principle-accessibility"
-            role="tabpanel"
-            aria-labelledby="tab-accessibility"
-          >
-            <div class="principle-icon">
-              <i data-lucide="door-open" aria-hidden="true"></i>
-            </div>
-            <h3>Learning should be within reach.</h3>
-            <p>
-              We work to lower barriers to educational opportunities.
-              Our free programs and outreach efforts aim to help more
-              students access useful knowledge, regardless of their
-              previous experience.
-            </p>
+          <div class="principle" id="p-acc" role="tabpanel" aria-labelledby="t-acc">
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-door"/></svg></span>
+            <div><h3>Learning should be within reach.</h3><p>We work to lower barriers to educational opportunities. Our free programs and outreach efforts aim to help more students access useful knowledge, regardless of their previous experience.</p></div>
           </div>
-
-          <div
-            class="principle-content"
-            id="principle-practical"
-            role="tabpanel"
-            aria-labelledby="tab-practical"
-            hidden
-          >
-            <div class="principle-icon">
-              <i data-lucide="puzzle" aria-hidden="true"></i>
-            </div>
-            <h3>Knowledge should have a purpose.</h3>
-            <p>
-              We emphasize concepts students can apply outside a lesson.
-              Through examples, activities, and guided exercises, we aim
-              to connect learning with real decisions and everyday life.
-            </p>
+          <div class="principle" id="p-pra" role="tabpanel" aria-labelledby="t-pra" hidden>
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-puzzle"/></svg></span>
+            <div><h3>Knowledge should have a purpose.</h3><p>We emphasize concepts students can apply outside a lesson. Through examples, activities, and guided exercises, we aim to connect learning with real decisions and everyday life.</p></div>
           </div>
-
-          <div
-            class="principle-content"
-            id="principle-community"
-            role="tabpanel"
-            aria-labelledby="tab-community"
-            hidden
-          >
-            <div class="principle-icon">
-              <i data-lucide="users" aria-hidden="true"></i>
-            </div>
-            <h3>Progress happens together.</h3>
-            <p>
-              Students, families, volunteers, educators, and community
-              organizations all play a role in expanding access to
-              education. We value collaboration and shared learning.
-            </p>
+          <div class="principle" id="p-com" role="tabpanel" aria-labelledby="t-com" hidden>
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-users"/></svg></span>
+            <div><h3>Progress happens together.</h3><p>Students, families, volunteers, educators, and community organizations all play a role in expanding access to education. We value collaboration and shared learning.</p></div>
           </div>
-
-          <div
-            class="principle-content"
-            id="principle-innovation"
-            role="tabpanel"
-            aria-labelledby="tab-innovation"
-            hidden
-          >
-            <div class="principle-icon">
-              <i data-lucide="lightbulb" aria-hidden="true"></i>
-            </div>
-            <h3>There is always a better way to learn.</h3>
-            <p>
-              We explore new formats for educational experiences,
-              including interactive projects, simulations, and
-              technology-enabled tools that can make learning more
-              engaging.
-            </p>
+          <div class="principle" id="p-inn" role="tabpanel" aria-labelledby="t-inn" hidden>
+            <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-bulb"/></svg></span>
+            <div><h3>There is always a better way to learn.</h3><p>We explore new formats for educational experiences, including interactive projects, simulations, and technology-enabled tools that can make learning more engaging.</p></div>
           </div>
         </div>
       </div>
@@ -2272,569 +330,154 @@
     <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">Beyond the Classroom</span>
-          <h2>Skills that move with <span class="gold-text">you.</span></h2>
-          <p>
-            Our educational approach connects foundational knowledge
-            with the habits and skills students can continue developing
-            as they grow.
-          </p>
+        <div class="section-head reveal">
+          <div class="kicker">Beyond the classroom</div>
+          <h2>Skills that move with <span class="gold">you.</span></h2>
+          <p>Our educational approach connects foundational knowledge with the habits and skills students can continue developing as they grow.</p>
         </div>
-
-        <div class="skills-grid">
-          <article class="skill-card reveal">
-            <div class="skill-icon">
-              <i data-lucide="wallet" aria-hidden="true"></i>
-            </div>
-            <h3>Money Management</h3>
-            <p>Understand budgeting, spending choices, saving, and financial planning.</p>
-          </article>
-
-          <article class="skill-card reveal delay-1">
-            <div class="skill-icon">
-              <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
-            </div>
-            <h3>Financial Thinking</h3>
-            <p>Explore investing, risk, returns, and the trade-offs behind decisions.</p>
-          </article>
-
-          <article class="skill-card reveal delay-2">
-            <div class="skill-icon">
-              <i data-lucide="brain" aria-hidden="true"></i>
-            </div>
-            <h3>Critical Thinking</h3>
-            <p>Ask questions, compare alternatives, and reason through problems.</p>
-          </article>
-
-          <article class="skill-card reveal delay-3">
-            <div class="skill-icon">
-              <i data-lucide="target" aria-hidden="true"></i>
-            </div>
-            <h3>Decision-Making</h3>
-            <p>Build confidence in evaluating options and considering consequences.</p>
-          </article>
+        <div class="cards">
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg></span><h3>Money Management</h3><p>Understand budgeting, spending choices, saving, and financial planning.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><h3>Financial Thinking</h3><p>Explore investing, risk, returns, and the trade-offs behind decisions.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-puzzle"/></svg></span><h3>Critical Thinking</h3><p>Ask questions, compare alternatives, and reason through problems.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-target"/></svg></span><h3>Decision-Making</h3><p>Build confidence in evaluating options and considering consequences.</p></article>
         </div>
       </div>
     </section>
 
     <!-- STUDENT-LED -->
-    <section class="section section-alt" id="student-led">
-      <div class="container student-led-grid">
-        <div class="student-led-copy reveal">
-          <span class="eyebrow">Student-Led by Design</span>
-          <h2>Students helping students <span class="gold-text">move forward.</span></h2>
-          <p>
-            NextGen Knowledge is built by students who want to make
-            practical education more accessible to their peers and younger
-            learners.
-          </p>
-          <p>
-            Our student-led approach brings together people interested
-            in education, finance, outreach, and building new learning
-            experiences.
-          </p>
-
-          <div class="student-led-points">
-            <div class="student-led-point">
-              <i data-lucide="check-circle-2" aria-hidden="true"></i>
-              <span>Programs designed around student learning needs.</span>
-            </div>
-            <div class="student-led-point">
-              <i data-lucide="check-circle-2" aria-hidden="true"></i>
-              <span>Collaborative projects with practical educational goals.</span>
-            </div>
-            <div class="student-led-point">
-              <i data-lucide="check-circle-2" aria-hidden="true"></i>
-              <span>Opportunities to contribute to meaningful community initiatives.</span>
-            </div>
-          </div>
-
-          <a class="btn btn-primary" href="team.html">
-            Meet Our Team
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
+    <section class="section alt" id="student-led">
+      <div class="container split-2">
+        <div class="reveal">
+          <div class="kicker">Student-led by design</div>
+          <h2>Students helping students <span class="gold">move forward.</span></h2>
+          <p>NextGen Knowledge is built by students who want to make practical education more accessible to their peers and younger learners.</p>
+          <p>Our student-led approach brings together people interested in education, finance, outreach, and building new learning experiences.</p>
+          <ul class="px-list" style="margin: 24px 0 32px">
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-check"/></svg><span>Programs designed around student learning needs.</span></li>
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-check"/></svg><span>Collaborative projects with practical educational goals.</span></li>
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-check"/></svg><span>Opportunities to contribute to meaningful community initiatives.</span></li>
+          </ul>
+          <a class="btn" href="team.html">Meet our team →</a>
         </div>
 
-        <div class="student-card reveal delay-1">
-          <div class="student-card-header">
-            <span>HOW WE WORK</span>
-            <span>STUDENT-LED</span>
-          </div>
-
-          <div class="student-role">
-            <div class="student-role-icon">
-              <i data-lucide="book-open" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h3>Education & Programs</h3>
-              <p>Develop useful, approachable learning experiences.</p>
-            </div>
-          </div>
-
-          <div class="student-role">
-            <div class="student-role-icon">
-              <i data-lucide="handshake" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h3>Outreach & Partnerships</h3>
-              <p>Connect with schools and community organizations.</p>
-            </div>
-          </div>
-
-          <div class="student-role">
-            <div class="student-role-icon">
-              <i data-lucide="megaphone" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h3>Communications & Community</h3>
-              <p>Share resources and make programs easier to discover.</p>
-            </div>
-          </div>
-
-          <div class="student-role">
-            <div class="student-role-icon">
-              <i data-lucide="lightbulb" aria-hidden="true"></i>
-            </div>
-            <div>
-              <h3>Innovation & Projects</h3>
-              <p>Explore new tools and formats for practical education.</p>
-            </div>
-          </div>
+        <div class="panel px-border roles reveal">
+          <div class="panel-bar"><span>HOW WE WORK</span><span class="live">● STUDENT-LED</span></div>
+          <div class="role"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg></span><div><h3>Education &amp; Programs</h3><p>Develop useful, approachable learning experiences.</p></div></div>
+          <div class="role"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-handshake"/></svg></span><div><h3>Outreach &amp; Partnerships</h3><p>Connect with schools and community organizations.</p></div></div>
+          <div class="role"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-megaphone"/></svg></span><div><h3>Communications &amp; Community</h3><p>Share resources and make programs easier to discover.</p></div></div>
+          <div class="role"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-bulb"/></svg></span><div><h3>Innovation &amp; Projects</h3><p>Explore new tools and formats for practical education.</p></div></div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
     <section class="section" id="faq">
-      <div class="container faq-layout">
-        <div class="faq-intro reveal">
-          <span class="eyebrow">Frequently Asked Questions</span>
-          <h2>Good questions deserve <span class="gold-text">clear answers.</span></h2>
-          <p>
-            Learn more about our organization, our educational programs,
-            and ways to get involved.
-          </p>
-          <a class="btn btn-secondary" href="enroll.html">
-            Explore Opportunities
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
+      <div class="container split-2 top">
+        <div class="reveal">
+          <div class="kicker">The fine print</div>
+          <h2>Good questions deserve <span class="gold">clear answers.</span></h2>
+          <p>Learn more about our organization, our educational programs, and ways to get involved.</p>
+          <a class="btn btn-ghost" href="enroll.html">Explore opportunities →</a>
         </div>
 
-        <div class="faq-list reveal delay-1">
-          <article class="faq-item open">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="true"
-            >
-              What is NextGen Knowledge?
-              <i data-lucide="plus" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer">
-              NextGen Knowledge is a student-led educational organization
-              focused on making real-world education, especially financial
-              literacy, more accessible to young learners through programs,
-              workshops, and interactive educational projects.
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              Who can participate in your programs?
-              <i data-lucide="plus" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              Our programs are designed for young learners, with the
-              intended age or grade range depending on the specific course
-              or workshop. Visit our Programs page for details about
-              current offerings.
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              Do students have to pay to participate?
-              <i data-lucide="plus" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              Our educational initiatives are designed to expand access,
-              and our programs may be offered free of charge. Check the
-              individual program information for current participation
-              details.
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              What is Fin City?
-              <i data-lucide="plus" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              Fin City is an interactive financial literacy game project
-              from NextGen Knowledge. It is being developed to help young
-              learners explore financial concepts through a virtual
-              environment and practical activities.
-              <a class="gold-text" href="fin-city.html">Learn more about Fin City →</a>
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              Can a school, library, or community center partner with us?
-              <i data-lucide="plus" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              Yes. We welcome conversations with schools, libraries,
-              community centers, and other organizations interested in
-              financial literacy workshops or educational partnerships.
-              Visit our
-              <a class="gold-text" href="partnerships.html">Partnerships page</a>
-              to learn more.
-            </div>
-          </article>
-
-          <article class="faq-item">
-            <button
-              class="faq-question"
-              type="button"
-              aria-expanded="false"
-            >
-              How can I support NextGen Knowledge?
-              <i data-lucide="plus" aria-hidden="true"></i>
-            </button>
-            <div class="faq-answer" hidden>
-              You can explore our programs, share our educational
-              resources, discuss a community partnership, contribute
-              to our work, or learn about opportunities to join the team.
-              Visit our
-              <a class="gold-text" href="donate.html">Donate page</a>
-              or
-              <a class="gold-text" href="team.html">Team page</a>
-              to get started.
-            </div>
-          </article>
+        <div class="faq reveal">
+          <details open>
+            <summary>What is NextGen Knowledge?</summary>
+            <div class="answer">NextGen Knowledge is a student-led educational organization focused on making real-world education, especially financial literacy, more accessible to young learners through programs, workshops, and interactive educational projects.</div>
+          </details>
+          <details>
+            <summary>Who can participate in your programs?</summary>
+            <div class="answer">Our programs are designed for young learners, with the intended age or grade range depending on the specific course or workshop. Visit our <a href="programs.html">Programs page</a> for details about current offerings.</div>
+          </details>
+          <details>
+            <summary>Do students have to pay to participate?</summary>
+            <div class="answer">Our educational initiatives are designed to expand access, and our programs may be offered free of charge. Check the individual program information for current participation details.</div>
+          </details>
+          <details>
+            <summary>What is Fin City?</summary>
+            <div class="answer">Fin City is an interactive financial literacy game project from NextGen Knowledge. It is being developed to help young learners explore financial concepts through a virtual environment and practical activities. <a href="fin-city.html">Learn more about Fin City →</a></div>
+          </details>
+          <details>
+            <summary>Can a school, library, or community center partner with us?</summary>
+            <div class="answer">Yes. We welcome conversations with schools, libraries, community centers, and other organizations interested in financial literacy workshops or educational partnerships. Visit our <a href="partnerships.html">Partnerships page</a> to learn more.</div>
+          </details>
+          <details>
+            <summary>How can I support NextGen Knowledge?</summary>
+            <div class="answer">You can explore our programs, share our educational resources, discuss a community partnership, contribute to our work, or learn about opportunities to join the team. Visit our <a href="donate.html">Donate page</a> or <a href="team.html">Team page</a> to get started.</div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta">
-      <div class="container final-cta-inner reveal">
-        <span class="eyebrow">Your Next Step Starts Here</span>
-        <h2>Let's make learning <span class="gold-text">matter.</span></h2>
-        <p>
-          Discover our programs, explore our projects, or connect with us
-          to help make practical education accessible to more students.
-        </p>
-
-        <div class="final-cta-actions">
-          <a class="btn btn-primary" href="programs.html">
-            Explore Programs
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-          <a class="btn btn-secondary" href="partnerships.html">
-            Partner With Us
-            <i data-lucide="handshake" aria-hidden="true"></i>
-          </a>
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="note reveal">
+          <span class="note-corner tl" aria-hidden="true">∞</span><span class="note-corner tr" aria-hidden="true">∞</span>
+          <span class="note-corner bl" aria-hidden="true">∞</span><span class="note-corner br" aria-hidden="true">∞</span>
+          <div class="note-inner">
+            <div>
+              <span class="serial">NG 2026 ABT0 K</span>
+              <h2>Let's make learning matter.</h2>
+              <p>Discover our programs, explore our projects, or connect with us to help make practical education accessible to more students.</p>
+              <p class="legal">Redeemable for one practical education.</p>
+              <div class="note-actions">
+                <a href="programs.html" class="btn btn-ink">Explore programs →</a>
+                <a href="partnerships.html" class="btn btn-ghost">Partner with us</a>
+              </div>
+            </div>
+            <div class="seal" aria-hidden="true"><div><img src="IMG_1383.jpeg" alt="">IN KNOWLEDGE<br>WE TRUST</div></div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand">
-          <a class="brand" href="index.html" aria-label="NextGen Knowledge home">
-            <img
-              class="brand-logo"
-              src="IMG_1383.jpeg"
-              alt="NextGen Knowledge logo"
-              onerror="this.style.display='none'"
-            />
-            <span class="brand-copy">
-              <span class="brand-name">NextGen Knowledge</span>
-              <span class="brand-tagline">Learn Today. Lead Tomorrow.</span>
-            </span>
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">
+            <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+            <span class="brand-name">NextGen Knowledge<small>REAL-WORLD EDUCATION</small></span>
           </a>
-
-          <p>
-            A student-led educational organization making real-world
-            education and financial literacy more accessible to the next
-            generation.
-          </p>
-
-          <div class="footer-socials">
-            <a
-              href="https://www.instagram.com/nextgen.knowledge"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <i data-lucide="instagram" aria-hidden="true"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/company/next-gen-knowledge/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <i data-lucide="linkedin" aria-hidden="true"></i>
-            </a>
-          </div>
+          <p class="footer-about">A student-led educational organization focused on making practical financial literacy and real-world learning more accessible.</p>
         </div>
 
-        <div class="footer-column">
-          <h3>Explore</h3>
-          <a href="index.html">Home</a>
+        <div class="footer-col">
+          <h4>Explore</h4>
           <a href="about.html">About Us</a>
           <a href="programs.html">Programs</a>
           <a href="team.html">Our Team</a>
-        </div>
-
-        <div class="footer-column">
-          <h3>Get Involved</h3>
-          <a href="enroll.html">Enroll</a>
-          <a href="partnerships.html">Partnerships</a>
-          <a href="donate.html">Donate</a>
           <a href="fin-city.html">Fin City</a>
         </div>
 
-        <div class="footer-column">
-          <h3>Our Focus</h3>
-          <a href="programs.html">Financial Literacy</a>
-          <a href="programs.html">Money Masters</a>
-          <a href="programs.html">Investors Academy</a>
-          <a href="partnerships.html">Community Workshops</a>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <a href="enroll.html">Enroll in a Program</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Support Our Work</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p>© <span id="footer-year"></span> NextGen Knowledge. All rights reserved.</p>
-        <p class="footer-disclaimer">
-          NextGen Knowledge is a fiscally sponsored project of Hack Club
-          Foundation, a 501(c)(3) nonprofit organization.
-        </p>
+      <div class="footer-receipt">
+        <span>© <span id="currentYear"></span> NEXT-GEN KNOWLEDGE. ALL RIGHTS RESERVED.</span>
+        <span class="gold">*** CHANGE DUE: YOUR FUTURE ***</span>
+        <span>LEARN TODAY. BUILD TOMORROW.</span>
       </div>
+      <p class="sponsor-note">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
     </div>
   </footer>
 
-  <script>
-    // Initialize icons.
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
+  <script src="site.js"></script>
 
-    // Mobile navigation.
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileMenuIcon = document.getElementById("mobile-menu-icon");
-
-    function closeMobileMenu() {
-      mobileMenu.hidden = true;
-      mobileMenuButton.setAttribute("aria-expanded", "false");
-      mobileMenuButton.setAttribute("aria-label", "Open navigation menu");
-      document.body.classList.remove("menu-open");
-
-      if (mobileMenuIcon) {
-        mobileMenuIcon.setAttribute("data-lucide", "menu");
-      }
-
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
-
-    function openMobileMenu() {
-      mobileMenu.hidden = false;
-      mobileMenuButton.setAttribute("aria-expanded", "true");
-      mobileMenuButton.setAttribute("aria-label", "Close navigation menu");
-      document.body.classList.add("menu-open");
-
-      if (mobileMenuIcon) {
-        mobileMenuIcon.setAttribute("data-lucide", "x");
-      }
-
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
-
-    mobileMenuButton.addEventListener("click", () => {
-      const isOpen = mobileMenuButton.getAttribute("aria-expanded") === "true";
-
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMobileMenu);
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closeMobileMenu();
-      }
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 960) {
-        closeMobileMenu();
-      }
-    });
-
-    // Reading progress bar.
-    const readingProgress = document.getElementById("reading-progress");
-
-    function updateReadingProgress() {
-      const scrollableHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-      const progress =
-        scrollableHeight > 0
-          ? (window.scrollY / scrollableHeight) * 100
-          : 0;
-
-      readingProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
-    }
-
-    window.addEventListener("scroll", updateReadingProgress, {
-      passive: true
-    });
-
-    window.addEventListener("resize", updateReadingProgress);
-    updateReadingProgress();
-
-    // Reveal sections as they enter the viewport.
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.12
-        }
-      );
-
-      revealElements.forEach((element) => {
-        revealObserver.observe(element);
-      });
-    } else {
-      revealElements.forEach((element) => {
-        element.classList.add("visible");
-      });
-    }
-
-    // Interactive story timeline.
-    const storySteps = document.querySelectorAll(".story-step");
-
-    function activateStoryStep(selectedStep) {
-      storySteps.forEach((step) => {
-        const isActive = step === selectedStep;
-        step.classList.toggle("active", isActive);
-        step.setAttribute("aria-expanded", String(isActive));
-      });
-    }
-
-    storySteps.forEach((step) => {
-      step.addEventListener("click", () => {
-        activateStoryStep(step);
-      });
-
-      step.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          activateStoryStep(step);
-        }
-      });
-    });
-
-    // Interactive principles tabs.
-    const principleTabs = document.querySelectorAll(".principle-tab");
-    const principlePanels = document.querySelectorAll(".principle-content");
-
-    principleTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const targetId = tab.getAttribute("aria-controls");
-
-        principleTabs.forEach((otherTab) => {
-          const isSelected = otherTab === tab;
-          otherTab.classList.toggle("active", isSelected);
-          otherTab.setAttribute("aria-selected", String(isSelected));
-          otherTab.tabIndex = isSelected ? 0 : -1;
-        });
-
-        principlePanels.forEach((panel) => {
-          panel.hidden = panel.id !== targetId;
-        });
-      });
-
-      tab.addEventListener("keydown", (event) => {
-        const tabs = Array.from(principleTabs);
-        const currentIndex = tabs.indexOf(tab);
-        let nextIndex = currentIndex;
-
-        if (event.key === "ArrowRight") {
-          nextIndex = (currentIndex + 1) % tabs.length;
-        } else if (event.key === "ArrowLeft") {
-          nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
-        } else {
-          return;
-        }
-
-        event.preventDefault();
-        tabs[nextIndex].focus();
-        tabs[nextIndex].click();
-      });
-    });
-
-    // FAQ accordion.
-    const faqItems = document.querySelectorAll(".faq-item");
-
-    faqItems.forEach((item) => {
-      const question = item.querySelector(".faq-question");
-      const answer = item.querySelector(".faq-answer");
-
-      question.addEventListener("click", () => {
-        const willOpen = !item.classList.contains("open");
-
-        item.classList.toggle("open", willOpen);
-        question.setAttribute("aria-expanded", String(willOpen));
-        answer.hidden = !willOpen;
-      });
-    });
-
-    // Dynamic footer year.
-    document.getElementById("footer-year").textContent =
-      new Date().getFullYear();
-  </script>
 </body>
 </html>
