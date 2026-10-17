@@ -28,30 +28,6 @@
   </script>
 
   <style>
-    /* diversification simulator */
-    .sim .readout-row { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 14px; }
-    .sim .big { font-family: var(--term); font-size: 2.6rem; line-height: 1; color: var(--gold-bright); }
-    .sim .big small { display: block; font-family: var(--pixel); font-size: .45rem; color: #8FA2BA; margin-bottom: 6px; }
-    .meter { text-align: right; }
-    .meter small { display: block; font-family: var(--pixel); font-size: .45rem; color: #8FA2BA; margin-bottom: 8px; }
-    .meter-bar { display: flex; gap: 3px; justify-content: flex-end; }
-    .meter-bar i { width: 10px; height: 18px; background: #14304F; }
-    .meter-bar i.on { background: var(--mc, var(--green)); }
-    .plot { position: relative; height: 200px; display: flex; align-items: end; gap: 2px; padding: 8px; background: #071426; box-shadow: inset 0 0 0 3px #1B3554; }
-    .plot::before { content: ""; position: absolute; left: 8px; right: 8px; bottom: var(--base); border-top: 2px dashed rgba(241,215,120,.4); }
-    .plot i { flex: 1; background: var(--blue); transition: height .25s steps(4); }
-    .plot i.down { background: var(--red); }
-    .sim label { display: flex; justify-content: space-between; margin: 18px 0 2px; font-weight: 700; }
-    .sim label output { font-family: var(--term); font-size: 1.3rem; font-weight: 400; color: var(--gold-bright); }
-    .sim input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; background: transparent; cursor: pointer; }
-    .sim input[type="range"]::-webkit-slider-runnable-track { height: 12px; background: #071426; box-shadow: 0 0 0 3px #1B3554; }
-    .sim input[type="range"]::-moz-range-track { height: 12px; background: #071426; box-shadow: 0 0 0 3px #1B3554; }
-    .sim input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 28px; margin-top: -8px; background: var(--gold-bright); box-shadow: 3px 3px 0 #030A13; }
-    .sim input[type="range"]::-moz-range-thumb { width: 24px; height: 28px; border: 0; border-radius: 0; background: var(--gold-bright); box-shadow: 3px 3px 0 #030A13; }
-    .sim-note { margin: 10px 0 0; font-size: .85rem; color: #A9B8CC; }
-    .sim-note strong { color: var(--green); }
-    .sim-btn { margin-top: 14px; }
-
     /* program statements */
     .accounts { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
     .statement { display: flex; flex-direction: column; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
@@ -78,7 +54,11 @@
     .st-kpis div { padding: 12px 14px; background: rgba(29,27,22,.06); }
     .st-kpis strong { display: block; font-family: var(--term); font-size: 1.7rem; font-weight: 400; line-height: 1.1; color: #1C3B6B; }
     .st-kpis span { font-size: .85rem; color: #4A4334; }
-    .statement .btn { margin-top: 24px; align-self: flex-start; }
+    .st-btns { display: flex; flex-wrap: wrap; gap: 20px; margin-top: auto; padding-top: 24px; }
+    .hero-cart { width: 100%; max-width: 460px; margin-left: auto; }
+    .hero-cart h3 { font-size: 1.6rem; }
+    .gains { margin-top: 34px; }
+    .gains b { display: block; margin-bottom: 10px; font-family: var(--pixel); font-size: .5rem; color: #8FA2BA; font-weight: 400; }
 
     /* approach pipeline */
     .pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
@@ -98,7 +78,7 @@
     .ledger-tbl td span { color: #4A4334; font-size: .95rem; }
     .ledger-tbl tr.final td { background: rgba(241,215,120,.35); }
     .ledger-tbl tr:last-child td { border-bottom: 0; }
-    .curr-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 26px 0 16px; }
+    .curr-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 0 0 16px; }
     .curr-meta h3 { margin: 0; font-size: 1.5rem; }
     .notice { margin-top: 26px; padding: 16px 18px; font-size: .93rem; color: #C8D3E1; background: rgba(217,182,77,.08); box-shadow: inset 4px 0 0 var(--gold); }
     .notice strong { color: var(--gold-bright); font-family: var(--pixel); font-size: .48rem; display: block; margin-bottom: 6px; }
@@ -177,21 +157,15 @@
           </div>
         </div>
 
-        <div class="panel px-border sim reveal" aria-labelledby="simTitle">
-          <div class="panel-bar"><span id="simTitle">DIVERSIFICATION LAB</span><span class="live">● SIMULATED DATA</span></div>
-          <div class="readout-row">
-            <div class="big"><small>VIRTUAL PORTFOLIO</small><span id="pfValue">$100,000</span></div>
-            <div class="meter" aria-live="polite">
-              <small>BUMPINESS</small>
-              <div class="meter-bar" id="meter" aria-hidden="true"></div>
-              <span class="sr-only" id="meterText"></span>
-            </div>
-          </div>
-          <div class="plot" id="plot" aria-hidden="true"></div>
-          <label for="stocks">Number of companies held <output id="stocksOut">1</output></label>
-          <input id="stocks" type="range" min="1" max="20" value="1">
-          <p class="sim-note" id="simNote"></p>
-          <button class="btn btn-ghost btn-small sim-btn" id="reroll" type="button">Run a new year ↻</button>
+        <div class="reveal">
+          <button class="cartridge hero-cart" type="button" data-game="divlab" style="--cc: var(--blue)">
+            <span class="lbl">
+              <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span>
+              <h3>Diversification Lab</h3>
+              <p>Hold one company, then twenty. Watch a virtual $100K portfolio get a smoother ride. It's a taste of what Investor Academy explores.</p>
+            </span>
+            <span class="go">▶ PRESS TO PLAY</span>
+          </button>
         </div>
       </div>
     </section>
@@ -224,7 +198,7 @@
               <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg><div><strong>Investing fundamentals</strong><span>Explore stocks, risk, returns, diversification, and long-term thinking.</span></div></div>
               <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-bulb"/></svg><div><strong>Entrepreneurship</strong><span>Explore business ideas, costs, revenue, and how businesses create value.</span></div></div>
               <p class="st-extra"><b>THE EXPERIENCE</b>Interactive lessons, practical scenarios, guided activities, and opportunities to apply concepts to everyday life.</p>
-              <a href="enroll.html" class="btn btn-ink">Enroll in Money Masters →</a>
+              <div class="st-btns"><a href="enroll.html" class="btn btn-ink">Enroll →</a><button class="btn btn-ghost" type="button" data-win="syl-mm">View syllabus</button></div>
             </div>
           </article>
 
@@ -249,7 +223,7 @@
                 <div><strong>5 weeks</strong><span>Structured learning program</span></div>
                 <div><strong>$100K virtual</strong><span>Portfolio simulation</span></div>
               </div>
-              <a href="enroll.html" class="btn btn-ink">Enroll in Investor Academy →</a>
+              <div class="st-btns"><a href="enroll.html" class="btn btn-ink">Enroll →</a><button class="btn btn-ghost" type="button" data-win="syl-ia">View syllabus</button></div>
             </div>
           </article>
         </div>
@@ -272,73 +246,14 @@
           <article class="card pipe reveal"><span class="num">STAGE 03</span><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><h3>Analyze</h3><p>Compare alternatives, evaluate trade-offs, and explain your reasoning.</p></article>
           <article class="card pipe reveal"><span class="num">STAGE 04</span><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-target"/></svg></span><h3>Apply</h3><p>Use your knowledge in projects, financial plans, and investment challenges.</p></article>
         </div>
-      </div>
-    </section>
-
-    <!-- CURRICULUM -->
-    <section id="curriculum" class="section alt">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">Inside the programs</div>
-          <h2>A structured path from <span class="gold">concepts to application.</span></h2>
-          <p>Explore the main topics covered throughout each five-week program.</p>
-        </div>
-
-        <div class="reveal">
-          <div class="tablist" role="tablist" aria-label="Program curriculum">
-            <button role="tab" id="tab-mm" aria-controls="panel-mm" aria-selected="true">Money Masters</button>
-            <button role="tab" id="tab-ia" aria-controls="panel-ia" aria-selected="false" tabindex="-1">Investor Academy</button>
+        <div class="gains reveal">
+          <b>WHAT STUDENTS GAIN</b>
+          <div class="tags">
+            <span class="tag gold">Financial confidence</span>
+            <span class="tag gold">Critical thinking</span>
+            <span class="tag gold">Analytical skills</span>
+            <span class="tag gold">Communication</span>
           </div>
-
-          <div id="panel-mm" role="tabpanel" aria-labelledby="tab-mm">
-            <div class="curr-meta"><h3>Money Masters curriculum</h3><span class="tag gold">Foundational financial literacy</span></div>
-            <table class="ledger-tbl">
-              <thead><tr><th scope="col">Week</th><th scope="col">Topic</th></tr></thead>
-              <tbody>
-                <tr><td>WEEK 01</td><td><strong>Money Fundamentals</strong><span>Money, earning, spending choices, needs, wants, and opportunity cost.</span></td></tr>
-                <tr><td>WEEK 02</td><td><strong>Budgeting and Saving</strong><span>Budgets, financial goals, saving strategies, and planning ahead.</span></td></tr>
-                <tr><td>WEEK 03</td><td><strong>Investing Basics</strong><span>Stocks, risk and return, diversification, and compound growth.</span></td></tr>
-                <tr><td>WEEK 04</td><td><strong>Entrepreneurship</strong><span>Business ideas, customers, costs, revenue, and creating value.</span></td></tr>
-                <tr class="final"><td>WEEK 05</td><td><strong>Putting It Together</strong><span>Apply financial concepts to integrated scenarios and planning challenges.</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div id="panel-ia" role="tabpanel" aria-labelledby="tab-ia" hidden>
-            <div class="curr-meta"><h3>Investor Academy curriculum</h3><span class="tag gold">10 classes · 5 weeks</span></div>
-            <table class="ledger-tbl">
-              <thead><tr><th scope="col">Week · Classes</th><th scope="col">Topic</th></tr></thead>
-              <tbody>
-                <tr><td>WK1 · 1–2</td><td><strong>Markets and Business Models</strong><span>Explore financial markets, how businesses generate revenue, and the role of competitive advantage.</span></td></tr>
-                <tr><td>WK2 · 3–4</td><td><strong>Financial Statements</strong><span>Read the income statement, balance sheet, and cash flow statement; examine important financial metrics.</span></td></tr>
-                <tr><td>WK3 · 5–6</td><td><strong>Valuation and Investor Thinking</strong><span>Explore valuation fundamentals, business quality, competitive moats, behavioral finance, and common investing mistakes.</span></td></tr>
-                <tr><td>WK4 · 7–8</td><td><strong>Portfolios and Investment Research</strong><span>Build a virtual portfolio, research companies, evaluate risks, and develop a structured investment thesis.</span></td></tr>
-                <tr><td>WK5 · 9</td><td><strong>Thesis Preparation</strong><span>Refine company research, review financials, identify key risks, and prepare a persuasive investment presentation.</span></td></tr>
-                <tr class="final"><td>WK5 · 10</td><td><strong>Investment Competition</strong><span>Present a company thesis, discuss financials and risks, answer questions, participate in voting, and recognize outstanding work with awards.</span></td></tr>
-              </tbody>
-            </table>
-            <div class="notice">
-              <strong>ABOUT THE $100K PORTFOLIO</strong>
-              The $100K portfolio is a virtual educational simulation, not real money or a promise of investment returns. Activities are designed to teach research, risk awareness, and analytical thinking.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OUTCOMES -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">What students gain</div>
-          <h2>Skills that extend <span class="gold">beyond the classroom.</span></h2>
-          <p>Our goal is to help students develop the knowledge and judgment to approach financial decisions thoughtfully, ask better questions, and understand the world around them.</p>
-        </div>
-        <div class="cards">
-          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-shield"/></svg></span><h3>Financial confidence</h3><p>Understand essential financial concepts and everyday decisions.</p></article>
-          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-puzzle"/></svg></span><h3>Critical thinking</h3><p>Evaluate alternatives, identify trade-offs, and explain decisions.</p></article>
-          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><h3>Analytical skills</h3><p>Interpret financial information and examine business opportunities.</p></article>
-          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-megaphone"/></svg></span><h3>Communication</h3><p>Present ideas clearly and support conclusions with evidence.</p></article>
         </div>
       </div>
     </section>
@@ -365,6 +280,45 @@
         </div>
       </div>
     </section>
+
+    <dialog class="win wide" id="syl-mm" aria-labelledby="syl-mm-t">
+      <div class="win-bar"><span class="win-title" id="syl-mm-t"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg> MONEY_MASTERS.SYL</span><button class="win-close" type="button" data-nodrag aria-label="Close syllabus">×</button></div>
+      <div class="win-body">
+        <div class="curr-meta"><h3>Money Masters curriculum</h3><span class="tag gold">Foundational · 5 weeks</span></div>
+        <table class="ledger-tbl">
+              <thead><tr><th scope="col">Week</th><th scope="col">Topic</th></tr></thead>
+              <tbody>
+                <tr><td>WEEK 01</td><td><strong>Money Fundamentals</strong><span>Money, earning, spending choices, needs, wants, and opportunity cost.</span></td></tr>
+                <tr><td>WEEK 02</td><td><strong>Budgeting and Saving</strong><span>Budgets, financial goals, saving strategies, and planning ahead.</span></td></tr>
+                <tr><td>WEEK 03</td><td><strong>Investing Basics</strong><span>Stocks, risk and return, diversification, and compound growth.</span></td></tr>
+                <tr><td>WEEK 04</td><td><strong>Entrepreneurship</strong><span>Business ideas, customers, costs, revenue, and creating value.</span></td></tr>
+                <tr class="final"><td>WEEK 05</td><td><strong>Putting It Together</strong><span>Apply financial concepts to integrated scenarios and planning challenges.</span></td></tr>
+              </tbody>
+            </table>
+      </div>
+    </dialog>
+
+    <dialog class="win wide" id="syl-ia" aria-labelledby="syl-ia-t">
+      <div class="win-bar"><span class="win-title" id="syl-ia-t"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg> INVESTOR_ACADEMY.SYL</span><button class="win-close" type="button" data-nodrag aria-label="Close syllabus">×</button></div>
+      <div class="win-body">
+        <div class="curr-meta"><h3>Investor Academy curriculum</h3><span class="tag gold">10 classes · 5 weeks</span></div>
+        <table class="ledger-tbl">
+              <thead><tr><th scope="col">Week · Classes</th><th scope="col">Topic</th></tr></thead>
+              <tbody>
+                <tr><td>WK1 · 1–2</td><td><strong>Markets and Business Models</strong><span>Explore financial markets, how businesses generate revenue, and the role of competitive advantage.</span></td></tr>
+                <tr><td>WK2 · 3–4</td><td><strong>Financial Statements</strong><span>Read the income statement, balance sheet, and cash flow statement; examine important financial metrics.</span></td></tr>
+                <tr><td>WK3 · 5–6</td><td><strong>Valuation and Investor Thinking</strong><span>Explore valuation fundamentals, business quality, competitive moats, behavioral finance, and common investing mistakes.</span></td></tr>
+                <tr><td>WK4 · 7–8</td><td><strong>Portfolios and Investment Research</strong><span>Build a virtual portfolio, research companies, evaluate risks, and develop a structured investment thesis.</span></td></tr>
+                <tr><td>WK5 · 9</td><td><strong>Thesis Preparation</strong><span>Refine company research, review financials, identify key risks, and prepare a persuasive investment presentation.</span></td></tr>
+                <tr class="final"><td>WK5 · 10</td><td><strong>Investment Competition</strong><span>Present a company thesis, discuss financials and risks, answer questions, participate in voting, and recognize outstanding work with awards.</span></td></tr>
+              </tbody>
+            </table>
+        <div class="notice">
+              <strong>ABOUT THE $100K PORTFOLIO</strong>
+              The $100K portfolio is a virtual educational simulation, not real money or a promise of investment returns. Activities are designed to teach research, risk awareness, and analytical thinking.
+            </div>
+      </div>
+    </dialog>
   </main>
 
   <!-- FOOTER -->
@@ -412,74 +366,7 @@
   </footer>
 
   <script src="site.js"></script>
-  <script>
-    /* DIVERSIFICATION LAB — simulated, illustrative returns (not real market data) */
-    const N_STOCKS = 20, N_WEEKS = 52;
-    const stocksInput = document.getElementById("stocks");
-    const plot = document.getElementById("plot");
-    const meter = document.getElementById("meter");
-    let seed = 7, returns = [];
-
-    function rand() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
-    function gauss() { return Math.sqrt(-2 * Math.log(rand() || 1e-9)) * Math.cos(2 * Math.PI * rand()); }
-
-    function generate() {
-      // each company = shared market move + its own company-specific noise
-      const market = Array.from({ length: N_WEEKS }, () => 0.0015 + 0.018 * gauss());
-      returns = Array.from({ length: N_STOCKS }, () => market.map(m => m + 0.06 * gauss()));
-    }
-
-    for (let i = 0; i < 10; i++) meter.appendChild(document.createElement("i"));
-    for (let i = 0; i < N_WEEKS; i++) plot.appendChild(document.createElement("i"));
-
-    function draw() {
-      const n = Number(stocksInput.value);
-      document.getElementById("stocksOut").textContent = n;
-
-      let value = 100000;
-      const path = [], weekly = [];
-      for (let w = 0; w < N_WEEKS; w++) {
-        let r = 0;
-        for (let s = 0; s < n; s++) r += returns[s][w];
-        r /= n;
-        weekly.push(r);
-        value *= 1 + r;
-        path.push(value);
-      }
-
-      // fixed scale so a calmer portfolio actually looks calmer
-      const lo = 40000, hi = 180000, span = hi - lo;
-      [...plot.children].forEach((bar, i) => {
-        const v = Math.max(lo, Math.min(hi, path[i]));
-        bar.style.height = (8 + (v - lo) / span * 88) + "%";
-        bar.classList.toggle("down", path[i] < 100000);
-      });
-      // dashed line marks the $100K starting value
-      const basePct = 8 + (100000 - lo) / span * 88;
-      plot.style.setProperty("--base", (8 + basePct / 100 * (plot.clientHeight - 16)) + "px");
-
-      const mean = weekly.reduce((a, b) => a + b, 0) / N_WEEKS;
-      const sd = Math.sqrt(weekly.reduce((a, b) => a + (b - mean) ** 2, 0) / N_WEEKS);
-      const level = Math.max(1, Math.min(10, Math.round(sd / 0.064 * 10)));
-      const color = level > 6 ? "var(--red)" : level > 3 ? "var(--gold-bright)" : "var(--green)";
-      [...meter.children].forEach((seg, i) => { seg.classList.toggle("on", i < level); });
-      meter.style.setProperty("--mc", color);
-      document.getElementById("meterText").textContent = "Bumpiness " + level + " out of 10";
-
-      document.getElementById("pfValue").textContent = "$" + Math.round(value).toLocaleString("en-US");
-      document.getElementById("simNote").innerHTML = n === 1
-        ? "All eggs in one basket: one company's bad news hits your whole portfolio. <strong>Slide right to spread out.</strong>"
-        : n < 6
-          ? "Spreading out is already smoothing the ride. Company-specific surprises start to cancel out."
-          : "Much smoother. What's left is <strong>market risk</strong>, which diversification can't remove.";
-    }
-
-    stocksInput.addEventListener("input", draw);
-    document.getElementById("reroll").addEventListener("click", () => { generate(); draw(); });
-    generate();
-    draw();
-    window.addEventListener("resize", draw);
-  </script>
+  <script src="games.js"></script>
 
 </body>
 </html>
