@@ -100,26 +100,83 @@
     }
   });
 
-  /* ================= GAME: MONEY QUIZ ================= */
+  /* ================= GAME: MONEY QUIZ =================
+     4 levels × 5 questions, each level harder than the last.
+     answer = index of the correct option. Keep the right answer from
+     always being the longest one, and vary its position. */
+  const quizLevels = ["ROOKIE", "SAVER", "INVESTOR", "MONEY MASTER"];
   const quizQuestions = [
-    { category: "Money fundamentals", question: "What is a budget mainly used for?",
-      options: ["To guarantee that you never run out of money", "To plan income and expenses", "To increase your income automatically", "To avoid making financial decisions"], answer: 1,
-      explanation: "A budget helps you plan where your money goes, compare expenses with income, and make informed choices." },
-    { category: "Saving", question: "What is an emergency fund designed to help cover?",
-      options: ["Only planned vacations", "Every investment opportunity", "Unexpected expenses", "Regular entertainment purchases"], answer: 2,
-      explanation: "An emergency fund can help cover unexpected costs, such as a necessary repair or another unplanned expense." },
-    { category: "Investing", question: "What does diversification mean when investing?",
-      options: ["Putting all your money into one company", "Spreading investments across different assets", "Buying only investments that recently increased", "Guaranteeing a positive return"], answer: 1,
-      explanation: "Diversification spreads exposure across investments. It can reduce some risks, but it cannot eliminate risk or guarantee profits." },
+    // LEVEL 1 · ROOKIE
+    { category: "Budgeting", question: "What is a budget mainly used for?",
+      options: ["Guaranteeing you will never run out of money", "Planning income and expenses", "Automatically increasing how much you earn", "Avoiding having to make money decisions"], answer: 1,
+      explanation: "A budget is a plan: it compares what comes in with what goes out so you can decide where your money goes." },
+    { category: "Needs vs. wants", question: "Which of these is a need rather than a want?",
+      options: ["The newest phone the day it comes out", "Concert tickets with your friends", "Groceries", "A second pair of designer sneakers"], answer: 2,
+      explanation: "Needs are things you must have to live and work, like food, housing, and basic clothing. Wants are nice extras." },
+    { category: "Saving", question: "An emergency fund is meant to cover…",
+      options: ["unexpected expenses", "planned vacations and holiday gifts", "every investment opportunity that comes along", "regular entertainment like movies and games"], answer: 0,
+      explanation: "An emergency fund is a cushion for surprises, like a car repair or a sudden medical bill, so you don't have to borrow." },
+    { category: "Banking", question: "Why does a savings account pay you interest?",
+      options: ["Because the government requires a bonus on every account", "It's a reward that only applies to your first deposit", "The bank charges you a fee for holding your money", "The bank pays to use your deposits"], answer: 3,
+      explanation: "Banks lend out deposited money and earn interest on those loans. They share part of it with savers as interest." },
+    { category: "Paychecks", question: "Your job pays $15 an hour and you work 10 hours. What is your pay before taxes?",
+      options: ["$25", "$150", "$1,500", "$115"], answer: 1,
+      explanation: "$15 × 10 hours = $150. That's your gross pay. Taxes and other deductions come out before you get your take-home pay." },
+
+    // LEVEL 2 · SAVER
     { category: "Compound growth", question: "What is compound interest?",
-      options: ["Interest calculated only on your original deposit", "A fee charged whenever you save", "Interest earned on principal and previously accumulated interest", "A guarantee that your savings will double"], answer: 2,
-      explanation: "Compound interest means interest can build on both the original amount and interest accumulated earlier." },
-    { category: "Smart decisions", question: "What should you generally compare when evaluating a loan?",
-      options: ["Only the monthly payment", "The advertised color and design", "Only how quickly you can receive the money", "Interest rate, fees, repayment term, and total cost"], answer: 3,
-      explanation: "A monthly payment is only one part of borrowing. Interest rates, fees, repayment length, and total repayment all matter." }
+      options: ["Interest earned on both your deposit and past interest", "Interest calculated only on the money you first deposited", "A fee your bank charges every time you make a deposit", "A guarantee that your savings will double every year"], answer: 0,
+      explanation: "With compounding, interest earns interest. Over long periods, that snowball effect can make a big difference." },
+    { category: "Rule of 72", question: "Money grows at 8% a year. About how long until it doubles?",
+      options: ["About 4 years", "About 20 years", "About 9 years", "About 72 years"], answer: 2,
+      explanation: "Divide 72 by the growth rate: 72 ÷ 8 = 9 years. It's a handy shortcut for estimating doubling time." },
+    { category: "Opportunity cost", question: "You spend Saturday working a shift instead of going to a game. What's the opportunity cost?",
+      options: ["The money you earned from the shift", "The game you gave up", "The cost of getting to work and back home", "There isn't one, since you got paid for your time"], answer: 1,
+      explanation: "Opportunity cost is the next-best option you give up. Every choice has one, even a choice that earns money." },
+    { category: "Inflation", question: "If prices rise 5% this year but your savings earn 1%, what happens?",
+      options: ["Your money buys more than it did last year", "Nothing changes, because the 1% cancels out inflation", "Your money buys less than it did last year", "Your bank must make up the difference"], answer: 2,
+      explanation: "When inflation outpaces what your savings earn, your purchasing power shrinks even though your balance grows." },
+    { category: "The 50/30/20 rule", question: "In the 50/30/20 budget, what is the 20% for?",
+      options: ["Fun money for wants like eating out and hobbies", "Savings and paying down debt", "Rent, groceries, and other needs", "Taxes taken out of your paycheck"], answer: 1,
+      explanation: "50% goes to needs, 30% to wants, and 20% to savings and debt payoff. It's a starting point you can adjust." },
+
+    // LEVEL 3 · INVESTOR
+    { category: "Stocks", question: "When you buy a share of stock, what do you own?",
+      options: ["A loan you made to the company that pays fixed interest", "A small piece of the company", "A guaranteed claim on next year's profits", "Insurance against the company losing money"], answer: 1,
+      explanation: "A share is a slice of ownership. If the company grows, your share may be worth more. If it struggles, it can lose value." },
+    { category: "Bonds", question: "What is a bond?",
+      options: ["A loan to a company or government", "A share of ownership in a company that pays dividends", "A savings account with a higher interest rate", "A type of insurance for your investments"], answer: 0,
+      explanation: "When you buy a bond, you lend money. The borrower promises to pay interest and return your money on a set date." },
+    { category: "Diversification", question: "Which portfolio is the most diversified?",
+      options: ["All your money in the one company you know best", "Five different tech companies", "Funds holding hundreds of companies across many industries", "Whatever stocks went up the most last month"], answer: 2,
+      explanation: "Spreading money across many companies and industries reduces the damage any single one can do. It can't remove all risk." },
+    { category: "Index funds", question: "What does an S&P 500 index fund do?",
+      options: ["Holds the 500 large U.S. companies in the index", "Lets a manager pick only the 500 best-performing stocks", "Guarantees returns that match the market every year", "Invests in 500 small startups before they go public"], answer: 0,
+      explanation: "An index fund simply tracks an index. You get broad exposure at low cost, but returns still go up and down with the market." },
+    { category: "Risk and return", question: "An investment promises 'high returns with zero risk.' What should you think?",
+      options: ["Great deal, invest as much as you can", "It's probably a red flag", "Only invest if your friends already have", "It's safe if the website looks professional"], answer: 1,
+      explanation: "Higher potential returns come with higher risk. A promise of big, guaranteed returns is a classic warning sign of a scam." },
+
+    // LEVEL 4 · MONEY MASTER
+    { category: "Credit scores", question: "Which factor usually counts the most in a FICO credit score?",
+      options: ["How many credit cards you own in total", "Payment history", "How much money you earn each year", "How long you've had a checking account"], answer: 1,
+      explanation: "Paying bills on time is the biggest piece of a FICO score, about 35%. Your income isn't part of your credit score at all." },
+    { category: "Credit cards", question: "You carry a $1,000 credit card balance at 24% APR for a year without paying. About how much interest builds up?",
+      options: ["About $24", "About $2.40", "About $2,400", "About $240 or more"], answer: 3,
+      explanation: "24% of $1,000 is $240, and because card interest compounds monthly, it ends up a bit more, roughly $268." },
+    { category: "Real returns", question: "Your savings earn 5% while inflation is 3%. Roughly what's your real return?",
+      options: ["About 2%", "About 8%", "About 15%", "About 5%, since inflation doesn't affect savings"], answer: 0,
+      explanation: "Real return ≈ interest rate − inflation. 5% − 3% ≈ 2% growth in what your money can actually buy." },
+    { category: "Loans", question: "Two car loans have the same monthly payment. What should you compare next?",
+      options: ["Which dealership has the nicer showroom", "Nothing else, since the monthly payment is what matters", "Interest rate, fees, length, and total cost", "Which lender approves you the fastest"], answer: 2,
+      explanation: "A lower payment can hide a longer loan and more total interest. Always compare the full cost of borrowing." },
+    { category: "Compounding & time", question: "Ana invests $1,000 a year from age 20 to 30, then stops. Ben invests $1,000 a year from 30 to 60. With the same returns, who can end up with more at 60?",
+      options: ["Ben, because he invested three times as much", "They always end up with exactly the same amount", "Neither, because investments never grow over that long", "Ana, because her money compounds for longer"], answer: 3,
+      explanation: "At about 8% a year, Ana's early 10 years can grow to more than Ben's 30. Starting early gives compounding more time to work." }
   ];
 
   function buildQuiz(body) {
+    const total = quizQuestions.length, perLevel = 5;
     body.innerHTML = `
       <div class="cabinet">
         <div class="marquee">MONEY QUIZ</div>
@@ -127,7 +184,7 @@
           <div class="attract">
             <div>
               <h3>MONEY<br>QUIZ</h3>
-              <p>Answer 5 questions about budgeting, saving, investing and borrowing. Every right answer drops a coin.</p>
+              <p>${total} questions across 4 levels, from Rookie to Money Master. Every right answer drops a coin.</p>
               <p class="insert" aria-hidden="true">INSERT COIN</p>
               <p class="hiscore">HI-SCORE <b class="hi"></b></p>
               <button class="btn q-start" type="button">Press Start</button>
@@ -143,7 +200,11 @@
             <div class="quiz-actions"><button class="btn q-next" type="button" disabled>Next →</button></div>
           </div>
           <div class="result" hidden>
-            <div><h3 class="r-head"></h3><p class="r-text"></p><button class="btn q-restart" type="button">Play again</button></div>
+            <div>
+              <h3 class="r-head"></h3>
+              <p class="r-text"></p>
+              <div class="r-btns"><button class="btn q-continue" type="button">Next level ▶</button><button class="btn btn-ghost q-restart" type="button">Start over</button></div>
+            </div>
           </div>
         </div>
         <div class="controls-deck" aria-hidden="true"><span class="joystick"></span><span class="coin-slot"></span><span class="arcade-btns"><i></i><i></i></span></div>
@@ -151,9 +212,9 @@
 
     const screen = $(".screen", body), attract = $(".attract", body), play = $(".q-play", body), result = $(".result", body);
     const opts = $(".options", body), fb = $(".feedback", body), next = $(".q-next", body), bar = $(".progress", body);
-    let i = 0, correct = 0, locked = false;
-    const total = quizQuestions.length;
-    const readHi = () => Number(store.get("ngk-hiscore")) || 0;
+    const btnContinue = $(".q-continue", body), btnRestart = $(".q-restart", body);
+    let i = 0, correct = 0, levelCorrect = 0, locked = false;
+    const readHi = () => Number(store.get("ngk-hiscore-20")) || 0;
     const showHi = () => { $(".hi", body).textContent = readHi() + " / " + total; };
     showHi();
 
@@ -165,15 +226,16 @@
 
     function render() {
       const q = quizQuestions[i];
+      const level = Math.floor(i / perLevel);
       locked = false;
-      $(".q-step", body).textContent = "QUESTION " + (i + 1) + " OF " + total;
+      $(".q-step", body).textContent = "LV " + (level + 1) + " " + quizLevels[level] + " · Q" + (i % perLevel + 1) + "/" + perLevel;
       $(".q-coins", body).textContent = "COINS " + correct;
       $(".q-cat", body).textContent = q.category;
       $(".q-text", body).textContent = q.question;
       setProgress(i);
       fb.className = "feedback"; fb.textContent = "";
       next.disabled = true;
-      next.textContent = i === total - 1 ? "See results →" : "Next →";
+      next.textContent = (i + 1) % perLevel === 0 ? "Finish level →" : "Next →";
       opts.replaceChildren(...q.options.map((text, n) => {
         const b = el("button", "option");
         b.type = "button";
@@ -189,7 +251,7 @@
       locked = true;
       const q = quizQuestions[i], ok = n === q.answer;
       if (ok) {
-        correct++;
+        correct++; levelCorrect++;
         const r = btn.getBoundingClientRect(), h = screen.getBoundingClientRect();
         const pop = el("span", "coin-pop", "+1 COIN");
         pop.style.left = (r.right - h.left - 100) + "px";
@@ -210,36 +272,70 @@
       next.focus();
     }
 
+    function showScreen(head, text, canContinue) {
+      play.hidden = true; result.hidden = false;
+      $(".r-head", body).textContent = head;
+      $(".r-text", body).textContent = text;
+      btnContinue.hidden = !canContinue;
+      (canContinue ? btnContinue : btnRestart).focus();
+    }
+
     function start() {
-      i = 0; correct = 0;
+      i = 0; correct = 0; levelCorrect = 0;
       attract.hidden = true; result.hidden = true; play.hidden = false;
       render();
     }
 
     next.addEventListener("click", () => {
       if (!locked) return;
-      if (i < total - 1) { i++; render(); return; }
-      play.hidden = true; result.hidden = false;
-      const best = Math.max(readHi(), correct);
-      store.set("ngk-hiscore", String(best));
-      showHi();
-      $(".r-head", body).textContent = correct === total ? "PERFECT RUN!" : correct >= 3 ? "NICE WORK!" : "GAME OVER";
-      $(".r-text", body).textContent = "You collected " + correct + " of " + total + " coins. " +
-        (correct === total ? "That's a perfect score." : "Review the explanations and try again to strengthen your understanding.");
-      $(".q-restart", body).focus();
+      const level = Math.floor(i / perLevel);
+      if (i === total - 1) {
+        const best = Math.max(readHi(), correct);
+        store.set("ngk-hiscore-20", String(best));
+        showHi();
+        showScreen(
+          correct === total ? "PERFECT RUN!" : correct >= 15 ? "MONEY MASTER!" : correct >= 10 ? "NICE WORK!" : "GAME OVER",
+          "You collected " + correct + " of " + total + " coins. " +
+            (correct === total ? "Every level cleared without a miss." : "Read the explanations and try again to beat your score."),
+          false);
+      } else if ((i + 1) % perLevel === 0) {
+        showScreen("LEVEL " + (level + 1) + " CLEAR!",
+          levelCorrect + " of " + perLevel + " right. Next up: Level " + (level + 2) + ", " + quizLevels[level + 1] + ". It gets harder from here.", true);
+      } else {
+        i++; render();
+      }
+    });
+    btnContinue.addEventListener("click", () => {
+      i++; levelCorrect = 0;
+      result.hidden = true; play.hidden = false;
+      render();
     });
     $(".q-start", body).addEventListener("click", start);
-    $(".q-restart", body).addEventListener("click", start);
+    btnRestart.addEventListener("click", start);
   }
 
   /* ================= GAME: CONCEPT PRINTER ================= */
   const facts = [
-    ["COMPOUND GROWTH", "Returns can earn their own returns over time, so time in the market matters. Investment returns are never guaranteed."],
-    ["INFLATION", "A rise in the general price level. When prices rise, the same amount of money may buy fewer goods and services."],
-    ["CREDIT SCORE", "One factor lenders may use to assess borrowing risk. Different scoring models use different information and ranges."],
-    ["DIVERSIFICATION", "Spreading money across different investments. It can reduce concentration risk, but it does not guarantee against losses."],
-    ["RULE OF 72", "Divide 72 by an annual growth rate to estimate how many years it takes money to double. At 6%, that's about 12 years."],
-    ["OPPORTUNITY COST", "Every choice has a price: the next-best thing you gave up. Spending $5 today means that $5 can't be saved or invested."]
+    ["RULE OF 72", "Divide 72 by a yearly growth rate to estimate how long money takes to double. At 6%, about 12 years. At 9%, about 8."],
+    ["THE $1,000 SNOWBALL", "$1,000 growing at 7% a year becomes about $7,600 in 30 years without you adding another cent. That's compounding."],
+    ["BUFFETT STARTED AT 11", "Warren Buffett bought his first stock at age 11. Most of his fortune came after his 50s, because compounding needs time."],
+    ["THE $5 HABIT", "$5 a day adds up to $1,825 a year. That isn't a reason to never buy coffee, but it's a reason to choose on purpose."],
+    ["PIZZA FOR 10,000 BITCOIN", "In 2010, a programmer paid 10,000 bitcoin for two pizzas. Those coins were later worth more than $100 million."],
+    ["MONEY ISN'T PAPER", "U.S. dollar bills are about 75% cotton and 25% linen. That's why they survive a trip through the washing machine."],
+    ["THE $100,000 BILL", "The U.S. once printed a $100,000 bill. It was only used to move money between Federal Reserve Banks, never by the public."],
+    ["100 TRILLION DOLLARS", "In 2008, Zimbabwe printed a 100-trillion-dollar note during extreme inflation. It still couldn't buy much. Inflation matters."],
+    ["INFLATION'S DOUBLE", "At 3% inflation, prices roughly double in 24 years. Money stuffed in a mattress quietly loses half its buying power."],
+    ["WALL STREET'S TREE", "In 1792, 24 brokers signed an agreement under a buttonwood tree on Wall Street. It grew into the New York Stock Exchange."],
+    ["WHERE \"MONEY\" COMES FROM", "Ancient Romans minted coins at the temple of Juno Moneta. Her name gave us the words \"money\" and \"mint.\""],
+    ["THE FIRST COINS", "Some of the first known coins were made around 600 BC in Lydia, in modern-day Turkey, from a gold and silver mix called electrum."],
+    ["DINNER STARTED CREDIT CARDS", "The Diners Club card launched in 1950, reportedly after its founder forgot his wallet at a restaurant."],
+    ["THE MINIMUM PAYMENT TRAP", "Paying only the minimum on a credit card can stretch a balance out for years and cost more in interest than the original purchase."],
+    ["YOUR SCORE'S BIGGEST PIECE", "Payment history is about 35% of a FICO score. Paying on time, every time, does more for your credit than almost anything else."],
+    ["THE GROSS VS. NET SURPRISE", "Your first paycheck will likely be smaller than you expect. Taxes and deductions come out before you see a dime."],
+    ["$250,000 SAFETY NET", "FDIC insurance protects deposits up to $250,000 per depositor, per insured bank, per account type, even if the bank fails."],
+    ["50 / 30 / 20", "A simple budget starting point: 50% needs, 30% wants, 20% saving and paying off debt. Adjust it to fit your life."],
+    ["PAY YOURSELF FIRST", "Moving savings out the moment you get paid works better than saving whatever's left. Usually nothing is left."],
+    ["OPPORTUNITY COST", "Every choice has a hidden price: the next-best thing you gave up. Spending $20 today means that $20 can't grow for tomorrow."]
   ];
 
   function buildPrinter(body) {
@@ -343,7 +439,7 @@
   }
 
   const GAMES = {
-    quiz: { title: "Money Quiz", file: "MONEY_QUIZ.EXE", icon: "gamepad", blurb: "5 questions, 5 coins", build: buildQuiz },
+    quiz: { title: "Money Quiz", file: "MONEY_QUIZ.EXE", icon: "gamepad", blurb: "20 questions, 4 levels", build: buildQuiz },
     printer: { title: "Concept Printer", file: "CHEAT_SHEET.TXT", icon: "book", blurb: "One money idea at a time", build: buildPrinter },
     divlab: { title: "Diversification Lab", file: "DIVERSIFY.SIM", icon: "chart", blurb: "Spread out, smooth the ride", build: buildDivLab }
   };
@@ -364,11 +460,22 @@
   document.body.appendChild(dock);
   const dockBtn = $(".dock-btn", dock), dockMenu = $(".dock-menu", dock);
 
+  // first visit only: point people at the games
+  if (!store.get("ngk-dock-seen")) {
+    const hint = el("div", "dock-hint", "Psst! Money mini-games in here.");
+    hint.setAttribute("aria-hidden", "true");
+    dock.appendChild(hint);
+    const dismiss = () => { hint.remove(); store.set("ngk-dock-seen", "1"); };
+    setTimeout(dismiss, 9000);
+    dockBtn.addEventListener("click", dismiss, { once: true });
+  }
+
   function closeDockMenu() { dockMenu.hidden = true; dockBtn.setAttribute("aria-expanded", "false"); }
   dockBtn.addEventListener("click", () => {
     const open = dockMenu.hidden;
     dockMenu.hidden = !open;
     dockBtn.setAttribute("aria-expanded", String(open));
+    $(".dock-hint", dock)?.remove();
   });
   document.addEventListener("click", e => { if (!dock.contains(e.target)) closeDockMenu(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeDockMenu(); });
