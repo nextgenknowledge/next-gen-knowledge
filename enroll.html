@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Enroll | NextGen Knowledge</title>
-  <meta name="description" content="Enroll in NextGen Knowledge programs. Learn practical financial skills, explore real-world concepts, and take the next step in your education.">
+  <title>Get Started: Fin City Waitlist | NextGen Knowledge</title>
+  <meta name="description" content="Join the Fin City waitlist. Be the first to know when NextGen Knowledge launches Fin City, a free game where you explore a virtual city and learn money skills by playing.">
   <meta name="theme-color" content="#081629">
   <meta name="author" content="Next-Gen Knowledge">
-  <meta property="og:title" content="Enroll | NextGen Knowledge">
-  <meta property="og:description" content="Enroll in NextGen Knowledge programs. Learn practical financial skills, explore real-world concepts, and take the next step in your education.">
+  <meta property="og:title" content="Get Started: Fin City Waitlist | NextGen Knowledge">
+  <meta property="og:description" content="Join the Fin City waitlist. Be the first to know when NextGen Knowledge launches Fin City, a free game where you explore a virtual city and learn money skills by playing.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="IMG_1383.jpeg">
 
@@ -28,46 +28,55 @@
   </script>
 
   <style>
-    .enroll-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; padding-bottom: 100px; }
+    .wl-logo { width: 150px; image-rendering: pixelated; margin: -10px 0 6px -10px; }
+    .hype { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 12px; }
+    .hype li { display: flex; gap: 14px; align-items: start; color: var(--muted); }
+    .hype li strong { color: var(--text); }
+    .hype .px-icon { width: 22px; height: 22px; margin-top: 2px; color: var(--gold-bright); flex: none; }
 
-    /* admission ticket */
-    .ticket { position: sticky; top: 140px; display: grid; grid-template-rows: auto auto; color: var(--ink); filter: drop-shadow(10px 10px 0 #030A13); }
-    .ticket-main, .ticket-stub {
-      background: var(--paper);
-      -webkit-mask: radial-gradient(circle 14px at 0 100%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 100%, #0000 98%, #000) right / 51% 100% no-repeat;
-              mask: radial-gradient(circle 14px at 0 100%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 100%, #0000 98%, #000) right / 51% 100% no-repeat;
+    /* save-file signup screen */
+    .savefile { --c: #2B4566; padding: 16px; background: #0B1B2F; }
+    .sf-screen {
+      position: relative; padding: clamp(22px, 4vw, 34px);
+      background: radial-gradient(ellipse at 50% 0%, rgba(132,183,255,.16), transparent 60%), #071223;
+      box-shadow: inset 0 0 0 4px #04101E;
     }
-    .ticket-stub {
-      -webkit-mask: radial-gradient(circle 14px at 0 0, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 0, #0000 98%, #000) right / 51% 100% no-repeat;
-              mask: radial-gradient(circle 14px at 0 0, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 14px at 100% 0, #0000 98%, #000) right / 51% 100% no-repeat;
+    .sf-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 2px, transparent 2px 4px); }
+    .sf-title { margin: 0 0 6px; font-family: var(--pixel); font-size: .8rem; line-height: 1.7; color: var(--gold-bright); }
+    .sf-sub { margin: 0 0 22px; font-family: var(--term); font-size: 1.3rem; color: var(--green); }
+    .sf-count { display: flex; gap: 10px; margin-bottom: 24px; }
+    .sf-count span { flex: 1; padding: 10px 6px; text-align: center; background: #0D2038; box-shadow: 0 0 0 3px #1B3554; }
+    .sf-count b { display: block; font-family: var(--term); font-size: 1.8rem; font-weight: 400; line-height: 1; color: var(--text); }
+    .sf-count small { font-family: var(--pixel); font-size: .4rem; color: #8FA2BA; }
+
+    .wl-form label { display: block; margin-bottom: 8px; font-family: var(--pixel); font-size: .5rem; color: #8FA2BA; }
+    .wl-field { display: flex; gap: 14px; flex-wrap: wrap; }
+    .wl-field input {
+      flex: 1 1 220px; min-height: 52px; padding: 0 16px; border: 0;
+      font-family: var(--term); font-size: 1.5rem; color: var(--gold-bright); background: #050D19;
+      box-shadow: 0 0 0 3px #22406A; caret-color: var(--gold-bright);
     }
-    .ticket-main { padding: 26px 26px 22px; border-bottom: 3px dashed #B9AD8F; }
-    .admit { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-family: var(--pixel); font-size: .5rem; line-height: 1.8; color: var(--ink-soft); }
-    .live-badge { display: inline-flex; align-items: center; gap: 8px; padding: 4px 8px; color: var(--green-deep); border: 2px solid var(--green-deep); }
-    .live-badge i { width: 8px; height: 8px; background: var(--green-deep); animation: blink 1.2s steps(1) infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .ticket h2 { margin: 16px 0 10px; color: var(--ink); font-size: 2rem; }
-    .ticket p { color: #4A4334; font-size: .95rem; }
-    .ticket .note-line { margin: 14px 0 0; padding: 12px 14px; font-size: .92rem; color: #3E3A31; background: rgba(124,224,176,.25); box-shadow: inset 4px 0 0 var(--green-deep); }
-    .ticket-stub { padding: 18px 26px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .ticket-stub p { margin: 0; font-size: .9rem; }
-    .ticket-stub .barcode { width: 90px; height: 46px; margin: 0; flex: none; }
+    .wl-field input::placeholder { color: #52637A; }
+    .wl-field input:focus { outline: none; box-shadow: 0 0 0 3px var(--gold-bright); }
+    .wl-field input[aria-invalid="true"] { box-shadow: 0 0 0 3px var(--red); }
+    .wl-field .btn { min-height: 52px; }
+    .wl-error { min-height: 1.4em; margin: 10px 0 0; font-size: .9rem; color: #FFB4A8; }
+    .wl-fine { margin: 6px 0 0; font-size: .85rem; color: #8FA2BA; }
 
-    .apply .form-sheet-head b { color: var(--ink); font-weight: 400; }
-    .apply h2 { color: var(--ink); font-size: 1.8rem; margin: 4px 4px 6px; }
-    .apply > p { color: var(--ink-soft); margin: 0 4px 16px; }
-    .apply iframe { height: 1000px; }
+    .wl-done { position: relative; text-align: center; padding: 10px 0; }
+    .wl-done .star { width: 54px; height: 54px; margin: 0 auto 12px; color: var(--gold-bright); animation: spin 1.2s steps(8) 1; }
+    @keyframes spin { from { transform: rotateY(0) scale(.4); } to { transform: rotateY(360deg) scale(1); } }
+    .wl-done h3 { font-family: var(--pixel); font-size: .9rem; line-height: 1.7; color: var(--gold-bright); font-weight: 400; }
+    .wl-done p { margin: 8px auto 0; max-width: 360px; }
 
-    .help { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; }
-    .help h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
-    .help p { margin: 0; max-width: 620px; }
+    .teaser { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .teaser .card .tile { color: #14110A; background: var(--tc); box-shadow: none; }
 
-    @media (max-width: 1020px) {
-      .enroll-grid { grid-template-columns: 1fr; }
-      .ticket { position: static; max-width: 480px; }
-      .help { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) { .apply iframe { height: 1150px; } }
+    .contact { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; }
+    .contact h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+    .contact p { margin: 0; max-width: 620px; }
+
+    @media (max-width: 900px) { .teaser { grid-template-columns: 1fr; } .contact { grid-template-columns: 1fr; } }
   </style>
 </head>
 
@@ -115,51 +124,81 @@
   </header>
 
   <main>
-    <section class="page-hero" style="padding-bottom: 54px">
-      <div class="container">
-        <div class="kicker">Your next level starts here</div>
-        <h1>Enroll in our <span class="gold">programs.</span></h1>
-        <p class="lede">Learn practical financial skills, explore real-world concepts, and take the next step in your education with Next-Gen Knowledge.</p>
-      </div>
-    </section>
+    <section class="page-hero">
+      <div class="container split-2">
+        <div>
+          <img class="wl-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City" width="150" height="150">
+          <div class="kicker">Fin City · Coming soon</div>
+          <h1>Be first into <span class="gold">Fin City.</span></h1>
+          <p class="lede">
+            A whole city is loading, and it runs on money skills. Fin City is NextGen Knowledge's free
+            financial-literacy game: walk the streets, step into the bank, budget your way through the marketplace, take your
+            first shot at investing, and watch your choices build your future. No textbook. No lecture.
+            Just you, a starting balance, and a city to figure out.
+          </p>
+          <ul class="hype">
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-pin"/></svg><span><strong>Explore a living city.</strong> Every building teaches a different part of the money world.</span></li>
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-coin"/></svg><span><strong>Make real decisions.</strong> Spend, save, and invest virtual money and see what happens.</span></li>
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg><span><strong>Level up.</strong> Build skills that carry over to real life.</span></li>
+          </ul>
+        </div>
 
-    <section class="container enroll-grid">
-      <aside class="reveal" aria-labelledby="program-heading">
-        <div class="ticket">
-          <div class="ticket-main">
-            <div class="admit"><span>FEATURED PROGRAM<br>ADMIT ONE</span><span class="live-badge"><i aria-hidden="true"></i>IN SESSION</span></div>
-            <h2 id="program-heading">Investors Academy</h2>
-            <p>Investors Academy builds on financial literacy fundamentals through a deeper exploration of investing and financial decision-making.</p>
-            <p class="note-line">Investors Academy is in session. Review the enrollment form for current program opportunities and availability.</p>
-          </div>
-          <div class="ticket-stub">
-            <p>Interested in another Next-Gen Knowledge program? Submit the form to express your interest and check the options currently available.</p>
-            <span class="barcode" aria-hidden="true"></span>
+        <div class="savefile px-border reveal" id="join">
+          <div class="sf-screen">
+            <div id="wlForm">
+              <p class="sf-title">NEW GAME<br>JOIN THE WAITLIST</p>
+              <p class="sf-sub">&gt; Be the first player through the gates.</p>
+              <div class="sf-count" aria-hidden="true">
+                <span><b>$0</b><small>COST TO PLAY</small></span>
+                <span><b>1</b><small>CITY TO EXPLORE</small></span>
+                <span><b>∞</b><small>SKILLS TO BUILD</small></span>
+              </div>
+              <form class="wl-form" novalidate>
+                <label for="wlEmail">ENTER YOUR EMAIL</label>
+                <div class="wl-field">
+                  <input id="wlEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-describedby="wlError wlFine">
+                  <button class="btn" type="submit">Notify me ▶</button>
+                </div>
+                <p class="wl-error" id="wlError" aria-live="polite"></p>
+                <p class="wl-fine" id="wlFine">We'll only email you about Fin City's launch. No spam, ever.</p>
+              </form>
+            </div>
+
+            <div class="wl-done" id="wlDone" hidden tabindex="-1">
+              <svg class="px-icon star" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
+              <h3>PLAYER ADDED!</h3>
+              <p>You're on the list. We'll email you the moment the gates to Fin City open.</p>
+              <p style="margin-top:20px"><a class="btn btn-ghost btn-small" href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">Watch the teaser while you wait</a></p>
+            </div>
           </div>
         </div>
-      </aside>
-
-      <div class="form-sheet apply reveal" aria-labelledby="form-heading">
-        <div class="form-sheet-head"><b>APPLICATION FORM</b><span>NO. NGK-2026</span></div>
-        <h2 id="form-heading">Enrollment form</h2>
-        <p>Complete the form to express your interest.</p>
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSf5E7PUOnu9HloQDy9im4iAAh8gDK0UWoFcnWNRgZRNsPdurg/viewform?embedded=true"
-          title="Next-Gen Knowledge Enrollment Form"
-          loading="lazy">Loading enrollment form…</iframe>
-        <p class="form-fallback">If the form does not appear correctly, <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5E7PUOnu9HloQDy9im4iAAh8gDK0UWoFcnWNRgZRNsPdurg/viewform" target="_blank" rel="noopener noreferrer">open the enrollment form in a new tab</a>. Questions about enrollment? <a href="mailto:nextgen.knowledge123@gmail.com">Contact our team</a>.</p>
       </div>
     </section>
 
     <section class="section alt">
       <div class="container">
-        <div class="panel px-border help reveal">
+        <div class="section-head reveal">
+          <div class="kicker">What's waiting for you</div>
+          <h2>Three districts. <span class="gold">One starting balance.</span></h2>
+        </div>
+        <div class="teaser">
+          <article class="card reveal" style="--tc: var(--blue)"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-bank"/></svg></span><h3>The Banking District</h3><p>Understand accounts and everyday banking.</p></article>
+          <article class="card reveal" style="--tc: var(--green)"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-cart"/></svg></span><h3>The Marketplace</h3><p>Think through purchases and budgets.</p></article>
+          <article class="card reveal" style="--tc: var(--gold-bright)"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><h3>The Investment Center</h3><p>Discover risk, returns, and investing.</p></article>
+        </div>
+        <p style="margin-top: 30px"><a class="text-link" href="fin-city.html">See more about Fin City →</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel px-border contact reveal">
           <div>
-            <div class="kicker">Need help?</div>
-            <h2>Not sure which program is right for you?</h2>
-            <p>Reach out to Next-Gen Knowledge with questions about our educational programs, enrollment, or upcoming opportunities. You can also <a class="text-link" href="programs.html">compare our programs</a>.</p>
+            <div class="kicker">Looking for our courses?</div>
+            <h2>Our live programs are paused for now.</h2>
+            <p>Something new is on the way. Questions in the meantime? We'd love to hear from you, or <a class="text-link" href="programs.html">see what our programs covered</a>.</p>
           </div>
-          <a class="btn" href="mailto:nextgen.knowledge123@gmail.com?subject=Program%20Enrollment%20Question">
+          <a class="btn" href="mailto:nextgen.knowledge123@gmail.com?subject=Question%20for%20NextGen%20Knowledge">
             <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-mail"/></svg> Contact us
           </a>
         </div>
@@ -189,7 +228,7 @@
 
         <div class="footer-col">
           <h4>Get Involved</h4>
-          <a href="enroll.html">Enroll in a Program</a>
+          <a href="enroll.html">Fin City Waitlist</a>
           <a href="partnerships.html">Partnerships</a>
           <a href="donate.html">Support Our Work</a>
         </div>
@@ -213,6 +252,74 @@
 
   <script src="site.js"></script>
   <script src="games.js"></script>
+  <script>
+    /*
+      WAITLIST SETUP
+      --------------
+      Signups are sent to a Google Form so they land in a Google Sheet.
+      1. Create a Google Form with one "Short answer" question: Email.
+      2. Open the form's preview, right-click the email box > Inspect, and copy its name (entry.123456789).
+      3. Paste the form's ID (from .../forms/d/e/<ID>/viewform) and the entry name below.
+      Until both are filled in, the button opens an email to the team instead.
+    */
+    const WAITLIST = {
+      formId: "",      // e.g. "1FAIpQLSf...."
+      emailEntry: ""   // e.g. "entry.123456789"
+    };
+
+    const form = document.querySelector(".wl-form");
+    const input = document.getElementById("wlEmail");
+    const error = document.getElementById("wlError");
+
+    function finish() {
+      document.getElementById("wlForm").hidden = true;
+      const done = document.getElementById("wlDone");
+      done.hidden = false;
+      done.focus();
+    }
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      const email = input.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        input.setAttribute("aria-invalid", "true");
+        error.textContent = "That doesn't look like an email address. Try again?";
+        input.focus();
+        return;
+      }
+      input.removeAttribute("aria-invalid");
+      error.textContent = "";
+
+      if (!WAITLIST.formId || !WAITLIST.emailEntry) {
+        location.href = "mailto:nextgen.knowledge123@gmail.com?subject=" +
+          encodeURIComponent("Add me to the Fin City waitlist") +
+          "&body=" + encodeURIComponent("Please notify me when Fin City launches: " + email);
+        finish();
+        return;
+      }
+
+      const button = form.querySelector("button");
+      button.disabled = true;
+      button.textContent = "Saving…";
+      try {
+        // Google Forms doesn't send CORS headers, so the response is opaque; a network failure still throws.
+        await fetch("https://docs.google.com/forms/d/e/" + WAITLIST.formId + "/formResponse", {
+          method: "POST",
+          mode: "no-cors",
+          body: new URLSearchParams({ [WAITLIST.emailEntry]: email })
+        });
+        finish();
+      } catch (err) {
+        error.textContent = "Couldn't reach the server. Check your connection and try again.";
+        button.disabled = false;
+        button.textContent = "Notify me ▶";
+      }
+    });
+
+    input.addEventListener("input", () => {
+      if (input.getAttribute("aria-invalid")) { input.removeAttribute("aria-invalid"); error.textContent = ""; }
+    });
+  </script>
 
 </body>
 </html>
