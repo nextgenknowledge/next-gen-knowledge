@@ -257,6 +257,7 @@
       1. Add or edit people in the teamMembers array.
       2. Put each member's photo filename in the photo field.
       3. If a photo is unavailable, use an empty string: photo: ""
+         Leave description, interests or hobbies as "" to show "Profile coming soon".
       4. Use one of the following department names:
          Executive Board, Finance, Technology, Courses & Certifications, Outreach, Marketing.
       5. level controls card rarity: "executive" (holo foil, 3 stars), "lead" (2 stars), "associate" (1 star).
@@ -314,14 +315,18 @@
       { name: "Lucas Liu", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg",
         description: "Supports outreach initiatives and helps build connections with students, organizations, and community partners.",
         interests: "Sports, Math", hobbies: "Cooking, Video Games" },
+      { name: "Aiden Mordkovich", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "",
+        description: "", interests: "", hobbies: "" },
+      { name: "Charlie Hazen", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "",
+        description: "", interests: "", hobbies: "" },
 
       // MARKETING
-      { name: "Ciara Perruzzi", position: "Social Media Lead", department: "Marketing", level: "lead", photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
-        description: "Leads NextGen Knowledge's social media, shaping what we post and creating content that brings our mission to more students.",
-        interests: "Medical Science, Neuroscience", hobbies: "Dance, Scouts of America" },
       { name: "Sophia Zachariah", position: "Content Lead", department: "Marketing", level: "lead", photo: "IMG_0994.jpeg",
         description: "Leads scriptwriting and content planning for our videos, turning financial topics into stories that are easy to follow.",
         interests: "Math, Biology", hobbies: "Dance, Art" },
+      { name: "Ciara Perruzzi", position: "Social Media Lead", department: "Marketing", level: "lead", photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
+        description: "Leads NextGen Knowledge's social media, shaping what we post and creating content that brings our mission to more students.",
+        interests: "Medical Science, Neuroscience", hobbies: "Dance, Scouts of America" },
       { name: "Collin Kim", position: "Video Editor", department: "Marketing", level: "associate", photo: "81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg",
         description: "Edits NextGen Knowledge's videos and reels, turning raw footage into polished content for our channels.",
         interests: "Cooking, Athletics", hobbies: "Video Editing, Lacrosse" }
@@ -369,10 +374,10 @@
               <div class="face-in">
                 <h3>${esc(m.name)}</h3>
                 <span class="role">${esc(m.position)}</span>
-                <p>${esc(m.description)}</p>
+                <p>${m.description ? esc(m.description) : "Profile coming soon. Check back to learn more about " + esc(m.name.split(" ")[0]) + "."}</p>
                 <dl>
-                  <div class="stat"><dt>INTERESTS</dt><dd>${esc(m.interests)}</dd></div>
-                  <div class="stat"><dt>HOBBIES</dt><dd>${esc(m.hobbies)}</dd></div>
+                  ${m.interests ? `<div class="stat"><dt>INTERESTS</dt><dd>${esc(m.interests)}</dd></div>` : ""}
+                  ${m.hobbies ? `<div class="stat"><dt>HOBBIES</dt><dd>${esc(m.hobbies)}</dd></div>` : ""}
                 </dl>
                 <span class="flip-hint">↺ tap to flip back</span>
               </div>
