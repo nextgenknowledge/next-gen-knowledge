@@ -1,2298 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#081629" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Partnerships | Next-Gen Knowledge</title>
-  <meta
-    name="description"
-    content="Meet the organizations partnering with Next-Gen Knowledge to make financial education and career opportunities more accessible to students."
-  />
+  <title>Partnerships | NextGen Knowledge</title>
+  <meta name="description" content="NextGen Knowledge partners with organizations that share our commitment to making financial education, career knowledge, and meaningful opportunities accessible to the next generation.">
+  <meta name="theme-color" content="#081629">
+  <meta name="author" content="Next-Gen Knowledge">
+  <meta property="og:title" content="Partnerships | NextGen Knowledge">
+  <meta property="og:description" content="NextGen Knowledge partners with organizations that share our commitment to making financial education, career knowledge, and meaningful opportunities accessible to the next generation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_1383.jpeg">
 
-  <!-- Google Analytics -->
+  <link rel="icon" href="IMG_1383.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-FXJKCLQMSN");
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
   </script>
 
-  <!-- Fonts and icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap"
-    rel="stylesheet"
-  />
-  <script src="https://unpkg.com/lucide@latest"></script>
-
   <style>
-    :root {
-      --bg: #081629;
-      --bg-deep: #050D19;
-      --panel: #0D2038;
-      --panel-light: #142C49;
-      --panel-hover: #193653;
-      --navy: #0A2342;
-      --gold: #D9B64D;
-      --gold-bright: #F1D778;
-      --gold-dark: #9C7B25;
-      --cream: #F5F0DF;
-      --text: #F3F5FA;
-      --muted: #9DADC2;
-      --line: #263C57;
-      --green: #7CE0B0;
-      --blue: #84B7FF;
-      --red: #FF9B9B;
-      --pixel-font: "Press Start 2P", monospace;
-      --body-font: "DM Sans", sans-serif;
-      --mono-font: "DM Mono", monospace;
-      --max: 1180px;
-      --pixel-shadow: 5px 5px 0 rgba(0, 0, 0, 0.32);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-      background: var(--bg);
-    }
-
-    body {
-      margin: 0;
+    /* joint account card */
+    .bankcard {
+      position: relative; aspect-ratio: 1.586; max-width: 500px; margin-left: auto; padding: 26px 28px;
+      display: flex; flex-direction: column; justify-content: space-between;
       color: var(--text);
-      background: var(--bg);
-      font-family: var(--body-font);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.12;
-      background-image:
-        linear-gradient(rgba(132, 183, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, 0.1) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    button,
-    a {
-      touch-action: manipulation;
-    }
-
-    button:focus-visible,
-    a:focus-visible {
-      outline: 2px solid var(--gold-bright);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .pixel-label {
-      font-family: var(--pixel-font);
-      font-size: 0.57rem;
-      line-height: 1.9;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--gold-bright);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 22px;
-      height: 2px;
-      background: var(--gold);
-    }
-
-    .section-heading {
-      margin: 14px 0 0;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.17;
-      letter-spacing: -0.045em;
-      color: var(--text);
-    }
-
-    .section-heading .accent {
-      color: var(--gold-bright);
-    }
-
-    .section-intro {
-      max-width: 680px;
-      margin: 17px auto 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.85;
-    }
-
-    .section-header {
-      max-width: 760px;
-      margin: 0 auto 48px;
-      text-align: center;
-    }
-
-    .section-header .eyebrow {
-      justify-content: center;
-    }
-
-    .pixel-corners {
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      box-shadow: var(--pixel-shadow);
-    }
-
-    .pixel-button {
-      display: inline-flex;
-      min-height: 48px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 18px;
-      border: 2px solid var(--gold);
-      border-radius: 3px;
-      background: var(--gold);
-      color: var(--bg-deep);
-      font-size: 0.84rem;
-      font-weight: 800;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .pixel-button:hover {
-      background: var(--gold-bright);
-      border-color: var(--gold-bright);
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0 rgba(217, 182, 77, 0.2);
-    }
-
-    .pixel-button.secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--line);
-    }
-
-    .pixel-button.secondary:hover {
-      color: var(--gold-bright);
-      border-color: var(--gold);
-      background: rgba(217, 182, 77, 0.06);
-    }
-
-    /* Navigation */
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(5, 13, 25, 0.96);
-      border-bottom: 2px solid #263A52;
-      backdrop-filter: blur(16px);
-    }
-
-    .navbar {
-      display: flex;
-      min-height: 78px;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .brand {
-      display: flex;
-      flex-shrink: 0;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .brand img {
-      width: 43px;
-      height: 43px;
-      object-fit: contain;
-      border: 1px solid #40536A;
-      border-radius: 3px;
-      background: var(--panel);
-    }
-
-    .brand-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .brand-name {
-      color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-    }
-
-    .brand-name span {
-      color: var(--gold);
-    }
-
-    .brand-tagline {
-      color: var(--muted);
-      font-family: var(--mono-font);
-      font-size: 0.58rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 19px;
-    }
-
-    .nav-links > a:not(.btn) {
-      position: relative;
-      color: #B7C4D5;
-      font-size: 0.8rem;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links > a:not(.btn):hover,
-    .nav-links > a[aria-current="page"] {
-      color: var(--gold-bright);
-    }
-
-    .nav-links > a[aria-current="page"]:not(.fin-city-link)::after {
-      content: "";
-      position: absolute;
-      bottom: -9px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--gold);
-    }
-
-    .nav-links .fin-city-link {
-      padding: 9px 11px;
-      border: 1px solid var(--gold-dark);
-      border-radius: 3px;
-      background: rgba(217, 182, 77, 0.08);
-      color: var(--gold-bright) !important;
-      font-family: var(--mono-font);
-      font-size: 0.73rem !important;
-    }
-
-    .nav-links .fin-city-link:hover {
-      background: rgba(217, 182, 77, 0.17);
-    }
-
-    .nav-links .btn {
-      display: inline-flex;
-      min-height: 40px;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      border: 1px solid var(--gold);
-      border-radius: 3px;
-      background: var(--gold);
-      color: var(--bg-deep);
-      font-size: 0.78rem;
-      font-weight: 800;
-      white-space: nowrap;
-      transition: background 0.2s ease;
-    }
-
-    .nav-links .btn:hover {
-      background: var(--gold-bright);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: var(--gold);
-      cursor: pointer;
-    }
-
-    .mobile-menu {
-      display: none;
-      padding: 0 20px 20px;
-      border-top: 1px solid var(--line);
-      background: var(--bg-deep);
-    }
-
-    .mobile-menu.open {
-      display: block;
-    }
-
-    .mobile-menu-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      padding-top: 12px;
-    }
-
-    .mobile-nav-link {
-      display: flex;
-      min-height: 44px;
-      align-items: center;
-      padding: 10px 13px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      color: #B7C4D5;
-      font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    .mobile-nav-link:hover,
-    .mobile-nav-link[aria-current="page"] {
-      border-color: var(--line);
-      background: var(--panel);
-      color: var(--gold-bright);
-    }
-
-    .mobile-nav-link.fin-city-link {
-      border-color: var(--gold-dark);
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-    }
-
-    .mobile-enroll {
-      margin-top: 8px;
-      justify-content: center;
-      border-color: var(--gold);
-      background: var(--gold);
-      color: var(--bg-deep);
-    }
-
-    .mobile-enroll:hover {
-      background: var(--gold-bright);
-      color: var(--bg-deep);
-    }
-
-    /* Hero */
-
-    .hero {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 82px 0 88px;
-      border-bottom: 1px solid var(--line);
       background:
-        radial-gradient(ellipse at 82% 25%, rgba(217, 182, 77, 0.1), transparent 40%),
-        linear-gradient(180deg, #0B1D32 0%, var(--bg) 100%);
-    }
-
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      pointer-events: none;
-      opacity: 0.25;
-      background-image:
-        linear-gradient(rgba(132, 183, 255, 0.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, 0.09) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: linear-gradient(to bottom, black, transparent 95%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
-      gap: 58px;
-    }
-
-    .hero h1 {
-      max-width: 700px;
-      margin: 22px 0 0;
-      color: var(--text);
-      font-size: clamp(2.35rem, 5.1vw, 4.4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.055em;
-    }
-
-    .hero h1 .accent {
-      color: var(--gold-bright);
-    }
-
-    .hero-description {
-      max-width: 590px;
-      margin: 23px 0 0;
-      color: var(--muted);
-      font-size: 1.04rem;
-      line-height: 1.9;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .hero-values {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-      margin-top: 27px;
-      color: var(--muted);
-      font-family: var(--mono-font);
-      font-size: 0.7rem;
-    }
-
-    .hero-values span {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .hero-values svg {
-      width: 15px;
-      height: 15px;
-      color: var(--gold);
-    }
-
-    /* Network illustration */
-
-    .network-visual {
-      position: relative;
-      width: 100%;
-      max-width: 510px;
-      margin-inline: auto;
-    }
-
-    .network-visual::before {
-      position: absolute;
-      inset: 12%;
-      content: "";
-      border-radius: 50%;
-      background: rgba(217, 182, 77, 0.07);
-      filter: blur(35px);
-    }
-
-    .network-square {
-      position: relative;
-      aspect-ratio: 1;
-      width: 100%;
-    }
-
-    .network-square svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .network-ring {
-      fill: none;
-      stroke: var(--line);
-      stroke-width: 1.5;
-      stroke-dasharray: 4 7;
-    }
-
-    .network-ring.gold {
-      stroke: rgba(217, 182, 77, 0.5);
-      stroke-dasharray: none;
-    }
-
-    .network-line {
-      stroke: rgba(217, 182, 77, 0.75);
-      stroke-width: 1.5;
-      stroke-dasharray: 5 6;
-      animation: dash 18s linear infinite;
-    }
-
-    @keyframes dash {
-      to {
-        stroke-dashoffset: -220;
-      }
-    }
-
-    .network-node {
-      position: absolute;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px;
-      border: 1px solid #344B66;
-      border-radius: 4px;
-      background: #10243C;
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.28);
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .network-node:nth-of-type(2n) {
-      animation-delay: -2s;
-    }
-
-    .network-node img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .network-node.center {
-      top: 50%;
-      left: 50%;
-      width: 31%;
-      height: 31%;
-      padding: 20px;
-      transform: translate(-50%, -50%);
-      border-color: var(--gold-dark);
-      background: var(--panel);
-    }
-
-    .network-node.top {
-      top: 1%;
-      left: 50%;
-      width: 24%;
-      height: 20%;
-      transform: translateX(-50%);
-    }
-
-    .network-node.right {
-      right: 0;
-      bottom: 19%;
-      width: 25%;
-      height: 21%;
-    }
-
-    .network-node.left {
-      bottom: 19%;
-      left: 0;
-      width: 25%;
-      height: 21%;
-    }
-
-    .network-caption {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      z-index: 3;
-      width: max-content;
-      max-width: 90%;
-      padding: 8px 12px;
-      transform: translateX(-50%);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: 0.66rem;
-      text-align: center;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        margin-top: 0;
-      }
-      50% {
-        margin-top: -7px;
-      }
-    }
-
-    /* Statistics */
-
-    .stats-band {
-      border-top: 1px solid #243A54;
-      border-bottom: 1px solid #243A54;
-      background: var(--bg-deep);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat-card {
-      display: flex;
-      min-height: 130px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 22px 12px;
-      text-align: center;
-      border-right: 1px solid var(--line);
-    }
-
-    .stat-card:last-child {
-      border-right: none;
-    }
-
-    .stat-number {
-      color: var(--gold-bright);
-      font-family: var(--pixel-font);
-      font-size: clamp(1rem, 2vw, 1.55rem);
-      line-height: 1.7;
-    }
-
-    .stat-label {
-      margin-top: 7px;
-      color: var(--muted);
-      font-family: var(--mono-font);
-      font-size: 0.7rem;
-    }
-
-    /* Partner cards */
-
-    .partners-section {
-      padding: 100px 0;
-      background: var(--bg);
-    }
-
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      align-items: stretch;
-      gap: 22px;
-    }
-
-    .partner-card {
-      display: flex;
-      min-width: 0;
-      flex-direction: column;
-      padding: 19px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: linear-gradient(180deg, var(--panel) 0%, #0A1B2F 100%);
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.18);
-      transition:
-        transform 0.22s ease,
-        border-color 0.22s ease,
-        background 0.22s ease;
-    }
-
-    .partner-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold-dark);
-      background: linear-gradient(180deg, #112A46 0%, #0A1B2F 100%);
-    }
-
-    .partner-logo {
-      display: flex;
-      width: 100%;
-      height: 155px;
-      align-items: center;
-      justify-content: center;
-      padding: 22px;
-      border: 1px solid #2B4058;
-      border-radius: 3px;
-      background:
-        linear-gradient(rgba(132, 183, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, 0.045) 1px, transparent 1px),
-        #0A1829;
-      background-size: 16px 16px;
-    }
-
-    .partner-logo img {
-      max-width: 100%;
-      max-height: 105px;
-      object-fit: contain;
-    }
-
-    .partner-logo-fallback {
-      color: var(--gold-bright);
-      font-family: var(--pixel-font);
-      font-size: 0.65rem;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    .partner-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 21px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 9px;
-      border: 1px solid #334862;
-      border-radius: 2px;
-      background: rgba(132, 183, 255, 0.055);
-      color: #B8C8DA;
-      font-family: var(--mono-font);
-      font-size: 0.62rem;
-      line-height: 1.5;
-    }
-
-    .tag.gold {
-      border-color: rgba(217, 182, 77, 0.4);
-      background: rgba(217, 182, 77, 0.09);
-      color: var(--gold-bright);
-    }
-
-    .partner-card h3 {
-      margin: 17px 0 0;
-      color: var(--text);
-      font-size: 1.25rem;
-      font-weight: 800;
-      line-height: 1.35;
-    }
-
-    .partner-description {
-      flex: 1;
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.85;
-    }
-
-    .partner-footer {
-      margin-top: 23px;
-      padding-top: 17px;
-      border-top: 1px solid var(--line);
-    }
-
-    .partner-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--gold-bright);
-      font-size: 0.83rem;
-      font-weight: 800;
-      transition: color 0.2s ease;
-    }
-
-    .partner-link:hover {
-      color: var(--text);
-    }
-
-    .partner-link svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .coming-soon {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-family: var(--mono-font);
-      font-size: 0.72rem;
-    }
-
-    .coming-soon svg {
-      width: 15px;
-      height: 15px;
-      color: var(--gold);
-    }
-
-    /* Why partnerships */
-
-    .why-section {
-      padding: 100px 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #0A1B2F;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.95fr;
-      align-items: center;
-      gap: 65px;
-    }
-
-    .why-description {
-      max-width: 600px;
-      margin: 21px 0 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.9;
-    }
-
-    .benefit-list {
-      display: grid;
-      gap: 24px;
-      margin-top: 33px;
-    }
-
-    .benefit {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-    }
-
-    .benefit-icon {
-      display: flex;
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: var(--gold);
-    }
-
-    .benefit-icon svg {
-      width: 21px;
-      height: 21px;
-    }
-
-    .benefit h3 {
-      margin: 0;
-      color: var(--text);
-      font-size: 0.98rem;
-      font-weight: 800;
-    }
-
-    .benefit p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.75;
-    }
-
-    .purpose-card {
-      position: relative;
-      padding: 29px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--panel);
-      box-shadow: var(--pixel-shadow);
-    }
-
-    .purpose-heading {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .purpose-icon {
-      display: flex;
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--gold-dark);
-      border-radius: 3px;
-      background: rgba(217, 182, 77, 0.08);
-      color: var(--gold);
-    }
-
-    .purpose-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .purpose-kicker {
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: 0.67rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .purpose-heading h3 {
-      margin: 4px 0 0;
-      color: var(--text);
-      font-size: 1.2rem;
-      font-weight: 800;
-      line-height: 1.4;
-    }
-
-    .purpose-divider {
-      height: 1px;
-      margin: 25px 0;
-      background: var(--line);
-    }
-
-    .purpose-list {
-      display: grid;
-      gap: 18px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .purpose-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      color: var(--muted);
-      font-size: 0.87rem;
-      line-height: 1.7;
-    }
-
-    .purpose-list svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      margin-top: 3px;
-      color: var(--gold);
-    }
-
-    .purpose-action {
-      display: flex;
-      width: 100%;
-      margin-top: 27px;
-    }
-
-    /* Collaboration models */
-
-    .models-section {
-      padding: 100px 0;
-      background: var(--bg);
-    }
-
-    .models-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 17px;
-    }
-
-    .model-card {
-      padding: 23px 20px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--panel);
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .model-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold-dark);
-    }
-
-    .model-icon {
-      display: flex;
-      width: 47px;
-      height: 47px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #354B65;
-      border-radius: 3px;
-      background: #0A1B2F;
-      color: var(--gold);
-    }
-
-    .model-icon svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    .model-card h3 {
-      margin: 20px 0 0;
-      color: var(--text);
-      font-size: 0.98rem;
-      font-weight: 800;
-      line-height: 1.5;
-    }
-
-    .model-card p {
-      margin: 9px 0 0;
-      color: var(--muted);
-      font-size: 0.83rem;
-      line-height: 1.8;
-    }
-
-    /* Partnership process */
-
-    .process-section {
-      padding: 100px 0;
-      border-top: 1px solid var(--line);
-      background: #0A1B2F;
-    }
-
-    .process-list {
-      display: grid;
-      gap: 15px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .process-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 21px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: var(--panel);
-      transition: border-color 0.2s ease;
-    }
-
-    .process-step:hover {
-      border-color: var(--gold-dark);
-    }
-
-    .step-number {
-      display: flex;
-      width: 49px;
-      height: 49px;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--gold-dark);
-      border-radius: 3px;
-      background: rgba(217, 182, 77, 0.08);
-      color: var(--gold-bright);
-      font-family: var(--pixel-font);
-      font-size: 0.66rem;
-    }
-
-    .process-step h3 {
-      margin: 1px 0 0;
-      color: var(--text);
-      font-size: 1rem;
-      font-weight: 800;
-    }
-
-    .process-step p {
-      margin: 7px 0 0;
-      color: var(--muted);
-      font-size: 0.87rem;
-      line-height: 1.8;
-    }
-
-    /* CTA */
-
-    .cta-section {
-      padding: 90px 0;
-      background: var(--bg);
-    }
-
-    .cta-panel {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 65px 30px;
-      border: 1px solid var(--gold-dark);
-      border-radius: 4px;
-      background:
-        radial-gradient(ellipse at 85% 0%, rgba(217, 182, 77, 0.13), transparent 40%),
-        linear-gradient(135deg, #102641 0%, #0A1B2F 100%);
-      box-shadow: var(--pixel-shadow);
-      text-align: center;
-    }
-
-    .cta-panel::before {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      pointer-events: none;
-      opacity: 0.22;
-      background-image:
-        linear-gradient(rgba(132, 183, 255, 0.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, 0.09) 1px, transparent 1px);
-      background-size: 24px 24px;
-      mask-image: linear-gradient(to bottom, black, transparent);
-    }
-
-    .cta-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 9px 12px;
-      border: 1px solid #45546B;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0.025);
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .cta-kicker svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .cta-panel h2 {
-      max-width: 800px;
-      margin: 25px auto 0;
-      color: var(--text);
-      font-size: clamp(2rem, 4.5vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.045em;
-    }
-
-    .cta-panel h2 span {
-      color: var(--gold-bright);
-    }
-
-    .cta-panel p {
-      max-width: 680px;
-      margin: 20px auto 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.9;
-    }
-
-    .cta-panel .pixel-button {
-      margin-top: 28px;
-    }
-
-    .cta-email {
-      margin-top: 17px;
-      color: #AAB8CB;
-      font-family: var(--mono-font);
-      font-size: 0.75rem;
-    }
-
-    /* Footer */
-
-    .site-footer {
-      padding: 56px 0 24px;
-      border-top: 2px solid #263A52;
-      background: var(--bg-deep);
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.7fr 1fr 1fr;
-      gap: 50px;
-    }
-
-    .footer-description {
-      max-width: 420px;
-      margin: 17px 0 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.85;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 9px;
-      margin-top: 20px;
-    }
-
-    .social-link {
-      display: flex;
-      width: 40px;
-      height: 40px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: var(--muted);
-      transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .social-link:hover {
-      border-color: var(--gold-dark);
-      color: var(--gold-bright);
-    }
-
-    .social-link svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    .footer-heading {
-      margin: 4px 0 0;
-      color: var(--text);
-      font-size: 0.9rem;
-      font-weight: 800;
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 12px;
-      padding: 0;
-      margin: 18px 0 0;
-      list-style: none;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-      font-size: 0.84rem;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-bright);
-    }
-
-    .footer-bottom {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 40px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-disclaimer {
-      margin: 0;
-      color: #8293A9;
-      font-size: 0.75rem;
-      line-height: 1.7;
-    }
-
-    .footer-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      color: #8293A9;
-      font-family: var(--mono-font);
-      font-size: 0.68rem;
-    }
-
-    .footer-meta a:hover {
-      color: var(--gold-bright);
-    }
-
-    /* Scroll reveal */
-
-    .reveal {
-      opacity: 1;
-      transform: none;
-    }
-
-    .js-reveal .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
-    }
-
-    .js-reveal .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .js-reveal .reveal.delay-1 {
-      transition-delay: 0.08s;
-    }
-
-    .js-reveal .reveal.delay-2 {
-      transition-delay: 0.16s;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 1100px) {
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links > a:not(.btn) {
-        font-size: 0.73rem;
-      }
-
-      .brand-name {
-        font-size: 0.87rem;
-      }
-
-      .brand-tagline {
-        font-size: 0.52rem;
-      }
-
-      .hero-grid {
-        gap: 32px;
-      }
-
-      .partners-grid {
-        gap: 16px;
-      }
-
-      .partner-card {
-        padding: 15px;
-      }
-
-      .why-grid {
-        gap: 40px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 42px;
-      }
-
-      .hero-copy {
-        max-width: 720px;
-      }
-
-      .network-visual {
-        max-width: 440px;
-      }
-
-      .partners-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .partner-card:last-child {
-        grid-column: 1 / -1;
-        width: calc(50% - 8px);
-        justify-self: center;
-      }
-
-      .why-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .purpose-card {
-        max-width: 700px;
-      }
-
-      .models-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .footer-grid {
-        grid-template-columns: 1.4fr 1fr 1fr;
-        gap: 30px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 32px, var(--max));
-      }
-
-      .navbar {
-        min-height: 70px;
-      }
-
-      .brand img {
-        width: 39px;
-        height: 39px;
-      }
-
-      .brand-name {
-        font-size: 0.85rem;
-      }
-
-      .brand-tagline {
-        font-size: 0.49rem;
-      }
-
-      .hero {
-        padding: 60px 0 65px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.15rem, 10vw, 3.1rem);
-      }
-
-      .hero-description {
-        font-size: 0.95rem;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-actions .pixel-button {
-        width: 100%;
-      }
-
-      .hero-values {
-        gap: 10px 14px;
-        font-size: 0.65rem;
-      }
-
-      .network-visual {
-        max-width: 350px;
-      }
-
-      .network-node.center {
-        padding: 13px;
-      }
-
-      .network-caption {
-        font-size: 0.58rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .stat-card {
-        min-height: 108px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .stat-card:nth-child(2) {
-        border-right: none;
-      }
-
-      .stat-card:nth-child(3),
-      .stat-card:nth-child(4) {
-        border-bottom: none;
-      }
-
-      .stat-number {
-        font-size: 1rem;
-      }
-
-      .partners-section,
-      .why-section,
-      .models-section,
-      .process-section {
-        padding: 70px 0;
-      }
-
-      .section-header {
-        margin-bottom: 32px;
-      }
-
-      .section-heading {
-        font-size: 1.85rem;
-      }
-
-      .section-intro {
-        font-size: 0.91rem;
-      }
-
-      .partners-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .partner-card:last-child {
-        grid-column: auto;
-        width: 100%;
-      }
-
-      .partner-card {
-        padding: 17px;
-      }
-
-      .partner-logo {
-        height: 145px;
-      }
-
-      .why-description {
-        font-size: 0.92rem;
-      }
-
-      .purpose-card {
-        padding: 21px;
-      }
-
-      .purpose-heading h3 {
-        font-size: 1.05rem;
-      }
-
-      .models-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .model-card {
-        padding: 21px;
-      }
-
-      .process-step {
-        gap: 14px;
-        padding: 18px;
-      }
-
-      .step-number {
-        width: 42px;
-        height: 42px;
-        font-size: 0.56rem;
-      }
-
-      .cta-section {
-        padding: 65px 0;
-      }
-
-      .cta-panel {
-        padding: 43px 20px;
-      }
-
-      .cta-panel h2 {
-        font-size: 2rem;
-      }
-
-      .cta-panel p {
-        font-size: 0.91rem;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 34px 20px;
-      }
-
-      .footer-brand {
-        grid-column: 1 / -1;
-      }
-
-      .footer-meta {
-        align-items: flex-start;
-        flex-direction: column;
-        font-size: 0.65rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-
-      .js-reveal .reveal {
-        opacity: 1;
-        transform: none;
-      }
+        repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 8px, transparent 8px 16px),
+        linear-gradient(135deg, #12355A, #0A2342 60%, #173A66);
+      box-shadow: 0 0 0 4px #2B4566, 12px 12px 0 4px #030A13;
+      transform: rotate(-2deg);
+      transition: transform .3s steps(4);
+    }
+    .bankcard:hover { transform: rotate(0deg) translateY(-4px); }
+    .bc-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+    .bc-top span { font-family: var(--pixel); font-size: .55rem; line-height: 1.8; color: var(--gold-bright); }
+    .chip { width: 52px; height: 40px; background: linear-gradient(var(--gold-dark) 0 0) 50% 0 / 2px 100% no-repeat, linear-gradient(var(--gold-dark) 0 0) 0 50% / 100% 2px no-repeat, var(--gold-bright); box-shadow: inset 0 0 0 3px var(--gold); }
+    .bc-number { font-family: var(--term); font-size: clamp(1.4rem, 3.4vw, 2rem); letter-spacing: .14em; color: #E6ECF5; text-shadow: 2px 2px 0 #030A13; }
+    .holders { display: flex; align-items: end; justify-content: space-between; gap: 10px; }
+    .holders small { display: block; font-family: var(--pixel); font-size: .42rem; color: #8FA2BA; margin-bottom: 8px; }
+    .logos { display: flex; }
+    .logos img { width: 48px; height: 48px; object-fit: cover; margin-right: -10px; background: #fff; box-shadow: 0 0 0 3px #0A2342; }
+    .bc-brand { font-family: var(--pixel); font-size: .5rem; color: var(--green); text-align: right; line-height: 1.8; }
+    .bc-caption { margin-top: 34px; text-align: right; font-family: var(--term); font-size: 1.3rem; color: #8FA2BA; }
+
+    .statband { display: grid; grid-template-columns: repeat(4, 1fr); background: #030A13; }
+    .statband div { padding: 26px 16px; text-align: center; border-right: 1px solid #13283F; }
+    .statband div:last-child { border-right: 0; }
+    .statband strong { display: block; font-family: var(--term); font-size: 3rem; font-weight: 400; line-height: 1; color: var(--gold-bright); }
+    .statband span { font-family: var(--pixel); font-size: .48rem; line-height: 1.8; color: #8FA2BA; }
+
+    /* business cards */
+    .bizcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .biz { position: relative; display: flex; flex-direction: column; padding: 26px; color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 #030A13; }
+    .biz::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: repeating-linear-gradient(90deg, var(--gold) 0 16px, var(--gold-dark) 16px 32px); }
+    .biz-head { display: flex; gap: 16px; align-items: center; margin: 8px 0 16px; }
+    .biz-head img { width: 76px; height: 76px; object-fit: cover; flex: none; background: #fff; box-shadow: 0 0 0 3px var(--ink); }
+    .biz h3 { margin: 0 0 8px; color: var(--ink); font-size: 1.4rem; font-stretch: 100%; }
+    .biz .tags .tag { color: var(--ink-soft); background: transparent; border-color: #B9AD8F; font-size: 1rem; }
+    .biz .tags .tag.gold { color: #6B5418; border-color: var(--gold-dark); background: rgba(241,215,120,.35); }
+    .biz p { color: #4A4334; font-size: .95rem; flex: 1; }
+    .biz-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 14px; border-top: 2px dashed #B9AD8F; font-family: var(--term); font-size: 1.15rem; }
+    .biz-foot a { font-weight: 700; font-family: var(--body); font-size: .95rem; color: #1C3B6B; border-bottom: 3px solid currentColor; }
+    .biz-foot a:hover { color: var(--stamp); }
+    .biz-foot .soon { color: var(--ink-soft); }
+
+    .purpose { padding: 28px; }
+    .purpose h3 { font-size: 1.5rem; margin-bottom: 18px; }
+
+    /* envelope CTA */
+    .envelope { position: relative; max-width: 860px; margin: 0 auto; padding: clamp(28px, 5vw, 56px); padding-top: clamp(70px, 9vw, 110px); color: var(--ink); text-align: center; background: var(--paper-2); box-shadow: 12px 12px 0 #030A13; overflow: hidden; }
+    .envelope::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: clamp(60px, 9vw, 96px); background: #D8C99F; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+    .envelope::after { content: ""; position: absolute; inset: 0; pointer-events: none; border: 10px solid; border-image: repeating-linear-gradient(45deg, var(--stamp) 0 14px, var(--paper-2) 14px 28px, #1C3B6B 28px 42px, var(--paper-2) 42px 56px) 10; }
+    .postage { position: absolute; top: 24px; right: 28px; z-index: 1; width: 66px; height: 78px; display: grid; place-items: center; background: var(--paper); box-shadow: 0 0 0 3px var(--paper), 0 0 0 5px var(--stamp); }
+    .postage img { width: 44px; height: 44px; }
+    .envelope .kicker { justify-content: center; color: var(--stamp); position: relative; }
+    .envelope .kicker::before { background: var(--stamp); box-shadow: 12px 0 0 var(--stamp), 24px 0 0 var(--stamp); }
+    .envelope h2 { color: var(--ink); position: relative; }
+    .envelope p { color: #4A4334; max-width: 560px; margin-inline: auto; position: relative; }
+    .envelope .btn { margin-top: 18px; }
+    .address { margin-top: 24px; font-family: var(--term); font-size: 1.4rem; color: #1C3B6B; }
+
+    @media (max-width: 1020px) { .bizcards { grid-template-columns: 1fr 1fr; } .bankcard { margin: 0 auto; } }
+    @media (max-width: 700px) {
+      .bizcards { grid-template-columns: 1fr; }
+      .statband { grid-template-columns: 1fr 1fr; }
+      .statband div:nth-child(2) { border-right: 0; }
+      .bankcard { transform: none; padding: 18px; }
+      .logos img { width: 38px; height: 38px; }
+      .postage { width: 52px; height: 62px; top: 16px; right: 18px; }
+      .postage img { width: 34px; height: 34px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Navigation: keep consistent across every page -->
+
+  <!-- NAVIGATION -->
   <header class="nav-wrap">
-    <nav class="navbar container" aria-label="Main navigation">
-      <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
-        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" />
-        <span class="brand-copy">
-          <span class="brand-name">Next-Gen <span>Knowledge</span></span>
-          <span class="brand-tagline">Learn today. Lead tomorrow.</span>
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+        <span class="brand-name">
+          NextGen Knowledge
+          <small>REAL-WORLD EDUCATION</small>
         </span>
       </a>
 
-      <div class="nav-links">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="fin-city.html" class="fin-city-link">Fin City</a>
-        <a href="about.html">About Us</a>
+        <a href="fin-city.html" class="fin-link">FIN CITY</a>
+        <a href="about.html">About</a>
         <a href="programs.html">Programs</a>
         <a href="team.html">Team</a>
-        <a href="partnerships.html" aria-current="page">Partnerships</a>
+        <a href="partnerships.html">Partners</a>
         <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="btn">Enroll Now <span aria-hidden="true">→</span></a>
-      </div>
+        <a href="enroll.html" class="btn btn-small">Get Started</a>
+      </nav>
+    </div>
 
-      <button
-        id="mobile-menu-button"
-        class="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-      >
-        <i data-lucide="menu" id="menu-icon"></i>
-      </button>
-    </nav>
-
-    <div id="mobile-menu" class="mobile-menu">
-      <div class="mobile-menu-inner container">
-        <a class="mobile-nav-link" href="index.html">Home</a>
-        <a class="mobile-nav-link fin-city-link" href="fin-city.html">Fin City ↗</a>
-        <a class="mobile-nav-link" href="about.html">About Us</a>
-        <a class="mobile-nav-link" href="programs.html">Programs</a>
-        <a class="mobile-nav-link" href="team.html">Team</a>
-        <a class="mobile-nav-link" href="partnerships.html" aria-current="page">Partnerships</a>
-        <a class="mobile-nav-link" href="donate.html">Donate</a>
-        <a class="mobile-nav-link mobile-enroll" href="enroll.html">Enroll Now →</a>
+    <div class="ticker" aria-label="Money concepts ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"><b>PAY.YOURSELF.FIRST</b><span class="up">▲ always</span></span>
+        <span class="ticker-item"><b>IMPULSE.BUYS</b><span class="down">▼ −$38/wk</span></span>
+        <span class="ticker-item"><b>COMPOUND.INTEREST</b><span class="up">▲▲ over time</span></span>
+        <span class="ticker-item"><b>LATE.FEES</b><span class="down">▼ avoid</span></span>
+        <span class="ticker-item"><b>EMERGENCY.FUND</b><span class="up">▲ 3–6 mo</span></span>
+        <span class="ticker-item"><b>RULE.OF.72</b><span class="up">▲ 72 ÷ rate = years to 2×</span></span>
+        <span class="ticker-item"><b>INFLATION</b><span class="down">▼ buying power</span></span>
+        <span class="ticker-item"><b>DIVERSIFY</b><span class="up">▲ spread risk</span></span>
+        <span class="ticker-item"><b>FOMO</b><span class="down">▼ bad trades</span></span>
+        <span class="ticker-item"><b>CREDIT.SCORE</b><span class="up">▲ 300–850</span></span>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">Partnerships & Collaboration</div>
-
-          <h1>
-            Building a stronger future,
-            <span class="accent">together.</span>
-          </h1>
-
-          <p class="hero-description">
-            We connect with organizations that share our commitment to making
-            financial education, career knowledge, and meaningful opportunities
-            more accessible to the next generation.
-          </p>
-
+    <section class="page-hero">
+      <div class="container split-2">
+        <div>
+          <div class="kicker">Partnerships &amp; collaboration</div>
+          <h1>Building a stronger future, <span class="gold">together.</span></h1>
+          <p class="lede">We connect with organizations that share our commitment to making financial education, career knowledge, and meaningful opportunities more accessible to the next generation.</p>
           <div class="hero-actions">
-            <a href="#our-partners" class="pixel-button">
-              Meet Our Partners
-              <i data-lucide="arrow-down"></i>
-            </a>
-            <a href="#get-involved" class="pixel-button secondary">
-              Partner With Us
-              <i data-lucide="arrow-up-right"></i>
-            </a>
-          </div>
-
-          <div class="hero-values">
-            <span><i data-lucide="check-circle-2"></i> Student-focused</span>
-            <span><i data-lucide="check-circle-2"></i> Mission-driven</span>
-            <span><i data-lucide="check-circle-2"></i> Community-oriented</span>
+            <a href="#our-partners" class="btn">Meet our partners ↓</a>
+            <a href="#get-involved" class="btn btn-ghost">Partner with us →</a>
           </div>
         </div>
 
-        <!-- Partner network visual -->
-        <div class="network-visual reveal delay-1">
-          <div class="network-square">
-            <svg viewBox="0 0 500 500" fill="none" aria-hidden="true">
-              <circle cx="250" cy="250" r="188" class="network-ring" />
-              <circle cx="250" cy="250" r="135" class="network-ring gold" />
-              <circle cx="250" cy="250" r="90" class="network-ring" />
-
-              <path class="network-line" d="M250 250 L250 67" />
-              <path class="network-line" d="M250 250 L414 345" />
-              <path class="network-line" d="M250 250 L86 345" />
-              <path class="network-line" d="M250 67 L414 345 L86 345 Z" />
-
-              <circle cx="250" cy="250" r="7" fill="#D9B64D" />
-              <circle cx="250" cy="67" r="5" fill="#D9B64D" />
-              <circle cx="414" cy="345" r="5" fill="#D9B64D" />
-              <circle cx="86" cy="345" r="5" fill="#D9B64D" />
-            </svg>
-
-            <div class="network-node center">
-              <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" />
-            </div>
-
-            <div class="network-node top">
-              <img src="IMG_7880.jpeg" alt="Bridge Finance Network logo" />
-            </div>
-
-            <div class="network-node right">
-              <img
-                src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg"
-                alt="Moniqo logo"
-              />
-            </div>
-
-            <div class="network-node left">
-              <img
-                src="65a709b8-50c3-4820-ae51-c5b435da882c.jpeg"
-                alt="Lumera logo"
-              />
-            </div>
-
-            <div class="network-caption">One mission. More possibilities.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partnership statistics -->
-    <section class="stats-band" aria-label="Partnership overview">
-      <div class="container stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">03</div>
-          <p class="stat-label">Current Partners</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">01</div>
-          <p class="stat-label">Shared Mission</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">∞</div>
-          <p class="stat-label">Possibilities</p>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <p class="stat-label">Student-Focused</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Partners -->
-    <section id="our-partners" class="partners-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow">Our Network</div>
-          <h2 class="section-heading">
-            Meet our <span class="accent">partners.</span>
-          </h2>
-          <p class="section-intro">
-            We work alongside organizations that are creating new ways for
-            students to learn, connect, and prepare for their futures.
-          </p>
-        </div>
-
-        <div class="partners-grid">
-          <!-- Bridge Finance Network -->
-          <article class="partner-card reveal">
-            <div class="partner-logo">
-              <img
-                src="IMG_7880.jpeg"
-                alt="Bridge Finance Network logo"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="partner-tags">
-              <span class="tag gold">Finance Education</span>
-              <span class="tag">Established Partner</span>
-            </div>
-
-            <h3>Bridge Finance Network</h3>
-
-            <p class="partner-description">
-              Bridge Finance Network is a 501(c)(3) organization dedicated to
-              equipping students with valuable skills and insights into the
-              finance industry. They prioritize networking and building
-              authentic connections for passionate, ambitious students. Their
-              goal is to provide a realistic perspective of the financial
-              world, helping students become the next generation of global
-              financial leaders.
-            </p>
-
-            <div class="partner-footer">
-              <a
-                href="https://www.bridgefinance.network"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="partner-link"
-              >
-                Visit Website
-                <i data-lucide="arrow-up-right"></i>
-              </a>
-            </div>
-          </article>
-
-          <!-- Moniqo -->
-          <article class="partner-card reveal delay-1">
-            <div class="partner-logo">
-              <img
-                src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg"
-                alt="Moniqo logo"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="partner-tags">
-              <span class="tag gold">Financial Literacy</span>
-              <span class="tag">Coming Soon</span>
-            </div>
-
-            <h3>Moniqo</h3>
-
-            <p class="partner-description">
-              A student-led nonprofit breaking barriers to financial education
-              and career success, free for everyone in Queens and Brooklyn.
-              They teach budgeting, investing, credit, resume building, and
-              interview skills—hands on at no cost.
-            </p>
-
-            <div class="partner-footer">
-              <span class="coming-soon">
-                <i data-lucide="clock-3"></i>
-                Website coming soon
-              </span>
-            </div>
-          </article>
-
-          <!-- Lumera -->
-          <article class="partner-card reveal delay-2">
-            <div class="partner-logo">
-              <img
-                src="65a709b8-50c3-4820-ae51-c5b435da882c.jpeg"
-                alt="Lumera logo"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="partner-tags">
-              <span class="tag gold">AI & Personal Finance</span>
-              <span class="tag">Coming Soon</span>
-            </div>
-
-            <h3>Lumera</h3>
-
-            <p class="partner-description">
-              Lumera is an AI-powered personal finance platform built to make
-              financial intelligence simple, accessible, and practical for
-              young people. From financial education and market insights to
-              career and university guidance, Lumera brings the tools and
-              knowledge you need to make smarter financial decisions, all in
-              one place.
-            </p>
-
-            <div class="partner-footer">
-              <span class="coming-soon">
-                <i data-lucide="clock-3"></i>
-                Website coming soon
-              </span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why partnerships matter -->
-    <section class="why-section">
-      <div class="container why-grid">
         <div class="reveal">
-          <div class="eyebrow">Why We Collaborate</div>
-          <h2 class="section-heading">
-            More connections.
-            <span class="accent">More opportunities.</span>
-          </h2>
-
-          <p class="why-description">
-            Students benefit when education connects with real-world
-            experience. Partnerships help us broaden the resources,
-            perspectives, and opportunities available to the communities we
-            serve.
-          </p>
-
-          <div class="benefit-list">
-            <div class="benefit">
-              <div class="benefit-icon">
-                <i data-lucide="book-open"></i>
-              </div>
+          <div class="bankcard" aria-label="Joint account card listing NextGen Knowledge and its partners">
+            <div class="bc-top"><span>JOINT ACCOUNT<br>FOR STUDENTS</span><span class="chip" aria-hidden="true"></span></div>
+            <div class="bc-number" aria-hidden="true">•••• •••• •••• NGK1</div>
+            <div class="holders">
               <div>
-                <h3>Accessible learning</h3>
-                <p>
-                  Help more students access practical financial and career education.
-                </p>
+                <small>ACCOUNT HOLDERS</small>
+                <div class="logos">
+                  <img src="IMG_1383.jpeg" alt="NextGen Knowledge">
+                  <img src="IMG_7880.jpeg" alt="Bridge Finance Network">
+                  <img src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg" alt="Moniqo">
+                  <img src="65a709b8-50c3-4820-ae51-c5b435da882c.jpeg" alt="Lumera">
+                </div>
               </div>
-            </div>
-
-            <div class="benefit">
-              <div class="benefit-icon">
-                <i data-lucide="users"></i>
-              </div>
-              <div>
-                <h3>Meaningful connections</h3>
-                <p>
-                  Bring students and organizations together around shared goals.
-                </p>
-              </div>
-            </div>
-
-            <div class="benefit">
-              <div class="benefit-icon">
-                <i data-lucide="lightbulb"></i>
-              </div>
-              <div>
-                <h3>Real-world perspectives</h3>
-                <p>
-                  Introduce students to practical knowledge and different career pathways.
-                </p>
-              </div>
+              <span class="bc-brand">BALANCE:<br>UNLIMITED</span>
             </div>
           </div>
-        </div>
-
-        <div class="reveal delay-1">
-          <div class="purpose-card">
-            <div class="purpose-heading">
-              <div class="purpose-icon">
-                <i data-lucide="handshake"></i>
-              </div>
-              <div>
-                <div class="purpose-kicker">Shared Purpose</div>
-                <h3>Learning works better together.</h3>
-              </div>
-            </div>
-
-            <div class="purpose-divider"></div>
-
-            <ul class="purpose-list">
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <span>
-                  Expand the reach of student-centered educational initiatives.
-                </span>
-              </li>
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <span>
-                  Share relevant resources, expertise, and learning opportunities.
-                </span>
-              </li>
-              <li>
-                <i data-lucide="check-circle-2"></i>
-                <span>
-                  Build lasting relationships around financial literacy and student development.
-                </span>
-              </li>
-            </ul>
-
-            <a href="#get-involved" class="pixel-button secondary purpose-action">
-              Explore Collaboration
-              <i data-lucide="arrow-right"></i>
-            </a>
-          </div>
+          <p class="bc-caption">One mission. More possibilities.</p>
         </div>
       </div>
     </section>
 
-    <!-- Collaboration models -->
-    <section class="models-section">
+    <div class="statband" aria-label="Partnership overview">
+      <div><strong>03</strong><span>CURRENT PARTNERS</span></div>
+      <div><strong>01</strong><span>SHARED MISSION</span></div>
+      <div><strong>∞</strong><span>POSSIBILITIES</span></div>
+      <div><strong>100%</strong><span>STUDENT-FOCUSED</span></div>
+    </div>
+
+    <!-- PARTNERS -->
+    <section id="our-partners" class="section">
       <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow">Ways to Work Together</div>
-          <h2 class="section-heading">
-            Collaboration with <span class="accent">purpose.</span>
-          </h2>
-          <p class="section-intro">
-            We welcome conversations about partnerships that align with our
-            mission and create value for students.
-          </p>
+        <div class="section-head reveal">
+          <div class="kicker">Our network</div>
+          <h2>Meet our <span class="gold">partners.</span></h2>
+          <p>We work alongside organizations that are creating new ways for students to learn, connect, and prepare for their futures.</p>
         </div>
 
-        <div class="models-grid">
-          <article class="model-card reveal">
-            <div class="model-icon">
-              <i data-lucide="presentation"></i>
+        <div class="bizcards">
+          <article class="biz reveal">
+            <div class="biz-head">
+              <img src="IMG_7880.jpeg" alt="Bridge Finance Network logo" loading="lazy">
+              <div><h3>Bridge Finance Network</h3><div class="tags"><span class="tag gold">Finance education</span><span class="tag">Established</span></div></div>
             </div>
-            <h3>Educational Programs</h3>
-            <p>
-              Work together on workshops, lessons, and student learning experiences.
-            </p>
+            <p>Bridge Finance Network is a 501(c)(3) organization dedicated to equipping students with valuable skills and insights into the finance industry. They prioritize networking and building authentic connections for passionate, ambitious students. Their goal is to provide a realistic perspective of the financial world, helping students become the next generation of global financial leaders.</p>
+            <div class="biz-foot"><span>bridgefinance.network</span><a href="https://www.bridgefinance.network" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div>
           </article>
 
-          <article class="model-card reveal delay-1">
-            <div class="model-icon">
-              <i data-lucide="messages-square"></i>
+          <article class="biz reveal">
+            <div class="biz-head">
+              <img src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg" alt="Moniqo logo" loading="lazy">
+              <div><h3>Moniqo</h3><div class="tags"><span class="tag gold">Financial literacy</span><span class="tag">Coming soon</span></div></div>
             </div>
-            <h3>Mentorship & Speakers</h3>
-            <p>
-              Connect students with useful perspectives and real-world experience.
-            </p>
+            <p>A student-led nonprofit breaking barriers to financial education and career success, free for everyone in Queens and Brooklyn. They teach budgeting, investing, credit, resume building, and interview skills, hands-on and at no cost.</p>
+            <div class="biz-foot"><span class="soon">Website coming soon</span></div>
           </article>
 
-          <article class="model-card reveal delay-2">
-            <div class="model-icon">
-              <i data-lucide="hand-coins"></i>
+          <article class="biz reveal">
+            <div class="biz-head">
+              <img src="65a709b8-50c3-4820-ae51-c5b435da882c.jpeg" alt="Lumera logo" loading="lazy">
+              <div><h3>Lumera</h3><div class="tags"><span class="tag gold">AI &amp; personal finance</span><span class="tag">Coming soon</span></div></div>
             </div>
-            <h3>Funding & Resources</h3>
-            <p>
-              Explore sponsorships, donations, and resources that support our programs.
-            </p>
-          </article>
-
-          <article class="model-card reveal">
-            <div class="model-icon">
-              <i data-lucide="network"></i>
-            </div>
-            <h3>Community Outreach</h3>
-            <p>
-              Reach more students and communities through shared outreach efforts.
-            </p>
+            <p>Lumera is an AI-powered personal finance platform built to make financial intelligence simple, accessible, and practical for young people. From financial education and market insights to career and university guidance, Lumera brings the tools and knowledge you need to make smarter financial decisions, all in one place.</p>
+            <div class="biz-foot"><span class="soon">Website coming soon</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Partnership process -->
-    <section class="process-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="eyebrow">Getting Started</div>
-          <h2 class="section-heading">
-            From introduction to <span class="accent">impact.</span>
-          </h2>
-          <p class="section-intro">
-            We keep the process straightforward so we can focus on shared goals
-            and practical next steps.
-          </p>
+    <!-- WHY -->
+    <section class="section alt">
+      <div class="container split-2">
+        <div class="reveal">
+          <div class="kicker">Why we collaborate</div>
+          <h2>More connections. <span class="gold">More opportunities.</span></h2>
+          <p>Students benefit when education connects with real-world experience. Partnerships help us broaden the resources, perspectives, and opportunities available to the communities we serve.</p>
+          <div class="cards" style="margin-top: 30px">
+            <article class="card"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-door"/></svg></span><h3>Accessible learning</h3><p>Help more students access practical financial and career education.</p></article>
+            <article class="card"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-handshake"/></svg></span><h3>Meaningful connections</h3><p>Bring students and organizations together around shared goals.</p></article>
+            <article class="card"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-compass"/></svg></span><h3>Real-world perspectives</h3><p>Introduce students to practical knowledge and different career pathways.</p></article>
+          </div>
         </div>
 
-        <div class="process-list">
-          <article class="process-step reveal">
-            <div class="step-number">01</div>
-            <div>
-              <h3>Start a conversation</h3>
-              <p>
-                Tell us about your organization, its mission, and what you hope
-                to accomplish together.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-step reveal delay-1">
-            <div class="step-number">02</div>
-            <div>
-              <h3>Identify shared goals</h3>
-              <p>
-                Explore how your expertise, resources, or programs could align
-                with Next-Gen Knowledge's educational mission.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-step reveal delay-2">
-            <div class="step-number">03</div>
-            <div>
-              <h3>Plan the collaboration</h3>
-              <p>
-                Discuss practical next steps, responsibilities, and how the
-                collaboration could serve students.
-              </p>
-            </div>
-          </article>
+        <div class="panel px-border purpose reveal">
+          <div class="panel-bar"><span>SHARED PURPOSE</span><span class="live">● OPEN</span></div>
+          <h3>Learning works better together.</h3>
+          <ul class="px-list">
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-check"/></svg><span>Expand the reach of student-centered educational initiatives.</span></li>
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-check"/></svg><span>Share relevant resources, expertise, and learning opportunities.</span></li>
+            <li><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-check"/></svg><span>Build lasting relationships around financial literacy and student development.</span></li>
+          </ul>
+          <a href="#get-involved" class="btn btn-ghost" style="margin-top: 26px">Explore collaboration →</a>
         </div>
       </div>
     </section>
 
-    <!-- Partnership CTA -->
-    <section id="get-involved" class="cta-section">
+    <!-- MODELS -->
+    <section class="section">
       <div class="container">
-        <div class="cta-panel reveal">
-          <div class="cta-kicker">
-            <i data-lucide="handshake"></i>
-            Let's Collaborate
-          </div>
+        <div class="section-head reveal">
+          <div class="kicker">Ways to work together</div>
+          <h2>Collaboration with <span class="gold">purpose.</span></h2>
+          <p>We welcome conversations about partnerships that align with our mission and create value for students.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg></span><h3>Educational Programs</h3><p>Work together on workshops, lessons, and student learning experiences.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-megaphone"/></svg></span><h3>Mentorship &amp; Speakers</h3><p>Connect students with useful perspectives and real-world experience.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-coin"/></svg></span><h3>Funding &amp; Resources</h3><p>Explore sponsorships, donations, and resources that support our programs.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-users"/></svg></span><h3>Community Outreach</h3><p>Reach more students and communities through shared outreach efforts.</p></article>
+        </div>
+      </div>
+    </section>
 
-          <h2>
-            Have an idea for a
-            <span>partnership?</span>
-          </h2>
+    <!-- PROCESS -->
+    <section class="section alt">
+      <div class="container split-2 top">
+        <div class="reveal">
+          <div class="kicker">Getting started</div>
+          <h2>From introduction to <span class="gold">impact.</span></h2>
+          <p>We keep the process straightforward so we can focus on shared goals and practical next steps.</p>
+        </div>
+        <ol class="steps reveal">
+          <li class="step-row"><span class="n">01</span><div><h3>Start a conversation</h3><p>Tell us about your organization, its mission, and what you hope to accomplish together.</p></div></li>
+          <li class="step-row"><span class="n">02</span><div><h3>Identify shared goals</h3><p>Explore how your expertise, resources, or programs could align with Next-Gen Knowledge's educational mission.</p></div></li>
+          <li class="step-row"><span class="n">03</span><div><h3>Plan the collaboration</h3><p>Discuss practical next steps, responsibilities, and how the collaboration could serve students.</p></div></li>
+        </ol>
+      </div>
+    </section>
 
-          <p>
-            Whether you're a nonprofit, educational organization, business, or
-            community group, we'd love to hear how we could work together to
-            make learning more accessible.
-          </p>
-
-          <a
-            href="mailto:nextgen.knowledge123@gmail.com?subject=Partnership%20Inquiry"
-            class="pixel-button"
-          >
-            Get in Touch
-            <i data-lucide="arrow-up-right"></i>
+    <!-- CTA ENVELOPE -->
+    <section id="get-involved" class="section">
+      <div class="container">
+        <div class="envelope reveal">
+          <span class="postage" aria-hidden="true"><img src="IMG_1383.jpeg" alt=""></span>
+          <div class="kicker">Let's collaborate</div>
+          <h2>Have an idea for a partnership?</h2>
+          <p>Whether you're a nonprofit, educational organization, business, or community group, we'd love to hear how we could work together to make learning more accessible.</p>
+          <a href="mailto:nextgen.knowledge123@gmail.com?subject=Partnership%20Inquiry" class="btn btn-ink">
+            <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-mail"/></svg> Get in touch
           </a>
-
-          <div class="cta-email">nextgen.knowledge123@gmail.com</div>
+          <div class="address">nextgen.knowledge123@gmail.com</div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand">
+        <div>
           <a href="index.html" class="brand">
-            <img
-              src="IMG_1383.jpeg"
-              alt="Next-Gen Knowledge logo"
-              loading="lazy"
-            />
-            <span class="brand-copy">
-              <span class="brand-name">Next-Gen <span>Knowledge</span></span>
-              <span class="brand-tagline">Learn today. Lead tomorrow.</span>
-            </span>
+            <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+            <span class="brand-name">NextGen Knowledge<small>REAL-WORLD EDUCATION</small></span>
           </a>
-
-          <p class="footer-description">
-            A student-led financial literacy 501(c)(3) nonprofit focused on
-            making real-world education accessible to the next generation.
-          </p>
-
-          <div class="social-links">
-            <a
-              href="https://www.instagram.com/nextgen.knowledge/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Next-Gen Knowledge on Instagram"
-              class="social-link"
-            >
-              <i data-lucide="instagram"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              class="social-link"
-            >
-              <i data-lucide="linkedin"></i>
-            </a>
-          </div>
+          <p class="footer-about">A student-led educational organization focused on making practical financial literacy and real-world learning more accessible.</p>
         </div>
 
-        <div>
-          <h3 class="footer-heading">Explore</h3>
-          <ul class="footer-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="fin-city.html">Fin City</a></li>
-            <li><a href="programs.html">Programs</a></li>
-            <li><a href="team.html">Our Team</a></li>
-            <li><a href="partnerships.html">Partnerships</a></li>
-          </ul>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="team.html">Our Team</a>
+          <a href="fin-city.html">Fin City</a>
         </div>
 
-        <div>
-          <h3 class="footer-heading">Get Involved</h3>
-          <ul class="footer-links">
-            <li><a href="enroll.html">Enroll in a Program</a></li>
-            <li><a href="donate.html">Support Our Mission</a></li>
-            <li>
-              <a href="mailto:nextgen.knowledge123@gmail.com?subject=Partnership%20Inquiry">
-                Become a Partner
-              </a>
-            </li>
-          </ul>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <a href="enroll.html">Enroll in a Program</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Support Our Work</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <p class="footer-disclaimer">
-          Next-Gen Knowledge is a fiscally sponsored project of the Hack Club
-          Foundation, a 501(c)(3) non-profit.
-        </p>
-
-        <div class="footer-meta">
-          <p>© <span id="current-year"></span> Next-Gen Knowledge. All rights reserved.</p>
-          <a href="mailto:nextgen.knowledge123@gmail.com">Contact Us</a>
-        </div>
+      <div class="footer-receipt">
+        <span>© <span id="currentYear"></span> NEXT-GEN KNOWLEDGE. ALL RIGHTS RESERVED.</span>
+        <span class="gold">*** CHANGE DUE: YOUR FUTURE ***</span>
+        <span>LEARN TODAY. BUILD TOMORROW.</span>
       </div>
+      <p class="sponsor-note">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
     </div>
   </footer>
 
-  <script>
-    // Render Lucide icons.
-    function renderIcons() {
-      if (window.lucide) {
-        window.lucide.createIcons();
-      }
-    }
+  <script src="site.js"></script>
 
-    renderIcons();
-
-    // Mobile navigation.
-    const menuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const menuIcon = document.getElementById("menu-icon");
-
-    function setMenuOpen(isOpen) {
-      mobileMenu.classList.toggle("open", isOpen);
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-
-      menuIcon.setAttribute("data-lucide", isOpen ? "x" : "menu");
-      renderIcons();
-    }
-
-    menuButton.addEventListener("click", () => {
-      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-      setMenuOpen(!isOpen);
-    });
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMenuOpen(false));
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        setMenuOpen(false);
-      }
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 900) {
-        setMenuOpen(false);
-      }
-    });
-
-    // Scroll reveal animations.
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if ("IntersectionObserver" in window && !reduceMotion) {
-      document.documentElement.classList.add("js-reveal");
-
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-
-      document.querySelectorAll(".reveal").forEach((element) => {
-        revealObserver.observe(element);
-      });
-    }
-
-    // Automatically update the footer year.
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
-  </script>
 </body>
 </html>

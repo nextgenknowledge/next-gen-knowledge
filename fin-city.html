@@ -1,2099 +1,421 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#071629">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Fin City — Coming Soon | NextGen Knowledge</title>
-  <meta name="description" content="Enter Fin City, an upcoming interactive financial-literacy game by NextGen Knowledge. Explore a virtual city, manage money, complete challenges, and discover investing through play.">
-
-  <meta property="og:title" content="Fin City — A New Way to Learn About Money">
-  <meta property="og:description" content="Explore. Earn. Invest. Build your future. Discover Fin City, an upcoming game from NextGen Knowledge.">
+  <title>Fin City | NextGen Knowledge</title>
+  <meta name="description" content="Fin City is an interactive financial literacy game from NextGen Knowledge. Explore a virtual city, manage virtual money, and learn how financial decisions shape your future.">
+  <meta name="theme-color" content="#081629">
+  <meta name="author" content="Next-Gen Knowledge">
+  <meta property="og:title" content="Fin City | NextGen Knowledge">
+  <meta property="og:description" content="Fin City is an interactive financial literacy game from NextGen Knowledge. Explore a virtual city, manage virtual money, and learn how financial decisions shape your future.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_1383.jpeg">
 
+  <link rel="icon" href="IMG_1383.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
+  </script>
 
   <style>
-    :root {
-      --bg: #071629;
-      --bg-deep: #040B15;
-      --panel: #0C2038;
-      --panel-light: #142D4A;
-      --gold: #D9B64D;
-      --gold-bright: #F4D982;
-      --gold-dark: #9B7824;
-      --white: #F6F8FC;
-      --muted: #A5B5CA;
-      --line: rgba(182,204,232,.15);
-      --green: #7CE0B0;
-      --blue: #83BAFF;
-      --pixel-font: "Press Start 2P", monospace;
-      --body-font: "DM Sans", sans-serif;
-      --display-font: "Space Grotesk", sans-serif;
-      --mono-font: "DM Mono", monospace;
-      --max: 1190px;
-    }
+    .hero-logo { width: min(210px, 60%); image-rendering: pixelated; margin: -18px 0 4px -12px; }
+    .fc-hero h1 .line { display: block; }
 
-    * {
-      box-sizing: border-box;
+    /* game screen */
+    .game { --c: #2B4566; padding: 14px; background: #0B1B2F; }
+    .viewport {
+      position: relative; height: 420px; overflow: hidden;
+      background: linear-gradient(#050D1F 0%, #0B2245 55%, #173A66 78%);
+      box-shadow: inset 0 0 0 4px #04101E;
     }
+    .viewport::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 2px, transparent 2px 4px); }
+    .stars { position: absolute; inset: 0; background-image:
+      radial-gradient(2px 2px at 10% 12%, #fff 50%, transparent 51%), radial-gradient(2px 2px at 26% 30%, #cfe 50%, transparent 51%),
+      radial-gradient(2px 2px at 44% 8%, #fff 50%, transparent 51%), radial-gradient(2px 2px at 61% 22%, #fff 50%, transparent 51%),
+      radial-gradient(2px 2px at 78% 10%, #ffd 50%, transparent 51%), radial-gradient(2px 2px at 90% 28%, #fff 50%, transparent 51%),
+      radial-gradient(2px 2px at 35% 18%, #fff 50%, transparent 51%), radial-gradient(2px 2px at 70% 4%, #fff 50%, transparent 51%);
+      animation: twinkle 3s steps(2) infinite; }
+    @keyframes twinkle { 50% { opacity: .55; } }
+    .moon { position: absolute; top: 46px; right: 52px; width: 40px; height: 40px; background: var(--gold-bright); box-shadow: 0 -8px 0 -4px var(--gold-bright), 0 8px 0 -4px var(--gold-bright), -8px 0 0 -4px var(--gold-bright), 8px 0 0 -4px var(--gold-bright); }
+    .moon::after { content: ""; position: absolute; top: 6px; left: 14px; width: 8px; height: 8px; background: var(--gold); }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
+    .hud { position: absolute; top: 12px; left: 12px; right: 12px; z-index: 3; display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+    .hud-box { padding: 8px 12px; background: rgba(3,10,19,.85); box-shadow: 0 0 0 3px #1D3A2D; font-family: var(--pixel); font-size: .45rem; line-height: 1.8; color: #8FA2BA; }
+    .hud-box strong { display: block; font-family: var(--term); font-size: 1.7rem; font-weight: 400; line-height: 1; color: var(--green); }
+    .hud-box .lvl { color: var(--gold-bright); font-size: .6rem; }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      color: var(--white);
-      background: var(--bg);
-      font-family: var(--body-font);
-      overflow-x: hidden;
-    }
-
-    body::selection {
-      color: var(--bg);
-      background: var(--gold-bright);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    button:focus-visible,
-    a:focus-visible {
-      outline: 2px solid var(--gold-bright);
-      outline-offset: 5px;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 48px));
-      margin-inline: auto;
-    }
-
-    .page {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      min-height: 100vh;
+    .street { position: absolute; left: 0; right: 0; bottom: 64px; display: flex; justify-content: center; align-items: end; gap: 14px; padding: 0 22px; z-index: 2; }
+    .bldg {
+      position: relative; flex: 1; max-width: 120px; height: var(--h); border: 0; padding: 0; cursor: pointer;
+      /* sign band, then floor gaps, then window columns, then the wall */
       background:
-        radial-gradient(ellipse at 75% 17%, rgba(38,104,160,.16), transparent 35%),
-        radial-gradient(ellipse at 18% 53%, rgba(201,162,39,.07), transparent 32%),
-        linear-gradient(145deg, #071629 0%, #0A2342 52%, #050D19 100%);
-    }
-
-    .background-grid {
-      position: absolute;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
-      opacity: .2;
-      background-image:
-        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: linear-gradient(to bottom, black, transparent 95%);
-    }
-
-    .ambient {
-      position: absolute;
-      z-index: -2;
-      pointer-events: none;
-      border-radius: 50%;
-      filter: blur(65px);
-    }
-
-    .ambient-one {
-      width: 400px;
-      height: 400px;
-      right: -200px;
-      top: 100px;
-      background: rgba(201,162,39,.10);
-    }
-
-    .ambient-two {
-      width: 370px;
-      height: 370px;
-      left: -240px;
-      top: 700px;
-      background: rgba(54,129,202,.12);
-    }
-
-    .pixel-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow-box {
-      padding: 10px 13px;
-      border: 1px solid rgba(217,182,77,.32);
-      background: rgba(217,182,77,.065);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      flex: 0 0 auto;
-      border-radius: 2px;
-      background: var(--gold-bright);
-      box-shadow: 0 0 15px rgba(244,217,130,.55);
-      animation: blink 2.4s infinite;
-    }
-
-    /* Navigation */
-
-    .nav {
-      position: relative;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 80px;
-      gap: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      flex: 0 0 auto;
-      color: var(--gold-bright);
-      background: linear-gradient(145deg, #19395C, #0B1C31);
-      border: 1px solid rgba(217,182,77,.4);
-      border-radius: 3px;
-      box-shadow: 3px 3px 0 rgba(0,0,0,.25);
-    }
-
-    .brand-mark svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .brand-name {
-      color: var(--white);
-      font-weight: 800;
-      font-size: .98rem;
-      letter-spacing: -.03em;
-    }
-
-    .brand-subtitle {
-      margin-top: 3px;
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .59rem;
-      letter-spacing: .07em;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 19px;
-    }
-
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #C0CDDC;
-      font-size: .84rem;
-      font-weight: 600;
-      transition: color .2s;
-    }
-
-    .nav-back:hover {
-      color: var(--gold-bright);
-    }
-
-    .nav-preview {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 13px;
-      color: var(--bg-deep);
-      background: var(--gold-bright);
-      border: 1px solid var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .7rem;
-      font-weight: 500;
-      transition: transform .2s, background .2s;
-    }
-
-    .nav-preview:hover {
-      transform: translateY(-2px);
-      background: var(--gold);
-    }
-
-    /* Hero */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-      align-items: center;
-      gap: 48px;
-      padding-top: 65px;
-      padding-bottom: 83px;
-    }
-
-    .hero-copy {
-      min-width: 0;
-      animation: enter-up .7s both;
-    }
-
-    .hero-logo {
-      display: block;
-      width: min(100%, 400px);
-      max-height: 175px;
-      object-fit: contain;
-      object-position: left center;
-      margin: 28px 0 22px;
-      filter: drop-shadow(0 15px 32px rgba(0,0,0,.2));
-    }
-
-    .hero h1 {
-      margin: 0;
-      max-width: 630px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: clamp(3rem, 5.3vw, 4.7rem);
-      line-height: .99;
-      letter-spacing: -.075em;
-      font-weight: 700;
-    }
-
-    .hero h1 .highlight {
-      display: block;
-      margin-top: 8px;
-      color: var(--gold-bright);
-      text-shadow: 0 0 40px rgba(217,182,77,.13);
-    }
-
-    .hero-description {
-      max-width: 520px;
-      margin: 24px 0 0;
-      color: #B6C5D8;
-      font-size: 1.02rem;
-      line-height: 1.9;
-    }
-
-    .hero-description strong {
-      color: var(--white);
-      font-weight: 700;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 29px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 49px;
-      padding: 13px 17px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      font-size: .85rem;
-      font-weight: 800;
-      transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
-      cursor: pointer;
-    }
-
-    .button svg {
-      width: 17px;
-      height: 17px;
-      flex: 0 0 auto;
-    }
-
-    .button-primary {
-      color: #111A25;
-      background: linear-gradient(135deg, #F5DF96, #D9B64D);
-      border-color: var(--gold-bright);
-      box-shadow: 0 8px 25px rgba(217,182,77,.14);
-    }
-
-    .button-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 13px 32px rgba(217,182,77,.24);
-    }
-
-    .button-secondary {
-      color: var(--white);
-      background: rgba(255,255,255,.035);
-      border-color: rgba(255,255,255,.18);
-    }
-
-    .button-secondary:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.075);
-      border-color: rgba(255,255,255,.35);
-    }
-
-    .hero-note {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      max-width: 450px;
-      margin-top: 21px;
-      color: #8295AC;
-      font-family: var(--mono-font);
-      font-size: .68rem;
-      line-height: 1.9;
-    }
-
-    .hero-note svg {
-      width: 16px;
-      height: 16px;
-      flex: 0 0 auto;
-      margin-top: 3px;
-      color: var(--gold);
-    }
-
-    /* City preview */
-
-    .hero-visual {
-      position: relative;
-      min-width: 0;
-      animation: enter-up .85s .12s both;
-    }
-
-    .visual-glow {
-      position: absolute;
-      inset: 10% 5%;
-      z-index: -1;
-      border-radius: 50%;
-      background: rgba(217,182,77,.12);
-      filter: blur(65px);
-    }
-
-    .game-window {
-      overflow: hidden;
-      border: 1px solid rgba(174,203,233,.22);
-      background: rgba(8,26,46,.96);
-      box-shadow: 0 35px 90px rgba(0,0,0,.33), 0 0 0 7px rgba(255,255,255,.018);
-    }
-
-    .window-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      min-height: 70px;
-      padding: 14px 19px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(100deg, rgba(25,57,91,.8), rgba(10,31,54,.85));
-    }
-
-    .window-heading {
-      min-width: 0;
-    }
-
-    .window-kicker {
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .61rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .window-title {
-      margin-top: 5px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: 1.14rem;
-      font-weight: 700;
-    }
-
-    .dev-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 9px;
-      flex: 0 0 auto;
-      color: #C5D3E3;
-      border: 1px solid rgba(255,255,255,.12);
-      font-family: var(--mono-font);
-      font-size: .58rem;
-      white-space: nowrap;
-    }
-
-    .dev-status span {
-      width: 6px;
-      height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 9px rgba(124,224,176,.4);
-    }
-
-    .city-scene {
-      position: relative;
-      isolation: isolate;
-      height: 355px;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 50% 47%, rgba(53,111,160,.22), transparent 50%),
-        linear-gradient(180deg, #123759 0%, #0B2847 60%, #07182B 100%);
-    }
-
-    .city-scene::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      opacity: .45;
-      background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: linear-gradient(to bottom, transparent, black);
-    }
-
-    .stars {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle at 10% 18%, #FFFFFFCC 1px, transparent 1.6px),
-        radial-gradient(circle at 28% 29%, #FFFFFF88 1px, transparent 1.6px),
-        radial-gradient(circle at 49% 12%, #FFFFFFAA 1px, transparent 1.6px),
-        radial-gradient(circle at 69% 24%, #FFFFFFAA 1px, transparent 1.6px),
-        radial-gradient(circle at 87% 15%, #FFFFFFAA 1px, transparent 1.6px),
-        radial-gradient(circle at 92% 39%, #FFFFFF77 1px, transparent 1.6px),
-        radial-gradient(circle at 18% 44%, #FFFFFF77 1px, transparent 1.6px);
-    }
-
-    .moon {
-      position: absolute;
-      top: 38px;
-      right: 12%;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(244,217,130,.5);
-      background: rgba(244,217,130,.15);
-      box-shadow: 0 0 36px rgba(244,217,130,.12);
-    }
-
-    .skyline-glow {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 60px;
-      height: 115px;
-      background: linear-gradient(transparent, rgba(47,112,161,.13));
-    }
-
-    .building {
-      position: absolute;
-      z-index: 1;
-      bottom: 45px;
-      border: 1px solid rgba(156,200,238,.27);
-      background: linear-gradient(135deg, #26577D, #102D4B);
-      box-shadow: inset 0 0 25px rgba(0,0,0,.18);
-    }
-
-    .building::before {
-      content: "";
-      position: absolute;
-      top: -6px;
-      left: -1px;
-      right: -1px;
-      height: 6px;
-      background: #32678F;
-      border: 1px solid rgba(156,200,238,.27);
-    }
-
-    .building-windows {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 7px;
-      padding: 13px 9px;
-    }
-
-    .building-windows span {
-      height: 12px;
-      background: rgba(244,217,130,.72);
-      box-shadow: 0 0 8px rgba(244,217,130,.08);
-    }
-
-    .building-windows span:nth-child(4n) {
-      background: rgba(164,205,245,.38);
-    }
-
-    .building-label {
-      position: absolute;
-      top: -29px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 5px 7px;
-      color: var(--gold-bright);
-      background: #081D34;
-      border: 1px solid rgba(217,182,77,.35);
-      font-family: var(--mono-font);
-      font-size: .53rem;
-      letter-spacing: .05em;
-      white-space: nowrap;
-    }
-
-    .building-bank {
-      left: 5%;
-      width: 20%;
-      height: 128px;
-    }
-
-    .building-market {
-      left: 28%;
-      width: 18%;
-      height: 170px;
-    }
-
-    .building-invest {
-      right: 25%;
-      width: 20%;
-      height: 220px;
-      background: linear-gradient(135deg, #326B92, #143956);
-    }
-
-    .building-home {
-      right: 3%;
-      width: 19%;
-      height: 145px;
-    }
-
-    .road {
-      position: absolute;
-      z-index: 2;
-      bottom: -70px;
-      left: 19%;
-      width: 62%;
-      height: 180px;
-      transform: perspective(150px) rotateX(24deg);
-      background: #071626;
-      border-top: 1px solid rgba(217,182,77,.28);
-    }
-
-    .road::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      border-left: 2px dashed rgba(244,217,130,.6);
-    }
-
-    .road::after {
-      content: "";
-      position: absolute;
-      left: 19%;
-      right: 19%;
-      top: 0;
-      border-top: 1px solid rgba(255,255,255,.07);
-    }
-
-    .floating-card {
-      position: absolute;
-      z-index: 4;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 12px;
-      border: 1px solid rgba(196,220,243,.2);
-      background: rgba(5,20,37,.92);
-      box-shadow: 0 12px 30px rgba(0,0,0,.22);
-      backdrop-filter: blur(12px);
-    }
-
-    .float-wallet {
-      top: 20%;
-      left: 3%;
-    }
-
-    .float-chart {
-      right: 3%;
-      bottom: 22%;
-    }
-
-    .floating-icon {
-      display: grid;
-      place-items: center;
-      width: 31px;
-      height: 31px;
-      flex: 0 0 auto;
-      color: var(--gold-bright);
-      background: rgba(217,182,77,.12);
-      border: 1px solid rgba(217,182,77,.2);
-    }
-
-    .floating-icon svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .floating-copy small {
-      display: block;
-      color: #9EB1C7;
-      font-family: var(--mono-font);
-      font-size: .53rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    .floating-copy strong {
-      display: block;
-      margin-top: 4px;
-      color: var(--white);
-      font-size: .74rem;
-    }
-
-    .player-hud {
-      position: absolute;
-      z-index: 5;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      background: rgba(4,14,27,.95);
-      border: 1px solid rgba(196,220,243,.17);
-    }
-
-    .hud-label {
-      color: #92A5BC;
-      font-family: var(--mono-font);
-      font-size: .56rem;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .hud-balance {
-      margin-top: 4px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: 1.22rem;
-      font-weight: 700;
-    }
-
-    .hud-balance span {
-      color: var(--green);
-      font-size: .72rem;
-    }
-
-    .hud-level {
-      text-align: right;
-    }
-
-    .level-pill {
-      display: inline-block;
-      margin-top: 5px;
-      padding: 5px 7px;
-      color: var(--gold-bright);
-      background: rgba(217,182,77,.1);
-      border: 1px solid rgba(217,182,77,.3);
-      font-family: var(--mono-font);
-      font-size: .59rem;
-    }
-
-    .window-footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 13px 17px;
-      color: #9BACBF;
-      background: #091A2D;
-      border-top: 1px solid var(--line);
-      font-family: var(--mono-font);
-      font-size: .59rem;
-      line-height: 1.8;
-    }
-
-    .window-footer strong {
-      color: var(--gold-bright);
-      font-weight: 500;
-    }
-
-    /* Mini stats */
-
-    .stats-strip {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      margin-top: 25px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .stat {
-      padding: 17px 15px;
-      text-align: center;
-    }
-
-    .stat + .stat {
-      border-left: 1px solid var(--line);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--gold-bright);
-      font-family: var(--display-font);
-      font-size: 1.02rem;
-      font-weight: 700;
-    }
-
-    .stat span {
-      display: block;
-      margin-top: 4px;
-      color: #98A9BF;
-      font-family: var(--mono-font);
-      font-size: .57rem;
-      line-height: 1.7;
-      text-transform: uppercase;
-    }
-
-    /* Main features */
-
-    .section {
-      padding: 45px 0 85px;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin: 0 auto 38px;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      margin: 15px 0 13px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: clamp(2rem,4.3vw,3.2rem);
-      line-height: 1.08;
-      letter-spacing: -.065em;
-    }
-
-    .section-heading h2 span {
-      color: var(--gold-bright);
-    }
-
-    .section-heading p {
-      max-width: 640px;
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: .96rem;
-      line-height: 1.9;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3,minmax(0,1fr));
-      gap: 16px;
-    }
-
-    .feature {
-      position: relative;
-      overflow: hidden;
-      padding: 25px 23px 24px;
-      border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(20,45,74,.77), rgba(8,24,43,.8));
-      transition: transform .22s, border-color .22s, background .22s;
-    }
-
-    .feature:hover {
-      transform: translateY(-4px);
-      border-color: rgba(217,182,77,.4);
-      background: linear-gradient(145deg, rgba(25,54,87,.9), rgba(8,24,43,.9));
-    }
-
-    .feature-number {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      color: rgba(217,182,77,.55);
-      font-family: var(--mono-font);
-      font-size: .66rem;
-      letter-spacing: .06em;
-    }
-
-    .feature-icon {
-      display: grid;
-      place-items: center;
-      width: 49px;
-      height: 49px;
-      margin-bottom: 22px;
-      color: var(--gold-bright);
-      background: rgba(217,182,77,.09);
-      border: 1px solid rgba(217,182,77,.27);
-    }
-
-    .feature-icon svg {
-      width: 23px;
-      height: 23px;
-    }
-
-    .feature h3 {
-      margin: 0 0 11px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: 1.13rem;
-      letter-spacing: -.03em;
-    }
-
-    .feature p {
-      margin: 0;
-      color: #A6B6C9;
-      font-size: .88rem;
-      line-height: 1.85;
-    }
-
-    .feature-tag {
-      display: inline-block;
-      margin-top: 19px;
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .62rem;
-      letter-spacing: .04em;
-    }
-
-    /* How it works */
-
-    .journey {
-      padding: 66px 0 76px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: rgba(4,12,23,.34);
-    }
-
-    .journey-layout {
-      display: grid;
-      grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
-      align-items: center;
-      gap: 55px;
-    }
-
-    .journey-copy h2 {
-      margin: 15px 0 17px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: clamp(2rem,4vw,3rem);
-      line-height: 1.12;
-      letter-spacing: -.06em;
-    }
-
-    .journey-copy h2 span {
-      color: var(--gold-bright);
-    }
-
-    .journey-copy > p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .96rem;
-      line-height: 1.9;
-    }
-
-    .journey-steps {
-      display: grid;
-      gap: 0;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 16px;
-      padding: 21px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .step:first-child {
-      padding-top: 0;
-    }
-
-    .step:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .step-number {
-      display: grid;
-      place-items: center;
-      width: 43px;
-      height: 43px;
-      color: var(--gold-bright);
-      background: rgba(217,182,77,.09);
-      border: 1px solid rgba(217,182,77,.35);
-      font-family: var(--mono-font);
-      font-size: .75rem;
-    }
-
-    .step h3 {
-      margin: 0 0 6px;
-      color: var(--white);
-      font-size: 1rem;
-      font-weight: 800;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .87rem;
-      line-height: 1.8;
-    }
-
-    /* Preview CTA */
-
-    .preview-section {
-      padding: 83px 0;
-    }
-
-    .preview-banner {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 45px;
-      border: 1px solid rgba(217,182,77,.35);
-      background:
-        radial-gradient(ellipse at 100% 0%, rgba(217,182,77,.16), transparent 42%),
-        linear-gradient(115deg, #112C49, #091A2F 75%);
-      box-shadow: 0 25px 65px rgba(0,0,0,.15);
-    }
-
-    .preview-banner::after {
-      content: "FIN";
-      position: absolute;
-      z-index: -1;
-      right: -15px;
-      bottom: -60px;
-      color: rgba(217,182,77,.045);
-      font-family: var(--pixel-font);
-      font-size: clamp(7rem,18vw,15rem);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .preview-layout {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .preview-copy {
-      max-width: 650px;
-    }
-
-    .preview-copy h2 {
-      margin: 15px 0 13px;
-      color: var(--white);
-      font-family: var(--display-font);
-      font-size: clamp(2rem,4vw,3.1rem);
-      line-height: 1.08;
-      letter-spacing: -.06em;
-    }
-
-    .preview-copy h2 span {
-      color: var(--gold-bright);
-    }
-
-    .preview-copy p {
-      margin: 0;
-      max-width: 580px;
-      color: #AEBED1;
-      font-size: .95rem;
-      line-height: 1.9;
-    }
-
-    .preview-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 11px;
-      min-width: 210px;
-    }
-
-    .preview-actions .button {
-      width: 100%;
-      text-align: center;
-    }
-
-    .preview-caption {
-      color: #8B9DB3;
-      font-family: var(--mono-font);
-      font-size: .62rem;
-      line-height: 1.7;
-      text-align: center;
-    }
-
-    /* Footer */
-
-    .footer {
-      border-top: 1px solid var(--line);
-      background: rgba(3,10,19,.65);
-    }
-
-    .footer-main {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-      padding: 25px 0;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .footer-brand .brand-mark {
-      width: 36px;
-      height: 36px;
-    }
-
-    .footer-brand .brand-mark svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .footer-brand-text {
-      color: #DDE5EF;
-      font-size: .87rem;
-      font-weight: 700;
-    }
-
-    .footer-brand-text small {
-      display: block;
-      margin-top: 3px;
-      color: #8396AD;
-      font-size: .7rem;
-      font-weight: 400;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 19px;
-    }
-
-    .footer-links a {
-      color: #A5B5C8;
-      font-size: .78rem;
-      transition: color .2s;
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-bright);
-    }
-
-    .footer-bottom {
-      padding: 18px 0 22px;
-      border-top: 1px solid var(--line);
-      color: #8394A9;
-      font-size: .72rem;
-      line-height: 1.9;
-    }
-
-    .footer-bottom-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .footer-bottom p {
-      margin: 0;
-    }
-
-    .footer-bottom .sponsor-note {
-      max-width: 570px;
-      text-align: right;
-    }
-
-    .footer-bottom strong {
-      color: #C7D2E0;
-      font-weight: 600;
-    }
-
-    /* Motion */
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .55; }
-    }
-
-    @keyframes enter-up {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive */
-
-    @media (max-width: 980px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 45px;
-        padding-top: 55px;
-      }
-
-      .hero-copy {
-        text-align: center;
-      }
-
-      .hero-logo {
-        margin-inline: auto;
-        object-position: center;
-      }
-
-      .hero h1 {
-        max-width: 760px;
-        margin-inline: auto;
-      }
-
-      .hero-description,
-      .hero-note {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-actions {
-        justify-content: center;
-      }
-
-      .hero-note {
-        justify-content: center;
-        text-align: left;
-      }
-
-      .hero-visual {
-        width: min(100%, 680px);
-        margin-inline: auto;
-      }
-
-      .journey-layout {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-
-      .journey-copy {
-        max-width: 650px;
-      }
-
-      .preview-layout {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .preview-actions {
-        flex-direction: row;
-        flex-wrap: wrap;
-        min-width: 0;
-      }
-
-      .preview-actions .button {
-        width: auto;
-      }
-
-      .preview-caption {
-        text-align: left;
-      }
-
-      .footer-main {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .container {
-        width: calc(100% - 32px);
-      }
-
-      .nav {
-        min-height: 70px;
-      }
-
-      .brand-mark {
-        width: 38px;
-        height: 38px;
-      }
-
-      .brand-name {
-        font-size: .87rem;
-      }
-
-      .brand-subtitle {
-        font-size: .52rem;
-      }
-
-      .nav-right {
-        gap: 12px;
-      }
-
-      .nav-back {
-        font-size: .76rem;
-      }
-
-      .nav-preview {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 42px;
-        padding-bottom: 54px;
-        gap: 38px;
-      }
-
-      .pixel-eyebrow {
-        font-size: .63rem;
-        letter-spacing: .08em;
-      }
-
-      .hero-logo {
-        max-height: 135px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.8rem, 11vw, 4rem);
-        letter-spacing: -.075em;
-      }
-
-      .hero-description {
-        margin-top: 20px;
-        font-size: .94rem;
-        line-height: 1.85;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .hero-actions .button {
-        width: 100%;
-      }
-
-      .hero-note {
-        max-width: 360px;
-        font-size: .63rem;
-      }
-
-      .window-header {
-        min-height: 65px;
-        padding: 12px;
-      }
-
-      .window-kicker {
-        font-size: .53rem;
-      }
-
-      .window-title {
-        font-size: 1rem;
-      }
-
-      .dev-status {
-        padding: 6px;
-        font-size: .5rem;
-      }
-
-      .city-scene {
-        height: 305px;
-      }
-
-      .moon {
-        top: 28px;
-        width: 38px;
-        height: 38px;
-      }
-
-      .building {
-        bottom: 40px;
-      }
-
-      .building-bank {
-        left: 3%;
-        width: 21%;
-        height: 110px;
-      }
-
-      .building-market {
-        left: 27%;
-        width: 19%;
-        height: 146px;
-      }
-
-      .building-invest {
-        right: 25%;
-        width: 21%;
-        height: 186px;
-      }
-
-      .building-home {
-        right: 2%;
-        width: 20%;
-        height: 125px;
-      }
-
-      .building-windows {
-        gap: 5px;
-        padding: 10px 6px;
-      }
-
-      .building-windows span {
-        height: 10px;
-      }
-
-      .building-label {
-        top: -25px;
-        padding: 4px 5px;
-        font-size: .43rem;
-      }
-
-      .road {
-        bottom: -80px;
-        height: 150px;
-      }
-
-      .floating-card {
-        gap: 7px;
-        padding: 8px;
-      }
-
-      .float-wallet {
-        top: 19%;
-        left: 2%;
-      }
-
-      .float-chart {
-        right: 2%;
-        bottom: 23%;
-      }
-
-      .floating-icon {
-        width: 25px;
-        height: 25px;
-      }
-
-      .floating-icon svg {
-        width: 14px;
-        height: 14px;
-      }
-
-      .floating-copy small {
-        font-size: .45rem;
-      }
-
-      .floating-copy strong {
-        font-size: .63rem;
-      }
-
-      .player-hud {
-        left: 8px;
-        right: 8px;
-        bottom: 8px;
-        padding: 9px 10px;
-      }
-
-      .hud-label {
-        font-size: .48rem;
-      }
-
-      .hud-balance {
-        font-size: 1.05rem;
-      }
-
-      .hud-balance span {
-        font-size: .62rem;
-      }
-
-      .level-pill {
-        font-size: .52rem;
-      }
-
-      .window-footer {
-        padding: 11px;
-        font-size: .51rem;
-      }
-
-      .stats-strip {
-        margin-top: 20px;
-      }
-
-      .stat {
-        padding: 14px 5px;
-      }
-
-      .stat strong {
-        font-size: .92rem;
-      }
-
-      .stat span {
-        font-size: .49rem;
-      }
-
-      .section {
-        padding: 27px 0 58px;
-      }
-
-      .section-heading {
-        margin-bottom: 26px;
-      }
-
-      .section-heading h2,
-      .journey-copy h2,
-      .preview-copy h2 {
-        font-size: 2.2rem;
-      }
-
-      .section-heading p {
-        font-size: .9rem;
-      }
-
-      .feature-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .feature {
-        padding: 22px;
-      }
-
-      .feature-icon {
-        margin-bottom: 15px;
-      }
-
-      .journey {
-        padding: 49px 0 55px;
-      }
-
-      .step {
-        grid-template-columns: 40px 1fr;
-        gap: 12px;
-      }
-
-      .step-number {
-        width: 38px;
-        height: 38px;
-      }
-
-      .preview-section {
-        padding: 55px 0;
-      }
-
-      .preview-banner {
-        padding: 25px 21px;
-      }
-
-      .preview-actions {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .preview-actions .button {
-        width: 100%;
-      }
-
-      .preview-caption {
-        text-align: center;
-      }
-
-      .footer-main {
-        gap: 24px;
-        padding: 23px 0;
-      }
-
-      .footer-links {
-        gap: 14px;
-      }
-
-      .footer-bottom-inner {
-        flex-direction: column;
-        gap: 9px;
-      }
-
-      .footer-bottom .sponsor-note {
-        text-align: left;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
+        linear-gradient(var(--bc) 0 34px, transparent 34px),
+        repeating-linear-gradient(to bottom, var(--bc) 0 7px, transparent 7px 18px),
+        linear-gradient(90deg, transparent 0 18%, var(--win, rgba(241,215,120,.85)) 18% 34%, transparent 34% 42%, var(--win, rgba(241,215,120,.6)) 42% 58%, transparent 58% 66%, var(--win, rgba(241,215,120,.8)) 66% 82%, transparent 82%),
+        var(--bc);
+      box-shadow: inset -8px 0 0 rgba(0,0,0,.28), inset 0 6px 0 rgba(255,255,255,.12);
+      transition: transform .12s steps(2);
+    }
+    .bldg:hover, .bldg:focus-visible, .bldg[aria-pressed="true"] { transform: translateY(-6px); outline: none; }
+    .bldg[aria-pressed="true"] { --win: #FFF3B0; box-shadow: inset -8px 0 0 rgba(0,0,0,.28), 0 0 0 4px var(--gold-bright); }
+    .bldg-sign {
+      position: absolute; top: 8px; left: 50%; transform: translateX(-50%); white-space: nowrap; z-index: 1;
+      padding: 4px 6px; font-family: var(--pixel); font-size: .4rem; line-height: 1.5; color: #14110A; background: var(--gold-bright);
+    }
+    .bldg::before { content: ""; position: absolute; left: 50%; top: -14px; width: 6px; height: 14px; transform: translateX(-50%); background: var(--bc); }
+    .b-bank { --bc: #2463C9; --h: 190px; }
+    .b-market { --bc: #2E9E5B; --h: 150px; }
+    .b-invest { --bc: #3474E0; --h: 250px; }
+    .b-home { --bc: #8B5CD6; --h: 120px; }
+    .road { position: absolute; left: 0; right: 0; bottom: 30px; height: 34px; background: #20262F; z-index: 1; }
+    .road::after { content: ""; position: absolute; left: 0; right: 0; top: 15px; height: 4px; background: repeating-linear-gradient(90deg, var(--gold-bright) 0 22px, transparent 22px 44px); animation: drive 1.6s linear infinite; }
+    @keyframes drive { to { background-position: -44px 0; } }
+    .grass { position: absolute; left: 0; right: 0; bottom: 0; height: 30px; background: repeating-linear-gradient(90deg, #1E5A3A 0 8px, #174A30 8px 16px); z-index: 1; }
+
+    .dialog {
+      position: relative; margin-top: 14px; min-height: 118px; padding: 16px 18px 14px 18px;
+      font-family: var(--term); font-size: 1.35rem; line-height: 1.3; color: var(--text);
+      background: #071426; box-shadow: 0 0 0 4px #F3F5FA, 0 0 0 8px #071426;
+    }
+    .dialog .who { display: block; margin-bottom: 6px; font-family: var(--pixel); font-size: .5rem; color: var(--gold-bright); }
+    .dialog .next { position: absolute; right: 14px; bottom: 8px; color: var(--gold-bright); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); background: #030A13; }
+    .stats-strip div { padding: 22px; text-align: center; border-right: 1px solid #13283F; }
+    .stats-strip div:last-child { border-right: 0; }
+    .stats-strip strong { display: block; font-family: var(--pixel); font-size: 1rem; color: var(--gold-bright); }
+    .stats-strip span { font-family: var(--term); font-size: 1.3rem; color: #C7D3E3; }
+
+    /* achievements */
+    .achv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .ach { position: relative; padding: 22px; background: #0D2038; box-shadow: 0 0 0 3px #1B3554, 6px 6px 0 3px #030A13; }
+    .ach-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .ach-badge { width: 52px; height: 52px; flex: none; display: grid; place-items: center; color: #8FA2BA; background: #071426; box-shadow: inset 0 0 0 3px #22406A; transition: color .2s steps(2), background .2s steps(2); }
+    .ach-badge .px-icon { width: 26px; height: 26px; }
+    .ach-status { font-family: var(--pixel); font-size: .45rem; line-height: 1.8; color: #6F8199; }
+    .ach-status b { display: block; font-weight: 400; color: #8FA2BA; }
+    .ach h3 { margin: 0 0 8px; font-stretch: 100%; }
+    .ach p { margin: 0 0 14px; font-size: .95rem; }
+    .ach .tagline { font-family: var(--term); font-size: 1.15rem; color: var(--green); }
+    .ach.in .ach-badge { color: #14110A; background: var(--gold-bright); box-shadow: inset 0 0 0 3px var(--gold-dark); }
+    .ach.in { box-shadow: 0 0 0 3px var(--gold-dark), 6px 6px 0 3px #030A13; }
+    .ach.in .ach-status { color: var(--gold-bright); }
+
+    /* world map */
+    .map { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px; background:
+      radial-gradient(circle at 20% 30%, rgba(46,158,91,.18), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(36,99,201,.2), transparent 40%),
+      #0A1A2E; box-shadow: 0 0 0 3px #1B3554; }
+    .map::before { content: ""; position: absolute; left: 16%; right: 16%; top: 70px; border-top: 6px dotted var(--gold); }
+    .node { position: relative; text-align: center; }
+    .node .pin { width: 80px; height: 80px; margin: 0 auto 18px; display: grid; place-items: center; font-family: var(--pixel); font-size: .9rem; color: #14110A; background: var(--gold-bright); box-shadow: 0 0 0 6px #0A1A2E, 0 0 0 9px var(--gold-dark), 6px 10px 0 9px #030A13; }
+    .node small { display: block; font-family: var(--pixel); font-size: .48rem; color: var(--green); margin-bottom: 8px; }
+    .node h3 { margin: 0 0 8px; font-stretch: 100%; }
+    .node p { margin: 0; font-size: .95rem; }
+
+    /* cartridge */
+    .cart { max-width: 760px; margin: 0 auto; padding: 28px 28px 34px; background: #2B3442; box-shadow: 12px 12px 0 #030A13; clip-path: polygon(0 0, 88% 0, 100% 9%, 100% 100%, 0 100%); }
+    .cart-grip { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px; }
+    .cart-grip i { width: 40px; height: 8px; background: #1F2632; }
+    .label { padding: clamp(22px, 4vw, 38px); text-align: center; color: var(--ink); background: var(--paper); box-shadow: inset 0 0 0 6px var(--gold-bright); }
+    .label .kicker { justify-content: center; color: var(--gold-dark); }
+    .label .kicker::before { background: var(--gold-dark); box-shadow: 12px 0 0 var(--gold), 24px 0 0 var(--gold-bright); }
+    .label img { width: 170px; margin: 0 auto 6px; image-rendering: pixelated; }
+    .label h2 { color: var(--ink); margin-bottom: 14px; }
+    .label p { color: #4A4334; max-width: 520px; margin-inline: auto; }
+    .label .hero-actions { justify-content: center; margin-top: 26px; }
+    .label .credit { margin: 22px 0 0; font-family: var(--pixel); font-size: .45rem; line-height: 1.9; color: var(--ink-soft); }
+
+    @media (max-width: 1020px) { .achv { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px) {
+      .achv, .map { grid-template-columns: 1fr; }
+      .map::before { left: 69px; right: auto; top: 40px; bottom: 40px; border-top: 0; border-left: 6px dotted var(--gold); }
+      .node { display: grid; grid-template-columns: 80px 1fr; gap: 18px; text-align: left; align-items: center; }
+      .node .pin { margin: 0; }
+      .viewport { height: 360px; }
+      .street { gap: 8px; padding: 0 10px; }
+      .b-bank { --h: 150px; } .b-market { --h: 120px; } .b-invest { --h: 200px; } .b-home { --h: 100px; }
+      .bldg-sign { font-size: .32rem; padding: 3px 4px; }
+      .stats-strip div { padding: 16px 6px; }
     }
   </style>
 </head>
 
 <body>
-<div class="page">
-  <div class="background-grid" aria-hidden="true"></div>
-  <div class="ambient ambient-one" aria-hidden="true"></div>
-  <div class="ambient ambient-two" aria-hidden="true"></div>
 
-  <!-- Navigation -->
-  <header class="container nav">
-    <a href="index.html" class="brand" aria-label="NextGen Knowledge home">
-      <span class="brand-mark">
-        <i data-lucide="landmark" aria-hidden="true"></i>
-      </span>
-
-      <span>
-        <span class="brand-name">NextGen Knowledge</span>
-        <span class="brand-subtitle" style="display:block">
-          Learn today. Lead tomorrow.
+  <!-- NAVIGATION -->
+  <header class="nav-wrap">
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+        <span class="brand-name">
+          NextGen Knowledge
+          <small>REAL-WORLD EDUCATION</small>
         </span>
-      </span>
-    </a>
-
-    <div class="nav-right">
-      <a href="index.html" class="nav-back">
-        <i data-lucide="arrow-left" style="width:15px;height:15px" aria-hidden="true"></i>
-        Main website
       </a>
 
-      <!-- INSTAGRAM REEL LINK: replace PASTE_INSTAGRAM_REEL_URL_HERE below -->
-      <a
-        href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA=="
-        class="nav-preview"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i data-lucide="play" style="width:15px;height:15px" aria-hidden="true"></i>
-        Watch Preview
-      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="fin-city.html" class="fin-link">FIN CITY</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="team.html">Team</a>
+        <a href="partnerships.html">Partners</a>
+        <a href="donate.html">Donate</a>
+        <a href="enroll.html" class="btn btn-small">Get Started</a>
+      </nav>
+    </div>
+
+    <div class="ticker" aria-label="Money concepts ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"><b>PAY.YOURSELF.FIRST</b><span class="up">▲ always</span></span>
+        <span class="ticker-item"><b>IMPULSE.BUYS</b><span class="down">▼ −$38/wk</span></span>
+        <span class="ticker-item"><b>COMPOUND.INTEREST</b><span class="up">▲▲ over time</span></span>
+        <span class="ticker-item"><b>LATE.FEES</b><span class="down">▼ avoid</span></span>
+        <span class="ticker-item"><b>EMERGENCY.FUND</b><span class="up">▲ 3–6 mo</span></span>
+        <span class="ticker-item"><b>RULE.OF.72</b><span class="up">▲ 72 ÷ rate = years to 2×</span></span>
+        <span class="ticker-item"><b>INFLATION</b><span class="down">▼ buying power</span></span>
+        <span class="ticker-item"><b>DIVERSIFY</b><span class="up">▲ spread risk</span></span>
+        <span class="ticker-item"><b>FOMO</b><span class="down">▼ bad trades</span></span>
+        <span class="ticker-item"><b>CREDIT.SCORE</b><span class="up">▲ 300–850</span></span>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="container hero">
-      <div class="hero-copy">
-        <div class="pixel-eyebrow eyebrow-box">
-          <span class="status-dot" aria-hidden="true"></span>
-          An all-new world is loading
-        </div>
-
-        <img
-          class="hero-logo"
-          src="Fin-City%20Pixel%20Skyline%20Logo.png"
-          alt="Fin City logo"
-          fetchpriority="high"
-        >
-
-        <h1>
-          Your money.
-          Your moves.
-          <span class="highlight">Your city.</span>
-        </h1>
-
-        <p class="hero-description">
-          Welcome to <strong>Fin City</strong> — an interactive financial
-          literacy game created by <strong>NextGen Knowledge</strong>.
-          Explore a virtual city, visit different locations, manage virtual
-          money, and discover how financial decisions shape your future.
-          <br><br>
-          <strong>Forget learning money skills from a textbook.</strong>
-          Step into a world where you can put them into practice.
-        </p>
-
-        <div class="hero-actions">
-          <!-- INSTAGRAM REEL LINK: replace PASTE_INSTAGRAM_REEL_URL_HERE below -->
-          <a
-            href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA=="
-            class="button button-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i data-lucide="play-circle" aria-hidden="true"></i>
-            Watch the Teaser
-            <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-          </a>
-
-          <a href="#the-game" class="button button-secondary">
-            Explore the Game
-            <i data-lucide="arrow-down" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="hero-note">
-          <i data-lucide="gamepad-2" aria-hidden="true"></i>
-          <span>
-            BUILT BY NEXTGEN KNOWLEDGE<br>
-            A new approach to real-world financial education.
-          </span>
-        </div>
-      </div>
-
-      <!-- Concept preview -->
-      <div class="hero-visual" aria-label="Illustration of the Fin City game world">
-        <div class="visual-glow" aria-hidden="true"></div>
-
-        <div class="game-window">
-          <div class="window-header">
-            <div class="window-heading">
-              <div class="window-kicker">Your world. Your choices.</div>
-              <div class="window-title">Welcome to Fin City</div>
-            </div>
-
-            <div class="dev-status">
-              <span></span>
-              IN DEVELOPMENT
-            </div>
+    <!-- HERO -->
+    <section class="page-hero fc-hero">
+      <div class="container split-2">
+        <div>
+          <img class="hero-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City" width="300" height="300" fetchpriority="high">
+          <div class="kicker">An all-new world is loading</div>
+          <h1><span class="line">Your money.</span><span class="line">Your moves.</span><span class="line gold">Your city.</span></h1>
+          <p class="lede">
+            Welcome to <strong>Fin City</strong>, an interactive financial literacy game created by
+            NextGen Knowledge. Explore a virtual city, visit different locations, manage virtual money,
+            and discover how financial decisions shape your future. Forget learning money skills from a
+            textbook. Step into a world where you can put them into practice.
+          </p>
+          <div class="hero-actions">
+            <a href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" class="btn" target="_blank" rel="noopener noreferrer">
+              <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-play"/></svg> Watch the teaser
+            </a>
+            <a href="#the-game" class="btn btn-ghost">Explore the game ↓</a>
           </div>
+        </div>
 
-          <div class="city-scene">
+        <div class="game px-border reveal" aria-label="Fin City concept preview">
+          <div class="viewport">
             <div class="stars" aria-hidden="true"></div>
             <div class="moon" aria-hidden="true"></div>
-            <div class="skyline-glow" aria-hidden="true"></div>
-
-            <div class="building building-bank">
-              <span class="building-label">THE BANK</span>
-              <div class="building-windows">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
+            <div class="hud" aria-hidden="true">
+              <div class="hud-box">PLAYER BALANCE<strong>$100.00</strong></div>
+              <div class="hud-box"><span class="lvl">LEVEL 01</span><br>IN DEVELOPMENT</div>
             </div>
-
-            <div class="building building-market">
-              <span class="building-label">MARKETPLACE</span>
-              <div class="building-windows">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
+            <div class="street" role="group" aria-label="Pick a building to explore">
+              <button class="bldg b-bank" type="button" data-place="bank" aria-pressed="false"><span class="bldg-sign">THE BANK</span></button>
+              <button class="bldg b-market" type="button" data-place="market" aria-pressed="false"><span class="bldg-sign">MARKET</span></button>
+              <button class="bldg b-invest" type="button" data-place="invest" aria-pressed="false"><span class="bldg-sign">INVEST</span></button>
+              <button class="bldg b-home" type="button" data-place="home" aria-pressed="false"><span class="bldg-sign">FUTURE</span></button>
             </div>
-
-            <div class="building building-invest">
-              <span class="building-label">INVESTMENTS</span>
-              <div class="building-windows">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-
-            <div class="building building-home">
-              <span class="building-label">YOUR FUTURE</span>
-              <div class="building-windows">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-
             <div class="road" aria-hidden="true"></div>
-
-            <div class="floating-card float-wallet">
-              <span class="floating-icon">
-                <i data-lucide="wallet" aria-hidden="true"></i>
-              </span>
-              <span class="floating-copy">
-                <small>Your starting balance</small>
-                <strong>Make it count.</strong>
-              </span>
-            </div>
-
-            <div class="floating-card float-chart">
-              <span class="floating-icon">
-                <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
-              </span>
-              <span class="floating-copy">
-                <small>Think ahead</small>
-                <strong>Build your future.</strong>
-              </span>
-            </div>
-
-            <div class="player-hud">
-              <div>
-                <div class="hud-label">Player balance</div>
-                <div class="hud-balance">$100.00 <span>START</span></div>
-              </div>
-
-              <div class="hud-level">
-                <div class="hud-label">Your journey</div>
-                <div class="level-pill">LEVEL 01</div>
-              </div>
-            </div>
+            <div class="grass" aria-hidden="true"></div>
           </div>
-
-          <div class="window-footer">
-            <span><strong>FIN CITY //</strong> CONCEPT ART</span>
-            <span>THE ADVENTURE STARTS SOON</span>
-          </div>
-        </div>
-
-        <div class="stats-strip" aria-label="Game overview">
-          <div class="stat">
-            <strong>01</strong>
-            <span>Explore</span>
-          </div>
-          <div class="stat">
-            <strong>02</strong>
-            <span>Learn</span>
-          </div>
-          <div class="stat">
-            <strong>03</strong>
-            <span>Level Up</span>
+          <div class="dialog" aria-live="polite">
+            <span class="who" id="dlgWho">GUIDE</span>
+            <span id="dlgText">Welcome to Fin City! You start with $100. Pick a building to see what's inside.</span>
+            <span class="next" aria-hidden="true">▼</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Game features -->
-    <section class="container section" id="the-game">
-      <div class="section-heading">
-        <div class="pixel-eyebrow">/// More than a game</div>
+    <div class="stats-strip" aria-label="Game overview">
+      <div><strong>01</strong><span>Explore</span></div>
+      <div><strong>02</strong><span>Learn</span></div>
+      <div><strong>03</strong><span>Level up</span></div>
+    </div>
 
-        <h2>
-          Welcome to a new kind of
-          <span>classroom.</span>
-        </h2>
-
-        <p>
-          Fin City is being developed to turn financial concepts into
-          interactive experiences. Instead of just reading about money,
-          players can explore a virtual environment and learn through
-          decisions, activities, and experimentation.
-        </p>
-      </div>
-
-      <div class="feature-grid">
-        <article class="feature">
-          <span class="feature-number">01 / EXPLORE</span>
-          <div class="feature-icon">
-            <i data-lucide="map" aria-hidden="true"></i>
-          </div>
-
-          <h3>A City to Discover</h3>
-
-          <p>
-            Navigate a virtual city and discover different locations.
-            Each destination introduces a different part of the
-            financial world and gives players new opportunities to learn.
-          </p>
-
-          <span class="feature-tag">→ FIND YOUR WAY</span>
-        </article>
-
-        <article class="feature">
-          <span class="feature-number">02 / MANAGE</span>
-          <div class="feature-icon">
-            <i data-lucide="wallet" aria-hidden="true"></i>
-          </div>
-
-          <h3>Money in Your Hands</h3>
-
-          <p>
-            Practice working with virtual money, think through financial
-            decisions, and learn how spending, saving, and planning
-            can influence your goals.
-          </p>
-
-          <span class="feature-tag">→ MAKE IT COUNT</span>
-        </article>
-
-        <article class="feature">
-          <span class="feature-number">03 / INVEST</span>
-          <div class="feature-icon">
-            <i data-lucide="chart-no-axes-combined" aria-hidden="true"></i>
-          </div>
-
-          <h3>Discover Investing</h3>
-
-          <p>
-            Get introduced to investing concepts and market decisions
-            through virtual activities designed to make complex
-            financial ideas easier to understand.
-          </p>
-
-          <span class="feature-tag">→ THINK LONG TERM</span>
-        </article>
-
-        <article class="feature">
-          <span class="feature-number">04 / LEARN</span>
-          <div class="feature-icon">
-            <i data-lucide="brain" aria-hidden="true"></i>
-          </div>
-
-          <h3>Learn by Doing</h3>
-
-          <p>
-            Connect financial concepts to interactive activities so
-            learning becomes something you experience rather than
-            something you only memorize.
-          </p>
-
-          <span class="feature-tag">→ PUT KNOWLEDGE TO WORK</span>
-        </article>
-
-        <article class="feature">
-          <span class="feature-number">05 / PROGRESS</span>
-          <div class="feature-icon">
-            <i data-lucide="trophy" aria-hidden="true"></i>
-          </div>
-
-          <h3>Build Your Skills</h3>
-
-          <p>
-            Work toward learning goals and build your understanding
-            of essential financial concepts as you progress through
-            the experience.
-          </p>
-
-          <span class="feature-tag">→ KEEP LEVELING UP</span>
-        </article>
-
-        <article class="feature">
-          <span class="feature-number">06 / PREPARE</span>
-          <div class="feature-icon">
-            <i data-lucide="compass" aria-hidden="true"></i>
-          </div>
-
-          <h3>Prepare for Real Life</h3>
-
-          <p>
-            Build familiarity with financial topics that matter beyond
-            the screen, from managing money to understanding how
-            everyday financial decisions work.
-          </p>
-
-          <span class="feature-tag">→ SKILLS FOR THE FUTURE</span>
-        </article>
-      </div>
-    </section>
-
-    <!-- Learning journey -->
-    <section class="journey">
-      <div class="container journey-layout">
-        <div class="journey-copy">
-          <div class="pixel-eyebrow">/// Your adventure awaits</div>
-
-          <h2>
-            Every decision
-            <span>moves you forward.</span>
-          </h2>
-
-          <p>
-            The idea behind Fin City is simple: financial literacy should
-            feel relevant, engaging, and useful. By putting players in a
-            virtual world, we want to make it easier to experiment with
-            financial ideas and connect what they learn to real life.
-            <br><br>
-            Fin City is an upcoming project from NextGen Knowledge,
-            built around the belief that practical education should
-            be accessible to the next generation.
-          </p>
+    <!-- FEATURES AS ACHIEVEMENTS -->
+    <section class="section" id="the-game">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">More than a game</div>
+          <h2>Welcome to a new kind of <span class="gold">classroom.</span></h2>
+          <p>Fin City is being developed to turn financial concepts into interactive experiences. Instead of just reading about money, players can explore a virtual environment and learn through decisions, activities, and experimentation. Scroll to unlock each one.</p>
         </div>
 
-        <div class="journey-steps">
-          <article class="step">
-            <div class="step-number">01</div>
-            <div>
-              <h3>Enter the World</h3>
-              <p>
-                Start your journey in a virtual city built around
-                real-world financial concepts.
-              </p>
-            </div>
+        <div class="achv">
+          <article class="ach reveal">
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-pin"/></svg></span><span class="ach-status"><b>01 / EXPLORE</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>A City to Discover</h3>
+            <p>Navigate a virtual city and discover different locations. Each destination introduces a different part of the financial world and gives players new opportunities to learn.</p>
+            <span class="tagline">→ FIND YOUR WAY</span>
           </article>
-
-          <article class="step">
-            <div class="step-number">02</div>
-            <div>
-              <h3>Explore and Experiment</h3>
-              <p>
-                Visit locations, interact with financial systems,
-                and learn by making choices in a virtual environment.
-              </p>
-            </div>
+          <article class="ach reveal">
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg></span><span class="ach-status"><b>02 / MANAGE</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Money in Your Hands</h3>
+            <p>Practice working with virtual money, think through financial decisions, and learn how spending, saving, and planning can influence your goals.</p>
+            <span class="tagline">→ MAKE IT COUNT</span>
           </article>
-
-          <article class="step">
-            <div class="step-number">03</div>
-            <div>
-              <h3>Build Financial Knowledge</h3>
-              <p>
-                Develop a stronger understanding of money management,
-                banking, investing, and financial decision-making.
-              </p>
-            </div>
+          <article class="ach reveal">
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><span class="ach-status"><b>03 / INVEST</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Discover Investing</h3>
+            <p>Get introduced to investing concepts and market decisions through virtual activities designed to make complex financial ideas easier to understand.</p>
+            <span class="tagline">→ THINK LONG TERM</span>
+          </article>
+          <article class="ach reveal">
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg></span><span class="ach-status"><b>04 / LEARN</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Learn by Doing</h3>
+            <p>Connect financial concepts to interactive activities so learning becomes something you experience rather than something you only memorize.</p>
+            <span class="tagline">→ PUT KNOWLEDGE TO WORK</span>
+          </article>
+          <article class="ach reveal">
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg></span><span class="ach-status"><b>05 / PROGRESS</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Build Your Skills</h3>
+            <p>Work toward learning goals and build your understanding of essential financial concepts as you progress through the experience.</p>
+            <span class="tagline">→ KEEP LEVELING UP</span>
+          </article>
+          <article class="ach reveal">
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-shield"/></svg></span><span class="ach-status"><b>06 / PREPARE</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Prepare for Real Life</h3>
+            <p>Build familiarity with financial topics that matter beyond the screen, from managing money to understanding how everyday financial decisions work.</p>
+            <span class="tagline">→ SKILLS FOR THE FUTURE</span>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Instagram preview call to action -->
-    <section class="container preview-section" id="preview">
-      <div class="preview-banner">
-        <div class="preview-layout">
-          <div class="preview-copy">
-            <div class="pixel-eyebrow">/// Get your first look</div>
+    <!-- JOURNEY MAP -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Your adventure awaits</div>
+          <h2>Every decision <span class="gold">moves you forward.</span></h2>
+          <p>The idea behind Fin City is simple: financial literacy should feel relevant, engaging, and useful. By putting players in a virtual world, we want to make it easier to experiment with financial ideas and connect what they learn to real life.</p>
+          <p>Fin City is an upcoming project from NextGen Knowledge, built around the belief that practical education should be accessible to the next generation.</p>
+        </div>
 
-            <h2>
-              The city is coming.
-              <span>See it for yourself.</span>
-            </h2>
+        <div class="map reveal" aria-label="World map">
+          <div class="node"><span class="pin">1</span><div><small>WORLD 1</small><h3>Enter the World</h3><p>Start your journey in a virtual city built around real-world financial concepts.</p></div></div>
+          <div class="node"><span class="pin">2</span><div><small>WORLD 2</small><h3>Explore and Experiment</h3><p>Visit locations, interact with financial systems, and learn by making choices in a virtual environment.</p></div></div>
+          <div class="node"><span class="pin">3</span><div><small>WORLD 3</small><h3>Build Financial Knowledge</h3><p>Develop a stronger understanding of money management, banking, investing, and financial decision-making.</p></div></div>
+        </div>
+      </div>
+    </section>
 
-            <p>
-              Want a glimpse of what we've been building? Watch the
-              official Fin City teaser from NextGen Knowledge and get
-              a first look at the world we're creating.
-              This is only the beginning.
-            </p>
-          </div>
-
-          <div class="preview-actions">
-            <!--
-              IMPORTANT:
-              Replace PASTE_INSTAGRAM_REEL_URL_HERE with the full URL
-              of your published Instagram Reel.
-
-              Example format:
-              https://www.instagram.com/reel/XXXXXXXXXXX/
-
-              Update this link here and the other two links above
-              (the navbar Watch Preview and hero Watch the Teaser buttons).
-            -->
-            <a
-              href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA=="
-              class="button button-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i data-lucide="play-circle" aria-hidden="true"></i>
-              Watch the Official Teaser
-              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
-            </a>
-
-            <a href="https://www.instagram.com/nextgen.knowledge/" class="button button-secondary" target="_blank" rel="noopener noreferrer">
-              <i data-lucide="instagram" aria-hidden="true"></i>
-              Follow NextGen Knowledge
-            </a>
-
-            <div class="preview-caption">
-              OFFICIAL FIN CITY PREVIEW<br>
-              BY NEXTGEN KNOWLEDGE
+    <!-- PREVIEW CARTRIDGE -->
+    <section class="section" id="preview">
+      <div class="container">
+        <div class="cart reveal">
+          <div class="cart-grip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="label">
+            <img src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="" width="170" height="170" loading="lazy">
+            <div class="kicker">Get your first look</div>
+            <h2>The city is coming. See it for yourself.</h2>
+            <p>Want a glimpse of what we've been building? Watch the official Fin City teaser from NextGen Knowledge and get a first look at the world we're creating. This is only the beginning.</p>
+            <div class="hero-actions">
+              <a href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" class="btn btn-ink" target="_blank" rel="noopener noreferrer">Watch the official teaser</a>
+              <a href="https://www.instagram.com/nextgen.knowledge/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Follow NextGen Knowledge</a>
             </div>
+            <p class="credit">OFFICIAL FIN CITY PREVIEW · BY NEXTGEN KNOWLEDGE</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-main">
-      <a href="index.html" class="footer-brand">
-        <span class="brand-mark">
-          <i data-lucide="landmark" aria-hidden="true"></i>
-        </span>
-        <span class="footer-brand-text">
-          NextGen Knowledge
-          <small>Real-world education for the next generation.</small>
-        </span>
-      </a>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">
+            <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+            <span class="brand-name">NextGen Knowledge<small>REAL-WORLD EDUCATION</small></span>
+          </a>
+          <p class="footer-about">A student-led educational organization focused on making practical financial literacy and real-world learning more accessible.</p>
+        </div>
 
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="programs.html">Programs</a>
-        <a href="fin-city.html">Fin City</a>
-        <a href="partnerships.html">Partnerships</a>
-        <a href="donate.html">Support Us</a>
-      </nav>
-    </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="team.html">Our Team</a>
+          <a href="fin-city.html">Fin City</a>
+        </div>
 
-    <div class="container footer-bottom">
-      <div class="footer-bottom-inner">
-        <p>
-          &copy; <span id="footer-year"></span>
-          <strong>NextGen Knowledge</strong>. All rights reserved.
-        </p>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <a href="enroll.html">Enroll in a Program</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Support Our Work</a>
+        </div>
 
-        <p class="sponsor-note">
-          NextGen Knowledge is a fiscally sponsored project of the
-          Hack Club Foundation, a 501(c)(3) nonprofit.
-        </p>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
+        </div>
       </div>
+
+      <div class="footer-receipt">
+        <span>© <span id="currentYear"></span> NEXT-GEN KNOWLEDGE. ALL RIGHTS RESERVED.</span>
+        <span class="gold">*** CHANGE DUE: YOUR FUTURE ***</span>
+        <span>LEARN TODAY. BUILD TOMORROW.</span>
+      </div>
+      <p class="sponsor-note">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
     </div>
   </footer>
-</div>
 
-<script>
-  // Initialize icons.
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  <script src="site.js"></script>
+  <script>
+    /* RPG DIALOG — click a building to hear about it */
+    const places = {
+      bank: ["THE BANK", "Understand accounts and everyday banking, and how saving can help you reach your goals."],
+      market: ["MARKETPLACE", "Think through purchases and budgets. Every choice comes out of the same starting balance."],
+      invest: ["INVESTMENT CENTER", "Discover risk, returns, and investing through virtual activities designed to make big ideas easier."],
+      home: ["YOUR FUTURE", "Plan ahead and see how everyday financial decisions shape where you end up."]
+    };
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const dlgWho = document.getElementById("dlgWho");
+    const dlgText = document.getElementById("dlgText");
+    let typing;
 
-  // Update the footer year automatically.
-  document.getElementById("footer-year").textContent =
-    new Date().getFullYear();
+    function say(who, text) {
+      clearInterval(typing);
+      dlgWho.textContent = who;
+      if (reduceMotion) { dlgText.textContent = text; return; }
+      let i = 0;
+      dlgText.textContent = "";
+      typing = setInterval(() => {
+        dlgText.textContent = text.slice(0, ++i);
+        if (i >= text.length) clearInterval(typing);
+      }, 18);
+    }
 
-  /*
-    INSTAGRAM REEL SETUP
-    --------------------
-    Search the code for:
-    PASTE_INSTAGRAM_REEL_URL_HERE
+    document.querySelectorAll(".bldg").forEach(b => {
+      b.addEventListener("click", () => {
+        document.querySelectorAll(".bldg").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+        const [who, text] = places[b.dataset.place];
+        say(who, text);
+      });
+    });
+  </script>
 
-    Replace each occurrence with the full URL of your published Reel.
-
-    For example, the URL should look like:
-    https://www.instagram.com/reel/XXXXXXXXXXX/
-
-    There are three buttons that link to the Reel:
-    1. Watch Preview in the top navigation
-    2. Watch the Teaser in the hero
-    3. Watch the Official Teaser near the bottom
-  */
-</script>
 </body>
 </html>

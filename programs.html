@@ -1,13 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#081629" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Programs | Next-Gen Knowledge</title>
-  <meta name="description" content="Explore Next-Gen Knowledge's free financial literacy programs, including Money Masters and Investor Academy." />
+  <title>Programs | NextGen Knowledge</title>
+  <meta name="description" content="Explore Money Masters and Investor Academy: free financial literacy and investing programs from NextGen Knowledge, built around interactive lessons and hands-on simulations.">
+  <meta name="theme-color" content="#081629">
+  <meta name="author" content="Next-Gen Knowledge">
+  <meta property="og:title" content="Programs | NextGen Knowledge">
+  <meta property="og:description" content="Explore Money Masters and Investor Academy: free financial literacy and investing programs from NextGen Knowledge, built around interactive lessons and hands-on simulations.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_1383.jpeg">
+
+  <link rel="icon" href="IMG_1383.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
   <script>
@@ -17,1040 +27,340 @@
     gtag('config', 'G-FXJKCLQMSN');
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy: "#0A2342",
-            gold: "#D9B64D",
-            "gold-light": "#F5E8B4",
-            ink: "#F3F5FA",
-            muted: "#9DADC2",
-            canvas: "#081629",
-            panel: "#0D2038",
-            line: "#263C57"
-          },
-          fontFamily: {
-            sans: ["DM Sans", "sans-serif"],
-            pixel: ['"Press Start 2P"', "monospace"],
-            mono: ['"DM Mono"', "monospace"]
-          },
-          boxShadow: {
-            pixel: "5px 5px 0 rgba(0,0,0,.32)"
-          }
-        }
-      }
-    };
-  </script>
-
   <style>
-    :root {
-      --bg: #081629;
-      --bg-deep: #050D19;
-      --panel: #0D2038;
-      --panel-light: #142C49;
-      --panel-hover: #193653;
-      --navy: #0A2342;
-      --gold: #D9B64D;
-      --gold-bright: #F1D778;
-      --gold-dark: #9C7B25;
-      --cream: #F5F0DF;
-      --text: #F3F5FA;
-      --muted: #9DADC2;
-      --line: #263C57;
-      --green: #7CE0B0;
-      --blue: #84B7FF;
-      --pixel-font: "Press Start 2P", monospace;
-      --body-font: "DM Sans", sans-serif;
-      --mono-font: "DM Mono", monospace;
-      --max: 1180px;
-      --pixel-shadow: 5px 5px 0 rgba(0,0,0,.32);
+    /* diversification simulator */
+    .sim .readout-row { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 14px; }
+    .sim .big { font-family: var(--term); font-size: 2.6rem; line-height: 1; color: var(--gold-bright); }
+    .sim .big small { display: block; font-family: var(--pixel); font-size: .45rem; color: #8FA2BA; margin-bottom: 6px; }
+    .meter { text-align: right; }
+    .meter small { display: block; font-family: var(--pixel); font-size: .45rem; color: #8FA2BA; margin-bottom: 8px; }
+    .meter-bar { display: flex; gap: 3px; justify-content: flex-end; }
+    .meter-bar i { width: 10px; height: 18px; background: #14304F; }
+    .meter-bar i.on { background: var(--mc, var(--green)); }
+    .plot { position: relative; height: 200px; display: flex; align-items: end; gap: 2px; padding: 8px; background: #071426; box-shadow: inset 0 0 0 3px #1B3554; }
+    .plot::before { content: ""; position: absolute; left: 8px; right: 8px; bottom: var(--base); border-top: 2px dashed rgba(241,215,120,.4); }
+    .plot i { flex: 1; background: var(--blue); transition: height .25s steps(4); }
+    .plot i.down { background: var(--red); }
+    .sim label { display: flex; justify-content: space-between; margin: 18px 0 2px; font-weight: 700; }
+    .sim label output { font-family: var(--term); font-size: 1.3rem; font-weight: 400; color: var(--gold-bright); }
+    .sim input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 44px; background: transparent; cursor: pointer; }
+    .sim input[type="range"]::-webkit-slider-runnable-track { height: 12px; background: #071426; box-shadow: 0 0 0 3px #1B3554; }
+    .sim input[type="range"]::-moz-range-track { height: 12px; background: #071426; box-shadow: 0 0 0 3px #1B3554; }
+    .sim input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 28px; margin-top: -8px; background: var(--gold-bright); box-shadow: 3px 3px 0 #030A13; }
+    .sim input[type="range"]::-moz-range-thumb { width: 24px; height: 28px; border: 0; border-radius: 0; background: var(--gold-bright); box-shadow: 3px 3px 0 #030A13; }
+    .sim-note { margin: 10px 0 0; font-size: .85rem; color: #A9B8CC; }
+    .sim-note strong { color: var(--green); }
+    .sim-btn { margin-top: 14px; }
+
+    /* program statements */
+    .accounts { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+    .statement { display: flex; flex-direction: column; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
+    .statement.adv { background: #E8EEF6; }
+    .st-head { padding: 26px 28px 22px; color: var(--text); background: #12355A; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.035) 0 6px, transparent 6px 12px); }
+    .statement.adv .st-head { background-color: #0A2342; }
+    .st-head .acct { display: flex; justify-content: space-between; gap: 10px; font-family: var(--pixel); font-size: .48rem; line-height: 1.8; color: var(--gold-bright); }
+    .st-head h3 { margin: 14px 0 8px; font-size: 2rem; color: var(--text); }
+    .st-head p { margin: 0; color: #C7D3E3; }
+    .st-meta { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 3px double var(--ink-soft); }
+    .st-meta div { padding: 14px 16px; border-right: 1px solid #CDBF9C; }
+    .st-meta div:last-child { border-right: 0; }
+    .st-meta small { display: block; font-family: var(--pixel); font-size: .42rem; line-height: 1.8; color: var(--ink-soft); }
+    .st-meta strong { font-family: var(--term); font-size: 1.5rem; font-weight: 400; }
+    .st-body { padding: 18px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+    .st-body h4 { margin: 6px 0 10px; font-family: var(--pixel); font-size: .5rem; line-height: 1.8; color: var(--ink-soft); }
+    .line { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px dashed #B9AD8F; }
+    .line .px-icon { width: 20px; height: 20px; margin-top: 3px; color: var(--green-deep); }
+    .line strong { display: block; }
+    .line span { color: #4A4334; font-size: .93rem; }
+    .st-extra { margin: 18px 0 0; padding: 14px 16px; font-size: .93rem; color: #4A4334; background: rgba(29,27,22,.06); }
+    .st-extra b { font-family: var(--pixel); font-size: .45rem; display: block; color: var(--ink-soft); margin-bottom: 4px; }
+    .st-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
+    .st-kpis div { padding: 12px 14px; background: rgba(29,27,22,.06); }
+    .st-kpis strong { display: block; font-family: var(--term); font-size: 1.7rem; font-weight: 400; line-height: 1.1; color: #1C3B6B; }
+    .st-kpis span { font-size: .85rem; color: #4A4334; }
+    .statement .btn { margin-top: 24px; align-self: flex-start; }
+
+    /* approach pipeline */
+    .pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
+    .pipe { position: relative; }
+    .pipe:not(:last-child)::after {
+      content: ""; position: absolute; top: 46px; right: -28px; width: 22px; height: 14px;
+      background: linear-gradient(90deg, var(--gold) 0 60%, transparent 60%), var(--gold);
+      clip-path: polygon(0 30%, 55% 30%, 55% 0, 100% 50%, 55% 100%, 55% 70%, 0 70%);
     }
 
-    * { box-sizing: border-box; }
+    /* curriculum ledger */
+    .ledger-tbl { width: 100%; border-collapse: collapse; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
+    .ledger-tbl th { text-align: left; padding: 14px 18px; font-family: var(--pixel); font-size: .48rem; line-height: 1.8; color: var(--ink-soft); border-bottom: 3px double var(--ink-soft); }
+    .ledger-tbl td { padding: 16px 18px; border-bottom: 1px solid #CDBF9C; vertical-align: top; }
+    .ledger-tbl td:first-child { font-family: var(--term); font-size: 1.4rem; color: var(--green-deep); white-space: nowrap; width: 150px; }
+    .ledger-tbl td strong { display: block; margin-bottom: 4px; }
+    .ledger-tbl td span { color: #4A4334; font-size: .95rem; }
+    .ledger-tbl tr.final td { background: rgba(241,215,120,.35); }
+    .ledger-tbl tr:last-child td { border-bottom: 0; }
+    .curr-meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 26px 0 16px; }
+    .curr-meta h3 { margin: 0; font-size: 1.5rem; }
+    .notice { margin-top: 26px; padding: 16px 18px; font-size: .93rem; color: #C8D3E1; background: rgba(217,182,77,.08); box-shadow: inset 4px 0 0 var(--gold); }
+    .notice strong { color: var(--gold-bright); font-family: var(--pixel); font-size: .48rem; display: block; margin-bottom: 6px; }
+    .fineprint { margin-top: 22px; text-align: center; font-size: .9rem; }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 110px;
+    @media (max-width: 1020px) {
+      .accounts { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr 1fr; }
+      .pipe::after { display: none; }
     }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--body-font);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      letter-spacing: -.025em;
-    }
-
-    a { -webkit-tap-highlight-color: transparent; }
-
-    .pixel-heading {
-      font-family: var(--pixel-font);
-      line-height: 1.7;
-      letter-spacing: -.04em;
-    }
-
-    .mono-label {
-      font-family: var(--mono-font);
-      text-transform: uppercase;
-      letter-spacing: .12em;
-    }
-
-    .site-container {
-      width: min(var(--max), calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(5,13,25,.96);
-      border-bottom: 2px solid #263A52;
-      backdrop-filter: blur(16px);
-    }
-
-    .navbar {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      flex-shrink: 0;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 43px;
-      height: 43px;
-      object-fit: contain;
-      border: 1px solid #40536A;
-      border-radius: 3px;
-    }
-
-    .brand-name {
-      color: #fff;
-      font-size: .95rem;
-      font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -.035em;
-    }
-
-    .brand-name small {
-      display: block;
-      margin-top: 5px;
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .58rem;
-      font-weight: 400;
-      letter-spacing: .04em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 19px;
-    }
-
-    .nav-links > a:not(.btn) {
-      color: #B7C4D5;
-      font-size: .8rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: color .2s ease;
-      white-space: nowrap;
-    }
-
-    .nav-links > a:not(.btn):hover,
-    .nav-links > a[aria-current="page"] {
-      color: var(--gold-bright);
-    }
-
-    .nav-links .fin-city-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 11px;
-      color: var(--gold-bright) !important;
-      background: rgba(217,182,77,.08);
-      border: 1px solid rgba(217,182,77,.45);
-      font-family: var(--mono-font);
-      font-size: .73rem !important;
-    }
-
-    .nav-links .fin-city-link:hover {
-      background: rgba(217,182,77,.16);
-    }
-
-    .nav-links .btn {
-      min-height: 40px;
-      padding: 8px 12px;
-      font-size: .78rem;
-    }
-
-    .pixel-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 46px;
-      padding: 12px 17px;
-      color: var(--bg-deep);
-      background: var(--gold);
-      border: 1px solid var(--gold-bright);
-      border-radius: 3px;
-      box-shadow: 3px 3px 0 var(--gold-dark);
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-    }
-
-    .pixel-btn:hover {
-      background: var(--gold-bright);
-      transform: translate(-1px,-1px);
-      box-shadow: 4px 4px 0 var(--gold-dark);
-    }
-
-    .pixel-btn:active {
-      transform: translate(2px,2px);
-      box-shadow: 1px 1px 0 var(--gold-dark);
-    }
-
-    .pixel-btn.secondary {
-      color: var(--text);
-      background: var(--panel);
-      border-color: #3A506A;
-      box-shadow: 3px 3px 0 #030A12;
-    }
-
-    .pixel-btn.secondary:hover {
-      background: var(--panel-light);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      color: var(--gold-bright);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      font-size: 1.35rem;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mobile-menu {
-      display: none;
-      padding: 8px 0 20px;
-      border-top: 1px solid var(--line);
-    }
-
-    .mobile-menu.open { display: block; }
-
-    .mobile-menu a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 14px;
-      color: #D4DDEA;
-      border-bottom: 1px solid rgba(255,255,255,.045);
-      font-size: .9rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a[aria-current="page"] {
-      color: var(--gold-bright);
-      background: rgba(255,255,255,.025);
-    }
-
-    .mobile-menu .fin-city-link {
-      color: var(--gold-bright);
-      background: rgba(217,182,77,.07);
-      border: 1px solid rgba(217,182,77,.25);
-      margin: 7px 0;
-    }
-
-    .mobile-menu .mobile-cta {
-      margin-top: 12px;
-      justify-content: center;
-      color: var(--bg-deep);
-      background: var(--gold);
-      border: 1px solid var(--gold-bright);
-    }
-
-    .hero-grid {
-      background-image:
-        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: 36px 36px;
-    }
-
-    .hero-glow {
-      background: radial-gradient(circle at 75% 45%, rgba(217,182,77,.14), transparent 36%);
-    }
-
-    .gold-line {
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright), transparent);
-    }
-
-    .pixel-panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      box-shadow: var(--pixel-shadow);
-    }
-
-    .program-card {
-      overflow: hidden;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      box-shadow: var(--pixel-shadow);
-      transition: transform .25s ease, border-color .25s ease;
-    }
-
-    .program-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--gold-dark);
-    }
-
-    .week-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      transition: border-color .2s ease, background .2s ease, transform .2s ease;
-    }
-
-    .week-card:hover {
-      border-color: var(--gold);
-      background: var(--panel-light);
-      transform: translateY(-2px);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .dashboard-bar {
-      animation: grow 1.1s ease-out both;
-      transform-origin: bottom;
-    }
-
-    @keyframes grow {
-      from { transform: scaleY(.15); }
-      to { transform: scaleY(1); }
-    }
-
-    .section-kicker {
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      color: var(--text);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .body-copy { color: var(--muted); }
-
-    .muted-line { border-color: var(--line); }
-
-    .light-card {
-      background: var(--panel-light);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-    }
-
-    .icon-tile {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      color: var(--gold-bright);
-      background: rgba(217,182,77,.1);
-      border: 1px solid rgba(217,182,77,.28);
-      border-radius: 3px;
-    }
-
-    .site-footer {
-      background: var(--bg-deep);
-      border-top: 2px solid var(--line);
-    }
-
-    .footer-link {
-      color: var(--muted);
-      transition: color .2s ease;
-    }
-
-    .footer-link:hover { color: var(--gold-bright); }
-
-    @media (max-width: 1100px) {
-      .nav-links { gap: 12px; }
-      .nav-links > a:not(.btn) { font-size: .75rem; }
-      .brand-name { font-size: .87rem; }
-    }
-
-    @media (max-width: 980px) {
-      .nav-links { display: none; }
-      .menu-toggle { display: inline-flex; }
-    }
-
-    @media (max-width: 640px) {
-      .site-container { width: min(var(--max), calc(100% - 30px)); }
-      .navbar { min-height: 70px; }
-      .brand img { width: 39px; height: 39px; }
-      .brand-name { font-size: .85rem; }
-      .brand-name small { font-size: .54rem; }
-      .pixel-heading { font-size: 1.25rem; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-      }
-      .reveal { opacity: 1; transform: none; }
+    @media (max-width: 600px) {
+      .pipeline { grid-template-columns: 1fr; }
+      .st-head, .st-body { padding-inline: 18px; }
+      .st-meta div { padding: 12px 8px; }
+      .st-meta strong { font-size: 1.2rem; white-space: nowrap; }
+      .ledger-tbl td:first-child { width: auto; font-size: 1.15rem; }
+      .ledger-tbl th, .ledger-tbl td { padding: 12px 10px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- SHARED SITE NAVIGATION -->
+
+  <!-- NAVIGATION -->
   <header class="nav-wrap">
-    <nav class="navbar site-container" aria-label="Main navigation">
-      <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
-        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" />
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="IMG_1383.jpeg" alt="" width="44" height="44">
         <span class="brand-name">
-          Next-Gen
-          <small>KNOWLEDGE</small>
+          NextGen Knowledge
+          <small>REAL-WORLD EDUCATION</small>
         </span>
       </a>
 
-      <div class="nav-links">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="fin-city.html" class="fin-city-link">
-          <i data-lucide="gamepad-2" class="h-4 w-4"></i>
-          Fin City
-        </a>
-        <a href="about.html">About Us</a>
-        <a href="programs.html" aria-current="page">Programs</a>
+        <a href="fin-city.html" class="fin-link">FIN CITY</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
         <a href="team.html">Team</a>
-        <a href="partnerships.html">Partnerships</a>
+        <a href="partnerships.html">Partners</a>
         <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="pixel-btn btn">
-          Enroll Now <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-        </a>
+        <a href="enroll.html" class="btn btn-small">Get Started</a>
+      </nav>
+    </div>
+
+    <div class="ticker" aria-label="Money concepts ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"><b>PAY.YOURSELF.FIRST</b><span class="up">▲ always</span></span>
+        <span class="ticker-item"><b>IMPULSE.BUYS</b><span class="down">▼ −$38/wk</span></span>
+        <span class="ticker-item"><b>COMPOUND.INTEREST</b><span class="up">▲▲ over time</span></span>
+        <span class="ticker-item"><b>LATE.FEES</b><span class="down">▼ avoid</span></span>
+        <span class="ticker-item"><b>EMERGENCY.FUND</b><span class="up">▲ 3–6 mo</span></span>
+        <span class="ticker-item"><b>RULE.OF.72</b><span class="up">▲ 72 ÷ rate = years to 2×</span></span>
+        <span class="ticker-item"><b>INFLATION</b><span class="down">▼ buying power</span></span>
+        <span class="ticker-item"><b>DIVERSIFY</b><span class="up">▲ spread risk</span></span>
+        <span class="ticker-item"><b>FOMO</b><span class="down">▼ bad trades</span></span>
+        <span class="ticker-item"><b>CREDIT.SCORE</b><span class="up">▲ 300–850</span></span>
       </div>
-
-      <button
-        id="menu-button"
-        class="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <i data-lucide="menu" class="h-5 w-5"></i>
-      </button>
-    </nav>
-
-    <div id="mobile-menu" class="mobile-menu site-container">
-      <a href="index.html">Home</a>
-      <a href="fin-city.html" class="fin-city-link">
-        <i data-lucide="gamepad-2" class="h-4 w-4"></i> Fin City
-      </a>
-      <a href="about.html">About Us</a>
-      <a href="programs.html" aria-current="page">Programs</a>
-      <a href="team.html">Team</a>
-      <a href="partnerships.html">Partnerships</a>
-      <a href="donate.html">Donate</a>
-      <a href="enroll.html" class="mobile-cta">
-        Enroll Now <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-      </a>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="relative isolate overflow-hidden bg-[#081629] text-white">
-      <div class="hero-grid absolute inset-0 -z-10 opacity-60"></div>
-      <div class="hero-glow absolute inset-0 -z-10"></div>
-      <div class="absolute -right-24 -top-24 -z-10 h-96 w-96 rounded-full border border-white/10"></div>
-      <div class="absolute -right-8 -top-8 -z-10 h-64 w-64 rounded-full border border-white/10"></div>
-
-      <div class="site-container grid items-center gap-14 py-20 sm:py-24 lg:grid-cols-2 lg:py-28">
-        <div class="max-w-2xl">
-          <div class="mb-7 inline-flex items-center gap-2 border border-white/15 bg-white/[.04] px-4 py-2 text-xs font-bold uppercase tracking-[.14em] text-slate-200">
-            <span class="h-2 w-2 bg-gold"></span>
-            Learn skills that last a lifetime
-          </div>
-
-          <h1 class="text-4xl font-extrabold leading-[1.12] sm:text-5xl lg:text-6xl">
-            Education that moves with
-            <span class="text-gold">the real world.</span>
-          </h1>
-
-          <p class="mt-6 max-w-xl text-base leading-8 text-slate-300 sm:text-lg">
-            Go beyond textbooks. Build practical financial skills through
-            interactive lessons, real-world scenarios, and hands-on simulations
-            designed for the next generation.
-          </p>
-
-          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-            <a href="#programs" class="pixel-btn">
-              Explore Programs <i data-lucide="arrow-down" class="h-4 w-4"></i>
-            </a>
-            <a href="enroll.html" class="pixel-btn secondary">
-              How to Enroll <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
-            </a>
-          </div>
-
-          <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-slate-300">
-            <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-gold"></i> Practical learning</span>
-            <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-gold"></i> Interactive activities</span>
-            <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="h-4 w-4 text-gold"></i> Student-focused</span>
+    <section class="page-hero">
+      <div class="container split-2">
+        <div>
+          <div class="kicker">Skills that last a lifetime</div>
+          <h1>Education that moves with <span class="gold">the real world.</span></h1>
+          <p class="lede">Go beyond textbooks. Build practical financial skills through interactive lessons, real-world scenarios, and hands-on simulations designed for the next generation.</p>
+          <div class="hero-actions">
+            <a href="#programs" class="btn">View programs ↓</a>
+            <a href="enroll.html" class="btn btn-ghost">Enroll now →</a>
           </div>
         </div>
 
-        <!-- FINANCIAL DASHBOARD -->
-        <div class="relative mx-auto w-full max-w-lg">
-          <div class="absolute -inset-5 bg-gold/10 blur-2xl"></div>
-
-          <div class="pixel-panel relative overflow-hidden p-5 text-white sm:p-7">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <p class="mono-label text-xs text-slate-400">Your financial future</p>
-                <h2 class="mt-3 text-2xl font-extrabold">Built through knowledge.</h2>
-              </div>
-              <div class="icon-tile h-12 w-12">
-                <i data-lucide="trending-up" class="h-6 w-6"></i>
-              </div>
-            </div>
-
-            <div class="mt-7 grid grid-cols-2 gap-3">
-              <div class="light-card p-4">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
-                  <i data-lucide="wallet" class="h-4 w-4"></i> Money skills
-                </div>
-                <p class="mt-3 text-lg font-extrabold">Build a plan</p>
-                <p class="mt-1 text-xs text-slate-400">Budget with purpose</p>
-              </div>
-              <div class="light-card p-4">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
-                  <i data-lucide="chart-no-axes-combined" class="h-4 w-4"></i> Investing
-                </div>
-                <p class="mt-3 text-lg font-extrabold">Think long-term</p>
-                <p class="mt-1 text-xs text-slate-400">Analyze opportunities</p>
-              </div>
-            </div>
-
-            <div class="mt-5 border border-slate-700 p-4 sm:p-5">
-              <div class="flex items-center justify-between gap-3">
-                <div>
-                  <p class="text-sm font-bold">Learning in action</p>
-                  <p class="mt-1 text-xs text-slate-400">Knowledge → Practice → Confidence</p>
-                </div>
-                <i data-lucide="activity" class="h-5 w-5 text-gold"></i>
-              </div>
-
-              <div class="mt-5 flex h-28 items-end gap-2 sm:gap-3">
-                <div class="dashboard-bar h-[35%] flex-1 bg-white/20" style="animation-delay:0ms"></div>
-                <div class="dashboard-bar h-[50%] flex-1 bg-white/30" style="animation-delay:100ms"></div>
-                <div class="dashboard-bar h-[43%] flex-1 bg-white/40" style="animation-delay:200ms"></div>
-                <div class="dashboard-bar h-[70%] flex-1 bg-gold/60" style="animation-delay:300ms"></div>
-                <div class="dashboard-bar h-[62%] flex-1 bg-gold/75" style="animation-delay:400ms"></div>
-                <div class="dashboard-bar h-[90%] flex-1 bg-gold" style="animation-delay:500ms"></div>
-              </div>
-              <div class="mt-3 flex justify-between text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                <span>Learn</span><span>Practice</span><span>Apply</span>
-              </div>
-            </div>
-
-            <div class="mt-4 flex items-center gap-3 border border-slate-700 bg-[#071321] p-4">
-              <i data-lucide="lightbulb" class="h-5 w-5 shrink-0 text-gold"></i>
-              <p class="text-sm leading-6 text-slate-300">
-                The goal isn't just to know more. It's to make better-informed decisions.
-              </p>
+        <div class="panel px-border sim reveal" aria-labelledby="simTitle">
+          <div class="panel-bar"><span id="simTitle">DIVERSIFICATION LAB</span><span class="live">● SIMULATED DATA</span></div>
+          <div class="readout-row">
+            <div class="big"><small>VIRTUAL PORTFOLIO</small><span id="pfValue">$100,000</span></div>
+            <div class="meter" aria-live="polite">
+              <small>BUMPINESS</small>
+              <div class="meter-bar" id="meter" aria-hidden="true"></div>
+              <span class="sr-only" id="meterText"></span>
             </div>
           </div>
+          <div class="plot" id="plot" aria-hidden="true"></div>
+          <label for="stocks">Number of companies held <output id="stocksOut">1</output></label>
+          <input id="stocks" type="range" min="1" max="20" value="1">
+          <p class="sim-note" id="simNote"></p>
+          <button class="btn btn-ghost btn-small sim-btn" id="reroll" type="button">Run a new year ↻</button>
         </div>
       </div>
     </section>
 
-    <!-- PROGRAM OVERVIEW -->
-    <section id="programs" class="scroll-mt-24 bg-[#0A1A2D] px-5 py-20 sm:py-24 lg:px-8">
-      <div class="site-container">
-        <div class="mx-auto max-w-2xl text-center reveal">
-          <p class="section-kicker">Our programs</p>
-          <h2 class="section-title mt-4">Two paths. One stronger foundation.</h2>
-          <p class="body-copy mt-5 leading-7">
-            Whether you're learning the basics of personal finance or ready
-            to analyze investments, there's a place to start building your skills.
-          </p>
+    <!-- PROGRAMS AS ACCOUNT STATEMENTS -->
+    <section id="programs" class="section alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="kicker">Our programs</div>
+          <h2>Two paths. <span class="gold">One stronger foundation.</span></h2>
+          <p>Whether you're learning the basics of personal finance or ready to analyze investments, there's a place to start building your skills.</p>
         </div>
 
-        <div class="mt-12 grid gap-7 lg:grid-cols-2">
-          <!-- MONEY MASTERS -->
-          <article class="program-card reveal">
-            <div class="relative overflow-hidden border-b border-slate-700 bg-[#0A2342] p-7 text-white sm:p-9">
-              <div class="absolute -right-10 -top-10 h-44 w-44 rounded-full border border-white/10"></div>
-              <div class="absolute -right-2 -top-2 h-28 w-28 rounded-full border border-white/10"></div>
-
-              <div class="relative flex items-start justify-between gap-4">
-                <div>
-                  <span class="inline-flex border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-bold text-slate-200">
-                    FOUNDATIONAL PROGRAM
-                  </span>
-                  <h3 class="mt-5 text-3xl font-extrabold">Money Masters</h3>
-                  <p class="mt-3 max-w-md leading-7 text-slate-300">
-                    Develop the financial skills to make thoughtful decisions
-                    about spending, saving, investing, and entrepreneurship.
-                  </p>
-                </div>
-                <div class="icon-tile h-14 w-14">
-                  <i data-lucide="wallet" class="h-7 w-7"></i>
-                </div>
-              </div>
-
-              <div class="relative mt-7 flex flex-wrap gap-2">
-                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">Grades 5–8</span>
-                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">5 weeks</span>
-                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">10 live classes</span>
-              </div>
+        <div class="accounts">
+          <article class="statement reveal">
+            <div class="st-head">
+              <div class="acct"><span>ACCOUNT 01 · FOUNDATIONAL</span><span>NGK-MM</span></div>
+              <h3>Money Masters</h3>
+              <p>Develop the financial skills to make thoughtful decisions about spending, saving, investing, and entrepreneurship.</p>
             </div>
-
-            <div class="p-7 sm:p-9">
-              <h4 class="text-lg font-extrabold text-white">What you'll learn</h4>
-
-              <ul class="mt-5 space-y-4">
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="receipt" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Spending and budgeting</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Understand needs, wants, trade-offs, and how to plan around limited resources.</p>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="piggy-bank" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Saving and financial planning</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Set goals, prepare for future expenses, and evaluate financial choices.</p>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="chart-no-axes-combined" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Investing fundamentals</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Explore stocks, risk, returns, diversification, and long-term thinking.</p>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="lightbulb" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Entrepreneurship</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Explore business ideas, costs, revenue, and how businesses create value.</p>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="light-card mt-7 p-5">
-                <p class="mono-label text-xs text-slate-400">The experience</p>
-                <p class="body-copy mt-2 text-sm leading-6">
-                  Interactive lessons, practical scenarios, guided activities,
-                  and opportunities to apply concepts to everyday life.
-                </p>
-              </div>
-
-              <a href="enroll.html" class="pixel-btn mt-7 w-full">
-                Explore Enrollment <i data-lucide="arrow-right" class="h-4 w-4"></i>
-              </a>
+            <div class="st-meta">
+              <div><small>ELIGIBLE</small><strong>Grades 5–8</strong></div>
+              <div><small>TERM</small><strong>5 weeks</strong></div>
+              <div><small>SESSIONS</small><strong>10 live</strong></div>
+            </div>
+            <div class="st-body">
+              <h4>WHAT YOU'LL LEARN</h4>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-cart"/></svg><div><strong>Spending and budgeting</strong><span>Understand needs, wants, trade-offs, and how to plan around limited resources.</span></div></div>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg><div><strong>Saving and financial planning</strong><span>Set goals, prepare for future expenses, and evaluate financial choices.</span></div></div>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg><div><strong>Investing fundamentals</strong><span>Explore stocks, risk, returns, diversification, and long-term thinking.</span></div></div>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-bulb"/></svg><div><strong>Entrepreneurship</strong><span>Explore business ideas, costs, revenue, and how businesses create value.</span></div></div>
+              <p class="st-extra"><b>THE EXPERIENCE</b>Interactive lessons, practical scenarios, guided activities, and opportunities to apply concepts to everyday life.</p>
+              <a href="enroll.html" class="btn btn-ink">Enroll in Money Masters →</a>
             </div>
           </article>
 
-          <!-- INVESTOR ACADEMY -->
-          <article class="program-card reveal">
-            <div class="relative overflow-hidden border-b border-slate-700 bg-[#102D50] p-7 text-white sm:p-9">
-              <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-gold/20"></div>
-              <div class="absolute -right-3 -top-3 h-32 w-32 rounded-full border border-gold/20"></div>
-
-              <div class="relative flex items-start justify-between gap-4">
-                <div>
-                  <span class="inline-flex border border-gold/30 bg-gold/10 px-3 py-1.5 text-xs font-bold text-gold">
-                    ADVANCED PROGRAM
-                  </span>
-                  <h3 class="mt-5 text-3xl font-extrabold">Investor Academy</h3>
-                  <p class="mt-3 max-w-md leading-7 text-slate-300">
-                    Move beyond the basics and explore how investors evaluate
-                    companies, interpret financial information, and build investment theses.
-                  </p>
-                </div>
-                <div class="icon-tile h-14 w-14">
-                  <i data-lucide="chart-no-axes-combined" class="h-7 w-7"></i>
-                </div>
-              </div>
-
-              <div class="relative mt-7 flex flex-wrap gap-2">
-                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">Grades 7+</span>
-                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">5 weeks</span>
-                <span class="border border-white/15 px-3 py-1.5 text-xs font-semibold">10 live classes</span>
-              </div>
+          <article class="statement adv reveal">
+            <div class="st-head">
+              <div class="acct"><span>ACCOUNT 02 · ADVANCED</span><span>NGK-IA</span></div>
+              <h3>Investor Academy</h3>
+              <p>Move beyond the basics and explore how investors evaluate companies, interpret financial information, and build investment theses.</p>
             </div>
-
-            <div class="p-7 sm:p-9">
-              <h4 class="text-lg font-extrabold text-white">What you'll explore</h4>
-
-              <ul class="mt-5 space-y-4">
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="building-2" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Business and company analysis</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Examine business models, competitive advantages, and how companies make money.</p>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="file-chart-column" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Financial statements and valuation</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Learn to interpret financial statements and consider what a company may be worth.</p>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="briefcase-business" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Portfolio construction</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Explore diversification, portfolio decisions, investment risks, and market behavior.</p>
-                  </div>
-                </li>
-                <li class="flex gap-3">
-                  <span class="icon-tile"><i data-lucide="trophy" class="h-4 w-4"></i></span>
-                  <div>
-                    <p class="font-bold text-white">Investment thesis competition</p>
-                    <p class="body-copy mt-1 text-sm leading-6">Apply your learning by presenting a company analysis and defending your investment reasoning.</p>
-                  </div>
-                </li>
-              </ul>
-
-              <div class="mt-7 grid grid-cols-2 gap-3">
-                <div class="light-card p-4">
-                  <i data-lucide="calendar-days" class="h-5 w-5 text-gold"></i>
-                  <p class="mt-3 text-xl font-extrabold text-white">5 Weeks</p>
-                  <p class="body-copy mt-1 text-xs leading-5">Structured learning program</p>
-                </div>
-                <div class="light-card p-4">
-                  <i data-lucide="chart-no-axes-combined" class="h-5 w-5 text-gold"></i>
-                  <p class="mt-3 text-xl font-extrabold text-white">$100K Virtual</p>
-                  <p class="body-copy mt-1 text-xs leading-5">Portfolio simulation</p>
-                </div>
+            <div class="st-meta">
+              <div><small>ELIGIBLE</small><strong>Grades 7+</strong></div>
+              <div><small>TERM</small><strong>5 weeks</strong></div>
+              <div><small>SESSIONS</small><strong>10 live</strong></div>
+            </div>
+            <div class="st-body">
+              <h4>WHAT YOU'LL EXPLORE</h4>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-bank"/></svg><div><strong>Business and company analysis</strong><span>Examine business models, competitive advantages, and how companies make money.</span></div></div>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg><div><strong>Financial statements and valuation</strong><span>Learn to interpret financial statements and consider what a company may be worth.</span></div></div>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-puzzle"/></svg><div><strong>Portfolio construction</strong><span>Explore diversification, portfolio decisions, investment risks, and market behavior.</span></div></div>
+              <div class="line"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-trophy"/></svg><div><strong>Investment thesis competition</strong><span>Apply your learning by presenting a company analysis and defending your investment reasoning.</span></div></div>
+              <div class="st-kpis">
+                <div><strong>5 weeks</strong><span>Structured learning program</span></div>
+                <div><strong>$100K virtual</strong><span>Portfolio simulation</span></div>
               </div>
-
-              <a href="enroll.html" class="pixel-btn mt-7 w-full">
-                Explore Enrollment <i data-lucide="arrow-right" class="h-4 w-4"></i>
-              </a>
+              <a href="enroll.html" class="btn btn-ink">Enroll in Investor Academy →</a>
             </div>
           </article>
         </div>
 
-        <p class="body-copy mt-6 text-center text-sm leading-6">
-          Program availability, eligibility, schedules, and enrollment details
-          are provided through the enrollment page.
-        </p>
+        <p class="fineprint">Program availability, eligibility, schedules, and enrollment details are provided through the <a class="text-link" href="enroll.html">enrollment page</a>.</p>
       </div>
     </section>
 
-    <!-- HOW WE TEACH -->
-    <section class="px-5 py-20 sm:py-24 lg:px-8">
-      <div class="site-container">
-        <div class="grid items-center gap-12 lg:grid-cols-[.85fr_1.15fr]">
-          <div class="reveal">
-            <p class="section-kicker">Our approach</p>
-            <h2 class="section-title mt-4">Learn it. Practice it. Put it to work.</h2>
-            <p class="body-copy mt-5 leading-7">
-              Financial literacy becomes more meaningful when students can
-              connect concepts to decisions. Our programs pair instruction
-              with hands-on practice to build understanding and confidence.
-            </p>
-            <a href="#curriculum" class="mt-7 inline-flex items-center gap-2 font-bold text-gold-bright hover:text-white">
-              Explore the curriculum <i data-lucide="arrow-down-right" class="h-4 w-4"></i>
-            </a>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="pixel-panel reveal p-6">
-              <div class="icon-tile"><i data-lucide="book-open" class="h-5 w-5"></i></div>
-              <h3 class="mt-5 text-lg font-extrabold text-white">01. Learn</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Understand key concepts through structured lessons and guided discussion.</p>
-            </div>
-
-            <div class="pixel-panel reveal p-6">
-              <div class="icon-tile"><i data-lucide="gamepad-2" class="h-5 w-5"></i></div>
-              <h3 class="mt-5 text-lg font-extrabold text-white">02. Simulate</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Work through realistic scenarios and practice making informed decisions.</p>
-            </div>
-
-            <div class="pixel-panel reveal p-6">
-              <div class="icon-tile"><i data-lucide="search" class="h-5 w-5"></i></div>
-              <h3 class="mt-5 text-lg font-extrabold text-white">03. Analyze</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Compare alternatives, evaluate trade-offs, and explain your reasoning.</p>
-            </div>
-
-            <div class="pixel-panel reveal p-6">
-              <div class="icon-tile"><i data-lucide="target" class="h-5 w-5"></i></div>
-              <h3 class="mt-5 text-lg font-extrabold text-white">04. Apply</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Use your knowledge in projects, financial plans, and investment challenges.</p>
-            </div>
-          </div>
+    <!-- APPROACH -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Our approach</div>
+          <h2>Learn it. Practice it. <span class="gold">Put it to work.</span></h2>
+          <p>Financial literacy becomes more meaningful when students can connect concepts to decisions. Our programs pair instruction with hands-on practice to build understanding and confidence.</p>
+        </div>
+        <div class="pipeline">
+          <article class="card pipe reveal"><span class="num">STAGE 01</span><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg></span><h3>Learn</h3><p>Understand key concepts through structured lessons and guided discussion.</p></article>
+          <article class="card pipe reveal"><span class="num">STAGE 02</span><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg></span><h3>Simulate</h3><p>Work through realistic scenarios and practice making informed decisions.</p></article>
+          <article class="card pipe reveal"><span class="num">STAGE 03</span><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><h3>Analyze</h3><p>Compare alternatives, evaluate trade-offs, and explain your reasoning.</p></article>
+          <article class="card pipe reveal"><span class="num">STAGE 04</span><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-target"/></svg></span><h3>Apply</h3><p>Use your knowledge in projects, financial plans, and investment challenges.</p></article>
         </div>
       </div>
     </section>
 
     <!-- CURRICULUM -->
-    <section id="curriculum" class="scroll-mt-24 bg-[#0A1A2D] px-5 py-20 sm:py-24 lg:px-8">
-      <div class="site-container">
-        <div class="mx-auto max-w-2xl text-center reveal">
-          <p class="section-kicker">Inside the programs</p>
-          <h2 class="section-title mt-4">A structured path from concepts to application.</h2>
-          <p class="body-copy mt-5 leading-7">
-            Explore the main topics covered throughout each five-week program.
-          </p>
+    <section id="curriculum" class="section alt">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Inside the programs</div>
+          <h2>A structured path from <span class="gold">concepts to application.</span></h2>
+          <p>Explore the main topics covered throughout each five-week program.</p>
         </div>
 
-        <!-- MONEY MASTERS CURRICULUM -->
-        <div class="mt-14 reveal">
-          <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <span class="section-kicker">Program 01</span>
-              <h3 class="mt-2 text-2xl font-extrabold text-white">Money Masters curriculum</h3>
-            </div>
-            <span class="body-copy text-sm font-semibold">Foundational financial literacy</span>
+        <div class="reveal">
+          <div class="tablist" role="tablist" aria-label="Program curriculum">
+            <button role="tab" id="tab-mm" aria-controls="panel-mm" aria-selected="true">Money Masters</button>
+            <button role="tab" id="tab-ia" aria-controls="panel-ia" aria-selected="false" tabindex="-1">Investor Academy</button>
           </div>
 
-          <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-5">
-            <div class="week-card p-5">
-              <span class="mono-label text-xs text-gold">Week 01</span>
-              <h4 class="mt-3 font-extrabold text-white">Money Fundamentals</h4>
-              <p class="body-copy mt-2 text-sm leading-6">Money, earning, spending choices, needs, wants, and opportunity cost.</p>
-            </div>
-            <div class="week-card p-5">
-              <span class="mono-label text-xs text-gold">Week 02</span>
-              <h4 class="mt-3 font-extrabold text-white">Budgeting and Saving</h4>
-              <p class="body-copy mt-2 text-sm leading-6">Budgets, financial goals, saving strategies, and planning ahead.</p>
-            </div>
-            <div class="week-card p-5">
-              <span class="mono-label text-xs text-gold">Week 03</span>
-              <h4 class="mt-3 font-extrabold text-white">Investing Basics</h4>
-              <p class="body-copy mt-2 text-sm leading-6">Stocks, risk and return, diversification, and compound growth.</p>
-            </div>
-            <div class="week-card p-5">
-              <span class="mono-label text-xs text-gold">Week 04</span>
-              <h4 class="mt-3 font-extrabold text-white">Entrepreneurship</h4>
-              <p class="body-copy mt-2 text-sm leading-6">Business ideas, customers, costs, revenue, and creating value.</p>
-            </div>
-            <div class="week-card p-5">
-              <span class="mono-label text-xs text-gold">Week 05</span>
-              <h4 class="mt-3 font-extrabold text-white">Putting It Together</h4>
-              <p class="body-copy mt-2 text-sm leading-6">Apply financial concepts to integrated scenarios and planning challenges.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- INVESTOR ACADEMY CURRICULUM -->
-        <div class="mt-16 reveal">
-          <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <span class="section-kicker">Program 02</span>
-              <h3 class="mt-2 text-2xl font-extrabold text-white">Investor Academy curriculum</h3>
-            </div>
-            <span class="body-copy text-sm font-semibold">10 classes · 5 weeks</span>
+          <div id="panel-mm" role="tabpanel" aria-labelledby="tab-mm">
+            <div class="curr-meta"><h3>Money Masters curriculum</h3><span class="tag gold">Foundational financial literacy</span></div>
+            <table class="ledger-tbl">
+              <thead><tr><th scope="col">Week</th><th scope="col">Topic</th></tr></thead>
+              <tbody>
+                <tr><td>WEEK 01</td><td><strong>Money Fundamentals</strong><span>Money, earning, spending choices, needs, wants, and opportunity cost.</span></td></tr>
+                <tr><td>WEEK 02</td><td><strong>Budgeting and Saving</strong><span>Budgets, financial goals, saving strategies, and planning ahead.</span></td></tr>
+                <tr><td>WEEK 03</td><td><strong>Investing Basics</strong><span>Stocks, risk and return, diversification, and compound growth.</span></td></tr>
+                <tr><td>WEEK 04</td><td><strong>Entrepreneurship</strong><span>Business ideas, customers, costs, revenue, and creating value.</span></td></tr>
+                <tr class="final"><td>WEEK 05</td><td><strong>Putting It Together</strong><span>Apply financial concepts to integrated scenarios and planning challenges.</span></td></tr>
+              </tbody>
+            </table>
           </div>
 
-          <div class="overflow-hidden border border-slate-700 bg-[#0D2038]">
-            <div class="grid gap-0 md:grid-cols-2">
-              <div class="border-b border-slate-700 p-6 md:border-r">
-                <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">01</span>
-                  <div>
-                    <p class="mono-label text-xs text-slate-400">Week 1 · Classes 1–2</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-white">Markets and Business Models</h4>
-                  </div>
-                </div>
-                <p class="body-copy mt-4 text-sm leading-6">Explore financial markets, how businesses generate revenue, and the role of competitive advantage.</p>
-              </div>
-
-              <div class="border-b border-slate-700 p-6">
-                <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">02</span>
-                  <div>
-                    <p class="mono-label text-xs text-slate-400">Week 2 · Classes 3–4</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-white">Financial Statements</h4>
-                  </div>
-                </div>
-                <p class="body-copy mt-4 text-sm leading-6">Read the income statement, balance sheet, and cash flow statement; examine important financial metrics.</p>
-              </div>
-
-              <div class="border-b border-slate-700 p-6 md:border-r">
-                <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">03</span>
-                  <div>
-                    <p class="mono-label text-xs text-slate-400">Week 3 · Classes 5–6</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-white">Valuation and Investor Thinking</h4>
-                  </div>
-                </div>
-                <p class="body-copy mt-4 text-sm leading-6">Explore valuation fundamentals, business quality, competitive moats, behavioral finance, and common investing mistakes.</p>
-              </div>
-
-              <div class="border-b border-slate-700 p-6">
-                <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center border border-gold/30 bg-[#0A2342] text-sm font-extrabold text-gold">04</span>
-                  <div>
-                    <p class="mono-label text-xs text-slate-400">Week 4 · Classes 7–8</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-white">Portfolios and Investment Research</h4>
-                  </div>
-                </div>
-                <p class="body-copy mt-4 text-sm leading-6">Build a virtual portfolio, research companies, evaluate risks, and develop a structured investment thesis.</p>
-              </div>
-
-              <div class="border-b border-slate-700 p-6 md:border-b-0 md:border-r">
-                <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center bg-gold text-sm font-extrabold text-[#081629]">05</span>
-                  <div>
-                    <p class="mono-label text-xs text-gold">Week 5 · Class 9</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-white">Thesis Preparation</h4>
-                  </div>
-                </div>
-                <p class="body-copy mt-4 text-sm leading-6">Refine company research, review financials, identify key risks, and prepare a persuasive investment presentation.</p>
-              </div>
-
-              <div class="bg-[#081629] p-6">
-                <div class="flex items-center gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center bg-gold text-[#081629]"><i data-lucide="trophy" class="h-5 w-5"></i></span>
-                  <div>
-                    <p class="mono-label text-xs text-gold">Week 5 · Class 10</p>
-                    <h4 class="mt-1 text-lg font-extrabold text-white">Investment Competition</h4>
-                  </div>
-                </div>
-                <p class="mt-4 text-sm leading-6 text-slate-300">Present a company thesis, discuss financials and risks, answer questions, participate in voting, and recognize outstanding work with awards.</p>
-              </div>
+          <div id="panel-ia" role="tabpanel" aria-labelledby="tab-ia" hidden>
+            <div class="curr-meta"><h3>Investor Academy curriculum</h3><span class="tag gold">10 classes · 5 weeks</span></div>
+            <table class="ledger-tbl">
+              <thead><tr><th scope="col">Week · Classes</th><th scope="col">Topic</th></tr></thead>
+              <tbody>
+                <tr><td>WK1 · 1–2</td><td><strong>Markets and Business Models</strong><span>Explore financial markets, how businesses generate revenue, and the role of competitive advantage.</span></td></tr>
+                <tr><td>WK2 · 3–4</td><td><strong>Financial Statements</strong><span>Read the income statement, balance sheet, and cash flow statement; examine important financial metrics.</span></td></tr>
+                <tr><td>WK3 · 5–6</td><td><strong>Valuation and Investor Thinking</strong><span>Explore valuation fundamentals, business quality, competitive moats, behavioral finance, and common investing mistakes.</span></td></tr>
+                <tr><td>WK4 · 7–8</td><td><strong>Portfolios and Investment Research</strong><span>Build a virtual portfolio, research companies, evaluate risks, and develop a structured investment thesis.</span></td></tr>
+                <tr><td>WK5 · 9</td><td><strong>Thesis Preparation</strong><span>Refine company research, review financials, identify key risks, and prepare a persuasive investment presentation.</span></td></tr>
+                <tr class="final"><td>WK5 · 10</td><td><strong>Investment Competition</strong><span>Present a company thesis, discuss financials and risks, answer questions, participate in voting, and recognize outstanding work with awards.</span></td></tr>
+              </tbody>
+            </table>
+            <div class="notice">
+              <strong>ABOUT THE $100K PORTFOLIO</strong>
+              The $100K portfolio is a virtual educational simulation, not real money or a promise of investment returns. Activities are designed to teach research, risk awareness, and analytical thinking.
             </div>
-          </div>
-
-          <div class="mt-5 flex items-start gap-3 border border-gold/30 bg-[rgba(217,182,77,.07)] p-4">
-            <i data-lucide="info" class="mt-0.5 h-5 w-5 shrink-0 text-gold"></i>
-            <p class="text-sm leading-6 text-slate-300">
-              The $100K portfolio is a virtual educational simulation, not real
-              money or a promise of investment returns. Activities are designed
-              to teach research, risk awareness, and analytical thinking.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- OUTCOMES -->
-    <section class="px-5 py-20 sm:py-24 lg:px-8">
-      <div class="site-container">
-        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div class="reveal">
-            <p class="section-kicker">What students gain</p>
-            <h2 class="section-title mt-4">Skills that extend beyond the classroom.</h2>
-            <p class="body-copy mt-5 leading-7">
-              Our goal is to help students develop the knowledge and judgment
-              to approach financial decisions thoughtfully, ask better
-              questions, and understand the world around them.
-            </p>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="pixel-panel reveal p-5">
-              <i data-lucide="wallet" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-white">Financial confidence</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Understand essential financial concepts and everyday decisions.</p>
-            </div>
-            <div class="pixel-panel reveal p-5">
-              <i data-lucide="brain" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-white">Critical thinking</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Evaluate alternatives, identify trade-offs, and explain decisions.</p>
-            </div>
-            <div class="pixel-panel reveal p-5">
-              <i data-lucide="chart-no-axes-combined" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-white">Analytical skills</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Interpret financial information and examine business opportunities.</p>
-            </div>
-            <div class="pixel-panel reveal p-5">
-              <i data-lucide="presentation" class="h-6 w-6 text-gold"></i>
-              <h3 class="mt-4 font-extrabold text-white">Communication</h3>
-              <p class="body-copy mt-2 text-sm leading-6">Present ideas clearly and support conclusions with evidence.</p>
-            </div>
-          </div>
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">What students gain</div>
+          <h2>Skills that extend <span class="gold">beyond the classroom.</span></h2>
+          <p>Our goal is to help students develop the knowledge and judgment to approach financial decisions thoughtfully, ask better questions, and understand the world around them.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-shield"/></svg></span><h3>Financial confidence</h3><p>Understand essential financial concepts and everyday decisions.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-puzzle"/></svg></span><h3>Critical thinking</h3><p>Evaluate alternatives, identify trade-offs, and explain decisions.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><h3>Analytical skills</h3><p>Interpret financial information and examine business opportunities.</p></article>
+          <article class="card reveal"><span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-megaphone"/></svg></span><h3>Communication</h3><p>Present ideas clearly and support conclusions with evidence.</p></article>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="px-5 pb-20 lg:px-8 lg:pb-24">
-      <div class="relative mx-auto max-w-7xl overflow-hidden border border-slate-700 bg-[#0D2038] px-6 py-14 text-center text-white sm:px-12 sm:py-16">
-        <div class="hero-grid absolute inset-0 opacity-30"></div>
-        <div class="absolute -right-16 -top-20 h-64 w-64 rounded-full border border-white/10"></div>
-        <div class="absolute -left-20 -bottom-24 h-64 w-64 rounded-full border border-white/10"></div>
-
-        <div class="relative mx-auto max-w-2xl">
-          <span class="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-gold">
-            Your next step starts here
-          </span>
-          <h2 class="mt-6 text-3xl font-extrabold sm:text-4xl">
-            Make your next decision an informed one.
-          </h2>
-          <p class="body-copy mt-5 leading-7">
-            Start building practical skills in financial literacy, investing,
-            and business analysis with Next-Gen Knowledge.
-          </p>
-
-          <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a href="enroll.html" class="pixel-btn">
-              Get Started <i data-lucide="arrow-right" class="h-4 w-4"></i>
-            </a>
-            <a href="about.html" class="pixel-btn secondary">
-              About Our Mission
-            </a>
+    <section class="cta">
+      <div class="container">
+        <div class="note reveal">
+          <span class="note-corner tl" aria-hidden="true">∞</span><span class="note-corner tr" aria-hidden="true">∞</span>
+          <span class="note-corner bl" aria-hidden="true">∞</span><span class="note-corner br" aria-hidden="true">∞</span>
+          <div class="note-inner">
+            <div>
+              <span class="serial">NG 2026 PRG0 K</span>
+              <h2>Make your next decision an informed one.</h2>
+              <p>Start building practical skills in financial literacy, investing, and business analysis with Next-Gen Knowledge.</p>
+              <p class="legal">Tuition due: $0.00. Curiosity required.</p>
+              <div class="note-actions">
+                <a href="enroll.html" class="btn btn-ink">Enroll now →</a>
+                <a href="about.html" class="btn btn-ghost">About our mission</a>
+              </div>
+            </div>
+            <div class="seal" aria-hidden="true"><div><img src="IMG_1383.jpeg" alt="">IN KNOWLEDGE<br>WE TRUST</div></div>
           </div>
         </div>
       </div>
@@ -1058,126 +368,118 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="site-container py-12">
-      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="sm:col-span-2">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
           <a href="index.html" class="brand">
-            <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo" />
-            <span class="brand-name">
-              Next-Gen
-              <small>KNOWLEDGE</small>
-            </span>
+            <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+            <span class="brand-name">NextGen Knowledge<small>REAL-WORLD EDUCATION</small></span>
           </a>
-          <p class="body-copy mt-5 max-w-sm text-sm leading-7">
-            A student-led financial literacy nonprofit working to make
-            real-world education accessible to the next generation.
-          </p>
+          <p class="footer-about">A student-led educational organization focused on making practical financial literacy and real-world learning more accessible.</p>
         </div>
 
-        <div>
-          <h3 class="font-extrabold text-white">Explore</h3>
-          <div class="mt-4 flex flex-col gap-3 text-sm">
-            <a href="fin-city.html" class="footer-link">Fin City</a>
-            <a href="about.html" class="footer-link">About Us</a>
-            <a href="programs.html" class="font-bold text-gold-bright">Programs</a>
-            <a href="team.html" class="footer-link">Our Team</a>
-            <a href="partnerships.html" class="footer-link">Partnerships</a>
-          </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="team.html">Our Team</a>
+          <a href="fin-city.html">Fin City</a>
         </div>
 
-        <div>
-          <h3 class="font-extrabold text-white">Connect</h3>
-          <div class="mt-4 flex flex-col gap-3 text-sm">
-            <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer" class="footer-link inline-flex items-center gap-2">
-              <i data-lucide="instagram" class="h-4 w-4"></i> Instagram
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-link inline-flex items-center gap-2">
-              <i data-lucide="linkedin" class="h-4 w-4"></i> LinkedIn
-            </a>
-            <a href="mailto:nextgenknowledge@gmail.com" class="footer-link inline-flex items-center gap-2">
-              <i data-lucide="mail" class="h-4 w-4"></i> Email Us
-            </a>
-            <a href="donate.html" class="footer-link inline-flex items-center gap-2">
-              <i data-lucide="heart-handshake" class="h-4 w-4"></i> Support Our Mission
-            </a>
-          </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <a href="enroll.html">Enroll in a Program</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Support Our Work</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
         </div>
       </div>
 
-      <div class="mt-10 flex flex-col gap-4 border-t border-slate-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p class="text-xs leading-5 text-slate-500">
-          © <span id="current-year"></span> Next-Gen Knowledge. All rights reserved.
-        </p>
-        <p class="max-w-xl text-xs leading-5 text-slate-500 sm:text-right">
-          Next-Gen Knowledge is fiscally sponsored by Hack Club Foundation.
-          Contributions are subject to the sponsor's applicable policies.
-        </p>
+      <div class="footer-receipt">
+        <span>© <span id="currentYear"></span> NEXT-GEN KNOWLEDGE. ALL RIGHTS RESERVED.</span>
+        <span class="gold">*** CHANGE DUE: YOUR FUTURE ***</span>
+        <span>LEARN TODAY. BUILD TOMORROW.</span>
       </div>
+      <p class="sponsor-note">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script>
-    // Mobile navigation
-    const menuButton = document.getElementById("menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
+    /* DIVERSIFICATION LAB — simulated, illustrative returns (not real market data) */
+    const N_STOCKS = 20, N_WEEKS = 52;
+    const stocksInput = document.getElementById("stocks");
+    const plot = document.getElementById("plot");
+    const meter = document.getElementById("meter");
+    let seed = 7, returns = [];
 
-    menuButton.addEventListener("click", () => {
-      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+    function rand() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+    function gauss() { return Math.sqrt(-2 * Math.log(rand() || 1e-9)) * Math.cos(2 * Math.PI * rand()); }
 
-      menuButton.setAttribute("aria-expanded", String(!isExpanded));
-      menuButton.setAttribute(
-        "aria-label",
-        isExpanded ? "Open navigation menu" : "Close navigation menu"
-      );
-
-      mobileMenu.classList.toggle("open", !isExpanded);
-
-      const icon = menuButton.querySelector("i");
-      icon.setAttribute("data-lucide", isExpanded ? "menu" : "x");
-      lucide.createIcons();
-    });
-
-    // Close the mobile menu when a link is selected
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation menu");
-
-        const icon = menuButton.querySelector("i");
-        icon.setAttribute("data-lucide", "menu");
-        lucide.createIcons();
-      });
-    });
-
-    // Reveal sections as they enter the viewport
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries, observerInstance) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observerInstance.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.08 }
-      );
-
-      revealElements.forEach((element) => observer.observe(element));
-    } else {
-      revealElements.forEach((element) => element.classList.add("visible"));
+    function generate() {
+      // each company = shared market move + its own company-specific noise
+      const market = Array.from({ length: N_WEEKS }, () => 0.0015 + 0.018 * gauss());
+      returns = Array.from({ length: N_STOCKS }, () => market.map(m => m + 0.06 * gauss()));
     }
 
-    // Initialize Lucide icons
-    lucide.createIcons();
+    for (let i = 0; i < 10; i++) meter.appendChild(document.createElement("i"));
+    for (let i = 0; i < N_WEEKS; i++) plot.appendChild(document.createElement("i"));
 
-    // Automatically update copyright year
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
+    function draw() {
+      const n = Number(stocksInput.value);
+      document.getElementById("stocksOut").textContent = n;
+
+      let value = 100000;
+      const path = [], weekly = [];
+      for (let w = 0; w < N_WEEKS; w++) {
+        let r = 0;
+        for (let s = 0; s < n; s++) r += returns[s][w];
+        r /= n;
+        weekly.push(r);
+        value *= 1 + r;
+        path.push(value);
+      }
+
+      // fixed scale so a calmer portfolio actually looks calmer
+      const lo = 40000, hi = 180000, span = hi - lo;
+      [...plot.children].forEach((bar, i) => {
+        const v = Math.max(lo, Math.min(hi, path[i]));
+        bar.style.height = (8 + (v - lo) / span * 88) + "%";
+        bar.classList.toggle("down", path[i] < 100000);
+      });
+      // dashed line marks the $100K starting value
+      const basePct = 8 + (100000 - lo) / span * 88;
+      plot.style.setProperty("--base", (8 + basePct / 100 * (plot.clientHeight - 16)) + "px");
+
+      const mean = weekly.reduce((a, b) => a + b, 0) / N_WEEKS;
+      const sd = Math.sqrt(weekly.reduce((a, b) => a + (b - mean) ** 2, 0) / N_WEEKS);
+      const level = Math.max(1, Math.min(10, Math.round(sd / 0.064 * 10)));
+      const color = level > 6 ? "var(--red)" : level > 3 ? "var(--gold-bright)" : "var(--green)";
+      [...meter.children].forEach((seg, i) => { seg.classList.toggle("on", i < level); });
+      meter.style.setProperty("--mc", color);
+      document.getElementById("meterText").textContent = "Bumpiness " + level + " out of 10";
+
+      document.getElementById("pfValue").textContent = "$" + Math.round(value).toLocaleString("en-US");
+      document.getElementById("simNote").innerHTML = n === 1
+        ? "All eggs in one basket: one company's bad news hits your whole portfolio. <strong>Slide right to spread out.</strong>"
+        : n < 6
+          ? "Spreading out is already smoothing the ride. Company-specific surprises start to cancel out."
+          : "Much smoother. What's left is <strong>market risk</strong>, which diversification can't remove.";
+    }
+
+    stocksInput.addEventListener("input", draw);
+    document.getElementById("reroll").addEventListener("click", () => { generate(); draw(); });
+    generate();
+    draw();
+    window.addEventListener("resize", draw);
   </script>
+
 </body>
 </html>

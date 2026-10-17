@@ -1,1477 +1,251 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#081629">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Our Team | Next-Gen Knowledge</title>
-  <meta name="description" content="Meet the student team behind Next-Gen Knowledge, making financial literacy and real-world education accessible to the next generation.">
+  <title>Our Team | NextGen Knowledge</title>
+  <meta name="description" content="Meet the students behind NextGen Knowledge, working together to make financial literacy and real-world education accessible to the next generation.">
+  <meta name="theme-color" content="#081629">
+  <meta name="author" content="Next-Gen Knowledge">
+  <meta property="og:title" content="Our Team | NextGen Knowledge">
+  <meta property="og:description" content="Meet the students behind NextGen Knowledge, working together to make financial literacy and real-world education accessible to the next generation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="IMG_1383.jpeg">
 
   <link rel="icon" href="IMG_1383.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
-
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-FXJKCLQMSN');
   </script>
 
   <style>
-    :root {
-      --bg: #081629;
-      --bg-deep: #050D19;
-      --panel: #0D2038;
-      --panel-light: #142C49;
-      --panel-hover: #193653;
-      --navy: #0A2342;
-      --gold: #D9B64D;
-      --gold-bright: #F1D778;
-      --gold-dark: #9C7B25;
-      --text: #F3F5FA;
-      --muted: #9DADC2;
-      --line: #263C57;
-      --blue: #84B7FF;
-      --pixel-font: "Press Start 2P", monospace;
-      --body-font: "DM Sans", sans-serif;
-      --mono-font: "DM Mono", monospace;
-      --max: 1180px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(20, 44, 73, .38), transparent 55%),
-        var(--bg);
-      font-family: var(--body-font);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .16;
-      background-image: radial-gradient(var(--line) .8px, transparent .8px);
-      background-size: 18px 18px;
-    }
-
-    ::selection {
-      background: rgba(217, 182, 77, .35);
-      color: white;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    button:focus-visible,
-    a:focus-visible {
-      outline: 2px solid var(--gold-bright);
-      outline-offset: 4px;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 12px;
-      border: 1px solid rgba(217, 182, 77, .42);
-      border-radius: 3px;
-      background: rgba(217, 182, 77, .08);
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      flex-shrink: 0;
-      background: var(--gold-bright);
-      box-shadow: 0 0 10px rgba(241, 215, 120, .55);
-    }
-
-    .section-kicker {
-      margin: 0 0 12px;
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      margin: 0;
-      color: var(--text);
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -.045em;
-    }
-
-    .section-description {
-      max-width: 650px;
-      margin: 15px auto 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .section-heading {
-      margin-bottom: 38px;
-      text-align: center;
-    }
-
-    .section-line {
-      width: 48px;
-      height: 4px;
-      margin: 18px auto 0;
-      background: var(--gold);
-      box-shadow: 4px 4px 0 rgba(217, 182, 77, .16);
-    }
-
-    /* NAVIGATION */
-
-    .nav-wrap {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(5, 13, 25, .96);
-      border-bottom: 2px solid var(--line);
-      backdrop-filter: blur(16px);
-    }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      min-height: 78px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 11px;
-      flex-shrink: 0;
-    }
-
-    .brand img {
-      width: 43px;
-      height: 43px;
-      object-fit: contain;
-      border: 1px solid #40536A;
-      border-radius: 3px;
-      background: white;
-    }
-
-    .brand-name {
-      color: white;
-      font-size: .95rem;
-      font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -.035em;
-    }
-
-    .brand-name small {
-      display: block;
-      margin-top: 5px;
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: .58rem;
-      font-weight: 400;
-      letter-spacing: .04em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .nav-links > a:not(.btn) {
-      padding: 8px 0;
-      color: #B7C4D5;
-      font-size: .78rem;
-      font-weight: 700;
-      transition: color .2s;
-      white-space: nowrap;
-    }
-
-    .nav-links > a:not(.btn):hover,
-    .nav-links > a.current {
-      color: var(--gold-bright);
-    }
-
-    .nav-links .fin-city-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 10px;
-      border: 1px solid rgba(217, 182, 77, .42);
-      border-radius: 3px;
-      background: rgba(217, 182, 77, .08);
-      color: var(--gold-bright) !important;
-      font-family: var(--mono-font);
-      font-size: .69rem !important;
-    }
-
-    .nav-links .fin-city-link:hover {
-      background: rgba(217, 182, 77, .16);
-    }
-
-    .nav-links .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 8px 12px;
-      border: 1px solid var(--gold);
-      border-radius: 3px;
-      background: var(--gold);
-      color: var(--bg-deep);
-      font-size: .78rem;
-      font-weight: 800;
-      white-space: nowrap;
-      transition: background .2s, transform .2s;
-    }
-
-    .nav-links .btn:hover {
-      transform: translateY(-2px);
-      background: var(--gold-bright);
-    }
-
-    .menu-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: var(--gold-bright);
-      cursor: pointer;
-    }
-
-    .mobile-menu {
-      display: none;
-      padding: 0 0 18px;
-    }
-
-    .mobile-menu.open {
-      display: block;
-    }
-
-    .mobile-menu-inner {
-      display: grid;
-      gap: 5px;
-      padding-top: 12px;
-      border-top: 1px solid var(--line);
-    }
-
-    .mobile-menu a {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 12px;
-      border: 1px solid transparent;
-      border-radius: 3px;
-      color: #C0CBD9;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a.current {
-      border-color: var(--line);
-      background: var(--panel);
-      color: var(--gold-bright);
-    }
-
-    .mobile-menu .mobile-fin-city {
-      border-color: rgba(217, 182, 77, .35);
-      background: rgba(217, 182, 77, .07);
-      color: var(--gold-bright);
-    }
-
-    .mobile-menu .mobile-enroll {
-      justify-content: center;
-      margin-top: 5px;
-      border-color: var(--gold);
-      background: var(--gold);
-      color: var(--bg-deep);
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 86px 20px 74px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(ellipse at 14% 25%, rgba(217, 182, 77, .10), transparent 34%),
-        radial-gradient(ellipse at 88% 35%, rgba(65, 117, 172, .12), transparent 35%),
-        linear-gradient(180deg, rgba(13, 32, 56, .72), rgba(8, 22, 41, .12));
-      text-align: center;
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .28;
-      background-image:
-        linear-gradient(rgba(132, 183, 255, .07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, .07) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(to bottom, black, transparent 95%);
-    }
-
-    .hero-inner {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      margin: 27px 0 22px;
-      color: white;
-      font-size: clamp(34px, 6vw, 66px);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -.055em;
-    }
-
-    .hero h1 span {
-      color: var(--gold-bright);
-      text-shadow: 3px 3px 0 rgba(156, 123, 37, .18);
-    }
-
-    .hero-copy {
-      max-width: 690px;
-      margin: 0 auto;
-      color: #B4C2D4;
-      font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.85;
-    }
-
-    .hero-stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 31px;
-    }
-
-    .stat-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 13px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: rgba(13, 32, 56, .82);
-      color: #CFD8E4;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .stat-chip svg {
-      width: 15px;
-      height: 15px;
-      color: var(--gold);
-    }
-
-    /* MISSION */
-
-    .mission-section {
-      padding: 36px 0 24px;
-    }
-
-    .mission-card {
-      position: relative;
-      overflow: hidden;
-      padding: 35px 38px;
-      border: 1px solid #304863;
-      border-radius: 4px;
-      background: linear-gradient(115deg, rgba(20, 44, 73, .98), rgba(10, 35, 66, .96));
-      box-shadow: 5px 5px 0 rgba(0, 0, 0, .24);
-    }
-
-    .mission-card::after {
-      content: "";
-      position: absolute;
-      top: -85px;
-      right: -55px;
-      width: 240px;
-      height: 240px;
-      border: 28px solid rgba(217, 182, 77, .07);
-      transform: rotate(24deg);
-      pointer-events: none;
-    }
-
-    .mission-layout {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 245px;
-      align-items: center;
-      gap: 34px;
-    }
-
-    .mission-kicker {
-      margin: 0 0 12px;
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .mission-card h2 {
-      margin: 0 0 14px;
-      color: white;
-      font-size: clamp(25px, 3vw, 38px);
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -.04em;
-    }
-
-    .mission-card p:not(.mission-kicker) {
-      max-width: 640px;
-      margin: 0;
-      color: #B7C7D9;
-      font-size: 14px;
-      line-height: 1.85;
-    }
-
-    .mission-points {
-      display: grid;
-      gap: 10px;
-    }
-
-    .mission-point {
-      padding: 13px 15px;
-      border: 1px solid rgba(184, 202, 222, .17);
-      border-radius: 3px;
-      background: rgba(255, 255, 255, .045);
-    }
-
-    .mission-point strong {
-      display: block;
-      color: white;
-      font-size: 13px;
-    }
-
-    .mission-point span {
-      display: block;
-      margin-top: 3px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    /* TEAM DIRECTORY */
-
-    .team-directory {
-      padding: 72px 0 90px;
-    }
-
-    .filter-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
-      margin: 0 auto 50px;
-    }
-
-    .filter-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 41px;
-      padding: 9px 13px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: #B6C5D7;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: border-color .2s, background .2s, color .2s, transform .2s;
-    }
-
-    .filter-btn:hover {
-      transform: translateY(-1px);
-      border-color: #607895;
-      color: white;
-    }
-
-    .filter-btn.active {
-      border-color: var(--gold);
-      background: var(--gold);
-      color: var(--bg-deep);
-      box-shadow: 3px 3px 0 rgba(217, 182, 77, .15);
-    }
-
-    .filter-count {
-      font-family: var(--mono-font);
-      font-size: 10px;
-      opacity: .8;
-    }
-
-    #team-sections {
-      display: grid;
-      gap: 58px;
-    }
-
-    .department-section {
-      min-width: 0;
-    }
-
-    .department-heading {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 24px;
-    }
-
-    .department-icon {
-      display: flex;
-      width: 50px;
-      height: 50px;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(217, 182, 77, .35);
-      border-radius: 3px;
-      background: rgba(217, 182, 77, .08);
-      color: var(--gold-bright);
-    }
-
-    .department-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .department-heading-copy {
-      min-width: 0;
-    }
-
-    .department-subtitle {
-      margin: 0 0 3px;
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: 10px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .department-heading h2 {
-      margin: 0;
-      color: var(--text);
-      font-size: clamp(21px, 3vw, 28px);
-      font-weight: 800;
-      line-height: 1.25;
-      letter-spacing: -.035em;
-    }
-
-    .department-description {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .department-rule {
-      height: 1px;
-      flex: 1;
-      min-width: 12px;
-      margin-left: 5px;
-      background: var(--line);
-    }
-
-    .department-count {
-      flex-shrink: 0;
-      padding: 6px 9px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: #B8C6D8;
-      font-family: var(--mono-font);
-      font-size: 10px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 19px;
-    }
-
-    .team-card {
-      display: flex;
-      min-width: 0;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid #263C57;
-      border-radius: 4px;
-      background: linear-gradient(180deg, #10243C, #0B1C31);
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, .17);
-      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-    }
-
-    .team-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(217, 182, 77, .65);
-      box-shadow: 5px 7px 0 rgba(0, 0, 0, .2);
-    }
-
-    .team-photo {
-      position: relative;
-      height: 220px;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(132, 183, 255, .08), transparent 55%),
-        #10243B;
-    }
-
-    .team-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-      transition: transform .35s ease;
-    }
-
-    .team-card:hover .team-photo img {
-      transform: scale(1.035);
-    }
-
-    .photo-placeholder {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background:
-        linear-gradient(rgba(132, 183, 255, .035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(132, 183, 255, .035) 1px, transparent 1px),
-        #10243B;
-      background-size: 14px 14px;
-      color: var(--muted);
-    }
-
-    .initials {
-      display: flex;
-      width: 76px;
-      height: 76px;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--gold-dark);
-      border-radius: 3px;
-      background: var(--panel-light);
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: 24px;
-      font-weight: 500;
-      box-shadow: 4px 4px 0 rgba(0, 0, 0, .2);
-    }
-
-    .placeholder-caption {
-      font-family: var(--mono-font);
-      font-size: 10px;
-    }
-
-    .photo-department {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      padding: 6px 8px;
-      border: 1px solid rgba(217, 182, 77, .45);
-      border-radius: 2px;
-      background: rgba(5, 13, 25, .9);
-      color: var(--gold-bright);
-      font-family: var(--mono-font);
-      font-size: 9px;
-      letter-spacing: .03em;
-      backdrop-filter: blur(8px);
-    }
-
-    .team-card-body {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      padding: 19px;
-    }
-
-    .role-badge {
-      display: inline-flex;
-      align-items: center;
-      max-width: 100%;
-      padding: 6px 8px;
-      border: 1px solid;
-      border-radius: 2px;
-      font-family: var(--mono-font);
-      font-size: 9px;
-      line-height: 1.6;
-      letter-spacing: .025em;
-      text-transform: uppercase;
-    }
-
-    .role-executive {
-      border-color: rgba(217, 182, 77, .4);
-      background: rgba(217, 182, 77, .10);
-      color: var(--gold-bright);
-    }
-
-    .role-lead {
-      border-color: rgba(132, 183, 255, .34);
-      background: rgba(132, 183, 255, .08);
-      color: var(--blue);
-    }
-
-    .role-associate {
-      border-color: #344A63;
-      background: #14263D;
-      color: #B7C5D6;
-    }
-
-    .team-card h3 {
-      margin: 13px 0 0;
-      color: white;
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -.035em;
-    }
-
-    .team-description {
-      min-height: 104px;
-      margin: 11px 0 0;
-      color: #A8B8CA;
-      font-size: 12px;
-      line-height: 1.8;
-    }
-
-    .team-divider {
-      height: 1px;
-      margin: 17px 0;
-      background: var(--line);
-    }
-
-    .team-info {
-      display: grid;
-      gap: 10px;
-    }
-
-    .info-row {
-      display: grid;
-      grid-template-columns: 67px minmax(0, 1fr);
-      gap: 7px;
-      color: #A7B6C9;
-      font-size: 11px;
-      line-height: 1.65;
-      overflow-wrap: anywhere;
-    }
-
-    .info-row strong {
-      color: #E3EAF3;
-      font-weight: 700;
-    }
-
-    .placeholder-note {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 13px;
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: 9px;
-    }
-
-    .placeholder-note svg {
-      width: 13px;
-      height: 13px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 2px solid var(--line);
-      background: var(--bg-deep);
-    }
-
-    .footer-main {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr;
-      gap: 45px;
-      padding-top: 52px;
-      padding-bottom: 42px;
-    }
-
-    .footer-brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 17px;
-    }
-
-    .footer-brand img {
-      width: 45px;
-      height: 45px;
-      padding: 3px;
-      border: 1px solid #40536A;
-      border-radius: 3px;
-      background: white;
-      object-fit: contain;
-    }
-
-    .footer-brand span {
-      color: white;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -.03em;
-    }
-
-    .footer-description {
-      max-width: 330px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.9;
-    }
-
-    .footer-heading {
-      margin: 3px 0 18px;
-      color: var(--gold);
-      font-family: var(--mono-font);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-
-    .footer-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 18px;
-    }
-
-    .footer-link {
-      color: #B7C4D5;
-      font-size: 12px;
-      transition: color .2s;
-    }
-
-    .footer-link:hover {
-      color: var(--gold-bright);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 9px;
-      margin-bottom: 17px;
-    }
-
-    .social-link {
-      display: flex;
-      width: 39px;
-      height: 39px;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--panel);
-      color: #D2DCE8;
-      transition: border-color .2s, color .2s, background .2s;
-    }
-
-    .social-link:hover {
-      border-color: var(--gold);
-      background: rgba(217, 182, 77, .09);
-      color: var(--gold-bright);
-    }
-
-    .social-link svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .email-link {
-      color: #B7C4D5;
-      font-size: 12px;
-      overflow-wrap: anywhere;
-      transition: color .2s;
-    }
-
-    .email-link:hover {
-      color: var(--gold-bright);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-top: 20px;
-      padding-bottom: 22px;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-bottom p {
-      margin: 0;
-      color: #8294AA;
-      font-size: 10px;
-      line-height: 1.8;
-    }
-
-    .footer-bottom .sponsor-note {
-      max-width: 570px;
-      text-align: right;
-    }
-
-    /* ANIMATIONS */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(15px);
-      transition: opacity .5s ease, transform .5s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    #team-sections .reveal {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 1120px) {
-      .nav-links {
-        gap: 11px;
-      }
-
-      .nav-links > a:not(.btn) {
-        font-size: .72rem;
-      }
-
-      .brand-name {
-        font-size: .86rem;
-      }
-
-      .brand-name small {
-        font-size: .52rem;
-      }
-
-      .team-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .team-description {
-        min-height: 88px;
-      }
-    }
-
-    @media (max-width: 950px) {
-      .nav-links {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-      }
-
-      .mission-layout {
-        grid-template-columns: minmax(0, 1fr) 220px;
-      }
-
-      .footer-main {
-        gap: 28px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .container {
-        width: min(var(--max), calc(100% - 30px));
-      }
-
-      .hero {
-        padding: 64px 15px 55px;
-      }
-
-      .hero h1 {
-        font-size: clamp(32px, 9vw, 48px);
-      }
-
-      .hero-copy {
-        font-size: 14px;
-      }
-
-      .stat-chip {
-        padding: 9px 10px;
-        font-size: 11px;
-      }
-
-      .mission-section {
-        padding-top: 24px;
-      }
-
-      .mission-card {
-        padding: 25px 22px;
-      }
-
-      .mission-layout {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-
-      .mission-points {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .team-directory {
-        padding: 55px 0 65px;
-      }
-
-      .section-heading {
-        margin-bottom: 30px;
-      }
-
-      .filter-list {
-        gap: 7px;
-        margin-bottom: 38px;
-      }
-
-      .filter-btn {
-        min-height: 38px;
-        padding: 8px 10px;
-        font-size: 11px;
-      }
-
-      #team-sections {
-        gap: 43px;
-      }
-
-      .department-heading {
-        gap: 11px;
-      }
-
-      .department-icon {
-        width: 43px;
-        height: 43px;
-      }
-
-      .department-rule,
-      .department-count {
-        display: none;
-      }
-
-      .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .team-photo {
-        height: 195px;
-      }
-
-      .team-card-body {
-        padding: 13px;
-      }
-
-      .team-card h3 {
-        font-size: 16px;
-      }
-
-      .team-description {
-        min-height: 0;
-        font-size: 11px;
-      }
-
-      .role-badge {
-        font-size: 8px;
-      }
-
-      .info-row {
-        grid-template-columns: 1fr;
-        gap: 1px;
-        font-size: 10px;
-      }
-
-      .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px 24px;
-        padding-top: 38px;
-      }
-
-      .footer-about {
-        grid-column: 1 / -1;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .footer-bottom .sponsor-note {
-        text-align: left;
-      }
-    }
-
-    @media (max-width: 390px) {
-      .brand-name {
-        font-size: .8rem;
-      }
-
-      .brand-name small {
-        font-size: .47rem;
-      }
-
-      .brand img {
-        width: 39px;
-        height: 39px;
-      }
-
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .team-photo {
-        height: 250px;
-      }
-
-      .team-description {
-        font-size: 12px;
-      }
-
-      .info-row {
-        grid-template-columns: 67px minmax(0, 1fr);
-        gap: 7px;
-        font-size: 11px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
+    .team-hero { text-align: center; }
+    .team-hero .kicker { justify-content: center; }
+    .team-hero .lede { margin-inline: auto; }
+    .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+    .mission-card { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+    .mission-card h2 { margin-bottom: 14px; }
+    .mission-points { display: grid; gap: 14px; }
+    .mission-points div { padding: 18px 20px; background: #071426; box-shadow: inset 4px 0 0 var(--gold); }
+    .mission-points strong { display: block; font-family: var(--pixel); font-size: .6rem; color: var(--gold-bright); margin-bottom: 6px; }
+    .mission-points span { color: var(--muted); }
+
+    /* pack filters */
+    .packs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 54px; }
+    .pack {
+      min-height: 44px; padding: 10px 16px; border: 0; cursor: pointer;
+      font-family: var(--pixel); font-size: .52rem; line-height: 1.6; text-transform: uppercase;
+      color: #C7D3E3; background: #0A1A2E; box-shadow: 0 0 0 3px #1B3554;
+    }
+    .pack[aria-pressed="true"] { color: #14110A; background: var(--gold-bright); box-shadow: 0 0 0 3px var(--gold-bright), 4px 4px 0 3px var(--gold-dark); }
+    .pack b { font-weight: 400; opacity: .7; }
+
+    .dept { margin-bottom: 70px; }
+    .dept-head { display: flex; align-items: center; gap: 18px; margin-bottom: 26px; flex-wrap: wrap; }
+    .dept-head .tile { color: var(--dc); }
+    .dept-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0; }
+    .dept-head .sub { font-family: var(--pixel); font-size: .5rem; color: var(--dc); line-height: 1.8; }
+    .dept-head p { margin: 4px 0 0; font-size: .95rem; }
+    .dept-head .count { margin-left: auto; font-family: var(--term); font-size: 1.3rem; color: #8FA2BA; }
+
+    /* trading cards */
+    .binder { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px; }
+    .tcard { perspective: 1200px; height: 470px; cursor: pointer; outline: none; }
+    .tcard-inner { position: relative; height: 100%; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.3,.7,.2,1); }
+    .tcard[aria-pressed="true"] .tcard-inner { transform: rotateY(180deg); }
+    .tcard:focus-visible .tcard-inner { outline: 3px solid var(--gold-bright); outline-offset: 5px; }
+    .face {
+      position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+      display: flex; flex-direction: column; padding: 12px;
+      background: var(--dc); box-shadow: 8px 8px 0 #030A13;
+    }
+    .face-in { flex: 1; display: flex; flex-direction: column; min-height: 0; background: #0A1A2E; box-shadow: inset 0 0 0 3px rgba(0,0,0,.35); }
+    .back { transform: rotateY(180deg); }
+
+    .card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; font-family: var(--pixel); font-size: .45rem; line-height: 1.6; color: var(--dc); }
+    .rarity { display: flex; gap: 3px; color: var(--gold-bright); }
+    .rarity .px-icon { width: 14px; height: 14px; }
+    .portrait { position: relative; margin: 0 12px; aspect-ratio: 1 / 1; overflow: hidden; background: #071426; box-shadow: 0 0 0 3px var(--dc); }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .initials { width: 100%; height: 100%; display: grid; place-items: center; align-content: center; gap: 6px; font-family: var(--pixel); font-size: 2rem; color: var(--dc); background: repeating-linear-gradient(45deg, #0D2038 0 8px, #0A1A2E 8px 16px); }
+    .initials small { font-size: .45rem; color: #8FA2BA; }
+    .nameplate { padding: 14px 14px 10px; }
+    .nameplate h3 { margin: 0 0 6px; font-size: 1.25rem; font-stretch: 100%; }
+    .role { display: inline-block; padding: 2px 8px; font-family: var(--term); font-size: 1.15rem; line-height: 1.3; color: #14110A; background: var(--dc); }
+    .card-foot { margin-top: auto; display: flex; justify-content: space-between; padding: 8px 14px 12px; font-family: var(--term); font-size: 1.05rem; color: #7E90A8; }
+
+    .back .face-in { padding: 18px; overflow: auto; }
+    .back h3 { margin: 0 0 4px; font-size: 1.1rem; font-stretch: 100%; }
+    .back .role { margin-bottom: 14px; }
+    .back p { font-size: .92rem; margin: 0 0 16px; }
+    .stat { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 10px 0; border-top: 2px dashed #22406A; }
+    .stat dt { font-family: var(--pixel); font-size: .45rem; color: var(--dc); line-height: 1.8; }
+    .stat dd { margin: 0; color: var(--text); font-size: .92rem; }
+    .flip-hint { margin-top: auto; padding-top: 10px; font-family: var(--term); font-size: 1.05rem; color: #7E90A8; }
+
+    /* holo foil on the executive cards */
+    .tcard.holo .front::after {
+      content: ""; position: absolute; inset: 12px; pointer-events: none; mix-blend-mode: color-dodge; opacity: 0;
+      background: linear-gradient(115deg, transparent 20%, rgba(241,215,120,.55) 40%, rgba(132,183,255,.5) 50%, rgba(124,224,176,.45) 60%, transparent 80%);
+      background-size: 250% 250%; background-position: var(--fx, 50%) var(--fy, 50%);
+      transition: opacity .2s;
+    }
+    .tcard.holo:hover .front::after { opacity: .7; }
+
+    @media (max-width: 900px) { .mission-card { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .tcard-inner { transition: none; } }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION: KEEP CONSISTENT ACROSS ALL PAGES -->
-
-  <header class="nav-wrap" id="navbar">
-    <nav class="container navbar" aria-label="Main navigation">
-
-      <a href="index.html" class="brand" aria-label="Next-Gen Knowledge home">
-        <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo">
+  <!-- NAVIGATION -->
+  <header class="nav-wrap">
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="IMG_1383.jpeg" alt="" width="44" height="44">
         <span class="brand-name">
-          Next-Gen Knowledge
-          <small>Empowering the Next Generation</small>
+          NextGen Knowledge
+          <small>REAL-WORLD EDUCATION</small>
         </span>
       </a>
 
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="fin-city.html" class="fin-city-link">
-          <i data-lucide="gamepad-2" aria-hidden="true"></i>
-          Fin City
-        </a>
-        <a href="about.html">About Us</a>
-        <a href="programs.html">Programs</a>
-        <a href="team.html" class="current" aria-current="page">Team</a>
-        <a href="partnerships.html">Partnerships</a>
-        <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="btn">Enroll Now</a>
-      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
 
-      <button
-        id="mobile-menu-button"
-        class="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu">
-        <i data-lucide="menu" aria-hidden="true"></i>
-      </button>
-    </nav>
-
-    <div id="mobile-menu" class="mobile-menu">
-      <div class="container mobile-menu-inner">
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="fin-city.html" class="mobile-fin-city">
-          <i data-lucide="gamepad-2" aria-hidden="true"></i>
-          Fin City
-        </a>
-        <a href="about.html">About Us</a>
+        <a href="fin-city.html" class="fin-link">FIN CITY</a>
+        <a href="about.html">About</a>
         <a href="programs.html">Programs</a>
-        <a href="team.html" class="current" aria-current="page">Team</a>
-        <a href="partnerships.html">Partnerships</a>
+        <a href="team.html">Team</a>
+        <a href="partnerships.html">Partners</a>
         <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="mobile-enroll">Enroll Now</a>
+        <a href="enroll.html" class="btn btn-small">Get Started</a>
+      </nav>
+    </div>
+
+    <div class="ticker" aria-label="Money concepts ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"><b>PAY.YOURSELF.FIRST</b><span class="up">▲ always</span></span>
+        <span class="ticker-item"><b>IMPULSE.BUYS</b><span class="down">▼ −$38/wk</span></span>
+        <span class="ticker-item"><b>COMPOUND.INTEREST</b><span class="up">▲▲ over time</span></span>
+        <span class="ticker-item"><b>LATE.FEES</b><span class="down">▼ avoid</span></span>
+        <span class="ticker-item"><b>EMERGENCY.FUND</b><span class="up">▲ 3–6 mo</span></span>
+        <span class="ticker-item"><b>RULE.OF.72</b><span class="up">▲ 72 ÷ rate = years to 2×</span></span>
+        <span class="ticker-item"><b>INFLATION</b><span class="down">▼ buying power</span></span>
+        <span class="ticker-item"><b>DIVERSIFY</b><span class="up">▲ spread risk</span></span>
+        <span class="ticker-item"><b>FOMO</b><span class="down">▼ bad trades</span></span>
+        <span class="ticker-item"><b>CREDIT.SCORE</b><span class="up">▲ 300–850</span></span>
       </div>
     </div>
   </header>
 
   <main>
-
-    <!-- HERO -->
-
-    <section class="hero">
-      <div class="hero-grid" aria-hidden="true"></div>
-
-      <div class="hero-inner">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Our People, Our Mission
-        </div>
-
-        <h1>
-          Meet the Team<br>
-          <span>Behind the Mission</span>
-        </h1>
-
-        <p class="hero-copy">
-          We're students working together to make financial literacy and
-          real-world education accessible to the next generation.
-        </p>
-
-        <div class="hero-stats">
-          <div class="stat-chip">
-            <i data-lucide="users" aria-hidden="true"></i>
-            <span>18 Team Members</span>
-          </div>
-          <div class="stat-chip">
-            <i data-lucide="graduation-cap" aria-hidden="true"></i>
-            <span>Student-Led</span>
-          </div>
-          <div class="stat-chip">
-            <i data-lucide="lightbulb" aria-hidden="true"></i>
-            <span>Mission-Driven</span>
-          </div>
+    <section class="page-hero team-hero">
+      <div class="container">
+        <div class="kicker">Our people, our mission</div>
+        <h1>Meet the team<br><span class="gold">behind the mission.</span></h1>
+        <p class="lede">We're students working together to make financial literacy and real-world education accessible to the next generation. Collect the whole set: click any card to flip it.</p>
+        <div class="chips">
+          <span class="tag gold">18 team members</span>
+          <span class="tag green">Student-led</span>
+          <span class="tag">Mission-driven</span>
         </div>
       </div>
     </section>
 
-    <!-- SHARED MISSION -->
-
-    <section class="mission-section">
-      <div class="container">
-        <div class="mission-card reveal">
-          <div class="mission-layout">
-            <div>
-              <p class="mission-kicker">One shared mission</p>
-
-              <h2>
-                Different strengths.<br>
-                One goal.
-              </h2>
-
-              <p>
-                From finance and curriculum development to software
-                development, outreach, and marketing, every department
-                contributes to making practical education more accessible.
-              </p>
-            </div>
-
-            <div class="mission-points">
-              <div class="mission-point">
-                <strong>Learn</strong>
-                <span>Build real-world knowledge</span>
-              </div>
-              <div class="mission-point">
-                <strong>Make an impact</strong>
-                <span>Share knowledge with others</span>
-              </div>
-            </div>
-          </div>
+    <section class="container" style="padding-bottom: 90px">
+      <div class="panel px-border mission-card reveal">
+        <div>
+          <div class="kicker">One shared mission</div>
+          <h2>Different strengths.<br>One goal.</h2>
+          <p>From finance and curriculum development to software development, outreach, and marketing, every department contributes to making practical education more accessible.</p>
+        </div>
+        <div class="mission-points">
+          <div><strong>LEARN</strong><span>Build real-world knowledge</span></div>
+          <div><strong>MAKE AN IMPACT</strong><span>Share knowledge with others</span></div>
         </div>
       </div>
     </section>
 
-    <!-- TEAM DIRECTORY -->
-
-    <section class="team-directory">
+    <section class="section alt" id="team">
       <div class="container">
-
-        <div class="section-heading reveal">
-          <p class="section-kicker">The people behind the work</p>
-          <h2 class="section-title">Meet Our Team</h2>
-          <div class="section-line"></div>
-          <p class="section-description">
-            Explore our leadership team and the departments working together
-            to bring our educational initiatives to life.
-          </p>
+        <div class="section-head reveal">
+          <div class="kicker">The people behind the work</div>
+          <h2>Pick a pack.</h2>
+          <p>Explore our leadership team and the departments working together to bring our educational initiatives to life.</p>
         </div>
 
-        <!-- DEPARTMENT FILTERS -->
-
-        <div id="department-filters" class="filter-list" aria-label="Filter team by department">
-          <button type="button" data-filter="all" class="filter-btn active" aria-pressed="true">
-            Everyone <span class="filter-count">18</span>
-          </button>
-          <button type="button" data-filter="Executive Board" class="filter-btn" aria-pressed="false">
-            Executive Board
-          </button>
-          <button type="button" data-filter="Finance" class="filter-btn" aria-pressed="false">
-            Finance
-          </button>
-          <button type="button" data-filter="Curriculum" class="filter-btn" aria-pressed="false">
-            Curriculum
-          </button>
-          <button type="button" data-filter="Outreach" class="filter-btn" aria-pressed="false">
-            Outreach
-          </button>
-          <button type="button" data-filter="Marketing" class="filter-btn" aria-pressed="false">
-            Marketing
-          </button>
+        <div class="packs" id="packs" role="group" aria-label="Filter team by department">
+          <button type="button" class="pack" data-filter="all" aria-pressed="true">Everyone <b>18</b></button>
+          <button type="button" class="pack" data-filter="Executive Board" aria-pressed="false">Executive Board</button>
+          <button type="button" class="pack" data-filter="Finance" aria-pressed="false">Finance</button>
+          <button type="button" class="pack" data-filter="Curriculum" aria-pressed="false">Curriculum</button>
+          <button type="button" class="pack" data-filter="Outreach" aria-pressed="false">Outreach</button>
+          <button type="button" class="pack" data-filter="Marketing" aria-pressed="false">Marketing</button>
         </div>
 
-        <!-- TEAM SECTIONS ARE GENERATED FROM THE ARRAY BELOW -->
-
+        <!-- TEAM SECTIONS ARE GENERATED FROM THE teamMembers ARRAY BELOW -->
         <div id="team-sections"></div>
-
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">
+            <img src="IMG_1383.jpeg" alt="" width="44" height="44">
+            <span class="brand-name">NextGen Knowledge<small>REAL-WORLD EDUCATION</small></span>
+          </a>
+          <p class="footer-about">A student-led educational organization focused on making practical financial literacy and real-world learning more accessible.</p>
+        </div>
 
-  <footer>
-    <div class="container footer-main">
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="team.html">Our Team</a>
+          <a href="fin-city.html">Fin City</a>
+        </div>
 
-      <div class="footer-about">
-        <a href="index.html" class="footer-brand">
-          <img src="IMG_1383.jpeg" alt="Next-Gen Knowledge logo">
-          <span>Next-Gen Knowledge</span>
-        </a>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <a href="enroll.html">Enroll in a Program</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Support Our Work</a>
+        </div>
 
-        <p class="footer-description">
-          Empowering the next generation through accessible financial
-          literacy and real-world education.
-        </p>
-      </div>
-
-      <div>
-        <h2 class="footer-heading">Quick Links</h2>
-        <div class="footer-links">
-          <a href="index.html" class="footer-link">Home</a>
-          <a href="fin-city.html" class="footer-link">Fin City</a>
-          <a href="about.html" class="footer-link">About Us</a>
-          <a href="programs.html" class="footer-link">Programs</a>
-          <a href="team.html" class="footer-link">Team</a>
-          <a href="partnerships.html" class="footer-link">Partnerships</a>
-          <a href="donate.html" class="footer-link">Donate</a>
-          <a href="enroll.html" class="footer-link">Enroll</a>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
         </div>
       </div>
 
-      <div>
-        <h2 class="footer-heading">Connect With Us</h2>
-
-        <div class="social-links">
-          <a
-            href="https://www.instagram.com/nextgen.knowledge/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            class="social-link">
-            <i data-lucide="instagram" aria-hidden="true"></i>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/company/next-gen-knowledge/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="social-link">
-            <i data-lucide="linkedin" aria-hidden="true"></i>
-          </a>
-
-          <a
-            href="mailto:nextgen.knowledge123@gmail.com"
-            aria-label="Email Next-Gen Knowledge"
-            class="social-link">
-            <i data-lucide="mail" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <a href="mailto:nextgen.knowledge123@gmail.com" class="email-link">
-          nextgen.knowledge123@gmail.com
-        </a>
+      <div class="footer-receipt">
+        <span>© <span id="currentYear"></span> NEXT-GEN KNOWLEDGE. ALL RIGHTS RESERVED.</span>
+        <span class="gold">*** CHANGE DUE: YOUR FUTURE ***</span>
+        <span>LEARN TODAY. BUILD TOMORROW.</span>
       </div>
-
-    </div>
-
-    <div class="container footer-bottom">
-      <p>
-        © <span id="footer-year"></span> Next-Gen Knowledge. All rights reserved.
-      </p>
-
-      <p class="sponsor-note">
-        Next-Gen Knowledge is a fiscally sponsored project of the Hack Club
-        Foundation, a 501(c)(3) nonprofit.
-      </p>
+      <p class="sponsor-note">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script>
     /*
       TEAM MEMBER EDITING GUIDE
@@ -1481,507 +255,181 @@
       3. If a photo is unavailable, use an empty string: photo: ""
       4. Use one of the following department names:
          Executive Board, Finance, Curriculum, Outreach, Marketing.
-      5. The department filter and section counts update automatically.
-      6. Eshwar Bompali is listed first under Curriculum as Head Developer.
+      5. level controls card rarity: "executive" (holo foil, 3 stars), "lead" (2 stars), "associate" (1 star).
+      6. The filter, card numbers and section counts update automatically.
     */
-
     const teamMembers = [
-
-      // EXECUTIVE BOARD — 4 MEMBERS
-
-      {
-        name: "Svar Patel",
-        position: "Founder & CEO",
-        department: "Executive Board",
-        level: "executive",
-        photo: "13F86006-1D7F-40F9-AFD8-84CE3C572132.png",
+      // EXECUTIVE BOARD
+      { name: "Svar Patel", position: "Founder & CEO", department: "Executive Board", level: "executive", photo: "13F86006-1D7F-40F9-AFD8-84CE3C572132.png",
         description: "Leads financial literacy curriculum development and helps guide the organization's vision and strategy.",
-        interests: "Finance, Technology, Entrepreneurship",
-        hobbies: "Baseball, Investing"
-      },
-      {
-        name: "Pushan Patel",
-        position: "Co-Founder & CFO",
-        department: "Executive Board",
-        level: "executive",
-        photo: "IMG_7201.jpeg",
+        interests: "Finance, Technology, Entrepreneurship", hobbies: "Baseball, Investing" },
+      { name: "Pushan Patel", position: "Co-Founder & CFO", department: "Executive Board", level: "executive", photo: "IMG_7201.jpeg",
         description: "Focuses on entrepreneurship, organizational strategy, and building sustainable frameworks for student-led initiatives.",
-        interests: "Finance, Business Strategy",
-        hobbies: "Go-karting, Pickleball"
-      },
-      {
-        name: "Max Park",
-        position: "Co-Founder & CMO",
-        department: "Executive Board",
-        level: "executive",
-        photo: "IMG_1689.jpeg",
+        interests: "Finance, Business Strategy", hobbies: "Go-karting, Pickleball" },
+      { name: "Max Park", position: "Co-Founder & CMO", department: "Executive Board", level: "executive", photo: "IMG_1689.jpeg",
         description: "Helps shape the organization's communication and marketing strategy, bringing together writing, creativity, and business.",
-        interests: "History, English, Business",
-        hobbies: "Baseball, Hiking"
-      },
-      {
-        name: "Ilhan Rasheed",
-        position: "Co-Founder & CPO",
-        department: "Executive Board",
-        level: "executive",
-        photo: "DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg",
+        interests: "History, English, Business", hobbies: "Baseball, Hiking" },
+      { name: "Ilhan Rasheed", position: "Co-Founder & CPO", department: "Executive Board", level: "executive", photo: "DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg",
         description: "Contributes to product direction and the development of educational initiatives.",
-        interests: "Medicine, Finance",
-        hobbies: "Basketball, Taekwondo"
-      },
+        interests: "Medicine, Finance", hobbies: "Basketball, Taekwondo" },
 
-      // FINANCE — 3 MEMBERS
-
-      {
-        name: "Leo Sorenson",
-        position: "Finance Associate",
-        department: "Finance",
-        level: "associate",
-        photo: "IMG_1839.jpeg",
+      // FINANCE
+      { name: "Leo Sorenson", position: "Finance Associate", department: "Finance", level: "associate", photo: "IMG_1839.jpeg",
         description: "Helps manage and track finances while supporting fundraising and financial organization.",
-        interests: "Basketball, Math",
-        hobbies: "Lego, Cooking"
-      },
-      {
-        name: "Vince Yale",
-        position: "Finance Associate",
-        department: "Finance",
-        level: "associate",
-        photo: "IMG_3353.jpeg",
+        interests: "Basketball, Math", hobbies: "Lego, Cooking" },
+      { name: "Vince Yale", position: "Finance Associate", department: "Finance", level: "associate", photo: "IMG_3353.jpeg",
         description: "Supports financial analysis, organization, and financial initiatives across Next-Gen Knowledge.",
-        interests: "Finance, Politics",
-        hobbies: "Pickleball, Going to the gym"
-      },
-      {
-        name: "Hannah George",
-        position: "Finance Associate",
-        department: "Finance",
-        level: "associate",
-        photo: "photo.png",
+        interests: "Finance, Politics", hobbies: "Pickleball, Going to the gym" },
+      { name: "Hannah George", position: "Finance Associate", department: "Finance", level: "associate", photo: "photo.png",
         description: "Supports financial operations, budgeting, fundraising, and sustainable growth.",
-        interests: "Finance, Entrepreneurship, Math",
-        hobbies: "Dance, Baking"
-      },
+        interests: "Finance, Entrepreneurship, Math", hobbies: "Dance, Baking" },
 
-      // CURRICULUM — 4 MEMBERS
-      // Eshwar is intentionally listed first as Head Developer.
-
-      {
-        name: "Eshwar Bompali",
-        position: "Head Developer",
-        department: "Curriculum",
-        level: "lead",
-        photo: "",
+      // CURRICULUM (Eshwar is intentionally listed first as Head Developer)
+      { name: "Eshwar Bompali", position: "Head Developer", department: "Curriculum", level: "lead", photo: "",
         description: "Leads software development and technical implementation for Next-Gen Knowledge's digital learning initiatives, fully developing Fin-City.",
-        interests: "Software Development, Technology",
-        hobbies: "Programming, Building Projects"
-      },
-      {
-        name: "Liam Alexander",
-        position: "Curriculum Head",
-        department: "Curriculum",
-        level: "lead",
-        photo: "IMG_2041.jpeg",
+        interests: "Software Development, Technology", hobbies: "Programming, Building Projects" },
+      { name: "Liam Alexander", position: "Curriculum Head", department: "Curriculum", level: "lead", photo: "IMG_2041.jpeg",
         description: "Leads curriculum design and the development of asynchronous courses and certification programs, helping create engaging, structured learning experiences that make financial education accessible to students.",
-        interests: "Economics, Finance",
-        hobbies: "Tennis, Soccer"
-      },
-      {
-        name: "Micheal Fleischman",
-        position: "Curriculum Associate",
-        department: "Curriculum",
-        level: "associate",
-        photo: "IMG_0900.jpeg",
+        interests: "Economics, Finance", hobbies: "Tennis, Soccer" },
+      { name: "Micheal Fleischman", position: "Curriculum Associate", department: "Curriculum", level: "associate", photo: "IMG_0900.jpeg",
         description: "Supports curriculum development and the creation of asynchronous courses and certification programs, helping organize course content into clear, engaging lessons that build practical financial knowledge.",
-        interests: "Finance, Sports",
-        hobbies: "Basketball, Biking"
-      },
-      {
-        name: "Filipe Loureiro",
-        position: "Curriculum Associate",
-        department: "Curriculum",
-        level: "associate",
-        photo: "IMG_3123.jpeg",
+        interests: "Finance, Sports", hobbies: "Basketball, Biking" },
+      { name: "Filipe Loureiro", position: "Curriculum Associate", department: "Curriculum", level: "associate", photo: "IMG_3123.jpeg",
         description: "Contributes to the design and development of asynchronous courses and certification programs, helping create educational materials that allow students to learn independently and strengthen their real-world financial skills.",
-        interests: "Investing, Psychology",
-        hobbies: "Going to the Gym, Playing Basketball"
-      },
+        interests: "Investing, Psychology", hobbies: "Going to the Gym, Playing Basketball" },
 
-      // OUTREACH — 4 MEMBERS
-
-      {
-        name: "Arhaan Bhojwani",
-        position: "Director of Outreach",
-        department: "Outreach",
-        level: "lead",
-        photo: "IMG_8056.jpeg",
+      // OUTREACH
+      { name: "Arhaan Bhojwani", position: "Director of Outreach", department: "Outreach", level: "lead", photo: "IMG_8056.jpeg",
         description: "Leads outreach initiatives and partnership opportunities, with a focus on networking and communication.",
-        interests: "Sports, Business, Community Service",
-        hobbies: "Basketball, Video Games"
-      },
-      {
-        name: "Lucas Liu",
-        position: "Outreach Associate",
-        department: "Outreach",
-        level: "associate",
-        photo: "81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg",
+        interests: "Sports, Business, Community Service", hobbies: "Basketball, Video Games" },
+      { name: "Lucas Liu", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg",
         description: "Supports outreach initiatives and helps build connections with students, organizations, and community partners.",
-        interests: "Sports, Math",
-        hobbies: "Cooking, Video Games"
-      },
-      {
-        name: "Henry Rothman",
-        position: "Outreach Associate",
-        department: "Outreach",
-        level: "associate",
-        photo: "81259759075__33B12B5C-31F5-4A67-98D4-344590CD62B7.jpeg",
+        interests: "Sports, Math", hobbies: "Cooking, Video Games" },
+      { name: "Henry Rothman", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "81259759075__33B12B5C-31F5-4A67-98D4-344590CD62B7.jpeg",
         description: "Supports outreach and helps expand connections with students, organizations, and potential partners.",
-        interests: "Economics, Entrepreneurship",
-        hobbies: "Sports, Hanging out with friends"
-      },
-      {
-        name: "Sejong Kim",
-        position: "Outreach Associate",
-        department: "Outreach",
-        level: "associate",
-        photo: "IMG_4427.jpeg",
+        interests: "Economics, Entrepreneurship", hobbies: "Sports, Hanging out with friends" },
+      { name: "Sejong Kim", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "IMG_4427.jpeg",
         description: "Supports outreach and community engagement to help expand access to financial education.",
-        interests: "Financial Freedom, Stock Trading",
-        hobbies: "Baseball, Stock Investing"
-      },
+        interests: "Financial Freedom, Stock Trading", hobbies: "Baseball, Stock Investing" },
 
-      // MARKETING — 3 MEMBERS
-
-      {
-        name: "Sophia Zachariah",
-        position: "Social Media Manager",
-        department: "Marketing",
-        level: "lead",
-        photo: "IMG_0994.jpeg",
+      // MARKETING
+      { name: "Sophia Zachariah", position: "Social Media Manager", department: "Marketing", level: "lead", photo: "IMG_0994.jpeg",
         description: "Focuses on video editing and script management for Next-Gen Knowledge's social media content.",
-        interests: "Math, Biology",
-        hobbies: "Dance, Art"
-      },
-      {
-        name: "Collin Kim",
-        position: "Marketing Associate",
-        department: "Marketing",
-        level: "associate",
-        photo: "81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg",
+        interests: "Math, Biology", hobbies: "Dance, Art" },
+      { name: "Collin Kim", position: "Marketing Associate", department: "Marketing", level: "associate", photo: "81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg",
         description: "Supports marketing initiatives through creative content and digital media.",
-        interests: "Cooking, Athletics",
-        hobbies: "Video Editing, Lacrosse"
-      },
-      {
-        name: "Ciara Perruzzi",
-        position: "Marketing Associate",
-        department: "Marketing",
-        level: "associate",
-        photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
+        interests: "Cooking, Athletics", hobbies: "Video Editing, Lacrosse" },
+      { name: "Ciara Perruzzi", position: "Marketing Associate", department: "Marketing", level: "associate", photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
         description: "Supports marketing initiatives and develops creative content to help expand the organization's reach.",
-        interests: "Medical Science, Neuroscience",
-        hobbies: "Dance, Scouts of America"
-      }
+        interests: "Medical Science, Neuroscience", hobbies: "Dance, Scouts of America" }
     ];
 
     const departments = [
-      {
-        name: "Executive Board",
-        subtitle: "Leadership & Strategy",
-        icon: "compass",
-        description: "Guiding the organization's mission, strategy, and direction."
-      },
-      {
-        name: "Finance",
-        subtitle: "Financial Operations",
-        icon: "chart-no-axes-combined",
-        description: "Supporting financial organization, budgeting, and fundraising."
-      },
-      {
-        name: "Curriculum",
-        subtitle: "Education, Technology & Development",
-        icon: "code",
-        description: "Building educational content, digital tools, and engaging learning experiences."
-      },
-      {
-        name: "Outreach",
-        subtitle: "Partnerships & Community",
-        icon: "handshake",
-        description: "Building connections and bringing our programs to more students."
-      },
-      {
-        name: "Marketing",
-        subtitle: "Brand & Communications",
-        icon: "megaphone",
-        description: "Sharing our mission through creative content and communication."
-      }
+      { name: "Executive Board", subtitle: "Leadership & Strategy", icon: "compass", color: "#F1D778", description: "Guiding the organization's mission, strategy, and direction." },
+      { name: "Finance", subtitle: "Financial Operations", icon: "chart", color: "#7CE0B0", description: "Supporting financial organization, budgeting, and fundraising." },
+      { name: "Curriculum", subtitle: "Education, Technology & Development", icon: "code", color: "#84B7FF", description: "Building educational content, digital tools, and engaging learning experiences." },
+      { name: "Outreach", subtitle: "Partnerships & Community", icon: "handshake", color: "#FF8A7A", description: "Building connections and bringing our programs to more students." },
+      { name: "Marketing", subtitle: "Brand & Communications", icon: "megaphone", color: "#C9A2FF", description: "Sharing our mission through creative content and communication." }
     ];
 
-    const teamSections = document.getElementById("team-sections");
-    const filterButtons = document.querySelectorAll(".filter-btn");
+    const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+    const initials = name => name.split(/\s+/).filter(Boolean).slice(0, 2).map(p => p[0]).join("").toUpperCase();
+    const stars = level => '<svg class="px-icon"><use href="icons.svg#i-star"/></svg>'.repeat(level === "executive" ? 3 : level === "lead" ? 2 : 1);
+    const total = teamMembers.length;
 
-    function initials(name) {
-      return name
-        .split(/\s+/)
-        .filter(Boolean)
-        .slice(0, 2)
-        .map(part => part[0])
-        .join("")
-        .toUpperCase();
+    function portrait(m) {
+      const fallback = `<div class="initials">${esc(initials(m.name))}<small>PHOTO SOON</small></div>`;
+      if (!m.photo) return fallback;
+      return `<img src="${esc(m.photo)}" alt="" loading="lazy" onerror="this.replaceWith(this.nextElementSibling.content.cloneNode(true))"><template>${fallback}</template>`;
     }
 
-    function hasPlaceholder(value) {
-      return !value || value.startsWith("ADD_");
-    }
-
-    function escapeHTML(value) {
-      return String(value ?? "").replace(/[&<>"']/g, character => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      })[character]);
-    }
-
-    function renderPhoto(member) {
-      const safeName = escapeHTML(member.name);
-      const memberInitials = escapeHTML(initials(member.name));
-
-      if (member.photo && !member.photo.startsWith("ADD_")) {
-        const safePhoto = escapeHTML(member.photo);
-
-        return `
-          <img
-            src="${safePhoto}"
-            alt="${safeName}"
-            loading="lazy"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-          >
-          <div class="photo-placeholder" style="display:none">
-            <div class="initials">${memberInitials}</div>
-            <span class="placeholder-caption">Photo coming soon</span>
-          </div>
-        `;
-      }
-
+    function renderCard(m, dept) {
+      const no = String(teamMembers.indexOf(m) + 1).padStart(2, "0");
       return `
-        <div class="photo-placeholder">
-          <div class="initials">${memberInitials}</div>
-          <span class="placeholder-caption">Photo coming soon</span>
-        </div>
-      `;
-    }
-
-    function renderInfo(label, value) {
-      const missing = hasPlaceholder(value);
-      const displayedValue = missing
-        ? (value || `ADD_${label.toUpperCase()}_HERE`)
-        : value;
-
-      return `
-        <div class="info-row">
-          <strong>${escapeHTML(label)}:</strong>
-          <span>${escapeHTML(displayedValue)}</span>
-        </div>
-      `;
-    }
-
-    function renderMember(member) {
-      const needsDescription = hasPlaceholder(member.description);
-
-      const roleClass = member.level === "executive"
-        ? "role-executive"
-        : member.level === "lead"
-          ? "role-lead"
-          : "role-associate";
-
-      const profileNeedsUpdate =
-        needsDescription ||
-        !member.photo ||
-        hasPlaceholder(member.interests) ||
-        hasPlaceholder(member.hobbies);
-
-      return `
-        <article class="team-card">
-          <div class="team-photo">
-            ${renderPhoto(member)}
-            <div class="photo-department">${escapeHTML(member.department)}</div>
-          </div>
-
-          <div class="team-card-body">
-            <div>
-              <span class="role-badge ${roleClass}">
-                ${escapeHTML(member.position)}
-              </span>
-            </div>
-
-            <h3>${escapeHTML(member.name)}</h3>
-
-            <p class="team-description">
-              ${escapeHTML(member.description)}
-            </p>
-
-            <div class="team-divider"></div>
-
-            <div class="team-info">
-              ${renderInfo("Interests", member.interests)}
-              ${renderInfo("Hobbies", member.hobbies)}
-            </div>
-
-            ${profileNeedsUpdate ? `
-              <div class="placeholder-note">
-                <i data-lucide="pencil-line" aria-hidden="true"></i>
-                Profile needs updating
+        <div class="tcard ${m.level === "executive" ? "holo" : ""}" role="button" tabindex="0" aria-pressed="false"
+             aria-label="${esc(m.name)}, ${esc(m.position)}. Press to flip card." style="--dc:${dept.color}">
+          <div class="tcard-inner">
+            <div class="face front">
+              <div class="face-in">
+                <div class="card-top"><span>${esc(m.department.toUpperCase())}</span><span class="rarity" aria-hidden="true">${stars(m.level)}</span></div>
+                <div class="portrait">${portrait(m)}</div>
+                <div class="nameplate">
+                  <h3>${esc(m.name)}</h3>
+                  <span class="role">${esc(m.position)}</span>
+                </div>
+                <div class="card-foot" aria-hidden="true"><span>NGK SERIES 1</span><span>#${no}/${total}</span></div>
               </div>
-            ` : ""}
-          </div>
-        </article>
-      `;
-    }
-
-    function renderTeam(filter = "all") {
-      teamSections.innerHTML = "";
-
-      const visibleDepartments = departments.filter(department =>
-        filter === "all" || department.name === filter
-      );
-
-      visibleDepartments.forEach(department => {
-        const members = teamMembers.filter(member =>
-          member.department === department.name
-        );
-
-        if (!members.length) return;
-
-        const section = document.createElement("section");
-        section.className = "department-section";
-        section.dataset.department = department.name;
-
-        section.innerHTML = `
-          <div class="department-heading">
-            <div class="department-icon">
-              <i data-lucide="${department.icon}" aria-hidden="true"></i>
             </div>
-
-            <div class="department-heading-copy">
-              <p class="department-subtitle">${escapeHTML(department.subtitle)}</p>
-              <h2>${escapeHTML(department.name)}</h2>
-              <p class="department-description">${escapeHTML(department.description)}</p>
+            <div class="face back" aria-hidden="true">
+              <div class="face-in">
+                <h3>${esc(m.name)}</h3>
+                <span class="role">${esc(m.position)}</span>
+                <p>${esc(m.description)}</p>
+                <dl>
+                  <div class="stat"><dt>INTERESTS</dt><dd>${esc(m.interests)}</dd></div>
+                  <div class="stat"><dt>HOBBIES</dt><dd>${esc(m.hobbies)}</dd></div>
+                </dl>
+                <span class="flip-hint">↺ tap to flip back</span>
+              </div>
             </div>
-
-            <div class="department-rule" aria-hidden="true"></div>
-
-            <span class="department-count">
-              ${members.length} ${members.length === 1 ? "MEMBER" : "MEMBERS"}
-            </span>
           </div>
-
-          <div class="team-grid">
-            ${members.map(renderMember).join("")}
-          </div>
-        `;
-
-        teamSections.appendChild(section);
-      });
-
-      if (window.lucide) {
-        lucide.createIcons();
-      }
+        </div>`;
     }
 
-    // Update the filter buttons and render the selected department.
+    const teamSections = document.getElementById("team-sections");
 
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const selectedFilter = button.dataset.filter;
-
-        filterButtons.forEach(filterButton => {
-          const selected = filterButton === button;
-          filterButton.classList.toggle("active", selected);
-          filterButton.setAttribute("aria-pressed", String(selected));
-        });
-
-        renderTeam(selectedFilter);
-      });
-    });
-
-    // Mobile navigation.
-
-    const menuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    menuButton.addEventListener("click", () => {
-      const opening = !mobileMenu.classList.contains("open");
-
-      mobileMenu.classList.toggle("open", opening);
-      menuButton.setAttribute("aria-expanded", String(opening));
-      menuButton.setAttribute(
-        "aria-label",
-        opening ? "Close navigation menu" : "Open navigation menu"
-      );
-
-      menuButton.innerHTML = opening
-        ? '<i data-lucide="x" aria-hidden="true"></i>'
-        : '<i data-lucide="menu" aria-hidden="true"></i>';
-
-      if (window.lucide) {
-        lucide.createIcons();
-      }
-    });
-
-    mobileMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation menu");
-        menuButton.innerHTML = '<i data-lucide="menu" aria-hidden="true"></i>';
-
-        if (window.lucide) {
-          lucide.createIcons();
-        }
-      });
-    });
-
-    // Add a shadow to the sticky navigation after scrolling.
-
-    const navbar = document.getElementById("navbar");
-
-    window.addEventListener("scroll", () => {
-      navbar.style.boxShadow = window.scrollY > 10
-        ? "0 6px 22px rgba(0, 0, 0, .22)"
-        : "none";
-    }, { passive: true });
-
-    // Footer year.
-
-    document.getElementById("footer-year").textContent =
-      new Date().getFullYear();
-
-    // Reveal static sections as they enter the viewport.
-
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-
-      revealElements.forEach(element => {
-        revealObserver.observe(element);
-      });
-    } else {
-      revealElements.forEach(element => {
-        element.classList.add("active");
-      });
+    function renderTeam(filter) {
+      teamSections.innerHTML = departments
+        .filter(d => filter === "all" || d.name === filter)
+        .map(d => {
+          const members = teamMembers.filter(m => m.department === d.name);
+          if (!members.length) return "";
+          return `
+            <section class="dept" style="--dc:${d.color}" aria-label="${esc(d.name)}">
+              <div class="dept-head">
+                <span class="tile"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-${d.icon}"/></svg></span>
+                <div>
+                  <span class="sub">${esc(d.subtitle.toUpperCase())}</span>
+                  <h2>${esc(d.name)}</h2>
+                  <p>${esc(d.description)}</p>
+                </div>
+                <span class="count">${members.length} ${members.length === 1 ? "CARD" : "CARDS"}</span>
+              </div>
+              <div class="binder">${members.map(m => renderCard(m, d)).join("")}</div>
+            </section>`;
+        }).join("");
     }
 
-    // Initial render: all 18 team members.
+    function flip(card) {
+      const flipped = card.getAttribute("aria-pressed") !== "true";
+      card.setAttribute("aria-pressed", String(flipped));
+      card.querySelector(".front").setAttribute("aria-hidden", String(flipped));
+      card.querySelector(".back").setAttribute("aria-hidden", String(!flipped));
+    }
+
+    teamSections.addEventListener("click", e => {
+      const card = e.target.closest(".tcard");
+      if (card) flip(card);
+    });
+    teamSections.addEventListener("keydown", e => {
+      const card = e.target.closest(".tcard");
+      if (card && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); flip(card); }
+    });
+
+    // holo foil follows the pointer
+    teamSections.addEventListener("pointermove", e => {
+      const card = e.target.closest(".tcard.holo");
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--fx", ((e.clientX - r.left) / r.width * 100) + "%");
+      card.style.setProperty("--fy", ((e.clientY - r.top) / r.height * 100) + "%");
+    });
+
+    const packs = document.querySelectorAll(".pack");
+    packs.forEach(btn => btn.addEventListener("click", () => {
+      packs.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+      renderTeam(btn.dataset.filter);
+    }));
 
     renderTeam("all");
   </script>
