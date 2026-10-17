@@ -632,21 +632,6 @@ a.card:hover, .card.hoverable:hover { transform: translate(-3px, -3px); box-shad
 .dock-item b { display: block; font-size: .95rem; }
 .dock-item small { color: #A9B8CC; font-size: .82rem; }
 
-/* game launcher tiles (cartridges) */
-.carts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px; }
-.cartridge {
-  position: relative; display: flex; flex-direction: column; gap: 10px; padding: 16px 16px 20px; border: 0; cursor: pointer; text-align: left;
-  color: var(--ink); background: #2B3442; box-shadow: 8px 8px 0 #030A13;
-  clip-path: polygon(0 0, 86% 0, 100% 12%, 100% 100%, 0 100%);
-  transition: transform .14s steps(2);
-}
-.cartridge:hover, .cartridge:focus-visible { transform: translateY(-6px) rotate(-1deg); }
-.cartridge .lbl { padding: 16px; background: var(--paper); box-shadow: inset 0 0 0 4px var(--cc, var(--gold-bright)); }
-.cartridge .lbl .tile { margin-bottom: 12px; color: #14110A; background: var(--cc, var(--gold-bright)); box-shadow: none; }
-.cartridge h3 { margin: 0 0 4px; color: var(--ink); font-size: 1.15rem; font-stretch: 100%; }
-.cartridge p { margin: 0; color: #4A4334; font-size: .9rem; }
-.cartridge .go { font-family: var(--pixel); font-size: .5rem; color: var(--gold-bright); padding-left: 4px; }
-
 /* floating hero coins */
 .has-floaters { position: relative; overflow: hidden; }
 .has-floaters > .container { position: relative; z-index: 1; }
@@ -679,3 +664,12 @@ a.card:hover, .card.hoverable:hover { transform: translate(-3px, -3px); box-shad
   .floater .px-icon, .dock-btn { animation: none; }
 }
 .win.wide { width: min(780px, calc(100vw - 24px)); }
+.r-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 8px; }
+
+/* first-visit hint pointing at the PLAY dock */
+.dock-hint {
+  position: absolute; right: 0; bottom: calc(100% + 16px); width: max-content; max-width: 220px; padding: 10px 12px;
+  font-family: var(--term); font-size: 1.2rem; line-height: 1.2; color: #14110A; background: var(--paper);
+  box-shadow: 0 0 0 3px #030A13, 5px 5px 0 3px #030A13; animation: dock-bob 2.4s ease-in-out infinite;
+}
+.dock-hint::after { content: ""; position: absolute; right: 28px; bottom: -12px; border: 8px solid transparent; border-top-color: var(--paper); }
