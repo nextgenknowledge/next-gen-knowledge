@@ -167,7 +167,7 @@
         <h1>Meet the team<br><span class="gold">behind the mission.</span></h1>
         <p class="lede">We're students working together to make financial literacy and real-world education accessible to the next generation. Collect the whole set, and click any card to find out more about the person on it.</p>
         <div class="chips">
-          <span class="tag gold">18 team members</span>
+          <span class="tag gold" id="memberCount">Our team</span>
           <span class="tag green">Student-led</span>
           <span class="tag">Mission-driven</span>
         </div>
@@ -196,14 +196,7 @@
           <p>Explore our leadership team and the departments working together to bring our educational initiatives to life.</p>
         </div>
 
-        <div class="packs" id="packs" role="group" aria-label="Filter team by department">
-          <button type="button" class="pack" data-filter="all" aria-pressed="true">Everyone <b>18</b></button>
-          <button type="button" class="pack" data-filter="Executive Board" aria-pressed="false">Executive Board</button>
-          <button type="button" class="pack" data-filter="Finance" aria-pressed="false">Finance</button>
-          <button type="button" class="pack" data-filter="Curriculum" aria-pressed="false">Curriculum</button>
-          <button type="button" class="pack" data-filter="Outreach" aria-pressed="false">Outreach</button>
-          <button type="button" class="pack" data-filter="Marketing" aria-pressed="false">Marketing</button>
-        </div>
+        <div class="packs" id="packs" role="group" aria-label="Filter team by department"></div>
 
         <!-- TEAM SECTIONS ARE GENERATED FROM THE teamMembers ARRAY BELOW -->
         <div id="team-sections"></div>
@@ -265,9 +258,9 @@
       2. Put each member's photo filename in the photo field.
       3. If a photo is unavailable, use an empty string: photo: ""
       4. Use one of the following department names:
-         Executive Board, Finance, Curriculum, Outreach, Marketing.
+         Executive Board, Finance, Technology, Courses & Certifications, Outreach, Marketing.
       5. level controls card rarity: "executive" (holo foil, 3 stars), "lead" (2 stars), "associate" (1 star).
-      6. The filter, card numbers and section counts update automatically.
+      6. The filter buttons, member count, card numbers and section counts update automatically.
     */
     const teamMembers = [
       // EXECUTIVE BOARD
@@ -285,60 +278,60 @@
         interests: "Medicine, Finance", hobbies: "Basketball, Taekwondo" },
 
       // FINANCE
-      { name: "Leo Sorenson", position: "Finance Associate", department: "Finance", level: "associate", photo: "IMG_1839.jpeg",
+      { name: "Hannah George", position: "Grants Manager", department: "Finance", level: "lead", photo: "photo.png",
+        description: "Finds and applies for grants, securing the funding that keeps NextGen Knowledge's programs free for students.",
+        interests: "Finance, Entrepreneurship, Math", hobbies: "Dance, Baking" },
+      { name: "Leo Sorenson", position: "Financial Analyst", department: "Finance", level: "associate", photo: "IMG_1839.jpeg",
         description: "Helps manage and track finances while supporting fundraising and financial organization.",
         interests: "Basketball, Math", hobbies: "Lego, Cooking" },
-      { name: "Vince Yale", position: "Finance Associate", department: "Finance", level: "associate", photo: "IMG_3353.jpeg",
+      { name: "Vince Yale", position: "Financial Analyst", department: "Finance", level: "associate", photo: "IMG_3353.jpeg",
         description: "Supports financial analysis, organization, and financial initiatives across Next-Gen Knowledge.",
         interests: "Finance, Politics", hobbies: "Pickleball, Going to the gym" },
-      { name: "Hannah George", position: "Finance Associate", department: "Finance", level: "associate", photo: "photo.png",
-        description: "Supports financial operations, budgeting, fundraising, and sustainable growth.",
-        interests: "Finance, Entrepreneurship, Math", hobbies: "Dance, Baking" },
 
-      // CURRICULUM (Eshwar is intentionally listed first as Head Developer)
-      { name: "Eshwar Bompali", position: "Head Developer", department: "Curriculum", level: "lead", photo: "",
-        description: "Leads software development and technical implementation for Next-Gen Knowledge's digital learning initiatives, fully developing Fin-City.",
-        interests: "Software Development, Technology", hobbies: "Programming, Building Projects" },
-      { name: "Liam Alexander", position: "Curriculum Head", department: "Curriculum", level: "lead", photo: "IMG_2041.jpeg",
+      // TECHNOLOGY
+      { name: "Eshwar Bompali", position: "Head of Technology & Lead Developer, Fin City", department: "Technology", level: "lead", photo: "",
+        description: "Leads NextGen Knowledge's technology and is building Fin City from the ground up as its lead developer.",
+        interests: "Technology", hobbies: "Music, Video Games" },
+
+      // COURSES & CERTIFICATIONS
+      { name: "Liam Alexander", position: "Head of Certifications", department: "Courses & Certifications", level: "lead", photo: "IMG_2041.jpeg",
         description: "Leads curriculum design and the development of asynchronous courses and certification programs, helping create engaging, structured learning experiences that make financial education accessible to students.",
         interests: "Economics, Finance", hobbies: "Tennis, Soccer" },
-      { name: "Micheal Fleischman", position: "Curriculum Associate", department: "Curriculum", level: "associate", photo: "IMG_0900.jpeg",
+      { name: "Micheal Fleischman", position: "Certification Developer", department: "Courses & Certifications", level: "associate", photo: "IMG_0900.jpeg",
         description: "Supports curriculum development and the creation of asynchronous courses and certification programs, helping organize course content into clear, engaging lessons that build practical financial knowledge.",
         interests: "Finance, Sports", hobbies: "Basketball, Biking" },
-      { name: "Filipe Loureiro", position: "Curriculum Associate", department: "Curriculum", level: "associate", photo: "IMG_3123.jpeg",
+      { name: "Filipe Loureiro", position: "Certification Developer", department: "Courses & Certifications", level: "associate", photo: "IMG_3123.jpeg",
         description: "Contributes to the design and development of asynchronous courses and certification programs, helping create educational materials that allow students to learn independently and strengthen their real-world financial skills.",
         interests: "Investing, Psychology", hobbies: "Going to the Gym, Playing Basketball" },
 
       // OUTREACH
-      { name: "Arhaan Bhojwani", position: "Director of Outreach", department: "Outreach", level: "lead", photo: "IMG_8056.jpeg",
+      { name: "Arhaan Bhojwani", position: "Director of Outreach & Partnerships", department: "Outreach", level: "lead", photo: "IMG_8056.jpeg",
         description: "Leads outreach initiatives and partnership opportunities, with a focus on networking and communication.",
         interests: "Sports, Business, Community Service", hobbies: "Basketball, Video Games" },
+      { name: "Henry Rothman", position: "Partnerships Manager", department: "Outreach", level: "lead", photo: "81259759075__33B12B5C-31F5-4A67-98D4-344590CD62B7.jpeg",
+        description: "Manages relationships with partner organizations and turns new connections into collaborations that reach more students.",
+        interests: "Economics, Entrepreneurship", hobbies: "Sports, Hanging out with friends" },
       { name: "Lucas Liu", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg",
         description: "Supports outreach initiatives and helps build connections with students, organizations, and community partners.",
         interests: "Sports, Math", hobbies: "Cooking, Video Games" },
-      { name: "Henry Rothman", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "81259759075__33B12B5C-31F5-4A67-98D4-344590CD62B7.jpeg",
-        description: "Supports outreach and helps expand connections with students, organizations, and potential partners.",
-        interests: "Economics, Entrepreneurship", hobbies: "Sports, Hanging out with friends" },
-      { name: "Sejong Kim", position: "Outreach Associate", department: "Outreach", level: "associate", photo: "IMG_4427.jpeg",
-        description: "Supports outreach and community engagement to help expand access to financial education.",
-        interests: "Financial Freedom, Stock Trading", hobbies: "Baseball, Stock Investing" },
 
       // MARKETING
-      { name: "Sophia Zachariah", position: "Social Media Manager", department: "Marketing", level: "lead", photo: "IMG_0994.jpeg",
-        description: "Focuses on video editing and script management for Next-Gen Knowledge's social media content.",
+      { name: "Ciara Perruzzi", position: "Social Media Lead", department: "Marketing", level: "lead", photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
+        description: "Leads NextGen Knowledge's social media, shaping what we post and creating content that brings our mission to more students.",
+        interests: "Medical Science, Neuroscience", hobbies: "Dance, Scouts of America" },
+      { name: "Sophia Zachariah", position: "Content Lead", department: "Marketing", level: "lead", photo: "IMG_0994.jpeg",
+        description: "Leads scriptwriting and content planning for our videos, turning financial topics into stories that are easy to follow.",
         interests: "Math, Biology", hobbies: "Dance, Art" },
-      { name: "Collin Kim", position: "Marketing Associate", department: "Marketing", level: "associate", photo: "81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg",
-        description: "Supports marketing initiatives through creative content and digital media.",
-        interests: "Cooking, Athletics", hobbies: "Video Editing, Lacrosse" },
-      { name: "Ciara Perruzzi", position: "Marketing Associate", department: "Marketing", level: "associate", photo: "7CD85C53-0021-4384-8DE9-75FE00BD655B.png",
-        description: "Supports marketing initiatives and develops creative content to help expand the organization's reach.",
-        interests: "Medical Science, Neuroscience", hobbies: "Dance, Scouts of America" }
+      { name: "Collin Kim", position: "Video Editor", department: "Marketing", level: "associate", photo: "81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg",
+        description: "Edits NextGen Knowledge's videos and reels, turning raw footage into polished content for our channels.",
+        interests: "Cooking, Athletics", hobbies: "Video Editing, Lacrosse" }
     ];
 
     const departments = [
       { name: "Executive Board", subtitle: "Leadership & Strategy", icon: "compass", color: "#F1D778", description: "Guiding the organization's mission, strategy, and direction." },
-      { name: "Finance", subtitle: "Financial Operations", icon: "chart", color: "#7CE0B0", description: "Supporting financial organization, budgeting, and fundraising." },
-      { name: "Curriculum", subtitle: "Education, Technology & Development", icon: "code", color: "#84B7FF", description: "Building educational content, digital tools, and engaging learning experiences." },
+      { name: "Finance", subtitle: "Grants & Financial Operations", icon: "chart", color: "#7CE0B0", description: "Securing grants and supporting financial organization, budgeting, and fundraising." },
+      { name: "Technology", subtitle: "Engineering & Fin City", icon: "code", color: "#6FE3E8", description: "Building our digital tools and developing Fin City." },
+      { name: "Courses & Certifications", subtitle: "Learning & Credentials", icon: "cap", color: "#84B7FF", description: "Creating self-paced courses and certification programs for students." },
       { name: "Outreach", subtitle: "Partnerships & Community", icon: "handshake", color: "#FF8A7A", description: "Building connections and bringing our programs to more students." },
       { name: "Marketing", subtitle: "Brand & Communications", icon: "megaphone", color: "#C9A2FF", description: "Sharing our mission through creative content and communication." }
     ];
@@ -437,6 +430,12 @@
       card.style.setProperty("--fy", ((e.clientY - r.top) / r.height * 100) + "%");
     });
 
+    // filter buttons and the member count come from the data above
+    document.getElementById("memberCount").textContent = total + " team members";
+    document.getElementById("packs").innerHTML =
+      `<button type="button" class="pack" data-filter="all" aria-pressed="true">Everyone <b>${total}</b></button>` +
+      departments.filter(d => teamMembers.some(m => m.department === d.name))
+        .map(d => `<button type="button" class="pack" data-filter="${esc(d.name)}" aria-pressed="false">${esc(d.name)}</button>`).join("");
     const packs = document.querySelectorAll(".pack");
     packs.forEach(btn => btn.addEventListener("click", () => {
       packs.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
