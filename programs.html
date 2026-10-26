@@ -29,7 +29,7 @@
 
   <style>
     /* paused notice */
-    .paused-wrap { padding-bottom: 80px; }
+    .paused-h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-bottom: 14px; }
     .paused {
       display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center;
       padding: clamp(24px, 4vw, 40px); background: #0D2038;
@@ -37,7 +37,7 @@
       background-image: repeating-linear-gradient(135deg, rgba(241,215,120,.06) 0 14px, transparent 14px 28px);
     }
     .paused h2 { margin-bottom: 12px; }
-    .paused p { max-width: 640px; margin-bottom: 24px; }
+    .paused p { max-width: 640px; margin-bottom: 26px; font-size: 1.05rem; }
     .paused-sign {
       width: 150px; height: 150px; display: grid; place-content: center; gap: 6px; text-align: center;
       font-family: var(--pixel); font-size: 1rem; line-height: 1.4; color: #fff; background: var(--stamp);
@@ -141,7 +141,7 @@
         <a href="team.html">Team</a>
         <a href="partnerships.html">Partners</a>
         <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="btn btn-small">Get Started</a>
+        <a href="https://fincity.dev" class="btn btn-small" target="_blank" rel="noopener">Play Fin City</a>
       </nav>
     </div>
 
@@ -162,31 +162,20 @@
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- HERO + PAUSED NOTICE (one section, so the news isn't repeated) -->
     <section class="page-hero">
       <div class="container">
-        <div>
-          <div class="kicker">Skills that last a lifetime</div>
-          <h1>Education that moves with <span class="gold">the real world.</span></h1>
-          <p class="lede">Go beyond textbooks. Build practical financial skills through interactive lessons, real-world scenarios, and hands-on simulations designed for the next generation.</p>
-          <div class="hero-actions">
-            <a href="#programs" class="btn">View programs ↓</a>
-            <a href="enroll.html" class="btn btn-ghost">Get Fin City updates →</a>
+        <div class="paused">
+          <div class="paused-sign" aria-hidden="true"><span>ON</span><span>PAUSE</span></div>
+          <div>
+            <div class="kicker">Program update</div>
+            <h1 class="paused-h1">Our courses are on pause.</h1>
+            <p>After teaching 110+ students through our live courses, we've paused Money Masters and Investor Academy while we focus on Fin City, our free 3D money game, now in beta. You can still see what each program covered below.</p>
+            <div class="hero-actions">
+              <a class="btn" href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City beta ↗</a>
+              <a class="btn btn-ghost" href="#programs">See what we taught ↓</a>
+            </div>
           </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROGRAMS PAUSED NOTICE -->
-    <section class="container paused-wrap" aria-labelledby="pausedTitle">
-      <div class="paused reveal">
-        <div class="paused-sign" aria-hidden="true"><span>BACK</span><span>SOON</span></div>
-        <div>
-          <div class="kicker">Program update</div>
-          <h2 id="pausedTitle">Our courses are on pause.</h2>
-          <p>After teaching 110+ students through our live courses, we've paused Money Masters and Investor Academy for now while we work on what's next. Something new is coming soon. You can still look through the programs and syllabuses below to see what we teach.</p>
-          <a class="btn" href="enroll.html">Notify me about Fin City →</a>
         </div>
       </div>
     </section>
@@ -249,7 +238,6 @@
           </article>
         </div>
 
-        <p class="fineprint">Our live courses are paused for now. Want to hear what's next? <a class="text-link" href="enroll.html">Join the Fin City waitlist</a>.</p>
       </div>
     </section>
 
@@ -288,11 +276,11 @@
           <div class="note-inner">
             <div>
               <span class="serial">NG 2026 PRG0 K</span>
-              <h2>Make your next decision an informed one.</h2>
-              <p>Start building practical skills in financial literacy, investing, and business analysis with Next-Gen Knowledge.</p>
+              <h2>Keep learning in Fin City.</h2>
+              <p>The skills from our courses live on in Fin City: budgeting, saving, investing and more, across five cities.</p>
               <p class="legal">Tuition due: $0.00. Curiosity required.</p>
               <div class="note-actions">
-                <a href="enroll.html" class="btn btn-ink">Get notified →</a>
+                <a href="https://fincity.dev" class="btn btn-ink" target="_blank" rel="noopener">Play Fin City ↗</a>
                 <a href="about.html" class="btn btn-ghost">About our mission</a>
               </div>
             </div>
@@ -364,7 +352,7 @@
 
         <div class="footer-col">
           <h4>Get Involved</h4>
-          <a href="enroll.html">Fin City Waitlist</a>
+          <a href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City (beta)</a>
           <a href="partnerships.html">Partnerships</a>
           <a href="donate.html">Support Our Work</a>
         </div>
