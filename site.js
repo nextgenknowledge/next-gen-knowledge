@@ -106,3 +106,22 @@ document.querySelectorAll('[role="tablist"]').forEach(list => {
     });
   });
 });
+
+/* POP-UPS THAT OPEN ON THEIR OWN: <dialog data-autoshow> shows once per visit */
+document.querySelectorAll("dialog[data-autoshow]").forEach(dlg => {
+  const key = "ngk-seen-" + dlg.id;
+  let seen = false;
+  try { seen = sessionStorage.getItem(key) === "1"; } catch (e) {}
+  if (seen) return;
+  setTimeout(() => {
+    if (document.querySelector("dialog[open]")) return;
+    dlg.showModal();
+    try { sessionStorage.setItem(key, "1"); } catch (e) {}
+  }, 900);
+});
+
+/* any [data-close] button closes the dialog it sits in */
+document.addEventListener("click", e => {
+  const btn = e.target.closest("[data-close]");
+  if (btn) btn.closest("dialog")?.close();
+});

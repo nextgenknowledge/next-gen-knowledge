@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Fin City | NextGen Knowledge</title>
-  <meta name="description" content="Fin City is an interactive financial literacy game from NextGen Knowledge. Explore a virtual city, manage virtual money, and learn how financial decisions shape your future.">
+  <meta name="description" content="Fin City is NextGen Knowledge's free 3D financial-literacy game for ages 6 to 18, now in beta. Explore five cities, play 40+ activities and run a financial life of your own at fincity.dev.">
   <meta name="theme-color" content="#081629">
   <meta name="author" content="Next-Gen Knowledge">
   <meta property="og:title" content="Fin City | NextGen Knowledge">
-  <meta property="og:description" content="Fin City is an interactive financial literacy game from NextGen Knowledge. Explore a virtual city, manage virtual money, and learn how financial decisions shape your future.">
+  <meta property="og:description" content="Fin City is NextGen Knowledge's free 3D financial-literacy game for ages 6 to 18, now in beta. Explore five cities, play 40+ activities and run a financial life of your own at fincity.dev.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="IMG_1383.jpeg">
 
@@ -73,10 +73,11 @@
       padding: 4px 6px; font-family: var(--pixel); font-size: .4rem; line-height: 1.5; color: #14110A; background: var(--gold-bright);
     }
     .bldg::before { content: ""; position: absolute; left: 50%; top: -14px; width: 6px; height: 14px; transform: translateX(-50%); background: var(--bc); }
-    .b-bank { --bc: #2463C9; --h: 190px; }
-    .b-market { --bc: #2E9E5B; --h: 150px; }
-    .b-invest { --bc: #3474E0; --h: 250px; }
-    .b-home { --bc: #8B5CD6; --h: 120px; }
+    .b-sf { --bc: #C8552F; --h: 170px; }
+    .b-ny { --bc: #B48A12; --h: 250px; }
+    .b-ldn { --bc: #B3302A; --h: 140px; }
+    .b-hk { --bc: #C24A86; --h: 215px; }
+    .b-sg { --bc: #1F8F8F; --h: 185px; }
     .road { position: absolute; left: 0; right: 0; bottom: 30px; height: 34px; background: #20262F; z-index: 1; }
     .road::after { content: ""; position: absolute; left: 0; right: 0; top: 15px; height: 4px; background: repeating-linear-gradient(90deg, var(--gold-bright) 0 22px, transparent 22px 44px); animation: drive 1.6s linear infinite; }
     @keyframes drive { to { background-position: -44px 0; } }
@@ -91,7 +92,7 @@
     .dialog .next { position: absolute; right: 14px; bottom: 8px; color: var(--gold-bright); animation: blink 1s steps(1) infinite; }
     @keyframes blink { 50% { opacity: 0; } }
 
-    .stats-strip { display: grid; grid-template-columns: repeat(3, 1fr); background: #030A13; }
+    .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: #030A13; }
     .stats-strip div { padding: 22px; text-align: center; border-right: 1px solid #13283F; }
     .stats-strip div:last-child { border-right: 0; }
     .stats-strip strong { display: block; font-family: var(--pixel); font-size: 1rem; color: var(--gold-bright); }
@@ -135,6 +136,7 @@
     .label h2 { color: var(--ink); margin-bottom: 14px; }
     .label p { color: #4A4334; max-width: 520px; margin-inline: auto; }
     .label .hero-actions { justify-content: center; margin-top: 26px; }
+    .label .text-link { color: #1C3B6B; }
     .label .credit { margin: 22px 0 0; font-family: var(--pixel); font-size: .45rem; line-height: 1.9; color: var(--ink-soft); }
 
     @media (max-width: 1020px) { .achv { grid-template-columns: 1fr 1fr; } }
@@ -146,7 +148,9 @@
       .viewport { height: 360px; }
       .moon { top: 96px; right: 22px; width: 28px; height: 28px; }
       .street { gap: 8px; padding: 0 10px; }
-      .b-bank { --h: 150px; } .b-market { --h: 120px; } .b-invest { --h: 200px; } .b-home { --h: 100px; }
+      .b-sf { --h: 130px; } .b-ny { --h: 200px; } .b-ldn { --h: 110px; } .b-hk { --h: 170px; } .b-sg { --h: 145px; }
+      .stats-strip { grid-template-columns: 1fr 1fr; }
+      .stats-strip div:nth-child(2) { border-right: 0; }
       .bldg-sign { font-size: .32rem; padding: 3px 4px; }
       .stats-strip div { padding: 16px 6px; }
     }
@@ -176,7 +180,7 @@
         <a href="team.html">Team</a>
         <a href="partnerships.html">Partners</a>
         <a href="donate.html">Donate</a>
-        <a href="enroll.html" class="btn btn-small">Get Started</a>
+        <a href="https://fincity.dev" class="btn btn-small" target="_blank" rel="noopener">Play Fin City</a>
       </nav>
     </div>
 
@@ -202,159 +206,149 @@
       <div class="container split-2">
         <div>
           <img class="hero-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City" width="300" height="300" fetchpriority="high">
-          <div class="kicker">An all-new world is loading</div>
+          <div class="kicker">Now in beta</div>
           <h1><span class="line">Your money.</span><span class="line">Your moves.</span><span class="line gold">Your city.</span></h1>
           <p class="lede">
-            Welcome to <strong>Fin City</strong>, an interactive financial literacy game created by
-            NextGen Knowledge. Explore a virtual city, visit different locations, manage virtual money,
-            and discover how financial decisions shape your future. Forget learning money skills from a
-            textbook. Step into a world where you can put them into practice.
+            Fin City is NextGen Knowledge's free 3D financial-literacy game for ages 6–18.
+            Explore five real-world cities, step inside buildings, play more than 40 kinds of
+            activities, and run a simulated financial life of your own, with NextGen Narwhal as your guide.
           </p>
           <div class="hero-actions">
-            <a href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" class="btn" target="_blank" rel="noopener noreferrer">
-              <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-play"/></svg> Watch the teaser
+            <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">
+              <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-play"/></svg> Play at fincity.dev
             </a>
-            <a href="#waitlist" class="btn btn-ghost">Join the waitlist ↓</a>
+            <a href="#how-to-play" class="btn btn-ghost">How to play ↓</a>
           </div>
         </div>
 
-        <div class="game px-border reveal" aria-label="Fin City concept preview">
+        <div class="game px-border reveal" aria-label="Fin City preview: the five cities">
           <div class="viewport">
             <div class="stars" aria-hidden="true"></div>
             <div class="moon" aria-hidden="true"></div>
             <div class="hud" aria-hidden="true">
-              <div class="hud-box">PLAYER BALANCE<strong>$100.00</strong></div>
-              <div class="hud-box"><span class="lvl">LEVEL 01</span><br>IN DEVELOPMENT</div>
+              <div class="hud-box">STATUS<strong>BETA LIVE</strong></div>
+              <div class="hud-box"><span class="lvl">5 CITIES</span><br>40+ ACTIVITIES</div>
             </div>
-            <div class="street" role="group" aria-label="Pick a building to explore">
-              <button class="bldg b-bank" type="button" data-place="bank" aria-pressed="false"><span class="bldg-sign">THE BANK</span></button>
-              <button class="bldg b-market" type="button" data-place="market" aria-pressed="false"><span class="bldg-sign">MARKET</span></button>
-              <button class="bldg b-invest" type="button" data-place="invest" aria-pressed="false"><span class="bldg-sign">INVEST</span></button>
-              <button class="bldg b-home" type="button" data-place="home" aria-pressed="false"><span class="bldg-sign">FUTURE</span></button>
+            <div class="street" role="group" aria-label="Pick a city to learn what it teaches">
+              <button class="bldg b-sf" type="button" data-place="sf" aria-pressed="false"><span class="bldg-sign">SF</span></button>
+              <button class="bldg b-ny" type="button" data-place="ny" aria-pressed="false"><span class="bldg-sign">NYC</span></button>
+              <button class="bldg b-ldn" type="button" data-place="ldn" aria-pressed="false"><span class="bldg-sign">LDN</span></button>
+              <button class="bldg b-hk" type="button" data-place="hk" aria-pressed="false"><span class="bldg-sign">HK</span></button>
+              <button class="bldg b-sg" type="button" data-place="sg" aria-pressed="false"><span class="bldg-sign">SG</span></button>
             </div>
             <div class="road" aria-hidden="true"></div>
             <div class="grass" aria-hidden="true"></div>
           </div>
           <div class="dialog" aria-live="polite">
-            <span class="who" id="dlgWho">GUIDE</span>
-            <span id="dlgText">Welcome to Fin City! You start with $100. Pick a building to see what's inside.</span>
+            <span class="who" id="dlgWho">NEXTGEN NARWHAL</span>
+            <span id="dlgText">Welcome to Fin City! Pick a city to see what it teaches.</span>
             <span class="next" aria-hidden="true">▼</span>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="stats-strip" aria-label="Game overview">
-      <div><strong>01</strong><span>Explore</span></div>
-      <div><strong>02</strong><span>Learn</span></div>
-      <div><strong>03</strong><span>Level up</span></div>
+    <div class="stats-strip" aria-label="Fin City at a glance">
+      <div><strong>5</strong><span>Cities to explore</span></div>
+      <div><strong>40+</strong><span>Kinds of activities</span></div>
+      <div><strong>2</strong><span>Modes, ages 6–18</span></div>
+      <div><strong>0</strong><span>Accounts needed</span></div>
     </div>
 
     <!-- FEATURES AS ACHIEVEMENTS -->
     <section class="section" id="the-game">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">More than a game</div>
-          <h2>Welcome to a new kind of <span class="gold">classroom.</span></h2>
-          <p>Fin City is being developed to turn financial concepts into interactive experiences. Instead of just reading about money, players can explore a virtual environment and learn through decisions, activities, and experimentation. Scroll to unlock each one.</p>
+          <div class="kicker">What's inside</div>
+          <h2>A new kind of <span class="gold">classroom.</span></h2>
+          <p>Instead of reading about money, players learn by making decisions and seeing what happens.</p>
         </div>
 
         <div class="achv">
           <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-pin"/></svg></span><span class="ach-status"><b>01 / EXPLORE</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>A City to Discover</h3>
-            <p>Navigate a virtual city and discover different locations. Each destination introduces a different part of the financial world and gives players new opportunities to learn.</p>
-            <span class="tagline">→ FIND YOUR WAY</span>
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-users"/></svg></span><span class="ach-status"><b>01 / TWO MODES</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Made for 6 to 18</h3>
+            <p><strong>Entry</strong> (ages 6–13) has big buttons, read-aloud and generous hints. <strong>Advanced</strong> (13–18) uses real calculations, taxes, credit scores and markets.</p>
           </article>
           <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg></span><span class="ach-status"><b>02 / MANAGE</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Money in Your Hands</h3>
-            <p>Practice working with virtual money, think through financial decisions, and learn how spending, saving, and planning can influence your goals.</p>
-            <span class="tagline">→ MAKE IT COUNT</span>
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg></span><span class="ach-status"><b>02 / PLAY</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>40+ kinds of activities</h3>
+            <p>Step inside buildings across five cities and take on activities, quests and challenges, each one built around a real money skill.</p>
           </article>
           <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-chart"/></svg></span><span class="ach-status"><b>03 / INVEST</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Discover Investing</h3>
-            <p>Get introduced to investing concepts and market decisions through virtual activities designed to make complex financial ideas easier to understand.</p>
-            <span class="tagline">→ THINK LONG TERM</span>
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg></span><span class="ach-status"><b>03 / LIVE IT</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Your own financial life</h3>
+            <p>Run a simulated life of your own: earn, budget, save and invest, and watch how today's choices shape tomorrow.</p>
           </article>
           <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg></span><span class="ach-status"><b>04 / LEARN</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Learn by Doing</h3>
-            <p>Connect financial concepts to interactive activities so learning becomes something you experience rather than something you only memorize.</p>
-            <span class="tagline">→ PUT KNOWLEDGE TO WORK</span>
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg></span><span class="ach-status"><b>04 / LEVEL UP</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Quests, outfits &amp; the FinPhone</h3>
+            <p>Complete quests to earn outfits, use the apps on your FinPhone, and brush up anytime in the Learn hub.</p>
           </article>
           <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg></span><span class="ach-status"><b>05 / PROGRESS</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Build Your Skills</h3>
-            <p>Work toward learning goals and build your understanding of essential financial concepts as you progress through the experience.</p>
-            <span class="tagline">→ KEEP LEVELING UP</span>
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-lock"/></svg></span><span class="ach-status"><b>05 / PRIVATE</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Private by design</h3>
+            <p>No accounts, ads or tracking. Your progress saves in your own browser, and you can export it as a file.</p>
           </article>
           <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-shield"/></svg></span><span class="ach-status"><b>06 / PREPARE</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Prepare for Real Life</h3>
-            <p>Build familiarity with financial topics that matter beyond the screen, from managing money to understanding how everyday financial decisions work.</p>
-            <span class="tagline">→ SKILLS FOR THE FUTURE</span>
+            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg></span><span class="ach-status"><b>06 / FOR CLASSROOMS</b>ACHIEVEMENT UNLOCKED</span></div>
+            <h3>Teacher &amp; parent report</h3>
+            <p>Download a progress report right from the pause menu. It runs well on Chromebooks too, with Low, Medium and High quality settings.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- JOURNEY MAP -->
-    <section class="section alt">
+    <!-- HOW TO PLAY -->
+    <section class="section alt" id="how-to-play">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">Your adventure awaits</div>
-          <h2>Every decision <span class="gold">moves you forward.</span></h2>
-          <p>The idea behind Fin City is simple: financial literacy should feel relevant, engaging, and useful. By putting players in a virtual world, we want to make it easier to experiment with financial ideas and connect what they learn to real life.</p>
-          <p>Fin City is an upcoming project from NextGen Knowledge, built around the belief that practical education should be accessible to the next generation.</p>
+          <div class="kicker">How to play</div>
+          <h2>Three steps to <span class="gold">your first city.</span></h2>
         </div>
 
-        <div class="map reveal" aria-label="World map">
-          <div class="node"><span class="pin">1</span><div><small>WORLD 1</small><h3>Enter the World</h3><p>Start your journey in a virtual city built around real-world financial concepts.</p></div></div>
-          <div class="node"><span class="pin">2</span><div><small>WORLD 2</small><h3>Explore and Experiment</h3><p>Visit locations, interact with financial systems, and learn by making choices in a virtual environment.</p></div></div>
-          <div class="node"><span class="pin">3</span><div><small>WORLD 3</small><h3>Build Financial Knowledge</h3><p>Develop a stronger understanding of money management, banking, investing, and financial decision-making.</p></div></div>
+        <div class="map reveal" aria-label="How to start playing">
+          <div class="node"><span class="pin">1</span><div><small>STEP 1</small><h3>Go to fincity.dev</h3><p>It runs right in your browser. Nothing to download or sign up for.</p></div></div>
+          <div class="node"><span class="pin">2</span><div><small>STEP 2</small><h3>Make a world</h3><p>Pick a nickname (never your real name) and create your world.</p></div></div>
+          <div class="node"><span class="pin">3</span><div><small>STEP 3</small><h3>Choose your mode</h3><p>Go Entry or Advanced, then start exploring from Fin-City Park.</p></div></div>
         </div>
       </div>
     </section>
 
-    <!-- PREVIEW CARTRIDGE -->
-    <section class="section" id="preview">
+    <!-- BETA CARTRIDGE -->
+    <section class="section" id="beta">
       <div class="container">
         <div class="cart reveal">
           <div class="cart-grip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
           <div class="label">
             <img src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="" width="170" height="170" loading="lazy">
-            <div class="kicker">Get your first look</div>
-            <h2>The city is coming. Be first through the gates.</h2>
-            <p>Want a glimpse of what we've been building? Watch the official Fin City teaser and get a first look at the world we're creating. Then drop your email and we'll tell you the moment Fin City launches. It's free to play.</p>
-
-            <div class="waitlist on-paper" id="waitlist">
-              <form class="wl-form" novalidate>
-                <label for="fcEmail">JOIN THE WAITLIST</label>
-                <div class="wl-field">
-                  <input id="fcEmail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required aria-describedby="fcError fcFine">
-                  <button class="btn btn-ink" type="submit">Notify me ▶</button>
-                </div>
-                <p class="wl-error" id="fcError" aria-live="polite"></p>
-                <p class="wl-fine" id="fcFine">We'll only email you about Fin City's launch. No spam, ever.</p>
-              </form>
-              <div class="wl-done" hidden tabindex="-1">
-                <svg class="px-icon star" aria-hidden="true"><use href="icons.svg#i-star"/></svg>
-                <h3>PLAYER ADDED!</h3>
-                <p>You're on the list. We'll email you the moment the gates to Fin City open.</p>
-              </div>
-            </div>
-
+            <div class="kicker">Beta testers wanted</div>
+            <h2>Play it. Break it. Tell us.</h2>
+            <p>Fin City is in beta, so things may still change and you might find a bug or two. Your feedback helps us make it better for every student who plays.</p>
             <div class="hero-actions">
-              <a href="https://www.instagram.com/reel/DeUTNG4O01F/?utm_source=ig_web_copy_link&amp;vrfl=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" class="btn btn-ink" target="_blank" rel="noopener noreferrer">Watch the official teaser</a>
-              <a href="https://www.instagram.com/nextgen.knowledge/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Follow NextGen Knowledge</a>
+              <a href="https://fincity.dev" class="btn btn-ink" target="_blank" rel="noopener">Play the beta ↗</a>
+              <a href="mailto:nextgen.knowledge123@gmail.com?subject=Fin%20City%20beta%20feedback" class="btn btn-ghost">Send feedback</a>
             </div>
-            <p class="credit">OFFICIAL FIN CITY PREVIEW · BY NEXTGEN KNOWLEDGE</p>
+            <p class="credit">FIN CITY · BY NEXTGEN KNOWLEDGE · <a class="text-link" href="https://www.instagram.com/reel/DeUTNG4O01F/" target="_blank" rel="noopener noreferrer">WATCH THE TEASER</a></p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- FIN CITY BETA POP-UP (opens once per visit, see site.js) -->
+    <dialog class="win beta-pop" id="betaPop" data-autoshow aria-labelledby="betaPopTitle">
+      <div class="win-bar"><span class="win-title"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-play"/></svg> FIN_CITY_BETA.EXE</span><button class="win-close" type="button" data-nodrag aria-label="Close">×</button></div>
+      <div class="win-body">
+        <img class="beta-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="" width="140" height="140">
+        <p class="beta-tag">NOW IN BETA</p>
+        <h2 id="betaPopTitle">Fin City is live. Come play.</h2>
+        <p>Our free 3D money game is open for beta testing. Explore five cities, play 40+ activities and run a financial life of your own. No account needed.</p>
+        <div class="beta-actions">
+          <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">Play at fincity.dev ↗</a>
+          <button type="button" class="btn btn-ghost" data-close>Maybe later</button>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <!-- FOOTER -->
@@ -379,7 +373,7 @@
 
         <div class="footer-col">
           <h4>Get Involved</h4>
-          <a href="enroll.html">Fin City Waitlist</a>
+          <a href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City (beta)</a>
           <a href="partnerships.html">Partnerships</a>
           <a href="donate.html">Support Our Work</a>
         </div>
@@ -403,14 +397,14 @@
 
   <script src="site.js"></script>
   <script src="games.js"></script>
-  <script src="waitlist.js"></script>
   <script>
     /* RPG DIALOG — click a building to hear about it */
     const places = {
-      bank: ["THE BANK", "Understand accounts and everyday banking, and how saving can help you reach your goals."],
-      market: ["MARKETPLACE", "Think through purchases and budgets. Every choice comes out of the same starting balance."],
-      invest: ["INVESTMENT CENTER", "Discover risk, returns, and investing through virtual activities designed to make big ideas easier."],
-      home: ["YOUR FUTURE", "Plan ahead and see how everyday financial decisions shape where you end up."]
+      sf: ["SAN FRANCISCO", "San Francisco is all about earning, careers and tech."],
+      ny: ["NEW YORK", "New York is the city of investing and markets."],
+      ldn: ["LONDON", "London is where you practice budgeting and smart shopping."],
+      hk: ["HONG KONG", "Hong Kong is all about business and trade."],
+      sg: ["SINGAPORE", "Singapore covers saving, protection and thinking long term."]
     };
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dlgWho = document.getElementById("dlgWho");
