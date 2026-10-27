@@ -139,6 +139,12 @@
     .label .text-link { color: #1C3B6B; }
     .label .credit { margin: 22px 0 0; font-family: var(--pixel); font-size: .45rem; line-height: 1.9; color: var(--ink-soft); }
 
+    /* feedback sits right under the cartridge */
+    #feedback { padding-top: 0; }
+    #feedback .section-head { margin-inline: auto; text-align: center; }
+    #feedback .section-head p { margin-inline: auto; }
+    #feedback .kicker { justify-content: center; }
+
     @media (max-width: 1020px) { .achv { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 700px) {
       .achv, .map { grid-template-columns: 1fr; }
@@ -327,11 +333,52 @@
             <p>Fin City is in beta, so things may still change and you might find a bug or two. Your feedback helps us make it better for every student who plays.</p>
             <div class="hero-actions">
               <a href="https://fincity.dev" class="btn btn-ink" target="_blank" rel="noopener">Play the beta ↗</a>
-              <a href="mailto:nextgen.knowledge123@gmail.com?subject=Fin%20City%20beta%20feedback" class="btn btn-ghost">Send feedback</a>
+              <a href="#feedback" class="btn btn-ghost">Send feedback ↓</a>
             </div>
             <p class="credit">FIN CITY · BY NEXTGEN KNOWLEDGE · <a class="text-link" href="https://www.instagram.com/reel/DeUTNG4O01F/" target="_blank" rel="noopener noreferrer">WATCH THE TEASER</a></p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK BOX (posts to the Fin City feedback Google Form, see site.js) -->
+    <section class="section" id="feedback">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Beta feedback</div>
+          <h2>Found a bug? <span class="gold">Got an idea?</span></h2>
+          <p>Tell us what worked, what broke and what you want next. Every report is read by the students building Fin City.</p>
+        </div>
+        <form class="fb-ticket reveal" data-feedback novalidate>
+          <div class="fb-head"><span>BUG_REPORT.TXT</span><span class="fb-no">TICKET #<b data-fb-no>0000</b></span></div>
+          <fieldset class="fb-topics">
+            <legend>What's it about?</legend>
+            <label><input type="radio" name="topic" value="Bug" checked><span>Bug</span></label>
+            <label><input type="radio" name="topic" value="Idea"><span>Idea</span></label>
+            <label><input type="radio" name="topic" value="Confusing"><span>Confusing</span></label>
+            <label><input type="radio" name="topic" value="Love it"><span>Love it</span></label>
+          </fieldset>
+          <label class="fb-field">
+            <span>Name <em>(optional)</em></span>
+            <input type="text" name="name" maxlength="80" autocomplete="nickname" placeholder="Anonymous">
+          </label>
+          <label class="fb-field">
+            <span>Feedback</span>
+            <textarea name="feedback" rows="6" maxlength="2000" required placeholder="Be as specific as you can: which city, what you were doing, what happened."></textarea>
+            <small class="fb-count" aria-live="polite"><b data-fb-count>0</b> / 2000</small>
+          </label>
+          <p class="fb-error" data-fb-error hidden>Type a little feedback first.</p>
+          <div class="fb-foot">
+            <button type="submit" class="btn">File report ↵</button>
+            <p class="fb-note">No email needed. Please don't share private info.</p>
+          </div>
+          <div class="fb-done" data-fb-done hidden tabindex="-1">
+            <span class="fb-stamp" aria-hidden="true">FILED</span>
+            <h3>Thanks, report received.</h3>
+            <p>Your feedback goes straight to the Fin City team.</p>
+            <button type="button" class="btn btn-ghost" data-fb-again>Send another</button>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -374,6 +421,7 @@
         <div class="footer-col">
           <h4>Get Involved</h4>
           <a href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City (beta)</a>
+          <a href="fin-city.html#feedback">Send feedback</a>
           <a href="partnerships.html">Partnerships</a>
           <a href="donate.html">Support Our Work</a>
         </div>

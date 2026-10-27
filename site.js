@@ -125,3 +125,41 @@ document.addEventListener("click", e => {
   const btn = e.target.closest("[data-close]");
   if (btn) btn.closest("dialog")?.close();
 });
+
+/* FEEDBACK BOX: <form data-feedback> posts quietly to the Fin City feedback Google Form */
+document.querySelectorAll("form[data-feedback]").forEach(form => {
+  const ACTION = "https://docs.google.com/forms/d/e/1FAIpQLScggc8o4_XvvHshd4HBKBh8va9s70V7suW1k1Fg9x4aRYOqxQ/formResponse";
+  const text = form.querySelector("textarea");
+  const count = form.querySelector("[data-fb-count]");
+  const error = form.querySelector("[data-fb-error]");
+  const done = form.querySelector("[data-fb-done]");
+  const ticketNo = form.querySelector("[data-fb-no]");
+  const newTicket = () => { ticketNo.textContent = String(Math.floor(1000 + Math.random() * 9000)); };
+  newTicket();
+
+  text.addEventListener("input", () => {
+    count.textContent = text.value.length;
+    if (text.value.trim()) { error.hidden = true; form.classList.remove("is-invalid"); }
+  });
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const feedback = text.value.trim();
+    if (!feedback) { error.hidden = false; form.classList.add("is-invalid"); text.focus(); return; }
+    const topic = form.querySelector("input[name=topic]:checked")?.value || "Other";
+    const name = form.querySelector("input[name=name]").value.trim() || "Anonymous";
+    const body = new URLSearchParams({
+      "entry.1907891543": name,
+      "entry.2004043812": "[" + topic + "] " + feedback
+    });
+    form.classList.add("is-sending");
+    fetch(ACTION, { method: "POST", mode: "no-cors", body })
+      .then(() => { form.reset(); count.textContent = "0"; done.hidden = false; done.focus(); })
+      .catch(() => { error.textContent = "Couldn't send. Check your connection and try again."; error.hidden = false; })
+      .finally(() => form.classList.remove("is-sending"));
+  });
+
+  form.querySelector("[data-fb-again]").addEventListener("click", () => {
+    done.hidden = true; error.textContent = "Type a little feedback first."; newTicket(); text.focus();
+  });
+});
