@@ -1,0 +1,21 @@
+# GitHub Pages publishes everything in the repo unless it's listed here.
+# Keeps the game source, notes and full-size original photos off the live site.
+exclude:
+  - fin-city-game
+  - .claude
+  - README.md
+  - 13F86006-1D7F-40F9-AFD8-84CE3C572132.png
+  - 7CD85C53-0021-4384-8DE9-75FE00BD655B.png
+  - 81147206460__9A30BE64-287E-40D3-BE9B-BB5C40DA7352.jpeg
+  - 81153854220__52ADCCF5-A828-473F-BB48-13FFA9D174B6.jpeg
+  - 81259759075__33B12B5C-31F5-4A67-98D4-344590CD62B7.jpeg
+  - DCE39F31-5BD4-4C40-911D-D3C0641822E0.jpeg
+  - IMG_0900.jpeg
+  - IMG_1689.jpeg
+  - IMG_1839.jpeg
+  - IMG_2041.jpeg
+  - IMG_3123.jpeg
+  - IMG_4427.jpeg
+  - IMG_5641.jpeg
+  - IMG_7201.jpeg
+  - photo.png

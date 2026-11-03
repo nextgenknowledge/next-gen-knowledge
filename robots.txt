@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /fin-city-game/
 
 Sitemap: https://nextgenknowledge.org/sitemap.xml
