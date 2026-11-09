@@ -32,7 +32,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN"></script>
+  <script>
+    // Load Google Analytics on the first real interaction, so bots that only open the page aren't counted
+    (function () {
+      var events = ['pointerdown', 'pointermove', 'touchstart', 'keydown', 'scroll'];
+      function load() {
+        events.forEach(function (e) { window.removeEventListener(e, load); });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN';
+        document.head.appendChild(s);
+      }
+      events.forEach(function (e) { window.addEventListener(e, load, { passive: true }); });
+    })();
+  </script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
