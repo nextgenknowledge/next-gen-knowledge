@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://docs.google.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Free Online Courses for Kids with Certificates | NextGen Knowledge</title>
+  <meta name="description" content="Free online video courses for kids and teens from NextGen Knowledge. Start with Economics: How We Make Choices: six short lessons, quizzes and a free printable certificate. More courses coming soon.">
+  <meta name="theme-color" content="#081629">
+  <meta name="author" content="Next-Gen Knowledge">
+  <meta property="og:title" content="Free Online Courses for Kids with Certificates | NextGen Knowledge">
+  <meta property="og:description" content="Free online video courses for kids and teens from NextGen Knowledge. Start with Economics: How We Make Choices: six short lessons, quizzes and a free printable certificate. More courses coming soon.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://nextgenknowledge.org/share.jpg">
+  <meta property="og:image:alt" content="NextGen Knowledge and the Fin City game">
+  <meta property="og:url" content="https://nextgenknowledge.org/courses.html">
+  <meta property="og:site_name" content="NextGen Knowledge">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Courses for Kids with Certificates | NextGen Knowledge">
+  <meta name="twitter:description" content="Free online video courses for kids and teens from NextGen Knowledge. Start with Economics: How We Make Choices: six short lessons, quizzes and a free printable certificate. More courses coming soon.">
+  <meta name="twitter:image" content="https://nextgenknowledge.org/share.jpg">
+  <link rel="canonical" href="https://nextgenknowledge.org/courses.html">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "EducationalOrganization", "@id": "https://nextgenknowledge.org/#org", "name": "NextGen Knowledge", "alternateName": "Next-Gen Knowledge", "url": "https://nextgenknowledge.org/", "logo": "https://nextgenknowledge.org/logo.png", "description": "A student-led educational organization making real-world financial literacy free and accessible for students, through hands-on programs, community workshops and Fin City, a free 3D money game.", "sameAs": ["https://www.instagram.com/nextgen.knowledge/", "https://www.linkedin.com/company/next-gen-knowledge/"]}, {"@type": "Course", "@id": "https://nextgenknowledge.org/courses.html#econ", "name": "Economics: How We Make Choices", "description": "Economics: How We Make Choices is a free online economics course for kids and teens. Six short video lessons, a quiz after each one, a final exam and a free printable certificate. No account needed.", "provider": {"@id": "https://nextgenknowledge.org/#org"}, "url": "https://nextgenknowledge.org/courses.html", "inLanguage": "en", "isAccessibleForFree": true, "educationalLevel": "Beginner", "about": ["Economics", "Scarcity", "Opportunity cost", "Supply and demand", "Budgeting"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "category": "Free"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online", "courseWorkload": "PT1H30M"}}]}</script>
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+
+  <script>
+    // Load Google Analytics on the first real interaction, so bots that only open the page aren't counted
+    (function () {
+      var events = ['pointerdown', 'pointermove', 'touchstart', 'keydown', 'scroll'];
+      function load() {
+        events.forEach(function (e) { window.removeEventListener(e, load); });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FXJKCLQMSN';
+        document.head.appendChild(s);
+      }
+      events.forEach(function (e) { window.addEventListener(e, load, { passive: true }); });
+    })();
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FXJKCLQMSN');
+  </script>
+
+  <style>
+    /* ---------- course catalog ---------- */
+    .catalog-hero { padding-bottom: 40px; }
+    .catalog-hero .lede { max-width: 640px; margin: 18px 0 0; }
+    .catalog { padding: 10px 0 90px; }
+    .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; align-items: start; }
+    .course-tile { display: flex; flex-direction: column; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
+    .tile-top { padding: 22px 24px 18px; background: var(--green-deep); color: #fff; }
+    .tile-tag { font-family: var(--pixel); font-size: .48rem; line-height: 1.8; color: var(--gold-bright); }
+    .tile-top h2 { margin: 8px 0 0; font-size: 1.35rem; line-height: 1.2; }
+    .tile-body { padding: 20px 24px 24px; }
+    .tile-body > p { margin: 0 0 16px; color: #4A4334; font-size: .97rem; }
+    .tile-facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+    .tile-facts li { padding: 5px 9px; font-size: .82rem; font-weight: 700; background: rgba(29,27,22,.08); }
+    .course-tile .btn { width: 100%; }
+    .cp { margin-top: 14px; }
+    .cp-track { height: 10px; background: rgba(29,27,22,.15); box-shadow: inset 0 0 0 2px rgba(29,27,22,.25); }
+    .cp-fill { height: 100%; width: 0; background: var(--green-deep); transition: width .4s steps(8); }
+    .cp-label { display: block; margin-top: 6px; font-size: .85rem; color: #4A4334; }
+    .tile-lessons { margin-top: 16px; border-top: 1px dashed #B9AD8F; }
+    .tile-lessons summary { padding: 12px 0 0; cursor: pointer; font-weight: 700; font-size: .93rem; color: var(--green-deep); }
+    .syllabus { margin: 10px 0 0; padding: 0; list-style: none; }
+    .syllabus li { display: grid; grid-template-columns: 26px 1fr auto; gap: 8px; padding: 7px 0; font-size: .92rem; border-bottom: 1px solid #DCD0B2; }
+    .syllabus li:last-child { border-bottom: 0; }
+    .syl-num { font-family: var(--term); font-size: 1.15rem; line-height: 1.1; color: var(--green-deep); }
+    .syl-meta { font-size: .8rem; color: #6A6152; white-space: nowrap; }
+    .syllabus li.done .syl-num { color: transparent; position: relative; }
+    .syllabus li.done .syl-num::after { content: "✓"; position: absolute; left: 0; top: 0; color: var(--green-deep); }
+    .soon-tile { display: grid; place-content: center; gap: 10px; min-height: 260px; padding: 30px; text-align: center; color: var(--muted); border: 3px dashed #2B4566; }
+    .soon-tile b { font-family: var(--pixel); font-size: .55rem; line-height: 1.8; color: var(--gold-bright); }
+    .soon-tile p { margin: 0; max-width: 260px; }
+    .course-fine { margin-top: 34px; color: var(--muted); font-size: .9rem; }
+    .course-fine button { padding: 0; border: 0; color: var(--gold-bright); background: none; font: inherit; text-decoration: underline; cursor: pointer; }
+
+    /* ---------- course player ---------- */
+    .player { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; padding: 48px 0 100px; }
+    .player-side { position: sticky; top: 130px; padding: 20px; background: #0A1A2E; box-shadow: inset 0 0 0 3px #2B4566; }
+    .player-side h2 { margin: 0 0 14px; font-size: 1rem; line-height: 1.3; }
+    .cs-progress span { display: block; margin: 6px 0 16px; font-size: .85rem; color: var(--muted); }
+    .cs-progress .cp-track { background: #050D19; box-shadow: inset 0 0 0 2px #2B4566; }
+    .cs-progress .cp-fill { background: var(--green); }
+    .cs-list { list-style: none; margin: 0; padding: 0; }
+    .cs-toggle { display: none; }
+    @media (max-width: 1020px) {
+      .player { gap: 24px; padding-top: 28px; }
+      .player-side { padding: 16px; }
+      .player-side h2 { font-size: .95rem; margin-bottom: 10px; }
+      .cs-progress span { margin-bottom: 10px; }
+      .cs-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding: 0 12px; border: 0; cursor: pointer; font-family: var(--pixel); font-size: .5rem; color: var(--gold-bright); background: #142C49; }
+      .cs-toggle::after { content: "▼"; }
+      .cs-toggle[aria-expanded="true"]::after { content: "▲"; }
+      #lessonList:not(.menu-open) .cs-list { display: none; }
+      #lessonList.menu-open .cs-list { margin-top: 8px; }
+    }
+    .cs-link { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: start; padding: 10px 8px; color: var(--text); text-decoration: none; border-left: 4px solid transparent; }
+    a.cs-link:hover { background: #12294A; }
+    .cs-item.current .cs-link { background: #142C49; border-left-color: var(--gold-bright); }
+    .cs-item.locked .cs-link { color: #6E819A; cursor: not-allowed; }
+    .cs-badge { width: 30px; height: 30px; display: grid; place-content: center; font-family: var(--pixel); font-size: .55rem; color: var(--ink); background: var(--gold-bright); }
+    .cs-item.done .cs-badge { background: var(--green); }
+    .cs-item.locked .cs-badge { background: #1B2E47; font-size: .7rem; }
+    .cs-text { font-size: .95rem; line-height: 1.35; }
+    .cs-text small { display: block; font-size: .78rem; color: var(--muted); }
+    .cs-text em { display: block; margin-top: 2px; font-style: normal; font-size: .78rem; color: var(--green); }
+    .cs-back { display: inline-block; margin-top: 16px; color: var(--gold-bright); font-size: .9rem; }
+
+    .cv-head h1 { margin: 0 0 10px; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.12; }
+    .cv-head h1:focus { outline: none; }
+    .cv-head p { margin: 0 0 26px; max-width: 720px; color: var(--muted); font-size: 1.05rem; }
+    .cv-head .kicker { margin-bottom: 14px; }
+    .cv-frame { position: relative; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 0 0 4px #030A13, 10px 10px 0 4px #030A13; }
+    .cv-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .cv-soon { display: grid; place-content: center; padding: 24px; text-align: center; background: #0D2038; background-image: repeating-linear-gradient(135deg, rgba(241,215,120,.06) 0 14px, transparent 14px 28px); }
+    .cv-soon-tag { font-family: var(--pixel); font-size: .6rem; color: var(--gold-bright); }
+    .cv-soon p { max-width: 420px; margin: 14px auto 0; color: var(--muted); }
+    .cv-notes { margin-top: 40px; padding: 24px 26px; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
+    .cv-notes h2 { margin: 0 0 10px; font-family: var(--pixel); font-size: .55rem; line-height: 1.8; color: var(--ink-soft); font-weight: 400; }
+    .cv-notes ul { margin: 0; padding-left: 20px; }
+    .cv-notes li { margin: 8px 0; }
+    .cv-next { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 34px; padding: 22px 24px; background: #0D2038; box-shadow: inset 0 0 0 3px var(--gold); }
+    .cv-next strong { display: block; font-size: 1.1rem; }
+    .cv-next span { color: var(--muted); font-size: .93rem; }
+
+    .quiz { display: grid; gap: 22px; }
+    .qz-q { margin: 0; padding: 22px 24px; border: 0; color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 #030A13; }
+    .qz-q legend { float: left; width: 100%; display: flex; gap: 14px; margin-bottom: 14px; padding: 0; font-weight: 700; font-size: 1.05rem; line-height: 1.4; }
+    .qz-q legend + * { clear: both; }
+    .qz-num { flex: none; width: 30px; height: 30px; display: grid; place-content: center; font-family: var(--pixel); font-size: .55rem; color: var(--paper); background: var(--ink); }
+    .qz-opt { display: flex; gap: 12px; align-items: flex-start; margin: 6px 0; padding: 12px 14px; cursor: pointer; background: rgba(29,27,22,.05); box-shadow: inset 0 0 0 2px transparent; }
+    .qz-opt:hover { background: rgba(29,27,22,.1); }
+    .qz-opt input { flex: none; width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--green-deep); }
+    .qz-opt:has(input:checked) { box-shadow: inset 0 0 0 2px var(--ink); }
+    .qz-opt:has(input:focus-visible) { outline: 3px solid var(--gold-dark); outline-offset: 2px; }
+    .qz-opt.is-answer { background: rgba(31,107,74,.18); box-shadow: inset 0 0 0 2px var(--green-deep); }
+    .qz-opt.is-picked { background: rgba(184,64,42,.14); box-shadow: inset 0 0 0 2px var(--stamp); }
+    .qz-opt:has(input:disabled) { cursor: default; }
+    .qz-why { margin: 12px 0 0; padding: 12px 14px; font-size: .95rem; background: rgba(29,27,22,.06); }
+    .qz-q.right .qz-why b { color: var(--green-deep); }
+    .qz-q.wrong .qz-why b { color: var(--stamp); }
+    .qz-error { margin: 0; color: var(--red); font-weight: 700; }
+    .qz-actions { display: flex; flex-wrap: wrap; gap: 22px; }
+    .qz-result { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; padding: 24px; background: #0D2038; }
+    .qz-result.pass { box-shadow: inset 0 0 0 4px var(--green); }
+    .qz-result.fail { box-shadow: inset 0 0 0 4px var(--red); }
+    .qz-result strong { display: block; font-size: 1.3rem; }
+    .qz-result p { margin: 6px 0 18px; color: var(--muted); }
+    .qz-score { width: 110px; height: 110px; display: grid; place-content: center; text-align: center; background: #050D19; }
+    .qz-score span { font-family: var(--term); font-size: 2.6rem; line-height: 1; }
+    .qz-score small { font-family: var(--pixel); font-size: .5rem; color: var(--gold-bright); }
+
+    .cert-form { margin-bottom: 30px; }
+    .cert-form label { display: block; margin-bottom: 8px; font-family: var(--pixel); font-size: .5rem; color: var(--gold-bright); }
+    .cert-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+    .cert-row input { flex: 1 1 240px; min-height: 48px; padding: 10px 14px; border: 0; color: var(--ink); background: var(--paper); font: inherit; font-size: 1.05rem; box-shadow: inset 0 0 0 3px #2B4566; }
+    .cert-row input.need { box-shadow: inset 0 0 0 3px var(--red); }
+    .cert { padding: 14px; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
+    .cert-inner { padding: clamp(22px, 5vw, 48px); text-align: center; border: 4px double var(--ink-soft); background-image: radial-gradient(circle at 50% 40%, rgba(241,215,120,.35), transparent 65%); }
+    .cert-top { display: flex; justify-content: center; align-items: center; gap: 14px; margin-bottom: 26px; text-align: left; }
+    .cert-top img { width: 56px; height: 56px; border-radius: 50%; }
+    .cert-top b { display: block; font-family: var(--pixel); font-size: .6rem; line-height: 1.8; }
+    .cert-top span { font-size: .9rem; color: var(--ink-soft); }
+    .cert p { color: var(--ink); }
+    .cert .cert-small { margin: 6px 0; color: var(--ink-soft); }
+    .cert .cert-name { color: var(--ink); margin: 10px 0 14px; font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 800; line-height: 1.15; overflow-wrap: anywhere; border-bottom: 2px solid var(--ink-soft); display: inline-block; min-width: 60%; padding: 0 10px 6px; }
+    .cert .cert-course { margin: 8px 0; font-size: clamp(1.2rem, 3.5vw, 1.7rem); font-weight: 800; color: var(--green-deep); }
+    .cert-foot { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: end; margin-top: 30px; }
+    .cert-foot span { display: block; font-family: var(--term); font-size: 1.3rem; line-height: 1.1; padding-bottom: 4px; border-bottom: 1px solid var(--ink-soft); overflow-wrap: anywhere; }
+    .cert-foot small { font-size: .8rem; color: var(--ink-soft); }
+    .cert-seal { width: 84px; height: 84px; display: grid; place-content: center; font-family: var(--pixel); font-size: .6rem; line-height: 1.8; color: #fff; background: var(--stamp); border-radius: 50%; box-shadow: inset 0 0 0 5px #fff, 0 0 0 3px var(--stamp); transform: rotate(-8deg); }
+    .cert-note { margin-top: 26px; color: var(--muted); }
+    .cert-note a { color: var(--gold-bright); }
+
+    @media (max-width: 1020px) {
+      .player { grid-template-columns: 1fr; }
+      .player-side { position: static; }
+    }
+    @media (max-width: 600px) {
+      .qz-q { padding: 18px 16px; }
+      .qz-result { grid-template-columns: 1fr; }
+      .cert-foot { grid-template-columns: 1fr; justify-items: center; }
+    }
+    @media print {
+      @page { size: landscape; margin: 12mm; }
+      body { background: #fff !important; }
+      body::after, .nav-wrap, .footer, .player-side, .no-print, #courseOverview { display: none !important; }
+      .player { display: block; padding: 0; }
+      .cert { box-shadow: none; padding: 0; }
+      .cert, .cert-inner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="nav-wrap">
+    <div class="container navbar">
+      <a href="index.html" class="brand" aria-label="NextGen Knowledge homepage">
+        <img src="logo.png" alt="NextGen Knowledge logo" width="44" height="44">
+        <span class="brand-name">
+          NextGen Knowledge
+          <small>REAL-WORLD EDUCATION</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="fin-city.html" class="fin-link">FIN CITY</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="courses.html">Courses</a>
+        <a href="team.html">Team</a>
+        <a href="partnerships.html">Partners</a>
+        <a href="donate.html">Donate</a>
+        <a href="https://fincity.dev" class="btn btn-small" target="_blank" rel="noopener">Play Fin City</a>
+      </nav>
+    </div>
+
+    <div class="ticker" aria-label="Money concepts ticker">
+      <div class="ticker-track">
+        <span class="ticker-item"><b>PAY.YOURSELF.FIRST</b><span class="up">▲ always</span></span>
+        <span class="ticker-item"><b>IMPULSE.BUYS</b><span class="down">▼ −$38/wk</span></span>
+        <span class="ticker-item"><b>COMPOUND.INTEREST</b><span class="up">▲▲ over time</span></span>
+        <span class="ticker-item"><b>LATE.FEES</b><span class="down">▼ avoid</span></span>
+        <span class="ticker-item"><b>EMERGENCY.FUND</b><span class="up">▲ 3–6 mo</span></span>
+        <span class="ticker-item"><b>RULE.OF.72</b><span class="up">▲ 72 ÷ rate = years to 2×</span></span>
+        <span class="ticker-item"><b>INFLATION</b><span class="down">▼ buying power</span></span>
+        <span class="ticker-item"><b>DIVERSIFY</b><span class="up">▲ spread risk</span></span>
+        <span class="ticker-item"><b>FOMO</b><span class="down">▼ bad trades</span></span>
+        <span class="ticker-item"><b>CREDIT.SCORE</b><span class="up">▲ 300–850</span></span>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <!-- COURSE CATALOG -->
+    <div id="courseOverview">
+      <section class="page-hero catalog-hero">
+        <div class="container">
+          <div class="kicker">Free online courses</div>
+          <h1>Courses</h1>
+          <p class="lede">Free video courses for kids and teens, taught by students. Watch the lessons, pass the quizzes and earn a certificate. No account needed. More courses are coming soon.</p>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="container">
+          <div class="course-grid">
+            <article class="course-tile">
+              <div class="tile-top">
+                <div class="tile-tag">ECONOMICS · BEGINNER</div>
+                <h2>Economics: How We Make Choices</h2>
+              </div>
+              <div class="tile-body">
+                <p>Why we can&#x27;t have everything, how prices are set, how businesses make money, and how to spend, save and budget.</p>
+                <ul class="tile-facts">
+                  <li>6 lessons</li>
+                  <li>About 1 hour</li>
+                  <li>Quizzes</li>
+                  <li>Free certificate</li>
+                </ul>
+                <a class="btn" href="#lesson-1" data-course-start>Start the course</a>
+                <div class="cp" id="overviewProgress" hidden><div class="cp-track"><div class="cp-fill"></div></div><span class="cp-label"></span></div>
+                <details class="tile-lessons">
+                  <summary>See the lessons</summary>
+                  <ol class="syllabus">
+                  <li data-syl="1"><span class="syl-num">1</span><span>Economics: How We Make Choices</span><span class="syl-meta">23 min</span></li>
+                  <li data-syl="2"><span class="syl-num">2</span><span>Making Choices Like an Economist</span><span class="syl-meta">9 min</span></li>
+                  <li data-syl="3"><span class="syl-num">3</span><span>Prices and Markets</span><span class="syl-meta">7 min</span></li>
+                  <li data-syl="4"><span class="syl-num">4</span><span>How Businesses Work</span><span class="syl-meta">7 min</span></li>
+                  <li data-syl="5"><span class="syl-num">5</span><span>Money, Jobs, and Income</span><span class="syl-meta">7 min</span></li>
+                  <li data-syl="6"><span class="syl-num">6</span><span>Spend, Save, and Budget</span><span class="syl-meta">6 min</span></li>
+                  <li data-syl="0"><span class="syl-num">★</span><span>Final exam and certificate</span><span class="syl-meta"></span></li>
+                  </ol>
+                </details>
+              </div>
+            </article>
+
+            <div class="soon-tile">
+              <b>MORE COURSES<br>COMING SOON</b>
+              <p>We&#x27;re recording new courses now. Check back soon.</p>
+            </div>
+          </div>
+          <p class="course-fine">Each lesson unlocks when you pass the quiz before it (80% to pass, unlimited retakes). Your progress is saved in this browser only. <button type="button" id="resetProgress">Start over</button></p>
+        </div>
+      </section>
+    </div>
+
+    <!-- COURSE PLAYER (lessons, quizzes, final exam, certificate) -->
+    <div id="coursePlayer" hidden>
+      <div class="container player">
+        <aside class="player-side" aria-label="Course lessons">
+          <h2>Economics: How We Make Choices</h2>
+          <div id="lessonList"></div>
+        </aside>
+        <div id="courseView"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">
+            <img src="logo.png" alt="NextGen Knowledge logo" width="44" height="44">
+            <span class="brand-name">NextGen Knowledge<small>REAL-WORLD EDUCATION</small></span>
+          </a>
+          <p class="footer-about">A student-led educational organization focused on making practical financial literacy and real-world learning more accessible.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="courses.html">Free Course</a>
+          <a href="team.html">Our Team</a>
+          <a href="fin-city.html">Fin City</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <a href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City (beta)</a>
+          <a href="fin-city.html#feedback">Send feedback</a>
+          <a href="partnerships.html">Partnerships</a>
+          <a href="donate.html">Support Our Work</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nextgen.knowledge/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/company/next-gen-knowledge/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="mailto:nextgen.knowledge123@gmail.com">Email Us</a>
+        </div>
+      </div>
+
+      <div class="footer-receipt">
+        <span>© <span id="currentYear"></span> NEXT-GEN KNOWLEDGE. ALL RIGHTS RESERVED.</span>
+        <span class="gold">*** CHANGE DUE: YOUR FUTURE ***</span>
+        <span>LEARN TODAY. BUILD TOMORROW.</span>
+      </div>
+      <p class="sponsor-note">Next-Gen Knowledge is a fiscally sponsored project of the Hack Club Foundation, a 501(c)(3) non-profit.</p>
+    </div>
+  </footer>
+
+  <script src="course-data.js"></script>
+  <script src="course.js"></script>
+  <script src="site.js"></script>
+
+</body>
+</html>
