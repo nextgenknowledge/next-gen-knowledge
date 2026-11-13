@@ -1,0 +1,40 @@
+name: Update Fin City player count
+
+on:
+  schedule:
+    - cron: "17 11 * * *"  # every day at 11:17 UTC (early morning in the US)
+  workflow_dispatch:         # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fin-city-players
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the Google Analytics Data API client
+        run: pip install "google-analytics-data>=0.18,<1"
+
+      - name: Read all-time users and update the page
+        env:
+          GA_CREDENTIALS: ${{ secrets.GA_CREDENTIALS }}
+          GA_PROPERTY_ID: "560677339"
+        run: python .github/scripts/update_player_count.py
+
+      - name: Commit the new number
+        run: |
+          if git diff --quiet; then echo "No change"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update Fin City player count"
+          git push
