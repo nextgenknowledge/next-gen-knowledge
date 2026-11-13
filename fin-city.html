@@ -23,7 +23,7 @@
   <meta name="twitter:image" content="https://nextgenknowledge.org/share-nextgen.jpg">
   <link rel="canonical" href="https://nextgenknowledge.org/fin-city.html">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoGame", "@id": "https://fincity.dev/#game", "name": "Fin City", "alternateName": ["FinCity", "Fin-City"], "url": "https://fincity.dev", "description": "A free 3D financial literacy game for ages 6 to 18. Explore five cities, play 40+ money activities, and learn budgeting, saving, banking, credit, taxes and investing by running a financial life of your own.", "genre": ["Educational", "Simulation"], "gamePlatform": "Web browser", "applicationCategory": "Game", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "typicalAgeRange": "6-18", "educationalUse": "Financial literacy", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://nextgenknowledge.org/#org"}, "image": "https://nextgenknowledge.org/Fin-City%20Pixel%20Skyline%20Logo.png"}, {"@type": "EducationalOrganization", "@id": "https://nextgenknowledge.org/#org", "name": "NextGen Knowledge", "alternateName": "Next-Gen Knowledge", "url": "https://nextgenknowledge.org/", "logo": "https://nextgenknowledge.org/logo.png", "description": "A student-led educational organization making real-world financial literacy free and accessible for students, through hands-on programs, community workshops and Fin City, a free 3D money game.", "sameAs": ["https://www.instagram.com/nextgen.knowledge/", "https://www.linkedin.com/company/next-gen-knowledge/"]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoGame", "@id": "https://fincity.dev/#game", "name": "Fin City", "alternateName": ["FinCity", "Fin-City"], "url": "https://fincity.dev", "description": "A free 3D financial literacy game for ages 6 to 18. Explore five cities, play 40+ money activities, and learn budgeting, saving, banking, credit, taxes and investing by running a financial life of your own.", "genre": ["Educational", "Simulation"], "gamePlatform": "Web browser", "applicationCategory": "Game", "operatingSystem": "Any", "inLanguage": "en", "isAccessibleForFree": true, "typicalAgeRange": "6-18", "educationalUse": "Financial literacy", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@id": "https://nextgenknowledge.org/#org"}, "image": "https://nextgenknowledge.org/Fin-City%20Pixel%20Skyline%20Logo.png", "screenshot": ["https://nextgenknowledge.org/img/fin-city/new-york.jpg", "https://nextgenknowledge.org/img/fin-city/park-narwhal.jpg", "https://nextgenknowledge.org/img/fin-city/brokerage.jpg", "https://nextgenknowledge.org/img/fin-city/hong-kong.jpg"]}, {"@type": "EducationalOrganization", "@id": "https://nextgenknowledge.org/#org", "name": "NextGen Knowledge", "alternateName": "Next-Gen Knowledge", "url": "https://nextgenknowledge.org/", "logo": "https://nextgenknowledge.org/logo.png", "description": "A student-led educational organization making real-world financial literacy free and accessible for students, through hands-on programs, community workshops and Fin City, a free 3D money game.", "sameAs": ["https://www.instagram.com/nextgen.knowledge/", "https://www.linkedin.com/company/next-gen-knowledge/"]}]}</script>
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -54,69 +54,54 @@
   </script>
 
   <style>
-    .hero-logo { width: min(210px, 60%); image-rendering: pixelated; margin: -18px 0 4px -12px; }
-    .fc-hero h1 .line { display: block; }
+    /* ---------- hero banner ---------- */
+    .fc-banner { position: relative; isolation: isolate; overflow: hidden; padding: clamp(70px, 10vw, 130px) 0 clamp(60px, 8vw, 100px); background: #050D19; }
+    .fc-banner > img.bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+    .fc-banner::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
+      linear-gradient(90deg, rgba(5,13,25,.96) 0%, rgba(5,13,25,.86) 38%, rgba(5,13,25,.35) 70%, rgba(5,13,25,.15) 100%),
+      linear-gradient(0deg, #081629 0%, rgba(8,22,41,0) 30%); }
+    .fc-banner .hero-logo { width: 150px; height: auto; image-rendering: pixelated; margin: 0 0 10px -8px; }
+    .fc-banner h1 { margin: 0 0 6px; font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1; }
+    .fc-banner .tagline { margin: 0 0 18px; font-family: var(--term); font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--gold-bright); }
+    .fc-banner .lede { max-width: 560px; margin: 0 0 28px; }
+    .fc-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .fc-pill { padding: 6px 10px; font-family: var(--pixel); font-size: .45rem; line-height: 1.6; color: #14110A; background: var(--green); }
+    .fc-pill.gold { background: var(--gold-bright); }
+    .fc-pill.dim { color: var(--text); background: rgba(13,32,56,.9); box-shadow: inset 0 0 0 2px #2B4566; }
+    .fc-platforms { margin: 22px 0 0; font-size: .9rem; color: var(--muted); }
 
-    /* game screen */
-    .game { --c: #2B4566; padding: 14px; background: #0B1B2F; }
-    .viewport {
-      position: relative; height: 420px; overflow: hidden;
-      background: linear-gradient(#050D1F 0%, #0B2245 55%, #173A66 78%);
-      box-shadow: inset 0 0 0 4px #04101E;
-    }
-    .viewport::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 2px, transparent 2px 4px); }
-    .stars { position: absolute; inset: 0; background-image:
-      radial-gradient(2px 2px at 10% 12%, #fff 50%, transparent 51%), radial-gradient(2px 2px at 26% 30%, #cfe 50%, transparent 51%),
-      radial-gradient(2px 2px at 44% 8%, #fff 50%, transparent 51%), radial-gradient(2px 2px at 61% 22%, #fff 50%, transparent 51%),
-      radial-gradient(2px 2px at 78% 10%, #ffd 50%, transparent 51%), radial-gradient(2px 2px at 90% 28%, #fff 50%, transparent 51%),
-      radial-gradient(2px 2px at 35% 18%, #fff 50%, transparent 51%), radial-gradient(2px 2px at 70% 4%, #fff 50%, transparent 51%);
-      animation: twinkle 3s steps(2) infinite; }
-    @keyframes twinkle { 50% { opacity: .55; } }
-    .moon { position: absolute; top: 46px; right: 52px; width: 40px; height: 40px; background: var(--gold-bright); box-shadow: 0 -8px 0 -4px var(--gold-bright), 0 8px 0 -4px var(--gold-bright), -8px 0 0 -4px var(--gold-bright), 8px 0 0 -4px var(--gold-bright); }
-    .moon::after { content: ""; position: absolute; top: 6px; left: 14px; width: 8px; height: 8px; background: var(--gold); }
+    /* ---------- media + info (store page style) ---------- */
+    .store { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 30px; align-items: start; }
+    .viewer { margin: 0; min-width: 0; }
+    .viewer-main { position: relative; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 0 0 4px #030A13, 10px 10px 0 4px #030A13; }
+    .viewer-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .viewer-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 56px; border: 0; cursor: pointer; font-size: 1.4rem; color: #fff; background: rgba(3,10,19,.7); }
+    .viewer-nav:hover, .viewer-nav:focus-visible { background: rgba(3,10,19,.95); outline: 3px solid var(--gold-bright); outline-offset: -3px; }
+    .viewer-nav.prev { left: 0; } .viewer-nav.next { right: 0; }
+    .viewer figcaption { display: flex; justify-content: space-between; gap: 16px; margin-top: 14px; color: var(--muted); font-size: .95rem; }
+    .viewer figcaption b { color: var(--text); }
+    .viewer figcaption span:last-child { flex: none; font-family: var(--term); font-size: 1.2rem; }
+    .thumbs { display: flex; gap: 10px; margin: 16px 0 0; padding: 4px 4px 10px; list-style: none; overflow-x: auto; scrollbar-width: thin; }
+    .thumbs button { display: block; width: 120px; padding: 0; border: 0; cursor: pointer; background: #000; opacity: .55; box-shadow: 0 0 0 3px #1B3554; transition: opacity .15s steps(2); }
+    .thumbs button:hover { opacity: .85; }
+    .thumbs button[aria-current="true"] { opacity: 1; box-shadow: 0 0 0 3px var(--gold-bright); }
+    .thumbs button:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 3px; }
+    .thumbs img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 
-    .hud { position: absolute; top: 12px; left: 12px; right: 12px; z-index: 3; display: flex; justify-content: space-between; align-items: start; gap: 10px; }
-    .hud-box { padding: 8px 12px; background: rgba(3,10,19,.85); box-shadow: 0 0 0 3px #1D3A2D; font-family: var(--pixel); font-size: .45rem; line-height: 1.8; color: #8FA2BA; }
-    .hud-box strong { display: block; font-family: var(--term); font-size: 1.7rem; font-weight: 400; line-height: 1; color: var(--green); }
-    .hud-box .lvl { color: var(--gold-bright); font-size: .6rem; }
-
-    .street { position: absolute; left: 0; right: 0; bottom: 64px; display: flex; justify-content: center; align-items: end; gap: 14px; padding: 0 22px; z-index: 2; }
-    .bldg {
-      position: relative; flex: 1; max-width: 120px; height: var(--h); border: 0; padding: 0; cursor: pointer;
-      /* sign band, then floor gaps, then window columns, then the wall */
-      background:
-        linear-gradient(var(--bc) 0 34px, transparent 34px),
-        repeating-linear-gradient(to bottom, var(--bc) 0 7px, transparent 7px 18px),
-        linear-gradient(90deg, transparent 0 18%, var(--win, rgba(241,215,120,.85)) 18% 34%, transparent 34% 42%, var(--win, rgba(241,215,120,.6)) 42% 58%, transparent 58% 66%, var(--win, rgba(241,215,120,.8)) 66% 82%, transparent 82%),
-        var(--bc);
-      box-shadow: inset -8px 0 0 rgba(0,0,0,.28), inset 0 6px 0 rgba(255,255,255,.12);
-      transition: transform .12s steps(2);
-    }
-    .bldg:hover, .bldg:focus-visible, .bldg[aria-pressed="true"] { transform: translateY(-6px); outline: none; }
-    .bldg[aria-pressed="true"] { --win: #FFF3B0; box-shadow: inset -8px 0 0 rgba(0,0,0,.28), 0 0 0 4px var(--gold-bright); }
-    .bldg-sign {
-      position: absolute; top: 8px; left: 50%; transform: translateX(-50%); white-space: nowrap; z-index: 1;
-      padding: 4px 6px; font-family: var(--pixel); font-size: .4rem; line-height: 1.5; color: #14110A; background: var(--gold-bright);
-    }
-    .bldg::before { content: ""; position: absolute; left: 50%; top: -14px; width: 6px; height: 14px; transform: translateX(-50%); background: var(--bc); }
-    .b-sf { --bc: #C8552F; --h: 170px; }
-    .b-ny { --bc: #B48A12; --h: 250px; }
-    .b-ldn { --bc: #B3302A; --h: 140px; }
-    .b-hk { --bc: #C24A86; --h: 215px; }
-    .b-sg { --bc: #1F8F8F; --h: 185px; }
-    .road { position: absolute; left: 0; right: 0; bottom: 30px; height: 34px; background: #20262F; z-index: 1; }
-    .road::after { content: ""; position: absolute; left: 0; right: 0; top: 15px; height: 4px; background: repeating-linear-gradient(90deg, var(--gold-bright) 0 22px, transparent 22px 44px); animation: drive 1.6s linear infinite; }
-    @keyframes drive { to { background-position: -44px 0; } }
-    .grass { position: absolute; left: 0; right: 0; bottom: 0; height: 30px; background: repeating-linear-gradient(90deg, #1E5A3A 0 8px, #174A30 8px 16px); z-index: 1; }
-
-    .dialog {
-      position: relative; margin-top: 14px; min-height: 118px; padding: 16px 18px 14px 18px;
-      font-family: var(--term); font-size: 1.35rem; line-height: 1.3; color: var(--text);
-      background: #071426; box-shadow: 0 0 0 4px #F3F5FA, 0 0 0 8px #071426;
-    }
-    .dialog .who { display: block; margin-bottom: 6px; font-family: var(--pixel); font-size: .5rem; color: var(--gold-bright); }
-    .dialog .next { position: absolute; right: 14px; bottom: 8px; color: var(--gold-bright); animation: blink 1s steps(1) infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
+    .info { padding: 22px; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; }
+    .info .capsule { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .info .capsule img { width: 72px; height: 72px; flex: none; image-rendering: pixelated; background: #0B1B2F; }
+    .info .capsule b { display: block; font-size: 1.3rem; }
+    .info .capsule span { font-size: .85rem; color: #4A4334; }
+    .info > p { margin: 0 0 16px; font-size: .95rem; color: #3A3428; }
+    .facts { margin: 0 0 16px; }
+    .facts div { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 8px 0; border-top: 1px dashed #B9AD8F; font-size: .9rem; }
+    .facts dt { font-family: var(--pixel); font-size: .42rem; line-height: 2.2; color: #6A6152; }
+    .facts dd { margin: 0; font-weight: 700; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; list-style: none; }
+    .tags li { padding: 4px 8px; font-size: .8rem; font-weight: 700; background: rgba(29,27,22,.09); }
+    .info .btn { width: 100%; }
+    .info .fine { margin: 10px 0 0; text-align: center; font-size: .8rem; color: #6A6152; }
 
     .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: #030A13; }
     .stats-strip div { padding: 22px; text-align: center; border-right: 1px solid #13283F; }
@@ -124,67 +109,68 @@
     .stats-strip strong { display: block; font-family: var(--pixel); font-size: 1rem; color: var(--gold-bright); }
     .stats-strip span { font-family: var(--term); font-size: 1.3rem; color: #C7D3E3; }
 
-    /* achievements */
-    .achv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .ach { position: relative; padding: 22px; background: #0D2038; box-shadow: 0 0 0 3px #1B3554, 6px 6px 0 3px #030A13; }
-    .ach-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-    .ach-badge { width: 52px; height: 52px; flex: none; display: grid; place-items: center; color: #8FA2BA; background: #071426; box-shadow: inset 0 0 0 3px #22406A; transition: color .2s steps(2), background .2s steps(2); }
-    .ach-badge .px-icon { width: 26px; height: 26px; }
-    .ach-status { font-family: var(--pixel); font-size: .45rem; line-height: 1.8; color: #6F8199; }
-    .ach-status b { display: block; font-weight: 400; color: #8FA2BA; }
-    .ach h3 { margin: 0 0 8px; font-stretch: 100%; }
-    .ach p { margin: 0 0 14px; font-size: .95rem; }
-    .ach .tagline { font-family: var(--term); font-size: 1.15rem; color: var(--green); }
-    .ach.in .ach-badge { color: #14110A; background: var(--gold-bright); box-shadow: inset 0 0 0 3px var(--gold-dark); }
-    .ach.in { box-shadow: 0 0 0 3px var(--gold-dark), 6px 6px 0 3px #030A13; }
-    .ach.in .ach-status { color: var(--gold-bright); }
+    /* ---------- cities ---------- */
+    .cities { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+    .city { grid-column: span 2; display: flex; flex-direction: column; background: #0D2038; box-shadow: 0 0 0 3px #1B3554, 6px 6px 0 3px #030A13; }
+    .city:nth-child(4), .city:nth-child(5) { grid-column: span 3; }
+    .city img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+    .city div { padding: 16px 18px 18px; }
+    .city small { display: block; margin-bottom: 6px; font-family: var(--pixel); font-size: .45rem; line-height: 1.8; color: var(--c, var(--gold-bright)); }
+    .city h3 { margin: 0 0 6px; font-stretch: 100%; }
+    .city p { margin: 0; font-size: .93rem; color: var(--muted); }
 
-    /* world map */
-    .map { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 30px; background:
-      radial-gradient(circle at 20% 30%, rgba(46,158,91,.18), transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(36,99,201,.2), transparent 40%),
-      #0A1A2E; box-shadow: 0 0 0 3px #1B3554; }
-    .map::before { content: ""; position: absolute; left: 16%; right: 16%; top: 70px; border-top: 6px dotted var(--gold); }
-    .node { position: relative; text-align: center; }
-    .node .pin { width: 80px; height: 80px; margin: 0 auto 18px; display: grid; place-items: center; font-family: var(--pixel); font-size: .9rem; color: #14110A; background: var(--gold-bright); box-shadow: 0 0 0 6px #0A1A2E, 0 0 0 9px var(--gold-dark), 6px 10px 0 9px #030A13; }
-    .node small { display: block; font-family: var(--pixel); font-size: .48rem; color: var(--green); margin-bottom: 8px; }
-    .node h3 { margin: 0 0 8px; font-stretch: 100%; }
-    .node p { margin: 0; font-size: .95rem; }
+    /* ---------- feature rows ---------- */
+    .feat { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+    .feat + .feat { margin-top: clamp(50px, 7vw, 80px); }
+    .feat:nth-child(even) .feat-shot { order: 2; }
+    .feat-shot { margin: 0; box-shadow: 0 0 0 4px #030A13, 10px 10px 0 4px #030A13; }
+    .feat-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+    .feat h3 { margin: 0 0 12px; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.15; font-stretch: 100%; }
+    .feat p { margin: 0 0 12px; color: var(--muted); }
+    .feat ul { margin: 14px 0 0; padding: 0; list-style: none; }
+    .feat li { position: relative; padding: 4px 0 4px 26px; }
+    .feat li::before { content: "▶"; position: absolute; left: 0; top: 7px; font-size: .7rem; color: var(--green); }
 
-    /* cartridge */
-    .cart { max-width: 760px; margin: 0 auto; padding: 28px 28px 34px; background: #2B3442; box-shadow: 12px 12px 0 #030A13; clip-path: polygon(0 0, 88% 0, 100% 9%, 100% 100%, 0 100%); }
-    .cart-grip { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px; }
-    .cart-grip i { width: 40px; height: 8px; background: #1F2632; }
-    .label { padding: clamp(22px, 4vw, 38px); text-align: center; color: var(--ink); background: var(--paper); box-shadow: inset 0 0 0 6px var(--gold-bright); }
-    .label .kicker { justify-content: center; color: var(--gold-dark); }
-    .label .kicker::before { background: var(--gold-dark); box-shadow: 12px 0 0 var(--gold), 24px 0 0 var(--gold-bright); }
-    .label img { width: 170px; margin: 0 auto 6px; image-rendering: pixelated; }
-    .label h2 { color: var(--ink); margin-bottom: 14px; }
-    .label p { color: #4A4334; max-width: 520px; margin-inline: auto; }
-    .label .hero-actions { justify-content: center; margin-top: 26px; }
-    .label .text-link { color: #1C3B6B; }
-    .label .credit { margin: 22px 0 0; font-family: var(--pixel); font-size: .45rem; line-height: 1.9; color: var(--ink-soft); }
+    /* ---------- also included ---------- */
+    .extras { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .extra { display: flex; gap: 14px; padding: 18px; background: #0A1A2E; box-shadow: inset 0 0 0 3px #1B3554; }
+    .extra .px-icon { flex: none; width: 26px; height: 26px; color: var(--gold-bright); }
+    .extra h3 { margin: 0 0 4px; font-size: 1rem; font-stretch: 100%; }
+    .extra p { margin: 0; font-size: .9rem; color: var(--muted); }
 
-    /* feedback sits right under the cartridge */
-    #feedback { padding-top: 0; }
+    /* ---------- how to play ---------- */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: step; }
+    .step { padding: 22px; background: #0D2038; box-shadow: 0 0 0 3px #1B3554; }
+    .step b { display: inline-grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px; font-family: var(--pixel); font-size: .7rem; color: #14110A; background: var(--gold-bright); }
+    .step h3 { margin: 0 0 6px; font-stretch: 100%; }
+    .step p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .play-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+    .play-cta p { margin: 0; color: var(--muted); }
+
+    /* feedback */
     #feedback .section-head { margin-inline: auto; text-align: center; }
     #feedback .section-head p { margin-inline: auto; }
     #feedback .kicker { justify-content: center; }
 
-    @media (max-width: 1020px) { .achv { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1020px) {
+      .store { grid-template-columns: minmax(0, 1fr); }
+      .info { max-width: 560px; }
+      .cities { grid-template-columns: 1fr 1fr; }
+      .city, .city:nth-child(4), .city:nth-child(5) { grid-column: auto; }
+      .city:first-child { grid-column: 1 / -1; }
+      .extras { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 700px) {
-      .achv, .map { grid-template-columns: 1fr; }
-      .map::before { left: 69px; right: auto; top: 40px; bottom: 40px; border-top: 0; border-left: 6px dotted var(--gold); }
-      .node { display: grid; grid-template-columns: 80px 1fr; gap: 18px; text-align: left; align-items: center; }
-      .node .pin { margin: 0; }
-      .viewport { height: 360px; }
-      .moon { top: 96px; right: 22px; width: 28px; height: 28px; }
-      .street { gap: 8px; padding: 0 10px; }
-      .b-sf { --h: 130px; } .b-ny { --h: 200px; } .b-ldn { --h: 110px; } .b-hk { --h: 170px; } .b-sg { --h: 145px; }
+      .fc-banner::before { background: linear-gradient(0deg, rgba(5,13,25,.97) 0%, rgba(5,13,25,.88) 55%, rgba(5,13,25,.55) 100%); }
+      .cities, .extras, .steps { grid-template-columns: 1fr; }
+      .feat { grid-template-columns: 1fr; }
+      .feat:nth-child(even) .feat-shot { order: 0; }
       .stats-strip { grid-template-columns: 1fr 1fr; }
       .stats-strip div:nth-child(2) { border-right: 0; }
-      .bldg-sign { font-size: .32rem; padding: 3px 4px; }
       .stats-strip div { padding: 16px 6px; }
+      .thumbs button { width: 96px; }
+      .viewer-nav { width: 36px; height: 46px; }
+      .viewer figcaption { flex-direction: column; gap: 4px; }
     }
   </style>
 </head>
@@ -234,100 +220,156 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="page-hero fc-hero">
-      <div class="container split-2">
-        <div>
-          <img class="hero-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City" width="300" height="300" fetchpriority="high">
-          <div class="kicker">Now in beta</div>
-          <h1><span class="line">Your money.</span><span class="line">Your moves.</span><span class="line gold">Your city.</span></h1>
-          <p class="lede">
-            Fin City (also written FinCity) is NextGen Knowledge's free 3D financial-literacy game for ages 6–18.
-            Explore five real-world cities, step inside buildings, play more than 40 kinds of
-            activities, and run a simulated financial life of your own, with NextGen Narwhal as your guide.
-          </p>
-          <div class="hero-actions">
-            <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">
-              <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-play"/></svg> Play at fincity.dev
-            </a>
-            <a href="#how-to-play" class="btn btn-ghost">How to play ↓</a>
-          </div>
+    <!-- HERO BANNER -->
+    <section class="fc-banner">
+      <img class="bg" src="img/fin-city/new-york.jpg" alt="" width="1280" height="720" fetchpriority="high">
+      <div class="container">
+        <img class="hero-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City" width="300" height="300">
+        <div class="fc-pills"><span class="fc-pill">OUT NOW</span><span class="fc-pill gold">FREE TO PLAY</span><span class="fc-pill dim">AGES 6–18</span></div>
+        <h1>Fin City</h1>
+        <p class="tagline">Your money. Your moves. Your city.</p>
+        <p class="lede">
+          Fin City (also written FinCity) is NextGen Knowledge's free 3D financial-literacy game. Explore five
+          real-world cities, step inside buildings, play more than 40 kinds of activities and run a
+          financial life of your own, with NextGen Narwhal as your guide.
+        </p>
+        <div class="hero-actions">
+          <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">
+            <svg class="px-icon" style="width:16px;height:16px" aria-hidden="true"><use href="icons.svg#i-play"/></svg> Play free at fincity.dev
+          </a>
+          <a href="#screenshots" class="btn btn-ghost">See screenshots ↓</a>
         </div>
+        <p class="fc-platforms">Plays in any web browser · Works on Chromebooks · No download or account</p>
+      </div>
+    </section>
 
-        <div class="game px-border reveal" aria-label="Fin City preview: the five cities">
-          <div class="viewport">
-            <div class="stars" aria-hidden="true"></div>
-            <div class="moon" aria-hidden="true"></div>
-            <div class="hud" aria-hidden="true">
-              <div class="hud-box">STATUS<strong>BETA LIVE</strong></div>
-              <div class="hud-box"><span class="lvl">5 CITIES</span><br>40+ ACTIVITIES</div>
-            </div>
-            <div class="street" role="group" aria-label="Pick a city to learn what it teaches">
-              <button class="bldg b-sf" type="button" data-place="sf" aria-pressed="false"><span class="bldg-sign">SF</span></button>
-              <button class="bldg b-ny" type="button" data-place="ny" aria-pressed="false"><span class="bldg-sign">NYC</span></button>
-              <button class="bldg b-ldn" type="button" data-place="ldn" aria-pressed="false"><span class="bldg-sign">LDN</span></button>
-              <button class="bldg b-hk" type="button" data-place="hk" aria-pressed="false"><span class="bldg-sign">HK</span></button>
-              <button class="bldg b-sg" type="button" data-place="sg" aria-pressed="false"><span class="bldg-sign">SG</span></button>
-            </div>
-            <div class="road" aria-hidden="true"></div>
-            <div class="grass" aria-hidden="true"></div>
+    <!-- SCREENSHOTS + GAME INFO -->
+    <section class="section" id="screenshots">
+      <div class="container store">
+        <figure class="viewer">
+          <div class="viewer-main">
+            <img id="shotMain" src="img/fin-city/park-narwhal.jpg" alt="" width="1280" height="720">
+            <button class="viewer-nav prev" type="button" id="shotPrev" aria-label="Previous screenshot">◀</button>
+            <button class="viewer-nav next" type="button" id="shotNext" aria-label="Next screenshot">▶</button>
           </div>
-          <div class="dialog" aria-live="polite">
-            <span class="who" id="dlgWho">NEXTGEN NARWHAL</span>
-            <span id="dlgText">Welcome to Fin City! Pick a city to see what it teaches.</span>
-            <span class="next" aria-hidden="true">▼</span>
+          <figcaption aria-live="polite"><span id="shotCap"></span><span id="shotNum"></span></figcaption>
+          <ul class="thumbs" id="shotThumbs" aria-label="Screenshots"></ul>
+        </figure>
+
+        <aside class="info" aria-label="About the game">
+          <div class="capsule">
+            <img src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="" width="72" height="72" loading="lazy">
+            <div><b>Fin City</b><span>by NextGen Knowledge</span></div>
           </div>
-        </div>
+          <p>A free 3D money game where you learn by doing: earn, budget, save, invest and run a business across five world cities.</p>
+          <dl class="facts">
+            <div><dt>PRICE</dt><dd>Free, no ads</dd></div>
+            <div><dt>AGES</dt><dd>6–18, two levels</dd></div>
+            <div><dt>PLATFORM</dt><dd>Web browser</dd></div>
+            <div><dt>SAVES</dt><dd>On your device</dd></div>
+            <div><dt>MADE BY</dt><dd>Students at NextGen Knowledge</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Tags">
+            <li>Educational</li><li>Simulation</li><li>3D</li><li>Open world</li><li>Personal finance</li><li>Investing</li>
+          </ul>
+          <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">Play now ↗</a>
+          <p class="fine">Opens fincity.dev in a new tab</p>
+        </aside>
       </div>
     </section>
 
     <div class="stats-strip" aria-label="Fin City at a glance">
       <div><strong>5</strong><span>Cities to explore</span></div>
       <div><strong>40+</strong><span>Kinds of activities</span></div>
-      <div><strong>2</strong><span>Modes, ages 6–18</span></div>
-      <div><strong>0</strong><span>Accounts needed</span></div>
+      <div><strong>2</strong><span>Levels, ages 6–18</span></div>
+      <div><strong>$0</strong><span>Free forever</span></div>
     </div>
 
-    <!-- FEATURES AS ACHIEVEMENTS -->
-    <section class="section" id="the-game">
+    <!-- CITIES -->
+    <section class="section" id="cities">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">What's inside</div>
-          <h2>A new kind of <span class="gold">classroom.</span></h2>
-          <p>Instead of reading about money, players learn by making decisions and seeing what happens.</p>
+          <div class="kicker">The world</div>
+          <h2>Five cities. <span class="gold">Five money skills.</span></h2>
+          <p>Every city has its own streets, weather and buildings, and each one teaches a different part of money. Step through a portal in Fin-City Park to travel.</p>
+        </div>
+        <div class="cities">
+          <article class="city reveal" style="--c:#F08A5D"><img src="img/fin-city/san-francisco.jpg" alt="The San Francisco plaza in Fin City, with a portal, a welcome gate and city streets" width="1280" height="720" loading="lazy"><div><small>EARNING, CAREERS &amp; TECH</small><h3>San Francisco</h3><p>Get a job, negotiate a salary, file a tax return and spot online scams.</p></div></article>
+          <article class="city reveal" style="--c:#F1D778"><img src="img/fin-city/new-york.jpg" alt="Snowy New York in Fin City, with yellow taxis and brick buildings" width="1280" height="720" loading="lazy"><div><small>INVESTING &amp; MARKETS</small><h3>New York</h3><p>Buy and sell stocks, bonds and index funds in a market that moves.</p></div></article>
+          <article class="city reveal" style="--c:#F07A6A"><img src="img/fin-city/london.jpg" alt="London in Fin City at sunset, with a clock tower and red buses" width="1280" height="720" loading="lazy"><div><small>BUDGETING &amp; SMART SHOPPING</small><h3>London</h3><p>Plan a budget, take the grocery challenge and spot whether a deal is really a deal.</p></div></article>
+          <article class="city reveal" style="--c:#F49AC4"><img src="img/fin-city/hong-kong.jpg" alt="Hong Kong in Fin City, with tall towers, neon signs and a red gate" width="1280" height="720" loading="lazy"><div><small>BUSINESS &amp; TRADE</small><h3>Hong Kong</h3><p>Run a night market stall, trade in the harbor and find your break-even point.</p></div></article>
+          <article class="city reveal" style="--c:#7CE0D6"><img src="img/fin-city/singapore.jpg" alt="Singapore in Fin City at dusk, with lit-up towers and street lamps" width="1280" height="720" loading="lazy"><div><small>SAVING, PROTECTION &amp; THE LONG TERM</small><h3>Singapore</h3><p>Save for a rainy day, live through an insurance year and meet your future self.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section alt" id="the-game">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Features</div>
+          <h2>Learn money by <span class="gold">living it.</span></h2>
         </div>
 
-        <div class="achv">
-          <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-users"/></svg></span><span class="ach-status"><b>01 / TWO MODES</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Made for 6 to 18</h3>
-            <p><strong>Entry</strong> (ages 6–13) has big buttons, read-aloud and generous hints. <strong>Advanced</strong> (13–18) uses real calculations, taxes, credit scores and markets.</p>
-          </article>
-          <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg></span><span class="ach-status"><b>02 / PLAY</b>ACHIEVEMENT UNLOCKED</span></div>
+        <div class="feat reveal">
+          <figure class="feat-shot"><img src="img/fin-city/needs-wants.jpg" alt="The Sorting Conveyor activity in Fin City, asking if movie tickets are a need or a want" width="1280" height="720" loading="lazy"></figure>
+          <div>
             <h3>40+ kinds of activities</h3>
-            <p>Step inside buildings across five cities and take on activities, quests and challenges, each one built around a real money skill.</p>
-          </article>
-          <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-wallet"/></svg></span><span class="ach-status"><b>03 / LIVE IT</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Your own financial life</h3>
-            <p>Run a simulated life of your own: earn, budget, save and invest, and watch how today's choices shape tomorrow.</p>
-          </article>
-          <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg></span><span class="ach-status"><b>04 / LEVEL UP</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Quests, outfits &amp; the FinPhone</h3>
-            <p>Complete quests to earn outfits, use the apps on your FinPhone, and brush up anytime in the Learn hub.</p>
-          </article>
-          <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-lock"/></svg></span><span class="ach-status"><b>05 / NO SIGN-UP</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>No account needed</h3>
-            <p>No accounts or ads. Your progress saves in your own browser, and you can export it as a file. We use Google Analytics to see how the game is used, like visits and milestones reached.</p>
-          </article>
-          <article class="ach reveal">
-            <div class="ach-top"><span class="ach-badge"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg></span><span class="ach-status"><b>06 / FOR CLASSROOMS</b>ACHIEVEMENT UNLOCKED</span></div>
-            <h3>Teacher &amp; parent report</h3>
-            <p>Download a progress report right from the pause menu. It runs well on Chromebooks too, with Low, Medium and High quality settings.</p>
-          </article>
+            <p>Walk into a building and play. Every activity is built around a real money skill, from sorting needs and wants to filing taxes and pricing a business.</p>
+            <ul><li>Quests, challenges and seasonal events</li><li>Earn up to 3 stars on every run</li><li>A quick lesson before each activity, with help when you need it</li></ul>
+          </div>
+        </div>
+
+        <div class="feat reveal">
+          <figure class="feat-shot"><img src="img/fin-city/brokerage.jpg" alt="The Brokerage screen in Fin City, showing stock prices and a chart for an index fund" width="1280" height="720" loading="lazy"></figure>
+          <div>
+            <h3>Invest in a market that moves</h3>
+            <p>Buy and sell shares in fictional companies, index funds and bonds. Prices rise and fall over time, so you see why spreading out your money matters.</p>
+            <ul><li>Stocks, index funds and bonds</li><li>Risk and dividends explained in plain words</li><li>Your net worth updates as you play</li></ul>
+          </div>
+        </div>
+
+        <div class="feat reveal">
+          <figure class="feat-shot"><img src="img/fin-city/park-narwhal.jpg" alt="A player and NextGen Narwhal walking into Fin-City Park, with the game's menu, money and minimap on screen" width="1280" height="720" loading="lazy"></figure>
+          <div>
+            <h3>Your guide, NextGen Narwhal</h3>
+            <p>NextGen Narwhal walks with you, explains what to do next and cheers you on. Tap the narwhal any time you get stuck.</p>
+            <ul><li>Read-aloud for younger players</li><li>Bank, goals, investing and quests one tap away</li><li>A FinPhone with apps for your money</li></ul>
+          </div>
+        </div>
+
+        <div class="feat reveal">
+          <figure class="feat-shot"><img src="img/fin-city/city-map.jpg" alt="The Fin City map of San Francisco, listing buildings like the Job Center and Tax Office" width="1280" height="720" loading="lazy"></figure>
+          <div>
+            <h3>Find your way around</h3>
+            <p>Open the city map, pick a building and follow the gold trail, or jump straight there. Ride bikes and cars once you've saved up for them.</p>
+          </div>
+        </div>
+
+        <div class="feat reveal">
+          <figure class="feat-shot"><img src="img/fin-city/choose-level.jpg" alt="The Choose your level screen in Fin City, with Entry for ages 6 to 13 and Advanced for ages 13 to 18" width="1280" height="720" loading="lazy"></figure>
+          <div>
+            <h3>Two levels, one game</h3>
+            <p><strong>Entry</strong> (ages 6–13) has big buttons, pictures and lots of hints. <strong>Advanced</strong> (ages 13–18) uses real calculations: compound interest, credit scores, taxes, P/E ratios and business math. Switch any time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALSO INCLUDED -->
+    <section class="section" id="included">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Also included</div>
+          <h2>Made for players, <span class="gold">parents and teachers.</span></h2>
+        </div>
+        <div class="extras">
+          <div class="extra reveal"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-lock"/></svg><div><h3>No account needed</h3><p>No sign-up and no ads. Progress saves in your browser, and you can export it as a file.</p></div></div>
+          <div class="extra reveal"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-book"/></svg><div><h3>Progress report</h3><p>Download a teacher and parent report right from the pause menu.</p></div></div>
+          <div class="extra reveal"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-gamepad"/></svg><div><h3>Runs on Chromebooks</h3><p>Low, Medium and High quality settings keep it smooth on school laptops.</p></div></div>
+          <div class="extra reveal"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-star"/></svg><div><h3>Make it yours</h3><p>Create your character, earn outfits from quests, own a home and adopt a pet.</p></div></div>
+          <div class="extra reveal"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-cap"/></svg><div><h3>Learn hub</h3><p>Brush up on any topic with short lessons and a glossary of money words.</p></div></div>
+          <div class="extra reveal"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-shield"/></svg><div><h3>Nicknames only</h3><p>Players use a fun nickname, never a real name. We use Google Analytics to count visits and milestones.</p></div></div>
         </div>
       </div>
     </section>
@@ -337,33 +379,16 @@
       <div class="container">
         <div class="section-head reveal">
           <div class="kicker">How to play</div>
-          <h2>Three steps to <span class="gold">your first city.</span></h2>
+          <h2>Start playing in <span class="gold">under a minute.</span></h2>
         </div>
-
-        <div class="map reveal" aria-label="How to start playing">
-          <div class="node"><span class="pin">1</span><div><small>STEP 1</small><h3>Go to fincity.dev</h3><p>It runs right in your browser. Nothing to download or sign up for.</p></div></div>
-          <div class="node"><span class="pin">2</span><div><small>STEP 2</small><h3>Make a world</h3><p>Pick a nickname (never your real name) and create your world.</p></div></div>
-          <div class="node"><span class="pin">3</span><div><small>STEP 3</small><h3>Choose your mode</h3><p>Go Entry or Advanced, then start exploring from Fin-City Park.</p></div></div>
+        <div class="steps">
+          <div class="step reveal"><b>1</b><h3>Go to fincity.dev</h3><p>It runs right in your browser. Nothing to download or sign up for.</p></div>
+          <div class="step reveal"><b>2</b><h3>Name your game</h3><p>Pick a nickname (never your real name), choose Entry or Advanced and make your character.</p></div>
+          <div class="step reveal"><b>3</b><h3>Start exploring</h3><p>Begin in Fin-City Park with NextGen Narwhal, then step through a portal to your first city.</p></div>
         </div>
-      </div>
-    </section>
-
-    <!-- BETA CARTRIDGE -->
-    <section class="section" id="beta">
-      <div class="container">
-        <div class="cart reveal">
-          <div class="cart-grip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <div class="label">
-            <img src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City game logo" width="170" height="170" loading="lazy">
-            <div class="kicker">Beta testers wanted</div>
-            <h2>Play it. Break it. Tell us.</h2>
-            <p>Fin City is in beta, so things may still change and you might find a bug or two. Your feedback helps us make it better for every student who plays.</p>
-            <div class="hero-actions">
-              <a href="https://fincity.dev" class="btn btn-ink" target="_blank" rel="noopener">Play the beta ↗</a>
-              <a href="#feedback" class="btn btn-ghost">Send feedback ↓</a>
-            </div>
-            <p class="credit">FIN CITY · BY NEXTGEN KNOWLEDGE · <a class="text-link" href="https://www.instagram.com/reel/DeUTNG4O01F/" target="_blank" rel="noopener noreferrer">WATCH THE TEASER</a></p>
-          </div>
+        <div class="play-cta reveal">
+          <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">Play Fin City free ↗</a>
+          <p><a class="text-link" href="https://www.instagram.com/reel/DeUTNG4O01F/" target="_blank" rel="noopener noreferrer">Watch the teaser</a> · <a class="text-link" href="#feedback">Send feedback</a></p>
         </div>
       </div>
     </section>
@@ -372,7 +397,7 @@
     <section class="section" id="feedback">
       <div class="container">
         <div class="section-head reveal">
-          <div class="kicker">Beta feedback</div>
+          <div class="kicker">Player feedback</div>
           <h2>Found a bug? <span class="gold">Got an idea?</span></h2>
           <p>Tell us what worked, what broke and what you want next. Every report is read by the students building Fin City.</p>
         </div>
@@ -409,14 +434,14 @@
       </div>
     </section>
 
-    <!-- FIN CITY BETA POP-UP (opens once per visit, see site.js) -->
+    <!-- FIN CITY LAUNCH POP-UP (opens once per visit, see site.js) -->
     <dialog class="win beta-pop" id="betaPop" data-autoshow aria-labelledby="betaPopTitle">
-      <div class="win-bar"><span class="win-title"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-play"/></svg> FIN_CITY_BETA.EXE</span><button class="win-close" type="button" data-nodrag aria-label="Close">×</button></div>
+      <div class="win-bar"><span class="win-title"><svg class="px-icon" aria-hidden="true"><use href="icons.svg#i-play"/></svg> FIN_CITY.EXE</span><button class="win-close" type="button" data-nodrag aria-label="Close">×</button></div>
       <div class="win-body">
         <img class="beta-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City game logo" width="140" height="140">
-        <p class="beta-tag">NOW IN BETA</p>
+        <p class="beta-tag">OUT NOW</p>
         <h2 id="betaPopTitle">Fin City is live. Come play.</h2>
-        <p>Our free 3D money game is open for beta testing. Explore five cities, play 40+ activities and run a financial life of your own. No account needed.</p>
+        <p>Our free 3D money game has officially launched. Explore five cities, play 40+ activities and run a financial life of your own. No account needed.</p>
         <div class="beta-actions">
           <a href="https://fincity.dev" class="btn" target="_blank" rel="noopener">Play at fincity.dev ↗</a>
           <button type="button" class="btn btn-ghost" data-close>Maybe later</button>
@@ -448,7 +473,7 @@
 
         <div class="footer-col">
           <h4>Get Involved</h4>
-          <a href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City (beta)</a>
+          <a href="https://fincity.dev" target="_blank" rel="noopener">Play Fin City</a>
           <a href="fin-city.html#feedback">Send feedback</a>
           <a href="partnerships.html">Partnerships</a>
           <a href="donate.html">Support Our Work</a>
@@ -474,38 +499,70 @@
   <script src="site.js"></script>
   <script src="games.js"></script>
   <script>
-    /* RPG DIALOG — click a building to hear about it */
-    const places = {
-      sf: ["SAN FRANCISCO", "San Francisco is all about earning, careers and tech."],
-      ny: ["NEW YORK", "New York is the city of investing and markets."],
-      ldn: ["LONDON", "London is where you practice budgeting and smart shopping."],
-      hk: ["HONG KONG", "Hong Kong is all about business and trade."],
-      sg: ["SINGAPORE", "Singapore covers saving, protection and thinking long term."]
-    };
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const dlgWho = document.getElementById("dlgWho");
-    const dlgText = document.getElementById("dlgText");
-    let typing;
-
-    function say(who, text) {
-      clearInterval(typing);
-      dlgWho.textContent = who;
-      if (reduceMotion) { dlgText.textContent = text; return; }
-      let i = 0;
-      dlgText.textContent = "";
-      typing = setInterval(() => {
-        dlgText.textContent = text.slice(0, ++i);
-        if (i >= text.length) clearInterval(typing);
-      }, 18);
-    }
-
-    document.querySelectorAll(".bldg").forEach(b => {
-      b.addEventListener("click", () => {
-        document.querySelectorAll(".bldg").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-        const [who, text] = places[b.dataset.place];
-        say(who, text);
+    /* Screenshot viewer: main image, arrows, thumbnails and arrow keys */
+    (function () {
+      const shots = [
+        ["park-narwhal", "Fin-City Park", "Start in the park with NextGen Narwhal as your guide."],
+        ["new-york-hud", "New York", "Every city has its own streets, traffic and weather."],
+        ["brokerage", "The Brokerage", "Buy and sell stocks, index funds and bonds."],
+        ["needs-wants", "Sorting Conveyor", "One of 40+ kinds of activities: is it a need or a want?"],
+        ["city-map", "City map", "Pick a building and follow the gold trail."],
+        ["hong-kong", "Hong Kong", "Business and trade among the towers."],
+        ["london", "London", "Budgeting and smart shopping at sunset."],
+        ["singapore", "Singapore", "Saving, protection and thinking long term."],
+        ["san-francisco", "San Francisco", "Earning, careers and tech."],
+        ["choose-level", "Choose your level", "Entry for ages 6–13, Advanced for 13–18."],
+        ["character", "Make your character", "Pick your look, then buy more outfits later."]
+      ];
+      const alts = {
+        "park-narwhal": "A player and NextGen Narwhal walking into Fin-City Park, with the game's menu, money and minimap on screen",
+        "new-york-hud": "Snowy New York in Fin City seen from above, with a portal, taxis and the game's menu on screen",
+        "brokerage": "The Brokerage screen in Fin City, showing stock prices and a chart for an index fund",
+        "needs-wants": "The Sorting Conveyor activity in Fin City, asking if movie tickets are a need or a want",
+        "city-map": "The Fin City map of San Francisco, listing buildings like the Job Center and Tax Office",
+        "hong-kong": "Hong Kong in Fin City, with tall towers, neon signs and a red gate",
+        "london": "London in Fin City at sunset, with a clock tower and red buses",
+        "singapore": "Singapore in Fin City at dusk, with lit-up towers and street lamps",
+        "san-francisco": "The San Francisco plaza in Fin City, with a portal, a welcome gate and city streets",
+        "choose-level": "The Choose your level screen in Fin City, with Entry and Advanced options",
+        "character": "The Make your character screen in Fin City, with body, hair and outfit options"
+      };
+      const main = document.getElementById("shotMain");
+      const cap = document.getElementById("shotCap");
+      const num = document.getElementById("shotNum");
+      const list = document.getElementById("shotThumbs");
+      if (!main || !list) return;
+      let cur = 0;
+      const btns = shots.map(([id, title], i) => {
+        const li = document.createElement("li");
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Show screenshot " + (i + 1) + ": " + title);
+        b.innerHTML = '<img src="img/fin-city/' + id + '.jpg" alt="" width="1280" height="720" loading="lazy">';
+        b.addEventListener("click", () => show(i));
+        li.appendChild(b);
+        list.appendChild(li);
+        return b;
       });
-    });
+      function show(i) {
+        cur = (i + shots.length) % shots.length;
+        const [id, title, text] = shots[cur];
+        main.src = "img/fin-city/" + id + ".jpg";
+        main.alt = alts[id];
+        cap.innerHTML = "<b>" + title + "</b> · " + text;
+        num.textContent = (cur + 1) + " / " + shots.length;
+        btns.forEach((b, j) => b.setAttribute("aria-current", String(j === cur)));
+        const t = btns[cur];
+        list.scrollTo({ left: t.offsetLeft - list.clientWidth / 2 + t.offsetWidth / 2, behavior: "smooth" });
+      }
+      document.getElementById("shotPrev").addEventListener("click", () => show(cur - 1));
+      document.getElementById("shotNext").addEventListener("click", () => show(cur + 1));
+      document.querySelector(".viewer").addEventListener("keydown", e => {
+        if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
+        if (e.key === "ArrowRight") { show(cur + 1); e.preventDefault(); }
+      });
+      show(0);
+    })();
   </script>
 
 </body>
