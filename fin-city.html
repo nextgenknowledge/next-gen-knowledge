@@ -68,12 +68,27 @@
     .fc-pill { padding: 6px 10px; font-family: var(--pixel); font-size: .45rem; line-height: 1.6; color: #14110A; background: var(--green); }
     .fc-pill.gold { background: var(--gold-bright); }
     .fc-pill.dim { color: var(--text); background: rgba(13,32,56,.9); box-shadow: inset 0 0 0 2px #2B4566; }
-    .fc-live { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 10px 14px; font-size: 1rem; color: var(--text); background: rgba(3,10,19,.82); box-shadow: inset 0 0 0 2px #1D3A2D; }
-    .fc-live strong { font-family: var(--term); font-size: 1.9rem; font-weight: 400; line-height: 1; color: var(--green); }
-    .fc-live small { font-size: .82rem; color: var(--muted); }
-    .fc-dot { width: 10px; height: 10px; flex: none; background: var(--green); box-shadow: 0 0 0 3px rgba(124,224,176,.25); animation: fcPulse 1.6s steps(2) infinite; }
-    @keyframes fcPulse { 50% { opacity: .35; } }
-    @media (prefers-reduced-motion: reduce) { .fc-dot { animation: none; } }
+    .fc-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; }
+    .fc-score { position: relative; width: 340px; padding: 18px 20px 16px; background: rgba(3,10,19,.92); box-shadow: 0 0 0 3px #1D3A2D, 0 0 0 6px #030A13, 12px 12px 0 6px rgba(3,10,19,.55); }
+    .fc-score::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(255,255,255,.035) 0 1px, transparent 1px 3px); }
+    .fc-score-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .fc-score-live { display: inline-flex; align-items: center; gap: 7px; padding: 4px 8px; font-family: var(--pixel); font-size: .45rem; line-height: 1.6; color: #062114; background: var(--green); }
+    .fc-score-live .fc-dot { width: 7px; height: 7px; background: #062114; box-shadow: none; }
+    .fc-score-label { font-family: var(--pixel); font-size: .45rem; line-height: 1.6; color: var(--gold-bright); letter-spacing: .04em; }
+    .fc-dot { width: 10px; height: 10px; flex: none; background: var(--green); animation: fcPulse 1.2s steps(2) infinite; }
+    @keyframes fcPulse { 50% { opacity: .3; } }
+    .odo { display: flex; align-items: flex-end; gap: 6px; margin: 16px 0 14px; font-family: var(--term); font-size: 4.6rem; line-height: 1; color: var(--green); }
+    .odo-d { position: relative; width: .62em; height: 1em; overflow: hidden; text-align: center; background: linear-gradient(#0E2A1E 0 50%, #0A2017 50% 100%); box-shadow: inset 0 0 0 2px #1D3A2D, 0 4px 0 #020810; }
+    .odo-d::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: rgba(2,8,16,.75); }
+    .odo-strip { display: block; transition: transform 2.2s cubic-bezier(.16,.84,.24,1); }
+    .odo-strip span { display: block; height: 1em; line-height: 1.02em; text-shadow: 0 0 14px rgba(124,224,176,.55), 0 0 2px rgba(124,224,176,.9); }
+    .odo-sep { width: .22em; text-align: center; text-shadow: 0 0 14px rgba(124,224,176,.55); }
+    .fc-goal-row { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 7px; font-size: .85rem; color: var(--muted); }
+    .fc-goal-row b { color: var(--text); }
+    .fc-goal-track { height: 12px; background: #050D19; box-shadow: inset 0 0 0 2px #1D3A2D; }
+    .fc-goal-fill { width: 0; height: 100%; background: repeating-linear-gradient(90deg, var(--green) 0 8px, #5BC898 8px 10px); transition: width 2.2s steps(24); }
+    .fc-score-foot { margin: 12px 0 0; font-size: .78rem; color: #7F93AD; }
+    @media (prefers-reduced-motion: reduce) { .fc-dot { animation: none; } .odo-strip, .fc-goal-fill { transition: none; } }
     .fc-platforms { margin: 22px 0 0; font-size: .9rem; color: var(--muted); }
 
     /* ---------- media + info (store page style) ---------- */
@@ -159,6 +174,8 @@
     #feedback .kicker { justify-content: center; }
 
     @media (max-width: 1020px) {
+      .fc-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+      .fc-score { width: min(340px, 100%); }
       .store { grid-template-columns: minmax(0, 1fr); }
       .info { max-width: 560px; }
       .cities { grid-template-columns: 1fr 1fr; }
@@ -175,6 +192,7 @@
       .stats-strip div:nth-child(2) { border-right: 0; }
       .stats-strip div { padding: 16px 6px; }
       .thumbs button { width: 96px; }
+      .odo { font-size: 3.6rem; }
       .viewer-nav { width: 36px; height: 46px; }
       .viewer figcaption { flex-direction: column; gap: 4px; }
     }
@@ -229,10 +247,10 @@
     <!-- HERO BANNER -->
     <section class="fc-banner">
       <img class="bg" src="img/fin-city/new-york.jpg" alt="" width="1280" height="720" fetchpriority="high">
-      <div class="container">
+      <div class="container fc-hero-grid">
+        <div>
         <img class="hero-logo" src="Fin-City%20Pixel%20Skyline%20Logo.png" alt="Fin City" width="300" height="300">
         <div class="fc-pills"><span class="fc-pill">OUT NOW</span><span class="fc-pill gold">FREE TO PLAY</span><span class="fc-pill dim">AGES 6–18</span></div>
-        <p class="fc-live"><span class="fc-dot" aria-hidden="true"></span><strong id="playerCount" data-count="636">636</strong> players so far <small>· updated daily</small></p>
         <h1>Fin City</h1>
         <p class="tagline">Your money. Your moves. Your city.</p>
         <p class="lede">
@@ -247,6 +265,19 @@
           <a href="#screenshots" class="btn btn-ghost">See screenshots ↓</a>
         </div>
         <p class="fc-platforms">Plays in any web browser · Works on Chromebooks · No download or account</p>
+        </div>
+
+        <!-- Player count: the number in #playerCount is rewritten daily by .github/workflows/fin-city-players.yml -->
+        <aside class="fc-score" aria-label="Fin City players">
+          <div class="fc-score-top"><span class="fc-score-live"><span class="fc-dot" aria-hidden="true"></span>LIVE</span><span class="fc-score-label">ALL-TIME PLAYERS</span></div>
+          <p class="sr-only"><strong id="playerCount" data-count="636">636</strong> players so far</p>
+          <div class="odo" id="odo" aria-hidden="true"></div>
+          <div class="fc-goal" aria-hidden="true">
+            <div class="fc-goal-row"><span>Next goal</span><b id="goalText"></b></div>
+            <div class="fc-goal-track"><div class="fc-goal-fill" id="goalFill"></div></div>
+          </div>
+          <p class="fc-score-foot">Counted from Google Analytics · updated every day</p>
+        </aside>
       </div>
     </section>
 
@@ -572,5 +603,39 @@
     })();
   </script>
 
+  <script>
+    /* Player count scoreboard: rolling digits and progress to the next milestone */
+    (function () {
+      const src = document.getElementById("playerCount");
+      const odo = document.getElementById("odo");
+      if (!src || !odo) return;
+      const n = Number(src.dataset.count) || 0;
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const strips = [];
+      for (const ch of n.toLocaleString("en-US")) {
+        if (ch === ",") { const sep = document.createElement("span"); sep.className = "odo-sep"; sep.textContent = ","; odo.appendChild(sep); continue; }
+        const box = document.createElement("span");
+        box.className = "odo-d";
+        const strip = document.createElement("span");
+        strip.className = "odo-strip";
+        strip.innerHTML = "01234567890123456789".split("").map(d => "<span>" + d + "</span>").join("");
+        box.appendChild(strip);
+        odo.appendChild(box);
+        strips.push([strip, Number(ch)]);
+      }
+      const goals = [100, 250, 500, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000];
+      const goal = goals.find(g => g > n) || Math.ceil((n + 1) / 1000000) * 1000000;
+      document.getElementById("goalText").textContent = goal.toLocaleString("en-US") + " players";
+      const fill = document.getElementById("goalFill");
+      const roll = () => {
+        strips.forEach(([strip, d], i) => {
+          strip.style.transitionDelay = (i * 0.15) + "s";
+          strip.style.transform = "translateY(-" + (reduce ? d : d + 10) + "em)";
+        });
+        fill.style.width = Math.min(100, (n / goal) * 100).toFixed(1) + "%";
+      };
+      if (reduce) roll(); else setTimeout(roll, 400);
+    })();
+  </script>
 </body>
 </html>
