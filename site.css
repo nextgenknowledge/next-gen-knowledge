@@ -296,7 +296,7 @@ p { color: var(--muted); }
 
 /* ---------- responsive ---------- */
 
-@media (max-width: 960px) {
+@media (max-width: 1120px) {
   .menu-toggle { display: block; }
   .nav-links {
     position: absolute;

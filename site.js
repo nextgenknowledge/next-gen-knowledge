@@ -21,7 +21,7 @@
     });
 
     navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
-    window.addEventListener("resize", () => { if (window.innerWidth > 960) closeMenu(); });
+    window.addEventListener("resize", () => { if (window.innerWidth > 1120) closeMenu(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
   }
 
