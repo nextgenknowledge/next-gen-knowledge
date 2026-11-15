@@ -19,3 +19,7 @@ exclude:
   - IMG_5641.jpeg
   - IMG_7201.jpeg
   - photo.png
+
+# Jekyll skips dot-folders by default; publish the security contact file
+include:
+  - .well-known
