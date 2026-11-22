@@ -1,4 +1,7 @@
-"""Write Fin City's all-time user count from Google Analytics into fin-city.html.
+"""Write Fin City's all-time user count from Google Analytics into the site.
+
+fin-city.html has the main counter (#playerCount). Every other page that shows the count marks it with
+<span data-count="N" data-fc-players>N</span>, and those are updated too.
 
 Run daily by .github/workflows/fin-city-players.yml. Needs two environment variables:
   GA_CREDENTIALS  the service account's JSON key (a GitHub secret)
@@ -35,4 +38,13 @@ if users <= 0 or users < old * 0.9:
 
 html = PATTERN.sub(lambda m: f"{m.group(1)}{users}{m.group(3)}{users:,}{m.group(5)}", html, count=1)
 open(PAGE, "w", encoding="utf-8").write(html)
+
+# The impact numbers on the home, About and Donate pages
+MARKED = re.compile(r'(<span data-count=")(\d+)(" data-fc-players>)([\d,]+)(<)')
+for page in ("index.html", "about.html", "donate.html"):
+    text = open(page, encoding="utf-8").read()
+    text, n = MARKED.subn(lambda m: f"{m.group(1)}{users}{m.group(3)}{users:,}{m.group(5)}", text)
+    if n:
+        open(page, "w", encoding="utf-8").write(text)
+
 print(f"Fin City players: {old} -> {users}")

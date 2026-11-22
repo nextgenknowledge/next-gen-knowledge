@@ -38,7 +38,7 @@
     [...track.children].slice(track.children.length / 2).forEach(el => el.setAttribute("aria-hidden", "true"));
   });
 
-  /* COUNT-UP NUMBERS: <span data-count="350" data-suffix="+"> */
+  /* COUNT-UP NUMBERS: <span data-count="110" data-suffix="+"> */
   function countUp(el) {
     const target = Number(el.dataset.count);
     const prefix = el.dataset.prefix || "";
