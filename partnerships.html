@@ -85,7 +85,9 @@
     .statband span { font-family: var(--pixel); font-size: .48rem; line-height: 1.8; color: #8FA2BA; }
 
     /* business cards */
-    .bizcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .bizcards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .biz-mono { width: 76px; height: 76px; flex: none; display: grid; place-items: center; background: #1F4D2E; color: var(--paper); box-shadow: 0 0 0 3px var(--ink); font-family: var(--pixel); font-size: 1.5rem; }
+    .logos .mono { width: 48px; height: 48px; margin-right: -10px; display: grid; place-items: center; background: #1F4D2E; color: var(--paper); box-shadow: 0 0 0 3px #0A2342; font-family: var(--pixel); font-size: .9rem; }
     .biz { position: relative; display: flex; flex-direction: column; padding: 26px; color: var(--ink); background: var(--paper); box-shadow: 8px 8px 0 #030A13; }
     .biz::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: repeating-linear-gradient(90deg, var(--gold) 0 16px, var(--gold-dark) 16px 32px); }
     .biz-head { display: flex; gap: 16px; align-items: center; margin: 8px 0 16px; }
@@ -197,6 +199,7 @@
                   <img src="IMG_7880.jpeg" alt="Bridge Finance Network">
                   <img src="179EFBA1-5374-4AC5-957E-BCA4E404812C.jpeg" alt="Moniqo">
                   <img src="65a709b8-50c3-4820-ae51-c5b435da882c.jpeg" alt="Lumera">
+                  <span class="mono" role="img" aria-label="Deerkill Day Camp">DK</span>
                 </div>
               </div>
               <span class="bc-brand">BALANCE:<br>UNLIMITED</span>
@@ -208,7 +211,7 @@
     </section>
 
     <div class="statband" aria-label="Partnership overview">
-      <div><strong>03</strong><span>CURRENT PARTNERS</span></div>
+      <div><strong>04</strong><span>CURRENT PARTNERS</span></div>
       <div><strong>01</strong><span>SHARED MISSION</span></div>
       <div><strong>∞</strong><span>POSSIBILITIES</span></div>
       <div><strong>100%</strong><span>STUDENT-FOCUSED</span></div>
@@ -249,6 +252,15 @@
             </div>
             <p>Lumera is an AI-powered personal finance platform built to make financial intelligence simple, accessible, and practical for young people. From financial education and market insights to career and university guidance, Lumera brings the tools and knowledge you need to make smarter financial decisions, all in one place.</p>
             <div class="biz-foot"><span class="soon">Website coming soon</span></div>
+          </article>
+
+          <article class="biz reveal">
+            <div class="biz-head">
+              <span class="biz-mono" role="img" aria-label="Deerkill Day Camp">DK</span>
+              <div><h3>Deerkill Day Camp</h3><div class="tags"><span class="tag gold">Community</span><span class="tag">Deerkill Cares</span></div></div>
+            </div>
+            <p>A third-generation, family-run day camp in Suffern, NY, founded in 1958 and serving families across Bergen, Rockland and the New York area. Through its Deerkill Cares program, the camp gives back to the community, and it is helping share Fin City and free financial education with its families.</p>
+            <div class="biz-foot"><span>deerkilldaycamp.com</span><a href="https://www.deerkilldaycamp.com" target="_blank" rel="noopener noreferrer">Visit website ↗</a></div>
           </article>
         </div>
       </div>
