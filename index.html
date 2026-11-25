@@ -54,19 +54,6 @@
   </script>
 
   <style>
-    /* ================= PRESS ================= */
-    .press-wrap { padding: 0 0 100px; }
-    .press { display: grid; grid-template-columns: auto 1fr; gap: 34px; align-items: center; padding: 34px 38px; color: var(--ink); background: var(--paper); box-shadow: 10px 10px 0 #030A13; position: relative; }
-    .press::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: repeating-linear-gradient(90deg, var(--gold) 0 16px, var(--gold-dark) 16px 32px); }
-    .press-outlet { font-family: var(--pixel); font-size: 1.6rem; color: var(--ink); line-height: 1.3; }
-    .press-outlet small { display: block; margin-top: 10px; font-family: var(--term); font-size: 1.15rem; color: var(--ink-soft); letter-spacing: .04em; }
-    .press .kicker { color: #6B5418; }
-    .press h3 { margin: 6px 0 12px; color: var(--ink); font-size: 1.45rem; line-height: 1.25; font-stretch: 100%; }
-    .press blockquote { margin: 0 0 16px; padding-left: 14px; border-left: 4px solid var(--gold-dark); color: #4A4334; font-style: italic; }
-    .press a.read { font-weight: 700; color: #1C3B6B; border-bottom: 3px solid currentColor; }
-    .press a.read:hover { color: var(--stamp); }
-    @media (max-width: 720px) { .press { grid-template-columns: 1fr; gap: 18px; padding: 30px 22px; } }
-
     /* ================= HERO ================= */
 
     .hero { padding: 72px 0 96px; position: relative; }
@@ -85,47 +72,11 @@
     .hero-note { margin-top: 34px; font-family: var(--term); font-size: 1.2rem; color: #8FA2BA; }
     .hero-note b { color: var(--green); font-weight: 400; }
 
-    /* CRT monitor */
-    .crt {
-      --c: #2B4566;
-      position: relative;
-      padding: 18px;
-      background: #0B1B2F;
-    }
-    .crt-bar {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 0 4px 14px;
-      font-family: var(--pixel); font-size: .54rem; color: #8FA2BA;
-    }
-    .crt-bar .dots { display: flex; gap: 8px; }
-    .crt-bar .dots i { width: 10px; height: 10px; background: var(--red); }
-    .crt-bar .dots i:nth-child(2) { background: var(--gold); }
-    .crt-bar .dots i:nth-child(3) { background: var(--green); }
-
-    .crt-screen {
-      position: relative;
-      overflow: hidden;
-      padding: 18px 18px 0;
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(132,183,255,.16), transparent 60%),
-        linear-gradient(#071223, #0B2140 78%, #102C1E 78%);
-      box-shadow: inset 0 0 0 4px #04101E, inset 0 0 60px rgba(0,0,0,.6);
-    }
-    .crt-screen::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 2px, transparent 2px 4px);
-    }
-
-    .shot { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #04101E; box-shadow: inset 0 0 0 4px #04101E; }
-    .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
-    .shot img.on { opacity: 1; }
-    .shot-tag { display: block; margin: 16px 4px 0; font-family: var(--pixel); font-size: .55rem; line-height: 1.6; color: var(--gold-bright); }
-    .shot-cap { margin: 6px 4px 0; min-height: 2.6em; font-family: var(--term); font-size: 1.2rem; line-height: 1.3; color: #C9D6E8; }
-    .thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 12px; }
-    .thumbs button { padding: 0; border: 0; cursor: pointer; aspect-ratio: 16 / 9; overflow: hidden; background: #04101E; box-shadow: 0 0 0 2px #1D324D; opacity: .55; transition: opacity .2s; }
-    .thumbs button img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .thumbs button:hover, .thumbs button:focus-visible { opacity: .85; outline: none; }
-    .thumbs button[aria-current="true"] { opacity: 1; box-shadow: 0 0 0 3px var(--gold-bright); }
+    .feature { display: block; max-width: 460px; margin-left: auto; }
+    .feature img { display: block; width: 100%; height: auto; box-shadow: 10px 10px 0 #030A13; transition: transform .2s ease; }
+    .feature:hover img, .feature:focus-visible img { transform: translate(-3px, -3px); }
+    .feature-cap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 18px; font-family: var(--pixel); font-size: .55rem; line-height: 1.6; color: var(--gold-bright); }
+    .feature-cap span:last-child { color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
 
     /* ================= PASSBOOK ================= */
 
@@ -242,7 +193,7 @@
       .note-inner { grid-template-columns: 1fr; }
       .seal { display: none; }
       .note-corner { font-size: 1rem; }
-      .thumbs { grid-template-columns: repeat(3, 1fr); }
+      .feature { margin: 0 auto; }
       .ledger { padding: 18px 16px 70px; }
       .ledger table { font-size: 1.1rem; }
       .ledger td.amt { font-size: 1.5rem; }
@@ -327,34 +278,11 @@
           <p class="hero-note"><b>&gt;</b> Built by students. Designed to make real-world learning more accessible.</p>
         </div>
 
-        <!-- Fin City screenshots -->
-        <div class="crt px-border" aria-label="Screenshots from Fin City">
-          <div class="crt-bar">
-            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span>FIN_CITY.EXE</span>
-            <span>&#9679; LIVE</span>
-          </div>
-
-          <a class="shot" href="https://fincity.dev" target="_blank" rel="noopener" aria-label="Play Fin City at fincity.dev">
-              <img src="img/fin-city/park-narwhal.jpg" alt="A player and NextGen Narwhal walking into Fin City park" class="on" width="1280" height="720" data-tag="FIN CITY PARK" data-cap="Meet NextGen Narwhal, your guide. Customize a character and start exploring.">
-              <img src="img/fin-city/new-york-hud.jpg" alt="Snowy New York in Fin City with the city portal" width="1280" height="720" loading="lazy" data-tag="NEW YORK" data-cap="Walk through real-world cities, each built around a different money skill.">
-              <img src="img/fin-city/brokerage.jpg" alt="The Fin City brokerage screen with stock prices and an index fund chart" width="1280" height="720" loading="lazy" data-tag="THE BROKERAGE" data-cap="Buy and sell stocks, bonds and index funds in a market that moves.">
-              <img src="img/fin-city/needs-wants.jpg" alt="The needs versus wants sorting game in Fin City" width="1280" height="720" loading="lazy" data-tag="NEEDS VS. WANTS" data-cap="40+ quick activities, like sorting needs from wants, with up to 3 stars per run.">
-              <img src="img/fin-city/city-map.jpg" alt="The Fin City map showing San Francisco buildings" width="1280" height="720" loading="lazy" data-tag="CITY MAP" data-cap="Jump between San Francisco, New York, London, Hong Kong and Singapore.">
-              <img src="img/fin-city/choose-level.jpg" alt="The Fin City level select screen with Entry and Advanced levels" width="1280" height="720" loading="lazy" data-tag="TWO LEVELS" data-cap="Entry for ages 6 to 13, Advanced for 13 to 18 with real calculations.">
-          </a>
-          <span class="shot-tag" id="shotTag">FIN CITY PARK</span>
-          <p class="shot-cap" id="shotCap" aria-live="polite">Meet NextGen Narwhal, your guide. Customize a character and start exploring.</p>
-
-          <div class="thumbs" role="group" aria-label="Choose a screenshot">
-            <button type="button" aria-label="Show Fin City Park" aria-current="true"><img src="img/fin-city/park-narwhal.jpg" alt="" loading="lazy" width="160" height="90"></button>
-            <button type="button" aria-label="Show New York"><img src="img/fin-city/new-york-hud.jpg" alt="" loading="lazy" width="160" height="90"></button>
-            <button type="button" aria-label="Show The Brokerage"><img src="img/fin-city/brokerage.jpg" alt="" loading="lazy" width="160" height="90"></button>
-            <button type="button" aria-label="Show Needs Vs. Wants"><img src="img/fin-city/needs-wants.jpg" alt="" loading="lazy" width="160" height="90"></button>
-            <button type="button" aria-label="Show City Map"><img src="img/fin-city/city-map.jpg" alt="" loading="lazy" width="160" height="90"></button>
-            <button type="button" aria-label="Show Two Levels"><img src="img/fin-city/choose-level.jpg" alt="" loading="lazy" width="160" height="90"></button>
-          </div>
-        </div>
+        <!-- BINJE feature -->
+        <a class="feature" href="https://binje.com/sectors/finance/financial-literacy-why-four-bergen-county-juniors-built-game-to-teach-what-schools-often-dont/" target="_blank" rel="noopener">
+          <img src="img/binje-feature.jpg" alt="BINJE article: Financial literacy: Why four Bergen County juniors built game to teach what schools often don't, by Tom Bergeron, Nov. 23, 2026, with a photo of founders Ilhan Rasheed, Max Park, Svar Patel and Pushan Patel" width="1080" height="1350">
+          <span class="feature-cap"><span>AS FEATURED IN BINJE</span><span>READ THE STORY &#8599;</span></span>
+        </a>
 
       </div>
     </section>
@@ -383,21 +311,6 @@
           </div>
           <span class="stamp" aria-hidden="true">Student-led ✓</span>
         </div>
-      </div>
-    </section>
-
-    <!-- PRESS -->
-    <section class="press-wrap" aria-labelledby="pressTitle">
-      <div class="container">
-        <article class="press reveal">
-          <div class="press-outlet">BINJE<small>As featured in · Nov 23, 2026</small></div>
-          <div>
-            <div class="kicker">In the news</div>
-            <h3 id="pressTitle">Financial literacy: Why four Bergen County juniors built game to teach what schools often don't</h3>
-            <blockquote>"Most people learn it the hard way, after they've already made mistakes." - Svar Patel, CEO</blockquote>
-            <a class="read" href="https://binje.com/sectors/finance/financial-literacy-why-four-bergen-county-juniors-built-game-to-teach-what-schools-often-dont/" target="_blank" rel="noopener">Read the full story on BINJE ↗</a>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -611,35 +524,6 @@
 
   <script src="site.js"></script>
   <script src="games.js"></script>
-  <script>
-    /* ===== FIN CITY SCREENSHOTS ===== */
-
-    const shots = [...document.querySelectorAll(".shot img")];
-    const thumbBtns = [...document.querySelectorAll(".thumbs button")];
-    const crt = document.querySelector(".crt");
-    let current = 0, timer;
-
-    function showShot(i) {
-      current = (i + shots.length) % shots.length;
-      shots.forEach((img, n) => img.classList.toggle("on", n === current));
-      thumbBtns.forEach((b, n) => b.setAttribute("aria-current", String(n === current)));
-      document.getElementById("shotTag").textContent = shots[current].dataset.tag;
-      document.getElementById("shotCap").textContent = shots[current].dataset.cap;
-    }
-
-    function startTimer() {
-      clearInterval(timer);
-      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        timer = setInterval(() => showShot(current + 1), 4500);
-      }
-    }
-
-    thumbBtns.forEach((b, n) => b.addEventListener("click", () => { showShot(n); startTimer(); }));
-    crt.addEventListener("mouseenter", () => clearInterval(timer));
-    crt.addEventListener("mouseleave", startTimer);
-    startTimer();
-
-  </script>
 
 </body>
 </html>
