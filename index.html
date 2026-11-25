@@ -116,58 +116,16 @@
       background: repeating-linear-gradient(to bottom, rgba(0,0,0,.22) 0 2px, transparent 2px 4px);
     }
 
-    .screen-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
-    .screen-title { font-family: var(--pixel); font-size: .62rem; line-height: 1.9; color: var(--gold-bright); }
-    .screen-title span { display: block; color: #8FA2BA; font-size: .5rem; }
-    .readout {
-      min-width: 150px; padding: 6px 10px; text-align: right;
-      font-family: var(--term); font-size: 1.05rem; line-height: 1.15; color: var(--green);
-      background: rgba(3,10,19,.7); box-shadow: 0 0 0 2px #1D3A2D;
-    }
-    .readout strong { display: block; font-size: 1.9rem; font-weight: 400; color: var(--gold-bright); }
-
-    .skyline {
-      position: relative;
-      height: 250px;
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 6px;
-      align-items: end;
-    }
-    .tower {
-      position: relative;
-      height: var(--h, 4%);
-      min-height: 8px;
-      padding: 0;
-      border: 0;
-      cursor: pointer;
-      background:
-        linear-gradient(90deg, transparent 0 22%, rgba(241,215,120,.85) 22% 40%, transparent 40% 60%, rgba(241,215,120,.55) 60% 78%, transparent 78%) 0 6px / 100% 12px,
-        var(--tc, #2463C9);
-      background-blend-mode: normal;
-      box-shadow: inset -5px 0 0 rgba(0,0,0,.28), inset 0 4px 0 rgba(255,255,255,.18);
-      transition: height .7s steps(10);
-    }
-    .tower:nth-child(3n+2) { --tc: #2E9E5B; }
-    .tower:nth-child(4n) { --tc: #3474E0; }
-    .tower:hover, .tower:focus-visible, .tower.active { --tc: var(--gold); outline: none; }
-    .tower::before {
-      content: ""; position: absolute; left: 40%; top: -10px; width: 20%; height: 10px;
-      background: inherit; background: var(--tc, #2463C9);
-    }
-    .ground { height: 14px; margin: 0 -18px; background: repeating-linear-gradient(90deg, #1E5A3A 0 8px, #174A30 8px 16px); }
-
-    .crt-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 16px 4px 2px; }
-    .toggle { display: inline-flex; box-shadow: 0 0 0 3px #1D324D; }
-    .toggle button {
-      min-height: 44px; padding: 8px 12px; border: 0; cursor: pointer;
-      font-family: var(--pixel); font-size: .5rem; line-height: 1.6;
-      color: #8FA2BA; background: #08172A;
-    }
-    .toggle button[aria-pressed="true"] { color: #14110A; background: var(--gold-bright); }
-    .crt-foot { font-size: .78rem; color: #7E90A8; max-width: 230px; line-height: 1.4; }
-    .crt-legend { margin: 14px 4px 0; font-family: var(--term); font-size: 1.1rem; color: #A9B8CC; line-height: 1.3; }
+    .shot { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #04101E; box-shadow: inset 0 0 0 4px #04101E; }
+    .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .6s ease; }
+    .shot img.on { opacity: 1; }
+    .shot-tag { display: block; margin: 16px 4px 0; font-family: var(--pixel); font-size: .55rem; line-height: 1.6; color: var(--gold-bright); }
+    .shot-cap { margin: 6px 4px 0; min-height: 2.6em; font-family: var(--term); font-size: 1.2rem; line-height: 1.3; color: #C9D6E8; }
+    .thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 12px; }
+    .thumbs button { padding: 0; border: 0; cursor: pointer; aspect-ratio: 16 / 9; overflow: hidden; background: #04101E; box-shadow: 0 0 0 2px #1D324D; opacity: .55; transition: opacity .2s; }
+    .thumbs button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumbs button:hover, .thumbs button:focus-visible { opacity: .85; outline: none; }
+    .thumbs button[aria-current="true"] { opacity: 1; box-shadow: 0 0 0 3px var(--gold-bright); }
 
     /* ================= PASSBOOK ================= */
 
@@ -284,7 +242,7 @@
       .note-inner { grid-template-columns: 1fr; }
       .seal { display: none; }
       .note-corner { font-size: 1rem; }
-      .skyline { height: 200px; gap: 4px; }
+      .thumbs { grid-template-columns: repeat(3, 1fr); }
       .ledger { padding: 18px 16px 70px; }
       .ledger table { font-size: 1.1rem; }
       .ledger td.amt { font-size: 1.5rem; }
@@ -369,36 +327,33 @@
           <p class="hero-note"><b>&gt;</b> Built by students. Designed to make real-world learning more accessible.</p>
         </div>
 
-        <!-- Compound-interest skyline -->
-        <div class="crt px-border" aria-labelledby="skylineTitle">
+        <!-- Fin City screenshots -->
+        <div class="crt px-border" aria-label="Screenshots from Fin City">
           <div class="crt-bar">
             <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
             <span>FIN_CITY.EXE</span>
-            <span>V.02</span>
+            <span>&#9679; LIVE</span>
           </div>
 
-          <div class="crt-screen">
-            <div class="screen-head">
-              <p class="screen-title" id="skylineTitle">EVERY SKYLINE<br>IS A BAR CHART<span>$50/MONTH · AGE 16 → 64</span></p>
-              <div class="readout" aria-live="polite">
-                <span id="readAge">AGE 64</span>
-                <strong id="readValue">$0</strong>
-                <span id="readPut">you put in $0</span>
-              </div>
-            </div>
+          <a class="shot" href="https://fincity.dev" target="_blank" rel="noopener" aria-label="Play Fin City at fincity.dev">
+              <img src="img/fin-city/park-narwhal.jpg" alt="A player and NextGen Narwhal walking into Fin City park" class="on" width="1280" height="720" data-tag="FIN CITY PARK" data-cap="Meet NextGen Narwhal, your guide. Customize a character and start exploring.">
+              <img src="img/fin-city/new-york-hud.jpg" alt="Snowy New York in Fin City with the city portal" width="1280" height="720" loading="lazy" data-tag="NEW YORK" data-cap="Walk through real-world cities, each built around a different money skill.">
+              <img src="img/fin-city/brokerage.jpg" alt="The Fin City brokerage screen with stock prices and an index fund chart" width="1280" height="720" loading="lazy" data-tag="THE BROKERAGE" data-cap="Buy and sell stocks, bonds and index funds in a market that moves.">
+              <img src="img/fin-city/needs-wants.jpg" alt="The needs versus wants sorting game in Fin City" width="1280" height="720" loading="lazy" data-tag="NEEDS VS. WANTS" data-cap="40+ quick activities, like sorting needs from wants, with up to 3 stars per run.">
+              <img src="img/fin-city/city-map.jpg" alt="The Fin City map showing San Francisco buildings" width="1280" height="720" loading="lazy" data-tag="CITY MAP" data-cap="Jump between San Francisco, New York, London, Hong Kong and Singapore.">
+              <img src="img/fin-city/choose-level.jpg" alt="The Fin City level select screen with Entry and Advanced levels" width="1280" height="720" loading="lazy" data-tag="TWO LEVELS" data-cap="Entry for ages 6 to 13, Advanced for 13 to 18 with real calculations.">
+          </a>
+          <span class="shot-tag" id="shotTag">FIN CITY PARK</span>
+          <p class="shot-cap" id="shotCap" aria-live="polite">Meet NextGen Narwhal, your guide. Customize a character and start exploring.</p>
 
-            <div class="skyline" id="skyline" role="group" aria-label="Savings growth by age. Each building is a 4-year checkpoint."></div>
-            <div class="ground" aria-hidden="true"></div>
+          <div class="thumbs" role="group" aria-label="Choose a screenshot">
+            <button type="button" aria-label="Show Fin City Park" aria-current="true"><img src="img/fin-city/park-narwhal.jpg" alt="" loading="lazy" width="160" height="90"></button>
+            <button type="button" aria-label="Show New York"><img src="img/fin-city/new-york-hud.jpg" alt="" loading="lazy" width="160" height="90"></button>
+            <button type="button" aria-label="Show The Brokerage"><img src="img/fin-city/brokerage.jpg" alt="" loading="lazy" width="160" height="90"></button>
+            <button type="button" aria-label="Show Needs Vs. Wants"><img src="img/fin-city/needs-wants.jpg" alt="" loading="lazy" width="160" height="90"></button>
+            <button type="button" aria-label="Show City Map"><img src="img/fin-city/city-map.jpg" alt="" loading="lazy" width="160" height="90"></button>
+            <button type="button" aria-label="Show Two Levels"><img src="img/fin-city/choose-level.jpg" alt="" loading="lazy" width="160" height="90"></button>
           </div>
-
-          <div class="crt-controls">
-            <div class="toggle" role="group" aria-label="Where the money goes">
-              <button type="button" data-rate="0" aria-pressed="false">MATTRESS 0%</button>
-              <button type="button" data-rate="0.07" aria-pressed="true">INVESTED 7%*</button>
-            </div>
-            <span class="crt-foot">*Hypothetical average return, for illustration only. Real returns vary and can be negative.</span>
-          </div>
-          <p class="crt-legend">Hover or tab through the buildings. Same $50 a month, very different city.</p>
         </div>
 
       </div>
@@ -439,7 +394,7 @@
           <div>
             <div class="kicker">In the news</div>
             <h3 id="pressTitle">Financial literacy: Why four Bergen County juniors built game to teach what schools often don't</h3>
-            <blockquote>"Most people learn it the hard way, after they've already made mistakes." &mdash; Svar Patel, CEO</blockquote>
+            <blockquote>"Most people learn it the hard way, after they've already made mistakes." - Svar Patel, CEO</blockquote>
             <a class="read" href="https://binje.com/sectors/finance/financial-literacy-why-four-bergen-county-juniors-built-game-to-teach-what-schools-often-dont/" target="_blank" rel="noopener">Read the full story on BINJE ↗</a>
           </div>
         </article>
@@ -657,67 +612,32 @@
   <script src="site.js"></script>
   <script src="games.js"></script>
   <script>
-    const money = v => "$" + Math.round(v).toLocaleString("en-US");
+    /* ===== FIN CITY SCREENSHOTS ===== */
 
-    /* ===== COMPOUND SKYLINE ===== */
+    const shots = [...document.querySelectorAll(".shot img")];
+    const thumbBtns = [...document.querySelectorAll(".thumbs button")];
+    const crt = document.querySelector(".crt");
+    let current = 0, timer;
 
-    const skyline = document.getElementById("skyline");
-    const ages = Array.from({ length: 12 }, (_, i) => 20 + i * 4); // 20 … 64
-    const MONTHLY = 50;
-    let skyRate = 0.07;
-
-    function futureValue(years, rate) {
-      const n = years * 12;
-      if (rate === 0) return MONTHLY * n;
-      const r = rate / 12;
-      return MONTHLY * ((Math.pow(1 + r, n) - 1) / r);
+    function showShot(i) {
+      current = (i + shots.length) % shots.length;
+      shots.forEach((img, n) => img.classList.toggle("on", n === current));
+      thumbBtns.forEach((b, n) => b.setAttribute("aria-current", String(n === current)));
+      document.getElementById("shotTag").textContent = shots[current].dataset.tag;
+      document.getElementById("shotCap").textContent = shots[current].dataset.cap;
     }
 
-    const maxValue = futureValue(64 - 16, 0.07);
-
-    ages.forEach(age => {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "tower";
-      b.dataset.age = age;
-      skyline.appendChild(b);
-      b.addEventListener("mouseenter", () => showAge(age));
-      b.addEventListener("focus", () => showAge(age));
-      b.addEventListener("click", () => showAge(age));
-    });
-
-    function showAge(age) {
-      const years = age - 16;
-      document.getElementById("readAge").textContent = "AGE " + age;
-      document.getElementById("readValue").textContent = money(futureValue(years, skyRate));
-      document.getElementById("readPut").textContent = "you put in " + money(MONTHLY * 12 * years);
-      skyline.querySelectorAll(".tower").forEach(t => t.classList.toggle("active", Number(t.dataset.age) === age));
+    function startTimer() {
+      clearInterval(timer);
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        timer = setInterval(() => showShot(current + 1), 4500);
+      }
     }
 
-    function drawSkyline() {
-      skyline.querySelectorAll(".tower").forEach(t => {
-        const years = Number(t.dataset.age) - 16;
-        const v = futureValue(years, skyRate);
-        t.style.setProperty("--h", Math.max(3, v / maxValue * 100) + "%");
-        t.setAttribute("aria-label", "Age " + t.dataset.age + ": " + money(v));
-      });
-      showAge(64);
-    }
-
-    document.querySelectorAll(".toggle button").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".toggle button").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
-        skyRate = Number(btn.dataset.rate);
-        drawSkyline();
-      });
-    });
-
-    skyline.addEventListener("mouseleave", () => showAge(64));
-
-    // grow the city on first load
-    skyline.querySelectorAll(".tower").forEach(t => t.style.setProperty("--h", "3%"));
-    requestAnimationFrame(() => setTimeout(drawSkyline, 250));
-
+    thumbBtns.forEach((b, n) => b.addEventListener("click", () => { showShot(n); startTimer(); }));
+    crt.addEventListener("mouseenter", () => clearInterval(timer));
+    crt.addEventListener("mouseleave", startTimer);
+    startTimer();
 
   </script>
 
